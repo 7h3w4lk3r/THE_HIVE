@@ -13,23 +13,3 @@
     * [Enumeration](network-pentesting/untitled/privilege-escalation/enumeration.md)
     * [cron/crontab abuse](network-pentesting/untitled/privilege-escalation/cron-crontab-abuse.md)
 
-## Wireless Attacks
-
-* [Untitled](wireless-attacks/untitled.md)
-
-## Client-side Attacks
-
-* [Untitled](client-side-attacks/untitled.md)
-
-## Binary Analysis
-
-* [Untitled](binary-analysis/untitled.md)
-
-## Reverse Engineering
-
-* [Untitled](reverse-engineering/untitled.md)
-
-## Vulnerability Research & Exploit Development
-
-* [Untitled](vulnerability-research-and-exploit-development/untitled.md)
-
