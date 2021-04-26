@@ -4,3 +4,19 @@ C might sound like a bit old when it comes to the new era of coding and software
 
 Here i try to make a simple and useful tutorial about C, for C++ i will only talk about the differences and OOP because C and C++ have the same concepts.
 
+
+
+## C API Functions
+
+[http://www.aolserver.net/docs/devel/c/api/c-ch3.htm](http://www.aolserver.net/docs/devel/c/api/c-ch3.htm)
+
+## Practice
+
+[https://www.w3resource.co m/c-programming-exercises/](https://www.w3resource.com/c-programming-exercises/)
+
+## Refrences for C and C++
+
+[https://en.cppreference.com/w/c/language](https://en.cppreference.com/w/c/language)
+
+
+

@@ -132,15 +132,5 @@ int main(){
 
 
 
-## C API Functions
-
-[http://www.aolserver.net/docs/devel/c/api/c-ch3.htm](http://www.aolserver.net/docs/devel/c/api/c-ch3.htm)
-
-## Practice
-
-[https://www.w3resource.co m/c-programming-exercises/](https://www.w3resource.com/c-programming-exercises/)
-
-## Refrences for C and C++
-
-[https://en.cppreference.com/w/c/language](https://en.cppreference.com/w/c/language)
+## 
 
