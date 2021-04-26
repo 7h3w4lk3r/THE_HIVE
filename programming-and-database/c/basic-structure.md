@@ -12,7 +12,7 @@ int main()
 }
 ```
 
-## Detect the Version of C your using
+## Detect the Version of C in use
 
 ```text
 #include <stdio.h>
