@@ -1,6 +1,10 @@
 # Table of contents
 
 * [Home](README.md)
+* [Programming](programming/README.md)
+  * [C](programming/c/README.md)
+    * [Basic Structure](programming/c/basic-structure.md)
+    * [Preprocessors](programming/c/preprocessors.md)
 
 ## Security Hardening & Monitoring
 
