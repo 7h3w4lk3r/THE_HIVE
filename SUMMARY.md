@@ -5,10 +5,10 @@
 ## Programming and DataBase
 
 * [C](programming-and-database/c/README.md)
-  * [Type Qualifiers](programming-and-database/c/type-qualifiers.md)
   * [Basic Structure](programming-and-database/c/basic-structure.md)
   * [Preprocessors](programming-and-database/c/preprocessors.md)
   * [Data Types](programming-and-database/c/data-types.md)
+  * [Type Qualifiers](programming-and-database/c/type-qualifiers.md)
 
 ## Security Hardening & Monitoring
 
