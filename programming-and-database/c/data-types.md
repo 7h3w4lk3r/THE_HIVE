@@ -231,6 +231,16 @@ if we include the complex.h header we can do it this way:
  double imaginary ix = 2.4*l
 ```
 
+## typedef
+
+#### a keyword that allows us to create our own name for an existing data type. defines the name counter to be equal to the C data type int. now variables can be declared of type counter:
+
+```text
+ typedef int counter;
+```
+
+
+
 ##  Operators
 
 ```text
