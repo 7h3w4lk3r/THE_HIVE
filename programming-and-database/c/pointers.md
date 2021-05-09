@@ -309,7 +309,134 @@ for ( int j=0; j < size; j++){
 
 ## Pointers and strings
 
-if text is an array of characters we can define a pointer to be used to point to elements in text
+#### if text is an array of characters we can define a pointer to be used to point to elements in text
+
+```text
+char text[] = "a string";
+char *ptext=&text;
+++ptext; → go to next character in the array
+```
+
+example:
+
+```text
+ void copyString(char *to, char *from){
+
+    while(*from)  // the NULL character is equal to value 0 (false) so it will jump out
+        *to++ = *from++;
+    *to = '\0';
+}
+
+int main(void){
+    char string1[]= " a string to be copied.";
+    char string2[50];
+
+    copyString(string2,string1);
+    printf("%s\n",string2);
+} 
+```
+
+example:
+
+```text
+ // a program to take string length without strlen function
+int stringLength(const char *string){
+    const char *lastAddress = string;
+    while (*lastAddress)
+        ++lastAddress;
+    return lastAddress - string;}
+
+int main(){
+    printf("%d\n",stringLength("this is a test"));
+    printf("%d\n",stringLength("this is another test"));
+    printf("%d\n",stringLength("and another one:)"));
+}
+```
+
+
+
+## Pass by reference
+
+there are few ways to pass data to a function:
+
+ **pass by value**
+
+ **pass by reference**
+
+example pass by value:
+
+```text
+void  swap(int x, int y){
+    int temp;
+    temp = x;   // save the value of x
+    x=y;           // put y into x
+    y = temp;  // put temp into y
+    return;
+}
+```
+
+using pointers to pass data:
+
+```text
+ void swap(int *x, int *y){
+    int temp;
+    temp = *x;  // save the value at address x
+    *x =*y;     // put y into x
+    *y = temp;  // put temp into y
+    return;
+}
+```
+
+### **P**assing data using copies of pointers
+
+we can pass a pointer as an argument to a function and you can also have a function return a pointer as its result pass by reference copies the address of an argument into the formal parameter, the address is used to access the actual argument used in the call.means the changes made to the parameter affect the passed argument.to pass a value by reference arguments pointers are passed to the functions just like an kind of value. we need to declare the function parameters as pointer types.changes inside the function are reflected outside the function as well. unlike call by value where the changes do not reflect outside the function.
+
+example:
+
+```text
+ void copyString(char *to, char *from){
+
+    while(*from)  // the NULL character is equal to value 0 (false) so it will jump out
+        *to++ = *from++;
+    *to = '\0';
+}
+
+int main(void){
+    char string1[]= " a string to be copied.";
+    char string2[50];
+
+    copyString(string2,string1);
+    printf("%s\n",string2);
+}
+```
+
+
+
+## returning a pointer from a function
+
+```text
+ int * function(){
+... 
+ }
+```
+
+\*\*\*\*
+
+\*\*\*\*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
