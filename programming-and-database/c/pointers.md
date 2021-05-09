@@ -4,7 +4,7 @@
 
 ####  is the ability to reference something using a name,reference or container,instead of the value itself.the most common form of indirection is the act of manipulating a value through its memory address.
 
-a pointer provides an indirect means of accessing the value of a particular data item a variable whose value is a memory address.
+#### a pointer provides an indirect means of accessing the value of a particular data item a variable whose value is a memory address.
 
 C provides a remarkably useful type of variable called a pointer, a variable that stores a memory address. its value is the address of another location in memory that can contain a value.
 
