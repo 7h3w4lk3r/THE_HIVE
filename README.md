@@ -12,7 +12,7 @@ description: notes from a n3rd
 
 ### **Since this is a side project of mine and im busy with other stuff, it might take a while to upload all the topics that are ready right now.**
 
-**for those who are curious about the logo and the name its from the famous ResidentEvil game series :\)**
+**for those who are curious about the logo and the name its from the famuos ResidentEvil game series :\)**
 
 ## Contribution
 
