@@ -83,7 +83,7 @@ a variables visibility or linkage determines for a multiple-source-file program 
 3.  **extern** 
 4.  **static**
 
-#### the 4 classes can be split into 2 storage durations:
+#### the 4 classes can be split into 2 storage duration:
 
 #### 1.automatic storage duration 
 
@@ -131,7 +131,7 @@ we might want to define a var that is global but not external. to do this we use
 
 ## register
 
-we can store variables of any kind in CPU registers as well which is much faster than RAM. this should be used only or variables that require quick access. it is the compilers choice to put it in aa register or not.. it might be stored in a register depending on hardware and implementation restrictions.
+we can store variables of any kind in CPU registers as well which is much faster than RAM. this should be used only or variables that require quick access. it is the compilers choice to put it in a register or not.. it might be stored in a register depending on hardware and implementation restrictions.
 
 the max variable size is equal to the register size. the variable life-time is within the block. we cant obtain the address of a register variable using a pointer, there is no memory address.
 

@@ -173,7 +173,7 @@ var='t';
 
 a complex number is a number of the form A + Bi is is the square root of minus one \(imaginary\) a and b are real numbers
 
-C11 doesnt support complex numbers so it implements the macro **STDC\_NO\_COMPLEX** in the header section
+C11 doesn't support complex numbers so it implements the macro **STDC\_NO\_COMPLEX** in the header section
 
 to test whether your compiler supports complex or not:
 
@@ -284,7 +284,7 @@ int main(){
 
 ## Difference between x++ and ++x
 
-++x happens prior to assignment \(pre-increment\), but x++ happens after assignment \(post-increment\). x++ executes the statement and then increments the value. ++x increments the value and then executes the statement.
+++x happens prior to assignment \(per-increment\), but x++ happens after assignment \(post-increment\). x++ executes the statement and then increments the value. ++x increments the value and then executes the statement.
 
 ## logical Operators
 

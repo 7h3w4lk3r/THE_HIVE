@@ -73,7 +73,7 @@ a special character with the code value 0 is added to the end of each string to 
 
 ###  NULL
 
-NULL is a symbol that represents a memory address that doesnt reference anything
+NULL is a symbol that represents a memory address that doesn't reference anything
 
 ## Modular programming
 
@@ -92,7 +92,7 @@ int getme(void); // the function that this header referse to
 ```
 
   
-this is pointing to a source file with the name other.c \(same as header.c\) which contains the source instructions for this header. when we include this header in the main.c source file it referse to the heaeder and the header referse to the other.c source file.  
+this is pointing to a source file with the name other.c \(same as header.c\) which contains the source instructions for this header. when we include this header in the main.c source file it refers to the header and the header refers to the other.c source file.  
   
 2. create the source file for the header:  
 create other.c → source file for header
@@ -103,7 +103,7 @@ return 3;}
 ```
 
   
- here we define the getme function which was refered to by header and will be used in the main.c source file. we dont need to include anything in this source file  
+ here we define the getme function which was referred to by header and will be used in the main.c source file. we don't need to include anything in this source file  
   
  3. include the header in main.c and use the function:  
  create main.c, include header.h and use getme\(\)  
@@ -122,7 +122,7 @@ int main(){
 ```
 
   
- here we have to include the header file with double quotations cause we know its in the same directory so we dont need to look for it in the wholw system. then we can use the getme\(\) function defined in other.c source file which is refered to by the other.c header.  
+ here we have to include the header file with double quotations cause we know its in the same directory so we don't need to look for it in the whole system. then we can use the getme\(\) function defined in other.c source file which is referred to by the other.c header.  
   
  4. to compile without an IDE from command line:  
   

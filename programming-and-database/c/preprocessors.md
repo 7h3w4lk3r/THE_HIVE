@@ -25,9 +25,9 @@ there are two ways to \#include header files in a program
 #else  
 #endif`  
   
-used to create one program that can be compiled to run on different computer systems. if you had a large program that had many dependencies on specific hardware or software . we might endup with many defines whose values would have to be changed when the program was moved to another computer system.  
+used to create one program that can be compiled to run on different computer systems. if you had a large program that had many dependencies on specific hardware or software . we might end up with many defines whose values would have to be changed when the program was moved to another computer system.  
   
-we can help reduce this problem by incorporating the values of these efines for each different machine into the program by using the conditional compilation capabilities of the preprocessor.  
+we can help reduce this problem by incorporating the values of these defines for each different machine into the program by using the conditional compilation capabilities of the preprocessor.  
   
 its also used to switch on or off various statements in the program, trace the flow of a program or debug statements that print out the values of various variables
 
@@ -118,17 +118,17 @@ sprintf(some_string,"hello"); // this will raise an error
 
 #### pragma once → specifies that the header file containing the directive is included only once even if the programmer includes it multiple times
 
-#### pragma GCC warning "message" →  causes the preprocessor to issue a warning diagnosticc with the text "message"
+#### pragma GCC warning "message" →  causes the preprocessor to issue a warning diagnostic with the text "message"
 
 #### pragma GCC error "message" → cause the preprocessor to issue an error with the text "message"
 
-#### pragma GCC message "message" → prints string as a compiler lessage on compilation. the message is information only not warning or error
+#### pragma GCC message "message" → prints string as a compiler message on compilation. the message is information only not warning or error
 
 
 
 ## error directive
 
-causes the preprocessor to issue an error message that includes any text in the directive. error message is a sequence of characters by spaces. you do not have to inclose the text in quotes the message is optional.
+causes the preprocessor to issue an error message that includes any text in the directive. error message is a sequence of characters by spaces. you do not have to in-close the text in quotes the message is optional.
 
 example:
 
@@ -140,7 +140,7 @@ endif
 
 ## \# and \#\# operators
 
-used for concatination. often usefull to merge two tokens into one while expanding macros \( called token pasting or token concatination\)
+used for concatenation. often useful to merge two tokens into one while expanding macros \( called token pasting or token concatenation\)
 
 #### \# →  used within a macro definition causes a replacement text token to be converted to a string surrounded by quotes
 
@@ -156,7 +156,7 @@ printf("Hello," "john" "\n");
 
 #### 
 
-#### \#\#→ performes token pasting. cats two tokens.
+#### \#\#→ performs token pasting. cats two tokens.
 
 example:
 

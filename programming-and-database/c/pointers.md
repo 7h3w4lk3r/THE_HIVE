@@ -2,7 +2,7 @@
 
 ## Indirection
 
- is the ability to reference something using a name,reference or container,instead of the value itself.the most common form of indirection is the act of manipulating a value through its memory address.
+####  is the ability to reference something using a name,reference or container,instead of the value itself.the most common form of indirection is the act of manipulating a value through its memory address.
 
 a pointer provides an indirect means of accessing the value of a particular data item a variable whose value is a memory address.
 
@@ -223,7 +223,7 @@ or
 printf("set value 3 to : %d\n",*(pointer+3)); 
 ```
 
-the increment and decrement operators ++ and -- are particularly usefull when dealing with pointers.
+the increment and decrement operators ++ and -- are particularly useful when dealing with pointers.
 
 **++pvaluea;** → sets pvalues pointing to the next integer in the values array \(values\[1\]\)
 
@@ -309,7 +309,7 @@ for ( int j=0; j < size; j++){
 
 ## Pointers and strings
 
-
+if text is an array of characters we can define a pointer to be used to point to elements in text
 
 
 
