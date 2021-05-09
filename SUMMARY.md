@@ -5,14 +5,15 @@
 ## Programming and DataBase
 
 * [C](programming-and-database/c/README.md)
+  * [Pointers](programming-and-database/c/pointers.md)
   * [Basic Structure](programming-and-database/c/basic-structure.md)
   * [Preprocessors](programming-and-database/c/preprocessors.md)
   * [Data Types](programming-and-database/c/data-types.md)
   * [Type Qualifiers](programming-and-database/c/type-qualifiers.md)
 
-## Security Hardening & Monitoring
+## Hardening & Monitoring
 
-* [Linux Security Hardening](security-hardening-and-monitoring/untitled.md)
+* [Linux Security Hardening](hardening-and-monitoring/untitled.md)
 
 ## Network Pentesting
 
