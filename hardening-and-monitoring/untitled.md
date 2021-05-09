@@ -1,6 +1,6 @@
 ---
 description: >-
-  Since this book is not a complete Linux tutorial documentation Im not going to
+  Since this is not a complete Linux tutorial documentation I'm not going to
   explain every little detail of Linux OS architecture, just some tips for
   hardening your OS.
 ---
