@@ -5,7 +5,6 @@
 ## Programming and DataBase
 
 * [C](programming-and-database/c/README.md)
-  * [Macros](programming-and-database/c/macros.md)
   * [Basic Structure](programming-and-database/c/basic-structure.md)
   * [Preprocessors](programming-and-database/c/preprocessors.md)
   * [Data Types](programming-and-database/c/data-types.md)
@@ -15,6 +14,7 @@
   * [Loops](programming-and-database/c/loops.md)
   * [Conditional Statements](programming-and-database/c/conditional-statements.md)
   * [Functions](programming-and-database/c/functions.md)
+  * [Macros](programming-and-database/c/macros.md)
 
 ## Hardening & Monitoring
 
