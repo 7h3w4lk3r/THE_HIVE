@@ -5,12 +5,14 @@
 ## Programming and DataBase
 
 * [C](programming-and-database/c/README.md)
+  * [Conditional Statements](programming-and-database/c/conditional-statements.md)
   * [Basic Structure](programming-and-database/c/basic-structure.md)
   * [Preprocessors](programming-and-database/c/preprocessors.md)
   * [Data Types](programming-and-database/c/data-types.md)
   * [Type Qualifiers](programming-and-database/c/type-qualifiers.md)
   * [Pointers](programming-and-database/c/pointers.md)
   * [Dynamic Memory Allocation](programming-and-database/c/dynamic-memory-allocation.md)
+  * [Loops](programming-and-database/c/loops.md)
 
 ## Hardening & Monitoring
 
