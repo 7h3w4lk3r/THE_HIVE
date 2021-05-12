@@ -39,7 +39,7 @@ int number = 00;
 int *pnumber = &number;
 ```
 
-## Dereferencing pointer to value
+## De-referencing pointer to value
 
 **printf\("%p",pnumber\);** → prints the pointer value printf\("%d",\*pnumber\); → prints the value that its pointed to \(number\)
 
@@ -422,17 +422,239 @@ int main(void){
 
 \*\*\*\*
 
-\*\*\*\*
+## Double pointers \(pointer to a pointer\)
+
+#### as we are talked about de-referencing, there can be a reference for every variable and data type, including a pointer which is a reference to another variable itself. a pointer which points to another pointer is called a double pointer and is works just like a normal pointer but it contains the address of a pointer instead of a variable.
+
+![](../../.gitbook/assets/786986.png)
+
+```text
+ int **pointer;
+```
+
+![](../../.gitbook/assets/1.png)
+
+![](../../.gitbook/assets/2.png)
+
+![](../../.gitbook/assets/3.png)
+
+example:
+
+```text
+#include <stdio.h>
+
+int main(){
+
+    int num = 123;
+    int *singlep = NULL;
+    int **doublep = NULL;
+
+    singlep = &num;
+    doublep = &singlep;
+
+    printf("num address: %p\n",&num);
+    printf("single address: %p\n",&singlep);
+    printf("double address: %p\n",&doublep);
+
+    printf("single value: %p\n",singlep);
+    printf("double value: %p\n",doublep);
+
+    printf("double reference: %p\n",*doublep);
+    printf("single reference: %d\n",*singlep);
+    printf("double reference from single: %d\n",**doublep);
+}
+```
+
+## Use cases
+
+#### the biggest reason to use double pointers is when we need to change the value of the pointer passed to a function as the function argument. simulate pass by reference.
+
+if you pass a single pointer in as argument you will be modifying local copies of the pointer not the original pointer in the calling scope. with a pointer to a pointer you modify the original pointer.
+
+#### we use a double pointer as an argument to a function when we want to preserve the memory-allocation or assignment even outside of the function.
+
+example:
+
+```text
+#include <stdio.h>
+#include <malloc.h>
+
+void foo(int *ptr){
+    int a = 5;
+    ptr = &a;
+
+}
+
+int main() {
+int *ptr = NULL;
+
+ptr = (int *)malloc(sizeof(int));
+*ptr = 10;
+foo(ptr);
+printf("%d\n",*ptr);
+
+    return 0;
+}
+```
 
 
 
+in the example above the final printed value will still be 10 because the pointer that we used in the function parameter is locally assigned and like a regular variable this pointer has a local value. when we define a pointer with the same name inside the main function we are giving it a new value so even after calling the foo function that value wont change so the output will be the value defined inside the main function.
+
+example:
+
+```text
+#include <stdio.h>
+#include <malloc.h>
+
+void foo(int **ptr){
+    int a = 5;
+    *ptr = &a;
+
+}
+
+int main() {
+int *ptr = NULL;
+
+ptr = (int *)malloc(sizeof(int));
+*ptr = 10;
+foo(&ptr);
+printf("%d\n",*ptr);
+
+    return 0;
+}
+```
+
+#### this prints out 5
+
+example:
+
+```text
+#include <stdio.h>
+#include <string.h>
+#include <malloc.h>
+
+void foo(char **ptr){
+    *ptr = malloc(255);
+    strcpy(*ptr,"hello world");
+}
+
+int main() {
+char *ptr = NULL;
+foo(&ptr);
+printf("%s\n",ptr);
+free(ptr);
+    return 0;
+}
+```
 
 
 
+## Function Pointers
+
+#### a function pointer can be used as an argument to another function telling the second function which function to use.
+
+another use case is to create a dispatch table, tables that contain pointers to functions to be called.
+
+menu-driven systems are also a common use of function pointers. you can use them to replace switch/if statements
 
 
 
+```text
+int (*pfunction) (int);
+```
 
+declare a variable that is a pointer to a function. doesn't point to anything, just defines a pointer. the name of the pointer is pfunction. the declaration without the parentheses int \*pfunction\(int\); will declare a function pfunction that returns an integer pointer that is not our intention in this case
+
+#### to assign the pointer to an existing function simply assign the name of the function to it:
+
+```text
+pfunction = lookup;
+or
+pfunction = &lookup;
+```
+
+#### to call it:
+
+```text
+int value = pfunction(5);
+```
+
+#### its common to use this typedefs with complex types such as function pointers
+
+```text
+typedef int (funcptr)();
+funcptr testvar;
+
+int (*funcptr)();
+funcptr = func1;
+(*funcptr)(value);
+```
+
+the ID funcptr is now a synonym for the type of a pointer to function that takes no arguments and returns an integer
+
+{% hint style="info" %}
+ _****_**function returning pointer**  _**--&gt;**_  **int \*func\(int a , float b\);**
+{% endhint %}
+
+{% hint style="info" %}
+ __**pointer to function returning an integer**  _**--&gt;**_  **int \(\*func\)\(int a , float b\)**
+{% endhint %}
+
+example:
+
+```text
+#include <stdio.h>
+
+int somedisplay();
+
+int main(){
+    int (*funcptr)();
+    funcptr = somedisplay;
+
+    printf("address of function somedisplay: %p\n",funcptr);
+
+    (*funcptr)();
+
+    return 0;
+}
+
+int somedisplay(){
+    printf("\ndisplaying some text\n");
+    return 0;
+};
+```
+
+
+
+example:
+
+```text
+#include <stdio.h>
+
+void func1(int);
+void func2(int);
+
+typedef void functype(int);
+
+int main(){
+functype *funcptr = NULL;
+funcptr = func1;
+    (*funcptr)(100);
+    funcptr = func2;
+    (*funcptr)(200);
+    return 0;
+}
+
+
+void func1 (int testarg){
+    printf("function 1 got an argument: %d\n",testarg);
+}
+
+void func2(int testarg){
+    printf("function 2 got an argument: %d\n",testarg);
+}
+```
 
 
 
