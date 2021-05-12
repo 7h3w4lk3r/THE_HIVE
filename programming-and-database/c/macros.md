@@ -1,7 +1,7 @@
 ---
 description: >-
   a macro is essentially a piece of code based in the #define directive. a text
-  processing deature and are expanded similar to normal functions.
+  processing feature and are expanded similar to normal functions.
 ---
 
 # Macros
