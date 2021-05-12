@@ -31,7 +31,14 @@ vloatile int * z;
 
 ##  restrict
 
-#### an optimization hint for the compiler  the compiler can choose to ignore it  used in pointer declarations as a type qualifier for pointers  tells the compiler that a particular pointer is the only reference to the value it points to throughout its scope, the same value is not referenced but any other pointer or variable within that scope  without the restrict keyword the compiler has to assume the worst case that some other identifier night have changed the data in between two uses of a pointer   with restrict the compiler is free to look for computational shortcuts 
+#### an optimization hint for the compiler  the compiler can choose to ignore it  used in pointer declarations as a type qualifier for pointers  tells the compiler that a particular pointer is the only reference to the value it points to throughout its scope, the same value is not referenced but any other pointer or variable within that scope  without the restrict keyword the compiler has to assume the worst case that some other identifier night have changed the data in between two uses of a pointer  
+
+{% hint style="info" %}
+####  with restrict the compiler is free to look for computational shortcuts but its not a command, just a recommendation for the compiler.
+{% endhint %}
+
+  
+
 
 ```text
  int * restrict pointer;
@@ -107,7 +114,7 @@ functions contained in separate files can communicate through external variables
 
 a global var can be accessed and changed by other modules \(files\)
 
-in the module that wants to access the external variable the data type is preceded with the key word extern in the declaration, tells the compiler that a globally defined variable from another file is to be accessed
+#### in the module that wants to access the external variable the data type is preceded with the key word extern in the declaration, tells the compiler that a globally defined variable from another file is to be accessed
 
 example: we have a var called moveNumber to access it in other functions we can define it as a global var outside any function:
 
@@ -131,7 +138,7 @@ we might want to define a var that is global but not external. to do this we use
 
 ## register
 
-we can store variables of any kind in CPU registers as well which is much faster than RAM. this should be used only or variables that require quick access. it is the compilers choice to put it in a register or not.. it might be stored in a register depending on hardware and implementation restrictions.
+**we can store variables of any kind in CPU registers as well which is much faster than RAM**. this should be used only or variables that require quick access. **it is the compilers choice to put it in a register or not.** it might be stored in a register depending on hardware and implementation restrictions.
 
 the max variable size is equal to the register size. the variable life-time is within the block. we cant obtain the address of a register variable using a pointer, there is no memory address.
 

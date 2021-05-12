@@ -45,7 +45,7 @@ or use preprocessors (have to include stdbool header ):
 
 ## Boolean in Conditional Loops
 
-this definition of true and false in boolean types is also applicable when we are using it in loops like a while loop. for example with when we want to use an infinite loop we can set the statements in a while\(1\) block:
+#### this definition of true and false in boolean types is also applicable when we are using it in loops like a while loop. for example with when we want to use an infinite loop we can set the statements in a while\(1\) block:
 
 ```text
 while(1) or while(any non-zero integer)

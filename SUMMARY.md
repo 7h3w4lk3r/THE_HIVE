@@ -10,6 +10,7 @@
   * [Data Types](programming-and-database/c/data-types.md)
   * [Type Qualifiers](programming-and-database/c/type-qualifiers.md)
   * [Pointers](programming-and-database/c/pointers.md)
+  * [Dynamic Memory Allocation](programming-and-database/c/dynamic-memory-allocation.md)
 
 ## Hardening & Monitoring
 
