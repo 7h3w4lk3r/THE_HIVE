@@ -6,6 +6,8 @@ description: >-
 
 # Files
 
+
+
 ![](../../.gitbook/assets/246452.png)
 
 #### the current position is where any file action \(read/write\) will take place we can move the current position to any point in the file \(even the end\)
@@ -26,7 +28,7 @@ FILE *fopen(const char* restrict name, const char *restrict mode);
 
 the second arg is a character string that represents the file mode and specifies what you want to do with the file, a file mode specification is a character string between double quotes
 
-![](../../.gitbook/assets/246452%20%282%29.png)
+![](../../.gitbook/assets/246452%20%284%29.png)
 
 #### if the file doesn't exist FILE will return NULL;
 

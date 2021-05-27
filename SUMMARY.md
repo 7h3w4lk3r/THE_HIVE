@@ -5,6 +5,7 @@
 ## Programming and DataBase
 
 * [C](programming-and-database/c/README.md)
+  * [Strings Manipulation](programming-and-database/c/strings-manipulation.md)
   * [Basic Structure](programming-and-database/c/basic-structure.md)
   * [Preprocessors](programming-and-database/c/preprocessors.md)
   * [Data Types](programming-and-database/c/data-types.md)
