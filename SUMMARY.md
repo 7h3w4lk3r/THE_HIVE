@@ -28,6 +28,7 @@
 
 * [Linux](network-pentesting/untitled/README.md)
   * [Privilege Escalation](network-pentesting/untitled/privilege-escalation/README.md)
+    * [UDEVD](network-pentesting/untitled/privilege-escalation/udevd.md)
     * [MySQL UDF](network-pentesting/untitled/privilege-escalation/mysql-udf.md)
     * [Enumeration](network-pentesting/untitled/privilege-escalation/enumeration.md)
     * [/etc/shadow & /etc/passwd](network-pentesting/untitled/privilege-escalation/etc-shadow-and-etc-passwd.md)
