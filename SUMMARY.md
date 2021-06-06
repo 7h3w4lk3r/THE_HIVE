@@ -27,10 +27,6 @@
 ## Network Pentesting
 
 * [Linux](network-pentesting/untitled/README.md)
-  * [Credential Dumping](network-pentesting/untitled/credential-dumping/README.md)
-    * [mimipinguin](network-pentesting/untitled/credential-dumping/mimipinguin.md)
-    * [unshadow](network-pentesting/untitled/credential-dumping/unshadow.md)
-    * [3snake](network-pentesting/untitled/credential-dumping/3snake.md)
   * [Privilege Escalation](network-pentesting/untitled/privilege-escalation/README.md)
     * [Enumeration](network-pentesting/untitled/privilege-escalation/enumeration.md)
     * [SUID / SGID](network-pentesting/untitled/privilege-escalation/suid-sgid.md)
@@ -45,6 +41,11 @@
     * [Docker](network-pentesting/untitled/privilege-escalation/docker.md)
     * [NFS](network-pentesting/untitled/privilege-escalation/nfs.md)
     * [/etc/shadow & /etc/passwd](network-pentesting/untitled/privilege-escalation/etc-shadow-and-etc-passwd.md)
+  * [Credential Dumping](network-pentesting/untitled/credential-dumping/README.md)
+    * [Swap Dump](network-pentesting/untitled/credential-dumping/swap-dump.md)
+    * [mimipinguin](network-pentesting/untitled/credential-dumping/mimipinguin.md)
+    * [unshadow](network-pentesting/untitled/credential-dumping/unshadow.md)
+    * [3snake](network-pentesting/untitled/credential-dumping/3snake.md)
 
 ## Hardening & Monitoring
 
