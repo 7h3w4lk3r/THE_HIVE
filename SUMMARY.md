@@ -17,6 +17,8 @@
   * [Macros](programming-and-database/c/macros.md)
   * [Files](programming-and-database/c/files.md)
   * [Strings Manipulation](programming-and-database/c/strings-manipulation.md)
+  * [Data Structures](programming-and-database/c/data-structures/README.md)
+    * [Structures](programming-and-database/c/data-structures/structures.md)
 
 ## Hardening & Monitoring
 
