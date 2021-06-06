@@ -27,6 +27,10 @@
 ## Network Pentesting
 
 * [Linux](network-pentesting/untitled/README.md)
+  * [Credential Dumping](network-pentesting/untitled/credential-dumping/README.md)
+    * [mimipinguin](network-pentesting/untitled/credential-dumping/mimipinguin.md)
+    * [unshadow](network-pentesting/untitled/credential-dumping/unshadow.md)
+    * [3snake](network-pentesting/untitled/credential-dumping/3snake.md)
   * [Privilege Escalation](network-pentesting/untitled/privilege-escalation/README.md)
     * [Enumeration](network-pentesting/untitled/privilege-escalation/enumeration.md)
     * [SUID / SGID](network-pentesting/untitled/privilege-escalation/suid-sgid.md)
