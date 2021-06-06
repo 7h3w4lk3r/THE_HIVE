@@ -31,6 +31,7 @@
     * [Enumeration](network-pentesting/untitled/privilege-escalation/enumeration.md)
     * [SUID / SGID](network-pentesting/untitled/privilege-escalation/suid-sgid.md)
     * [cron/crontab abuse](network-pentesting/untitled/privilege-escalation/cron-crontab-abuse.md)
+    * [Sudo Abuse](network-pentesting/untitled/privilege-escalation/sudo-abuse.md)
     * [Shared Object Injection](network-pentesting/untitled/privilege-escalation/shared-object-injection.md)
     * [MySQL UDF](network-pentesting/untitled/privilege-escalation/mysql-udf.md)
     * [Environment Variables](network-pentesting/untitled/privilege-escalation/environment-variables/README.md)
