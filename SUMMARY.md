@@ -28,6 +28,7 @@
 
 * [Linux](network-pentesting/untitled/README.md)
   * [Privilege Escalation](network-pentesting/untitled/privilege-escalation/README.md)
+    * [Shared Object Injection](network-pentesting/untitled/privilege-escalation/shared-object-injection.md)
     * [Enumeration](network-pentesting/untitled/privilege-escalation/enumeration.md)
     * [UDEVD](network-pentesting/untitled/privilege-escalation/udevd.md)
     * [cron/crontab abuse](network-pentesting/untitled/privilege-escalation/cron-crontab-abuse.md)
