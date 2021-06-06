@@ -46,6 +46,11 @@
     * [mimipinguin](network-pentesting/untitled/credential-dumping/mimipinguin.md)
     * [unshadow](network-pentesting/untitled/credential-dumping/unshadow.md)
     * [3snake](network-pentesting/untitled/credential-dumping/3snake.md)
+  * [Persistence](network-pentesting/untitled/persistence/README.md)
+    * [Systemd netcat bind shell](network-pentesting/untitled/persistence/systemd-netcat-bind-shell.md)
+    * [Xinetd UDP portnock](network-pentesting/untitled/persistence/xinetd-udp-portnock.md)
+    * [openSSL reverse shell](network-pentesting/untitled/persistence/openssl-reverse-shell.md)
+    * [SSH persistence passwordless](network-pentesting/untitled/persistence/ssh-persistence-passwordless.md)
 
 ## Hardening & Monitoring
 
