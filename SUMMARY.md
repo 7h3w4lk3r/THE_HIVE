@@ -24,14 +24,16 @@
     * [Unions](programming-and-database/c/data-structures/unions.md)
   * [Input / Output](programming-and-database/c/input-output.md)
 
-## Hardening & Monitoring
-
-* [Linux Security Hardening](hardening-and-monitoring/untitled.md)
-
 ## Network Pentesting
 
 * [Linux](network-pentesting/untitled/README.md)
+  * [MySQL UDF](network-pentesting/untitled/mysql-udf.md)
   * [Privilege Escalation](network-pentesting/untitled/privilege-escalation/README.md)
+    * [/etc/shadow & /etc/passwd](network-pentesting/untitled/privilege-escalation/etc-shadow-and-etc-passwd.md)
     * [Enumeration](network-pentesting/untitled/privilege-escalation/enumeration.md)
     * [cron/crontab abuse](network-pentesting/untitled/privilege-escalation/cron-crontab-abuse.md)
+
+## Hardening & Monitoring
+
+* [Linux Security Hardening](hardening-and-monitoring/untitled.md)
 
