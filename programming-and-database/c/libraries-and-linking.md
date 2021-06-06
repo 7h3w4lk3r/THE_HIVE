@@ -119,7 +119,7 @@ cd lib
 nano main.c
 ```
 
-![](../../.gitbook/assets/1%20%2818%29.png)
+![](../../.gitbook/assets/1%20%2820%29.png)
 
 and we create a header file for the main.c source code:
 
@@ -143,7 +143,7 @@ remember to type the right header file name otherwise it wont find the library
 
 now we can compile the executable:
 
-![](../../.gitbook/assets/1%20%2810%29.png)
+![](../../.gitbook/assets/1%20%2814%29.png)
 
 the final step is to link the executable to our library:
 
@@ -179,11 +179,11 @@ first the library:
 
 ![](../../.gitbook/assets/1%20%2811%29.png)
 
-![](../../.gitbook/assets/1%20%2815%29.png)
+![](../../.gitbook/assets/1%20%2817%29.png)
 
 then the executable:
 
-![](../../.gitbook/assets/1%20%2814%29.png)
+![](../../.gitbook/assets/1%20%2815%29.png)
 
 ![](../../.gitbook/assets/1%20%289%29.png)
 

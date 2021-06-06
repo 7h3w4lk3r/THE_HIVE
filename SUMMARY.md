@@ -28,17 +28,18 @@
 
 * [Linux](network-pentesting/untitled/README.md)
   * [Privilege Escalation](network-pentesting/untitled/privilege-escalation/README.md)
-    * [Shared Object Injection](network-pentesting/untitled/privilege-escalation/shared-object-injection.md)
     * [Enumeration](network-pentesting/untitled/privilege-escalation/enumeration.md)
-    * [UDEVD](network-pentesting/untitled/privilege-escalation/udevd.md)
+    * [SUID / SGID](network-pentesting/untitled/privilege-escalation/suid-sgid.md)
     * [cron/crontab abuse](network-pentesting/untitled/privilege-escalation/cron-crontab-abuse.md)
+    * [Shared Object Injection](network-pentesting/untitled/privilege-escalation/shared-object-injection.md)
     * [MySQL UDF](network-pentesting/untitled/privilege-escalation/mysql-udf.md)
-    * [/etc/shadow & /etc/passwd](network-pentesting/untitled/privilege-escalation/etc-shadow-and-etc-passwd.md)
-    * [Docker](network-pentesting/untitled/privilege-escalation/docker.md)
-    * [NFS](network-pentesting/untitled/privilege-escalation/nfs.md)
     * [Environment Variables](network-pentesting/untitled/privilege-escalation/environment-variables/README.md)
       * [LD\_LIBRARY\_PATH](network-pentesting/untitled/privilege-escalation/environment-variables/ld_library_path.md)
       * [LD\_PRELOAD](network-pentesting/untitled/privilege-escalation/environment-variables/ld_preload.md)
+    * [UDEVD](network-pentesting/untitled/privilege-escalation/udevd.md)
+    * [Docker](network-pentesting/untitled/privilege-escalation/docker.md)
+    * [NFS](network-pentesting/untitled/privilege-escalation/nfs.md)
+    * [/etc/shadow & /etc/passwd](network-pentesting/untitled/privilege-escalation/etc-shadow-and-etc-passwd.md)
 
 ## Hardening & Monitoring
 
