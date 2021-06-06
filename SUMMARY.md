@@ -27,10 +27,10 @@
 ## Network Pentesting
 
 * [Linux](network-pentesting/untitled/README.md)
-  * [MySQL UDF](network-pentesting/untitled/mysql-udf.md)
   * [Privilege Escalation](network-pentesting/untitled/privilege-escalation/README.md)
-    * [/etc/shadow & /etc/passwd](network-pentesting/untitled/privilege-escalation/etc-shadow-and-etc-passwd.md)
+    * [MySQL UDF](network-pentesting/untitled/privilege-escalation/mysql-udf.md)
     * [Enumeration](network-pentesting/untitled/privilege-escalation/enumeration.md)
+    * [/etc/shadow & /etc/passwd](network-pentesting/untitled/privilege-escalation/etc-shadow-and-etc-passwd.md)
     * [cron/crontab abuse](network-pentesting/untitled/privilege-escalation/cron-crontab-abuse.md)
 
 ## Hardening & Monitoring
