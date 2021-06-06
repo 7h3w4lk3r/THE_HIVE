@@ -119,7 +119,7 @@ cd lib
 nano main.c
 ```
 
-![](../../.gitbook/assets/1%20%2817%29.png)
+![](../../.gitbook/assets/1%20%2818%29.png)
 
 and we create a header file for the main.c source code:
 
@@ -189,7 +189,7 @@ then the executable:
 
 now we have to append a library path to the env LD\_LIBRARY\_PATH variable
 
-![](../../.gitbook/assets/1%20%2818%29.png)
+![](../../.gitbook/assets/1%20%2819%29.png)
 
 so now the executable will look into /root/.local/share/Trash/files/test/lib for the needed shared library .
 

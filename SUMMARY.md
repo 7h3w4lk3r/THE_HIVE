@@ -28,6 +28,9 @@
 
 * [Linux](network-pentesting/untitled/README.md)
   * [Privilege Escalation](network-pentesting/untitled/privilege-escalation/README.md)
+    * [Environment Variables](network-pentesting/untitled/privilege-escalation/environment-variables/README.md)
+      * [LD\_LIBRARY\_PATH](network-pentesting/untitled/privilege-escalation/environment-variables/ld_library_path.md)
+      * [LD\_PRELOAD](network-pentesting/untitled/privilege-escalation/environment-variables/ld_preload.md)
     * [UDEVD](network-pentesting/untitled/privilege-escalation/udevd.md)
     * [MySQL UDF](network-pentesting/untitled/privilege-escalation/mysql-udf.md)
     * [Enumeration](network-pentesting/untitled/privilege-escalation/enumeration.md)
