@@ -337,7 +337,7 @@ int main() {
 }
 ```
 
-![](../../.gitbook/assets/1%20%283%29.png)
+![](../../.gitbook/assets/1%20%288%29.png)
 
 ![](../../.gitbook/assets/2%20%281%29.png)
 
