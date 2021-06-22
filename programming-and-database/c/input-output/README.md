@@ -4,7 +4,7 @@ description: <stdio.h>
 
 # Input / Output
 
-![](../../.gitbook/assets/1%20%284%29.png)
+![](../../../.gitbook/assets/1%20%284%29.png)
 
 ## char functions \(input\)
 
@@ -337,9 +337,9 @@ int main() {
 }
 ```
 
-![](../../.gitbook/assets/1%20%288%29.png)
+![](../../../.gitbook/assets/1%20%288%29.png)
 
-![](../../.gitbook/assets/2%20%281%29.png)
+![](../../../.gitbook/assets/2%20%281%29.png)
 
 **fflush\(\)** → used to flush/clean a file or buffer
 

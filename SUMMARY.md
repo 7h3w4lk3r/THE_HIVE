@@ -1,6 +1,15 @@
 # Table of contents
 
 * [Home](README.md)
+* [Recon](recon/README.md)
+  * [OSINT](recon/osint.md)
+
+## Network Attacks
+
+* [Linux](network-attacks/untitled/README.md)
+  * [Privilege Escalation](network-attacks/untitled/privilege-escalation/README.md)
+    * [Enumeration](network-attacks/untitled/privilege-escalation/enumeration.md)
+    * [cron/crontab abuse](network-attacks/untitled/privilege-escalation/cron-crontab-abuse.md)
 
 ## Programming and DataBase
 
@@ -22,35 +31,28 @@
     * [Arrays](programming-and-database/c/data-structures/arrays.md)
     * [Structures](programming-and-database/c/data-structures/structures.md)
     * [Unions](programming-and-database/c/data-structures/unions.md)
-  * [Input / Output](programming-and-database/c/input-output.md)
-
-## Network Attacks
-
-* [Linux](network-attacks/untitled/README.md)
-  * [Privilege Escalation](network-attacks/untitled/privilege-escalation/README.md)
-    * [Enumeration](network-attacks/untitled/privilege-escalation/enumeration.md)
-    * [SUID / SGID](network-attacks/untitled/privilege-escalation/suid-sgid.md)
-    * [cron/crontab abuse](network-attacks/untitled/privilege-escalation/cron-crontab-abuse.md)
-    * [Sudo Abuse](network-attacks/untitled/privilege-escalation/sudo-abuse.md)
-    * [Shared Object Injection](network-attacks/untitled/privilege-escalation/shared-object-injection.md)
-    * [MySQL UDF](network-attacks/untitled/privilege-escalation/mysql-udf.md)
-    * [Environment Variables](network-attacks/untitled/privilege-escalation/environment-variables/README.md)
-      * [LD\_LIBRARY\_PATH](network-attacks/untitled/privilege-escalation/environment-variables/ld_library_path.md)
-      * [LD\_PRELOAD](network-attacks/untitled/privilege-escalation/environment-variables/ld_preload.md)
-    * [UDEVD](network-attacks/untitled/privilege-escalation/udevd.md)
-    * [Docker](network-attacks/untitled/privilege-escalation/docker.md)
-    * [NFS](network-attacks/untitled/privilege-escalation/nfs.md)
-    * [/etc/shadow & /etc/passwd](network-attacks/untitled/privilege-escalation/etc-shadow-and-etc-passwd.md)
-  * [Credential Dumping](network-attacks/untitled/credential-dumping/README.md)
-    * [Swap Dump](network-attacks/untitled/credential-dumping/swap-dump.md)
-    * [mimipinguin](network-attacks/untitled/credential-dumping/mimipinguin.md)
-    * [unshadow](network-attacks/untitled/credential-dumping/unshadow.md)
-    * [3snake](network-attacks/untitled/credential-dumping/3snake.md)
-  * [Persistence](network-attacks/untitled/persistence/README.md)
-    * [Systemd netcat bind shell](network-attacks/untitled/persistence/systemd-netcat-bind-shell.md)
-    * [Xinetd UDP portnock](network-attacks/untitled/persistence/xinetd-udp-portnock.md)
-    * [openSSL reverse shell](network-attacks/untitled/persistence/openssl-reverse-shell.md)
-    * [SSH persistence passwordless](network-attacks/untitled/persistence/ssh-persistence-passwordless.md)
+  * [Input / Output](programming-and-database/c/input-output/README.md)
+    * [SUID / SGID](programming-and-database/c/input-output/suid-sgid.md)
+    * [Sudo Abuse](programming-and-database/c/input-output/sudo-abuse.md)
+    * [Shared Object Injection](programming-and-database/c/input-output/shared-object-injection.md)
+    * [MySQL UDF](programming-and-database/c/input-output/mysql-udf.md)
+    * [Environment Variables](programming-and-database/c/input-output/environment-variables/README.md)
+      * [LD\_LIBRARY\_PATH](programming-and-database/c/input-output/environment-variables/ld_library_path.md)
+      * [LD\_PRELOAD](programming-and-database/c/input-output/environment-variables/ld_preload.md)
+    * [UDEVD](programming-and-database/c/input-output/udevd.md)
+    * [Docker](programming-and-database/c/input-output/docker.md)
+    * [NFS](programming-and-database/c/input-output/nfs.md)
+    * [/etc/shadow & /etc/passwd](programming-and-database/c/input-output/etc-shadow-and-etc-passwd.md)
+  * [Credential Dumping](programming-and-database/c/credential-dumping/README.md)
+    * [Swap Dump](programming-and-database/c/credential-dumping/swap-dump.md)
+    * [mimipinguin](programming-and-database/c/credential-dumping/mimipinguin.md)
+    * [unshadow](programming-and-database/c/credential-dumping/unshadow.md)
+    * [3snake](programming-and-database/c/credential-dumping/3snake.md)
+  * [Persistence](programming-and-database/c/persistence/README.md)
+    * [Systemd netcat bind shell](programming-and-database/c/persistence/systemd-netcat-bind-shell.md)
+    * [Xinetd UDP portnock](programming-and-database/c/persistence/xinetd-udp-portnock.md)
+    * [openSSL reverse shell](programming-and-database/c/persistence/openssl-reverse-shell.md)
+    * [SSH persistence passwordless](programming-and-database/c/persistence/ssh-persistence-passwordless.md)
 
 ## Hardening & Monitoring
 
