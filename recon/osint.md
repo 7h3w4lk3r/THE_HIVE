@@ -1,4 +1,4 @@
-# OSINT
+# Passive \(OSINT\)
 
 ![](../.gitbook/assets/banner.png)
 

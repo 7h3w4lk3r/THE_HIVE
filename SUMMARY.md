@@ -2,7 +2,8 @@
 
 * [Home](README.md)
 * [Recon](recon/README.md)
-  * [OSINT](recon/osint.md)
+  * [Passive \(OSINT\)](recon/osint.md)
+  * [Active \(scanning\)](recon/active-scanning.md)
 
 ## Network Attacks
 
