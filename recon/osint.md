@@ -226,7 +226,143 @@ docker run theharvester -h
 
 ## h8mail
 
+An email OSINT and breach hunting tool using different breach and reconnaissance services, or local breaches such as Troy Hunt's "Collection1" and the infamous "Breach Compilation" torrent.
 
+{% embed url="https://github.com/khast3x/h8mail" %}
+
+```text
+python3 -m pip install h8mail
+
+h8mail -t target@example.com
+```
+
+## gitrob
+
+a tool to help find potentially sensitive files pushed to public repositories on Github. Gitrob will clone repositories belonging to a user or organization down to a configurable depth and iterate through the commit history and flag files that match signatures for potentially sensitive files. The findings will be presented through a web interface for easy browsing and analysis.
+
+{% embed url="https://github.com/michenriksen/gitrob/releases/tag/v2.0.0-beta" %}
+
+## inspy
+
+LinkedIn enumeration tool. preinstalled on kali.
+
+{% embed url="https://github.com/leapsecurity/InSpy" %}
+
+
+
+```text
+inspy --empspy /usr/share/inspy/wordlists/title-list-large.txt --emailformat flast@google.com 'Google'
+
+--email format is how the emails work
+
+inspy --empspy /usr/share/inspy/wordlists/title-list-large.txt --emailformat
+
+```
+
+
+
+## amass
+
+In-depth Attack Surface Mapping and Asset Discovery, preinstalled on kali. The OWASP Amass Project performs network mapping of attack surfaces and external asset discovery using open source information gathering and active reconnaissance techniques.
+
+{% embed url="https://github.com/OWASP/Amass" %}
+
+run the help to see the options:
+
+```text
+amass --help
+```
+
+## spiderfoot
+
+an open source intelligence \(OSINT\) automation tool. It calmes to integrate with just about every data source available and utilities a range of methods for data analysis, making that data easy to navigate.
+
+{% embed url="https://github.com/smicallef/spiderfoot" %}
+
+```text
+spiderfoot -l 127.0.0.1:5001  → run web GUI on local host, connect with browser
+```
+
+## recon-ng
+
+By far, the best recon framework out there with both active and passive modules. designed like metasploit framework and each type of recon has its own specific module and options. the modules are installed from the "marketplace" plus a bunch of reporting modules for different formats. recon-ng is preinstalled on kali linux and parrot OS.
+
+{% embed url="https://github.com/lanmaster53/recon-ng" %}
+
+you can see the full ocumentation in the wiki:
+
+{% embed url="https://github.com/lanmaster53/recon-ng/wiki" %}
+
+here are some of the useful commands for a quick start:
+
+```text
+help >>> help
+marketplace install/search/info [modules names] >>> add or search for a module
+modules load [module] >>> load a module
+info >>> show module options
+options set >>> set module options
+run >>> run the module
+```
+
+to install all recon modules at once:
+
+```text
+marketplace install recon/
+```
+
+some modules need api keys add it with :
+
+```text
+e.g: shodan for example keys add shodan_api <API>
+show keys — list available API keys
+keys add api_key_name #api_key_value →  add key to module
+```
+
+a list of modules i usually use:
+
+```text
+recon/domains-domains/brute_suffix 
+recon/domains-hosts/bing_domain_web  
+recon/domains-hosts/brute_hosts
+recon/domains-hosts/netcraft
+recon/domains-hosts/ssl_san
+recon/hosts-hosts/bing_ip
+recon/domains-hosts/hackertarget
+recon/netblocks-hosts/reverse_resolve       → find hosts in a netblock
+recon/hosts-hosts/reverse_resolve
+discovery/info_disclosure/cache_snoop       → useful for finding AVs in use
+```
+
+## sherlock
+
+find user accounts on social media
+
+{% embed url="https://github.com/sherlock-project/sherlock" %}
+
+```text
+git clone https://github.com/sherlock-project/sherlock.git
+
+cd sherlock
+python3 -m pip install -r requirements.txt
+python3 sherlock --help
+python3 sherlock user1 user2 user3
+```
+
+## TWINT
+
+advanced Twitter scraping tool written in Python that allows for scraping Tweets from Twitter profiles without using Twitter's API.
+
+{% embed url="https://github.com/twintproject/twint" %}
+
+## social-analyzer
+
+for analyzing and finding a person's profile across +800 social media  websites
+
+```text
+python3 -m pip install social-analyzer
+
+social-analyzer --username "johndoe" --metadata --extract --mode fast
+```
 
 
 
