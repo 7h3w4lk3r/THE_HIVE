@@ -40,6 +40,84 @@ is an open source intelligence \(OSINT\) and graphical link analysis tool for ga
 
 ![](../.gitbook/assets/maltego.jpg)
 
+## Shodan
+
+![](../.gitbook/assets/1-xmmhvlmpbibj6o9smb50fg-2x.jpeg)
+
+Search engine for the Internet of everything. Shodan is the world's first search engine for Internet-connected devices including computers, servers, CCTV cameras, SCADA systems and everything that is connected to the internet with or without attention. Shodan can be used both as a source for gathering info about random targets for mass attacks and a tool for finding weak spots in a large network of systems to attack and take the low-hanging fruit. Shodan has a free and commercial membership and is accessible at [shodan.io](www.shodan.io) . the search syntax in the search engine is somehow special and can be found in the help section of the website. with shodan you can search for specific systems, ports, services, regions and countries or even specific vulnerable versions of a software or OS service running on systems like SMB v1 and much more.
+
+ here the keywords that are mostly used in shodan search queries:
+
+```text
+title: Search the content scraped from the HTML tag
+html: Search the full HTML content of the returned page
+product: Search the name of the software or product identified in the banner
+net: Search a given netblock (example: 204.51.94.79/18)
+version: Search the version of the product
+port: Search for a specific port or ports
+os: Search for a specific operating system name
+country: Search for results in a given country (2-letter code)
+city: Search for results in a given city
+! : NOT
+```
+
+for example these are some queries you can use with these keywords:
+
+```text
+hostname:megacorpone.com
+title:"smb" !port:139,445
+product:IIS 8.5
+Microsoft-IIS/5.0 title:"outlook web"
+net:100.10.23.0/24 unauthorized
+html:"eBay Inc. All Rights Reserved"
+"Authentication: disabled" port:445
+shodan count microsoft iis 6.0
+shodan host 189.201.128.250
+shodan myip
+shodan parse --fields ip_str,port,org --separator , microsoft-data.json.gz 
+shodan search --fields ip_str,port,org,hostnames microsoft iis 6.0
+```
+
+there are several other ways to use the search engine without the website for example with the nmap NSE scripts like this:
+
+```text
+  nmap -sn -Pn -n --script=shodan-api -script-args shodan-api.apikey=[api key] [target ip]
+```
+
+there is also a CLI shodan interface written in python for linux which you can use or integrate in your own scripts or tools. to install and setup the CLI tool:
+
+```text
+   pip install shodan
+   shodan init <api key>
+   shodan -h
+```
+
+you can use the CLI tool by simply specifying a single host/IP:
+
+```text
+shodan host [target ip]
+```
+
+shodan will return ports, services and even some possible CVEs  \( which are not very reliable \).
+
+for the free API keys you cant use the same method to scan a whole net block but with some bash voodoo you can use the free API instead of paid ones to scan the whole /24 net block this way and see if any systems on this net block is exposed :
+
+```text
+for host in {1..254}; do shodan host 192.168.1.$host 2>&1 | grep -v "Error" ; done
+```
+
+and if you want to aggressively scan a /16 net block you can do this:
+
+```text
+ for netblock in {1..254};do for host in {1..254}; do shodan host 192.168.$netblock.$host 2>&1 | grep -v "Error" ; done ; done
+```
+
+and here are some other useful resources about shodan:
+
+[https://www.sans.org/blog/getting-the-most-out-of-shodan-searches/](https://www.sans.org/blog/getting-the-most-out-of-shodan-searches/)  
+[https://thor-sec.com/cheatsheet/shodan/shodan\_cheat\_sheet/](https://thor-sec.com/cheatsheet/shodan/shodan_cheat_sheet/)  
+[https://github.com/jakejarvis/awesome-shodan-queries](https://github.com/jakejarvis/awesome-shodan-queries)
+
 ## OSINT Framework
 
 [the OSINT framework](https://osintframework.com/) is a great collection of OSINT resources that you should definitely check them out.
@@ -124,7 +202,29 @@ weleakinfo.com/
 
 ## Tools and Frameworks
 
+There are countless number of tools out there designed for active/passive recon. in fact almost one out of then pentesters/security "expert" out there has written some sort of crap recon framework/tool that only himself/herself has ever used. you wont need to know about very single one of them because most of them use the same techniques for gathering these information. in this section i will briefly introduce the best tools for OSINT that i usually use:
 
+## Theharvester
+
+a well-known tool among pentesters and OSINT investigators which is mostly good for collecting subdomains and email addresses.
+
+{% embed url="https://github.com/laramies/theHarvester" %}
+
+harvester is preinstalled on pentesting OSs like kali and parrot but for others you can install it from github and run it in docker:
+
+```text
+apt install theharvester
+Theharvester --help
+```
+
+```text
+git clone https://github.com/laramies/theHarvester
+cd theHarvester
+docker build -t theharvester .
+docker run theharvester -h 
+```
+
+## h8mail
 
 
 
