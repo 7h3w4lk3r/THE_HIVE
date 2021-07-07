@@ -2,7 +2,7 @@
 
 ![the big picture of OSINT](../.gitbook/assets/banner.png)
 
-#### OSINT is short for Open-Source Information Gathering, OSINT is a way of foot printing your target without any sorts of direct contact or leaving any evidence of the recon process.
+#### OSINT is short for Open-Source Information Gathering, OSINT is a way of knowing your target without any sorts of direct contact or leaving any evidence of the recon.
 
 #### simply put, OSINT means finding info without leaving any info. there are some ways to perform active info gathering without being traced for example using tor or double VPNs or even passive methods like using a public network but we will talk about those in the scanning phase, right now lets jump into some resources for OSINT.
 
