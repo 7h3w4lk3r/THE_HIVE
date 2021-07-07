@@ -1,6 +1,6 @@
 # Passive \(OSINT\)
 
-![](../.gitbook/assets/banner.png)
+![the big picture of OSINT](../.gitbook/assets/banner.png)
 
 #### OSINT is short for Open-Source Information Gathering, OSINT is a way of foot printing your target without any sorts of direct contact or leaving any evidence of the recon process.
 
@@ -14,7 +14,7 @@ Due to the vast amounts of information available to sift through on the Web, att
 
 ### OSINT reconnaissance can be further broken down into the following 5 sub-phases:
 
-![](../.gitbook/assets/osint-process.png)
+![the OSINT process steps](../.gitbook/assets/osint-process.png)
 
 **Source Identification**: as the starting point, in this initial phase the attacker identifies potential sources from which information may be gathered from. Sources are internally documented throughout the process in detailed notes to come back to later if necessary.
 
@@ -28,7 +28,7 @@ Due to the vast amounts of information available to sift through on the Web, att
 
 for example in the picture bellow you see a sample OSINT chart for a domain enumeration:
 
-![](../.gitbook/assets/banner4.jpg)
+![a sample OSINT chart of a domain](../.gitbook/assets/banner4.jpg)
 
 
 
@@ -38,7 +38,7 @@ so first we start with well known sources and tools and then go for additional o
 
 is an open source intelligence \(OSINT\) and graphical link analysis tool for gathering and connecting information for investigative tasks. its preinstalled in kali linux. you can download it from [here](https://www.maltego.com/)
 
-![](../.gitbook/assets/maltego.jpg)
+![sample Maltego results for a domain](../.gitbook/assets/maltego.jpg)
 
 ## Google Hacking
 
@@ -182,7 +182,7 @@ and here are some other useful resources about shodan:
 
 [the OSINT framework](https://osintframework.com/) is a great collection of OSINT resources that you should definitely check them out.
 
-![](../.gitbook/assets/osint-framework.jpg)
+![OSINT framework hierarchy sources structure  ](../.gitbook/assets/osint-framework.jpg)
 
 ## Websites and popular online OSINT sources
 
