@@ -186,7 +186,7 @@ and here are some other useful resources about shodan:
 
 ## Websites and popular online OSINT sources
 
-I have put together a list of the most used OSINT sources that will usually cover about 90% of your needs in  a a regular pentest, remember there are endless ways to find Intel about your target. the OSINT process is limited to your own imagination. 
+I have put together a list of the most used OSINT sources that will usually cover about 90% of your needs in  a regular pentest. remember there are endless ways to find Intel about your target. the OSINT process is limited to your own imagination. 
 
 ### 1\) Top sources \( most used \)
 
