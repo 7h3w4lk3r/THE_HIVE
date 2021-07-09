@@ -9,7 +9,7 @@ description: >-
 
 Since there are so many checklists, standards and guides for operating system hardening out there, i tried to make this as short as possible so i wont need to read through 200 pages of some manual every time i want to configure a system.
 
-#### This checklist is a combination of my own experience plus the methods and techniques included in guides like CIS benchmarks and some other resources on the web. the target in most of these items is Ubuntu/Debian based distros but most of them are applicable on RedHat/CentOS as well. this is by no means an all-in-one solution and i highly appreciate any comments, adages and rants you might have :\)
+#### This checklist is a combination of my own experience plus the methods and techniques included in guides like CIS benchmarks and some other resources on the web. the target distro in most of these items is Ubuntu/Debian based distros but most of them are applicable on RedHat/CentOS as well. this is by no means an all-in-one solution and i highly appreciate any comments, adages and rants you might have :\)
 
 
 
@@ -535,39 +535,80 @@ Since there are so many checklists, standards and guides for operating system ha
     <tr>
       <td style="text-align:left"><b>resource limits on processes</b>
       </td>
-      <td style="text-align:left">could do that by hand-editing the systemd service file for each service
-        that we want to limit, but it&apos;s easier to just run a systemctl command,
-        like so for example for apache service: # sudo systemctl set-property apache2.service
-        MemoryAccounting=1 CPUAccounting=1 BlockIOAccounting=1 now there is a directory
-        created for apache service in /etc/systemd/system.control named apache2.service.d
-        which contains files that turn our accounting functions on. inside each
-        file we see 2 lines modify the original apache2.service file in order to
-        turn on accounting: ``` CPUAccounting=yes ``` to set resource limits for
-        each account type: # systemctl set-property apache2.service CPUQouta=40%
-        MemoryLimit=500M</td>
+      <td style="text-align:left">
+        <p>could do that by hand-editing the systemd service file for each service
+          that we want to limit, but it&apos;s easier to just run a systemctl command,
+          like so for example for apache service:</p>
+        <p></p>
+        <p># sudo systemctl set-property apache2.service MemoryAccounting=1 CPUAccounting=1
+          BlockIOAccounting=1</p>
+        <p></p>
+        <p>now there is a directory created for apache service in /etc/systemd/system.control
+          named apache2.service.d which contains files that turn our accounting functions
+          on.</p>
+        <p>inside each file we see 2 lines modify the original apache2.service file
+          in order to turn on accounting:</p>
+        <p></p>
+        <p>``` CPUAccounting=yes ```</p>
+        <p></p>
+        <p>to set resource limits for each account type:</p>
+        <p></p>
+        <p># systemctl set-property apache2.service CPUQouta=40% MemoryLimit=500M</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"><b>resource limits on user accounts</b>
       </td>
-      <td style="text-align:left">sudo systemctl set-property user-&lt;UID&gt;.slice MemoryAccounting=1
-        CPUAccounting=1 BlockIOAccounting=1 systemctl set-property user-&lt;UID&gt;.slice
-        CPUQouta=20% MemoryLimit=500M</td>
+      <td style="text-align:left">
+        <p># systemctl set-property user-&lt;UID&gt;.slice MemoryAccounting=1 CPUAccounting=1
+          BlockIOAccounting=1</p>
+        <p></p>
+        <p>#systemctl set-property user-&lt;UID&gt;.slice CPUQouta=20% MemoryLimit=500M</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"><b>sandbox untrusted applications using firejail (uses namespaces, SECCOMP, and kernel capabilities to run untrusted applications in their own individual sandboxes)</b>
       </td>
-      <td style="text-align:left">installation: # apt install firejail usage: # firejail &lt;application&gt;
-        # firejail firefox run a sandbox with dropped capabilities: # firejail
-        --caps.drop=all chromium-browser to create a symbolic link for each program:
-        # firecfg</td>
+      <td style="text-align:left">
+        <p>installation:</p>
+        <p></p>
+        <p># apt install firejail</p>
+        <p></p>
+        <p>usage:</p>
+        <p></p>
+        <p># firejail &lt;application&gt;</p>
+        <p></p>
+        <p># firejail firefox</p>
+        <p></p>
+        <p>run a sandbox with dropped capabilities:</p>
+        <p></p>
+        <p># firejail --caps.drop=all chromium-browser</p>
+        <p></p>
+        <p>to create a symbolic link for each program:</p>
+        <p></p>
+        <p># firecfg</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"><b>sandboxing using Snappy</b>
       </td>
-      <td style="text-align:left">install: # apt install snapd search for apps online to run: # snap search
-        &lt;app&gt; install the app: # snap install &lt;app&gt; create an account
-        at ubuntu.com and login in snap with your credentials: # snap login start
-        the app in sandbox: # snap start</td>
+      <td style="text-align:left">
+        <p>install: # apt install snapd search for apps online to run:</p>
+        <p></p>
+        <p># snap search &lt;app&gt;</p>
+        <p></p>
+        <p>install the app:</p>
+        <p></p>
+        <p># snap install &lt;app&gt;</p>
+        <p></p>
+        <p>create an account at ubuntu.com and login in snap with your credentials:</p>
+        <p></p>
+        <p># snap login</p>
+        <p></p>
+        <p>start the app in sandbox:</p>
+        <p></p>
+        <p># snap start</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"><b>disable unneeded debugging/testing services: daytime chargen discard echo time rsh telnet xinetd</b>
