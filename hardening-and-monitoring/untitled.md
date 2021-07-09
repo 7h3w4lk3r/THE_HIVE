@@ -250,6 +250,382 @@ Since there are so many checklists, standards and guides for operating system ha
 
 
 
+## OS Security
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">tasks/configurations</th>
+      <th style="text-align:left">methods/commands</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><b>verify package repositories</b>
+      </td>
+      <td style="text-align:left">apt-cache policy</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Ensure GPG keys are configured</b>
+      </td>
+      <td style="text-align:left">apt-key list</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>text console messages / warning banners</b>
+      </td>
+      <td style="text-align:left">/etc/issue : before login /etc/motd : after login</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>disable Ctrl+Alt+Del</b>
+      </td>
+      <td style="text-align:left">systemctl mask ctrl+alt+del.target</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>update strategy</b>
+      </td>
+      <td style="text-align:left">RHEL : updateinfo yum install yum-plugin-security Debian : apt-get -s
+        dist-upgrade | grep &quot;^Inst&quot; | awk -F &quot; &quot; &apos;{ print
+        $2 }&apos; | xargs apt-get install unattended-upgrades</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>auto update</b>
+      </td>
+      <td style="text-align:left">setup auto-update for RHEL &amp; Debian</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>validate packages</b>
+      </td>
+      <td style="text-align:left">
+        <p>RHEL :</p>
+        <p>rpm -Va</p>
+        <p></p>
+        <p>Debian :</p>
+        <p>debsums -l &gt;&gt;&gt; generate a list</p>
+        <p>debsums -c &gt;&gt;&gt; check all</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>bootloader security</b>
+      </td>
+      <td style="text-align:left">
+        <p>check if grub is password protected:</p>
+        <p></p>
+        <p>#grep &quot;^set superusers&quot; /boot/grub/grub.cfg grep &quot;^password&quot;
+          /boot/grub/grub.cfg</p>
+        <p></p>
+        <p>Create an encrypted password with grub-mkpasswd-pbkdf2 :</p>
+        <p></p>
+        <p># grub-mkpasswd-pbkdf2 Add the following into /etc/grub.d/00_header or
+          a custom /etc/grub.d configuration file:</p>
+        <p></p>
+        <p>``` cat &lt;&lt;EOF set superusers=&quot;&lt;username&gt;&quot; password_pbkdf2
+          &lt;username&gt; &lt;encrypted-password&gt; EOF ```</p>
+        <p></p>
+        <p>Run the following command to update the grub2 configuration:</p>
+        <p></p>
+        <p># update-grub</p>
+        <p></p>
+        <p>Run the following command and verify Uid and Gid are both 0/root and Access
+          does not grant permissions to group or other :</p>
+        <p></p>
+        <p># stat /boot/grub/grub.cfg</p>
+        <p></p>
+        <p>Run the following commands to set permissions on your grub configuration:</p>
+        <p></p>
+        <p># chown root:root /boot/grub/grub.cfg</p>
+        <p># chmod og-rwx /boot/grub/grub.cfg</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>core dumps restrictions (prevents users from overriding the soft variable and confidential information leak)</b>
+      </td>
+      <td style="text-align:left">
+        <p>Run the following commands and verify output matches:</p>
+        <p></p>
+        <p># grep &quot;hard core&quot; /etc/security/limits.conf /etc/security/limits.d/*
+          * hard core 0</p>
+        <p></p>
+        <p># sysctl fs.suid_dumpable fs.suid_dumpable = 0</p>
+        <p></p>
+        <p># grep &quot;fs\.suid_dumpable&quot; /etc/sysctl.conf /etc/sysctl.d/*
+          fs.suid_dumpable = 0</p>
+        <p></p>
+        <p>Add the following line to /etc/security/limits.conf or a /etc/security/limits.d/*
+          file:</p>
+        <p></p>
+        <p>* hard core 0</p>
+        <p></p>
+        <p>Set the following parameter in /etc/sysctl.conf or a /etc/sysctl.d/* file:</p>
+        <p></p>
+        <p>fs.suid_dumpable = 0</p>
+        <p></p>
+        <p>Run the following command to set the active kernel parameter:</p>
+        <p></p>
+        <p># sysctl -w fs.suid_dumpable=0</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>enable XD/NX support (no execute / execute disabl, Enabling any feature that can protect against buffer overflow attacks enhances the security of the system.)</b>
+      </td>
+      <td style="text-align:left">
+        <p>Run the following command and verify your kernel has identified and activated
+          NX/XD protection:</p>
+        <p></p>
+        <p># dmesg | grep NX NX (Execute Disable) protection: active</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>enable address space layout randomization (ASLR)</b>
+      </td>
+      <td style="text-align:left">
+        <p>Run the following command and verify output matches</p>
+        <p></p>
+        <p># sysctl kernel.randomize_va_space kernel.randomize_va_space = 2</p>
+        <p></p>
+        <p># grep &quot;kernel\.randomize_va_space&quot; /etc/sysctl.conf /etc/sysctl.d/*
+          kernel.randomize_va_space = 2</p>
+        <p></p>
+        <p>Set the following parameter in /etc/sysctl.conf or a /etc/sysctl.d/* file:</p>
+        <p></p>
+        <p>kernel.randomize_va_space = 2</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>disable prelink (prelinking feature can interfere with the operation of AIDE, because it changes binaries.)</b>
+      </td>
+      <td style="text-align:left">
+        <p>verify prelink is not installed:</p>
+        <p></p>
+        <p># dpkg -s prelink</p>
+        <p></p>
+        <p>restore binaries to normal:</p>
+        <p></p>
+        <p># prelink -ua uninstall prelink :</p>
+        <p></p>
+        <p># apt-get remove prelink</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>enable SELinux in bootloader configurations</b>
+      </td>
+      <td style="text-align:left">
+        <p>verify that no linux line has the selinux=0 or enforcing=0 parameters
+          set:</p>
+        <p></p>
+        <p># grep &quot;^\s*linux&quot; /boot/grub/grub.cfg</p>
+        <p></p>
+        <p>Edit /etc/default/grub and remove all instances of selinux=0 and enforcing=0
+          from all CMDLINE_LINUX parameters:</p>
+        <p></p>
+        <p>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet&quot; GRUB_CMDLINE_LINUX=&quot;&quot;</p>
+        <p></p>
+        <p>update the grub2 configuration:</p>
+        <p></p>
+        <p># update-grub</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>set SELinux enforsing state</b>
+      </td>
+      <td style="text-align:left">
+        <p>ensure output matches:</p>
+        <p></p>
+        <p># grep SELINUX=enforcing /etc/selinux/config</p>
+        <p>SELINUX=enforcing</p>
+        <p></p>
+        <p># sestatus</p>
+        <p>SELinux status: enabled</p>
+        <p>Current mode: enforcing</p>
+        <p>Mode from config file: enforcing</p>
+        <p></p>
+        <p>Edit the /etc/selinux/config file to set the SELINUX parameter:</p>
+        <p></p>
+        <p>SELINUX=enforcing</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Configure AppArmor</b>
+      </td>
+      <td style="text-align:left">http://wiki.apparmor.net/index.php/Documentation</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>enable apparmor in bootloader</b>
+      </td>
+      <td style="text-align:left">
+        <p>verify that no linux line the apparmor=0 parameter set:</p>
+        <p></p>
+        <p># grep &quot;^\s*linux&quot; /boot/grub/grub.cfg</p>
+        <p></p>
+        <p>Edit /etc/default/grub and remove all instances of apparmor=0 from all
+          CMDLINE_LINUX parameters:</p>
+        <p></p>
+        <p>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet&quot; GRUB_CMDLINE_LINUX=&quot;&quot;</p>
+        <p></p>
+        <p>update the grub2 configuration:</p>
+        <p></p>
+        <p># update-grub</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>set all AppArmor profiles to enforcing</b>
+      </td>
+      <td style="text-align:left">
+        <p>Run the following command and verify that profiles are loaded, no profiles
+          are in complain mode, and no processes are unconfined:</p>
+        <p></p>
+        <p># apparmor_status</p>
+        <p></p>
+        <p>set all profiles to enforce mode:</p>
+        <p></p>
+        <p># aa-enforce /etc/apparmor.d/*</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>scan kernel parameters with Lynis</b>
+      </td>
+      <td style="text-align:left">
+        <p># apt install lynis</p>
+        <p># lynis audit system</p>
+        <p></p>
+        <p>Use grep to send all of the DIFFERENT lines to a new file. Name it 60-
+          secure_values.conf:</p>
+        <p></p>
+        <p># grep &quot;DIFFERENT&quot; secure_values,conf &gt; 60-secure_values.conf</p>
+        <p></p>
+        <p>Edit the 60-secure_values.conf file to convert it into the sysctl configuration
+          format.</p>
+        <p></p>
+        <p>Set each parameter to the exp value that&apos;s currently within the pairs
+          of parentheses. The finished product should look something like this:</p>
+        <p></p>
+        <p>``` kernel.dmesg_restrict = 1 kernel.kptr_restrict = 2 kernel.sysrq =
+          0 kernel.yama.ptrace_scope = 1 2 3 net.ipv4.conf.all.accept_redirects =
+          0 net.ipv4.conf.all.log_martians = 1 net.ipv4.conf.all.send_redirects =
+          0 net.ipv4.conf.default.accept_redirects = 0 net.ipv4.conf.default.log_martians
+          = 1 net.ipv6.conf.all.accept_redirects = 0 net.ipv6.conf.default.accept_redirects
+          = 0 ```</p>
+        <p></p>
+        <p></p>
+        <p>Copy the file to the /etc/sysctl.d directory:</p>
+        <p></p>
+        <p># sudo cp 60-secure_values.conf /etc/sysctl.d/</p>
+        <p></p>
+        <p>Reboot the machine to read in the values from the new file:</p>
+        <p></p>
+        <p># sudo shutdown -r now</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>process isolation (prevent users from seeing each others processes)</b>
+      </td>
+      <td style="text-align:left">
+        <p>mount the /proc filesystem with the hidepid option.</p>
+        <p>You can do this by adding the following line to the end of the /etc/fstab
+          file, like so:</p>
+        <p></p>
+        <p># nano /etc/fstab add:</p>
+        <p></p>
+        <p>``` proc /proc proc hidepid=2 0 0 ```</p>
+        <p></p>
+        <p>Then, remount /proc , like so:</p>
+        <p></p>
+        <p>#mount -o remount proc</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>resource limits on processes</b>
+      </td>
+      <td style="text-align:left">could do that by hand-editing the systemd service file for each service
+        that we want to limit, but it&apos;s easier to just run a systemctl command,
+        like so for example for apache service: # sudo systemctl set-property apache2.service
+        MemoryAccounting=1 CPUAccounting=1 BlockIOAccounting=1 now there is a directory
+        created for apache service in /etc/systemd/system.control named apache2.service.d
+        which contains files that turn our accounting functions on. inside each
+        file we see 2 lines modify the original apache2.service file in order to
+        turn on accounting: ``` CPUAccounting=yes ``` to set resource limits for
+        each account type: # systemctl set-property apache2.service CPUQouta=40%
+        MemoryLimit=500M</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>resource limits on user accounts</b>
+      </td>
+      <td style="text-align:left">sudo systemctl set-property user-&lt;UID&gt;.slice MemoryAccounting=1
+        CPUAccounting=1 BlockIOAccounting=1 systemctl set-property user-&lt;UID&gt;.slice
+        CPUQouta=20% MemoryLimit=500M</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>sandbox untrusted applications using firejail (uses namespaces, SECCOMP, and kernel capabilities to run untrusted applications in their own individual sandboxes)</b>
+      </td>
+      <td style="text-align:left">installation: # apt install firejail usage: # firejail &lt;application&gt;
+        # firejail firefox run a sandbox with dropped capabilities: # firejail
+        --caps.drop=all chromium-browser to create a symbolic link for each program:
+        # firecfg</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>sandboxing using Snappy</b>
+      </td>
+      <td style="text-align:left">install: # apt install snapd search for apps online to run: # snap search
+        &lt;app&gt; install the app: # snap install &lt;app&gt; create an account
+        at ubuntu.com and login in snap with your credentials: # snap login start
+        the app in sandbox: # snap start</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>disable unneeded debugging/testing services: daytime chargen discard echo time rsh telnet xinetd</b>
+      </td>
+      <td style="text-align:left">Comment out or remove any lines starting with chargen from /etc/inetd.conf
+        and /etc/inetd.d/* . Set disable = yes on all chargen services in /etc/xinetd.conf
+        and /etc/xinetd.d/* . Comment out or remove any lines starting with daytime
+        from /etc/inetd.conf and /etc/inetd.d/* . Set disable = yes on all daytime
+        services in /etc/xinetd.conf and /etc/xinetd.d/* . Comment out or remove
+        any lines starting with discard from /etc/inetd.conf and /etc/inetd.d/*
+        . Set disable = yes on all discard services in /etc/xinetd.conf and /etc
+        xinetd.d/* . Comment out or remove any lines starting with echo from /etc/inetd.conf
+        and /etc/inetd.d/* . Set disable = yes on all echo services in /etc/xinetd.conf
+        and /etc xinetd.d/* . Comment out or remove any lines starting with time
+        from /etc/inetd.conf and /etc/inetd.d/* . Set disable = yes on all time
+        services in /etc/xinetd.conf and /etc/xinetd.d/* . Verify the rsh services
+        are not enabled. Run the following commands and verify results are as indicated:
+        grep -R &quot;^shell&quot; /etc/inetd.* grep -R &quot;^login&quot; /etc/inetd.*
+        grep -R &quot;^exec&quot; /etc/inetd.* No results should be returned check
+        /etc/xinetd.conf and /etc/xinetd.d/* and verify all rsh , rlogin , and
+        rexec services have disable = yes set. Comment out or remove any lines
+        starting with shell , login , or exec from /etc/inetd.conf and /etc/inetd.d/*
+        . Set disable = yes on all rsh , rlogin , and rexec services in /etc/xinetd.conf
+        and /etc/xinetd.d/* . Verify the telnet service is not enabled. Run the
+        following command and verify results are as indicated: # grep -R &quot;^telnet&quot;
+        /etc/inetd.* check /etc/xinetd.conf and /etc/xinetd.d/* and verify all
+        telnet services have disable = yes set. Comment out or remove any lines
+        starting with telnet from /etc/inetd.conf and /etc/inetd.d/* . Set disable
+        = yes on all telnet services in /etc/xinetd.conf and /etc xinetd.d/* .
+        Run the following command to verify xinetd is not enabled: # systemctl
+        is-enabled xinetd disabled Run the following command to disable xinetd
+        : # systemctl disable xinetd</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>enable time synchronization and configure ntp service</b>
+      </td>
+      <td style="text-align:left">On physical systems or virtual systems where host based time synchronization
+        is not available run the following commands and verify either NTP or chrony
+        is installed: # dpkg -s ntp # dpkg -s chrony On physical systems or virtual
+        systems where host based time synchronization is not available install
+        NTP or chrony using one of the following commands: # apt-get install ntp
+        # apt-get install chrony Run the following command and verify output matches:
+        # grep &quot;^restrict&quot; /etc/ntp.conf restrict -4 default kod nomodify
+        notrap nopeer noquery restrict -6 default kod nomodify notrap nopeer noquery
+        Run the following command and verify remote server is configured properly:
+        # egrep &quot;^(server|pool)&quot; /etc/ntp.conf server &lt;remote-server&gt;
+        Multiple servers may be configured. Verify that ntp is configured to run
+        as the ntp user by running the following command: # grep &quot;RUNASUSER=ntp&quot;
+        /etc/init.d/ntp RUNASUSER=ntp Add or edit restrict lines in /etc/ntp.conf
+        to match the following: restrict -4 default kod nomodify notrap nopeer
+        noquery restrict -6 default kod nomodify notrap nopeer noquery Add or edit
+        server or pool lines to /etc/ntp.conf as appropriate: server &lt;remote-server&gt;
+        Configure ntp to run as the ntp user by adding or editing the /etc/init.d
+        ntp file: RUNASUSER=ntp</td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 
