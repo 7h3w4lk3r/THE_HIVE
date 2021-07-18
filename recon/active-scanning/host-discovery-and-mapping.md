@@ -64,21 +64,62 @@ some useful options:
 
 #### instead of tracing from your address to target various websites allow you to trace from them to the target. so you can traceroute from around the world. by domain name or IP address. this is very useful in seeing if you are being shunned during a test.
 
+{% embed url="https://hackertarget.com/online-traceroute/" %}
 
+{% embed url="https://gsuite.tools/traceroute" %}
 
+{% embed url="https://www.ip2location.com/free/traceroute" %}
 
+## Best performance
 
+for best performance use traceroute with these three options and compare the results:
 
+```text
+traceroute target
+traceroute -T target
+traceroute -T -p [test multiple ports] target
+traceroute -I target
+```
 
+for an all in one command you can use this chain of commands:
 
+```text
+traceroute target.com > 1 && traceroute -T target.com > 2 && traceroute -I target.com > 3 && traceroute target.com -T 80 > 4 && cat 1 2 3 4 | grep -v '*' | sort -n -k 1 -u | sort -g
+```
 
+this will run a traceroute with multiple methods and combine the results for better view.
 
+![](../../.gitbook/assets/tr2.png)
 
+using this method we can minimize the chance of lost hopes in the route. \( the \* signs\). here is the bash script you can use with the target domain or IP as an argument to perform the same task:
 
+```text
+#!/bin/bash target=$1
+echo "target: &target"
+traceroute $target > 1 && traceroute -T $target > 2 && traceroute -I $target > 3 && traceroute $target -T 80 > 4 && cat 1 2 3 4 | grep -v '*' | sort -n -k 1 -u | sort -g 
+```
 
+you can also use zenmap which is a GUI for nmap tool and can be downloaded from [here](https://nmap.org/zenmap/).
 
+![](../../.gitbook/assets/zenmap.png)
 
+## Finding live hosts
 
+you can use nmap, masscan or unicorn scan for this:
 
+```text
+nmap -sn -T4 -oG 192.168.1.1/24 | grep “Status: Up” | cut -f 2 -d ‘ ‘ > LiveHosts.txt
+nmap –PE –sn -n 10.50.96.0/23 –oX /root/Desktop/scan.xml
+```
 
+the -PE enables ICMP Echo request host discovery \(Ping scan\)
+
+ the -sn option means only do a host discovery and not a port scan
+
+```text
+unicornscan 192.168.100.35/24:31
+masscan 192.168.2.1/24 -p80,53,443,22
+```
+
+masscan is the fastest host discovery tool available, even faster than nmap.
 
