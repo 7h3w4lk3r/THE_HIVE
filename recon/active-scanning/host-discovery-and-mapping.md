@@ -94,7 +94,8 @@ this will run a traceroute with multiple methods and combine the results for bet
 using this method we can minimize the chance of lost hopes in the route. \( the \* signs\). here is the bash script you can use with the target domain or IP as an argument to perform the same task:
 
 ```text
-#!/bin/bash target=$1
+#!/bin/bash 
+target=$1
 echo "target: &target"
 traceroute $target > 1 && traceroute -T $target > 2 && traceroute -I $target > 3 && traceroute $target -T 80 > 4 && cat 1 2 3 4 | grep -v '*' | sort -n -k 1 -u | sort -g 
 ```
