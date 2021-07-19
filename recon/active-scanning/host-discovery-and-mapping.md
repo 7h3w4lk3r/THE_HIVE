@@ -8,7 +8,7 @@ description: >-
 
 ## Traceroute
 
-discovers the route that packets take between two system in the network. it helps us to construct network architecture diagrams and it is included in most of not all OSs.
+discovers the route that packets take between two system in the network. it helps us to construct network architecture diagrams and it is included in most if not all OSs.
 
 ### using traceroute
 
