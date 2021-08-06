@@ -6,7 +6,47 @@ description: >-
 
 # Files
 
+## File Handling Functions in C
 
+this is a full list of all native C API functions for handling files \(including I/O functions\). most of these are just wrappers for more simple functions which are also included in the list. to have a better understanding of each function and the differences between its a good practice to try all of them in different forms and situations.
+
+| File handling functions | Description |
+| :--- | :--- |
+| fopen \(\) | fopen \(\) function creates a new file or opens an existing file. |
+| fclose \(\) | fclose \(\) function closes an opened file. |
+| getw \(\) | getw \(\) function reads an integer from file. |
+| putw \(\) | putw \(\) functions writes an integer to file. |
+| fgetc \(\) | fgetc \(\) function reads a character from file. |
+| fputc \(\) | fputc \(\) functions write a character to file. |
+| gets \(\) | gets \(\) function reads line from keyboard. |
+| puts \(\) | puts \(\) function writes line to o/p screen. |
+| fgets \(\) | fgets \(\) function reads string from a file, one line at a time. |
+| fputs \(\) | fputs \(\) function writes string to a file. |
+| feof \(\) | feof \(\) function finds end of file. |
+| fgetchar \(\) | fgetchar \(\) function reads a character from keyboard. |
+| fprintf \(\) | fprintf \(\) function writes formatted data to a file. |
+| fscanf \(\) | fscanf \(\) function reads formatted data from a file. |
+| fputchar \(\) | fputchar \(\) function writes a character onto the output screen from keyboard input. |
+| fseek \(\) | fseek \(\) function moves file pointer position to given location. |
+| SEEK\_SET | SEEK\_SET moves file pointer position to the beginning of the file. |
+| SEEK\_CUR | SEEK\_CUR moves file pointer position to given location. |
+| SEEK\_END | SEEK\_END moves file pointer position to the end of file. |
+| ftell \(\) | ftell \(\) function gives current position of file pointer. |
+| rewind \(\) | rewind \(\) function moves file pointer position to the beginning of the file. |
+| getc \(\) | getc \(\) function reads character from file. |
+| getch \(\) | getch \(\) function reads character from keyboard. |
+| getche \(\) | getche \(\) function reads character from keyboard and echoes to o/p screen. |
+| getchar \(\) | getchar \(\) function reads character from keyboard. |
+| putc \(\) | putc \(\) function writes a character to file. |
+| putchar \(\) | putchar \(\) function writes a character to screen. |
+| printf \(\) | printf \(\) function writes formatted data to screen. |
+| sprinf \(\) | sprinf \(\) function writes formatted output to string. |
+| scanf \(\) | scanf \(\) function reads formatted data from keyboard. |
+| sscanf \(\) | sscanf \(\) function Reads formatted input from a string. |
+| remove \(\) | remove \(\) function deletes a file. |
+| fflush \(\) | fflush \(\) function flushes a file. |
+
+## File Structure in C
 
 ![](../../.gitbook/assets/246452.png)
 
