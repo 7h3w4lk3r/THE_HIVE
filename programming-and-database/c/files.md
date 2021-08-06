@@ -10,6 +10,10 @@ description: >-
 
 this is a full list of all native C API functions for handling files \(including I/O functions\). most of these are just wrappers for more simple functions which are also included in the list. to have a better understanding of each function and the differences between its a good practice to try all of them in different forms and situations.
 
+in this section i have gathered some of the most used and most important C file functions that you will face a lot.
+
+
+
 | File handling functions | Description |
 | :--- | :--- |
 | fopen \(\) | fopen \(\) function creates a new file or opens an existing file. |
@@ -49,6 +53,8 @@ this is a full list of all native C API functions for handling files \(including
 ## File Structure in C
 
 ![](../../.gitbook/assets/246452.png)
+
+#### in C each file as a continuous sequence of bytes ending with an EOF \(end of file \) indicator. 
 
 #### the current position is where any file action \(read/write\) will take place we can move the current position to any point in the file \(even the end\)
 
