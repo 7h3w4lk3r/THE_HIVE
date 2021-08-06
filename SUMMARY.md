@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Home](README.md)
+* [The Hive](README.md)
 * [Recon](recon/README.md)
   * [Passive \(OSINT\)](recon/osint.md)
   * [Active \(scanning\)](recon/active-scanning/README.md)
