@@ -1,7 +1,7 @@
 ---
 description: >-
   C views a file as a continuous sequence of bytes each byte can be read
-  individually corresponds to the file structure in the unix environment.
+  individually corresponds to the file structure in the Unix environment.
 ---
 
 # Files
