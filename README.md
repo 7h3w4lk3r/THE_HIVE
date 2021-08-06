@@ -4,6 +4,8 @@
 
 ![](.gitbook/assets/logo.png)
 
+#### 
+
 #### Hive is a hierarchy of my notes on what i learn about coding, hacking and other stuff. the main topics are network penetration testing, system-level programming, Linux stuff, exploit development and reverse engineering.
 
 #### i am by no means an expert in any of these topics and the only reason i write this book is to help other rookies to have an idea of where to start and what to learn first in cyber security world and also i want to keep my go-to notes somewhere online. 
