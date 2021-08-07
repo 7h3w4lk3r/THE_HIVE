@@ -1,7 +1,5 @@
 # Docker
 
-There are lots of ways to use docker for privesc and some of them are described in the resources links above. but the first and most used method is based on SUID docker permission which you will face more than the others.
-
 ## SUID docker
 
 ### To create a vulnerable host
