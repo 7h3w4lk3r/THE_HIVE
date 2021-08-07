@@ -16,6 +16,8 @@ description: >-
 
 #### `cat /proc/version  uname -a  uname -mrs  cat /proc/$$/status | grep "[UG]id"  rpm -q kernel  dmesg | grep Linux  ls /boot | grep vmlinuz-`
 
+#### 
+
 #### places to find kernel exploits:
 
 [https://github.com/Kabot/Unix-Privilege-Escalation-Exploits-Pack](https://github.com/Kabot/Unix-Privilege-Escalation-Exploits-Pack)  
