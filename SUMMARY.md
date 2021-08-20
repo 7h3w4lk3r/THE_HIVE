@@ -39,7 +39,6 @@
 ## Programming and DataBase
 
 * [C](programming-and-database/c/README.md)
-  * [Libraries & Linking](programming-and-database/c/libraries-and-linking.md)
   * [Basic Structure](programming-and-database/c/basic-structure.md)
   * [Preprocessors](programming-and-database/c/preprocessors.md)
   * [Data Types](programming-and-database/c/data-types.md)
@@ -49,6 +48,7 @@
   * [Loops](programming-and-database/c/loops.md)
   * [Conditional Statements](programming-and-database/c/conditional-statements.md)
   * [Functions](programming-and-database/c/functions.md)
+  * [Input / Output](programming-and-database/c/input-output.md)
   * [Macros](programming-and-database/c/macros.md)
   * [Files](programming-and-database/c/files.md)
   * [Strings Manipulation](programming-and-database/c/strings-manipulation.md)
@@ -56,7 +56,7 @@
     * [Arrays](programming-and-database/c/data-structures/arrays.md)
     * [Structures](programming-and-database/c/data-structures/structures.md)
     * [Unions](programming-and-database/c/data-structures/unions.md)
-  * [Input / Output](programming-and-database/c/input-output.md)
+  * [Libraries & Linking](programming-and-database/c/libraries-and-linking.md)
 
 ## Hardening & Monitoring
 
