@@ -18,7 +18,7 @@ I split this section into two categories, network and web app, because these are
 
 #### [0\) Host discovery and network mapping](https://7h3w4lk3r.gitbook.io/the-hive/recon/active-scanning/host-discovery-and-mapping)
 
-#### [1\) Web application enumeration](https://7h3w4lk3r.gitbook.io/the-hive/recon/active-scanning/web-application-enumeration)   [2\) DNS](https://7h3w4lk3r.gitbook.io/the-hive/recon/active-scanning/dns)  [ 3\) FTP](https://7h3w4lk3r.gitbook.io/the-hive/recon/active-scanning/ftp)   [4\) SNMP](https://7h3w4lk3r.gitbook.io/the-hive/recon/active-scanning/snmp)   5\) LDAP   6\) SMTP / POP3   7\) SMB   8\) NTP   9\) RDP   10\) RPC   11\) SSH   12\) Telnet   13\) NFS   14\) rlogin   15\) Firewall Testing   16\) OS Version and Type Fingerprinting
+#### [1\) Web application enumeration](https://7h3w4lk3r.gitbook.io/the-hive/recon/active-scanning/web-application-enumeration)   [2\) DNS](https://7h3w4lk3r.gitbook.io/the-hive/recon/active-scanning/dns)  [ 3\) FTP](https://7h3w4lk3r.gitbook.io/the-hive/recon/active-scanning/ftp)   [4\) SNMP](https://7h3w4lk3r.gitbook.io/the-hive/recon/active-scanning/snmp)   [5\) LDAP](https://7h3w4lk3r.gitbook.io/the-hive/recon/active-scanning/ldap)   6\) SMTP / POP3   7\) SMB   8\) NTP   9\) RDP   10\) RPC   11\) SSH   12\) Telnet   13\) NFS   14\) rlogin   15\) Firewall Testing   16\) OS Version and Type Fingerprinting
 
 
 
