@@ -4,6 +4,7 @@
 * [Recon](recon/README.md)
   * [Passive \(OSINT\)](recon/osint.md)
   * [Active \(scanning\)](recon/active-scanning/README.md)
+    * [SMTP/POP3](recon/active-scanning/smtp-pop3.md)
     * [Host discovery and mapping](recon/active-scanning/host-discovery-and-mapping.md)
     * [Web Application Enumeration](recon/active-scanning/web-application-enumeration.md)
     * [DNS](recon/active-scanning/dns.md)
