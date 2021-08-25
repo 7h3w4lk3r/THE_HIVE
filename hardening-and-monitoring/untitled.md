@@ -5,7 +5,7 @@ description: >-
   hardening your OS.
 ---
 
-# Linux Security Hardening
+# Linux Hardening Checklist
 
 Since there are so many checklists, standards and guides for operating system hardening out there, i tried to make this as short as possible so i wont need to read through 200 pages of some manual every time i want to configure a system.
 

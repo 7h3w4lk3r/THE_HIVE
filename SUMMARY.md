@@ -66,5 +66,5 @@
 
 ## Hardening & Monitoring
 
-* [Linux Security Hardening](hardening-and-monitoring/untitled.md)
+* [Linux Hardening Checklist](hardening-and-monitoring/untitled.md)
 
