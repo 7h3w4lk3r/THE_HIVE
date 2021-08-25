@@ -45,7 +45,13 @@ Some Linux versions were affected by a bug that allow users with **UID &gt; INT\
 
 #### `$ sudo whatever  [sudo] password for user:  # Press+c since you don't have the password.  # This creates an invalid sudo tokens.  $ sh exploit.sh  .... wait 1 seconds  $ sudo -i # no password required :)  # id  uid=0(root) gid=0(root) groups=0(root)`
 
+#### for more methods related to sudo refer to [sudo abuse](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/untitled/privilege-escalation/sudo-abuse) section.
+
+
+
 ###  environmental variables
+
+see [environment variables section](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/untitled/privilege-escalation/environment-variables) for methods
 
 #### `cat /etc/profile  cat /home/*/.bashrc | grep alias | grep -v "#"  cat /root/.bashrc | grep alias | grep -v "#"  cat ~/.bash_profile  cat ~/.bashrc  cat ~/.bash_logout  env  set`
 
@@ -61,7 +67,7 @@ Some Linux versions were affected by a bug that allow users with **UID &gt; INT\
 
 #### `cat /etc/shells |grep "bin"|cut -d "/" -f3 2>/dev/null`
 
-### available programming languages
+### programming languages
 
 #### ``progr_dev=( "which perl" "which gcc" "which g++" "which python" "which php" "which cc" "which go" "which node") ;for programming_lang in "${progr_dev[@]}"; do pss=`$programming_lang |cut -d"/" -f4` ;if [ "$pss" ]; then echo -e "$pss" ;fi done``
 
@@ -73,7 +79,7 @@ Some Linux versions were affected by a bug that allow users with **UID &gt; INT\
 
 ####  `lpstat -a`
 
-###  network connections and known hosts
+###  network connections/hosts
 
 ####  `lsof -i  lsof -i :80  grep 80 /etc/services  netstat -antup  netstat -antpx  netstat -tulpn  chkconfig --list  chkconfig --list | grep 3:on  last  w  cat /etc/sudoers`
 
@@ -93,7 +99,7 @@ Some Linux versions were affected by a bug that allow users with **UID &gt; INT\
 
 #### `for user in $(cat /etc/passwd | cut -f1 -d":"); do id $user; done`
 
-### users with UID 0 \(root\) accounts
+###  UID 0  accounts \(root\)
 
 #### `cat /etc/passwd |cut -f1,3,4 -d":" |grep "0:0" |cut -f1 -d":"|awk '{print $1}'`
 
@@ -131,7 +137,7 @@ Some Linux versions were affected by a bug that allow users with **UID &gt; INT\
 
 ## network
 
-###   network/firewall/DNS configurations
+###   network configurations
 
 ####  `cat /etc/resolv.conf  cat /etc/sysconfig/network  cat /etc/networks  iptables -L  hostname  dnsdomainname`
 
@@ -163,7 +169,7 @@ Some Linux versions were affected by a bug that allow users with **UID &gt; INT\
 
 ## tasks and processes
 
-###   print process binaries/paths and permissions
+###   process binaries paths and permissions
 
 #### `ps aux | awk '{print $11}' |xargs -r ls -la 2>/dev/null |awk '!x[$0]++'`
 
@@ -183,7 +189,9 @@ Some Linux versions were affected by a bug that allow users with **UID &gt; INT\
 
 ####  `ls -alh /usr/bin/  ls -alh /sbin/  dpkg -l | grep  rpm -qa | grep  ls -alh /var/cache/apt/archives  ls -alh /var/cache/yum/`
 
-###  scheduled Tasks 
+###  scheduled Tasks
+
+see [cron/crontab abuse section](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/untitled/privilege-escalation/cron-crontab-abuse) for methods
 
 ####  `ls -lah /etc/cron*  cat /etc/crontab  crontab -l  ls -alh /var/spool/cron  ls -al /etc/ | grep cron  ls -al /etc/cron*  cat /etc/cron*  cat /etc/at.allow  cat /etc/at.deny  cat /etc/cron.allow  cat /etc/cron.deny  cat /etc/crontab  cat /etc/anacrontab  cat /var/spool/cron/crontabs/root`
 
@@ -198,7 +206,7 @@ Some Linux versions were affected by a bug that allow users with **UID &gt; INT\
 
 ####  Some services of a server save credentials in clear text inside the memory.  Normally you will need root privileges to read the memory of processes that belong to other users, therefore this is usually more useful when you are already root and want to discover more credentials.  However, remember that as a regular user you can read the memory of the processes you own.   To dump a process memory you could use: [https://github.com/hajzer/bash-memory-dump](https://github.com/hajzer/bash-memory-dump)  You can manually remove root requirements and dump process owned by you   Script A.5 from [https://www.delaat.net/rp/2016-2017/p97/report.pdf](https://www.delaat.net/rp/2016-2017/p97/report.pdf) \(root is required\)   ****
 
-### Credentials from Process Memory
+###  Process Memory Credentials
 
 ####  [this tool](https://github.com/huntergregal/mimipenguin) will steal clear text credentials from memory and from some well known files. It requires root privileges to work properly.   
 
@@ -224,7 +232,7 @@ Some Linux versions were affected by a bug that allow users with **UID &gt; INT\
 
 ####  `(dpkg --list 2>/dev/null | grep "compiler" | grep -v "decompiler\|lib" 2>/dev/null || yum list installed 'gcc*' 2>/dev/null | grep gcc 2>/dev/null; which gcc g++ 2>/dev/null || locate -r "/gcc[0-9\.-]\+$" 2>/dev/null | grep -v "/doc/")`
 
-###   installed software and packages 
+###   installed software/packages 
 
 ####  `dpkg -l  rpm -q`
 
@@ -260,6 +268,24 @@ Then, create a **executable** with the **same name as the relative path binary**
 
 ## files and directories
 
+### find all SUID/SGID binaries
+
+#### `find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null`
+
+#### check [SUID/SGID abuse](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/untitled/privilege-escalation/suid-sgid) section to see methods.
+
+#### see [/etc/shadow & /etc/passwd section](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/untitled/privilege-escalation/etc-shadow-and-etc-passwd) to see how you can use these files with read/write permission for privilege escalation.
+
+#### see[ shared object injection section](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/untitled/privilege-escalation/environment-variables) for methods related to SUID binaries and dynamically loadable libraries.
+
+#### 
+
+### NFS mounts
+
+#### `showmount -e 192.168.1.25`
+
+#### see [NFS section](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/untitled/privilege-escalation/nfs) for related methods.
+
 ###   find password in php files
 
 #### `find / -maxdepth 5 -name *.php -type f -exec grep -Hn password {} \; 2>/dev/null`
@@ -288,7 +314,7 @@ Then, create a **executable** with the **same name as the relative path binary**
 
 ####  `ls -al /etc/*.conf  grep pass* /etc/*.conf >>> containing passwords`
 
-###  Find conf files that contain the string “pass\*”
+### conf files with “pass\*” string
 
 #### `grep pass* /etc/*.conf  grep --color=auto -rnw '/' -ie "PASSWORD" --color=always 2> /dev/null  find . -type f -exec grep -i -I "PASSWORD" {} /dev/null \;`
 
@@ -300,7 +326,7 @@ Then, create a **executable** with the **same name as the relative path binary**
 
 ####  `find / -mmin -10 2>/dev/null | grep -Ev "^/proc"`
 
-###  Readable/Writable Files and Directories
+###  R/W Files and Directories
 
 ####  `find / -writable -type d 2>/dev/null`
 
@@ -312,7 +338,7 @@ Then, create a **executable** with the **same name as the relative path binary**
 
 ####  `find / -perm -u=s -type f 2>/dev/null`
 
-###  plain text usernames and/or passwords
+###  plain text usernames/passwords
 
 #### `grep -i user [filename]  grep -i pass [filename]  grep -C 5 "password" [filename]  find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password" # Joomla`
 
