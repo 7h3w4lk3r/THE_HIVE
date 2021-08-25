@@ -6,6 +6,8 @@
   * [Active \(scanning\)](recon/active-scanning/README.md)
     * [Host discovery and mapping](recon/active-scanning/host-discovery-and-mapping.md)
     * [Web Application Enumeration](recon/active-scanning/web-application-enumeration.md)
+    * [DNS](recon/active-scanning/dns.md)
+    * [FTP](recon/active-scanning/ftp.md)
 
 ## Network Attacks
 

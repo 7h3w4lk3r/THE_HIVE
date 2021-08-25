@@ -16,9 +16,9 @@ I split this section into two categories, network and web app, because these are
 
 #### Here are some of the tools and techniques for active enumeration and scanning different services, some of these might include some forms of password attacks or  some other hacking techniques with less effort: 
 
-#### 0\) Host discovery and network mapping
+#### [0\) Host discovery and network mapping](https://7h3w4lk3r.gitbook.io/the-hive/recon/active-scanning/host-discovery-and-mapping)
 
-#### 1\) Web application enumeration   2\) DNS   3\) FTP   4\) SNMP   5\) LDAP   6\) SMTP / POP3   7\) SMB   8\) NTP   9\) RDP   10\) RPC   11\) SSH   12\) Telnet   13\) NFS   14\) rlogin   15\) Firewall Testing   16\) OS Version and Type Fingerprinting
+#### [1\) Web application enumeration](https://7h3w4lk3r.gitbook.io/the-hive/recon/active-scanning/web-application-enumeration)   2\) DNS   3\) FTP   4\) SNMP   5\) LDAP   6\) SMTP / POP3   7\) SMB   8\) NTP   9\) RDP   10\) RPC   11\) SSH   12\) Telnet   13\) NFS   14\) rlogin   15\) Firewall Testing   16\) OS Version and Type Fingerprinting
 
 
 
