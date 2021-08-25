@@ -33,7 +33,7 @@ fierce -dns [domain] -wordlist [file.txt] >>> dns brute force
 fierce -dns example.com -wordlist /root/tools/wordlist/SecLists/Discovery/DNS/fierce-hostlist.txt 
 ```
 
-## nmap
+### nmap
 
 ```text
 nmap -p 53 --script dns-brute zonetransfer.me
