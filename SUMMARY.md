@@ -4,6 +4,7 @@
 * [CTF Write-ups](ctf-write-ups/README.md)
   * [DC - 1](ctf-write-ups/dc-1.md)
   * [DC - 2](ctf-write-ups/dc-2.md)
+  * [DC - 3](ctf-write-ups/dc-3.md)
 * [Recon](recon/README.md)
   * [Passive \(OSINT\)](recon/osint.md)
   * [Active \(scanning\)](recon/active-scanning/README.md)
