@@ -6,7 +6,7 @@ Samba, a Linux-based implementation of the SMB/CIFS protocols, provides print an
 
 Samba can be found listening on the usual “NetBIOS” ports:
 
-![](../../.gitbook/assets/image%20%2840%29.png)
+![](../../.gitbook/assets/image%20%2841%29.png)
 
 ### fix smbclient protocol negotiation failed error
 
@@ -128,7 +128,7 @@ NetBIOS can supply some of the following information when querying a computer:
 
 This block diagram represents the structure of NetBIOS
 
-![](../../.gitbook/assets/image%20%2842%29.png)
+![](../../.gitbook/assets/image%20%2843%29.png)
 
 As you can see the NetBIOS layer sits between the application layer and the IP layer. UDP is used to perform NetBIOS name resolution and to carry other one-to-many datagram-based communications. By using NetBIOS datagrams, a host can send small messages to many other hosts. Heavy traffic, such as a file copy, relies on TCP by using NetBIOS sessions.
 
@@ -181,7 +181,7 @@ Null sessions are remotely exploitable; this means that attackers can use their 
 
 In Windows, the most common command to use when enumerating Windows shares is nbtstat. Nbtstat is a Windows command line tool that can display information about a target. You can check how to use it by passing it the /? parameter The most common use of nbtstat is "nbtstat -A \[IP\]" that displays information about a target
 
-![](../../.gitbook/assets/image%20%2841%29.png)
+![](../../.gitbook/assets/image%20%2842%29.png)
 
 #### the first line tells us the name of the machine \[OVERLORD\]  the record type 00 tells us that OVERLORD is a workstation.  the type UNIQUE tells us that this computer must have only one IP address assigned.  second line contains the workgroup or the domain the computer is joined to.  type 20 record means that the file sharing service is up and running on the machine. 
 

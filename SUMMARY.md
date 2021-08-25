@@ -12,6 +12,7 @@
     * [LDAP](recon/active-scanning/ldap.md)
     * [SMTP/POP3](recon/active-scanning/smtp-pop3.md)
     * [SMB](recon/active-scanning/smb.md)
+    * [NTP](recon/active-scanning/ntp.md)
 
 ## Network Attacks
 
