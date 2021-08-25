@@ -63,6 +63,7 @@
   * [Abstract Data Types](programming-and-database/c/abstract-data-types/README.md)
     * [Linked Lists](programming-and-database/c/abstract-data-types/linked-lists/README.md)
       * [Singly Linked List](programming-and-database/c/abstract-data-types/linked-lists/singly-linked-list.md)
+      * [Doubly Linked List](programming-and-database/c/abstract-data-types/linked-lists/doubly-linked-list.md)
   * [Libraries & Linking](programming-and-database/c/libraries-and-linking.md)
 
 ## Hardening & Monitoring
