@@ -4,7 +4,6 @@
 * [Recon](recon/README.md)
   * [Passive \(OSINT\)](recon/osint.md)
   * [Active \(scanning\)](recon/active-scanning/README.md)
-    * [SMB](recon/active-scanning/smb.md)
     * [Host discovery and mapping](recon/active-scanning/host-discovery-and-mapping.md)
     * [Web Application Enumeration](recon/active-scanning/web-application-enumeration.md)
     * [DNS](recon/active-scanning/dns.md)
@@ -12,6 +11,7 @@
     * [SNMP](recon/active-scanning/snmp.md)
     * [LDAP](recon/active-scanning/ldap.md)
     * [SMTP/POP3](recon/active-scanning/smtp-pop3.md)
+    * [SMB](recon/active-scanning/smb.md)
 
 ## Network Attacks
 
