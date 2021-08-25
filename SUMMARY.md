@@ -8,6 +8,7 @@
     * [Web Application Enumeration](recon/active-scanning/web-application-enumeration.md)
     * [DNS](recon/active-scanning/dns.md)
     * [FTP](recon/active-scanning/ftp.md)
+    * [SNMP](recon/active-scanning/snmp.md)
 
 ## Network Attacks
 
