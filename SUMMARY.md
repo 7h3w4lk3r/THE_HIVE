@@ -1,6 +1,6 @@
 # Table of contents
 
-* [The Hive](README.md)
+* [Home](README.md)
 * [CTF Write-ups](ctf-write-ups/README.md)
   * [DC - 1](ctf-write-ups/dc-1.md)
   * [DC - 2](ctf-write-ups/dc-2.md)
