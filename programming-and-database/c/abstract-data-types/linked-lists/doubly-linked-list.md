@@ -6,7 +6,7 @@ Having two links instead of just one has several advantages. Perhaps the most im
 
 
 
-![](../../../../.gitbook/assets/image%20%2828%29.png)
+![](../../../../.gitbook/assets/image%20%2832%29.png)
 
 A new element can be inserted into a doubly linked list in three ways: insert a new first element,
 
@@ -39,7 +39,7 @@ void dlstore(struct address *i, struct address **last){
 
 ```
 
-![](../../../../.gitbook/assets/image%20%2829%29.png)
+![](../../../../.gitbook/assets/image%20%2834%29.png)
 
 The function dlstore\( \) puts each new entry on the end of the list. You must call it with a pointer to the data to be stored as well as a pointer to the end of the list, which must be null on the first call.
 
@@ -117,7 +117,7 @@ else
 
 Because the first or last element in the list could be deleted, the dldelete\( \) function automatically updates pointers to the beginning and ending elements of the list through the start and last parameters. You must call the function with a pointer to the data to be deleted and a pointer to the pointers to the first and last items in the list.
 
-![](../../../../.gitbook/assets/image%20%2830%29.png)
+![](../../../../.gitbook/assets/image%20%2835%29.png)
 
 example:
 

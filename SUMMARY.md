@@ -56,15 +56,19 @@
   * [Macros](programming-and-database/c/macros.md)
   * [Files](programming-and-database/c/files.md)
   * [Strings Manipulation](programming-and-database/c/strings-manipulation.md)
+  * [Bit Manipulation](programming-and-database/c/bit-manipulation.md)
   * [Data Structures](programming-and-database/c/data-structures/README.md)
     * [Arrays](programming-and-database/c/data-structures/arrays.md)
     * [Structures](programming-and-database/c/data-structures/structures.md)
     * [Unions](programming-and-database/c/data-structures/unions.md)
   * [Abstract Data Types](programming-and-database/c/abstract-data-types/README.md)
-    * [Linked Lists](programming-and-database/c/abstract-data-types/linked-lists/README.md)
+    * [Stack](programming-and-database/c/abstract-data-types/stack.md)
+    * [Queue](programming-and-database/c/abstract-data-types/queue.md)
+    * [Linked List](programming-and-database/c/abstract-data-types/linked-lists/README.md)
       * [Singly Linked List](programming-and-database/c/abstract-data-types/linked-lists/singly-linked-list.md)
       * [Doubly Linked List](programming-and-database/c/abstract-data-types/linked-lists/doubly-linked-list.md)
   * [Libraries & Linking](programming-and-database/c/libraries-and-linking.md)
+  * [Error Recovery](programming-and-database/c/error-recovery.md)
 
 ## Hardening & Monitoring
 

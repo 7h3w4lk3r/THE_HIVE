@@ -1,4 +1,4 @@
-# Linked Lists
+# Linked List
 
 Queues and stacks share two traits: They both have strict rules for accessing the data stored in them, and the retrieval operations are, by nature, consumptive. In other words, accessing an item in a stack or queue requires its removal, and unless the item is stored elsewhere, it is destroyed. Also, stacks and queues both use a contiguous region of memory. Unlike a stack or a queue, a linked list can be accessed in a flexible fashion, because each piece of information carries with it a link to the next data item in the chain. In addition, a linked list retrieval operation does not remove and destroy an item from the list. In fact, you need to add a specific deletion operation to do this.
 
@@ -15,7 +15,7 @@ search → searchs an element using a key
 display → display the complete list
 ```
 
-![](../../../../.gitbook/assets/image%20%2826%29.png)
+![](../../../../.gitbook/assets/image%20%2830%29.png)
 
 
 
