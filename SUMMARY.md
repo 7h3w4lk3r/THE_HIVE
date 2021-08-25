@@ -1,11 +1,6 @@
 # Table of contents
 
 * [Home](README.md)
-* [CTF Write-ups](ctf-write-ups/README.md)
-  * [DC - 1](ctf-write-ups/dc-1.md)
-  * [DC - 2](ctf-write-ups/dc-2.md)
-  * [DC - 3](ctf-write-ups/dc-3.md)
-  * [DC - 4](ctf-write-ups/dc-4.md)
 * [Recon](recon/README.md)
   * [Passive \(OSINT\)](recon/osint.md)
   * [Active \(scanning\)](recon/active-scanning/README.md)
@@ -65,9 +60,20 @@
     * [Arrays](programming-and-database/c/data-structures/arrays.md)
     * [Structures](programming-and-database/c/data-structures/structures.md)
     * [Unions](programming-and-database/c/data-structures/unions.md)
+  * [Abstract Data Types](programming-and-database/c/abstract-data-types/README.md)
+    * [Linked Lists](programming-and-database/c/abstract-data-types/linked-lists/README.md)
+      * [Singly Linked List](programming-and-database/c/abstract-data-types/linked-lists/singly-linked-list.md)
   * [Libraries & Linking](programming-and-database/c/libraries-and-linking.md)
 
 ## Hardening & Monitoring
 
 * [Linux Hardening Checklist](hardening-and-monitoring/untitled.md)
+
+## CTF walkthrough <a id="ctfs"></a>
+
+* [VulnHub](ctfs/ctf-write-ups/README.md)
+  * [DC - 1](ctfs/ctf-write-ups/dc-1.md)
+  * [DC - 2](ctfs/ctf-write-ups/dc-2.md)
+  * [DC - 3](ctfs/ctf-write-ups/dc-3.md)
+  * [DC - 4](ctfs/ctf-write-ups/dc-4.md)
 
