@@ -1,4 +1,4 @@
-# SUID / SGID
+# SUID / SGID abuse
 
 #### SUID files get executed with the privileges of the file owner. 
 

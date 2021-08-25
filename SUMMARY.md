@@ -17,7 +17,7 @@
 * [Linux](network-attacks/untitled/README.md)
   * [Privilege Escalation](network-attacks/untitled/privilege-escalation/README.md)
     * [Enumeration](network-attacks/untitled/privilege-escalation/enumeration.md)
-    * [SUID / SGID](network-attacks/untitled/privilege-escalation/suid-sgid.md)
+    * [SUID / SGID abuse](network-attacks/untitled/privilege-escalation/suid-sgid.md)
     * [/etc/shadow & /etc/passwd](network-attacks/untitled/privilege-escalation/etc-shadow-and-etc-passwd.md)
     * [cron/crontab abuse](network-attacks/untitled/privilege-escalation/cron-crontab-abuse.md)
     * [Sudo Abuse](network-attacks/untitled/privilege-escalation/sudo-abuse.md)
