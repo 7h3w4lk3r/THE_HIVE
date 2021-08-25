@@ -16,7 +16,7 @@ It uses strings to represent data
 
 Directories are set of object with similar attributes, organised in a logical and hierarchical manner. For example, Telephonic Directories. It is a distributed database application used to manage attributes in a directory.
 
-![](../../.gitbook/assets/image%20%2838%29.png)
+![](../../.gitbook/assets/image%20%2843%29.png)
 
 LDAP defines operations for accessing and modifying directory entries such as:
 
