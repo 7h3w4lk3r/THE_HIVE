@@ -2,7 +2,7 @@
 
 #### Privilege escalation is a really big topic to cover and there are countless methods to achieve root/system level privileges. but im trying to focus on the most important techniques and start from the very basics.
 
-## before we start you should know these:
+## know before you start
 
 **1. first rule of privilege escalation is that you HAVE TO be familiar with target system command line, actually the more comfortable you are with the shell the better and easier will be the privesc phase.**
 
@@ -104,7 +104,9 @@ here is a Linux privilege escalation checklist from [PayloadAllTheThings](https:
   * Checks to see if the host has Docker installed
   * Checks to determine if we're in an LXC container
 
-## Resources:
+
+
+## Resources
 
 {% embed url="https://book.hacktricks.xyz/linux-unix/privilege-escalation\#apparmor" %}
 
@@ -118,7 +120,7 @@ here is a Linux privilege escalation checklist from [PayloadAllTheThings](https:
 
 \*\*\*\*
 
-## Methods:
+## Methods
 
 1. **cron/crontab abuse**
 2. **/etc/passwd & /etc/shadow**
