@@ -9,6 +9,7 @@
     * [DNS](recon/active-scanning/dns.md)
     * [FTP](recon/active-scanning/ftp.md)
     * [SNMP](recon/active-scanning/snmp.md)
+    * [LDAP](recon/active-scanning/ldap.md)
 
 ## Network Attacks
 
