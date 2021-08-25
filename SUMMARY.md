@@ -13,6 +13,7 @@
     * [SMTP/POP3](recon/active-scanning/smtp-pop3.md)
     * [SMB](recon/active-scanning/smb.md)
     * [NTP](recon/active-scanning/ntp.md)
+    * [RDP](recon/active-scanning/rdp.md)
 
 ## Network Attacks
 
