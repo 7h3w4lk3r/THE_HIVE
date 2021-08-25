@@ -33,6 +33,10 @@ description: >-
  [https://github.com/jondonas/linux-exploit-suggester-2](https://github.com/jondonas/linux-exploit-suggester-2)  
  [http://www.securitysift.com/download/linuxprivchecker.py](http://www.securitysift.com/download/linuxprivchecker.py)
 
+### Big UID <a id="big-uid"></a>
+
+Some Linux versions were affected by a bug that allow users with **UID &gt; INT\_MAX** to escalate privileges. More info: [here](https://gitlab.freedesktop.org/polkit/polkit/issues/74), [here](https://github.com/mirchr/security-research/blob/master/vulnerabilities/CVE-2018-19788.sh) and [here](https://twitter.com/paragonsec/status/1071152249529884674). **Exploit it** using: **`systemd-run -t /bin/bash`**
+
 ### sudo\_inject
 
 #### this has requirements, doesn't work all the time:\(
