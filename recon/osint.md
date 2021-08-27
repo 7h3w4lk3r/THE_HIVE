@@ -272,7 +272,9 @@ weleakinfo.com/
 
 #### There are countless number of tools out there designed for active/passive recon. in fact almost one out of then pentester/security "expert" out there has written some sort of crap recon framework/tool that only himself/herself has ever used. you wont need to know about every single one of them because most of them use the same techniques for gathering these information. in this section i will briefly introduce you to the best/well-known tools that i usually use:
 
-## Theharvester
+### 
+
+### Theharvester
 
 a well-known tool among pentesters and OSINT investigators which is mostly good for collecting subdomains and email addresses.
 
@@ -292,7 +294,9 @@ docker build -t theharvester .
 docker run theharvester -h 
 ```
 
-## h8mail
+### 
+
+### h8mail
 
 An email OSINT and breach hunting tool using different breach and reconnaissance services, or local breaches such as Troy Hunt's "Collection1" and the infamous "Breach Compilation" torrent.
 
@@ -304,13 +308,17 @@ python3 -m pip install h8mail
 h8mail -t target@example.com
 ```
 
-## gitrob
+### 
+
+### gitrob
 
 a tool to help find potentially sensitive files pushed to public repositories on Github. Gitrob will clone repositories belonging to a user or organization down to a configurable depth and iterate through the commit history and flag files that match signatures for potentially sensitive files. The findings will be presented through a web interface for easy browsing and analysis.
 
 {% embed url="https://github.com/michenriksen/gitrob/releases/tag/v2.0.0-beta" %}
 
-## inspy
+### 
+
+### inspy
 
 LinkedIn enumeration tool. preinstalled on kali.
 
@@ -329,7 +337,7 @@ inspy --empspy /usr/share/inspy/wordlists/title-list-large.txt --emailformat
 
 
 
-## amass
+### amass
 
 In-depth Attack Surface Mapping and Asset Discovery, preinstalled on kali. The OWASP Amass Project performs network mapping of attack surfaces and external asset discovery using open source information gathering and active reconnaissance techniques.
 
@@ -341,7 +349,9 @@ run the help to see the options:
 amass --help
 ```
 
-## spiderfoot
+### 
+
+### spiderfoot
 
 an open source intelligence \(OSINT\) automation tool. It calmes to integrate with just about every data source available and utilities a range of methods for data analysis, making that data easy to navigate.
 
@@ -351,7 +361,9 @@ an open source intelligence \(OSINT\) automation tool. It calmes to integrate wi
 spiderfoot -l 127.0.0.1:5001  → run web GUI on local host, connect with browser
 ```
 
-## recon-ng
+### 
+
+### recon-ng
 
 By far, the best recon framework out there with both active and passive modules. designed like metasploit framework and each type of recon has its own specific module and options. the modules are installed from the "marketplace" plus a bunch of reporting modules for different formats. recon-ng is preinstalled on kali linux and parrot OS.
 
@@ -401,7 +413,9 @@ recon/hosts-hosts/reverse_resolve
 discovery/info_disclosure/cache_snoop       → useful for finding AVs in use
 ```
 
-## sherlock
+### 
+
+### Sherlock
 
 find user accounts on social media
 
@@ -416,13 +430,17 @@ python3 sherlock --help
 python3 sherlock user1 user2 user3
 ```
 
-## TWINT
+### 
+
+### TWINT
 
 advanced Twitter scraping tool written in Python that allows for scraping Tweets from Twitter profiles without using Twitter's API.
 
 {% embed url="https://github.com/twintproject/twint" %}
 
-## social-analyzer
+### 
+
+### social-analyzer
 
 for analyzing and finding a person's profile across +800 social media  websites
 
@@ -431,22 +449,4 @@ python3 -m pip install social-analyzer
 
 social-analyzer --username "johndoe" --metadata --extract --mode fast
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
