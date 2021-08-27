@@ -19,10 +19,11 @@
 ## Network Attacks
 
 * [Windows](network-attacks/windows/README.md)
-  * [Security Component Basics](network-attacks/windows/security-component-basics/README.md)
-    * [Loggon Sessions and Access Tokens](network-attacks/windows/security-component-basics/loggon-sessions-and-access-tokens.md)
-    * [Network Authentication](network-attacks/windows/security-component-basics/network-authentication.md)
-    * [Permissions](network-attacks/windows/security-component-basics/permissions.md)
+  * [Security Component](network-attacks/windows/security-component/README.md)
+    * [Loggon Sessions and Access Tokens](network-attacks/windows/security-component/loggon-sessions-and-access-tokens.md)
+    * [Network Authentication](network-attacks/windows/security-component/network-authentication.md)
+    * [Permissions](network-attacks/windows/security-component/permissions.md)
+    * [Mandatory Integrity Control](network-attacks/windows/security-component/mandatory-integrity-control.md)
 * [Linux](network-attacks/untitled/README.md)
   * [Privilege Escalation](network-attacks/untitled/privilege-escalation/README.md)
     * [Enumeration](network-attacks/untitled/privilege-escalation/enumeration.md)
