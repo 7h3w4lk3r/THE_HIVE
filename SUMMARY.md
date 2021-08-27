@@ -89,11 +89,3 @@
 
 * [Linux Hardening Checklist](hardening-and-monitoring/untitled.md)
 
-## CTF walkthrough <a id="ctfs"></a>
-
-* [VulnHub](ctfs/ctf-write-ups/README.md)
-  * [DC - 1](ctfs/ctf-write-ups/dc-1.md)
-  * [DC - 2](ctfs/ctf-write-ups/dc-2.md)
-  * [DC - 3](ctfs/ctf-write-ups/dc-3.md)
-  * [DC - 4](ctfs/ctf-write-ups/dc-4.md)
-
