@@ -22,6 +22,7 @@
   * [Security Component Basics](network-attacks/windows/security-component-basics/README.md)
     * [Loggon Sessions and Access Tokens](network-attacks/windows/security-component-basics/loggon-sessions-and-access-tokens.md)
     * [Network Authentication](network-attacks/windows/security-component-basics/network-authentication.md)
+    * [Permissions](network-attacks/windows/security-component-basics/permissions.md)
 * [Linux](network-attacks/untitled/README.md)
   * [Privilege Escalation](network-attacks/untitled/privilege-escalation/README.md)
     * [Enumeration](network-attacks/untitled/privilege-escalation/enumeration.md)
