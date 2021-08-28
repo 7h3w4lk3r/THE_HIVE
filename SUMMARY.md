@@ -15,6 +15,7 @@
     * [NTP](recon/active-scanning/ntp.md)
     * [RDP](recon/active-scanning/rdp.md)
     * [RPC](recon/active-scanning/rpc.md)
+    * [SSH](recon/active-scanning/ssh.md)
 
 ## Network Attacks
 
