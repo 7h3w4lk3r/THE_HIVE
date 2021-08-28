@@ -16,6 +16,7 @@
     * [RDP](recon/active-scanning/rdp.md)
     * [RPC](recon/active-scanning/rpc.md)
     * [SSH](recon/active-scanning/ssh.md)
+    * [Telnet](recon/active-scanning/telnet.md)
 
 ## Network Attacks
 
