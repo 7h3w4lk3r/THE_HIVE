@@ -22,6 +22,7 @@
 ## Network Attacks
 
 * [Windows](network-attacks/windows/README.md)
+  * [Local Privilege Escalation](network-attacks/windows/local-privilege-escalation.md)
   * [Security Component](network-attacks/windows/security-component/README.md)
     * [Permissions and Access Control](network-attacks/windows/security-component/permissions.md)
     * [Loggon Sessions and Access Tokens](network-attacks/windows/security-component/loggon-sessions-and-access-tokens.md)
