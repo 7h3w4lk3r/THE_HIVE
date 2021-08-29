@@ -58,7 +58,6 @@ wmic qfe
 list all drivers:
 
 ```text
-wmic logicaldisk get caption || fsutil fsinfo drives
 wmic logicaldisk get caption,description,providername
 Get-PSDrive | where {$_.Provider -like "Microsoft.PowerShell.Core\FileSystem"}| ft Name,Root
 ```
@@ -150,12 +149,13 @@ cat (Get-PSReadlineOption).HistorySavePath | sls passw
 ### file system drives
 
 ```text
+wmic logicaldisk get caption || fsutil fsinfo drives
 driverquery | findstr "File System"
 driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
 Get-WmiObject Win32_PnPSignedDriver | Select-Object DeviceName, DriverVersion, Manufacturer | Where-Object {$_.DeviceName -like "*VMware*"}
 ```
 
-### mounte volumes
+### mount / volumes
 
 ```text
 mountvol
@@ -163,13 +163,13 @@ mountvol
 
 ## system logs and audit setting
 
-view system auditing setting
+### view system auditing setting
 
 ```text
 reg query HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit
 ```
 
-check if system logs are stored somewhere else:
+### check if system logs are stored somewhere else:
 
 ```text
 reg query HKLM\Software\Policies\Microsoft\Windows\EventLog\EventForwarding\SubscriptionManager
@@ -182,7 +182,7 @@ wevtutil enum-logs
 wevtutil el
 ```
 
-display configuration information about the System log on the local computer:
+### configuration for System log:
 
 ```text
 wevtutil gl System
@@ -194,13 +194,13 @@ general application logging info:
 wevtutil gli Application
 ```
 
-check credential guard:
+### check credential guard:
 
 ```text
 reg query HKLM\System\CurrentControlSet\Control\LSA /v LsaCfgFlags
 ```
 
-check cached credentials \(domain\):
+### check cached credentials \(domain\):
 
 ```text
 reg query "HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\WINDOWS NT\CURRENTVERSION\WINLOGON" /v CACHEDLOGONSCOUNT
@@ -380,6 +380,135 @@ dump clipboard
 ```text
 powershell -command "Get-Clipboard"
 ```
+
+
+
+## Software and Processes
+
+### check 'always install elevated' \(both should be enabled\):
+
+```text
+reg query HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Installer
+reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer
+```
+
+### list processes
+
+```text
+qprocess * 
+tasklist
+tasklist /m ntdll.dll
+```
+
+Find the list of processes launched by a user
+
+```text
+tasklist /fi "username eq userName"
+```
+
+Find the memory usage of a specific process
+
+```text
+tasklist /fi "pid eq processId"
+tasklist /fi "pid eq 6544"
+```
+
+Get the list of services running in a process
+
+```text
+tasklist /svc /fi "pid eq processId"
+tasklist /svc /fi "pid eq 624"
+```
+
+Find processes that are running a specified image file:
+
+```text
+tasklist /fi "imagename eq imageName"
+tasklist /fi "imagename eq firefox.exe"
+```
+
+Find the process running a specific service
+
+```text
+tasklist /fi "services eq serviceName"
+tasklist /fi "services eq webclient"
+```
+
+Kill a Task
+
+```text
+taskkill -f /pid 1337
+taskkill /IM notepad.exe
+```
+
+
+
+### list processes running as "system"
+
+```text
+tasklist /v /fi "username eq system"
+```
+
+### installed programs \(might need higher privileges\)
+
+```text
+wmic product get name, version, vendor
+```
+
+show system-wide updates
+
+```text
+wmic qfe get Caption, Description, HotFixID, InstalledOn
+```
+
+uninstall software \(if you have privileges\)
+
+```text
+wmic product where name="<NAME>" call uninstall /INTERACTIVE:OFF
+```
+
+### view/start/stop a service
+
+```text
+net start
+wmic service list brief
+sc query
+Get-Service
+sc start [name]
+sc config [name] start= demand
+sc stop [name]
+```
+
+get services real name with net start output
+
+```text
+sc getkeyname "service name"
+```
+
+### list scheduled tasks
+
+```text
+schtasks /query /fo LIST /v
+```
+
+add a startup scheduled task \(useful for persistence\)
+
+```text
+schtasks /create /tn "MyCustomTask" /sc onlogon /tr "C:\users\Administrator\Desktop\backdoor.exe"
+
+schtasks /create /tn "MyCustomTask" /sc onstart /tr "C:\users\Administrator\Desktop\backdoor.exe"
+```
+
+check the required privilege level for each service.
+
+```text
+accesschk.exe -ucqv <Service_Name> #Check rights for different groups
+accesschk.exe -uwcqv "Authenticated Users" * /accepteula
+accesschk.exe -uwcqv %USERNAME% * /accepteula
+accesschk.exe -uwcqv "BUILTIN\Users" * /accepteula 2>nul
+```
+
+
 
 
 
