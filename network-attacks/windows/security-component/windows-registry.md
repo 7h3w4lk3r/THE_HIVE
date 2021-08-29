@@ -138,6 +138,37 @@ reg unload
 You'll get the return codes: **0** meaning that the operation completed successfully, and **1** indicating that the operation failed. However, you won't get any return codes using the **Compare** switch.
 {% endhint %}
 
+### view registry entries
+
+If you’re only interested in looking up a key, you will not need the name of a value. When you look up a key, you basically look up what values and keys exist under it.
+
+```text
+Reg Query "Path to key"
+```
+
+example:
+
+```text
+Reg Query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion"
+```
+
+The output of this command can be rather long since a key can have lots of sub-keys. This command will only return a list of keys under the one you’ve specified.
+
+If you’d like to look up both the keys and the values under a specific key, and also include all the values under the sub-keys, add the /s switch. Be prepared for an even larger output.
+
+```text
+Reg Query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /s
+```
+
+Look up value
+
+```text
+Reg Query "Path to key" /v NameOfValue
+Reg Query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v InstallDate
+```
+
+
+
 ### add and delete registry entries
 
 ```text
@@ -213,6 +244,8 @@ To delete the subkey named **MySubkey**, use the following example:
 REG DELETE HKLM\Software\MySubkey /f
 ```
 
+### 
+
 ### copy registry entries
 
 ```text
@@ -235,6 +268,8 @@ To copy all values under the subkey **MySubkey1** from a remote computer to the 
 ```text
 REG COPY \\ComputerName\HKLM\Software\MySubkey1 HKLM\Software\MySubkey2
 ```
+
+### 
 
 ### export and import registry entries
 
@@ -265,11 +300,30 @@ To import all the content, including subkeys, entries, and values within the sub
 REG IMPORT C:\RegKeyBackup.reg
 ```
 
+### 
+
 ### save and restore registry entries
 
+```text
+Save: REG SAVE KeyName FileName [/y]
+Restore: REG RESTORE KeyName FileName
+```
 
+* **KeyName:** Defines the path to the subkey or entry. Valid registry key shortcuts include HKLM, HKCU, HKCR, HKU, and HKCC. If you're trying to edit the registry on a remote computer, you can only use these shortcuts: HKLM and HKU.
+* **FileName:** Specifies the name and path of the .hiv file to be saved or restored.
+* **/y:** Overwrites the registry content without prompting for confirmation.
 
+To save a copy of subkeys, entries, and values within the subkey named **MySubkey**, use the following example:
 
+```text
+REG SAVE HKLM\Software\MySubkey C:\RegKeyBackup.hiv /y
+```
+
+To restore all the content, including subkeys, entries, and values within the subkey named **MySubkey**, use the following example:
+
+```text
+REG RESTORE HKLM\Software\MySubkey C:\RegKeyBackup.hiv
+```
 
 
 
