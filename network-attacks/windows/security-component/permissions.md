@@ -1,8 +1,8 @@
 ---
 description: >-
-  in windows everything is an object; a service, user, group, file, etc. so all
-  security features of windows is based on controlling and managing these
-  objects.
+  in windows everything is an object; a service, user, group, file, share, even
+  domains in a forest. so all security features of windows is based on
+  controlling and managing these objects.
 ---
 
 # Permissions and Access Control
