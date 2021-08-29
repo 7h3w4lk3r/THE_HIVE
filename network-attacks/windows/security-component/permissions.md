@@ -28,7 +28,7 @@ Of these types, some are hierarchical in nature \(directories, registry keys, �
 
 ## Security IDs \(SID\)
 
-Instead of using names \(which might or might not be unique\) to identify entities that perform actions in a system, Windows uses security identifiers \(SIDs\). Users have SIDs, as do local and domain groups, local computers, domains, domain members, and services. A SID is a variable-length numeric value that consists of a SID structure revision number, a 48-bit identifier authority value, and a variable number of 32-bit sub-authority or relative identifier \(RID\) values. The authority value identifies the agent that issued the SID, and this agent is typically a Windows local system or a domain. Subauthority values identify trustees relative to the issuing authority, and RIDs are simply a way for Windows to create unique SIDs based on a common base SID. Because SIDs are long and Windows takes care to generate truly random values within each SID, it is virtually impossible for Windows to issue the same SID twice on machines or domains anywhere in the world. 
+Instead of using names \(which might or might not be unique\) to identify entities that perform actions in a system, Windows uses security identifiers \(SIDs\). Users have SIDs, as do local and domain groups, local computers, domains, domain members, and services. A SID is a variable-length numeric value that consists of a SID structure revision number, a 48-bit identifier authority value, and a variable number of 32-bit sub-authority or relative identifier \(RID\) values. The authority value identifies the agent that issued the SID, and this agent is typically a Windows local system or a domain. Sub-authority values identify trustees relative to the issuing authority, and RIDs are simply a way for Windows to create unique SIDs based on a common base SID. Because SIDs are long and Windows takes care to generate truly random values within each SID, it is virtually impossible for Windows to issue the same SID twice on machines or domains anywhere in the world. 
 
 When displayed textually, each SID carries an S prefix, and its various components are separated with hyphens like so:
 
@@ -36,9 +36,9 @@ When displayed textually, each SID carries an S prefix, and its various componen
 S-1-5-21-1463437245-1224812800-863842198-1128
 ```
 
-In this SID, the revision number is 1, the identifier authority value is 5 \(the Windows security author- ity\), and four subauthority values plus one RID \(1128\) make up the remainder of the SID. This SID is a domain SID, but a local computer on the domain would have a SID with the same revision number, identifier authority value, and number of subauthority values.
+In this SID, the revision number is 1, the identifier authority value is 5 \(the Windows security authority\), and four sub-authority values plus one RID \(1128\) make up the remainder of the SID. This SID is a domain SID, but a local computer on the domain would have a SID with the same revision number, identifier authority value, and number of sub-authority values.
 
-Windows issues SIDs that consist of a computer or domain SID with a predefined RID to many pre- defined accounts and groups. For example, the RID for the Administrator account is 500, and the RID for the guest account is 501. A computer’s local Administrator account, for example, has the computer SID as its base with the RID of 500 appended to it:
+Windows issues SIDs that consist of a computer or domain SID with a predefined RID to many predefined accounts and groups. For example, the RID for the Administrator account is 500, and the RID for the guest account is 501. A computer’s local Administrator account, for example, has the computer SID as its base with the RID of 500 appended to it:
 
 ```text
 S-1-5-21-13124455-12541255-61235125-500
@@ -50,9 +50,9 @@ Windows also defines a number of built-in local and domain SIDs to represent wel
 
 ![](../../../.gitbook/assets/image%20%2864%29.png)
 
-Unlike users’ SIDs, these SIDs are predefined con- stants, and have the same values on every Windows system and domain in the world. Thus, a file that is accessible by members of the Everyone group on the system where it was created is also accessible to Everyone on any other system or domain to which the hard drive where it resides happens to be moved. Users on those systems must, of course, authenticate to an account on those systems before becoming members of the Everyone group.
+Unlike users’ SIDs, these SIDs are predefined constants, and have the same values on every Windows system and domain in the world. Thus, a file that is accessible by members of the Everyone group on the system where it was created is also accessible to Everyone on any other system or domain to which the hard drive where it resides happens to be moved. Users on those systems must, of course, authenticate to an account on those systems before becoming members of the Everyone group.
 
-Finally, Winlogon creates a unique logon SID for each interactive logon session. A typical use of a logon SID is in an access control entry \(ACE\) that allows access for the duration of a client’s logon ses- sion.
+Finally, Winlogon creates a unique logon SID for each interactive logon session. A typical use of a logon SID is in an access control entry \(ACE\) that allows access for the duration of a client’s logon session.
 
 
 
