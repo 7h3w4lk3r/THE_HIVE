@@ -122,14 +122,12 @@ Is the API that can be use to authenticate users. The SSPI will be in charge of 
 
 
 
-
-
 ### **AppLocker**
 
  A mechanism that allows administrators to specify which executable files, DLLs, and scripts can be used by specified users and groups. AppLocker consists of a driver \(%SystemRoot%\System32\Drivers\AppId.sys\) and a service \(%SystemRoot%\System32\AppIdSvc.dll\) running in a SvcHost process.  
 
 
-the relationships among some of these components and the databases they manage **are shown in picture bellow:**
+#### the relationships among some of these components and the databases they manage **are shown in picture bellow:**
 
 ![](../../../.gitbook/assets/image%20%2855%29.png)
 
