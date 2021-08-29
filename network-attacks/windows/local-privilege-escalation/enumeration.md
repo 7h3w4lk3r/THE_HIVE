@@ -1,9 +1,5 @@
 # Enumeration
 
-{% hint style="info" %}
-some of these commands may require higher privileges \( not necessarily admin level \) and some others are from powerview script \( commands starting with get-net\* \).
-{% endhint %}
-
 ## System Information
 
 ### general system information
