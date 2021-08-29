@@ -317,14 +317,14 @@ echo %USERNAME% || whoami
 $env:username
 ```
 
-list privileges
+### list privileges
 
 ```text
 whoami /priv
 whoami /groups
 ```
 
-list all local users and groups
+### list all local users and groups
 
 ```text
 net user
@@ -343,7 +343,7 @@ dir C:\Users
 Get-ChildItem C:\Users
 ```
 
-find local admins
+### find local admins
 
 ```text
 net localgroup Administrators 
@@ -368,7 +368,7 @@ net localgroup administrators
 Get-LocalGroupMember Administrators | ft Name, PrincipalSource
 ```
 
-logged users/sessions
+### logged users/sessions
 
 ```text
 qwinsta
