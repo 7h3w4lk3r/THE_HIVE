@@ -44,20 +44,26 @@
 a list of automated tools used in post-exploitation enumeration and privilege escalation.
 
 {% hint style="info" %}
-unlike linux, in windows you have to consider the possibility that the any tool you are going to use may trigger a deffensive mechanism such as AVs or an HIPS/HIDS so for operational security, its better to use obfuscated versions of these tools because even the harmless scripts such as powerview will be detected by most AV vendors out there.
+unlike linux, in windows you have to consider the possibility that the any tool you are going to use may trigger a defensive mechanism such as AVs or an HIPS/HIDS so for operational security, its better to use obfuscated versions of these tools because even the harmless scripts such as powerview will be detected by most AV vendors out there.
 
-the other reasonable way to stay under the radar in a real-world pentest is to use commands and tools that are already available on the target system such as wmic and powershell cmdlets. but keep in mind that even 
+the other reasonable way to stay under the radar in a real-world pentest is to use commands and tools that are already available on the target system such as wmic and powershell cmdlets. but keep in mind that in some environments with strict access control/delegation even running any powershell commands might trigger a sensor.
+
+**as far as opsec is concerned, non of the tools mentioned bellow can evade AV products by default, mainly because of their signatures.**
 {% endhint %}
 
 
 
 {% embed url="https://github.com/AlessandroZ/BeRoot" %}
 
-\*\*\*\*
+{% embed url="https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS" %}
 
-\*\*\*\*
+{% embed url="https://github.com/hfiref0x/UACME" %}
 
-\*\*\*\*
+{% embed url="https://github.com/PowerShellMafia/PowerSploit/" %}
+
+{% embed url="https://github.com/411Hall/JAWS" %}
+
+{% embed url="https://github.com/GhostPack/SharpUp" %}
 
 \*\*\*\*
 
