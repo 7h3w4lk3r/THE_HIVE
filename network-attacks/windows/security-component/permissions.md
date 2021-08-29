@@ -28,7 +28,33 @@ Of these types, some are hierarchical in nature \(directories, registry keys, �
 
 ## Security IDs \(SID\)
 
-Any trustee can be identified by its name or by its SID. Humans tend to prefer names whereas computers very much prefer SIDs, which are binary data structures. When humans cannot avoid dealing with SIDs they use a certain string format. In this format, the SID of the local group `Administrators` looks like this: `S-1-5-32-544`.
+Instead of using names \(which might or might not be unique\) to identify entities that perform actions in a system, Windows uses security identifiers \(SIDs\). Users have SIDs, as do local and domain groups, local computers, domains, domain members, and services. A SID is a variable-length numeric value that consists of a SID structure revision number, a 48-bit identifier authority value, and a variable number of 32-bit subauthority or relative identifier \(RID\) values. The authority value identifies the agent that issued the SID, and this agent is typically a Windows local system or a domain. Subauthority values identify trustees relative to the issuing authority, and RIDs are simply a way for Windows to create unique SIDs based on a common base SID. Because SIDs are long and Windows takes care to generate truly random values within each SID, it is virtually impossible for Windows to issue the same SID twice on machines or domains anywhere in the world. 
+
+When displayed textually, each SID carries an S prefix, and its various components are separated with hyphens like so:
+
+```text
+S-1-5-21-1463437245-1224812800-863842198-1128
+```
+
+In this SID, the revision number is 1, the identifier authority value is 5 \(the Windows security author- ity\), and four subauthority values plus one RID \(1128\) make up the remainder of the SID. This SID is a domain SID, but a local computer on the domain would have a SID with the same revision number, identifier authority value, and number of subauthority values.
+
+Windows issues SIDs that consist of a computer or domain SID with a predefined RID to many pre- defined accounts and groups. For example, the RID for the Administrator account is 500, and the RID for the guest account is 501. A computer’s local Administrator account, for example, has the computer SID as its base with the RID of 500 appended to it:
+
+```text
+S-1-5-21-13124455-12541255-61235125-500
+```
+
+Windows also defines a number of built-in local and domain SIDs to represent well-known groups. For example, a SID that identifies any and all accounts \(except anonymous users\) is the Everyone SID: S-1-1-0. Another example of a group that a SID can represent is the Network group, which is the group that represents users who have logged on to a machine from the network. The Network group SID is S-1-5-2.
+
+### A few well-known SIDs
+
+![](../../../.gitbook/assets/image%20%2864%29.png)
+
+Unlike users’ SIDs, these SIDs are predefined con- stants, and have the same values on every Windows system and domain in the world. Thus, a file that is accessible by members of the Everyone group on the system where it was created is also accessible to Everyone on any other system or domain to which the hard drive where it resides happens to be moved. Users on those systems must, of course, authenticate to an account on those systems before becoming members of the Everyone group.
+
+Finally, Winlogon creates a unique logon SID for each interactive logon session. A typical use of a logon SID is in an access control entry \(ACE\) that allows access for the duration of a client’s logon ses- sion.
+
+
 
 ### **SID to Name Lookup**
 
@@ -40,11 +66,21 @@ It is important to remember that trustees referenced in SDs are always stored as
 
 #### Windows 8 introduced capability SIDs. Windows 10 has several hundred of them. Capability SIDs are used to grant applications access to resources such as the camera, or the location \([documentation](https://docs.microsoft.com/en-us/troubleshoot/windows-server/windows-security/sids-not-resolve-into-friendly-names)\).
 
-Capability SIDs cannot be resolved to/from names, they are displayed as SID strings in permission listings. Windows ACL Editor cannot add capability SIDs, it can only delete them. To add them back use SetACL, specifying the SID string as trustee name
+Capability SIDs cannot be resolved to/from names, they are displayed as SID strings in permission listings. Windows ACL Editor cannot add capability SIDs, it can only delete them. To add them back use SetACL, specifying the SID string as trustee name.
+
+### Integrity levels
+
+integrity levels can override discretionary access to differentiate a process and objects running as and owned by the same user, offering the ability to isolate code and data within a user account. The mechanism of Mandatory Integrity Control \(MIC\) allows the SRM to have more detailed information about the nature of the caller by associating it with an integrity level. It also provides information on the trust required to access the object by defining an integrity level for it. 
+
+The integrity level of a token can be obtained with the GetTokenInformation API with the Token- IntegrityLevel enumeration value. These integrity levels are specified by a SID. Although integrity levels can be arbitrary values, the system uses six primary levels to separate privilege levels
+
+![](../../../.gitbook/assets/image%20%2865%29.png)
+
+{% hint style="info" %}
+Another, seemingly additional, integrity level is called AppContainer, used by UWP apps. Although seemingly another level, it’s in fact equal to Low. UWP process tokens have another attribute that indicates they are running inside an AppContainer \(described in the “AppContainers” section\). This information is available with the GetTokenInformation API with the TokenIsAppContainer enumeration value.
+{% endhint %}
 
 ## Dissecting Security Descriptors \(SD\)
-
-### \*\*\*\*
 
 ### **Control Information**
 
@@ -55,6 +91,8 @@ The control information of an SD contains various bit flags, of which the two mo
 ### **Owner**
 
 An object can, but need not have, an owner. Most objects do, though. The owner of an object has the privilege of being able to manipulate the object’s DACL regardless of any other settings in the SD. The ability to set _any_ object’s owner is controlled by the privilege \(user right, see below\) `SeTakeOwnershipPrivilege`, which typically is only held by the local group `Administrators`.
+
+### \*\*\*\*
 
 ### **Primary Group**
 
@@ -108,13 +146,9 @@ Because the system stops checking ACEs when the requested access is explicitly g
 
 ![](../../../.gitbook/assets/image%20%2858%29.png)
 
-## 
-
 ### Access Control Entry Layout
 
 ![](../../../.gitbook/assets/image%20%2852%29.png)
-
-### 
 
 ### Access Mask Layout
 
