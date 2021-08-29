@@ -107,10 +107,6 @@ The DACL is controlled by the owner of the object and specifies what level of ac
 
 The SACL specifies which attempts to access the object are audited in the security event log. The ability to get or set \(read or write\) any object’s SACL is controlled by the privilege \(user right, see below\) `SeSecurityPrivilege`, which typically is only held by the local group `Administrators`.
 
-
-
-
-
 ## Access Control Lists \(ACL\) and Access Control Entries \(ACE\)
 
 As mentioned earlier, an ACL contains a list of access control entries \(ACEs\). The maximum number of ACEs is not limited, but the size of the ACL is: it must not be larger than 64 KB. This may not seem much, but should in practice be more than sufficient. Should you ever come in a situation where those 64 KB are not enough, I suggest you review your security concept from the very beginning.
@@ -150,8 +146,6 @@ Because the system stops checking ACEs when the requested access is explicitly g
 ### Access Mask Layout
 
 ![](../../../.gitbook/assets/image%20%2860%29.png)
-
-
 
 ## Inheritance
 
@@ -212,8 +206,6 @@ Privileges, or rights, as they are often called, are very different from permiss
 | SeBackupPrivilege | Circumvent NTFS permissions and read \(back up\) every file and every folder |
 | SeRestorePrivilege | Circumvent NTFS permissions and write \(restore\) every file and every folder |
 | SeTakeOwnershipPrivilege | Set the owner of any securable object |
-
-## Windows ACL Editor
 
 The GUI provided by Windows to manipulate SDs is called ACL Editor. It can be accessed by right-clicking a file and choosing **Properties** &gt; **Security**. I am not going to describe ACL Editor in detail, but rather point out some of its features and peculiarities.
 
