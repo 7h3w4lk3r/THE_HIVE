@@ -29,7 +29,7 @@ reg query HKLM\SYSTEM\CurrentControlSet\Services\SNMP /s
 ```
 
 {% hint style="info" %}
-for more information on windows registry hive and 'reg' commands refer to this section of the book.
+for more information on windows registry hive and 'reg' commands refer to[ this section](%20https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/windows/security-component/windows-registry) of the book.
 {% endhint %}
 
 
