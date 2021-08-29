@@ -109,6 +109,8 @@ The SACL specifies which attempts to access the object are audited in the securi
 
 ## Access Control Lists \(ACL\) and Access Control Entries \(ACE\)
 
+![](../../../.gitbook/assets/image%20%2866%29.png)
+
 As mentioned earlier, an ACL contains a list of access control entries \(ACEs\). The maximum number of ACEs is not limited, but the size of the ACL is: it must not be larger than 64 KB. This may not seem much, but should in practice be more than sufficient. Should you ever come in a situation where those 64 KB are not enough, I suggest you review your security concept from the very beginning.
 
 #### ACEs come in three flavors:
