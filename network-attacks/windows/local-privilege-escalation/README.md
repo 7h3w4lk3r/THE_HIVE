@@ -65,5 +65,15 @@ the other reasonable way to stay under the radar in a real-world pentest is to u
 
 {% embed url="https://github.com/GhostPack/SharpUp" %}
 
+{% embed url="https://github.com/rasta-mouse/Sherlock" %}
+
+{% embed url="https://github.com/absolomb/WindowsEnum" %}
+
+{% embed url="https://github.com/M4ximuss/Powerless" %}
+
+{% embed url="https://github.com/GhostPack/Seatbelt" %}
+
+{% embed url="https://github.com/itm4n/PrivescCheck" %}
+
 \*\*\*\*
 
