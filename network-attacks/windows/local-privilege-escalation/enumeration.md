@@ -47,8 +47,6 @@ uninstall hot fixes \(need permission\):
 wusa /uninstall /kb:1234512
 ```
 
-
-
 patchs and updates:
 
 ```text
