@@ -2,7 +2,9 @@
 
 ### remote connect
 
+{% hint style="info" %}
 #### remember when you access an active RDP session the current user will be kicked off
+{% endhint %}
 
 remote desktop connection from linux
 
