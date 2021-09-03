@@ -69,7 +69,7 @@
 
 ## Programming and DataBase
 
-* [Assembly](programming-and-database/assembly.md)
+* [Assembly \( NASM \)](programming-and-database/assembly.md)
 * [C](programming-and-database/c/README.md)
   * [GCC Compiler](programming-and-database/c/gcc-compiler.md)
   * [Basic Structure](programming-and-database/c/basic-structure.md)
