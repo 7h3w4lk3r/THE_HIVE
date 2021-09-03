@@ -69,7 +69,6 @@
 
 ## Programming and DataBase
 
-* [Assembly \( NASM \)](programming-and-database/assembly.md)
 * [C](programming-and-database/c/README.md)
   * [GCC Compiler](programming-and-database/c/gcc-compiler.md)
   * [Basic Structure](programming-and-database/c/basic-structure.md)
@@ -98,6 +97,8 @@
       * [Doubly Linked List](programming-and-database/c/abstract-data-types/linked-lists/doubly-linked-list.md)
   * [Libraries & Linking](programming-and-database/c/libraries-and-linking.md)
   * [Error Recovery](programming-and-database/c/error-recovery.md)
+* [Assembly \( NASM \)](programming-and-database/assembly/README.md)
+  * [Basics](programming-and-database/assembly/basics.md)
 
 ## Hardening & Monitoring
 

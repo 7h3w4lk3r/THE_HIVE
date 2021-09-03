@@ -1,6 +1,8 @@
 # Assembly \( NASM \)
 
-this section of the book is about the basics of assembly programming for Intel x86/64 architecture with NASM assembler. this is by no means a full assembly programming tutorial  and i only talk about the basics of coding in ASM just to give the reader an idea about how the computer works in the lowest level \(actually the lowest level is the electrical circuits but you get the idea\). being familiar with how the CPU and RAM work and how operating systems handle the program execution flow is a most for any reverse engineer, exploit developer and obviously, any low-level system programmer such as  malware developer.
+## Introduction
+
+this section of the book is about the basics of assembly programming for Intel x86/64 architecture with NASM assembler. its not a full tutorial in assembly and i wont go into details about registers and Intel IA32 architecture. 
 
 {% hint style="info" %}
 if your final goal is to become a  reverse engineer/malware analyst or a vulnerability researcher/exploit developer, then you really don't need to know how to write ASM code, you just have to know how to read disassembly. 
@@ -10,21 +12,15 @@ the difference between assembly and disassembly is that the first one is the act
 generally when reading disassembly you usually face more surprises because you are dealing with what the compiler generated with a lot of code optimizations that makes it much harder to read and understand. for example IDA is a disassembler that takes a compiled binary executable and shows you the disassembly output.
 {% endhint %}
 
-as you might have guessed learning assembly is harder than other languages but its not impossible. the only difference is that you have to take care of more things when working with registers and memory. ****
-
 **the best way to understand assembly and be able to read disassembly is to write code in a higher level language like C or C++  \( use debugging options when compiling it like '-g' for gcc \) then disassemble it and try to understand the execution flow. you can also have your friend write some C code and compile it then you can disassemble it and try to write the same program in C from the disassembly.**
 
+## Resources
 
+some other resources:
 
+{% embed url="https://www.amazon.com/Assembly-Language-x86-Processors-7th/dp/0133769402?ref\_=Oct\_d\_obs\_d\_3954&pd\_rd\_w=wQxOj&pf\_rd\_p=c4f91ca9-cb41-4f37-9303-9f57e6d18b1e&pf\_rd\_r=677D0Z70A5ST2NXA2FX4&pd\_rd\_r=f97fb8e7-9ede-446c-8731-473f0aea2c08&pd\_rd\_wg=Jftsz&pd\_rd\_i=0133769402" %}
 
+{% embed url="https://www.amazon.com/Mastering-Assembly-Programming-instruction-processor/dp/1787287483?ref\_=Oct\_d\_omwf\_d\_3954&pd\_rd\_w=yrw1S&pf\_rd\_p=98f9896b-b0b5-418e-9dae-1ebddcb85d58&pf\_rd\_r=677D0Z70A5ST2NXA2FX4&pd\_rd\_r=f97fb8e7-9ede-446c-8731-473f0aea2c08&pd\_rd\_wg=Jftsz&pd\_rd\_i=1787287483" %}
 
-
-
-
-
-
-
-
-
-
+{% embed url="https://www.amazon.com/Art-Assembly-Language-2nd/dp/1593272073?ref\_=Oct\_d\_omwf\_d\_3954&pd\_rd\_w=yrw1S&pf\_rd\_p=98f9896b-b0b5-418e-9dae-1ebddcb85d58&pf\_rd\_r=677D0Z70A5ST2NXA2FX4&pd\_rd\_r=f97fb8e7-9ede-446c-8731-473f0aea2c08&pd\_rd\_wg=Jftsz&pd\_rd\_i=1593272073" %}
 
