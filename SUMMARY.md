@@ -98,7 +98,7 @@
   * [Libraries & Linking](programming-and-database/c/libraries-and-linking.md)
   * [Error Recovery](programming-and-database/c/error-recovery.md)
 * [Assembly \( NASM \)](programming-and-database/assembly/README.md)
-  * [Basics](programming-and-database/assembly/basics.md)
+  * [Intel IA-32 Environment](programming-and-database/assembly/basics.md)
 
 ## Hardening & Monitoring
 

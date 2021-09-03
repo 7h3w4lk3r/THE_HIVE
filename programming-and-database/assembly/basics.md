@@ -1,4 +1,4 @@
-# Basics
+# Intel IA-32 Environment
 
 {% hint style="info" %}
 most of these material come from Intel IA32 software development manual which is the best resource for learning the basics. chapters 2 to 7 of volume 1 will cover anything you need to know about the Intel structure. here i recap some of the key concepts.
@@ -14,11 +14,13 @@ The general memory layout for a program executed in memory \(a process\) is like
 
 ![](../../.gitbook/assets/image%20%28105%29.png)
 
+### 
+
 ### IA-32 Memory Addressing Modes
 
 #### Flat memory model
 
-Memory appears to a program as a single, continuous address space \(Figure 3-3\). This space is called a linear address space. Code, data, and stacks are all contained in this address space. Linear address space is byte addressable, with addresses running contiguously from 0 to 2 32 - 1 \(if not in 64-bit mode\). An address for any byte in linear address space is called a linear address.
+Memory appears to a program as a single, continuous address space. This space is called a linear address space. Code, data, and stacks are all contained in this address space. Linear address space is byte addressable, with addresses running contiguously from 0 to 32  \(if not in 64-bit mode\). An address for any byte in linear address space is called a linear address.
 
 #### Segmented memory model
 
@@ -26,7 +28,7 @@ Memory appears to a program as a group of independent address spaces called segm
 
 #### Real-address mode memory model
 
-This is the memory model for the Intel 8086 processor. It is supported to provide compatibility with existing programs written to run on the Intel 8086 processor. The real- address mode uses a specific implementation of segmented memory in which the linear address space for the program and the operating system/executive consists of an array of segments of up to 64 KBytes in size each. The maximum size of the linear address space in real-address mode is 2 20 bytes.
+This is the memory model for the Intel 8086 processor. It is supported to provide compatibility with existing programs written to run on the Intel 8086 processor. The real-address mode uses a specific implementation of segmented memory in which the linear address space for the program and the operating system/executive consists of an array of segments of up to 64 KBytes in size each. The maximum size of the linear address space in real-address mode is 2 20 bytes.
 
 ![](../../.gitbook/assets/image%20%28109%29.png)
 
@@ -36,9 +38,9 @@ Segmentation provides a mechanism for dividing the processorʼs addressable memo
 
 ![](../../.gitbook/assets/image%20%28115%29.png)
 
-To locate a byte in a particular segment, a logical address \(also called a far pointer\) must be provided. A logical address consists of a segment selector and an offset. The physical address space is defined as the range of addresses that the processor can generate on its address bus. Normally the physical address space is based on how much RAM you have installed, up to a maximum of 2^32 \(4GB\). But there is a mechanism \(physical address extensions - PAE\) which we will talk about later which allows systems to access a space up to 2^36 \(64GB\). Linear address space is a flat 32 bit space. If paging is disabled, linear address space is mapped 1:1 to physical address space. 
+To locate a byte in a particular segment, a logical address \(also called a far pointer\) must be provided. A logical address consists of a segment selector and an offset. The physical address space is defined as the range of addresses that the processor can generate on its address bus. Normally the physical address space is based on how much RAM you have installed, up to a maximum of 2^32 \(4GB\). But there is a mechanism \(physical address extensions - PAE\) which allows systems to access a space up to 2^36 \(64GB\). Linear address space is a flat 32 bit space. If paging is disabled, linear address space is mapped 1:1 to physical address space. 
 
-#### Segmentation is not optional Segmentation translates logical addresses to linear addresses automatically in hardware by using table lookups Logical address \(also called a far pointer\) = 16 bit segment selector + 32 bit offset If paging is disabled, linear addresses map directly to physical addresses
+#### Segmentation is not optional. Segmentation translates logical addresses to linear addresses automatically in hardware by using table lookups. Logical address \(also called a far pointer\) = 16 bit segment selector + 32 bit offset. If paging is disabled, linear addresses map directly to physical addresses
 
 ![](../../.gitbook/assets/image%20%28111%29.png)
 
@@ -53,7 +55,7 @@ A segment selector is a 16 bit value held in a segment register. It is used to s
 
 ### Paging and Virtual Memory
 
-**With the flat or the segmented memory model, linear address space is mapped into the processor’s physical address space either directly or through paging**. When using direct mapping \(paging disabled\), each linear address has a one-to-one correspondence with a physical address. Linear addresses are sent out on the processor’s address lines without translation. When using the IA-32 architecture’s paging mechanism \(paging enabled\), linear address space is divided into pages which are mapped to virtual memory. The pages of virtual memory are then mapped as needed into physical memory. When an operating system or executive uses paging, the paging mechanism is transparent to an applica- tion program. All that the application sees is linear address space. In addition, IA-32 architecture’s paging mechanism includes extensions that support:
+**With the flat or the segmented memory model, linear address space is mapped into the processor’s physical address space either directly or through paging**. When using direct mapping \(paging disabled\), each linear address has a one-to-one correspondence with a physical address. Linear addresses are sent out on the processor’s address lines without translation. **When using the IA-32 architecture’s paging mechanism \(paging enabled\), linear address space is divided into pages which are mapped to virtual memory.** The pages of virtual memory are then mapped as needed into physical memory. When an operating system or executive uses paging, the paging mechanism is transparent to an application program. All that the application sees is linear address space. In addition, IA-32 architecture’s paging mechanism includes extensions that support:
 
 **• Physical Address Extensions \(PAE\)** to address physical address space greater than 4 GBytes.
 
@@ -103,8 +105,6 @@ an overview of Intel architecture in non-64 bit modes:
 
 ![](../../.gitbook/assets/image%20%28121%29.png)
 
-
-
 ## CISC vs. RISC
 
 #### Intel is CISC - Complex Instruction Set Computer, other major architectures are typically RISC - Reduced Instruction Set Computer
@@ -145,11 +145,69 @@ The flags register is not meaningful as a unit rather it is bit wise significant
 
 ![](../../.gitbook/assets/image%20%28123%29.png)
 
-**The status flags** \(bits 0, 2, 4, 6, 7, and 11\) of the EFLAGS register indicate the results of arithmetic instructions, such as the ADD, SUB, MUL, and DIV instructions. The status flag functions are:
+**\(S\) - The status flags** \(bits 0, 2, 4, 6, 7, and 11\) of the EFLAGS register indicate the results of arithmetic instructions, such as the ADD, SUB, MUL, and DIV instructions. The status flag functions are:
 
-**The direction/control flag** \(DF, located in bit 10 of the EFLAGS register\) controls string instructions \(MOVS, CMPS, SCAS, LODS, and STOS\). Setting the DF flag causes the string instructions to auto-decrement \(to process strings from high addresses to low addresses\). Clearing the DF flag causes the string instructions to auto-increment \(process strings from low addresses to high addresses\).
+* **CF \(bit 0\) Carry flag** — Set if an arithmetic operation generates a carry or a borrow out of the most- significant bit of the result; cleared otherwise. This flag indicates an overflow condition for unsigned-integer arithmetic. It is also used in multiple-precision arithmetic.
 
-**The system flags** and IOPL field in the EFLAGS register control operating-system or executive operations. They should not be modified by application programs.
+
+
+*  **PF \(bit 2\) Parity flag** — Set if the least-significant byte of the result contains an even number of 1 bits; cleared otherwise.
+
+*  **AF \(bit 4\) Auxiliary Carry flag** — Set if an arithmetic operation generates a carry or a borrow out of bit 3 of the result; cleared otherwise. This flag is used in binary-coded decimal \(BCD\) arithmetic.
+
+   ****
+
+* **ZF \(bit 6\) Zero flag** — Set if the result is zero; cleared otherwise.
+
+ 
+
+* **SF \(bit 7\) Sign flag** — Set equal to the most-significant bit of the result, which is the sign bit of a signed integer. \(0 indicates a positive value and 1 indicates a negative value.\)
+
+ 
+
+* **OF \(bit 11\) Overflow flag** — Set if the integer result is too large a positive number or too small a negative number \(excluding the sign-bit\) to fit in the destination operand; cleared otherwise. This flag indicates an overflow condition for signed-integer \(two’s complement\) arithmetic. Of these status flags, only the CF flag can be modified directly, using the STC, CLC, and CMC instructions. Also the bit instructions \(BT, BTS, BTR, and BTC\) copy a specified bit into the CF flag.
+
+\*\*\*\*
+
+**\(C\) - The direction/control flag** \(DF, located in bit 10 of the EFLAGS register\) controls string instructions \(MOVS, CMPS, SCAS, LODS, and STOS\). Setting the DF flag causes the string instructions to auto-decrement \(to process strings from high addresses to low addresses\). Clearing the DF flag causes the string instructions to auto-increment \(process strings from low addresses to high addresses\).The STD and CLD instructions set and clear the DF flag, respectively. The functions of the system flags are as follows:
+
+* **TF \(bit 8\) Trap flag** — Set to enable single-step mode for debugging; clear to disable single-step mode.
+
+ 
+
+* **IF \(bit 9\) Interrupt enable flag** — Controls the response of the processor to maskable interrupt requests. Set to respond to maskable interrupts; cleared to inhibit maskable interrupts. 
+
+* I**OPL \(bits 12 and 13\) I/O privilege level field** — Indicates the I/O privilege level of the currently running program or task. The current privilege level \(CPL\) of the currently running program or task must be less than or equal to the I/O privilege level to access the I/O address space. The POPF and IRET instructions can modify this field only when operating at a CPL of 0.
+
+ 
+
+* **NT \(bit 14\) Nested task flag** — Controls the chaining of interrupted and called tasks. Set when the current task is linked to the previously executed task; cleared when the current task is not linked to another task. RF \(bit 16\) Resume flag — Controls the processor’s response to debug exceptions.
+
+ 
+
+* **VM \(bit 17\) Virtual-8086 mode flag** — Set to enable virtual-8086 mode; clear to return to protected mode without virtual-8086 mode semantics.
+
+ 
+
+* **AC \(bit 18\) Alignment check \(or access control\) flag** — If the AM bit is set in the CR0 register, align- ment checking of user-mode data accesses is enabled if and only if this flag is 1. If the SMAP bit is set in the CR4 register, explicit supervisor-mode data accesses to user-mode pages are allowed if and only if this bit is 1. 
+
+ 
+
+* **VIF \(bit 19\) Virtual interrupt flag** — Virtual image of the IF flag. Used in conjunction with the VIP flag. \(To use this flag and the VIP flag the virtual mode extensions are enabled by setting the VME flag in control register CR4.\) 
+
+  \*\*\*\*
+
+* **VIP \(bit 20\) Virtual interrupt pending flag** — Set to indicate that an interrupt is pending; clear when no interrupt is pending. \(Software sets and clears this flag; the processor only reads it.\) Used in conjunction with the VIF flag.
+
+ 
+
+* **ID \(bit 21\) Identification flag** — The ability of a program to set or clear this flag indicates support for the CPUID instruction.
+
+
+
+**\(X\) - The system flags** and IOPL field in the EFLAGS register control operating-system or executive operations. They should not be modified by application programs.
+
+
 
 ### XMM Registers
 
