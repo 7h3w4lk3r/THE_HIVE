@@ -10,7 +10,9 @@ the difference between assembly and disassembly is that the first one is the act
 generally when reading disassembly you usually face more surprises because you are dealing with what the compiler generated with a lot of code optimizations that makes it much harder to read and understand. for example IDA is a disassembler that takes a compiled binary executable and shows you the disassembly output.
 {% endhint %}
 
-#### as you might have guessed learning assembly is harder than other languages but its not impossible. the only difference is that you have to take care of more things when working with registers and memory. the best way to understand assembly and be able to read disassembly is to write code in a higher level language like C or C++  \( use debugging options when compiling it like '-g' for gcc \) then disassemble it and try to understand the execution flow. you can also have your friend write some C code and compile it then you can disassemble it and try to write the same program in C from the disassembled app.
+as you might have guessed learning assembly is harder than other languages but its not impossible. the only difference is that you have to take care of more things when working with registers and memory. ****
+
+**the best way to understand assembly and be able to read disassembly is to write code in a higher level language like C or C++  \( use debugging options when compiling it like '-g' for gcc \) then disassemble it and try to understand the execution flow. you can also have your friend write some C code and compile it then you can disassemble it and try to write the same program in C from the disassembly.**
 
 
 
