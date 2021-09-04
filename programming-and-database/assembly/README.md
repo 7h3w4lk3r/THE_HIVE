@@ -4,6 +4,8 @@
 
 this section of the book is about the basics of assembly programming for Intel x86/64 architecture with NASM assembler. its not a full tutorial in assembly and i wont go into details about registers and Intel IA32 architecture. 
 
+#### you can check my [x86-nasm repository](https://github.com/7h3w4lk3r/x86-nasm) for a lot of example codes in x86 NASM. the codes are well commented and you can understand them easily, i suggest you read this section of the book and practice with those codes to have a better understanding.
+
 {% hint style="info" %}
 if your final goal is to become a  reverse engineer/malware analyst or a vulnerability researcher/exploit developer, then you really don't need to know how to write ASM code, you just have to know how to read disassembly. 
 
@@ -17,6 +19,8 @@ generally when reading disassembly you usually face more surprises because you a
 ## Resources
 
 some other resources:
+
+{% embed url="https://opensecuritytraining.info/Training.html" %}
 
 {% embed url="https://www.amazon.com/Assembly-Language-x86-Processors-7th/dp/0133769402?ref\_=Oct\_d\_obs\_d\_3954&pd\_rd\_w=wQxOj&pf\_rd\_p=c4f91ca9-cb41-4f37-9303-9f57e6d18b1e&pf\_rd\_r=677D0Z70A5ST2NXA2FX4&pd\_rd\_r=f97fb8e7-9ede-446c-8731-473f0aea2c08&pd\_rd\_wg=Jftsz&pd\_rd\_i=0133769402" %}
 

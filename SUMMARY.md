@@ -70,8 +70,8 @@
 ## Programming and DataBase
 
 * [C](programming-and-database/c/README.md)
-  * [GCC Compiler](programming-and-database/c/gcc-compiler.md)
   * [Basic Structure](programming-and-database/c/basic-structure.md)
+  * [GCC Compiler](programming-and-database/c/gcc-compiler.md)
   * [Preprocessors](programming-and-database/c/preprocessors.md)
   * [Data Types](programming-and-database/c/data-types.md)
   * [Type Qualifiers](programming-and-database/c/type-qualifiers.md)
@@ -99,6 +99,10 @@
   * [Error Recovery](programming-and-database/c/error-recovery.md)
 * [Assembly \( NASM \)](programming-and-database/assembly/README.md)
   * [Intel IA-32 Environment](programming-and-database/assembly/basics.md)
+  * [Basic Structure](programming-and-database/assembly/basic-structure.md)
+  * [Variables and Data Types](programming-and-database/assembly/variables-and-data-types.md)
+  * [Most-used Instructions](programming-and-database/assembly/most-used-instructions.md)
+  * [input / output](programming-and-database/assembly/input-output.md)
 
 ## Hardening & Monitoring
 
