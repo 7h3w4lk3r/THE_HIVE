@@ -51,6 +51,7 @@ patchs and updates:
 
 ```text
 wmic qfe
+wmic qfe get Caption, Description, HotFixID, InstalledOn
 ```
 
 list all drivers:
@@ -65,8 +66,6 @@ Get-PSDrive | where {$_.Provider -like "Microsoft.PowerShell.Core\FileSystem"}| 
 ```text
 driverquery | findstr Kernel
 ```
-
-
 
 
 
@@ -91,8 +90,6 @@ Cross-reference results with compiled exploits:
 {% embed url="https://github.com/nomi-sec/PoC-in-GitHub" %}
 
 ​[https://github.com/abatchy17/WindowsExploit](https://github.com/abatchy17/WindowsExploits)
-
-
 
 
 
@@ -217,8 +214,7 @@ reg query "HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\WINDOWS NT\CURRENTVERSION\WINLO
 ## check for AVs
 
 ```text
-WMIC /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct Get displayName /Format:List | more
-Get-MpComputerStatus 
+WMIC /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct Get displayName /Format:List | more 
 ```
 
 ### windows defender
