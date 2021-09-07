@@ -10,7 +10,7 @@ There is a variety of approaches to choose from, with success depending on how t
 
 **DLL redirection:** change the location in which the DLL is searched for, e.g. by editing the %PATH% environment variable, or .exe.manifest / .exe.local files to include the folder containing the evil DLL.
 
-**WinSxS DLL replacement:** replace the legitimate DLL with the evil DLL in the relevant WinSxS folder of the targeted DLL. Often referred to as DLL side-loading.
+**WinSxS DLL replacement \(side-loading\) :** replace the legitimate DLL with the evil DLL in the relevant WinSxS folder of the targeted DLL. Often referred to as DLL side-loading.
 
 **Relative path DLL Hijacking:** copy \(and optionally rename\) the legitimate application to a user-writeable folder, alongside the evil DLL. In the way this is used, it has similarities with \(Signed\) Binary Proxy Execution \[8\]. A variation of this is \(somewhat oxymoronically called\) ‘bring your own LOLbin’ in which the legitimate application is brought with the evil DLL \(rather than copied from the legitimate location on the victim’s machine\).
 
