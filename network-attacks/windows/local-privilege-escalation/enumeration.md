@@ -262,6 +262,10 @@ Applocker Bypass:
 reg query HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\ 
 ```
 
+[LOLBAS](https://lolbas-project.github.io/#) is a great collection of methods for a lot of windows post-exploitation and privilege escalation tasks including UAC bypass with windows built-in binaries.
+
+{% embed url="https://github.com/hfiref0x/UACME" %}
+
 ## Network and Connections
 
 ```text

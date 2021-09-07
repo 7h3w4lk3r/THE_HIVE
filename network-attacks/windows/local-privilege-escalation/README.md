@@ -12,6 +12,8 @@
 
 ## **Resources**
 
+{% embed url="https://lolbas-project.github.io/\#" %}
+
 {% embed url="https://book.hacktricks.xyz/windows/windows-local-privilege-escalation" %}
 
 {% embed url="https://www.fuzzysecurity.com/tutorials/16.html" %}

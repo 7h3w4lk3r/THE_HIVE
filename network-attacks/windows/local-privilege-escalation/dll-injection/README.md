@@ -1,4 +1,4 @@
-# DLL Injection
+# DLL Hijacking
 
 There is a variety of approaches to choose from, with success depending on how the application is configured to load its required DLLs. Possible approaches include:
 
