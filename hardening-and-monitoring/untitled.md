@@ -737,6 +737,52 @@ Since there are so many checklists, standards and guides for operating system ha
   </tbody>
 </table>
 
+## Account Security
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">tasks/configurations</th>
+      <th style="text-align:left">methods/commands</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">System / Application Accounts</td>
+      <td style="text-align:left">
+        <p>Use one account per service.</p>
+        <p></p>
+        <p>Don&#x2019;t activate the account. Don&#x2019;t allow direct logins from
+          the account.</p>
+        <p>web service (httpd), web service account (apache) sshd_config:</p>
+        <p></p>
+        <p>```</p>
+        <p>DenyUsers account1 accountN</p>
+        <p>```</p>
+        <p></p>
+        <p>Use sudo for all access.</p>
+        <p></p>
+        <p># sudo -u apache apachectl configtest</p>
+        <p></p>
+        <p>User Accounts: One account per person.</p>
+        <p></p>
+        <p>Deleting Accounts: Determine the UID, Delete their account and home directory</p>
+        <p></p>
+        <p>#id ACCOUNT userdel -r</p>
+        <p></p>
+        <p>Find other files that belong to them on the system:</p>
+        <p>#find / -user UID find / -nouser</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
 
 
 
