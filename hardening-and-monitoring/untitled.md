@@ -365,7 +365,7 @@ Since there are so many checklists, standards and guides for operating system ha
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><b>enable XD/NX support (no execute / execute disabl, Enabling any feature that can protect against buffer overflow attacks enhances the security of the system.)</b>
+      <td style="text-align:left"><b>enable XD/NX support (no execute / execute disable, Enabling any feature that can protect against buffer overflow attacks enhances the security of the system.)</b>
       </td>
       <td style="text-align:left">
         <p>Run the following command and verify your kernel has identified and activated
@@ -611,58 +611,128 @@ Since there are so many checklists, standards and guides for operating system ha
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><b>disable unneeded debugging/testing services: daytime chargen discard echo time rsh telnet xinetd</b>
+      <td style="text-align:left">
+        <p>disable unneeded debugging/testing services:</p>
+        <p>&lt;b&gt;&lt;/b&gt;</p>
+        <p><b>daytime </b>
+        </p>
+        <p><b>chargen </b>
+        </p>
+        <p><b>discard </b>
+        </p>
+        <p><b>echo </b>
+        </p>
+        <p><b>time </b>
+        </p>
+        <p><b>rsh </b>
+        </p>
+        <p><b>telnet </b>
+        </p>
+        <p><b>xinetd</b>
+        </p>
       </td>
-      <td style="text-align:left">Comment out or remove any lines starting with chargen from /etc/inetd.conf
-        and /etc/inetd.d/* . Set disable = yes on all chargen services in /etc/xinetd.conf
-        and /etc/xinetd.d/* . Comment out or remove any lines starting with daytime
-        from /etc/inetd.conf and /etc/inetd.d/* . Set disable = yes on all daytime
-        services in /etc/xinetd.conf and /etc/xinetd.d/* . Comment out or remove
-        any lines starting with discard from /etc/inetd.conf and /etc/inetd.d/*
-        . Set disable = yes on all discard services in /etc/xinetd.conf and /etc
-        xinetd.d/* . Comment out or remove any lines starting with echo from /etc/inetd.conf
-        and /etc/inetd.d/* . Set disable = yes on all echo services in /etc/xinetd.conf
-        and /etc xinetd.d/* . Comment out or remove any lines starting with time
-        from /etc/inetd.conf and /etc/inetd.d/* . Set disable = yes on all time
-        services in /etc/xinetd.conf and /etc/xinetd.d/* . Verify the rsh services
-        are not enabled. Run the following commands and verify results are as indicated:
-        grep -R &quot;^shell&quot; /etc/inetd.* grep -R &quot;^login&quot; /etc/inetd.*
-        grep -R &quot;^exec&quot; /etc/inetd.* No results should be returned check
-        /etc/xinetd.conf and /etc/xinetd.d/* and verify all rsh , rlogin , and
-        rexec services have disable = yes set. Comment out or remove any lines
-        starting with shell , login , or exec from /etc/inetd.conf and /etc/inetd.d/*
-        . Set disable = yes on all rsh , rlogin , and rexec services in /etc/xinetd.conf
-        and /etc/xinetd.d/* . Verify the telnet service is not enabled. Run the
-        following command and verify results are as indicated: # grep -R &quot;^telnet&quot;
-        /etc/inetd.* check /etc/xinetd.conf and /etc/xinetd.d/* and verify all
-        telnet services have disable = yes set. Comment out or remove any lines
-        starting with telnet from /etc/inetd.conf and /etc/inetd.d/* . Set disable
-        = yes on all telnet services in /etc/xinetd.conf and /etc xinetd.d/* .
-        Run the following command to verify xinetd is not enabled: # systemctl
-        is-enabled xinetd disabled Run the following command to disable xinetd
-        : # systemctl disable xinetd</td>
+      <td style="text-align:left">
+        <p>Comment out or remove any lines starting with chargen from /etc/inetd.conf
+          and /etc/inetd.d/* . Set disable = yes on all chargen services in /etc/xinetd.conf
+          and /etc/xinetd.d/* .</p>
+        <p></p>
+        <p>Comment out or remove any lines starting with daytime from /etc/inetd.conf
+          and /etc/inetd.d/* . Set disable = yes on all daytime services in /etc/xinetd.conf
+          and /etc/xinetd.d/* .</p>
+        <p></p>
+        <p>Comment out or remove any lines starting with discard from /etc/inetd.conf
+          and /etc/inetd.d/* . Set disable = yes on all discard services in /etc/xinetd.conf
+          and /etc xinetd.d/* .</p>
+        <p></p>
+        <p>Comment out or remove any lines starting with echo from /etc/inetd.conf
+          and /etc/inetd.d/* . Set disable = yes on all echo services in /etc/xinetd.conf
+          and /etc xinetd.d/* .</p>
+        <p></p>
+        <p>Comment out or remove any lines starting with time from /etc/inetd.conf
+          and /etc/inetd.d/* . Set disable = yes on all time services in /etc/xinetd.conf
+          and /etc/xinetd.d/* .</p>
+        <p></p>
+        <p>Verify the rsh services are not enabled. Run the following commands and
+          verify results are as indicated:</p>
+        <p>&lt;b&gt;&lt;/b&gt;</p>
+        <p><b>#</b>grep -R &quot;^shell&quot; /etc/inetd.* grep -R &quot;^login&quot;
+          /etc/inetd.*</p>
+        <p><b>#</b>grep -R &quot;^exec&quot; /etc/inetd.*</p>
+        <p></p>
+        <p>No results should be returned check /etc/xinetd.conf and /etc/xinetd.d/*
+          and verify all rsh , rlogin , and rexec services have disable = yes set.</p>
+        <p></p>
+        <p>Comment out or remove any lines starting with shell , login , or exec
+          from /etc/inetd.conf and /etc/inetd.d/* . Set disable = yes on all rsh
+          , rlogin , and rexec services in /etc/xinetd.conf and /etc/xinetd.d/* .</p>
+        <p></p>
+        <p>Verify the telnet service is not enabled. Run the following command and
+          verify results are as indicated:</p>
+        <p></p>
+        <p># grep -R &quot;^telnet&quot; /etc/inetd.*</p>
+        <p></p>
+        <p>check /etc/xinetd.conf and /etc/xinetd.d/* and verify all telnet services
+          have disable = yes set.</p>
+        <p></p>
+        <p>Comment out or remove any lines starting with telnet from /etc/inetd.conf
+          and /etc/inetd.d/* . Set disable = yes on all telnet services in /etc/xinetd.conf
+          and /etc xinetd.d/* .</p>
+        <p></p>
+        <p>Run the following command to verify xinetd is not enabled:</p>
+        <p></p>
+        <p># systemctl is-enabled xinetd</p>
+        <p></p>
+        <p>Run the following command to disable xinetd :</p>
+        <p></p>
+        <p># systemctl disable xinetd</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"><b>enable time synchronization and configure ntp service</b>
       </td>
-      <td style="text-align:left">On physical systems or virtual systems where host based time synchronization
-        is not available run the following commands and verify either NTP or chrony
-        is installed: # dpkg -s ntp # dpkg -s chrony On physical systems or virtual
-        systems where host based time synchronization is not available install
-        NTP or chrony using one of the following commands: # apt-get install ntp
-        # apt-get install chrony Run the following command and verify output matches:
-        # grep &quot;^restrict&quot; /etc/ntp.conf restrict -4 default kod nomodify
-        notrap nopeer noquery restrict -6 default kod nomodify notrap nopeer noquery
-        Run the following command and verify remote server is configured properly:
-        # egrep &quot;^(server|pool)&quot; /etc/ntp.conf server &lt;remote-server&gt;
-        Multiple servers may be configured. Verify that ntp is configured to run
-        as the ntp user by running the following command: # grep &quot;RUNASUSER=ntp&quot;
-        /etc/init.d/ntp RUNASUSER=ntp Add or edit restrict lines in /etc/ntp.conf
-        to match the following: restrict -4 default kod nomodify notrap nopeer
-        noquery restrict -6 default kod nomodify notrap nopeer noquery Add or edit
-        server or pool lines to /etc/ntp.conf as appropriate: server &lt;remote-server&gt;
-        Configure ntp to run as the ntp user by adding or editing the /etc/init.d
-        ntp file: RUNASUSER=ntp</td>
+      <td style="text-align:left">
+        <p>On physical systems or virtual systems where host based time synchronization
+          is not available run the following commands and verify either NTP or chrony
+          is installed:</p>
+        <p></p>
+        <p># dpkg -s ntp # dpkg -s chrony</p>
+        <p></p>
+        <p>On physical systems or virtual systems where host based time synchronization
+          is not available install NTP or chrony using one of the following commands:</p>
+        <p></p>
+        <p># apt-get install ntp # apt-get install chrony</p>
+        <p></p>
+        <p>Run the following command and verify output matches:</p>
+        <p></p>
+        <p># grep &quot;^restrict&quot; /etc/ntp.conf restrict -4 default kod nomodify
+          notrap nopeer noquery restrict -6 default kod nomodify notrap nopeer noquery</p>
+        <p></p>
+        <p>Run the following command and verify remote server is configured properly:</p>
+        <p></p>
+        <p># egrep &quot;^(server|pool)&quot; /etc/ntp.conf server &lt;remote-server&gt;
+          Multiple servers may be configured.</p>
+        <p></p>
+        <p>Verify that ntp is configured to run as the ntp user by running the following
+          command:</p>
+        <p></p>
+        <p># grep &quot;RUNASUSER=ntp&quot; /etc/init.d/ntp RUNASUSER=ntp</p>
+        <p></p>
+        <p>Add or edit restrict lines in /etc/ntp.conf to match the following:</p>
+        <p></p>
+        <p>```</p>
+        <p>restrict -4 default kod nomodify notrap nopeer noquery restrict -6 default
+          kod nomodify notrap nopeer noquery</p>
+        <p>```</p>
+        <p></p>
+        <p>Add or edit server or pool lines to /etc/ntp.conf as appropriate:</p>
+        <p></p>
+        <p>server &lt;remote-server&gt;</p>
+        <p></p>
+        <p>Configure ntp to run as the ntp user by adding or editing the /etc/init.d
+          ntp file:</p>
+        <p></p>
+        <p>RUNASUSER=ntp</p>
+      </td>
     </tr>
   </tbody>
 </table>
