@@ -4,9 +4,11 @@
 
 certificate transparency reports offer a penetration tester an additional method for discovering hosts and subdomains within a domain. this includes hidden virtual hosts that are not linked publicly and google doesn't know about them but they have been issued an x.509 cert. use these links for cert discovery:
 
-[https://crt.sh/](https://crt.sh/)
+{% embed url="https://crt.sh/" %}
 
-[https://transparencyreport.google.com/https/certificates](https://transparencyreport.google.com/https/certificates)
+{% embed url="https://transparencyreport.google.com/https/certificates" %}
+
+
 
 #### here is a simple bash script i wrote to automate the subdomain enumeration task. it uses various online resources to discover every subdomain that is publicly available. <a id="here-is-a-simple-bash-script-i-wrote-to-automate-the-subdomain-enumeration-task-it-uses-various-online-resources-to-discover-every-subdomain-that-is-publicly-available"></a>
 

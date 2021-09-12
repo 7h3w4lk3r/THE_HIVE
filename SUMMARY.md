@@ -21,7 +21,7 @@
       * [SNMP](recon/active-scanning/network/snmp.md)
     * [Web Application](recon/active-scanning/web-application-enumeration/README.md)
       * [Hidden Hosts](recon/active-scanning/web-application-enumeration/hidden-hosts.md)
-      * [Directories & Domains](recon/active-scanning/web-application-enumeration/directories-and-domains.md)
+      * [Directories & Subdomains](recon/active-scanning/web-application-enumeration/directories-and-domains.md)
       * [SSL Certs](recon/active-scanning/web-application-enumeration/ssl-certs.md)
       * [CMS](recon/active-scanning/web-application-enumeration/cms.md)
 

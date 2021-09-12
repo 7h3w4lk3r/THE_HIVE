@@ -1,4 +1,4 @@
-# Directories & Domains
+# Directories & Subdomains
 
 ## Directory and Subdomain Discovery
 
@@ -22,7 +22,7 @@ dirb http://example.com -r
 
 one of the best tools for discovering sub-directories and metadata search.
 
-[https://github.com/maurosoria/dirsearch](https://github.com/maurosoria/dirsearch)
+{% embed url="https://github.com/maurosoria/dirsearch" %}
 
 ```text
 python3 dirsearch.py -u http://192.168.56.103 -e php,exe.elf.cgi,asp,txt,pdf,png,jpg -r --suppress-empty -t 5 --clean-view -w db/dicc.txt -x 403,404 
