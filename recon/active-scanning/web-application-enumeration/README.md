@@ -1,4 +1,4 @@
-# Web Application Enumeration
+# Web Application
 
 ### A Little Tip for CTFs
 
