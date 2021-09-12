@@ -50,7 +50,7 @@ use auxiliary/scanner/ftp/ftp_login
 
 ### Common FTP banners
 
-![](../../.gitbook/assets/image%20%2836%29.png)
+![](../../../.gitbook/assets/image%20%2836%29.png)
 
 
 

@@ -63,7 +63,7 @@ The rest of the values give specific information about the device.
 7 – state of the point
 ```
 
-![](../../.gitbook/assets/image%20%2837%29.png)
+![](../../../.gitbook/assets/image%20%2837%29.png)
 
 ## SNMP Versions
 
