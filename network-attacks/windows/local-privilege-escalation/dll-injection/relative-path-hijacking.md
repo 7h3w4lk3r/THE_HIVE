@@ -1,2 +1,0 @@
-# Relative Path Hijacking
-

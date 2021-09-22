@@ -1,5 +1,7 @@
 # Phantom DLL Hijacking
 
+## Detection
+
 in this type of DLL we target a missing dll and place our own dll instead.
 
 Use winPEAS to enumerate non-Windows services:
@@ -59,6 +61,8 @@ net start dllsvc
 ![](../../../../.gitbook/assets/image%20%28103%29.png)
 
 At some point, Windows tries to find the file in the C:\Temp directory, which as we found earlier, is writable by our user.
+
+## Exploitation
 
 On Kali, generate a reverse shell DLL named hijackme.dll:
 
