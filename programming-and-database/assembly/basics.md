@@ -1,7 +1,7 @@
 # Intel IA-32 Environment
 
 {% hint style="info" %}
-most of these material come from Intel IA32 software development manual which is the best resource for learning the basics. chapters 2 to 7 of volume 1 will cover anything you need to know about the Intel structure. here i recap some of the key concepts.
+most of these material come from Intel IA32 software development manual which is the best resource for learning the basics. chapters 2 to 7 of volume 1 will cover everything you need to know about the Intel structure. here i recap some of the key concepts.
 {% endhint %}
 
 ## Memory
@@ -11,6 +11,8 @@ most of these material come from Intel IA32 software development manual which is
 The general memory layout for a program executed in memory \(a process\) is like this:
 
 ![](../../.gitbook/assets/image%20%28119%29.png)
+
+a more detailed view will be like this, here you can see order of moving data to/from the stack:
 
 ![](../../.gitbook/assets/image%20%28105%29.png)
 
