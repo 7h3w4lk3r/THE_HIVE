@@ -2,7 +2,7 @@
 
 ![the big picture of OSINT](../.gitbook/assets/banner.png)
 
-#### OSINT is short for Open-Source Information Gathering, OSINT is a way of knowing your target without any sorts of direct contact or leaving any evidence of the recon.
+#### OSINT is short for Open-Source Intelligence Gathering,  is a way of knowing your target without any sorts of direct contact or leaving any evidence of the recon.
 
 #### simply put, OSINT means finding info without leaving any info. there are some ways to perform active info gathering without being traced for example using tor or double VPNs or even passive methods like using a public network but we will talk about those in the scanning phase, right now lets jump into some resources for OSINT.
 
@@ -270,7 +270,7 @@ weleakinfo.com/
 
 ## Tools and Frameworks
 
-#### There are countless number of tools out there designed for active/passive recon. in fact almost one out of then pentester/security "expert" out there has written some sort of crap recon framework/tool that only himself/herself has ever used. you wont need to know about every single one of them because most of them use the same techniques for gathering these information. in this section i will briefly introduce you to the best/well-known tools that i usually use:
+#### There are countless number of tools out there designed for active/passive recon. in fact almost one out of ten pentester/security "expert" out there has written some sort of crap recon framework/tool that only himself/herself has ever used. you wont need to know about every single one of them because most of them use the same techniques for gathering these information. in this section i will briefly introduce you to the best/well-known tools that i usually use:
 
 ### 
 
