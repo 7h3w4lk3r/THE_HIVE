@@ -176,9 +176,7 @@ DEC destination
 
 ### ADD and SUB 
 
-![](../../.gitbook/assets/image%20%28136%29.png)
-
-Instructions are used for performing simple addition/subtraction of binary data in byte, word and doubleword size, i.e., for adding or subtracting 8-bit, 16-bit or 32-bit operands respectively.
+These instructions are used for performing simple addition/subtraction of binary data in byte, word and doubleword size, i.e., for adding or subtracting 8-bit, 16-bit or 32-bit operands respectively.
 
 ```text
 ADD/SUB destination, source
