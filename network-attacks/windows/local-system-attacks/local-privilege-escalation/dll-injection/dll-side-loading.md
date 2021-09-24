@@ -4,7 +4,7 @@ DLL Side-Loading Programs may specify DLLs that are loaded at runtime. Programs 
 
 Adversaries likely use this technique as a means of masking actions they perform under a legitimate, trusted system or software process.
 
-![](../../../../.gitbook/assets/image%20%28159%29.png)
+![](../../../../../.gitbook/assets/image%20%28159%29.png)
 
 WinSxS feature is used by many applications to prevent problems that can arise due to updated and duplicated version of DLLs. DLL side-loading attack makes use of WinSxS directory. This is located in C:WindowsWinSxS and holds multiple versions of DLLs. When an application uses this directory to retrieve DLL, then it needs to have a manifest. Manifest lists the DLL that can be used at run time by this application and is used by loaded to determine which version of DLL to use.
 

@@ -1,4 +1,4 @@
-# Admin to System
+# PSEXEC \(admin to system\)
 
 ## PSEXEC.exe
 

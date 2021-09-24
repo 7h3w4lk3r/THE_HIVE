@@ -19,17 +19,17 @@ When the operating system starts the search for a DLL that the application is im
 
 In this example the target is the google crash handler binary which is signed and trusted. in order to identify the modules that the executable attempts to load and could potentially be hijacked, we use SysInternal's Procmon \(same as before\) with the following filters:
 
-![](../../../../.gitbook/assets/image%20%28165%29.png)
+![](../../../../../.gitbook/assets/image%20%28165%29.png)
 
 After applying the filters, we get the following candidate DLLs:
 
-![](../../../../.gitbook/assets/image%20%28160%29.png)
+![](../../../../../.gitbook/assets/image%20%28160%29.png)
 
 Exploitation
 
 In order to weaponize the GoogleCrashHandler.exe, we created a custom DLL that executes the reverse shell. We named the output DLL wkscli.dll, placed it in the same directory the GoogleCrashHandler executable image exists. We then opened GoogleCrashHandler. The next picture shows the rogue DLL was mapped in the address space of GoogleCrashHandler and a beacon was launched.
 
-![](../../../../.gitbook/assets/image%20%28163%29.png)
+![](../../../../../.gitbook/assets/image%20%28163%29.png)
 
 And if we check the listener we have a reverse shell from target system.
 

@@ -12,7 +12,7 @@ systeminfo
 one way to find out whether you are in a virtual environment or not is to check the output. for example the picture bellow is the output from a windows 10 machine in virtualbox: 
 {% endhint %}
 
-![](../../../.gitbook/assets/image%20%2867%29.png)
+![](../../../../.gitbook/assets/image%20%2867%29.png)
 
 for OS name and version \( can add any other filter too \) :
 
