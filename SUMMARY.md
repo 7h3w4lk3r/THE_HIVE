@@ -61,6 +61,8 @@
       * [PSEXEC \(admin to system\)](network-attacks/windows/local-system-attacks/local-privilege-escalation/admin-to-system.md)
     * [Credential Dumping](network-attacks/windows/local-system-attacks/credential-dumping.md)
     * [Persistence](network-attacks/windows/local-system-attacks/persistence.md)
+  * [Active Directory Attacks](network-attacks/windows/active-directory-attacks/README.md)
+    * [Fundementals](network-attacks/windows/active-directory-attacks/fundementals.md)
 * [Linux](network-attacks/untitled/README.md)
   * [Privilege Escalation](network-attacks/untitled/privilege-escalation/README.md)
     * [Enumeration](network-attacks/untitled/privilege-escalation/enumeration.md)
