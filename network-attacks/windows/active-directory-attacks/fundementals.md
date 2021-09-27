@@ -48,6 +48,36 @@ OUs can also contain object types, such as users, groups, contacts, computers, o
 
 
 
+### Schema
+
+**The schema is the foundation of object structures for the entire forest**. **Every domain in the forest shares the same set of object structures that are defined in the schema.** If an attacker accesses or modifies the schema, every domain in the forest will be affected. The schema is one-third of the directory database, which is stored on all domain controllers in every domain. **Only one domain controller in the forest can update the schema?the Schema Master.**
+
+\*\*\*\*
+
+### Account Policy
+
+The Account Policy for domain users is established at the domain level. The Account Policy for the domain level includes control over passwords, account lockout, and Kerberos authentication. This means that domain user accounts cannot be controlled at the organizational unit level; they must be controlled at the domain level. Also, the Account Policy is not inherited from the parent domain, if we are focusing in on a child domain. There is no possible way to get a parent domain to push down Account Policies to child domains.  
+
+
+### Group Policy Objects
+
+GPOs are the main form of pushing out security to computers in the domain. However, GPOs that are configured within a domain do not and cannot span multiple domains by inheritance or hierarchy. The GPOs can be available to other domains, but there is no option to configure GPOs to span domains with a single configuration.
+
+\*\*\*\*
+
+### Delegation
+
+By far one of the most important features of Active Directory is delegation. However, delegation without a solid OU design is almost impossible to implement. OUs need to be designed to delegate administration. The key to delegation is to have the OU contain the objects that the delegate will control. For example, if you have delegated the ability for the HR manager to reset passwords for only the HR employees, then there needs to be an OU for these user accounts. A good design would have an OU named HR\_employees, which contains only the user accounts of the HR employees. The design would have this OU low in the OU hierarchy, so that no other OUs are below it. In that design, the HR manager will not have control over any other user accounts by default.  
+
+
+### GPO deployment
+
+Many administrators leave out the consideration of GPO deployment when they design OUs. This is a mistake, mainly for security reasons. The GPO deployment should be interwoven with delegation considerations. If there is a conflict between the two design needs, the delegation needs usually win. In this case, the GPO deployment will be taken care of by filtering the GPO \(setting permissions on the GPO\). An example of a typical GPO design would be the configuration of the Internet Explorer proxy settings for a branch office. All employees in the branch office need to have the same proxy settings for IE, which can easily be set by using GPOs. In this case, there would be an OU named Branch1\_employees, which contains the user accounts for only the branch office. This OU would be low in the OU hierarchy, with no other OUs below it.
+
+An error that many companies make is to duplicate their company's organizational chart for their OU design. The OUs are not well suited for this model, since this model usually breaks how the administration of objects and deployment of GPOs are implemented. This is not to say that a small percentage of companies have not successfully used the org chart for the OU design, but in most cases it will cause more anguish than benefit.
+
+
+
 ### Global catalog server
 
 The global catalog server holds the full writable copy of objects in its host domain, and the partial copy of the objects in other domains in the same forest. The partial replica contains a copy of every object in the forest and the most commonly used attributes in queries. Applications and users in one domain can query for the objects in another domain \(in the same forest\) via the global catalog server. All domain controllers in the domain will not be global catalog servers by default. When installing the first domain controller, it will become the global catalog server.
@@ -102,15 +132,9 @@ AD CS helps organizations build public key infrastructure \(PKI\) in an easy, co
 
 
 
-
-
-
-
-
-
-
-
-
+{% hint style="info" %}
+In a small  active directory environment the domain controller \(the server with the AD DS role \) usually acts as the DNS server as well. also when we create a new forest \(the first domain controller\) we have to have the DNS service installed on the root server as well.
+{% endhint %}
 
 
 

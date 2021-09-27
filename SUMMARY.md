@@ -63,6 +63,7 @@
     * [Persistence](network-attacks/windows/local-system-attacks/persistence.md)
   * [Active Directory Attacks](network-attacks/windows/active-directory-attacks/README.md)
     * [Fundementals](network-attacks/windows/active-directory-attacks/fundementals.md)
+    * [Domain Enumeration](network-attacks/windows/active-directory-attacks/domain-enumeration.md)
 * [Linux](network-attacks/untitled/README.md)
   * [Privilege Escalation](network-attacks/untitled/privilege-escalation/README.md)
     * [Enumeration](network-attacks/untitled/privilege-escalation/enumeration.md)
