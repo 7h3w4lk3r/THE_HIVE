@@ -1,4 +1,4 @@
-# Fundementals
+# AD Fundementals
 
 ## Active Directory Components
 
@@ -45,6 +45,31 @@ OUs can also contain object types, such as users, groups, contacts, computers, o
 ### Domain controllers
 
 **The domain controller is a computer that runs a Windows server operating system, and holds the Active Directory Domain Services role. It can be either a physical server or a virtual server.**The domain controller holds the directory partition that will be replicated to the other domain controllers in the same domain. The domain can have any number of domain controllers. The number of domain controllers is dependent on the enterprise's size, geographical placement, and network segmentation.
+
+
+
+### Domain Trust
+
+At a high level, a **domain trust** establishes the ability for **users in one domain to authenticate** to resources or act as a security principal **in another domain**.
+
+Essentially, all a trust does is **linking up the authentication systems of two domains** and allowing authentication traffic to flow between them through a system of referrals. When **2 domains trust each other they exchange keys**, these **keys** are going to be **saved** in the **DCs** of **each domains** \(**1 key per trust direction**\) and the keys will be the base of the trust.
+
+When a **user** tries to **access** a **service** on the **trusting domain** it will request an **inter-realm TGT** to the DC of its domain. The DC wills serve the client this **TGT** which would be **encrypted/signed** with the **inter-realm** **key** \(the key both domains **exchanged**\). Then, the **client** will **access** the **DC of the other domain** and will **request** a **TGS** for the service using the **inter-realm TGT**. The **DC** of the trusting domain will **check** the **key** used, if it's ok, it will **trust everything in that ticket** and will serve the TGS to the client.
+
+![](../../../.gitbook/assets/image%20%28173%29.png)
+
+It's important to notice that **a trust can be 1 way or 2 ways**. In the 2 ways options, both domains will trust each other, but in the **1 way** trust relation one of the domains will be the **trusted** and the other the **trusting** domain. In the last case, **you will only be able to access resources inside the trusting domain from the trusted one**.
+
+A trust relationship can also be **transitive** \(A trust B, B trust C, then A trust C\) or **non-transitive**.
+
+**Different trusting relationships:**
+
+* **Parent/Child** – part of the same forest – a child domain retains an implicit two-way transitive trust with its parent. This is probably the most common type of trust that you’ll encounter.
+* **Cross-link** – aka a “shortcut trust” between child domains to improve referral times. Normally referrals in a complex forest have to filter up to the forest root and then back down to the target domain, so for a geographically spread out scenario, cross-links can make sense to cut down on authentication times.
+* **External** – an implicitly non-transitive trust created between disparate domains. “External trusts provide access to resources in a domain outside of the forest that is not already joined by a forest trust.” External trusts enforce SID filtering, a security protection covered later in this post.
+* **Tree-root** – an implicit two-way transitive trust between the forest root domain and the new tree root you’re adding. I haven’t encountered tree-root trusts too often, but from the Microsoft documentation, they’re created when you when you create a new domain tree in a forest. These are intra-forest trusts, and they preserve two-way transitivity while allowing the tree to have a separate domain name \(instead of child.parent.com\).
+* **Forest** – a transitive trust between one forest root domain and another forest root domain. Forest trusts also enforce SID filtering.
+* **MIT** – a trust with a non-Windows RFC4120-compliant Kerberos domain. I hope to dive more into MIT trusts in the future.
 
 
 
