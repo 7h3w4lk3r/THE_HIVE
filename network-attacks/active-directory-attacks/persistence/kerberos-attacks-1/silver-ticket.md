@@ -4,7 +4,7 @@
 
 Silver ticket attack is one of the ways to gain domain persistence. Once you have gained domain admin or you could dump hashes of a service account some how. If you have recalled how Kerberos works let’s see where this attack fits in the cycle.
 
-On the last step of the process when the client sends a TGS to the service that is where we can send a forged TGS and get access directly to the service and get a service ticket using this meathod.
+On the last step of the process when the client sends a TGS to the service that is where we can send a forged TGS and get access directly to the service and get a service ticket using this method.
 
 ![](../../../../.gitbook/assets/image%20%28191%29.png)
 
