@@ -1,2 +1,2 @@
-# Network Poisoning / MITM
+# Network Poisoning
 

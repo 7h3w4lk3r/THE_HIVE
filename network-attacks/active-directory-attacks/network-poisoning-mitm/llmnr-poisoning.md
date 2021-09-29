@@ -14,9 +14,19 @@ responder -I vboxnet0 -rdwv
 
 #### the trigger for this attack can be any wrong query in the domain for example when a user from a workstation is trying to access a share and a typo happens the DNS service will fail to locate the resource. this is when responder comes in and  claims to know the resource location and asks the client for the NTLM hash. another example is when the client is pointed to the attacker machine:
 
+![](../../../.gitbook/assets/image%20%28211%29.png)
 
+![](../../../.gitbook/assets/image%20%28208%29.png)
 
+then we crack the hash with hashcat :
 
+```text
+hashcat -m 5600 hash.txt /usr/share/wordlists/rockyou.txt --force
+```
+
+## other forms of LLMNR and NBT-NS attacks
+
+{% embed url="https://www.4armed.com/blog/llmnr-nbtns-poisoning-using-responder/" %}
 
 
 
