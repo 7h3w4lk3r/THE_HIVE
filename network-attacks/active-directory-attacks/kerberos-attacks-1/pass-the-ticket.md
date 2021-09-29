@@ -17,7 +17,7 @@ kerberos::list /export
 
 we have the tickets that were saved inside the directory where we had the mimikatz executable.
 
-![](../../../../.gitbook/assets/image%20%28198%29.png)
+![](../../../.gitbook/assets/image%20%28198%29.png)
 
 We go back to the mimikatz terminal. Here, we pass the ticket with the help of ptt module inside the Kerberos module followed by the name of the ticket that we want to pass.to perform the actions as the user that we passed the ticket for we decided to get a cmd as that user. This can be accomplished using the misc::cmd command as shown in the image given below.
 
@@ -26,7 +26,7 @@ kerberos::ptt ticket.kirbi
 misc::cmd
 ```
 
-![](../../../../.gitbook/assets/image%20%28195%29.png)
+![](../../../.gitbook/assets/image%20%28195%29.png)
 
 ## Rubeus
 

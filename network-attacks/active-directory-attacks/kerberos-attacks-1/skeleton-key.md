@@ -10,7 +10,7 @@ skeleton key does this by manipulating the way the encrypted timestamp \(AS-REQ\
 mimikatz# misc::skeleton
 ```
 
-![](../../../../.gitbook/assets/image%20%28229%29.png)
+![](../../../.gitbook/assets/image%20%28229%29.png)
 
 #### now anyone with the skeleton key password "mimikatz" can authenticate to any user account.
 
