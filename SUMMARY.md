@@ -67,6 +67,8 @@
     * [Kerberos Attacks](network-attacks/windows/active-directory-attacks/kerberos-attacks-1/README.md)
       * [Kerberosting](network-attacks/windows/active-directory-attacks/kerberos-attacks-1/kerberosting.md)
       * [Silver Ticket](network-attacks/windows/active-directory-attacks/kerberos-attacks-1/silver-ticket.md)
+      * [Pass The Ticket](network-attacks/windows/active-directory-attacks/kerberos-attacks-1/pass-the-ticket.md)
+      * [Golden Ticket](network-attacks/windows/active-directory-attacks/kerberos-attacks-1/golden-ticket.md)
 * [Linux](network-attacks/untitled/README.md)
   * [Privilege Escalation](network-attacks/untitled/privilege-escalation/README.md)
     * [Enumeration](network-attacks/untitled/privilege-escalation/enumeration.md)
