@@ -14,7 +14,7 @@ the exploit can be found here:
 
 and here is the compiled binary exploit:
 
-{% file src="../../../../.gitbook/assets/potato.exe" %}
+{% file src="../../../.gitbook/assets/potato.exe" %}
 
 Run the exploit with your custom reverse shell:
 

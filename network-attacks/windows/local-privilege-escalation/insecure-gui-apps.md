@@ -10,7 +10,7 @@ Open a command prompt and run:
 tasklist /V | findstr mspaint.exe
 ```
 
-![](../../../../.gitbook/assets/image%20%28164%29.png)
+![](../../../.gitbook/assets/image%20%28164%29.png)
 
 Note that mspaint.exe is running with admin privileges.
 
@@ -22,7 +22,7 @@ file://c:/windows/system32/cmd.exe
 
 ress Enter. A command prompt should open running with admin privileges.
 
-![](../../../../.gitbook/assets/image%20%28166%29.png)
+![](../../../.gitbook/assets/image%20%28166%29.png)
 
 as you can see we have a cmd shell with admin privileges by opening the cmd.exe file from a vulnerable GUI app.
 

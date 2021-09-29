@@ -46,7 +46,7 @@ Run winPEAS to check for service misconfigurations:
 winPEASany.exe quiet servicesinfo
 ```
 
-![](../../../../../.gitbook/assets/image%20%28100%29.png)
+![](../../../../.gitbook/assets/image%20%28100%29.png)
 
 Note that the “unquotedsvc” service has an unquoted path that also contains spaces:
 
@@ -58,7 +58,7 @@ Confirm this using sc:
 sc qc unquotedsvc
 ```
 
-![](../../../../../.gitbook/assets/image%20%28101%29.png)
+![](../../../../.gitbook/assets/image%20%28101%29.png)
 
 we can detect it using
 
@@ -68,7 +68,7 @@ Use accesschk.exe to check for write and startpermissions:
 accesschk.exe -ucqv user unquotedsvc
 ```
 
-![](../../../../../.gitbook/assets/image%20%2877%29.png)
+![](../../../../.gitbook/assets/image%20%2877%29.png)
 
 we have start permission, now check for write permission on each directory path to the binary file:
 
@@ -86,7 +86,7 @@ icacls "c:\\Program Files"
 icacls "c:\\Program Files\\Unquoted Path Service"
 ```
 
-![](../../../../../.gitbook/assets/image%20%2875%29.png)
+![](../../../../.gitbook/assets/image%20%2875%29.png)
 
 it looks like all the members of the builtin\users group have RW \(read/write\) access to this directory. we are a member of that group so we can create a file named Common.exe in C:\Program Files\Unquoted Path Service and have it execute a reverse shell. \(because C:\Program Files\Unquoted Path Service is the first path that our user group has rw access and the next thing that windows looks for while executing the binary is the name "Common" in the "Common Filess" string so if we create a reverse shell executable named Common.exe it will be executed befor windows reaches the "Common Files" directory
 
@@ -102,7 +102,7 @@ Start a listener on Kali, and then start the service to trigger the exploit:
 net start unquotedsvc
 ```
 
-![](../../../../../.gitbook/assets/image%20%2897%29.png)
+![](../../../../.gitbook/assets/image%20%2897%29.png)
 
 
 

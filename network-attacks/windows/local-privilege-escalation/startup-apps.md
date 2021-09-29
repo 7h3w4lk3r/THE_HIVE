@@ -23,7 +23,7 @@ oLink.Target
 
 #### reverse.lnk is our reverse shell executable.
 
-![](../../../../.gitbook/assets/image%20%28158%29.png)
+![](../../../.gitbook/assets/image%20%28158%29.png)
 
 Use accesschk.exe to check permissions on the StartUp directory:
 
@@ -31,13 +31,13 @@ Use accesschk.exe to check permissions on the StartUp directory:
 \accesschk.exe /accepteula -d "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"
 ```
 
-![](../../../../.gitbook/assets/image%20%28157%29.png)
+![](../../../.gitbook/assets/image%20%28157%29.png)
 
 Note that the BUILTIN\Users group has write access to this directory.
 
 Create a file CreateShortcut.vbs with the VBScript provided in a previous slide. Change file paths if necessary.
 
-![](../../../../.gitbook/assets/image%20%28161%29.png)
+![](../../../.gitbook/assets/image%20%28161%29.png)
 
 Run the script using cscript:
 
@@ -45,9 +45,9 @@ Run the script using cscript:
 cscript CreateShortcut.vbs
 ```
 
-![](../../../../.gitbook/assets/image%20%28162%29.png)
+![](../../../.gitbook/assets/image%20%28162%29.png)
 
 no we wait for the admin to login:
 
-![](../../../../.gitbook/assets/image%20%28156%29.png)
+![](../../../.gitbook/assets/image%20%28156%29.png)
 

