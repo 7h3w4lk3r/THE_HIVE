@@ -66,6 +66,7 @@
     * [Domain Enumeration](network-attacks/windows/active-directory-attacks/domain-enumeration.md)
     * [Kerberos Attacks](network-attacks/windows/active-directory-attacks/kerberos-attacks-1/README.md)
       * [Kerberosting](network-attacks/windows/active-directory-attacks/kerberos-attacks-1/kerberosting.md)
+      * [Silver Ticket](network-attacks/windows/active-directory-attacks/kerberos-attacks-1/silver-ticket.md)
 * [Linux](network-attacks/untitled/README.md)
   * [Privilege Escalation](network-attacks/untitled/privilege-escalation/README.md)
     * [Enumeration](network-attacks/untitled/privilege-escalation/enumeration.md)

