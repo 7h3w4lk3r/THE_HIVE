@@ -17,8 +17,8 @@ Most of the attacks in this section \(in real world scenarios as well\) are base
 3. **Internal Domain Recon**
 4. **Poisoning / MITM**
 5. **Domain Admin Access**
-6. **Domain Dominance**
-7. **Domain Persistence**
+6. **Domain Dominance  \( fancy name for " full compromise " \)**
+7. **Domain Persistence** 
 8. **Asset Access**
 9. **Exfiltration**
 

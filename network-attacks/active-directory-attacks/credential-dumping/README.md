@@ -91,7 +91,15 @@ A cached verifier is not created at sign-in or unlock, so offline sign-in is no 
 
 After the user account is added to the Protected Users group, protection will begin when the user signs in to the device.
 
+## Metasploit Modules
 
+```text
+post/windows/manage/wdigest_caching
 
+post/windows/gather/lsa_secrets
 
+post/windows/gather/credentials/gpp
+
+post/windows/gather/lsa_secrets
+```
 

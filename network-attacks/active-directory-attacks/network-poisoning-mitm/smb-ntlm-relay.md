@@ -80,7 +80,7 @@ No diffusion, meaning that each part of DES output is not linked to the previous
 
 
 
-### SMB Relay with Metasploit
+## SMB Relay with Metasploit
 
 The first item we need to address in this exploitation process, is to create a listening SMB service that will both accept incoming connections, and send back a fixed challenge. As you can imagine, we use a fixed challenge to help us in decrypting the response. Although there are many tools that allow us to do this, we will use the following Metasploit module:
 
