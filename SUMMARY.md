@@ -67,12 +67,9 @@
     * [LLMNR Poisoning](network-attacks/active-directory-attacks/network-poisoning-mitm/llmnr-poisoning.md)
     * [DNS Takeover / LDAP Relay](network-attacks/active-directory-attacks/network-poisoning-mitm/dns-takeover-ldap-relay.md)
   * [Domain Privilege Escalation](network-attacks/active-directory-attacks/domain-privilege-escalation/README.md)
+    * [Group Policy Objects GPO](network-attacks/active-directory-attacks/domain-privilege-escalation/group-policy-objects-gpo.md)
+    * [PrintNightmare](network-attacks/active-directory-attacks/domain-privilege-escalation/printnightmare.md)
     * [Zero Logon](network-attacks/active-directory-attacks/domain-privilege-escalation/zero-logon.md)
-  * [Pass the Hash / Password](network-attacks/active-directory-attacks/pass-the-hash-password/README.md)
-    * [crackmapexec](network-attacks/active-directory-attacks/pass-the-hash-password/crackmapexec.md)
-    * [psexec / wmiexec](network-attacks/active-directory-attacks/pass-the-hash-password/psexec-wmiexec.md)
-    * [secretsdump](network-attacks/active-directory-attacks/pass-the-hash-password/secretsdump.md)
-    * [pth-winexe](network-attacks/active-directory-attacks/pass-the-hash-password/pth-winexe.md)
   * [Kerberos Attacks](network-attacks/active-directory-attacks/kerberos-attacks-1/README.md)
     * [Kerberosting](network-attacks/active-directory-attacks/kerberos-attacks-1/kerberosting.md)
     * [Overpass the Hash / Pass the Key](network-attacks/active-directory-attacks/kerberos-attacks-1/overpass-the-hash-pass-the-key.md)
@@ -80,8 +77,17 @@
     * [Pass The Ticket](network-attacks/active-directory-attacks/kerberos-attacks-1/pass-the-ticket.md)
     * [Golden Ticket](network-attacks/active-directory-attacks/kerberos-attacks-1/golden-ticket.md)
     * [Skeleton Key](network-attacks/active-directory-attacks/kerberos-attacks-1/skeleton-key.md)
-* [Defense Evasion](network-attacks/defense-evasion/README.md)
-  * [AMSI Bypass](network-attacks/defense-evasion/amsi-bypass.md)
+    * [Kerberos Checksum Validation \( MS14-068 \)](network-attacks/active-directory-attacks/kerberos-attacks-1/kerberos-checksum-validation-ms14-068.md)
+  * [Pass the Hash / Password](network-attacks/active-directory-attacks/pass-the-hash-password/README.md)
+    * [crackmapexec](network-attacks/active-directory-attacks/pass-the-hash-password/crackmapexec.md)
+    * [psexec / wmiexec](network-attacks/active-directory-attacks/pass-the-hash-password/psexec-wmiexec.md)
+    * [secretsdump](network-attacks/active-directory-attacks/pass-the-hash-password/secretsdump.md)
+    * [pth-winexe](network-attacks/active-directory-attacks/pass-the-hash-password/pth-winexe.md)
+  * [Domain Shares](network-attacks/active-directory-attacks/domain-shares/README.md)
+    * [SCF File Attacks](network-attacks/active-directory-attacks/domain-shares/scf-file-attacks.md)
+  * [Credential Dumping](network-attacks/active-directory-attacks/credential-dumping/README.md)
+    * [NTDS.dit](network-attacks/active-directory-attacks/credential-dumping/ntds.dit.md)
+    * [SYSVOL & Group Policy Preferences](network-attacks/active-directory-attacks/credential-dumping/sysvol-and-group-policy-preferences.md)
 * [Linux](network-attacks/untitled/README.md)
   * [Privilege Escalation](network-attacks/untitled/privilege-escalation/README.md)
     * [Enumeration](network-attacks/untitled/privilege-escalation/enumeration.md)
@@ -111,6 +117,10 @@
     * [Xinetd UDP portnock](network-attacks/untitled/persistence/xinetd-udp-portnock.md)
     * [openSSL reverse shell](network-attacks/untitled/persistence/openssl-reverse-shell.md)
     * [SSH persistence passwordless](network-attacks/untitled/persistence/ssh-persistence-passwordless.md)
+
+## Defense Evasion
+
+* [AMSI Bypass](defense-evasion/amsi-bypass.md)
 
 ## Programming and DataBase
 
