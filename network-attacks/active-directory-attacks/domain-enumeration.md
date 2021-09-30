@@ -467,7 +467,7 @@ Get-NetSession -ComputerName <ComputerName>
 Find-DomainUserLocation -Domain <DomainName> | Select-Object UserName, SessionFromName
 ```
 
-### **Enum OUs**
+## **Enum OUs**
 
 ```text
 Get-NetOU -FullData 
@@ -488,19 +488,29 @@ Invoke-ACLScanner -ResolveGUIDs
 
 #Check the ACLs associated with a specified path (e.g smb share)
 Get-PathAcl -Path "\\Path\Of\A\Share"
+
+
 ```
 
-Get ACLs associated with the specified object
+### Get ACLs associated with the specified object
 
 ```text
 Get-ObjectACL -SamAccountName user123 -ResolveGUIDs
 ```
 
-Get ACLs associated with the specified prefix to be used for search
+### Get ACLs associated with the specified prefix to be used for search
 
 ```text
 Get-objectACL -ADSprefix 'CN=Administrator,CN=Users' -Verbose
 ```
+
+### GenericWrite 
+
+```text
+Get-ObjectAcl -SamAccountName * –ResolveGUIDs | ? { ($_.ActiveDirectoryRights -match 'GenericWrite') -and ($_.SecurityIdentifier -match 'S-1-5-21-1070240333-336889418-1185445934-1603') }
+```
+
+
 
 ## **Enum Shares**
 
