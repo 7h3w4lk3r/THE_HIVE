@@ -80,6 +80,8 @@
     * [Pass The Ticket](network-attacks/active-directory-attacks/kerberos-attacks-1/pass-the-ticket.md)
     * [Golden Ticket](network-attacks/active-directory-attacks/kerberos-attacks-1/golden-ticket.md)
     * [Skeleton Key](network-attacks/active-directory-attacks/kerberos-attacks-1/skeleton-key.md)
+* [Defense Evasion](network-attacks/defense-evasion/README.md)
+  * [AMSI Bypass](network-attacks/defense-evasion/amsi-bypass.md)
 * [Linux](network-attacks/untitled/README.md)
   * [Privilege Escalation](network-attacks/untitled/privilege-escalation/README.md)
     * [Enumeration](network-attacks/untitled/privilege-escalation/enumeration.md)

