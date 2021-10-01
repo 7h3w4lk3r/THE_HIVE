@@ -156,13 +156,9 @@ filename:settings.py SECRET_KEY # Django secret keys (usually allows for session
 
 ## CloadFlare / Tor IP Detection
 
-some tips to find real IP addresses hiding behind CloadFlare and Tor:
+some tips to find real IP addresses hiding behind CloadFlare and Tor
 
-### SSL Certificates
-
-By using an SSL certificate between the server and CloudFlare, you can search for the real server.
-
-{% embed url="https://censys.io/" %}
+{% embed url="https://www.secjuice.com/finding-real-ips-of-origin-servers-behind-cloudflare-or-tor/" %}
 
 ## Identify Host Sharing
 
