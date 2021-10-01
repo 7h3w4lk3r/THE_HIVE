@@ -72,7 +72,6 @@
     * [Potatos](network-attacks/windows/local-privilege-escalation/potatos.md)
     * [Printspoofer / SEImpersonate](network-attacks/windows/local-privilege-escalation/printspoofer-seimpersonate.md)
     * [PSEXEC \(admin to system\)](network-attacks/windows/local-privilege-escalation/admin-to-system.md)
-  * [Credential Dumping](network-attacks/windows/credential-dumping.md)
   * [Persistence](network-attacks/windows/persistence.md)
 * [Active Directory](network-attacks/active-directory-attacks/README.md)
   * [Domain Enumeration](network-attacks/active-directory-attacks/domain-enumeration.md)
