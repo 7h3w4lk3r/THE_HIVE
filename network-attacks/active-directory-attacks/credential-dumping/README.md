@@ -70,11 +70,6 @@ The credentials are hidden from normal users, even administrator accounts. The S
 HKEY_LOCAL_MACHINE\SECURITY\Cache
 ```
 
-```text
-# Extracting from Mimikatz
-lsadump::cache
-```
-
 ### Protected Users
 
 When the signed in user is a member of the Protected Users group the following protections are applied:
@@ -91,15 +86,22 @@ A cached verifier is not created at sign-in or unlock, so offline sign-in is no 
 
 After the user account is added to the Protected Users group, protection will begin when the user signs in to the device.
 
-## Metasploit Modules
+## Windows Hash Types
 
-```text
-post/windows/manage/wdigest_caching
 
-post/windows/gather/lsa_secrets
 
-post/windows/gather/credentials/gpp
+Below is a short list of the most useful hash types for Active Directory hunting.
 
-post/windows/gather/lsa_secrets
-```
+| Hash type | -m number for hashcat |
+| :--- | :--- |
+| LM hash | 3000 |
+| NT hash | 1000 |
+| ​LM response​ | ​not supported​ |
+| ​LMv2 response​ | ​not supported​ |
+| ​NTLM response​ | 5500 |
+| ​NTLMv2 response​ | 5600 |
+| ​\(DCC1\) Domain Cached Credentials​ | 1100 |
+| ​\(DCC2\) Domain Cached Credentials 2​ | 2100 |
+| ​ASREProast​ | 18200 |
+| ​Kerberoast​ | 13100 |
 

