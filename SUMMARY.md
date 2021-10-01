@@ -76,6 +76,7 @@
 * [Active Directory](network-attacks/active-directory-attacks/README.md)
   * [Domain Enumeration](network-attacks/active-directory-attacks/domain-enumeration.md)
   * [MITM & Relay Attacks](network-attacks/active-directory-attacks/network-poisoning-mitm/README.md)
+    * [WPAD Abuse](network-attacks/active-directory-attacks/network-poisoning-mitm/wpad-abuse.md)
     * [SMB/NTLM Relay](network-attacks/active-directory-attacks/network-poisoning-mitm/smb-ntlm-relay.md)
     * [LLMNR Poisoning](network-attacks/active-directory-attacks/network-poisoning-mitm/llmnr-poisoning.md)
     * [DNS Takeover / LDAP Relay](network-attacks/active-directory-attacks/network-poisoning-mitm/dns-takeover-ldap-relay.md)
