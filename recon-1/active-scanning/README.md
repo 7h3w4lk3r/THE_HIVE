@@ -4,29 +4,6 @@
 
  The active recon chain is somehow pretty obvious, you find the target \( might have done this in the passive recon phase\), trace the route to target IP or network and try to map the network as best as you can, search for open ports and services, if its a web app try using it and viewing the source code or use browser extensions that can give you some info about the technologies and apps behind it, finally move on to the next phase \( threat modeling or vulnerability assessment \).
 
-## Methodology
-
-I split this section into two categories, network and web app. for each section we will discuss methods, techniques and tools for enumerating systems and their services. the network active recon will be mostly about the ports and service scans and the web app part is about digging info about the web app structure and technologies behind it. either way the goal in recon phase is to enumerate as much as we can so there is no order for performing any of these techniques.
-
-| Network | Web App |
-| :---: | :---: |
-| Host Discovery | Hidden Hosts |
-| OS Fingerprinting | Directories & Domains |
-| DNS | CMS Enumeration |
-| FTP | SSL Certs Test |
-| SNMP | HTTP/HTTPS |
-| LDAP |  |
-| SMTP/POP3 |  |
-| SMB |  |
-| NTP |  |
-| RDP |  |
-| RPC |  |
-| SSH |  |
-| Telnet |  |
-| NFS |  |
-| Rlogin |  |
-| Firewall Testing |  |
-
 ## Useful Resources
 
 ####  [Recon Everything](https://infosecwriteups.com/recon-everything-48aafbb8987)  [payload all the things](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Network%20Discovery.md)  [Hacking Tricks](https://book.hacktricks.xyz/)  [Nmap.org](https://nmap.org/)  [Nmap Cookbook](https://b-ok.asia/book/3640353/cace51)

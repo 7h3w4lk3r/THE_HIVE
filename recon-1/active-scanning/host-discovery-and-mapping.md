@@ -4,7 +4,7 @@ description: >-
   structure using the discovered hosts and/or network devices.
 ---
 
-# Host discovery and mapping
+# Host Discovery / Network Mapping
 
 ## Traceroute
 
@@ -28,7 +28,7 @@ traceroute [target]
 
 #### Linux traceroute sends packets to target with varying TTLs in the IP header. by default sends UDP packets with incrementing destination ports starting from port 33434 going up by one port for each probe packet sent \( each hope measured three times \).
 
-![](../../../.gitbook/assets/tr.png)
+![](../../.gitbook/assets/tr.png)
 
 #### here are some of the most used options:
 
@@ -89,7 +89,7 @@ traceroute target.com > 1 && traceroute -T target.com > 2 && traceroute -I targe
 
 this will run a traceroute with multiple methods and combine the results for better view.
 
-![](../../../.gitbook/assets/tr2.png)
+![](../../.gitbook/assets/tr2.png)
 
 using this method we can minimize the chance of lost hopes in the route. \( the \* signs\). here is the bash script you can use with the target domain or IP as an argument to perform the same task:
 
@@ -100,9 +100,11 @@ echo "target: &target"
 traceroute $target > 1 && traceroute -T $target > 2 && traceroute -I $target > 3 && traceroute $target -T 80 > 4 && cat 1 2 3 4 | grep -v '*' | sort -n -k 1 -u | sort -g 
 ```
 
-you can also use zenmap which is a GUI for nmap tool and can be downloaded from [here](https://nmap.org/zenmap/).
+## Network Mapping
 
-![](../../../.gitbook/assets/zenmap.png)
+you can also use zenmap for network mapping which is a GUI for nmap tool and can be downloaded from [here](https://nmap.org/zenmap/).
+
+![](../../.gitbook/assets/zenmap.png)
 
 ## Finding live hosts
 
