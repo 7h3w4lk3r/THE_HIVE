@@ -40,9 +40,13 @@ The algorithm used to compute the LM Hash is DES and here are the steps used by 
 
 ![](../../../.gitbook/assets/image%20%28220%29.png)
 
-The computation of the NTLM Hashes is still very simple: • The user’s password is converted to UNICODE • MD4 is then used to get a 16-byte long hash By using UNICODE, the allowed charset is much wider. Although it address some LM flaws, it is still considered weak.
+The computation of the NTLM Hashes is still very simple:
 
-Moreover, the NTLM response is sent together with the LM response, most of the time .
+ • The user’s password is converted to UNICODE 
+
+• MD4 is then used to get a 16-byte long hash By using UNICODE, the allowed charset is much wider. 
+
+Although it address some LM flaws, it is still considered weak. Moreover, the NTLM response is sent together with the LM response, most of the time .
 
 he goal of our attack is to gain the password hash through the implementation of this protocol. During the attack we will impersonate the server. Notice that the most important part of the protocol is step 3, where the client hash resides.
 
