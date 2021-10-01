@@ -1,20 +1,12 @@
 # Passive \(OSINT\)
 
-![the big picture of OSINT](../.gitbook/assets/banner.png)
+![the big picture of OSINT](../../.gitbook/assets/banner.png)
 
 #### OSINT is short for Open-Source Intelligence Gathering,  is a way of knowing your target without any sorts of direct contact or leaving any evidence of the recon.
 
-#### simply put, OSINT means finding info without leaving any info. there are some ways to perform active info gathering without being traced for example using tor or double VPNs or even passive methods like using a public network but we will talk about those in the scanning phase, right now lets jump into some resources for OSINT.
-
-{% hint style="info" %}
-besides OSINT there are other methods and techniques out there that are no longer used. there is an almost endless variety and number of sources available out there. **Signals Intelligence \(SIGINT\)** is no longer interesting or relevant since satellite communications are insignificant these days. **Image Intelligence \(IMINT\)** is something anybody can do with modern drones. Books are outdated and have been replaced with e-book readers and other mobile electronic devices. Overall, other communication channels have taken over, new kinds and types of sources pop up almost every day, many of those requiring technical skills to make use of them. Many, if not most, of the possible relevant sources are completely unknown to intelligence analysts. Finding and using sources is today’s task for specialists.
-{% endhint %}
-
-Due to the vast amounts of information available to swift through on the Web, attackers must have a clear and defined search framework as well as a wide array of OSINT collection tools to facilitate this task and assist with processing the data; otherwise they risk getting lost in the overwhelming sea of information that has become the Internet. 
-
 ### OSINT reconnaissance can be further broken down into the following 5 sub-phases:
 
-![the OSINT process steps](../.gitbook/assets/osint-process.png)
+![the OSINT process steps](../../.gitbook/assets/osint-process.png)
 
 **Source Identification**: as the starting point, in this initial phase the attacker identifies potential sources from which information may be gathered from. Sources are internally documented throughout the process in detailed notes to come back to later if necessary.
 
@@ -26,23 +18,17 @@ Due to the vast amounts of information available to swift through on the Web, at
 
 **Results Delivery**: in the final phase, OSINT analysis is complete and the findings are presented/reported to other members of the Red Team.
 
-for example in the picture bellow you see a sample OSINT chart for a domain enumeration:
 
-![a sample OSINT chart of a domain](../.gitbook/assets/banner4.jpg)
-
-
-
-so first we start with well known sources and tools and then go for additional options:
 
 ## Maltego
 
 is an open source intelligence \(OSINT\) and graphical link analysis tool for gathering and connecting information for investigative tasks. its preinstalled in kali linux. you can download it from [here](https://www.maltego.com/)
 
-![sample Maltego results for a domain](../.gitbook/assets/maltego.jpg)
+![sample Maltego results for a domain](../../.gitbook/assets/maltego.jpg)
 
 ## Google Hacking
 
-![](../.gitbook/assets/1-tphe8yriuyletxgl6nyd9w.jpeg)
+![](../../.gitbook/assets/1-tphe8yriuyletxgl6nyd9w.jpeg)
 
 also named Google dorking, is a hacker technique that uses Google Search and other Google applications to find security holes in web applications, finding loots, targeting databases, login pages or even exposed backup files and directories.
 
@@ -50,7 +36,34 @@ also named Google dorking, is a hacker technique that uses Google Search and oth
 
 #### there is an expanding database of these search queries maintained by offensive security folks called the [google hacking database \(GHDB\) ](https://www.exploit-db.com/google-hacking-database). you can use the site search to find dorks for specific types of targets.
 
-#### 
+{% embed url="https://pentest-tools.com/information-gathering/google-hacking\#" %}
+
+
+
+### Automated Dork Tools
+
+[GoogD0rker](https://github.com/ZephrFish/GoogD0rker/)
+
+```text
+./googD0rker-txt.py -d example.com
+```
+
+[Goohak](https://github.com/1N3/Goohak)
+
+```text
+./goohak domain.com
+```
+
+[Pagado](https://github.com/opsdisk/pagodo)
+
+```text
+# first run the scrapper to get the dorks and store them
+python3 ghdb_scraper.py -j -s
+
+# then run the tool to use gathered dorks
+# -d option can be used to target a domain
+python3 pagodo.py -d example.com -g dorks.txt -l 50 -s -e 35.0 -j 1.1
+```
 
 ### Advanced Search Keywords 
 
@@ -106,11 +119,63 @@ NOT
 
 define : define a word or phrase
 
+## Github Dorks
 
+we can use github advanced search keywords and dorks to find sensitive data in repositories.
+
+{% hint style="info" %}
+Github dorks work with filenames and extentions
+{% endhint %}
+
+```text
+filename:bashrc
+extension:pem
+langage:bash
+```
+
+some examples of github search keywords:
+
+```text
+extension:pem private # Private SSH Keys
+extension:sql mysql dump # MySQL dumps
+extension:sql mysql dump password # MySQL dumps with passwords
+filename:wp-config.php # Wordpress config file
+filename:.htpasswd # .htpasswd
+filename:.git-credentials # Git stored credentials
+filename:.bashrc password # .bashrc files containing passwords
+filename:.bash_profile aws # AWS keys in .bash_profiles
+extension:json mongolab.com # Keys/Credentials for mongolab
+HEROKU_API_KEY language:json # Heroku API Keys
+filename:filezilla.xml Pass # FTP credentials
+filename:recentservers.xml Pass # FTP credentials
+filename:config.php dbpasswd # PHP Applications databases credentials
+shodan_api_key language:python # Shodan API Keys (try others languages)
+filename:logins.json # Firefox saved password collection (key3.db usually in same repo)
+filename:settings.py SECRET_KEY # Django secret keys (usually allows for session hijacking, RCE, etc)
+```
+
+## CloadFlare / Tor IP Detection
+
+some tips to find real IP addresses hiding behind CloadFlare and Tor:
+
+### SSL Certificates
+
+By using an SSL certificate between the server and CloudFlare, you can search for the real server.
+
+{% embed url="https://censys.io/" %}
+
+## Identify Host Sharing
+
+see if a single server or ip is hosting multiple websites/domains:
+
+```text
+# Bing dorks to identify host sharing
+ip:xxx.xxx.xxx.xxx
+```
 
 ## Shodan
 
-![](../.gitbook/assets/1-xmmhvlmpbibj6o9smb50fg-2x.jpeg)
+![](../../.gitbook/assets/1-xmmhvlmpbibj6o9smb50fg-2x.jpeg)
 
 Search engine for the Internet of everything. Shodan is the world's first search engine for Internet-connected devices including computers, servers, CCTV cameras, SCADA systems and everything that is connected to the internet with or without attention. Shodan can be used both as a source for gathering info about random targets for mass attacks and a tool for finding weak spots in a large network of systems to attack and take the low-hanging fruit. Shodan has a free and commercial membership and is accessible at [shodan.io](www.shodan.io) . the search syntax in the search engine is somehow special and can be found in the help section of the website. with shodan you can search for specific systems, ports, services, regions and countries or even specific vulnerable versions of a software or OS service running on systems like SMB v1 and much more.
 
@@ -190,9 +255,29 @@ and here are some other useful resources about shodan:
 
 [the OSINT framework](https://osintframework.com/) is a great collection of OSINT resources that you should definitely check them out.
 
-![OSINT framework hierarchy sources structure  ](../.gitbook/assets/osint-framework.jpg)
+![OSINT framework hierarchy sources structure  ](../../.gitbook/assets/osint-framework.jpg)
 
-## Websites and popular online OSINT sources
+## Credential Leaks
+
+Tools and resources for credential leaks available online:
+
+{% embed url="https://pastebeen.com/" %}
+
+{% embed url="https://github.com/thewhiteh4t/pwnedOrNot.git" %}
+
+{% embed url="http://pwndb2am4tzkvold.onion" %}
+
+{% embed url="https://dehashed.com" %}
+
+{% embed url="https://haveibeenpwned.com" %}
+
+{% embed url="https://breachdirectory.tk/" %}
+
+## Social Media Investigation
+
+For more indept social search ceck the social platforms page.
+
+## Other Online OSINT Sources
 
 I have put together a list of the most used OSINT sources that will usually cover about 90% of your needs in  a regular pentest. remember there are endless ways to find Intel about your target. the OSINT process is limited to your own imagination. 
 
@@ -449,4 +534,193 @@ python3 -m pip install social-analyzer
 
 social-analyzer --username "johndoe" --metadata --extract --mode fast
 ```
+
+## Other Tools
+
+```text
+# Firefox and some plugins
+- Download Star
+- ExifViewer
+- Firefox multiaccount
+- HTTPS Everywhere
+- Image Search Options
+- MJsonViewer
+- Nimbus Screen Capture
+- Resurrect Pages
+- Take Webpage Screenshots Entirely
+- uBlock Origin
+- User-Agent Switcher
+- Video DownloadHelper
+
+# Google Chrome with other plugins
+
+# TOR Browser
+
+# Custom Video Manipulation Utilities
+
+# Custom Video Download Utility
+
+
+# BleachBit
+→ Clean your PC
+
+
+# EmailHarvester
+→ Collect emails using search engines
+
+
+# Exiftool
+→ Extract metadata from images
+
+
+# EyeWitness
+→ Take screenshots from website
+→ Get HTTP headers
+→ Identify some credentials
+→ Basic tool semi passive
+
+
+# Ghiro
+→ Ghiro is a fully automated tool designed to run forensics analysis over a massive amount of images
+→ Just using an user friendly and fancy web application. 
+
+
+# GIMP
+→ Image manipulation tool
+
+
+# Google Earth Pro
+→ Advanced Google Earth
+→ Browse and create maps
+
+
+# HTTrack Cloner
+→ Copy website locally
+→ It downloads website content and rebuild the file structure
+
+
+# InstaLooter
+→ API-less Instagram pictures and videos downloader
+
+
+# KeePassXC
+→ Keepass Cross Platform Community Edition
+
+
+# Kleopatra
+→ Kleopatra is a certificate manager and GUI for GnuPG
+
+
+# Knock Pages
+→ Subdomain bruteforce
+→ Virustotal, wildcard, zone transfer
+→ Using a wordlist
+
+
+# LibreOffice
+→ Known one
+
+
+# LinkedInt
+→ LinkedIn Intelligence
+→ Find emails, companies etc
+
+
+# Metagoofil
+→ Extracting metadata of public documents (pdf,doc,xls,ppt,etc) availables in the target websites
+
+
+# MediaInfo
+→ Complete tool used to get information about local files
+→ Metada etc
+
+
+# Metadata anonymisation Toolkit
+→ Small tool used to anonymise file\'s metadata
+
+
+# PhoneInfoga
+→ Information gathering & OSINT reconnaissance tool for phone numbers
+→ Scan phone numbers using only free resources
+→ The goal is to first gather standard information such as country, area, carrier and line type on any international phone numbers
+→ Then search for footprints on search engines to try to find the VoIP provider or identify the owner
+→ Features
+   ⇒ Check if phone number exists and is possible
+   ⇒ Gather standard informations such as country, line type and carrier
+   ⇒ OSINT footprinting using external APIs, Google Hacking, phone books & search engines
+   ⇒ Check for reputation reports, social media, disposable numbers and more
+   ⇒ Scan several numbers at once
+   ⇒ Use custom formatting for more effective OSINT reconnaissance
+   ⇒ Automatic footprinting on several custom formats
+
+
+# Photon
+→ Photon is a fast OSINT web crawler which can retrieve the following data for a target : 
+→ URLs (in-scope & out-of-scope)
+→ URLs with parameters (example.com/gallery.php?id=2)
+→ Intel (emails, social media accounts, amazon buckets etc.)
+→ Files (pdf, png, xml etc.)
+→ Secret keys (auth/API keys & hashes)
+→ JavaScript files & Endpoints present in them
+→ Strings matching custom regex pattern
+→ Subdomains & DNS related data
+
+
+# ReconDog
+→ Recon Dog is an all in one tool for all your basic information gathering needs.
+→ It uses APIs to gather all the information so your identity is not exposed.
+→ Simple and basic standalone python script
+→ All informations seems to be extracted from API\'s services, so it fully passive
+
+
+# SkipTracer
+→ It uses some basic python webscraping to compile passive information on a target
+→ Included modules will allow queries for the following :
+   ⇒ Phone
+   ⇒ Email
+   ⇒ Screen names
+   ⇒ Real names
+   ⇒ Addresses
+   ⇒ IP
+   ⇒ Hostname
+   ⇒ Breach Credentials
+
+
+# SocialMapper
+
+
+
+# StegoSuite
+→ Free and open source steganography tool written in Java.
+→ With Stegosuite you can easily hide information in image files.
+
+
+# SubBrute
+→ A DNS meta-query spider that enumerates DNS records, and subdomains.         
+→ Subdomain bruteforce
+
+
+# Tinfoleak
+→ The most complete open-source tool for Twitter intelligence analysis
+→ UI tool
+
+
+
+Twitter Exporter
+→ ???
+
+
+VeraCrypt
+→ Known one, encryption
+
+
+VLC
+→ Known one, video
+
+
+Yubico Utilities
+→ tools for using yubikeys
+```
+
+
 

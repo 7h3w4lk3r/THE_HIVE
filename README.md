@@ -2,19 +2,28 @@
 
 ![](.gitbook/assets/logo.png)
 
-the hive is **a place where i share my notes, cheat sheets and other stuff i learn about hacking, security and coding.** this **book is a personal long-time project so i will add more stuff as i learn and gain new skills.** 
+#### The Hive is a place for keeping my hacking notes. its not a complete hacking guide or cheat sheet archive, some sections might have introductions for basic concepts but most of them are quick guides.
 
-**some of these notes are taken from various cyber security courses, websites, blogs, news and cheat sheets so i do not own all of the material.** 
+{% hint style="info" %}
+**Some of these notes are taken from various cyber security courses, websites, blogs, news and cheat sheets available online so i do not own all of the material. also everything  that i put in here was tested in a lab environment or real world.**
+{% endhint %}
 
-this isn't a full guide on how to become a pentester or anything like that, its more of a quick go-to for the times when i forget the steps of some technique or miss a possible attack vector in a pentest.
+#### The main topics include:
 
-**for those who are curious about the logo and the name its from the Resident Evil game series :\)**
+* **Network Pentesting**
+* **Wireless Pentesting**
+* **Defense Evasion**
+* **Low-level System Programming**
+* **OS Security Hardening**
+* **Password/Hash Cracking**
+
+\*\*\*\*
+
+#### This site is a work in progress and i will add, update and change the contents as i learn more.
+
+#### This book was inspired by [HackTricks](https://book.hacktricks.xyz/) and other similar projects.
 
 ## [My Other Projects on Github](https://github.com/7h3w4lk3r)
-
-## Contribution
-
-#### If you have any materials or notes you want to share with the community you can submit a pull request to [The-Hive](https://github.com/7h3w4lk3r/THE_HIVE) repository. 
 
 ## **Contact**
 
