@@ -6,8 +6,6 @@ Organisations allow employees to access the internets through proxy servers to i
 
 ### How WPAD works <a id="how-wpad-works"></a>
 
-
-
 The client wants to access the wpad.dat configuration file for proxy configuration. It searches computers named as “wpad” on the local network to find this file. And then following steps are carried out:
 
 1. If the DHCP Server is configured, the client retrieves the wpad.dat file from the DHCP Server \(if successful, step 4 is taken\)
@@ -22,8 +20,6 @@ The important thing is that WPAD protocol is built in Windows operating systems.
 {% endhint %}
 
 ## Abusing WPAD
-
-![](../../../.gitbook/assets/image%20%28259%29.png)
 
 #### Responder serves a fake WPAD Server and responds to clients’ WPAD name resolution. The client then requests the wpad.dat file from this fake WPAD Server. Responder creates an authentication screen and asks clients to enter the username and password they use in the domain. Naturally, employees write usernames and passwords used in the domain name. Finally, we can see their username and passwords.
 

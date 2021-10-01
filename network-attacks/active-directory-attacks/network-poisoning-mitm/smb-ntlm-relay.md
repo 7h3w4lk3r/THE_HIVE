@@ -26,6 +26,8 @@ NTLM authentication is a challenge/response protocol and consists of three messa
 
    server
 
+![](../../../.gitbook/assets/image%20%28262%29.png)
+
 
 
 the actual password is never sent on the network, since it is hashed and encrypted. The schemes used to encrypt and send the Type 3 response have changed over the years due to lack of security.
