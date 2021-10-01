@@ -84,6 +84,7 @@
     * [PrintNightmare](network-attacks/active-directory-attacks/domain-privilege-escalation/printnightmare.md)
     * [Zero Logon](network-attacks/active-directory-attacks/domain-privilege-escalation/zero-logon.md)
   * [Lateral Movement](network-attacks/active-directory-attacks/lateral-movement/README.md)
+    * [Token Impersonation](network-attacks/active-directory-attacks/lateral-movement/token-impersonation.md)
     * [Domain Shares](network-attacks/active-directory-attacks/lateral-movement/domain-shares/README.md)
       * [SCF File Attacks](network-attacks/active-directory-attacks/lateral-movement/domain-shares/scf-file-attacks.md)
     * [Pass the Hash / Password](network-attacks/active-directory-attacks/lateral-movement/pass-the-hash-password/README.md)
