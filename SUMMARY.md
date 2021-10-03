@@ -144,6 +144,10 @@
     * [Xinetd UDP portnock](network-attacks/untitled/persistence/xinetd-udp-portnock.md)
     * [openSSL reverse shell](network-attacks/untitled/persistence/openssl-reverse-shell.md)
     * [SSH persistence passwordless](network-attacks/untitled/persistence/ssh-persistence-passwordless.md)
+* [Pivoting](network-attacks/pivoting/README.md)
+  * [SSH Port Forwarding](network-attacks/pivoting/ssh-port-forwarding.md)
+  * [Remote Connection](network-attacks/pivoting/remote-connection.md)
+  * [Protocol Tunneling](network-attacks/pivoting/protocol-tunneling.md)
 
 ## Defense Evasion
 
