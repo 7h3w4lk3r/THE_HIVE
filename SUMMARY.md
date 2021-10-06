@@ -145,9 +145,12 @@
     * [openSSL reverse shell](network-attacks/untitled/persistence/openssl-reverse-shell.md)
     * [SSH persistence passwordless](network-attacks/untitled/persistence/ssh-persistence-passwordless.md)
 * [Pivoting](network-attacks/pivoting/README.md)
-  * [SSH Port Forwarding](network-attacks/pivoting/ssh-port-forwarding.md)
+  * [Tools](network-attacks/pivoting/tools.md)
+  * [SSH Forwarding](network-attacks/pivoting/ssh-port-forwarding.md)
+  * [HTTP Tunneling](network-attacks/pivoting/http-tunneling.md)
+  * [ICMP Tunneling](network-attacks/pivoting/icmp-tunneling.md)
+  * [DNS Tunneling](network-attacks/pivoting/dns-tunneling.md)
   * [VPN Tunneling](network-attacks/pivoting/remote-connection.md)
-  * [Protocol Tunneling](network-attacks/pivoting/protocol-tunneling.md)
 
 ## Defense Evasion
 

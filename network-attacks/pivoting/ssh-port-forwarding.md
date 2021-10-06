@@ -1,4 +1,4 @@
-# SSH Port Forwarding
+# SSH Forwarding
 
 ## Local Port Forwarding
 
@@ -196,6 +196,20 @@ proxychains nmap -sT -Pn [target local IP]
 {% hint style="warning" %}
 SOCKS proxy needs full TCP connection, we cant use other scanning techniques, ICMP can not get through either. use -Pn option.
 {% endhint %}
+
+## SSHuttle
+
+```text
+# Transparent proxy over SSH
+
+# Forwarding traffic through the pivot
+# It will then auto create necessary iptables rules
+sshuttle -r user@pivoting_machine x.x.x.x/24
+
+# You can also let sshuttle detect networks based on the target
+# -x == exclude some network to not transmit over the tunnel
+sshuttle -vNr user@pivoting_machine -x x.x.x.x.x/24
+```
 
 
 
