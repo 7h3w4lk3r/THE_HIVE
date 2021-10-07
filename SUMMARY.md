@@ -158,6 +158,29 @@
   * [DNS Tunneling](network-attacks/pivoting/dns-tunneling.md)
   * [VPN Tunneling](network-attacks/pivoting/remote-connection.md)
 
+## Shells & Payloads
+
+* [Interactive Shell](shells-and-payloads/interactive-shell.md)
+* [Reverse / Bind Payloads](shells-and-payloads/reverse-bind-payloads/README.md)
+  * [msfvenom](shells-and-payloads/reverse-bind-payloads/msfvenom.md)
+  * [Web Shells](shells-and-payloads/reverse-bind-payloads/web-shells.md)
+  * [Groovy](shells-and-payloads/reverse-bind-payloads/groovy.md)
+  * [Gawk](shells-and-payloads/reverse-bind-payloads/gawk.md)
+  * [Powercat](shells-and-payloads/reverse-bind-payloads/powercat.md)
+  * [C](shells-and-payloads/reverse-bind-payloads/c.md)
+  * [Netcat](shells-and-payloads/reverse-bind-payloads/netcat.md)
+  * [Xterm](shells-and-payloads/reverse-bind-payloads/xterm.md)
+  * [Telnet](shells-and-payloads/reverse-bind-payloads/telnet.md)
+  * [Socat](shells-and-payloads/reverse-bind-payloads/socat.md)
+  * [Ruby](shells-and-payloads/reverse-bind-payloads/ruby.md)
+  * [LUA](shells-and-payloads/reverse-bind-payloads/lua.md)
+  * [PHP](shells-and-payloads/reverse-bind-payloads/php.md)
+  * [Java](shells-and-payloads/reverse-bind-payloads/java.md)
+  * [Powershell](shells-and-payloads/reverse-bind-payloads/powershell.md)
+  * [Perl](shells-and-payloads/reverse-bind-payloads/perl.md)
+  * [Python](shells-and-payloads/reverse-bind-payloads/python.md)
+  * [Bash](shells-and-payloads/reverse-bind-payloads/bash.md)
+
 ## Defense Evasion
 
 * [AMSI Bypass](defense-evasion/amsi-bypass.md)
