@@ -17,7 +17,7 @@ now login using the new root account:
 
 ![](../../../.gitbook/assets/etc1.png)
 
-## Change the /etc/shadow root has
+## Change the /etc/shadow root hash
 
 if we have write access to /etc/shadow file we can add a new password hash for the root user:
 
