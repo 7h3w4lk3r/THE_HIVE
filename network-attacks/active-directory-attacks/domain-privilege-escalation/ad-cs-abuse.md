@@ -372,26 +372,3 @@ PSPKI > Get-CertificationAuthority -ComputerName CA01.megacorp.local | Get-Pendi
 PS > .\Certify.exe download /ca:CA01.megacorp.local\CA01 /id:1337
 ```
 
-## Audit <a id="audit"></a>
-
-* ​[https://github.com/GhostPack/PSPKIAudit](https://github.com/GhostPack/PSPKIAudit)
-
-```text
-PS > Get-WindowsCapability -Online -Name "Rsat.*" | where Name -match "CertificateServices|ActiveDIrectory" | Add-WindowsCapability -Online
-PS > cd PSPKIAudit
-PS > Get-ChildItem -Recurse | Unblock-File
-PS > Import-Module .\PSPKIAudit.psm1
-PS > Invoke-PKIAudit -CAComputerName CA01.megacorp.local
-```
-
-## Misc <a id="misc"></a>
-
-Parse `.pfx` with PowerShell:
-
-```text
-PS > $cert = [System.Security.Cryptography.X509Certificates.X509Certificate2]([System.Convert]::FromBase64String("<BASE64_PFX_CERT>"))
-PS > $cert | select *
-```
-
-
-
