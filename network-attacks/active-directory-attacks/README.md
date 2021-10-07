@@ -28,6 +28,8 @@ Most of the attacks in this section \(in real world scenarios as well\) are base
 
 ## Resources
 
+{% embed url="https://github.com/cfalta/MicrosoftWontFixList/blob/main/README.md" %}
+
 {% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Active%20Directory%20Attack.md\#active-directory-attacks" %}
 
 {% embed url="https://adsecurity.org/?page\_id=4031" %}
