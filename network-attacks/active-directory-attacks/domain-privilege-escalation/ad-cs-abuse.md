@@ -165,8 +165,6 @@ Cmd > .\kekeo.exe "tgt::pac /caname:CA01 /domain:megacorp.local /subject:snovvcr
 
 ## Persistence via Certificates <a id="persistence-via-certificates"></a>
 
-##  <a id="persistence-via-certificates"></a>
-
 ### User Persistence \(PERSIST1\) <a id="user-persistence-persist-1"></a>
 
 Find certificate templates available for enrollment for the current user:
@@ -216,8 +214,6 @@ With access to a machine account certificate an adversary can use S4U2Self to ob
 An adversary can renew the compromised certificate before the validity period expires, and so that extend their access to AD without requesting additional ticket enrollments.
 
 ## Domain Escalation via Certificates <a id="domain-escalation-via-certificates"></a>
-
-##  <a id="domain-escalation-via-certificates"></a>
 
 Discover vulnerable templates:
 
