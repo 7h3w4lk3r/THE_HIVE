@@ -75,7 +75,7 @@
   * [Persistence](network-attacks/windows/persistence.md)
 * [Active Directory](network-attacks/active-directory-attacks/README.md)
   * [Domain Enumeration](network-attacks/active-directory-attacks/domain-enumeration.md)
-  * [MITM & Relay Attacks](network-attacks/active-directory-attacks/network-poisoning-mitm/README.md)
+  * [MITM & Posoning Attacks](network-attacks/active-directory-attacks/network-poisoning-mitm/README.md)
     * [DHCP Poisoning](network-attacks/active-directory-attacks/network-poisoning-mitm/dhcp-poisoning.md)
     * [DHCPv6 Spoofing](network-attacks/active-directory-attacks/network-poisoning-mitm/dhcpv6-spoofing.md)
     * [ADIDNS Poisoning](network-attacks/active-directory-attacks/network-poisoning-mitm/adidns-poisoning.md)
