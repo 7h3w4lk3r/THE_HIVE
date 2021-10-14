@@ -184,6 +184,7 @@
 
 ## Defense Evasion
 
+* [Basics](defense-evasion/basics.md)
 * [AMSI Bypass](defense-evasion/amsi-bypass.md)
 
 ## Programming and DataBase
