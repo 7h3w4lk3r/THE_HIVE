@@ -115,7 +115,7 @@
     * [NTDS.dit & vshadow](network-attacks/active-directory-attacks/credential-dumping/ntds.dit.md)
     * [comsvcs.dll](network-attacks/active-directory-attacks/credential-dumping/comsvcs.dll.md)
     * [Meterpreter](network-attacks/active-directory-attacks/credential-dumping/meterpreter.md)
-    * [Procdump LSASS](network-attacks/active-directory-attacks/credential-dumping/procdump-lsass.md)
+    * [Procdump & LSASS](network-attacks/active-directory-attacks/credential-dumping/procdump-lsass.md)
     * [AD User Comments](network-attacks/active-directory-attacks/credential-dumping/ad-user-comments.md)
     * [SYSVOL & Group Policy Preferences](network-attacks/active-directory-attacks/credential-dumping/sysvol-and-group-policy-preferences.md)
     * [LAPS Passwords](network-attacks/active-directory-attacks/credential-dumping/laps-passwords.md)
