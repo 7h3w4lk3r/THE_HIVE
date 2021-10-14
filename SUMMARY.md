@@ -72,7 +72,7 @@
     * [Potatos](network-attacks/windows/local-privilege-escalation/potatos.md)
     * [Printspoofer / SEImpersonate](network-attacks/windows/local-privilege-escalation/printspoofer-seimpersonate.md)
     * [PSEXEC (admin to system)](network-attacks/windows/local-privilege-escalation/admin-to-system.md)
-  * [Persistence](network-attacks/windows/persistence.md)
+  * [🔧 Persistence](network-attacks/windows/persistence.md)
 * [Active Directory](network-attacks/active-directory-attacks/README.md)
   * [Domain Enumeration](network-attacks/active-directory-attacks/domain-enumeration.md)
   * [MITM & Posoning Attacks](network-attacks/active-directory-attacks/network-poisoning-mitm/README.md)
@@ -83,7 +83,7 @@
     * [SMB/NTLM Relay](network-attacks/active-directory-attacks/network-poisoning-mitm/smb-ntlm-relay.md)
     * [LLMNR Poisoning](network-attacks/active-directory-attacks/network-poisoning-mitm/llmnr-poisoning.md)
     * [DNS Takeover / LDAP Relay](network-attacks/active-directory-attacks/network-poisoning-mitm/dns-takeover-ldap-relay.md)
-  * [Domain Privilege Escalation](network-attacks/active-directory-attacks/domain-privilege-escalation/README.md)
+  * [🔧 Domain Privilege Escalation](network-attacks/active-directory-attacks/domain-privilege-escalation/README.md)
     * [AD CS Abuse](network-attacks/active-directory-attacks/domain-privilege-escalation/ad-cs-abuse.md)
     * [ACL Abuse](network-attacks/active-directory-attacks/domain-privilege-escalation/acl-abuse/README.md)
       * [Abuse GenericAll](network-attacks/active-directory-attacks/domain-privilege-escalation/acl-abuse/abuse-genericall.md)
@@ -94,14 +94,14 @@
     * [Software Restriction Policies (SRPs)](network-attacks/active-directory-attacks/domain-privilege-escalation/software-restriction-policies-srps.md)
     * [PrintNightmare](network-attacks/active-directory-attacks/domain-privilege-escalation/printnightmare.md)
     * [Zero Logon](network-attacks/active-directory-attacks/domain-privilege-escalation/zero-logon.md)
-  * [Lateral Movement](network-attacks/active-directory-attacks/lateral-movement/README.md)
+  * [🔧 Lateral Movement](network-attacks/active-directory-attacks/lateral-movement/README.md)
     * [Domain Shares](network-attacks/active-directory-attacks/lateral-movement/domain-shares/README.md)
       * [SCF File Attacks](network-attacks/active-directory-attacks/lateral-movement/domain-shares/scf-file-attacks.md)
     * [Pass the Hash / Password](network-attacks/active-directory-attacks/lateral-movement/pass-the-hash-password/README.md)
       * [Pass The Ticket](network-attacks/active-directory-attacks/lateral-movement/pass-the-hash-password/pass-the-ticket.md)
       * [Overpass the Hash / Pass the Key](network-attacks/active-directory-attacks/lateral-movement/pass-the-hash-password/overpass-the-hash-pass-the-key.md)
       * [crackmapexec](network-attacks/active-directory-attacks/lateral-movement/pass-the-hash-password/crackmapexec.md)
-  * [Persistence](network-attacks/active-directory-attacks/kerberos-attacks-1/README.md)
+  * [🔧 Persistence](network-attacks/active-directory-attacks/kerberos-attacks-1/README.md)
     * [DCSync](network-attacks/active-directory-attacks/kerberos-attacks-1/dcsync.md)
     * [Kerberosting](network-attacks/active-directory-attacks/kerberos-attacks-1/kerberosting.md)
     * [Silver Ticket](network-attacks/active-directory-attacks/kerberos-attacks-1/silver-ticket.md)
@@ -146,7 +146,7 @@
     * [mimipinguin](network-attacks/untitled/credential-dumping/mimipinguin.md)
     * [unshadow](network-attacks/untitled/credential-dumping/unshadow.md)
     * [3snake](network-attacks/untitled/credential-dumping/3snake.md)
-  * [Persistence](network-attacks/untitled/persistence/README.md)
+  * [🔧 Persistence](network-attacks/untitled/persistence/README.md)
     * [Systemd netcat bind shell](network-attacks/untitled/persistence/systemd-netcat-bind-shell.md)
     * [Xinetd UDP portnock](network-attacks/untitled/persistence/xinetd-udp-portnock.md)
     * [openSSL reverse shell](network-attacks/untitled/persistence/openssl-reverse-shell.md)
@@ -157,7 +157,7 @@
   * [HTTP Tunneling](network-attacks/pivoting/http-tunneling.md)
   * [ICMP Tunneling](network-attacks/pivoting/icmp-tunneling.md)
   * [DNS Tunneling](network-attacks/pivoting/dns-tunneling.md)
-  * [VPN Tunneling](network-attacks/pivoting/remote-connection.md)
+  * [🔧 VPN Tunneling](network-attacks/pivoting/remote-connection.md)
 
 ## Shells & Payloads
 
@@ -182,7 +182,7 @@
   * [Python](shells-and-payloads/reverse-bind-payloads/python.md)
   * [Bash](shells-and-payloads/reverse-bind-payloads/bash.md)
 
-## Defense Evasion
+## 🔧 Defense Evasion
 
 * [Basics](defense-evasion/basics.md)
 * [AMSI Bypass](defense-evasion/amsi-bypass.md)
@@ -226,4 +226,4 @@
 
 ## Hardening & Monitoring
 
-* [Linux Hardening Checklist](hardening-and-monitoring/untitled.md)
+* [🔧 Linux Hardening Checklist](hardening-and-monitoring/untitled.md)
