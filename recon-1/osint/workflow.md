@@ -4,7 +4,7 @@ Here you can see some of the general workflows of OSINT process on different typ
 
 ## Domain
 
-![](<../../.gitbook/assets/image (275).png>)
+![](<../../.gitbook/assets/image (276).png>)
 
 ## Website
 
@@ -20,7 +20,7 @@ Here you can see some of the general workflows of OSINT process on different typ
 
 ## Real Name
 
-![](broken-reference)
+
 
 ## Phone Number
 
