@@ -33,7 +33,7 @@ set
 Get-ChildItem Env: | ft Key,Value
 ```
 
-###
+
 
 ### get a list of installed hot fixes
 
