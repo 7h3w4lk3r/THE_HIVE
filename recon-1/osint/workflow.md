@@ -4,11 +4,13 @@ Here you can see some of the general workflows of OSINT process on different typ
 
 ## Domain
 
-![](<../../.gitbook/assets/image (276).png>)
+![](<../../.gitbook/assets/image (277).png>)
 
 ## Website
 
-![](broken-reference)
+![](<../../.gitbook/assets/image (275).png>)
+
+
 
 ## Email
 
