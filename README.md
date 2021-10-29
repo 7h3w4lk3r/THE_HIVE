@@ -2,15 +2,9 @@
 
 ![](.gitbook/assets/logo.png)
 
-{% hint style="warning" %}
-**This site is a work in progress and i will add, update and change the contents in my free time. I'm planning for this to be a long time project with well-sorted topics and structured approach for penetration testing, specially targeting operating systems and network infrastructure.**
-{% endhint %}
-
-**The Hive is a place for keeping useful hacking notes.** its **not a complete hacking guide,** some sections might have introductions and explanations with screenshots, but **most of them are quick guides** as i don't want to make it unnecessarily huge.
+**The Hive is a place where i keep my useful hacking notes and cheat sheets, mainly focusing on network and infrastructure. this is a long-time project and its not complete, so i will update it regularly in my free time and add more sections.**
 
 **Some of these notes are taken from various cyber security courses, websites, blogs, news and cheat sheets available online so i do not own all of the material**. also everything that i put in here **was tested in a lab environment or real world **even if its a complete clone of another resource so **everything said here will work in the right scenario.**
-
-#### This book was inspired by [HackTricks](https://book.hacktricks.xyz) and other similar projects.
 
 ### Main Topics
 
@@ -22,7 +16,7 @@
 * **Password/Hash Cracking**
 * **Some Misc Tools & Techniques**
 
-## [My Other Projects on Github](https://github.com/7h3w4lk3r)
+### [My Other Projects on Github](https://github.com/7h3w4lk3r)
 
 ## **Contact**
 

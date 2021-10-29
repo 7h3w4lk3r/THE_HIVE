@@ -160,7 +160,7 @@
     * [Xinetd UDP portnock](network-attacks/untitled/persistence/xinetd-udp-portnock.md)
     * [openSSL reverse shell](network-attacks/untitled/persistence/openssl-reverse-shell.md)
     * [SSH persistence passwordless](network-attacks/untitled/persistence/ssh-persistence-passwordless.md)
-* [Pivoting](network-attacks/pivoting/README.md)
+* [Pivoting & Tunneling](network-attacks/pivoting/README.md)
   * [Tools](network-attacks/pivoting/tools.md)
   * [SSH Forwarding](network-attacks/pivoting/ssh-port-forwarding.md)
   * [HTTP Tunneling](network-attacks/pivoting/http-tunneling.md)
@@ -174,11 +174,12 @@
 * [Reverse / Bind Payloads](shells-and-payloads/reverse-bind-payloads/README.md)
   * [msfvenom](shells-and-payloads/reverse-bind-payloads/msfvenom.md)
   * [Web Shells](shells-and-payloads/reverse-bind-payloads/web-shells.md)
+  * [Bash](shells-and-payloads/reverse-bind-payloads/bash.md)
+  * [Netcat](shells-and-payloads/reverse-bind-payloads/netcat.md)
   * [Groovy](shells-and-payloads/reverse-bind-payloads/groovy.md)
-  * [Gawk](shells-and-payloads/reverse-bind-payloads/gawk.md)
+  * [Ghawk](shells-and-payloads/reverse-bind-payloads/gawk.md)
   * [Powercat](shells-and-payloads/reverse-bind-payloads/powercat.md)
   * [C](shells-and-payloads/reverse-bind-payloads/c.md)
-  * [Netcat](shells-and-payloads/reverse-bind-payloads/netcat.md)
   * [Xterm](shells-and-payloads/reverse-bind-payloads/xterm.md)
   * [Telnet](shells-and-payloads/reverse-bind-payloads/telnet.md)
   * [Socat](shells-and-payloads/reverse-bind-payloads/socat.md)
@@ -189,7 +190,6 @@
   * [Powershell](shells-and-payloads/reverse-bind-payloads/powershell.md)
   * [Perl](shells-and-payloads/reverse-bind-payloads/perl.md)
   * [Python](shells-and-payloads/reverse-bind-payloads/python.md)
-  * [Bash](shells-and-payloads/reverse-bind-payloads/bash.md)
 
 ## 🔧 Defense Evasion
 
