@@ -1,6 +1,6 @@
 # Basics
 
-## AV Detection Techniques
+## Detection Techniques
 
 An antivirus tool is an essential component of most anti-malware suites. It must identify known and previously unseen malicious files with the goal of blocking them before they can cause damage. Though tools differ in the implementation of malware-detection mechanisms, they tend to incorporate the same virus detection techniques. Familiarity with these techniques can help you understand how antivirus software works.
 

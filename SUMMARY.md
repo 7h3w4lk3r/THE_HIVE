@@ -46,6 +46,7 @@
     * [Directories & Subdomains](recon-1/active-scanning/web-application-enumeration/directories-and-domains.md)
     * [SSL Certs](recon-1/active-scanning/web-application-enumeration/ssl-certs.md)
     * [CMS](recon-1/active-scanning/web-application-enumeration/cms.md)
+    * [WAF Fingerprinting](recon-1/active-scanning/web-application-enumeration/waf-fingerprinting.md)
 
 ## Network Attacks
 
