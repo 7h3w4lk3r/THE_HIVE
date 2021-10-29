@@ -16,13 +16,9 @@ Here you can see some of the general workflows of OSINT process on different typ
 
 ![](<../../.gitbook/assets/image (272).png>)
 
-## Username
+## Real Name/Username
 
-![](broken-reference)
-
-## Real Name
-
-
+![](<../../.gitbook/assets/image (280).png>)
 
 ## Phone Number
 
@@ -30,9 +26,7 @@ Here you can see some of the general workflows of OSINT process on different typ
 
 ## Location
 
-![](broken-reference)
-
-
+![](<../../.gitbook/assets/image (282).png>)
 
 
 
