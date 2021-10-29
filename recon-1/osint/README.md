@@ -297,13 +297,13 @@ I have put together a list of the most used OSINT sources that will usually cove
 
 #### &#x20; [User search ( search for usernames, mostly social media networks )](https://usersearch.org)   [Thats them](https://thatsthem.com)   [pipi ( investigation and research, you should sign up for it )](https://pipl.com)   [Social mention ( social media search )](http://socialmention.com)   [Social searcher ( social media search )](https://www.social-searcher.com)   [SPOKEO ( name, phone number, address, etc. )](https://www.spokeo.com)   [Find people search ( people search )](http://www.findpeoplesearch.com)   [Social bearing](https://www.socialbearing.com)   [TwimeMachine](https://www.twimemachine.com) 
 
-####
+
 
 ### 4) Metadata search
 
-### [Archive.org](https://archive.org)   [metapicz](http://metapicz.com/#landing)   [image forensic](http://www.imageforensic.org)   [findexif](http://findexif.com)   [exif regex](http://exif.regex.info/exif.cgi)
+#### [Archive.org](https://archive.org)  [metapicz](http://metapicz.com/#landing)  [image forensic](http://www.imageforensic.org)  [findexif](http://findexif.com)  [exif regex](http://exif.regex.info/exif.cgi)
 
-###
+
 
 ### 5) IOT and device search
 
@@ -357,7 +357,7 @@ weleakinfo.com/
 
 #### There are countless number of tools out there designed for active/passive recon. in fact almost one out of ten pentester/security "expert" out there has written some sort of crap recon framework/tool that only himself/herself has ever used. you wont need to know about every single one of them because most of them use the same techniques for gathering these information. in this section i will briefly introduce you to the best/well-known tools that i usually use:
 
-###
+
 
 ### Theharvester
 
@@ -379,7 +379,7 @@ docker build -t theharvester .
 docker run theharvester -h 
 ```
 
-###
+
 
 ### h8mail
 
@@ -393,7 +393,7 @@ python3 -m pip install h8mail
 h8mail -t target@example.com
 ```
 
-###
+
 
 ### gitrob
 
@@ -401,15 +401,13 @@ a tool to help find potentially sensitive files pushed to public repositories on
 
 {% embed url="https://github.com/michenriksen/gitrob/releases/tag/v2.0.0-beta" %}
 
-###
+
 
 ### inspy
 
 LinkedIn enumeration tool. preinstalled on kali.
 
 {% embed url="https://github.com/leapsecurity/InSpy" %}
-
-
 
 ```
 inspy --empspy /usr/share/inspy/wordlists/title-list-large.txt --emailformat flast@google.com 'Google'
@@ -419,8 +417,6 @@ inspy --empspy /usr/share/inspy/wordlists/title-list-large.txt --emailformat fla
 inspy --empspy /usr/share/inspy/wordlists/title-list-large.txt --emailformat
 
 ```
-
-
 
 ### amass
 
@@ -434,7 +430,7 @@ run the help to see the options:
 amass --help
 ```
 
-###
+
 
 ### spiderfoot
 
@@ -446,7 +442,7 @@ an open source intelligence (OSINT) automation tool. It calmes to integrate with
 spiderfoot -l 127.0.0.1:5001  → run web GUI on local host, connect with browser
 ```
 
-###
+
 
 ### recon-ng
 
@@ -498,7 +494,7 @@ recon/hosts-hosts/reverse_resolve
 discovery/info_disclosure/cache_snoop       → useful for finding AVs in use
 ```
 
-###
+
 
 ### Sherlock
 
@@ -515,7 +511,7 @@ python3 sherlock --help
 python3 sherlock user1 user2 user3
 ```
 
-###
+
 
 ### TWINT
 
@@ -523,7 +519,7 @@ advanced Twitter scraping tool written in Python that allows for scraping Tweets
 
 {% embed url="https://github.com/twintproject/twint" %}
 
-###
+
 
 ### social-analyzer
 
@@ -685,10 +681,7 @@ social-analyzer --username "johndoe" --metadata --extract --mode fast
    ⇒ Hostname
    ⇒ Breach Credentials
 
-
 # SocialMapper
-
-
 
 # StegoSuite
 → Free and open source steganography tool written in Java.
@@ -703,7 +696,6 @@ social-analyzer --username "johndoe" --metadata --extract --mode fast
 # Tinfoleak
 → The most complete open-source tool for Twitter intelligence analysis
 → UI tool
-
 
 
 Twitter Exporter
