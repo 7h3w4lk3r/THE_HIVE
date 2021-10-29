@@ -1,4 +1,4 @@
-# Persistence
+# 🔧 Persistence
 
 ## Kerberos Authentication Steps
 
@@ -8,7 +8,7 @@
 
 #### kerberos has three long-term keys:
 
-**client long-term secret key (derived from the client account password) **based on the password of the client account, used to check encrypted timestamp (AS-REQ) and encrypt session key (AS_REP)
+**client long-term secret key (derived from the client account password) **based on the password of the client account, used to check encrypted timestamp (AS-REQ) and encrypt session key (AS\_REP)
 
 **target(service) long-term secret key (derived from the service account password)**. based on the password of target service, used to encrypt service portion of the ST (TGT-REP) and sign the PAC (TGT-REP)
 

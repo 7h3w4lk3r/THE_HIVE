@@ -1,6 +1,6 @@
 # LDAP
 
-Lightweight Directory Access Protocol \(LDAP\) is an internet protocol works on TCP/IP, used to access information from directories. LDAP protocol is basically used to access an active directory.
+Lightweight Directory Access Protocol (LDAP) is an internet protocol works on TCP/IP, used to access information from directories. LDAP protocol is basically used to access an active directory.
 
 ### Features of LDAP
 
@@ -16,11 +16,11 @@ It uses strings to represent data
 
 Directories are set of object with similar attributes, organised in a logical and hierarchical manner. For example, Telephonic Directories. It is a distributed database application used to manage attributes in a directory.
 
-![](../../../.gitbook/assets/image%20%2845%29.png)
+![](<../../../.gitbook/assets/image (45).png>)
 
 LDAP defines operations for accessing and modifying directory entries such as:
 
-```text
+```
 Searching for user specified criteria
 Adding an entry
 Deleting an entry
@@ -39,17 +39,17 @@ This model describes structure of information stored in an LDAP Directory.In thi
 
 #### Naming Model:
 
-This model describes how information in an LDAP Directory is organized and identified. In this entries are organized in a Tree-Like structure called Directory Information Tree \(DIT\). Entries are arranged within DIT based on their distinguished name DN. DN is a unique name that unambiguously identifies a single entry.
+This model describes how information in an LDAP Directory is organized and identified. In this entries are organized in a Tree-Like structure called Directory Information Tree (DIT). Entries are arranged within DIT based on their distinguished name DN. DN is a unique name that unambiguously identifies a single entry.
 
 #### Functional Model:
 
 LDAP defines operations for accessing and modifying directory entries . In this we discuss about LDAP operations in a programming language independent manner LDAP operations can be divided into following categories:
 
-• Query 
+• Query&#x20;
 
 • Update
 
- • Authentication
+&#x20;• Authentication
 
 #### Security Model:
 
@@ -61,7 +61,7 @@ This model describes how information in LDAP directory can be protected from una
 
 First try to connect without credentials:
 
-```text
+```
 >>> import ldap3
 >>> server = ldap3.Server('x.X.x.X', get_info = ldap3.ALL, port =636, use_ssl = True)
 >>> connection = ldap3.Connection(server)
@@ -70,11 +70,11 @@ True
 >>> server.info
 ```
 
-  
-`` If the response is True like in the previous example, you can obtain some interesting data of the LDAP \(like the naming context or domain name\) server from:  
+``\
+`` If the response is True like in the previous example, you can obtain some interesting data of the LDAP (like the naming context or domain name) server from:\
 
 
-```text
+```
 >>> server.info
 DSA info (from DSE):
 Supported LDAP versions: 3
@@ -84,7 +84,7 @@ dc=DOMAIN,dc=DOMAIN
 
 Once you have the naming context you can make some more exciting queries. This simply query should show you all the objects in the directory:
 
-```text
+```
 >>> connection.search(search_base='DC=DOMAIN,DC=DOMAIN', search_filter='(&(objectClass=*))', search_scope='SUBTREE', attributes='*')
 True
 >> connection.entries 
@@ -92,13 +92,11 @@ True
 
 Or dump the whole ldap:
 
-```text
+```
 >> connection.search(search_base='DC=DOMAIN,DC=DOMAIN', search_filter='(&(objectClass=person))', search_scope='SUBTREE', attributes='userPassword')
 True
 >>> connection.entries 
 ```
 
 #### for more information on LDAP NULL Bind exploitation check out this [link](https://www.n00py.io/2020/02/exploiting-ldap-server-null-bind/)
-
-
 

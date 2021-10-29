@@ -4,11 +4,10 @@ an abstract data type is a type whose behavior is defined by a set of value and 
 
 it gives an implementation-independent view to process of providing only the essentials and hiding the details is known as abstraction.
 
-#### to create an ATD you have to: 
+#### to create an ATD you have to:&#x20;
 
-1. provide an abstract description of the types properties and of the operations you can perform on the type. 
+1\. provide an abstract description of the types properties and of the operations you can perform on the type.&#x20;
 
-2. develop a programming interface that implements the ADT 
+2\. develop a programming interface that implements the ADT&#x20;
 
-3. write code to implement the interface
-
+3\. write code to implement the interface

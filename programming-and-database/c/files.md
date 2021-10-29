@@ -8,65 +8,65 @@ description: >-
 
 ## File Handling Functions in C
 
-this is a full list of all native C API functions for handling files \(including I/O functions\). most of these are just wrappers for more simple functions which are also included in the list. to have a better understanding of each function and the differences between its a good practice to try all of them in different forms and situations.
+this is a full list of all native C API functions for handling files (including I/O functions). most of these are just wrappers for more simple functions which are also included in the list. to have a better understanding of each function and the differences between its a good practice to try all of them in different forms and situations.
 
 in this section i have gathered some of the most used and most important C file functions that you will face a lot.
 
 
 
-| File handling functions | Description |
-| :--- | :--- |
-| fopen \(\) | fopen \(\) function creates a new file or opens an existing file. |
-| fclose \(\) | fclose \(\) function closes an opened file. |
-| getw \(\) | getw \(\) function reads an integer from file. |
-| putw \(\) | putw \(\) functions writes an integer to file. |
-| fgetc \(\) | fgetc \(\) function reads a character from file. |
-| fputc \(\) | fputc \(\) functions write a character to file. |
-| gets \(\) | gets \(\) function reads line from keyboard. |
-| puts \(\) | puts \(\) function writes line to o/p screen. |
-| fgets \(\) | fgets \(\) function reads string from a file, one line at a time. |
-| fputs \(\) | fputs \(\) function writes string to a file. |
-| feof \(\) | feof \(\) function finds end of file. |
-| fgetchar \(\) | fgetchar \(\) function reads a character from keyboard. |
-| fprintf \(\) | fprintf \(\) function writes formatted data to a file. |
-| fscanf \(\) | fscanf \(\) function reads formatted data from a file. |
-| fputchar \(\) | fputchar \(\) function writes a character onto the output screen from keyboard input. |
-| fseek \(\) | fseek \(\) function moves file pointer position to given location. |
-| SEEK\_SET | SEEK\_SET moves file pointer position to the beginning of the file. |
-| SEEK\_CUR | SEEK\_CUR moves file pointer position to given location. |
-| SEEK\_END | SEEK\_END moves file pointer position to the end of file. |
-| ftell \(\) | ftell \(\) function gives current position of file pointer. |
-| rewind \(\) | rewind \(\) function moves file pointer position to the beginning of the file. |
-| getc \(\) | getc \(\) function reads character from file. |
-| getch \(\) | getch \(\) function reads character from keyboard. |
-| getche \(\) | getche \(\) function reads character from keyboard and echoes to o/p screen. |
-| getchar \(\) | getchar \(\) function reads character from keyboard. |
-| putc \(\) | putc \(\) function writes a character to file. |
-| putchar \(\) | putchar \(\) function writes a character to screen. |
-| printf \(\) | printf \(\) function writes formatted data to screen. |
-| sprinf \(\) | sprinf \(\) function writes formatted output to string. |
-| scanf \(\) | scanf \(\) function reads formatted data from keyboard. |
-| sscanf \(\) | sscanf \(\) function Reads formatted input from a string. |
-| remove \(\) | remove \(\) function deletes a file. |
-| fflush \(\) | fflush \(\) function flushes a file. |
+| File handling functions | Description                                                                         |
+| ----------------------- | ----------------------------------------------------------------------------------- |
+| fopen ()                | fopen () function creates a new file or opens an existing file.                     |
+| fclose ()               | fclose () function closes an opened file.                                           |
+| getw ()                 | getw () function reads an integer from file.                                        |
+| putw ()                 | putw () functions writes an integer to file.                                        |
+| fgetc ()                | fgetc () function reads a character from file.                                      |
+| fputc ()                | fputc () functions write a character to file.                                       |
+| gets ()                 | gets () function reads line from keyboard.                                          |
+| puts ()                 | puts () function writes line to o/p screen.                                         |
+| fgets ()                | fgets () function reads string from a file, one line at a time.                     |
+| fputs ()                | fputs () function writes string to a file.                                          |
+| feof ()                 | feof () function finds end of file.                                                 |
+| fgetchar ()             | fgetchar () function reads a character from keyboard.                               |
+| fprintf ()              | fprintf () function writes formatted data to a file.                                |
+| fscanf ()               | fscanf () function reads formatted data from a file.                                |
+| fputchar ()             | fputchar () function writes a character onto the output screen from keyboard input. |
+| fseek ()                | fseek () function moves file pointer position to given location.                    |
+| SEEK\_SET               | SEEK\_SET moves file pointer position to the beginning of the file.                 |
+| SEEK\_CUR               | SEEK\_CUR moves file pointer position to given location.                            |
+| SEEK\_END               | SEEK\_END moves file pointer position to the end of file.                           |
+| ftell ()                | ftell () function gives current position of file pointer.                           |
+| rewind ()               | rewind () function moves file pointer position to the beginning of the file.        |
+| getc ()                 | getc () function reads character from file.                                         |
+| getch ()                | getch () function reads character from keyboard.                                    |
+| getche ()               | getche () function reads character from keyboard and echoes to o/p screen.          |
+| getchar ()              | getchar () function reads character from keyboard.                                  |
+| putc ()                 | putc () function writes a character to file.                                        |
+| putchar ()              | putchar () function writes a character to screen.                                   |
+| printf ()               | printf () function writes formatted data to screen.                                 |
+| sprinf ()               | sprinf () function writes formatted output to string.                               |
+| scanf ()                | scanf () function reads formatted data from keyboard.                               |
+| sscanf ()               | sscanf () function Reads formatted input from a string.                             |
+| remove ()               | remove () function deletes a file.                                                  |
+| fflush ()               | fflush () function flushes a file.                                                  |
 
 ## File Structure in C
 
 ![](../../.gitbook/assets/246452.png)
 
-#### in C each file as a continuous sequence of bytes ending with an EOF \(end of file \) indicator. 
+#### in C each file as a continuous sequence of bytes ending with an EOF (end of file ) indicator.&#x20;
 
-#### the current position is where any file action \(read/write\) will take place we can move the current position to any point in the file \(even the end\)
+#### the current position is where any file action (read/write) will take place we can move the current position to any point in the file (even the end)
 
-#### a text file is written as a sequence of characters organized as lines \(each line ends with a newline\)
+#### a text file is written as a sequence of characters organized as lines (each line ends with a newline)
 
 #### binary data is written as a series of bytes exactly as they appear in memory image data,music, video, not readable
 
-##  Accessing Files
+## &#x20;Accessing Files
 
-#### fopen\(\) is defined in stdio.h header
+#### fopen() is defined in stdio.h header
 
-```text
+```
 FILE *fopen(const char* restrict name, const char *restrict mode);
 ```
 
@@ -74,15 +74,15 @@ FILE *fopen(const char* restrict name, const char *restrict mode);
 
 the second arg is a character string that represents the file mode and specifies what you want to do with the file, a file mode specification is a character string between double quotes
 
-![](../../.gitbook/assets/246452%20%284%29.png)
+![](<../../.gitbook/assets/246452 (4).png>)
 
 #### if the file doesn't exist FILE will return NULL;
 
-##  Write mode
+## &#x20;Write mode
 
 example:
 
-```text
+```
    FILE *pfile = NULL;
     char *filename = "myfile.text";
     pfile = fopen(filename, "w"); // open myfile to write it
@@ -94,7 +94,7 @@ example:
 
 ## Append mode
 
-```text
+```
  pFile = fopen("myfile","a");
 ```
 
@@ -102,13 +102,13 @@ example:
 
 ## Read mode
 
-```text
+```
 pFile = fopen("myfile","r");
 ```
 
 ## Renaming a file
 
-```text
+```
 int rename(const char *oldname, const char *newname)
 ```
 
@@ -116,7 +116,7 @@ the integer that is returned will be 0 if the name change was successful nd nonz
 
 the file must not be open while renaming
 
-```text
+```
 
 if (rename("filename", "new_filename"))
     printf("failed to open file");
@@ -126,38 +126,38 @@ else
 
 ## Closing a file
 
-flose\(\) accepts a file pointer as an integer returns EOF \(int\) if an error occurs
+flose() accepts a file pointer as an integer returns EOF (int) if an error occurs
 
 if EOF was 0 the operation was successful
 
-```text
+```
 fclose(pfile); 
 pfile = NULL;
 ```
 
 ## Deleting a file
 
-remove\(\) declared in stdio.h header
+remove() declared in stdio.h header
 
-```text
+```
  remove("myfile");
 ```
 
 ## Reading characters from a text file
 
-#### fgetc\(\) takes a file pointer as its only arg and returns the character read as type int
+#### fgetc() takes a file pointer as its only arg and returns the character read as type int
 
-#### int mchar = fgetc\(pfile\);
+#### int mchar = fgetc(pfile);
 
 #### the mchar is type int because EOF will be returned if the end of the file has been reached
 
-function getc\(\) is available as well, it gets an argument of type FILE\* and returns the character read as type int virtually identical to fgetc\(\) only difference between them is that getc\(\) may be implemented as a macro whereas fgetc\(\) is a function
+function getc() is available as well, it gets an argument of type FILE\* and returns the character read as type int virtually identical to fgetc() only difference between them is that getc() may be implemented as a macro whereas fgetc() is a function
 
-we can read the content of a file again when necessary the rewind\(\) function positions to the file that is specified by the file pointer argument at the beginning
+we can read the content of a file again when necessary the rewind() function positions to the file that is specified by the file pointer argument at the beginning
 
-#### rewind\(pfile\);
+#### rewind(pfile);
 
-```text
+```
 // read the whole file
 int main() {
 
@@ -182,17 +182,17 @@ return 0;
 
 ## Reading a string from a text file
 
-#### we can use the fgets\(\) function to read from any file or stream
+#### we can use the fgets() function to read from any file or stream
 
-#### char _fgets\(char_ str, int nchars, FILE \*strean\)
+#### char _fgets(char _str, int nchars, FILE \*strean)
 
 the function reads a string into the memory area pointed to by str, from the file specified by stream , characters are read until either a '\n' is read or nchars-1 characters have been read from the stream whichever occurs first.
 
 if a newline character is read its retained in the string, a '\0' character will be appended to the end of the string
 
-if there is no error fgets\(\) returns the pointer, str if there is an error, NULL is returned reading EOF causes NULL to be returned
+if there is no error fgets() returns the pointer, str if there is an error, NULL is returned reading EOF causes NULL to be returned
 
-```text
+```
  // read 60 characters of a file
  FILE *fp;
 char str[60];
@@ -211,15 +211,15 @@ fp = NULL;
 
 ## Reading formatted input file
 
-#### fscanf\(\)
+#### fscanf()
 
-#### int fscanf\(FILE _stream, const char_ format, ...\)
+#### int fscanf(FILE _stream, const char _format, ...)
 
 the first argument to this function is the format a C string that contains one or more of the following items: • white space character • non-white space character • format specifiers • usage is similar to scanf but from a file
 
 #### function returns the number of items successfully matched and assigned
 
-```text
+```
 FILE *fp;
 char str1[10], str2[10], str3[10];
 int year;
@@ -242,13 +242,13 @@ fclose(fp);
 
 ## Writing characters to a text file
 
-the simplest write operation is fputc\(\) writes a single character to a text file
+the simplest write operation is fputc() writes a single character to a text file
 
 first arg is the character to write, second one is the file pointer returns the character that was written if successful returns EOF if failure
 
-#### putc\(\) is the same as fputc\(\) but its a macro.
+#### putc() is the same as fputc() but its a macro.
 
-```text
+```
  FILE *fp;
 int ch;
 fp = fopen("test","w+");
@@ -259,19 +259,19 @@ for (ch = 33; ch<=100; ch++){  //write some ascii values
 fclose(fp);
 ```
 
-##  Writing a string to a text file
+## &#x20;Writing a string to a text file
 
-#### fputs\(\)
+#### fputs()
 
-#### int fputs\(const char  _str; FILE_  pfile\);
+#### int fputs(const char _ str; FILE _ pfile);
 
 first argument is a string pointer and second is a file pointer
 
-will write characters from a string until it reaches a '\0' character. doesnt write the null terminator character to the file can complicate reading back variable-length strings from a file that have been written by fputs\(\)
+will write characters from a string until it reaches a '\0' character. doesnt write the null terminator character to the file can complicate reading back variable-length strings from a file that have been written by fputs()
 
 expecting to write a line of text that has a newline character at the end
 
-```text
+```
  FILE *fp;
 
 fp = fopen("test","w+");
@@ -281,25 +281,25 @@ fputs("another line here\n",fp);
 fclose(fp);
 ```
 
-##  Writing formatted output to a file
+## &#x20;Writing formatted output to a file
 
-#### fprintf\(\)
+#### fprintf()
 
-#### int fprintf\( FILE _stream, const char_ format,...\)
+#### int fprintf( FILE _stream, const char _format,...)
 
 the first arg is file pointer, second is the format a C string that contains one or more of these items:
 
- • whites paces 
+&#x20;• whites paces&#x20;
 
 • non-whites paces
 
- • format specifiers
+&#x20;• format specifiers
 
 
 
 usage is similar to printf but to a file if successful the total number of characters written is returned otherwise a negative number is returned
 
-```text
+```
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -314,9 +314,9 @@ return 0;
 }
 ```
 
-##  I/O functions
+## &#x20;I/O functions
 
-```text
+```
 <stdio.h>
  
  int fclose(filePtr) → close the file
@@ -346,15 +346,15 @@ return 0;
  long ftell(filePtr) → returns the relative offset in bytes of the current position in the file, or -1L on error
 ```
 
-##  Reposition file stream with fseek
+## &#x20;Reposition file stream with fseek
 
-The C library function int fseek\(FILE \*stream, long int offset, int whence\) sets the file position of the stream to the given offset.
+The C library function int fseek(FILE \*stream, long int offset, int whence) sets the file position of the stream to the given offset.
 
-![](../../.gitbook/assets/246452%20%281%29.png)
+![](<../../.gitbook/assets/246452 (1).png>)
 
 example read the whole file:
 
-```text
+```
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -393,7 +393,7 @@ int main () {
 
 ## Writing/reading integer to a file
 
-```text
+```
 #include <stdio.h>
 
 int main ()
@@ -421,7 +421,7 @@ int main ()
 
 ## Flushing a file
 
-```text
+```
 #include <stdio.h>
 int main()
 {
@@ -431,8 +431,6 @@ fflush(fp);
     return 0;
 }
 ```
-
-
 
 
 

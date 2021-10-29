@@ -5,38 +5,38 @@
 Active Directory attacks is a huge topic, a lot of the scenarios depend on the situation of attacker and network infrastructure. this section of the book is about the known active directory attacks and tips/tricks.
 
 {% hint style="info" %}
-Most of the attacks in this section \(in real world scenarios as well\) are based on the assumption that you already have a low-privilege access to a system inside the internal network or have physically attached your system and you are pass the firewall. normally, you wont see a domain controller out in the open or directly accessible from the internet, so most of the active directory attacks are part of an internal pentest or red team engagement.
+Most of the attacks in this section (in real world scenarios as well) are based on the assumption that you already have a low-privilege access to a system inside the internal network or have physically attached your system and you are pass the firewall. normally, you wont see a domain controller out in the open or directly accessible from the internet, so most of the active directory attacks are part of an internal pentest or red team engagement.
 {% endhint %}
 
 ## The Process
 
-#### **Typically the process of Active Directory penetration testing \(  aka internal pentesting \) is like this:**
+#### **Typically the process of Active Directory penetration testing (  aka internal pentesting ) is like this:**
 
-1. **Initial Domain Access \( through a low-privileged user account \)**
+1. **Initial Domain Access ( through a low-privileged user account )**
 2. **Local Privilege Escalation**
 3. **Internal Domain Recon**
 4. **Poisoning / MITM**
 5. **Domain Admin Access**
-6. **Domain Dominance  \( fancy name for " full compromise " \)**
-7. **Domain Persistence** 
+6. **Domain Dominance  ( fancy name for " full compromise " )**
+7. **Domain Persistence **
 8. **Asset Access**
 9. **Exfiltration**
 
 ### Active Directory Kill Chain
 
-![](../../.gitbook/assets/image%20%28174%29.png)
+![](<../../.gitbook/assets/image (174).png>)
 
 ## Resources
 
 {% embed url="https://github.com/cfalta/MicrosoftWontFixList/blob/main/README.md" %}
 
-{% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Active%20Directory%20Attack.md\#active-directory-attacks" %}
+{% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Active%20Directory%20Attack.md#active-directory-attacks" %}
 
-{% embed url="https://adsecurity.org/?page\_id=4031" %}
+{% embed url="https://adsecurity.org/?page_id=4031" %}
 
 {% embed url="https://github.com/Integration-IT/Active-Directory-Exploitation-Cheat-Sheet" %}
 
-{% embed url="https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet\#domain-enumeration" %}
+{% embed url="https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet#domain-enumeration" %}
 
 ## Build your own  lab
 
@@ -81,6 +81,4 @@ Most of the attacks in this section \(in real world scenarios as well\) are base
 {% embed url="https://github.com/NetSPI/PowerUpSQL" %}
 
 {% embed url="https://github.com/Kevin-Robertson/Powermad" %}
-
-
 

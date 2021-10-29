@@ -6,7 +6,7 @@ One caveat to this technique is that this has to be done as the root account, an
 
 The partition or “file” defined as the swap file can be found with the following commands:
 
-```text
+```
 swapon -s
 ```
 
@@ -14,27 +14,25 @@ In the output from the above command, we can see that our swap partition is at /
 
 We can obtain the exact same information by issuing the “cat” command to the “/proc/swaps” file:
 
-```text
+```
 cat /proc/swaps
 ```
 
-The process from here is straightforward. We can use the strings command against the /dev/sda5 partition \(in this case\) while grep’ing for strings we’re looking for. Here are a couple of examples:
+The process from here is straightforward. We can use the strings command against the /dev/sda5 partition (in this case) while grep’ing for strings we’re looking for. Here are a couple of examples:
 
-```text
+```
 strings /dev/sda5 |grep “password=“
 strings /dev/sda5 |grep “&password=“
 ```
 
 A shell script “swap\_digger.sh” has also been written which can automate searching for common sensitive strings within the swap file, and be downloaded at the following link:
 
-{% embed url="https://github.com/sevagas/swap\_digger" %}
+{% embed url="https://github.com/sevagas/swap_digger" %}
 
-```text
+```
 git clone https://github.com/sevagas/swap_digger.git
 ./swap_digger.sh
 ```
-
-
 
 
 

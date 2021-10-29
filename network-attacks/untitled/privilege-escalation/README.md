@@ -15,87 +15,97 @@
 here is a Linux privilege escalation checklist from [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md) that is very useful for a structured approach.
 
 * Kernel and distribution release details
-* System Information:
+*   System Information:
 
-  * Hostname
-  * Networking details:
-  * Current IP
-  * Default route details
-  * DNS server information
+    * Hostname
+    * Networking details:
+    * Current IP
+    * Default route details
+    * DNS server information
 
-* User Information:
 
-  * Current user details
-  * Last logged on users
-  * Shows users logged onto the host
-  * List all users including uid/gid information
-  * List root accounts
-  * Extracts password policies and hash storage method information
-  * Checks umask value
-  * Checks if password hashes are stored in /etc/passwd
-  * Extract full details for 'default' uid's such as 0, 1000, 1001 etc
-  * Attempt to read restricted files i.e. /etc/shadow
-  * List current users history files \(i.e .bash\_history, .nano\_history, .mysql\_history , etc.\)
-  * Basic SSH checks
+*   User Information:
 
-* Privileged access:
+    * Current user details
+    * Last logged on users
+    * Shows users logged onto the host
+    * List all users including uid/gid information
+    * List root accounts
+    * Extracts password policies and hash storage method information
+    * Checks umask value
+    * Checks if password hashes are stored in /etc/passwd
+    * Extract full details for 'default' uid's such as 0, 1000, 1001 etc
+    * Attempt to read restricted files i.e. /etc/shadow
+    * List current users history files (i.e .bash\_history, .nano\_history, .mysql\_history , etc.)
+    * Basic SSH checks
 
-  * Which users have recently used sudo
-  * Determine if /etc/sudoers is accessible
-  * Determine if the current user has Sudo access without a password
-  * Are known 'good' breakout binaries available via Sudo \(i.e. nmap, vim etc.\)
-  * Is root's home directory accessible
-  * List permissions for /home/
 
-* Environmental:
+*   Privileged access:
 
-  * Display current $PATH
-  * Displays env information
+    * Which users have recently used sudo
+    * Determine if /etc/sudoers is accessible
+    * Determine if the current user has Sudo access without a password
+    * Are known 'good' breakout binaries available via Sudo (i.e. nmap, vim etc.)
+    * Is root's home directory accessible
+    * List permissions for /home/
 
-* Jobs/Tasks:
 
-  * List all cron jobs
-  * Locate all world-writable cron jobs
-  * Locate cron jobs owned by other users of the system
-  * List the active and inactive systemd timers
+*   Environmental:
 
-* Services:
+    * Display current $PATH
+    * Displays env information
 
-  * List network connections \(TCP & UDP\)
-  * List running processes
-  * Lookup and list process binaries and associated permissions
-  * List inetd.conf/xined.conf contents and associated binary file permissions
-  * List init.d binary permissions
 
-* Version Information \(of the following\):
+*   Jobs/Tasks:
+
+    * List all cron jobs
+    * Locate all world-writable cron jobs
+    * Locate cron jobs owned by other users of the system
+    * List the active and inactive systemd timers
+
+
+*   Services:
+
+    * List network connections (TCP & UDP)
+    * List running processes
+    * Lookup and list process binaries and associated permissions
+    * List inetd.conf/xined.conf contents and associated binary file permissions
+    * List init.d binary permissions
+
+
+* Version Information (of the following):
   * Sudo
   * MYSQL
   * Postgres
-  * Apache
+  *   Apache
 
-    * Checks user config
-    * Shows enabled modules
-    * Checks for htpasswd files
-    * View www directories
-* Default/Weak Credentials:
+      * Checks user config
+      * Shows enabled modules
+      * Checks for htpasswd files
+      * View www directories
 
-  * Checks for default/weak Postgres accounts
-  * Checks for default/weak MYSQL accounts
 
-* Searches:
+*   Default/Weak Credentials:
 
-  * Locate all SUID/GUID files
-  * Locate all world-writable SUID/GUID files
-  * Locate all SUID/GUID files owned by root
-  * Locate 'interesting' SUID/GUID files \(i.e. nmap, vim etc\)
-  * Locate files with POSIX capabilities
-  * List all world-writable files
-  * Find/list all accessible \*.plan files and display contents
-  * Find/list all accessible \*.rhosts files and display contents
-  * Show NFS server details
-  * Locate \*.conf and \*.log files containing keyword supplied at script runtime
-  * List all \*.conf files located in /etc
-  * Locate mail
+    * Checks for default/weak Postgres accounts
+    * Checks for default/weak MYSQL accounts
+
+
+*   Searches:
+
+    * Locate all SUID/GUID files
+    * Locate all world-writable SUID/GUID files
+    * Locate all SUID/GUID files owned by root
+    * Locate 'interesting' SUID/GUID files (i.e. nmap, vim etc)
+    * Locate files with POSIX capabilities
+    * List all world-writable files
+    * Find/list all accessible \*.plan files and display contents
+    * Find/list all accessible \*.rhosts files and display contents
+    * Show NFS server details
+    * Locate \*.conf and \*.log files containing keyword supplied at script runtime
+    * List all \*.conf files located in /etc
+    * Locate mail
+
 
 * Platform/software specific tests:
   * Checks to determine if we're in a Docker container
@@ -106,17 +116,17 @@ here is a Linux privilege escalation checklist from [PayloadAllTheThings](https:
 
 ## Resources
 
-{% embed url="https://book.hacktricks.xyz/linux-unix/privilege-escalation\#apparmor" %}
+{% embed url="https://book.hacktricks.xyz/linux-unix/privilege-escalation#apparmor" %}
 
 {% embed url="https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/" %}
 
 {% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md" %}
 
-{% embed url="https://sushant747.gitbooks.io/total-oscp-guide/privilege\_escalation\_-\_linux.html" %}
+{% embed url="https://sushant747.gitbooks.io/total-oscp-guide/privilege_escalation_-_linux.html" %}
 
 {% embed url="https://resources.infosecinstitute.com/topic/privilege-escalation-linux-live-examples/" %}
 
-\*\*\*\*
+****
 
 ## Methods
 
@@ -153,4 +163,3 @@ a list of automated tools used in post-exploitation enumeration and privilege es
 {% embed url="https://github.com/mzet-/linux-exploit-suggester" %}
 
 {% embed url="https://github.com/pentestmonkey/unix-privesc-check" %}
-

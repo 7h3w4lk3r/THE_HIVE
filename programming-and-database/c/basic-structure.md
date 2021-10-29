@@ -2,7 +2,7 @@
 
 ## hello world in C
 
-```text
+```
 #include <stdio.h>
 
 int main()
@@ -14,7 +14,7 @@ int main()
 
 ## Detect the Version of C in use
 
-```text
+```
 #include <stdio.h>
 
 int main(int argc, char** argv) {
@@ -37,7 +37,7 @@ int main(int argc, char** argv) {
 
 ## Comments
 
-```text
+```
   /* multiline 
   *comment */
   
@@ -46,7 +46,7 @@ int main(int argc, char** argv) {
 
 ## Taking command line arguments
 
-```text
+```
 #include <stdio.h>
 
 int main(int argc,char *argv[])
@@ -65,25 +65,25 @@ int main(int argc,char *argv[])
 
 
 
-##  NULL character and NULL
+## &#x20;NULL character and NULL
 
-###  null character \0
+### &#x20;null character \0
 
 a special character with the code value 0 is added to the end of each string to mark where it ends,a string is always terminated by a null character so the length of a string is always one greater than the number of characters in the string.we can add a \0 to the end of a string, this will create two strings but only the first one will be printed.
 
-###  NULL
+### &#x20;NULL
 
 NULL is a symbol that represents a memory address that doesn't reference anything
 
 ## Modular programming
 
-we can put our code in multiple separate files and include the headers in the main file and use another source file to import functions and other instructions. to do this :  
-  
- 1. create a header file pointing to a source file:  
- create other.h → header file  
+we can put our code in multiple separate files and include the headers in the main file and use another source file to import functions and other instructions. to do this :\
+\
+&#x20;1\. create a header file pointing to a source file:\
+&#x20;create other.h → header file\
 
 
-```text
+```
 #ifndef UNTITLED_OTHER_H
 #define UNTITLED_OTHER_H
 int getme(void); // the function that this header referse to
@@ -91,25 +91,25 @@ int getme(void); // the function that this header referse to
 
 ```
 
-  
-this is pointing to a source file with the name other.c \(same as header.c\) which contains the source instructions for this header. when we include this header in the main.c source file it refers to the header and the header refers to the other.c source file.  
-  
-2. create the source file for the header:  
+\
+this is pointing to a source file with the name other.c (same as header.c) which contains the source instructions for this header. when we include this header in the main.c source file it refers to the header and the header refers to the other.c source file.\
+\
+2\. create the source file for the header:\
 create other.c → source file for header
 
-```text
+```
  int getme(void){
 return 3;}
 ```
 
-  
- here we define the getme function which was referred to by header and will be used in the main.c source file. we don't need to include anything in this source file  
-  
- 3. include the header in main.c and use the function:  
- create main.c, include header.h and use getme\(\)  
+\
+&#x20;here we define the getme function which was referred to by header and will be used in the main.c source file. we don't need to include anything in this source file\
+\
+&#x20;3\. include the header in main.c and use the function:\
+&#x20;create main.c, include header.h and use getme()\
 
 
-```text
+```
 #include <stdio.h>
 #include "other.h"
 
@@ -121,16 +121,15 @@ int main(){
 }
 ```
 
-  
- here we have to include the header file with double quotations cause we know its in the same directory so we don't need to look for it in the whole system. then we can use the getme\(\) function defined in other.c source file which is referred to by the other.c header.  
-  
- 4. to compile without an IDE from command line:  
-  
- **gcc \*.c -o \[program name\]** → compile all .c source files, headers are checked in compile time and are not included in the command  
-  
- use with -c without -o option to keep the object files if you want, we can use object files only to compile the program same as we did with the source files, .o and .c is the same here.
+\
+&#x20;here we have to include the header file with double quotations cause we know its in the same directory so we don't need to look for it in the whole system. then we can use the getme() function defined in other.c source file which is referred to by the other.c header.\
+\
+&#x20;4\. to compile without an IDE from command line:\
+\
+&#x20;**gcc \*.c -o \[program name] **→ compile all .c source files, headers are checked in compile time and are not included in the command\
+\
+&#x20;use with -c without -o option to keep the object files if you want, we can use object files only to compile the program same as we did with the source files, .o and .c is the same here.
 
 
 
-## 
-
+##

@@ -10,9 +10,9 @@ NOP - No Operation! No registers, no values, no nothin'! used there to pad/align
 
 ### PUSH
 
-Push Word, Doubleword or Quadword onto the Stack " Can either be an immediate \(a numeric constant\), or the value in a register" The push instruction automatically decrements the stack pointer, esp, by 4 because the value in the register is sent to stack so the stack pointer now points to 4 bytes lower in the address space. push doesn't remove the content of the register, just copies it.
+Push Word, Doubleword or Quadword onto the Stack " Can either be an immediate (a numeric constant), or the value in a register" The push instruction automatically decrements the stack pointer, esp, by 4 because the value in the register is sent to stack so the stack pointer now points to 4 bytes lower in the address space. push doesn't remove the content of the register, just copies it.
 
-![](../../.gitbook/assets/image%20%28134%29.png)
+![](<../../.gitbook/assets/image (134).png>)
 
 
 
@@ -20,11 +20,11 @@ Push Word, Doubleword or Quadword onto the Stack " Can either be an immediate \(
 
 Pop a Value from the Stack Take a DWORD off the stack, put it in a register, and increment esp by 4 because unlike push, pop will take a value off the stack so the address will become undefined because the esp now points to a higher memory address, again pop doesn't remove the value from the stack but because the esp is decremented we cant see the value in the next lower address.
 
-![](../../.gitbook/assets/image%20%28140%29.png)
+![](<../../.gitbook/assets/image (140).png>)
 
- the following example shows a demo of using PUSH and POP to swap the value of 2 variables:
+&#x20;the following example shows a demo of using PUSH and POP to swap the value of 2 variables:
 
-```text
+```
 section .text
 global main:
 main:
@@ -48,7 +48,7 @@ CALL's job is to transfer control to a different function, in a way that control
 
 #### Return from Procedure, it has two forms:
 
-Pop the top of the stack into eip \(remember pop increments stack pointer\), In this form, the instruction is just written as “ret”. Typically used by cdecl functions
+Pop the top of the stack into eip (remember pop increments stack pointer), In this form, the instruction is just written as “ret”. Typically used by cdecl functions
 
 Pop the top of the stack into eip and add a constant number of bytes to esp. In this form, the instruction is written as “ret 0x8”, or “ret 0x20”, etc. Typically used by stdcall functions.
 
@@ -58,11 +58,11 @@ Pop the top of the stack into eip and add a constant number of bytes to esp. In 
 
 Can move:
 
-* register to register 
+* register to register&#x20;
 * memory to register
-* register to memory 
+* register to memory&#x20;
 * immediate to register
-*  immediate to memory
+* &#x20;immediate to memory
 
 {% hint style="info" %}
 Intel in Intel ISA you can never move or change values directly in memory. MOV instruction can not move from one memory address to another memory address.
@@ -70,18 +70,18 @@ Intel in Intel ISA you can never move or change values directly in memory. MOV i
 
 MOV can move data in one of the following forms:
 
-```text
+```
 mov eax, ebx
 mov eax, [ebx]
 mov eax, [ebx+ecx*X] --> (X=1, 2, 4, 8)
 mov eax, [ebx+ecx*X+Y] --> (Y= one byte, 0-255 or 4 bytes, 0-2^32-1)
 ```
 
-#### In Intel syntax, most of the time square brackets \[\] means to treat the value within as a memory address, and fetch the value at that address \(like dereferencing a pointer\)
+#### In Intel syntax, most of the time square brackets \[] means to treat the value within as a memory address, and fetch the value at that address (like dereferencing a pointer)
 
 example:
 
-```text
+```
 section .text
 global start:
 _start:
@@ -137,15 +137,13 @@ mov	ebx, 0
 int	80h
 ```
 
-
-
 ### LEA - Load Effective Address
 
-Frequently used with pointer arithmetic, sometimes for just arithmetic in general. Uses the r/m32 form but is the exception to the rule that the square brackets \[ \] syntax means dereference \(“value at”\)
+Frequently used with pointer arithmetic, sometimes for just arithmetic in general. Uses the r/m32 form but is the exception to the rule that the square brackets \[ ] syntax means dereference (“value at”)
 
 example:
 
-```text
+```
 ebx = 0x2, edx = 0x1000
 lea eax, [edx+ebx*2]
 eax = 0x1004, not the value at 0x1004
@@ -155,46 +153,46 @@ eax = 0x1004, not the value at 0x1004
 
 ### The INC Instruction
 
- is used for incrementing an operand by one. It works on a single operand that can be either in a register or in memory.
+&#x20;is used for incrementing an operand by one. It works on a single operand that can be either in a register or in memory.
 
-```text
+```
 INC destination
 INC EBX
 ```
 
-### 
 
-### The DEC Instruction 
+
+### The DEC Instruction&#x20;
 
 used for decrementing an operand by one. It works on a single operand that can be either in a register or in memory
 
-```text
+```
 DEC destination
 ```
 
-### 
 
-### ADD and SUB 
+
+### ADD and SUB&#x20;
 
 These instructions are used for performing simple addition/subtraction of binary data in byte, word and doubleword size, i.e., for adding or subtracting 8-bit, 16-bit or 32-bit operands respectively.
 
-```text
+```
 ADD/SUB destination, source
 ```
 
 ### MUL/IMUL
 
-There are two instructions for multiplying binary data. The MUL \(Multiply\) instruction handles unsigned data and the IMUL \(Integer Multiply\) handles signed data. Both instructions affect the Carry and Overflow flag.
+There are two instructions for multiplying binary data. The MUL (Multiply) instruction handles unsigned data and the IMUL (Integer Multiply) handles signed data. Both instructions affect the Carry and Overflow flag.
 
-```text
+```
 MUL/IMUL multiplier
 ```
 
-![](../../.gitbook/assets/image%20%28142%29.png)
+![](<../../.gitbook/assets/image (142).png>)
 
 example:
 
-```text
+```
 section .data
 msg db "result: "
 len equ $ -msg
@@ -235,23 +233,23 @@ mov	ebx, 0
 int	80h
 ```
 
-### 
 
-### DIV/IDIV 
 
- The division operation generates two elements - a quotient and a remainder. In case of multiplication, overflow does not occur because double-length registers are used to keep the product. However, in case of division, overflow may occur. The processor generates an interrupt if overflow occurs. The DIV \(Divide\) instruction is used or unsigned data and the IDIV \(Integer Divide\) is used for signed data
+### DIV/IDIV&#x20;
 
-```text
+&#x20;The division operation generates two elements - a quotient and a remainder. In case of multiplication, overflow does not occur because double-length registers are used to keep the product. However, in case of division, overflow may occur. The processor generates an interrupt if overflow occurs. The DIV (Divide) instruction is used or unsigned data and the IDIV (Integer Divide) is used for signed data
+
+```
 DIV/IDIV divisor
 ```
 
-![](../../.gitbook/assets/image%20%28145%29.png)
+![](<../../.gitbook/assets/image (145).png>)
 
-![](../../.gitbook/assets/image%20%28141%29.png)
+![](<../../.gitbook/assets/image (141).png>)
 
 example:
 
-```text
+```
 
 section .data
 msg db "result: "
@@ -295,7 +293,6 @@ int	80h
 
 ## Logical Instructions
 
-we really don't care about them here :\)
+we really don't care about them here :)
 
-![](../../.gitbook/assets/image%20%28144%29.png)
-
+![](<../../.gitbook/assets/image (144).png>)

@@ -8,7 +8,7 @@ best cross-platform IDE for assembly is SASM which supports multiple assemblers 
 
 if you are on linux, install it with your package manager:
 
-```text
+```
 apt install sasm
 ```
 
@@ -16,11 +16,11 @@ apt install sasm
 
 the process of assembling, linking and loading an assembly program is like this:
 
-![](../../.gitbook/assets/image%20%28138%29.png)
+![](<../../.gitbook/assets/image (138).png>)
 
 ## Hello World
 
-```text
+```
 ; hello world in nasm
 
 ; this section holds the declared variables, we can use 'segment' instead of 'section'
@@ -48,7 +48,7 @@ len equ $ - msg                 ; assign the length of the msg to len variable
 
 The following are the main parts of an assembly program:
 
-* **section .data** 
+* **section .data **
 * **section .bss**
 * **section .text**
 
@@ -56,27 +56,27 @@ The following are the main parts of an assembly program:
 you can tell that this structure is related to the program execution stack in memory. so data section is for initialized variables, bss section is for uninitialized variables and text section is the program instructions.
 {% endhint %}
 
-**section .data -** In section .data , initialized data is declared and defined, in the following format:
+**section .data - **In section .data , initialized data is declared and defined, in the following format:
 
-```text
+```
 <variable name>    <type>   <value>
 ```
 
 section .data can also contain constants, which are values that cannot be changed in the program. They are declared in the following format:
 
-```text
+```
 <constant name>   equ   <value>
 ```
 
 **section .bss**  -  The acronym bss stands for Block Started by Symbol , and its history goes back to the fifties, when it was part of assembly language developed for the IBM 704. In this section go the uninitialized variables. Space for uninitialized variables is declared in this section, in the following format:
 
-```text
+```
 <variable name>   <type>   <number>
 ```
 
-section .text - this is the actual instructions of the program where the functions \(including main \) are declared and defined. it should always start with an entry point which is defined right after the section .text definition like this:
+section .text - this is the actual instructions of the program where the functions (including main ) are declared and defined. it should always start with an entry point which is defined right after the section .text definition like this:
 
-```text
+```
 section .text
 global main:      --> define the program entry point
 main:       --> declare main function     
@@ -88,7 +88,7 @@ in NASM, you can use the keywords 'segment' and 'section' interchangeably. so se
 
 here is a basic example of an assembly code with the 3 sections we talked about:
 
-```text
+```
 section .data            ; initialized data
 msg db "sum: "
 len equ $ - msg
@@ -134,7 +134,7 @@ int     80h
 
 you can compile and run this program with:
 
-```text
+```
 nasm -f elf app.asm
 ld -m elf_i386 app.o
 ./a.out
@@ -148,7 +148,6 @@ for the rest of this section we are going to use these commands to compile and r
 
 in all assemblers the single-line comment sign is a semicolon.
 
-```text
+```
 ; this is a comment
 ```
-

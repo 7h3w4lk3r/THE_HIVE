@@ -4,11 +4,11 @@
 
 install docker using this:
 
-{% embed url="https://docs.docker.com/engine/install/debian/\#install-using-the-repository" %}
+{% embed url="https://docs.docker.com/engine/install/debian/#install-using-the-repository" %}
 
 after the installation is completed add a new user for this test and add it to the docker group
 
-#### `adduser test  usermod -aG docker test`
+#### `adduser test` ` usermod -aG docker test`
 
 Now ssh to the target with the new user
 
@@ -39,6 +39,4 @@ we can get a shell using the same technique combined with the chroot command
 #### `docker run -it -v /:/mnt ubuntu chroot /mnt`
 
 ![](../../../../.gitbook/assets/docker3.png)
-
-
 

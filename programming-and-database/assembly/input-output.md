@@ -4,15 +4,15 @@
 
 unlike C/C++ in assembly we use the system call number instead of system call functions. here the basic linux system calls for x86 architecture:
 
-![](../../.gitbook/assets/image%20%28133%29.png)
+![](<../../.gitbook/assets/image (133).png>)
 
 for a full list of linux system calls:
 
-[http://asm.sourceforge.net/syscall.html](http://asm.sourceforge.net/syscall.html)  
+[http://asm.sourceforge.net/syscall.html](http://asm.sourceforge.net/syscall.html)\
 
 
 {% hint style="info" %}
-in assembly input/output \(I/O\) is done by using multiple registers with sys\_read and sys\_write system calls
+in assembly input/output (I/O) is done by using multiple registers with sys\_read and sys\_write system calls
 {% endhint %}
 
 ## Output
@@ -21,13 +21,13 @@ in assembly input/output \(I/O\) is done by using multiple registers with sys\_r
 
 1. store the message/variable in ECX
 2. store the length in EDX
-3. store sys\_write syscall number in EAX \( number 4 in x86 \)
-4. store the I/O type in EBX \( number 1 for stdout \)
-5. execute the syscall to write the output in the console \( 'int 80h' in x86\)
+3. store sys\_write syscall number in EAX ( number 4 in x86 )
+4. store the I/O type in EBX ( number 1 for stdout )
+5. execute the syscall to write the output in the console ( 'int 80h' in x86)
 
 example:
 
-```text
+```
 section .data
 msg db "sum: "
 len equ $ - msg
@@ -73,16 +73,16 @@ int	80h
 
 #### the process of taking input from user:
 
-1. declare uninitialized variable/s in .bss section \(to store the input\)
-2. store sys\_read syscall numer to EAX \(number 3 for x86\)
-3. store I/O type in EBX \(number 0 for stdin \)
+1. declare uninitialized variable/s in .bss section (to store the input)
+2. store sys\_read syscall numer to EAX (number 3 for x86)
+3. store I/O type in EBX (number 0 for stdin )
 4. move uninitialized variable to ECX to use as input
 5. store length of variable in EDX
-6. execute sys\_read system call \(int 80h\)
+6. execute sys\_read system call (int 80h)
 
 example:
 
-```text
+```
 ; asks two digits from the user ,stores in EAX and EBX, adds the values, stores and prints the sum.
 ; remember these:
 ; for converting ascii to decimal --> subtract '0'
@@ -183,6 +183,4 @@ mov	ebx, 0
 int	80h
 
 ```
-
-
 

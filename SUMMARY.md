@@ -5,6 +5,7 @@
 ## RECON <a href="recon-1" id="recon-1"></a>
 
 * [Passive (OSINT)](recon-1/osint/README.md)
+  * [Workflow](recon-1/osint/workflow.md)
   * [Social Platforms](recon-1/osint/social-platforms/README.md)
     * [Tumbler](recon-1/osint/social-platforms/tumbler.md)
     * [Redit](recon-1/osint/social-platforms/redit.md)
@@ -130,8 +131,8 @@
     * [cron/crontab abuse](network-attacks/untitled/privilege-escalation/cron-crontab-abuse.md)
     * [Sudo Abuse](network-attacks/untitled/privilege-escalation/sudo-abuse.md)
     * [Environment Variables](network-attacks/untitled/privilege-escalation/environment-variables/README.md)
-      * [LD_LIBRARY_PATH](network-attacks/untitled/privilege-escalation/environment-variables/ld_library_path.md)
-      * [LD_PRELOAD](network-attacks/untitled/privilege-escalation/environment-variables/ld_preload.md)
+      * [LD\_LIBRARY\_PATH](network-attacks/untitled/privilege-escalation/environment-variables/ld\_library\_path.md)
+      * [LD\_PRELOAD](network-attacks/untitled/privilege-escalation/environment-variables/ld\_preload.md)
     * [Shared Object Injection](network-attacks/untitled/privilege-escalation/shared-object-injection.md)
     * [NFS](network-attacks/untitled/privilege-escalation/nfs.md)
     * [man CE Pager Argument](network-attacks/untitled/privilege-escalation/man-ce-pager-argument.md)

@@ -2,31 +2,31 @@
 
 ## Indirection
 
-####  is the ability to reference something using a name,reference or container,instead of the value itself.the most common form of indirection is the act of manipulating a value through its memory address.
+#### &#x20;is the ability to reference something using a name,reference or container,instead of the value itself.the most common form of indirection is the act of manipulating a value through its memory address.
 
 #### a pointer provides an indirect means of accessing the value of a particular data item a variable whose value is a memory address.
 
 C provides a remarkably useful type of variable called a pointer, a variable that stores a memory address. its value is the address of another location in memory that can contain a value.
 
-![](../../.gitbook/assets/86986%20%281%29.png)
+![](<../../.gitbook/assets/86986 (1).png>)
 
 pointers allow functions to modify data passed to them as variables. pass by reference passing arguments to function in a way they can be changed by fucntion. can also be used to optimize program performance and speed by using less memory.
 
 ## Declaring pointers
 
-```text
+```
 int number = 2; int *numberPointer = &number;
 ```
 
 "numberPointer" now contains the address where variable "number" is stored
 
-_**poniter = 25** → this "_" access the data stored at the address specified by a pointer
+_**poniter = 25 **→ this "_" access the data stored at the address specified by a pointer
 
-#### pointers must have the same variable type of the address values that contain the data. i.e: for float: float _pointer; for char: char_ pointer; etc...
+#### pointers must have the same variable type of the address values that contain the data. i.e: for float: float _pointer; for char: char _pointer; etc...
 
 **%p** → represents the format specified for a pointer
 
-**int \*pointer = NULL;** → is the equivalent of zero for a pointer, it doesn't point to any location in the memory.
+**int \*pointer = NULL; **→ is the equivalent of zero for a pointer, it doesn't point to any location in the memory.
 
 
 
@@ -34,26 +34,26 @@ _**poniter = 25** → this "_" access the data stored at the address specified b
 
 the pointer simply points to the address of the variable and can act as an operator for using that variable.
 
-```text
+```
 int number = 00; 
 int *pnumber = &number;
 ```
 
 ## De-referencing pointer to value
 
-**printf\("%p",pnumber\);** → prints the pointer value printf\("%d",\*pnumber\); → prints the value that its pointed to \(number\)
+**printf("%p",pnumber);** → prints the pointer value printf("%d",\*pnumber); → prints the value that its pointed to (number)
 
 ## **D**isplaying an address without a pointer
 
- **printf\("number address: %p",&number\);** 
+&#x20;**printf("number address: %p",\&number); **
 
 or
 
- **printf\("number address: %p",\(void**_**\)&number\);** → \(void_\) cast is to prevent possible warning from the compiler
+&#x20;**printf("number address: %p",(void**_**)\&number); **→ (void_) cast is to prevent possible warning from the compiler
 
 example:
 
-```text
+```
 int number = 0; // a variable of type int
 int *pnumber = NULL; // a pointer that can point to type int
 
@@ -73,15 +73,15 @@ printf("value pointed to: %d\n",*pnumber); // value at the address
 
 ## Pointers in expressions
 
-**int value = 999;** 
+**int value = 999; **
 
-**pnumber = &value;** 
+**pnumber = \&value; **
 
-**\*pnumber += 25;** → the value of "value" variable is incremented by 25.
+**\*pnumber += 25; **→ the value of "value" variable is incremented by 25.
 
 example:
 
-```text
+```
  long num1 = 0l;
 long num2 = 0l;
 long *pnum = NULL;
@@ -99,7 +99,7 @@ printf("num1 = %ld num2=%ld *pnum = %ld *pnum + num2 = %ld\n",num1,num2,*pnum,*p
 
 we can use the const keyword when declaring a pointer to indicate that the value pointed to must not be changed
 
-```text
+```
 long value = 999l; 
 const long *pvalue = &value;
 ```
@@ -110,20 +110,20 @@ the compiler will check for any statements that attempt to modify the value poin
 
 #### we can still modify value, we have only applied const to the pointer not the variable itself.
 
-```text
+```
 value=7777l;
 ```
 
 #### the value pointed to has changed but we didn't use the pointer to make the change. the pointer itself is not constant so we can still change what it points to:
 
-```text
+```
 long number = 888l; 
 pvalue = &number;
 ```
 
 #### we can create a constant pointer that points to a value that is also constant:
 
-```text
+```
  int item = 25;
  const int *const pitem = &item;
 ```
@@ -140,7 +140,7 @@ when we want to access the integer value at the address stored in the void point
 
 example:
 
-```text
+```
 int i = 10;
 float f = 3.34;
 char ch = 'k';
@@ -154,17 +154,17 @@ vptr = &ch;
 printf("value of ch=%c\n",*(char *)vptr);
 ```
 
-**void** _**pointer;**_ **\(data\_type \*\)pointer** → use this format to assign a data type to a void pointer
+**void **_**pointer; **_**(data\_type \*)pointer **→ use this format to assign a data type to a void pointer
 
 ## Pointers and arrays
 
-an array is a collection of objects of the same type that you can refer to using a single name we can use a pointer to hold the address of different variables at different times\(must be same type\) arrays and pointers seem quit different but they are very closely related and can sometimes be used interchangeably
+an array is a collection of objects of the same type that you can refer to using a single name we can use a pointer to hold the address of different variables at different times(must be same type) arrays and pointers seem quit different but they are very closely related and can sometimes be used interchangeably
 
 the main reason for using pointers to arrays are ones of notional convenience and of program efficiency, pointers to arrays generally result in code that uses less memory and executes faster.
 
 in pointers to arrays we point to each value of the array specifically and not the whole array at once.
 
-```text
+```
  int values[100];
  int *pvalues;
  pvalues = values;  → point to the first element of the values array
@@ -177,7 +177,7 @@ in pointers to arrays we point to each value of the array specifically and not t
 
 example:
 
-```text
+```
  int values[100]={[1]=324};
 int *pointer;
 pointer = &values[1];
@@ -185,53 +185,53 @@ printf("value 1 : %d\n",*pointer);
  
 ```
 
-if "ar" is an array the two expressions ar\[i\] and \*\(ar+i\) are equivalent in meaning, both work if ar is the name of an array, both work if ar is a pointer variable using an expression such as ar++ only works if ar is a pointer variable.
+if "ar" is an array the two expressions ar\[i] and \*(ar+i) are equivalent in meaning, both work if ar is the name of an array, both work if ar is a pointer variable using an expression such as ar++ only works if ar is a pointer variable.
 
 ## Pointer arithmetic
 
-```text
+```
 int values[100];
  int *pvalues;
  pvalues = values; 
 ```
 
-#### to reference values\[3\] through the pvalues variable we can add 3 to pvalues and then apply the indirection operator.
+#### to reference values\[3] through the pvalues variable we can add 3 to pvalues and then apply the indirection operator.
 
-```text
+```
 *(pvalues + 3)
 ```
 
-```text
+```
 int values[100]={[3]=352};
 int *pointer;
 pointer = &values;
 printf("value 3 : %d\n",*(pointer+3));
 ```
 
-this expression can be used to access the value contained in values\[i\]
+this expression can be used to access the value contained in values\[i]
 
-for example to set vales\[10\] to 27:
+for example to set vales\[10] to 27:
 
-```text
+```
 values[10]=27;
 or
 *(pvalues + 10) = 27;
 ```
 
-```text
+```
 *(pointer+3) = 321;
 printf("set value 3 to : %d\n",*(pointer+3)); 
 ```
 
 the increment and decrement operators ++ and -- are particularly useful when dealing with pointers.
 
-**++pvaluea;** → sets pvalues pointing to the next integer in the values array \(values\[1\]\)
+**++pvaluea; **→ sets pvalues pointing to the next integer in the values array (values\[1])
 
-**--pvalues;** → sets pvalues pointing to the previous integer in the values array assuming that pvalues was not pointing to the beginning of the values array
+**--pvalues; **→ sets pvalues pointing to the previous integer in the values array assuming that pvalues was not pointing to the beginning of the values array
 
 example:
 
-```text
+```
 // loop trough an array and get a sum using an array
 #include <stdio.h>
 
@@ -256,7 +256,7 @@ int sum(int ar[],  int size){
 
 example:
 
-```text
+```
 // loop trough an array and get a sum using a pointer (less code)
 #include <stdio.h>
 
@@ -279,7 +279,7 @@ int sum(int *ar,  int size){
 
 #### example assigning and resolving array using pointers:
 
-```text
+```
 #include <stdio.h>
 
 
@@ -311,7 +311,7 @@ for ( int j=0; j < size; j++){
 
 #### if text is an array of characters we can define a pointer to be used to point to elements in text
 
-```text
+```
 char text[] = "a string";
 char *ptext=&text;
 ++ptext; → go to next character in the array
@@ -319,7 +319,7 @@ char *ptext=&text;
 
 example:
 
-```text
+```
  void copyString(char *to, char *from){
 
     while(*from)  // the NULL character is equal to value 0 (false) so it will jump out
@@ -338,7 +338,7 @@ int main(void){
 
 example:
 
-```text
+```
  // a program to take string length without strlen function
 int stringLength(const char *string){
     const char *lastAddress = string;
@@ -359,13 +359,13 @@ int main(){
 
 there are few ways to pass data to a function:
 
- **pass by value**
+** pass by value**
 
- **pass by reference**
+** pass by reference**
 
 example pass by value:
 
-```text
+```
 void  swap(int x, int y){
     int temp;
     temp = x;   // save the value of x
@@ -377,7 +377,7 @@ void  swap(int x, int y){
 
 using pointers to pass data:
 
-```text
+```
  void swap(int *x, int *y){
     int temp;
     temp = *x;  // save the value at address x
@@ -393,7 +393,7 @@ we can pass a pointer as an argument to a function and you can also have a funct
 
 example:
 
-```text
+```
  void copyString(char *to, char *from){
 
     while(*from)  // the NULL character is equal to value 0 (false) so it will jump out
@@ -414,21 +414,21 @@ int main(void){
 
 ## returning a pointer from a function
 
-```text
+```
  int * function(){
 ... 
  }
 ```
 
-\*\*\*\*
+****
 
-## Double pointers \(pointer to a pointer\)
+## Double pointers (pointer to a pointer)
 
 #### as we are talked about de-referencing, there can be a reference for every variable and data type, including a pointer which is a reference to another variable itself. a pointer which points to another pointer is called a double pointer and is works just like a normal pointer but it contains the address of a pointer instead of a variable.
 
 ![](../../.gitbook/assets/786986.png)
 
-```text
+```
  int **pointer;
 ```
 
@@ -440,7 +440,7 @@ int main(void){
 
 example:
 
-```text
+```
 #include <stdio.h>
 
 int main(){
@@ -475,7 +475,7 @@ if you pass a single pointer in as argument you will be modifying local copies o
 
 example:
 
-```text
+```
 #include <stdio.h>
 #include <malloc.h>
 
@@ -503,7 +503,7 @@ in the example above the final printed value will still be 10 because the pointe
 
 example:
 
-```text
+```
 #include <stdio.h>
 #include <malloc.h>
 
@@ -529,7 +529,7 @@ printf("%d\n",*ptr);
 
 example:
 
-```text
+```
 #include <stdio.h>
 #include <string.h>
 #include <malloc.h>
@@ -560,15 +560,15 @@ menu-driven systems are also a common use of function pointers. you can use them
 
 
 
-```text
+```
 int (*pfunction) (int);
 ```
 
-declare a variable that is a pointer to a function. doesn't point to anything, just defines a pointer. the name of the pointer is pfunction. the declaration without the parentheses int \*pfunction\(int\); will declare a function pfunction that returns an integer pointer that is not our intention in this case
+declare a variable that is a pointer to a function. doesn't point to anything, just defines a pointer. the name of the pointer is pfunction. the declaration without the parentheses int \*pfunction(int); will declare a function pfunction that returns an integer pointer that is not our intention in this case
 
 #### to assign the pointer to an existing function simply assign the name of the function to it:
 
-```text
+```
 pfunction = lookup;
 or
 pfunction = &lookup;
@@ -576,13 +576,13 @@ pfunction = &lookup;
 
 #### to call it:
 
-```text
+```
 int value = pfunction(5);
 ```
 
 #### its common to use this typedefs with complex types such as function pointers
 
-```text
+```
 typedef int (funcptr)();
 funcptr testvar;
 
@@ -594,16 +594,16 @@ funcptr = func1;
 the ID funcptr is now a synonym for the type of a pointer to function that takes no arguments and returns an integer
 
 {% hint style="info" %}
- _****_**function returning pointer**  _**--&gt;**_  **int \*func\(int a , float b\);**
+_** **_**function returning pointer **_** --> **_ **int \*func(int a , float b);**
 {% endhint %}
 
 {% hint style="info" %}
- __**pointer to function returning an integer**  _**--&gt;**_  **int \(\*func\)\(int a , float b\)**
+_ _**pointer to function returning an integer**_ ** -->  **_**int (\*func)(int a , float b)**
 {% endhint %}
 
 example:
 
-```text
+```
 #include <stdio.h>
 
 int somedisplay();
@@ -629,7 +629,7 @@ int somedisplay(){
 
 example:
 
-```text
+```
 #include <stdio.h>
 
 void func1(int);
@@ -655,8 +655,6 @@ void func2(int testarg){
     printf("function 2 got an argument: %d\n",testarg);
 }
 ```
-
-
 
 
 
