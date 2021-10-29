@@ -21,6 +21,7 @@
 * [Active (scanning)](recon-1/active-scanning/README.md)
   * [Host Discovery / Network Mapping](recon-1/active-scanning/host-discovery-and-mapping.md)
   * [Services](recon-1/active-scanning/network/README.md)
+    * [masscan cheat sheet](recon-1/active-scanning/network/masscan-cheat-sheet.md)
     * [nmap cheat sheet](recon-1/active-scanning/network/nmap-cheat-sheet.md)
     * [FTP](recon-1/active-scanning/network/ftp.md)
     * [DNS](recon-1/active-scanning/network/dns.md)

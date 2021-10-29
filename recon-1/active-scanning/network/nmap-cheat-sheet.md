@@ -1,6 +1,6 @@
 # nmap cheat sheet
 
-#### Full commands examples <a href="full-commands-examples" id="full-commands-examples"></a>
+### Full commands examples <a href="full-commands-examples" id="full-commands-examples"></a>
 
 ```bash
 # Ping scan
@@ -25,10 +25,7 @@ nmap -v -Pn -n -T4 -sT -p- --reason 192.168.1.1
 nmap -v -Pn -n -T4 -sV --version-intensity=5 -sT -p T:ports_found --reason <IP>
 ```
 
-\
-
-
-#### Target specification <a href="target-specification" id="target-specification"></a>
+### Target specification <a href="target-specification" id="target-specification"></a>
 
 ```bash
 nmap 192.168.1.1
@@ -39,10 +36,7 @@ nmap 192.168.1.0/24 --exclude192.168.1.1
 nmap -iL targets.txt
 ```
 
-\
-
-
-#### Scan techniques <a href="scan-techniques" id="scan-techniques"></a>
+### Scan techniques <a href="scan-techniques" id="scan-techniques"></a>
 
 ```bash
 # TCP SYN port scan (default, root needed)
@@ -63,10 +57,7 @@ nmap -sN 192.168.1.1
 nmap -sP 192.168.0.0/24
 ```
 
-\
-
-
-#### Host discovery <a href="host-discovery" id="host-discovery"></a>
+### Host discovery <a href="host-discovery" id="host-discovery"></a>
 
 ```bash
 # No scan, only list targets (get hostnames)
@@ -82,10 +73,7 @@ nmap -Pn 192.168.1.1
 nmap 192.168.1.1 -n
 ```
 
-\
-
-
-#### Services, ports and OS (fingerprinting <a href="services-ports-and-os-fingerprinting" id="services-ports-and-os-fingerprinting"></a>
+### Services, ports and OS (fingerprinting <a href="services-ports-and-os-fingerprinting" id="services-ports-and-os-fingerprinting"></a>
 
 ```bash
 nmap -p 20 192.168.1.1
@@ -130,10 +118,7 @@ nmap 192.168.1.1 -O --osscan-guess
 nmap 192.168.1.1 -O --max-os-tries 2
 ```
 
-\
-
-
-#### NSE Scripts <a href="nse-scripts" id="nse-scripts"></a>
+### NSE Scripts <a href="nse-scripts" id="nse-scripts"></a>
 
 ```bash
 # Default script scanning, considered safe
@@ -147,10 +132,7 @@ nmap 192.168.1.1 --script=xxx --script-args xx=xx
 nmap 192.168.1.1 --script “not intrusive"
 ```
 
-\
-
-
-#### MISC <a href="misc" id="misc"></a>
+### MISC <a href="misc" id="misc"></a>
 
 ```bash
 # Scan speed
@@ -177,10 +159,7 @@ https://nmap.org/book/ncat-man-timing-options.html
 nmap 192.168.0.0/16  --host-timeout <msec>
 ```
 
-\
-
-
-#### Evading IDS <a href="evading-ids" id="evading-ids"></a>
+### Evading IDS <a href="evading-ids" id="evading-ids"></a>
 
 ```bash
 # Tiny fragmented packets
@@ -203,12 +182,10 @@ nmap 192.168.1.1 --proxies http://X.X.X.X:8080
 
 # Append random data to sent packets
 nmap 192.168.1.1 --data-length 200
+
 ```
 
-\
-
-
-#### Output <a href="output" id="output"></a>
+### Output <a href="output" id="output"></a>
 
 ```bash
 # Save result (oN=normal oX=xml oG=grepable oA=all)
