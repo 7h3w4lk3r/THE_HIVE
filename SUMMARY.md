@@ -50,8 +50,6 @@
 
 ## Network Attacks
 
-* [Exfiltration / File Transfer](network-attacks/exfiltration-file-transfer/README.md)
-  * [HTTP](network-attacks/exfiltration-file-transfer/http.md)
 * [Windows](network-attacks/windows/README.md)
   * [Security Component](network-attacks/windows/security-component/README.md)
     * [Permissions and Access Control](network-attacks/windows/security-component/permissions.md)
@@ -162,6 +160,9 @@
     * [Xinetd UDP portnock](network-attacks/untitled/persistence/xinetd-udp-portnock.md)
     * [openSSL reverse shell](network-attacks/untitled/persistence/openssl-reverse-shell.md)
     * [SSH persistence passwordless](network-attacks/untitled/persistence/ssh-persistence-passwordless.md)
+* [Exfiltration / File Transfer](network-attacks/exfiltration-file-transfer/README.md)
+  * [SMB](network-attacks/exfiltration-file-transfer/smb.md)
+  * [HTTP](network-attacks/exfiltration-file-transfer/http.md)
 * [Pivoting & Tunneling](network-attacks/pivoting/README.md)
   * [Tools](network-attacks/pivoting/tools.md)
   * [SSH Forwarding](network-attacks/pivoting/ssh-port-forwarding.md)
