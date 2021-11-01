@@ -71,11 +71,11 @@ see [environment variables section](https://7h3w4lk3r.gitbook.io/the-hive/networ
 
 #### ``progr_dev=( "which perl" "which gcc" "which g++" "which python" "which php" "which cc" "which go" "which node") ;for programming_lang in "${progr_dev[@]}"; do pss=`$programming_lang |cut -d"/" -f4` ;if [ "$pss" ]; then echo -e "$pss" ;fi done``
 
-### &#x20; check emails
+### check emails
 
 #### `mail && ls -alh /var/mail/`
 
-### &#x20; printers
+### &#x20;printers
 
 #### &#x20;`lpstat -a`
 
@@ -91,7 +91,7 @@ see [environment variables section](https://7h3w4lk3r.gitbook.io/the-hive/networ
 
 ## users and accounts
 
-### &#x20; check for sudo access
+### check for sudo access
 
 #### &#x20;`sudo -l |grep vim` ` sudo -l |grep nmap` ` sudo -l |grep vi` ` sudo -l`
 
@@ -137,7 +137,7 @@ see [environment variables section](https://7h3w4lk3r.gitbook.io/the-hive/networ
 
 ## network
 
-### &#x20; network configurations
+### network configurations
 
 #### &#x20;`cat /etc/resolv.conf` ` cat /etc/sysconfig/network` ` cat /etc/networks` ` iptables -L` ` hostname` ` dnsdomainname`
 
@@ -157,11 +157,11 @@ see [environment variables section](https://7h3w4lk3r.gitbook.io/the-hive/networ
 
 #### `cat /etc/hosts 2>/dev/null && cat /etc/resolv.conf 2>/dev/null && cat /etc/sysconfig/network 2>/dev/null && cat /etc/networks 2>/dev/null | uniq | srt | grep -v '#'`
 
-### &#x20; ssh root login status
+### ssh root login status
 
 #### &#x20;`cat /etc/ssh/sshd_config | grep PermitRootLogin | grep -v "#"`
 
-### &#x20; ssh info
+### ssh info
 
 #### `cat ~/.ssh/identity.pub ~/.ssh/authorized_keys ~/.ssh/identity ~/.ssh/id_rsa.pub ~/.ssh/id_rsa ~/.ssh/id_dsa.pub ~/.ssh/id_dsa /etc/ssh/ssh_config /etc/ssh/sshd_config /etc/ssh/ssh_host_dsa_key.pub /etc/ssh/ssh_host_dsa_key /etc/ssh/ssh_host_rsa_key.pub /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_key.pub /etc/ssh/ssh_host_key 2>/dev/null`
 
@@ -169,7 +169,7 @@ see [environment variables section](https://7h3w4lk3r.gitbook.io/the-hive/networ
 
 ## tasks and processes
 
-### &#x20; process binaries paths and permissions
+process binaries paths and permissions
 
 #### `ps aux | awk '{print $11}' |xargs -r ls -la 2>/dev/null |awk '!x[$0]++'`
 
@@ -202,7 +202,7 @@ see [cron/crontab abuse section](https://7h3w4lk3r.gitbook.io/the-hive/network-a
 \
 &#x20;[this](https://github.com/DominicBreuker/pspy) can be very useful to identify vulnerable processes being executed frequently or when a set of requirements are met.
 
-### &#x20; **Process memory**
+### **Process memory**
 
 #### &#x20;Some services of a server save credentials in clear text inside the memory.  Normally you will need root privileges to read the memory of processes that belong to other users, therefore this is usually more useful when you are already root and want to discover more credentials.  However, remember that as a regular user you can read the memory of the processes you own.   To dump a process memory you could use: [https://github.com/hajzer/bash-memory-dump](https://github.com/hajzer/bash-memory-dump)  You can manually remove root requirements and dump process owned by you   Script A.5 from [https://www.delaat.net/rp/2016-2017/p97/report.pdf](https://www.delaat.net/rp/2016-2017/p97/report.pdf) (root is required)  ** **
 
@@ -224,15 +224,15 @@ see [cron/crontab abuse section](https://7h3w4lk3r.gitbook.io/the-hive/network-a
 
 ## programs and software
 
-### &#x20; enumerate useful binaries
+### enumerate useful binaries
 
 #### `which nmap aws nc ncat netcat nc.traditional wget curl ping gcc g++ make gdb base64 socat python python2 python3 python2.7 python2.6 python3.6 python3.7 perl php ruby xterm doas sudo fetch docker lxc rkt kubectl 2>/dev/null` 
 
-### &#x20;enumerate compilers
+### enumerate compilers
 
 #### &#x20;`(dpkg --list 2>/dev/null | grep "compiler" | grep -v "decompiler\|lib" 2>/dev/null || yum list installed 'gcc*' 2>/dev/null | grep gcc 2>/dev/null; which gcc g++ 2>/dev/null || locate -r "/gcc[0-9\.-]\+$" 2>/dev/null | grep -v "/doc/")`
 
-### &#x20; installed software/packages 
+### &#x20;installed software/packages
 
 #### &#x20;`dpkg -l` ` rpm -q`
 
@@ -286,7 +286,7 @@ Then, create a **executable** with the **same name as the relative path binary**
 
 #### see [NFS section](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/untitled/privilege-escalation/nfs) for related methods.
 
-### &#x20; find password in php files
+### &#x20;find password in php files
 
 #### `find / -maxdepth 5 -name *.php -type f -exec grep -Hn password {} \; 2>/dev/null`
 
