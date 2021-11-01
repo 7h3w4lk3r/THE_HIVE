@@ -200,6 +200,7 @@
 ## 🔧 Defense Evasion
 
 * [Basics](defense-evasion/basics.md)
+* [Alternative Payloads](defense-evasion/alternative-payloads.md)
 * [AMSI Bypass](defense-evasion/amsi-bypass.md)
 
 ## Programming and DataBase
