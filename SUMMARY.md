@@ -50,6 +50,8 @@
 
 ## Network Attacks
 
+* [Exfiltration / File Transfer](network-attacks/exfiltration-file-transfer/README.md)
+  * [HTTP](network-attacks/exfiltration-file-transfer/http.md)
 * [Windows](network-attacks/windows/README.md)
   * [Security Component](network-attacks/windows/security-component/README.md)
     * [Permissions and Access Control](network-attacks/windows/security-component/permissions.md)
