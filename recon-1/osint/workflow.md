@@ -8,7 +8,7 @@ Here you can see some of the general workflows of OSINT process on different typ
 
 ## Website
 
-![](<../../.gitbook/assets/image (275).png>)
+![](<../../.gitbook/assets/image (275) (1).png>)
 
 
 
