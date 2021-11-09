@@ -26,6 +26,7 @@
     * [FTP](recon-1/active-scanning/network/ftp.md)
     * [SMTP](recon-1/active-scanning/network/smtp-pop3.md)
     * [POP3](recon-1/active-scanning/network/pop3.md)
+    * [IMAP](recon-1/active-scanning/network/imap.md)
     * [SMB](recon-1/active-scanning/network/smb.md)
     * [DNS](recon-1/active-scanning/network/dns.md)
     * [LDAP](recon-1/active-scanning/network/ldap.md)

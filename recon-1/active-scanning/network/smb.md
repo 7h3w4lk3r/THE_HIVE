@@ -1,5 +1,27 @@
 # SMB
 
+## Enumeration
+
+```
+nmap -sT –sU -sV 192.168.13.26 -p135,137,138,139,445 --open
+nmap -v -p 139,445 --script=smb-vuln-ms08-067 --script-args=unsafe=1
+nmap -p139,445 --script smb-os-discovery [target]
+nmap -p137,139,445 --script smb-security-mode [target]
+nmap -sU -p137 --script smb-security-mode [target]
+nmap -p445 --script smb-vuln-ms08-067 [target]
+nmap -p445 --script smb-vuln-* [target]
+nmap -v -p139,445 --script smb-enum-users [target]
+nmap -sU -p137 --script smb-enum-users --script-args samronly=true [target]
+nmap -sU -p137 --script smb-enum-users --script-args lsaonly=true [target]
+nmap -p139,445 --script smb-enum-shares --script-args smbusername=Administrator,smbpassword=Password [target]
+nmap -sU -p137 --script smb-enum-shares [target]
+nmap -p445 --script smb-enum-sessions [target]
+$ nmap -p445 --script smb-brute --script-args userdb=users.txt,passdb=passwords.txt [target]
+nmap -sU -p137 --script smb-enum-sessions [target]
+nmap -p445 --script smb-vuln-double-pulsar-backdoor [target]
+
+```
+
 ## Linux
 
 Samba, a Linux-based implementation of the SMB/CIFS protocols, provides print and file sharing services for windows clients within an environment. Recent versions also seamlessly can be integrated with Active Directory domains
@@ -111,9 +133,9 @@ nbtscan [ip]
 
 &#x20;if you then see something like     ELS-WINXP    <20>    Unique    Registered -- then there is a server or share
 
-## windows
+## Windows
 
-### netbios
+### NetBIOS
 
 NetBIOS stands for Network Basic Input Output System. Servers and clients use NetBIOS when viewing network shares on the local area network.
 
@@ -239,33 +261,11 @@ bin:x:2:2:bin:/bin:/bin/sh
 [..]
 ```
 
-#### To mount from linux, type the following
+## Mounting Shares From Linux
 
 ```
 mount.cifs /192.168.99.162/C /media/K_share/ user=,pass=
 nmblookup -A target
 smbclient //MOUNT/share -I target -N
 rpcclient -U “” target
-```
-
-### nmap
-
-```
-nmap -sT –sU -sV 192.168.13.26 -p135,137,138,139,445 --open
-nmap -v -p 139,445 --script=smb-vuln-ms08-067 --script-args=unsafe=1
-nmap -p139,445 --script smb-os-discovery [target]
-nmap -p137,139,445 --script smb-security-mode [target]
-nmap -sU -p137 --script smb-security-mode [target]
-nmap -p445 --script smb-vuln-ms08-067 [target]
-nmap -p445 --script smb-vuln-* [target]
-nmap -v -p139,445 --script smb-enum-users [target]
-nmap -sU -p137 --script smb-enum-users --script-args samronly=true [target]
-nmap -sU -p137 --script smb-enum-users --script-args lsaonly=true [target]
-nmap -p139,445 --script smb-enum-shares --script-args smbusername=Administrator,smbpassword=Password [target]
-nmap -sU -p137 --script smb-enum-shares [target]
-nmap -p445 --script smb-enum-sessions [target]
-$ nmap -p445 --script smb-brute --script-args userdb=users.txt,passdb=passwords.txt [target]
-nmap -sU -p137 --script smb-enum-sessions [target]
-nmap -p445 --script smb-vuln-double-pulsar-backdoor [target]
-
 ```
