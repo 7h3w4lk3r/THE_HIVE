@@ -177,7 +177,7 @@ NTLM supported
 
 #### the same issue exists for IMAP service as well.
 
-## Internal server name - Information disclosure
+## Internal Server Name - Information Disclosure
 
 #### Some SMTP servers auto-complete a sender's address when command "MAIL FROM" is issued without a full address, disclosing its internal name:
 
@@ -199,9 +199,46 @@ MAIL FROM: me
 250 2.1.0 me@PRODSERV01.somedomain.com....Sender OK
 ```
 
-## Open Relay Attack
+## Open Relay Attack&#x20;
 
 
+
+An SMTP server that works as an open relay, is a email server that does not verify if the user is authorized to send email from the specified email address. Therefore, users would be able to send email originating from any third-party email address that they want.
+
+### Manual
+
+```
+telnet [server_addr] [port]
+helo test
+ehlo [hostname] - show supported options on smtp server
+mail from: < [spoofed_email]>
+rcpt to: <[receipt_mail]> - ***  in case the smtp relay is not allowed on the server,”relay not allowed error” will be displayed after typing the rcpt to:<> or access denied or ***
+data
+subject: test for smtp
+
+[some text for test]
+.
+quit
+```
+
+### Automated
+
+```
+nmap --script smtp-open-relay.nse [--script-args smtp-open-relay.domain=<domain>,smtp-open-relay.ip=<address>,...] -p 25,465,587 <host>
+use auxiliary/scanner/smtp/smtp_relay
+```
+
+#### for more info on Email spoofing check out [this link](smtp-pop3.md#introduction).
+
+#### [HackTricks ](https://book.hacktricks.xyz/pentesting/pentesting-smtp#mail-spoofing)also has a good explanation for mail spoofing attacks.
+
+{% embed url="https://github.com/serain/mailspoof" %}
+
+{% embed url="https://pypi.org/project/checkdmarc" %}
+
+{% embed url="https://www.mailsploit.com/index" %}
+
+{% embed url="http://www.anonymailer.net" %}
 
 ## SMTP Commands
 
