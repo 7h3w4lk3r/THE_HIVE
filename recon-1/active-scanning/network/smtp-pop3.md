@@ -130,21 +130,77 @@ s.close()
 
 ```
 nmap -p 25 --script smtp-brute <host>
-
-hydra -l username -P /usr/share/wordlists/fasttrack.txt 192.168.56.101 pop3 -s 55007 -vv
+hydra -l <username> -P /path/to/passwords.txt <IP> smtp -V
+hydra -l <username> -P /path/to/passwords.txt -s 587 <IP> -S -v -V #Port 587 for SMTP with SSL
 ```
 
-## NTLM Auth - Information disclosure
+## Delivery Status Notification Disclosure
 
+&#x20;If you send an **email** to an organisation to an **invalid address**, the organisation will notify that the address was invalided sending a **mail back to you**. **Headers** of the returned email will **contain** possible **sensitive information** (like IP address of the mail services that interacted with the reports or anti-virus software info).
 
+example:
 
+```
+ MAIL FROM:<bob@alpha.lan>
+ RCPT TO:<alice@bravo.lan>
+ DATA
+ < 354 data;end with <CRLF>.<CRLF> 
+> Blah blah blah... 
+> ... 
+> <CRLF>.<CRLF> 
+< 250 OK
+```
 
+If a SMTP server has accepted the task of relaying a message and later finds that the recipient is incorrect, or that the mail cannot be delivered for whatever reason, then it must construct a NDN message and send it to the originator of the undeliverable mail.
 
+## NTLM Auth - Internal Information disclosure
 
+In Windows environment (MS Exchange) with SMTP - NTLM Auth available, if an attacker sends a null NTLM Auth request, the server to respond with a NTLMSSP message and disclose some information about the target host such as NetBIOS, DNS, OS and version.&#x20;
 
-## Manual test
+### nmap
 
-### Basic SMTP Commands
+```
+nmap -p 25,465,587 --script smtp-ntlm-info --script-args smtp-ntlm-info.domain=domain.com <target>
+```
+
+### Manual
+
+```
+root@kali: telnet example.com 587 
+220 example.com SMTP Server Banner 
+>> HELO 
+250 example.com Hello [x.x.x.x] 
+>> AUTH NTLM 334 
+NTLM supported 
+>> TlRMTVNTUAABAAAAB4IIAAAAAAAAAAAAAAAAAAAAAAA= 
+334 TlRMTVNTUAACAAAACgAKADgAAAAFgooCBqqVKFrKPCMAAAAAAAAAAEgASABCAAAABgOAJQAAAA9JAEkAUwAwADEAAgAKAEkASQBTADAAMQABAAoASQBJAFMAMAAxAAQACgBJAEkAUwAwADEAAwAKAEkASQBTADAAMQAHAAgAHwMI0VPy1QEAAAAA
+```
+
+#### the same issue exists for IMAP service as well.
+
+## Internal server name - Information disclosure
+
+Some SMTP servers auto-complete a sender's address when command "MAIL FROM" is issued without a full address, disclosing its internal name:
+
+```
+EHLO all
+250-somedomain.com Hello [x.x.x.x]
+250-TURN
+250-SIZE 52428800
+250-ETRN
+250-PIPELINING
+250-DSN
+250-ENHANCEDSTATUSCODES
+250-8bitmime
+250-BINARYMIME
+250-CHUNKING
+250-VRFY
+250 OK
+MAIL FROM: me
+250 2.1.0 me@PRODSERV01.somedomain.com....Sender OK
+```
+
+## SMTP Commands
 
 #### HELO
 
