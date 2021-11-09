@@ -18,7 +18,6 @@ port TCP 25
 
 ## Checklist
 
-* [ ] Service Enumeration
 * [ ] User enumeration
 * [ ] Login brute force
 * [ ] Check for info disclosure in  delivery status notification
@@ -152,7 +151,9 @@ example:
 
 If a SMTP server has accepted the task of relaying a message and later finds that the recipient is incorrect, or that the mail cannot be delivered for whatever reason, then it must construct a NDN message and send it to the originator of the undeliverable mail.
 
-## NTLM Auth - Internal Information disclosure
+## SMTP - NTLM Auth
+
+#### ( Internal Information disclosure )
 
 In Windows environment (MS Exchange) with SMTP - NTLM Auth available, if an attacker sends a null NTLM Auth request, the server to respond with a NTLMSSP message and disclose some information about the target host such as NetBIOS, DNS, OS and version.&#x20;
 
