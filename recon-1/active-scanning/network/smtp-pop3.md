@@ -21,12 +21,10 @@ port TCP 25
 * [ ] Service Enumeration
 * [ ] User enumeration
 * [ ] Login brute force
-
-
-
-
-
-
+* [ ] Check for info disclosure in  delivery status notification
+* [ ] Check for SMTP-NTLM Auth info disclosure
+* [ ] Check for open relay
+* [ ] Test other scenarios with SMTP commands
 
 ## Enumeration
 
@@ -55,7 +53,7 @@ There are 3 methods (SMTP commands) to test for existance of a user in SMTP serv
 3. EXPN
 
 ```
-smtp-user-enum: smtp-user-enum -M <MODE> -u <USER> -t <IP>
+smtp-user-enum -M  [method]  -U  <userlist>  -t  <target IP>
 use auxiliary/scanner/smtp/smtp_enum
 nmap -sV --script smtp-enum-users
 # use smtp-enum-users.methods={EXPN,RCPT,VRFY}  to test different methods
@@ -130,6 +128,7 @@ s.close()
 
 ```
 nmap -p 25 --script smtp-brute <host>
+use auxiliary/scanner/smtp/smtp_enum
 hydra -l <username> -P /path/to/passwords.txt <IP> smtp -V
 hydra -l <username> -P /path/to/passwords.txt -s 587 <IP> -S -v -V #Port 587 for SMTP with SSL
 ```
@@ -180,7 +179,7 @@ NTLM supported
 
 ## Internal server name - Information disclosure
 
-Some SMTP servers auto-complete a sender's address when command "MAIL FROM" is issued without a full address, disclosing its internal name:
+#### Some SMTP servers auto-complete a sender's address when command "MAIL FROM" is issued without a full address, disclosing its internal name:
 
 ```
 EHLO all
@@ -199,6 +198,10 @@ EHLO all
 MAIL FROM: me
 250 2.1.0 me@PRODSERV01.somedomain.com....Sender OK
 ```
+
+## Open Relay Attack
+
+
 
 ## SMTP Commands
 
@@ -219,7 +222,7 @@ C: MAIL FROM:[mail@samlogic.com]
 S: 250 OK
 ```
 
-### RCPT TO&#x20;
+#### RCPT TO&#x20;
 
 (Recipient To) Specifies the e-mail address of the recipient. This command can be repeated multiple times for a give n e-mail message in order to deliver a single e-mail message to ultiple recipients. The example below shows how this command can be used to send same e-mail message to two recipients:
 
@@ -266,3 +269,23 @@ S: 250 OK
 #### QUIT&#x20;
 
 Asks the server to close the connection. If the connection can be closed the servers replies with a 221 numerical code and then is the session closed.
+
+### wrapping up
+
+sending an email from linux:
+
+```
+root@kali:~# sendEmail -t itdept@victim.com -f techsupport@bestcomputers.com -s 192.168.8.131 -u Important Upgrade Instructions -a /tmp/BestComputers-UpgradeInstructions.pdf
+Reading message body from STDIN because the '-m' option was not used.
+If you are manually typing in a message:
+  - First line must be received within 60 seconds.
+  - End manual input with a CTRL-D on its own line.
+IT Dept,
+We are sending this important file to all our customers. It contains very important instructions for upgrading and securing your software. Please read and let us know if you have any problems.
+Sincerely,
+```
+
+```
+swaks --to $(cat emails | tr '\n' ',' | less) --from test@sneakymailer.htb --header "Subject: test" --body "please click here http://10.10.14.42/" --server 10.10.10.197
+```
+
