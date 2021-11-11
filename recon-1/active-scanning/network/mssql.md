@@ -19,8 +19,6 @@ nmap --script ms-sql-brute [target ip]
 ms-sql-config
 ```
 
-### Identification and Scans <a href="identification-and-scans" id="identification-and-scans"></a>
-
 ```bash
 # Queries Microsoft SQL Server (ms-sql) instances for a list of databases, linked servers,and configuration settings.
 # Credentials required
