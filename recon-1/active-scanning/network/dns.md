@@ -128,6 +128,10 @@ dig google.com A @<IP>
 
 ## Known Vulnerabilities
 
+## SIGRed
+
+{% embed url="https://research.checkpoint.com/2020/resolving-your-way-into-domain-admin-exploiting-a-17-year-old-bug-in-windows-dns-servers" %}
+
 ### Simple DNS Plus Remote DoS
 
 {% embed url="https://www.cvedetails.com/vulnerability-list/vendor_id-8348/product_id-14553/Simpledns-Simple-Dns-Plus.html" %}
