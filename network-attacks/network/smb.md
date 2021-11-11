@@ -1,9 +1,45 @@
 # SMB
 
+## Introduction
+
+[Server Message Block](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831795\(v=ws.11\))
+
+SMB functions as a request-response or client-server protocol. The only time that the protocol does not work in a response-request framework is when a client requests an opportunistic lock (oplock) and the server has to break an existing oplock because the current mode is incompatible with the existing oplock. Client computers using SMB connect to a supporting server using NetBIOS over TCP/IP, IPX/SPX, or NetBUI. Once the connection is established, the client computer or program can then open, read/write, and access files similar to the file system on a local computer.
+
+#### Designed to run on top of NetBIOS (Network Basic Input Output System) over TCP/IP using port TCP 139 for identification and UDP 137/138 for file transfer.
+
+#### Port TCP 445 is supported for using SMB without NetBIOS as a transport (SMB over IP).
+
+#### Implemented on both Windows and Linux (Samba) OSs.
+
+&#x20;
+
+### Windows SMB Versions
+
+* CIFS: The old version of SMB, which was included in Microsoft Windows NT 4.0 in 1996.
+* SMB 1.0 / SMB1: The version used in Windows 2000, Windows XP, Windows Server 2003 and Windows Server 2003 R2.
+* SMB 2.0 / SMB2: This version used in Windows Vista and Windows Server 2008.
+* SMB 2.1 / SMB2.1: This version used in Windows 7 and Windows Server 2008 R2.
+* SMB 3.0 / SMB3: This version used in Windows 8 and Windows Server 2012.
+* SMB 3.02 / SMB3: This version used in Windows 8.1 and Windows Server 2012 R2.
+* SMB 3.1: This version used in Windows Server 2016 and Windows 10.
+
+## Checklist
+
+*
+
 ## Enumeration
+
+### Service Detection
 
 ```
 nmap -sT –sU -sV 192.168.13.26 -p135,137,138,139,445 --open
+nbtscan -r 192.168.0.1/24
+
+```
+
+```
+
 nmap -v -p 139,445 --script=smb-vuln-ms08-067 --script-args=unsafe=1
 nmap -p139,445 --script smb-os-discovery [target]
 nmap -p137,139,445 --script smb-security-mode [target]
@@ -28,7 +64,7 @@ Samba, a Linux-based implementation of the SMB/CIFS protocols, provides print an
 
 Samba can be found listening on the usual “NetBIOS” ports:
 
-![](<../../../.gitbook/assets/image (41).png>)
+![](<../../.gitbook/assets/image (41).png>)
 
 ### fix smbclient protocol negotiation failed error
 
@@ -45,7 +81,7 @@ client max protocol = SMB3
 
 this is a config file for smb service on your hacking machine and might interfere with some other services remember to change the protocol version later.
 
-### smbclient
+### Access Shares - smbclient
 
 #### list shares
 
@@ -150,7 +186,7 @@ NetBIOS can supply some of the following information when querying a computer:
 
 This block diagram represents the structure of NetBIOS
 
-![](<../../../.gitbook/assets/image (43).png>)
+![](<../../.gitbook/assets/image (43).png>)
 
 As you can see the NetBIOS layer sits between the application layer and the IP layer. UDP is used to perform NetBIOS name resolution and to carry other one-to-many datagram-based communications. By using NetBIOS datagrams, a host can send small messages to many other hosts. Heavy traffic, such as a file copy, relies on TCP by using NetBIOS sessions.
 
@@ -203,7 +239,7 @@ Null sessions are remotely exploitable; this means that attackers can use their 
 
 In Windows, the most common command to use when enumerating Windows shares is nbtstat. Nbtstat is a Windows command line tool that can display information about a target. You can check how to use it by passing it the /? parameter The most common use of nbtstat is "nbtstat -A \[IP]" that displays information about a target
 
-![](<../../../.gitbook/assets/image (42).png>)
+![](<../../.gitbook/assets/image (42).png>)
 
 #### the first line tells us the name of the machine \[OVERLORD]  the record type 00 tells us that OVERLORD is a workstation.  the type UNIQUE tells us that this computer must have only one IP address assigned.  second line contains the workgroup or the domain the computer is joined to.  type 20 record means that the file sharing service is up and running on the machine. 
 
@@ -213,7 +249,7 @@ In Windows, the most common command to use when enumerating Windows shares is nb
 NET VIEW [target ip]
 ```
 
-![](<../../../.gitbook/assets/image (39).png>)
+![](<../../.gitbook/assets/image (39).png>)
 
 This machine is sharing a directory; the share name is shares You can also perform shares enumeration from a Linux machine. You need to use the tools provided by the Samba suite. Samba tools are already installed in Kali Linux, but you can install them in nearly every Linux distribution. To perform the same operations of nbtstat, you can use nmblookup with the same command line switch:
 
@@ -221,7 +257,7 @@ This machine is sharing a directory; the share name is shares You can also perfo
 nmblookup -A [target ip ]
 ```
 
-![](<../../../.gitbook/assets/image (38).png>)
+![](<../../.gitbook/assets/image (38).png>)
 
 ## Checking for Null Sessions
 
