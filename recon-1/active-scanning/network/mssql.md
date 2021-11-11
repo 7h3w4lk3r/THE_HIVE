@@ -1,14 +1,27 @@
 # MSSQL
 
+## Enumeration
+
+```
+nmap -n -sV --version-intensity=5 -sT -Pn -p T:1433 --script=xxxx <IP>
+auxiliary/scanner/mssql/mssql_ping
+```
+
+## Login Brute Force
+
+```
+nmap --script ms-sql-brute [target ip]
+```
+
+## Query (with credentials)
+
+```
+ms-sql-config
+```
+
 ### Identification and Scans <a href="identification-and-scans" id="identification-and-scans"></a>
 
 ```bash
-# Using nmap NSE scripts
-nmap -n -sV --version-intensity=5 -sT -Pn -p T:1433 --script=xxxx <IP>
-
-# Bruteforce accounts and password against a MSSQL Server
-ms-sql-brute
-
 # Queries Microsoft SQL Server (ms-sql) instances for a list of databases, linked servers,and configuration settings.
 # Credentials required
 ms-sql-config
