@@ -5,7 +5,6 @@
 ## RECON <a href="recon-1" id="recon-1"></a>
 
 * [Passive (OSINT)](recon-1/osint/README.md)
-  * [Workflow](recon-1/osint/workflow.md)
   * [Social Platforms](recon-1/osint/social-platforms/README.md)
     * [Tumbler](recon-1/osint/social-platforms/tumbler.md)
     * [Redit](recon-1/osint/social-platforms/redit.md)

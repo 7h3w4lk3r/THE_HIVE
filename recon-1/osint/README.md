@@ -1,6 +1,6 @@
 # Passive (OSINT)
 
-![the big picture of OSINT](../../.gitbook/assets/banner.png)
+![](../../.gitbook/assets/banner.png)
 
 #### OSINT is short for Open-Source Intelligence Gathering,  is a way of knowing your target without any sorts of direct contact or leaving any evidence of the recon.
 
@@ -10,7 +10,7 @@ In OSINT you should always ask questions like: how, who, when, where and why. al
 
 #### OSINT reconnaissance can be further broken down into the following 5 sub-phases:
 
-![the OSINT process steps](../../.gitbook/assets/osint-process.png)
+![](../../.gitbook/assets/osint-process.png)
 
 **Source Identification**: as the starting point, in this initial phase the attacker identifies potential sources from which information may be gathered from. Sources are internally documented throughout the process in detailed notes to come back to later if necessary.
 
@@ -28,7 +28,15 @@ In OSINT you should always ask questions like: how, who, when, where and why. al
 
 is an open source intelligence (OSINT) and graphical link analysis tool for gathering and connecting information for investigative tasks. its preinstalled in kali linux. you can download it from [here](https://www.maltego.com)
 
-![sample Maltego results for a domain](../../.gitbook/assets/maltego.jpg)
+![](../../.gitbook/assets/maltego.jpg)
+
+## DNS Records
+
+{% embed url="https://dnsdumpster.com" %}
+
+## Email Harvesting
+
+{% embed url="https://hunter.io" %}
 
 ## Google Hacking
 
@@ -41,8 +49,6 @@ also named Google dorking, is a hacker technique that uses Google Search and oth
 #### there is an expanding database of these search queries maintained by offensive security folks called the [google hacking database (GHDB) ](https://www.exploit-db.com/google-hacking-database). you can use the site search to find dorks for specific types of targets.
 
 {% embed url="https://pentest-tools.com/information-gathering/google-hacking#" %}
-
-
 
 ### Automated Dork Tools
 
