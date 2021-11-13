@@ -1,6 +1,6 @@
 # POP3
 
-## Introduction
+## :information\_source: Introduction
 
 [Post Office Protocol 3](https://networkencyclopedia.com/post-office-protocol-version-3-pop3/)
 
@@ -10,7 +10,7 @@ TCP port 110 for non-encrypted mail retrieval
 
 TCP port 995 for using SSL/TLS.
 
-## Checklist
+## :ballot\_box\_with\_check: Checklist
 
 * [ ] Login brute force
 * [ ] Check for POP - NTLM auth

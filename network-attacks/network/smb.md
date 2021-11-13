@@ -1,6 +1,6 @@
 # SMB
 
-## Introduction
+## :information\_source: Introduction
 
 [Server Message Block](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831795\(v=ws.11\))
 
@@ -24,9 +24,7 @@ SMB functions as a request-response or client-server protocol. The only time tha
 * SMB 3.02 / SMB3: This version used in Windows 8.1 and Windows Server 2012 R2.
 * SMB 3.1: This version used in Windows Server 2016 and Windows 10.
 
-## Checklist
 
-*
 
 ## Enumeration
 
@@ -35,11 +33,9 @@ SMB functions as a request-response or client-server protocol. The only time tha
 ```
 nmap -sT –sU -sV 192.168.13.26 -p135,137,138,139,445 --open
 nbtscan -r 192.168.0.1/24
-
 ```
 
 ```
-
 nmap -v -p 139,445 --script=smb-vuln-ms08-067 --script-args=unsafe=1
 nmap -p139,445 --script smb-os-discovery [target]
 nmap -p137,139,445 --script smb-security-mode [target]

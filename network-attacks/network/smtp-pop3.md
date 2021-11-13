@@ -1,6 +1,6 @@
 # SMTP
 
-## Introduction
+## :information\_source: Introduction
 
 [Simple Mail Transfer Protocol](https://www.educba.com/smtp-protocol/)&#x20;
 
@@ -16,7 +16,7 @@ For Implicit SSL/TLS uses port TCP 465
 
 port TCP 25
 
-## Checklist
+## :ballot\_box\_with\_check: Checklist
 
 * [ ] User enumeration
 * [ ] Login brute force

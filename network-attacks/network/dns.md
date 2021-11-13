@@ -1,10 +1,17 @@
 # DNS
 
-## Introduction
+## :information\_source: Introduction
 
 [Domain Name Service](https://www.cloudflare.com/learning/dns/what-is-dns/)
 
 TCP port 53 by default, fall back to UDP port 53 if not possible.
+
+## :ballot\_box\_with\_check: Checklist
+
+* [ ] Use OSINT for DNS records
+* [ ] Check forward and reverse lookups
+* [ ] Test zone transfer
+* [ ] Look for CVEs&#x20;
 
 ## DNS Enumeration
 
@@ -128,7 +135,7 @@ dig google.com A @<IP>
 
 ## Known Vulnerabilities
 
-## SIGRed
+### SIGRed
 
 {% embed url="https://research.checkpoint.com/2020/resolving-your-way-into-domain-admin-exploiting-a-17-year-old-bug-in-windows-dns-servers" %}
 

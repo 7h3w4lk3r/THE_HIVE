@@ -1,6 +1,6 @@
 # IMAP
 
-## Introduction
+## :information\_source: Introduction
 
 [Internet Message Access Protocol](https://whatis.techtarget.com/definition/IMAP-Internet-Message-Access-Protocol)
 
@@ -10,7 +10,7 @@ port TCP 143 for no encryption
 
 port TCP 993 for SSL/TLS
 
-## &#x20;Checklist
+## &#x20;:ballot\_box\_with\_check: Checklist
 
 * [ ] Login brute force
 * [ ] Check for IMAP - NTLM auth
