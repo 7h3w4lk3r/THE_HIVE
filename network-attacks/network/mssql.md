@@ -11,6 +11,7 @@ By default, the typical ports used by SQL Server and associated database engine 
 * [ ] Try to query the DB if you have creds
 * [ ] heck for DAC (Dedicated Access Connection)
 * [ ] Login brute force
+* [ ] Setup a fake MSSQL server and gather NTLM hashes
 *
 
 ## Enumeration
@@ -148,17 +149,11 @@ mysql -h <Hostname> -u user@target-host
 
 ![](<../../.gitbook/assets/image (276).png>)
 
-## MySQL arbitrary read file by client
+## NTLM Service Hash Gathering
 
+If we are in the local network we can run an MitM attack and grab NTLM hashes by setting up a fake SQL server and making the service authenticate against our server.
 
-
-
-
-
-
-
-
-
+{% embed url="https://www.netspi.com/blog/technical/network-penetration-testing/executing-smb-relay-attacks-via-sql-server-using-metasploit" %}
 
 
 

@@ -60,3 +60,41 @@ mysql-variables
 # Attempts to bypass authentication in MySQL and MariaDB servers by exploiting CVE2012-2122. If its vulnerable, it will also attempt to dump the MySQL usernames and password hashes. 
 mysql-vuln-cve2012-2122
 ```
+
+## MySQL Arbitrary File Read
+
+Load data infile is a very special syntax. Friends who know about injection or often play CTF may be familiar with this syntax. In CTF, we often encounter situations where there is no way to load\_file to read the file. At this time, load data infile is the only possible way to read files. Generally our statement is this:
+
+```
+load data infile "/etc/passwd" into table test FIELDS TERMINATED BY '\n';
+```
+
+The mysql server will read the server’s / etc / passwd and insert the data into the table according to `'\n'`. But now this statement also requires you to have FILE permissions, and non-local loaded statements are also restricted by `secure_file_priv`.
+
+```
+mysql> load data infile "/etc/passwd" into table test FIELDS TERMINATED BY '\n';
+
+ERROR 1290 (HY000): The MySQL server is running with the --secure-file-priv option so it cannot execute this statement
+```
+
+If we add a keyword local
+
+```
+mysql> load data local infile "/etc/passwd" into table test FIELDS TERMINATED BY '\n';
+
+Query OK, 11 rows affected, 11 warnings (0.01 sec)
+Records: 11  Deleted: 0  Skipped: 0  Warnings: 11
+```
+
+The client’s file will be read and send to the server. The execution result of the above statement is as follows.
+
+![](../../.gitbook/assets/0-s6pVc0L8-WEq0HGr.png)
+
+#### the PoC can be found here:
+
+{% embed url="https://github.com/allyshka/Rogue-MySql-Server" %}
+
+an overview of the attack
+
+{% embed url="http://russiansecurity.expert/2016/04/20/mysql-connect-file-read" %}
+
