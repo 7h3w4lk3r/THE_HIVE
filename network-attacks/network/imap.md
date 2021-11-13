@@ -1,3 +1,7 @@
+---
+description: (TCP 143, 993)
+---
+
 # IMAP
 
 ## :information\_source: Introduction

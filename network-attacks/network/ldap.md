@@ -1,22 +1,31 @@
+---
+description: (TCP/UDP 389, TCP 636, 3268, 3269)
+---
+
 # LDAP
+
+## &#x20;:information\_source: Introduction
 
 Lightweight Directory Access Protocol (LDAP) is an internet protocol works on TCP/IP, used to access information from directories. LDAP protocol is basically used to access an active directory.
 
+#### LDAP uses these ports:
+
+* LDAP TCP/UDP 389
+* LDAP SSL TCP 636
+* LDAP GC TCP 3268
+* LDAP GC SSL TCP 3269
+
 ### Features of LDAP
 
-Functional model of LDAP is simpler due to this it omits duplicate, rarely used and esoteric feature.
-
-It is easier to understand and implement.
-
-It uses strings to represent data
-
-
+1. Functional model of LDAP is simpler due to this it omits duplicate, rarely used and esoteric feature.
+2. It is easier to understand and implement.
+3. It uses strings to represent data
 
 ### Directories
 
 Directories are set of object with similar attributes, organised in a logical and hierarchical manner. For example, Telephonic Directories. It is a distributed database application used to manage attributes in a directory.
 
-![](<../../../.gitbook/assets/image (45).png>)
+![](<../../.gitbook/assets/image (45).png>)
 
 LDAP defines operations for accessing and modifying directory entries such as:
 

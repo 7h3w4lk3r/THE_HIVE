@@ -1,6 +1,41 @@
+---
+description: (TCP 3306, 33060, 33061)
+---
+
 # MySQL
 
-### Basics <a href="basics" id="basics"></a>
+## :information\_source: Introduction
+
+[MySQL](https://www.mysql.com/services/)
+
+The shell ports for MySQL services are:
+
+1. Client-server ( classic MySQL protocol ) TCP 3306
+2. Client-server ( X protocol ) TCP 33060
+3. Server cluster configuration check port, TCP 33061
+
+## :ballot\_box\_with\_check: Checklist
+
+* [ ] Try to query the DB if you have creds
+* [ ] Login brute force
+* [ ] Check for MySQL arbitrary file read
+* [ ] Check for CVEs
+
+
+
+## Enumeration
+
+```
+nmap -sV -p 3306,33060,33061 <IP>
+msf> use auxiliary/scanner/mysql/mysql_version
+msf> use auxiliary/scanner/mysql/mysql_authbypass_hashdump
+nmap -sV -p 3306 --script mysql-audit,mysql-databases,mysql-dump-hashes,mysql-empty-password,mysql-enum,mysql-info,mysql-query,mysql-users,mysql-variables,mysql-vuln-cve2012-2122 <IP>
+auxiliary/scanner/mysql/mysql_file_enum
+```
+
+## Query ( with credentials ) <a href="basics" id="basics"></a>
+
+### Manual
 
 ```bash
 # Try connection from outside
@@ -9,8 +44,6 @@ mysql --host <IP> -u root -proot
 # Connection from the target machine
 mysql -u root -p root database
 ```
-
-### Classical commands <a href="classical-commands" id="classical-commands"></a>
 
 ```bash
 show databases;
@@ -21,17 +54,15 @@ select host, user, password from mysql.user;
 
 ```
 
-### Identification and Scan <a href="identification-and-scan" id="identification-and-scan"></a>
+{% embed url="https://www.mysqltutorial.org/mysql-cheat-sheet.aspx" %}
+
+### Automated
+
+#### nmap :&#x20;
 
 ```bash
-# Using nmap NSE scripts
-nmap -n -sV --version-intensity=5 -Pn -p T:3306 --script=xxxx <IP>
-
 # Audits MySQL database server security configuration
 mysql-audit
-
-# Bruteforce accounts and password against a MySQL Server
-mysql-brute
 
 # Attempts to list all databases on a MySQL server. (creds required)
 mysql-databases
@@ -59,6 +90,39 @@ mysql-variables
 
 # Attempts to bypass authentication in MySQL and MariaDB servers by exploiting CVE2012-2122. If its vulnerable, it will also attempt to dump the MySQL usernames and password hashes. 
 mysql-vuln-cve2012-2122
+```
+
+#### Metasploit :
+
+```
+auxiliary/gather/lansweeper_collector                            Lansweeper Credential Collector
+auxiliary/scanner/mssql/mssql_hashdump                           MSSQL Password Hashdump
+auxiliary/scanner/mssql/mssql_ping                               MSSQL Ping Utility
+auxiliary/scanner/mssql/mssql_schemadump                         MSSQL Schema Dump
+auxiliary/admin/mssql/mssql_exec                                 Microsoft SQL Server Command Execution
+auxiliary/admin/mssql/mssql_enum                                 Microsoft SQL Server Configuration Enumerator
+auxiliary/admin/mssql/mssql_escalate_dbowner                     Microsoft SQL Server Escalate Db_Owner
+auxiliary/admin/mssql/mssql_escalate_execute_as                  Microsoft SQL Server Escalate EXECUTE AS
+auxiliary/admin/mssql/mssql_findandsampledata                    Microsoft SQL Server Find and Sample Data
+auxiliary/admin/mssql/mssql_sql                                  Microsoft SQL Server Generic Query
+auxiliary/admin/mssql/mssql_sql_file                             Microsoft SQL Server Generic Query from File
+auxiliary/admin/mssql/mssql_idf                                  Microsoft SQL Server Interesting Data Finder
+auxiliary/admin/mssql/mssql_ntlm_stealer                         Microsoft SQL Server NTLM Stealer
+auxiliary/admin/mssql/mssql_escalate_dbowner_sqli                Microsoft SQL Server SQLi Escalate Db_Owner
+auxiliary/admin/mssql/mssql_escalate_execute_as_sqli             Microsoft SQL Server SQLi Escalate Execute AS
+auxiliary/admin/mssql/mssql_ntlm_stealer_sqli                    Microsoft SQL Server SQLi NTLM Stealer
+auxiliary/admin/mssql/mssql_enum_domain_accounts_sqli            Microsoft SQL Server SQLi SUSER_SNAME Windows Domain Account Enumeration
+auxiliary/admin/mssql/mssql_enum_sql_logins                      Microsoft SQL Server SUSER_SNAME SQL Logins Enumeration
+auxiliary/admin/mssql/mssql_enum_domain_accounts                 Microsoft SQL Server SUSER_SNAME Windows Domain Account Enumeration
+auxiliary/analyze/crack_databases                                Password Cracker: Databases
+```
+
+## Login Brute Force
+
+```
+ auxiliary/scanner/mssql/mssql_login 
+ nmap --script mysql-brute <IP>
+ hydra -L usernames.txt -P pass.txt <IP> mysql
 ```
 
 ## MySQL Arbitrary File Read

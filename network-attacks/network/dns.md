@@ -1,3 +1,7 @@
+---
+description: (TCP/UDP 53)
+---
+
 # DNS
 
 ## :information\_source: Introduction

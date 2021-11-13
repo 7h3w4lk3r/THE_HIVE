@@ -1,3 +1,7 @@
+---
+description: (TCP 110, 995)
+---
+
 # POP3
 
 ## :information\_source: Introduction

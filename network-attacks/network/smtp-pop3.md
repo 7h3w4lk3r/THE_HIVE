@@ -1,3 +1,7 @@
+---
+description: (TCP 587, 2525, 465)
+---
+
 # SMTP
 
 ## :information\_source: Introduction

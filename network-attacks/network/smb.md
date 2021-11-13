@@ -6,13 +6,13 @@
 
 SMB functions as a request-response or client-server protocol. The only time that the protocol does not work in a response-request framework is when a client requests an opportunistic lock (oplock) and the server has to break an existing oplock because the current mode is incompatible with the existing oplock. Client computers using SMB connect to a supporting server using NetBIOS over TCP/IP, IPX/SPX, or NetBUI. Once the connection is established, the client computer or program can then open, read/write, and access files similar to the file system on a local computer.
 
+#### The SMB protocol supports two levels of security. The first is the share level. The server is protected at this level and each share has a password.
+
 #### Designed to run on top of NetBIOS (Network Basic Input Output System) over TCP/IP using port TCP 139 for identification and UDP 137/138 for file transfer.
 
 #### Port TCP 445 is supported for using SMB without NetBIOS as a transport (SMB over IP).
 
 #### Implemented on both Windows and Linux (Samba) OSs.
-
-&#x20;
 
 ### Windows SMB Versions
 
@@ -24,16 +24,63 @@ SMB functions as a request-response or client-server protocol. The only time tha
 * SMB 3.02 / SMB3: This version used in Windows 8.1 and Windows Server 2012 R2.
 * SMB 3.1: This version used in Windows Server 2016 and Windows 10.
 
+## &#x20;:ballot\_box\_with\_check: Checklist
 
+* [ ] Enumerate hosts, shares and your access to shares
+* [ ] Check for null sessions
+* [ ] Check for UNC path access in Windows
+* [ ] Try to mount and access files in shares
+* [ ] Check for CVEs
 
 ## Enumeration
+
+{% embed url="https://www.hackingarticles.in/a-little-guide-to-smb-enumeration" %}
 
 ### Service Detection
 
 ```
 nmap -sT –sU -sV 192.168.13.26 -p135,137,138,139,445 --open
-nbtscan -r 192.168.0.1/24
 ```
+
+### Hostname Enumeration
+
+```
+
+nmblookup -A [ip]
+enum4linux -a [ip]
+```
+
+### Shares Enumeration
+
+```
+smbmap -H [ip/hostname]
+echo exit | smbclient -L \\\\[ip]
+nmap --script smb-enum-shares -p 139,445 [ip]
+```
+
+### Check for Null Sessions
+
+```
+smbmap -H [ip/hostname]
+rpcclient -U "" -N [ip]
+smbclient \\\\[ip]\\[share name]
+```
+
+### Check for CVEs
+
+```
+nmap --script smb-vuln* -p 139,445 [ip]
+```
+
+### Manual Inspection
+
+```
+smbver.sh [IP] (port) [Samba]
+```
+
+#### remember to check pcap (packet capture) files for SMB authentication and credentials.
+
+### nmap scrips
 
 ```
 nmap -v -p 139,445 --script=smb-vuln-ms08-067 --script-args=unsafe=1
