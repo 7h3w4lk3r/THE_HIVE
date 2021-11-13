@@ -2,7 +2,7 @@
 
 ## :information\_source: Introduction
 
-[File Transfer Protocol](https://www.techtarget.com/searchnetworking/definition/File-Transfer-Protocol-FTP)
+#### [File Transfer Protocol](https://www.techtarget.com/searchnetworking/definition/File-Transfer-Protocol-FTP)
 
 Command port TCP 21 for sending commands (plain-text)
 
@@ -17,11 +17,10 @@ ftp> help >> to see the list of commands
 
 ### Operation Modes
 
-FTP has 2 operation modes:
+#### FTP has 2 operation modes:
 
-**Active Mode **: client connects from a random unprivileged port (N > 1024) to the FTP server's command port, port 21. Then, the client starts listening to port N+1 and sends the FTP command PORT N+1 to the FTP server. The server will then connect back to the client's specified data port from its local data port, which is port 20.
-
-**Passive Mode** : client initiates both connections to the server, solving the problem of firewalls filtering the incoming data port connection to the client from the server
+1. **Active Mode **: client connects from a random unprivileged port (N > 1024) to the FTP server's command port, port 21. Then, the client starts listening to port N+1 and sends the FTP command PORT N+1 to the FTP server. The server will then connect back to the client's specified data port from its local data port, which is port 20.
+2. **Passive Mode** : client initiates both connections to the server, solving the problem of firewalls filtering the incoming data port connection to the client from the server
 
 ## &#x20;:ballot\_box\_with\_check: Checklist
 
