@@ -6,6 +6,8 @@ description: (TCP/UDP 389, TCP 636, 3268, 3269)
 
 ## &#x20;:information\_source: Introduction
 
+#### [Lightweight Directory Access Protocol](https://searchmobilecomputing.techtarget.com/definition/LDAP)&#x20;
+
 Lightweight Directory Access Protocol (LDAP) is an internet protocol works on TCP/IP, used to access information from directories. LDAP protocol is basically used to access an active directory.
 
 #### LDAP uses these ports:
@@ -64,7 +66,14 @@ LDAP defines operations for accessing and modifying directory entries . In this 
 
 This model describes how information in LDAP directory can be protected from unauthorized access. It is based on BIND operation. There are several bind operation can be performed.
 
+## :ballot\_box\_with\_check: Checklist
+
+*
+
 ## Enumeration
+
+```
+```
 
 #### You can try to enumerate a LDAP with or without credentials using python: pip3 install ldap3
 
