@@ -66,14 +66,7 @@ LDAP defines operations for accessing and modifying directory entries . In this 
 
 This model describes how information in LDAP directory can be protected from unauthorized access. It is based on BIND operation. There are several bind operation can be performed.
 
-## :ballot\_box\_with\_check: Checklist
 
-*
-
-## Enumeration
-
-```
-```
 
 #### You can try to enumerate a LDAP with or without credentials using python: pip3 install ldap3
 
