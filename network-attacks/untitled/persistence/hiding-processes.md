@@ -1,5 +1,7 @@
 # Hiding Processes
 
+## Process Hiding Techniques
+
 ### Listening sockets, hiding from ps and lsof <a href="hideprocesses" id="hideprocesses"></a>
 
 ```
@@ -13,3 +15,8 @@ ps aux | grep $!
 #### Countermeasure:&#x20;
 
 `netstat -tulpe` and checking `cat /proc/$$/mountinfo` for suspicious mounts over `/proc`
+
+
+
+
+
