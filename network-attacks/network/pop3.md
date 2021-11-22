@@ -6,7 +6,7 @@ description: (TCP 110, 995)
 
 ## :information\_source: Introduction
 
-#### [Post Office Protocol 3](https://networkencyclopedia.com/post-office-protocol-version-3-pop3/)
+#### [Post Office Protocol 3](https://tools.ietf.org/html/rfc1939)
 
 Most used protocol for receiving Emails. a one-way client-server protocol which can download the mails from server and hold them on client side.
 

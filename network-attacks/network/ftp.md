@@ -6,7 +6,7 @@ description: (TCP 21, 20)
 
 ## :information\_source: Introduction
 
-#### [File Transfer Protocol](https://www.techtarget.com/searchnetworking/definition/File-Transfer-Protocol-FTP)
+#### [File Transfer Protocol](https://tools.ietf.org/html/rfc959)
 
 Command port TCP 21 for sending commands (plain-text)
 

@@ -6,7 +6,7 @@ description: (TCP 143, 993)
 
 ## :information\_source: Introduction
 
-#### [Internet Message Access Protocol](https://whatis.techtarget.com/definition/IMAP-Internet-Message-Access-Protocol)
+#### [Internet Message Access Protocol](https://datatracker.ietf.org/doc/html/rfc3501)
 
 Like POP, IMAP is used for email retrieval (client side protocol).
 

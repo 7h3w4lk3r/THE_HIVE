@@ -6,7 +6,7 @@ description: (TCP 587, 2525, 465)
 
 ## :information\_source: Introduction
 
-#### [Simple Mail Transfer Protocol](https://www.educba.com/smtp-protocol/)&#x20;
+#### [Simple Mail Transfer Protocol ](https://tools.ietf.org/html/rfc821/)
 
 used for submission (send) or relay. mostly widely-used SMTP  on linux is **sendmail **service, on windows, its **Microsoft Exchange**. both can be setup to support POP3.
 

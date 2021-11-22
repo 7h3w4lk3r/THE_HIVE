@@ -6,7 +6,7 @@ description: (TCP/UDP 389, TCP 636, 3268, 3269)
 
 ## &#x20;:information\_source: Introduction
 
-#### [Lightweight Directory Access Protocol](https://searchmobilecomputing.techtarget.com/definition/LDAP)&#x20;
+#### [Lightweight Directory Access Protocol ](https://datatracker.ietf.org/doc/html/rfc4511)
 
 Lightweight Directory Access Protocol (LDAP) is an internet protocol works on TCP/IP, used to access information from directories. LDAP protocol is basically used to access an active directory.
 
