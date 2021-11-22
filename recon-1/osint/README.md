@@ -22,7 +22,31 @@ In OSINT you should always ask questions like: how, who, when, where and why. al
 
 **Results Delivery**: in the final phase, OSINT analysis is complete and the findings are presented/reported to other members of the Red Team.
 
+## Workflow
 
+### Domain
+
+![](<../../.gitbook/assets/image (275).png>)
+
+### Website
+
+![](../../.gitbook/assets/OSINT-Website.jfif)
+
+### Email
+
+![](<../../.gitbook/assets/osintemail (1).JPG>)
+
+### Location
+
+![](../../.gitbook/assets/OSINT-Location.png)
+
+### Username / Real Name
+
+![](../../.gitbook/assets/OSINT-Real-Name.png)
+
+### Phone
+
+![](../../.gitbook/assets/OSINT-Telephone.png)
 
 ## Maltego
 
