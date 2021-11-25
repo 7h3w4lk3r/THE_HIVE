@@ -27,11 +27,11 @@
     * [Directories & Subdomains](recon-1/active-scanning/web-application-enumeration/directories-and-domains.md)
     * [SSL Certs](recon-1/active-scanning/web-application-enumeration/ssl-certs.md)
     * [CMS](recon-1/active-scanning/web-application-enumeration/cms.md)
-    * [WAF Detection](recon-1/active-scanning/web-application-enumeration/waf-detection.md)
+    * [WAF Detection](recon-1/active-scanning/web-application-enumeration/waf-fingerprinting.md)
 
 ## Network Attacks
 
-* [Firewall Detection & Bypass](network-attacks/firewall-detection-and-bypass.md)
+* [Firewall Detection & Bypass](recon-1/active-scanning/firewall-test.md)
 * [Services & Protocols](network-attacks/network/README.md)
   * [FTP](network-attacks/network/ftp.md)
   * [SMB](network-attacks/network/smb.md)
@@ -200,7 +200,7 @@
 
 ## Shells & Payloads
 
-* [Interactive Shell](shells-and-payloads/interactive-shell.md)
+* [shell Escape / Interactive TTY](shells-and-payloads/interactive-shell.md)
 * [Reverse / Bind Payloads](shells-and-payloads/reverse-bind-payloads/README.md)
   * [msfvenom](shells-and-payloads/reverse-bind-payloads/msfvenom.md)
   * [Web Shells](shells-and-payloads/reverse-bind-payloads/web-shells.md)
@@ -224,9 +224,9 @@
 
 ## 🔧 Defense Evasion
 
-* [Basics](defense-evasion/basics.md)
-* [Alternative Payloads](defense-evasion/alternative-payloads.md)
-* [AMSI Bypass](defense-evasion/amsi-bypass.md)
+* [AV Evasion](defense-evasion/av-evasion/README.md)
+  * [Simple Tricks](defense-evasion/av-evasion/simple-tricks.md)
+  * [AMSI Bypass](defense-evasion/av-evasion/amsi-bypass.md)
 
 ## Programming and DataBase
 

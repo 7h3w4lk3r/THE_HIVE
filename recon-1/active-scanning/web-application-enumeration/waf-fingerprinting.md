@@ -1,4 +1,4 @@
-# WAF Fingerprinting
+# WAF Detection
 
 WAF stands for Web Application Firewall. Its goal is to protect the website behind it by filtering/monitoring the traffic. Fingerprinting is a method used to gather information (about any WAF in this context).
 

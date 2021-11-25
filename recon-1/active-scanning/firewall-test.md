@@ -1,6 +1,20 @@
 # Firewall Detection & Bypass
 
-## Detection
+## :information\_source: Introduction
+
+[What is a Firewall ?](https://airoserver.com/blog/everything-about-firewall/)
+
+**In most cases, the main firewall is placed in the demilitarized zone ( DMZ).** Some select additional firewalls closer to the business’s intranet and/or their industrial supervisory control and data acquisition (SCADA) may also exist.
+
+**Next Gen Firewalls :** The main flaw within traditional firewall models is that they can’t take part in stateful packet inspection. Instead, they go about merely analyzing the network’s current traffic via IP addresses and the packet’s port numbers, which means zero consideration to the earlier traffic that passed through it.
+
+Next Gen Firewalls, or NGFW, represents progress. With them, all active connections are monitored alongside the state of the connections, and dynamic packet filtering takes place. The result is more comprehensive access determination
+
+
+
+
+
+
 
 
 
