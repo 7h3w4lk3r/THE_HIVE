@@ -11,10 +11,11 @@
 * [ ] **Detection**
 * [ ] **Traceroute**
 * [ ] **Port Scan**
+* [ ] **IPv6**
 * [ ] **Banner Grab**
 * [ ] **Policy Test**
 * [ ] **Firewalking**
-* [ ] **Check for Product Vulnerability **
+* [ ] **Product Vulnerability **
 
 ## Detection
 
@@ -58,7 +59,7 @@ hping3 — traceroute -V -S -p 80 -s 5050 testpage.com
 hping3 -c 1 -V -1 -C 17 testpage.com
 ```
 
-for testing other ICMP types check out the [`ICMP`](../../network-attacks/network/icmp.md) protocol section.
+for testing other ICMP types check out the [`ICMP`](../../network-attacks/network/icmp-types-and-codes.md) protocol section.
 
 
 

@@ -31,8 +31,11 @@
 
 ## Network Attacks
 
+* [Firewall Detection & Bypass](recon-1/active-scanning/firewall-test.md)
+* [Packet Crafting](network-attacks/packet-crafting.md)
 * [Services & Protocols](network-attacks/network/README.md)
-  * [ICMP](network-attacks/network/icmp.md)
+  * [IPv6](network-attacks/network/ipv6.md)
+  * [ICMP Types & Codes](network-attacks/network/icmp-types-and-codes.md)
   * [FTP](network-attacks/network/ftp.md)
   * [SMB](network-attacks/network/smb.md)
   * [DNS](network-attacks/network/dns.md)
@@ -53,7 +56,6 @@
   * [RSIP](network-attacks/network/rsip.md)
   * [Rlogin](network-attacks/network/rlogin.md)
   * [VPNs](network-attacks/network/vpns.md)
-* [Firewall Detection & Bypass](recon-1/active-scanning/firewall-test.md)
 * [Windows](network-attacks/windows/README.md)
   * [Security Component](network-attacks/windows/security-component/README.md)
     * [Permissions and Access Control](network-attacks/windows/security-component/permissions.md)

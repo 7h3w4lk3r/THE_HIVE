@@ -1,4 +1,4 @@
-# ICMP
+# ICMP Types & Codes
 
 ## ICMP types
 
