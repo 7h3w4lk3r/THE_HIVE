@@ -77,3 +77,57 @@ Note that we don't have to target the exact .NET Framework version when compilin
 
 
 
+## Sources & Tools
+
+[https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell](https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell)
+
+[https://github.com/Flangvik/AMSI.fail](https://github.com/Flangvik/AMSI.fail)
+
+[https://github.com/p3nt4/PowerShdll](https://github.com/p3nt4/PowerShdll)
+
+[https://github.com/jaredhaight/PSAttack](https://github.com/jaredhaight/PSAttack)
+
+[https://github.com/cobbr/InsecurePowerShell](https://github.com/cobbr/InsecurePowerShell)
+
+[https://github.com/Mr-Un1k0d3r/PowerLessShell](https://github.com/Mr-Un1k0d3r/PowerLessShell)
+
+[https://github.com/tothi/PowerLessShell](https://github.com/tothi/PowerLessShell) - modified PowerLessShell
+
+[https://github.com/bitsadmin/nopowershell](https://github.com/bitsadmin/nopowershell) C# Powershell
+
+[https://github.com/OmerYa/Invisi-Shell](https://github.com/OmerYa/Invisi-Shell)
+
+[https://github.com/Hackplayers/Salsa-tools](https://github.com/Hackplayers/Salsa-tools) - Salsa Tools - ShellReverse TCP/UDP/ICMP/DNS/SSL/BINDTCP and AV bypass, AMSI patched
+
+[https://github.com/padovah4ck/PSByPassCLM](https://github.com/padovah4ck/PSByPassCLM) - Constrained language mode bypass
+
+[https://github.com/rasta-mouse/AmsiScanBufferBypass](https://github.com/rasta-mouse/AmsiScanBufferBypass)
+
+[https://github.com/itm4n/VBA-RunPE](https://github.com/itm4n/VBA-RunPE) - Applocker Bypass
+
+[https://github.com/cfalta/PowerShellArmoury](https://github.com/cfalta/PowerShellArmoury)
+
+[https://github.com/Mr-B0b/SpaceRunner](https://github.com/Mr-B0b/SpaceRunner) - This tool enables the compilation of a C# program that will execute arbitrary PowerShell code, without launching PowerShell processes through the use of runspace.
+
+[https://github.com/RythmStick/AMSITrigger](https://github.com/RythmStick/AMSITrigger) - The Hunt for Malicious Strings
+
+[https://github.com/rmdavy/AMSI\_Ordinal\_Bypass](https://github.com/rmdavy/AMSI\_Ordinal\_Bypass) - Bypass AMSI and Defender using Ordinal Values in VBS
+
+[https://github.com/mgeeky/Stracciatella](https://github.com/mgeeky/Stracciatella) - OpSec-safe Powershell runspace from within C# (aka SharpPick) with AMSI, CLM and Script Block Logging disabled at startup
+
+[https://github.com/med0x2e/NoAmci](https://github.com/med0x2e/NoAmci) - Using DInvoke to patch AMSI.dll in order to bypass AMSI detections triggered when loading .NET tradecraft via Assembly.Load().
+
+[https://github.com/rvrsh3ll/NoMSBuild](https://github.com/rvrsh3ll/NoMSBuild) - MSBuild without MSbuild.exe
+
+[https://github.com/Cn33liz/MSBuildShell](https://github.com/Cn33liz/MSBuildShell) - MSBuildShell, a Powershell Host running within MSBuild.exe
+
+[https://github.com/secdev-01/AllTheThingsExec](https://github.com/secdev-01/AllTheThingsExec) - Executes Blended Managed/Unmanged Exports
+
+[https://github.com/cyberark/Evasor](https://github.com/cyberark/Evasor) - A tool to be used in post exploitation phase for blue and red teams to bypass APPLICATIONCONTROL policies / Applocker Bypass Scan
+
+[https://github.com/tomcarver16/AmsiHook](https://github.com/tomcarver16/AmsiHook) - AmsiHook is a project I created to figure out a bypass to AMSI via function hooking.
+
+[https://github.com/G0ldenGunSec/SharpTransactedLoad](https://github.com/G0ldenGunSec/SharpTransactedLoad) - Load .net assemblies from memory while having them appear to be loaded from an on-disk location.
+
+[https://github.com/itm4n/PPLdump](https://github.com/itm4n/PPLdump) - Bypass LSA Protection - Dump the memory of a PPL with a userland exploit
+

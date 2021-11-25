@@ -21,17 +21,17 @@
   * [Host Discovery / Network Mapping](recon-1/active-scanning/host-discovery-and-mapping.md)
   * [nmap cheat sheet](recon-1/active-scanning/nmap-cheat-sheet.md)
   * [masscan cheat sheet](recon-1/active-scanning/masscan-cheat-sheet.md)
-  * [Firewall Test](recon-1/active-scanning/firewall-test.md)
   * [Web Application](recon-1/active-scanning/web-application-enumeration/README.md)
     * [Web Server Discovery](recon-1/active-scanning/web-application-enumeration/web-server-discovery.md)
     * [Hidden Hosts](recon-1/active-scanning/web-application-enumeration/hidden-hosts.md)
     * [Directories & Subdomains](recon-1/active-scanning/web-application-enumeration/directories-and-domains.md)
     * [SSL Certs](recon-1/active-scanning/web-application-enumeration/ssl-certs.md)
     * [CMS](recon-1/active-scanning/web-application-enumeration/cms.md)
-    * [WAF Fingerprinting](recon-1/active-scanning/web-application-enumeration/waf-fingerprinting.md)
+    * [WAF Detection](recon-1/active-scanning/web-application-enumeration/waf-detection.md)
 
 ## Network Attacks
 
+* [Firewall Detection & Bypass](network-attacks/firewall-detection-and-bypass.md)
 * [Services & Protocols](network-attacks/network/README.md)
   * [FTP](network-attacks/network/ftp.md)
   * [SMB](network-attacks/network/smb.md)
