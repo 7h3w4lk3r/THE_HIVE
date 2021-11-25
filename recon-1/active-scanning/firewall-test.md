@@ -2,23 +2,113 @@
 
 ## :information\_source: Introduction
 
-[What is a Firewall ?](https://airoserver.com/blog/everything-about-firewall/)
+#### [Firewalls](https://www.tutorialspoint.com/network\_security/network\_security\_firewalls.htm)
 
 **In most cases, the main firewall is placed in the demilitarized zone ( DMZ).** Some select additional firewalls closer to the business’s intranet and/or their industrial supervisory control and data acquisition (SCADA) may also exist.
 
-**Next Gen Firewalls :** The main flaw within traditional firewall models is that they can’t take part in stateful packet inspection. Instead, they go about merely analyzing the network’s current traffic via IP addresses and the packet’s port numbers, which means zero consideration to the earlier traffic that passed through it.
+## :ballot\_box\_with\_check: Checklist <a href="next-gen-firewalls-explained" id="next-gen-firewalls-explained"></a>
 
-Next Gen Firewalls, or NGFW, represents progress. With them, all active connections are monitored alongside the state of the connections, and dynamic packet filtering takes place. The result is more comprehensive access determination
+* [ ] **Detection**
+* [ ] **Traceroute**
+* [ ] **Port Scan**
+* [ ] **Banner Grab**
+* [ ] **Policy Test**
+* [ ] **Firewalking**
+* [ ] **Check for Product Vulnerability **
+
+## Detection
+
+**Usually, the presence of a firewall is detected when nmap shows some ports as filtered, but a lot of times we might face different scenarios in which the scan speed is suddenly dropped or previously live hosts are not detected as "up" in another host discovery scan.** all of these are indicators  of a change in the packet routes or target host behavior. although firewall testing is not a complicated topic, the testing scenarios can be endless depending on the firewall type and configurations.
+
+### Hping3
+
+A great tool for packet crafting and generating custom traffic for testing firewall rules and anti-DoS systems.
+
+
+
+**Testing ICMP: **In this example hping3 will behave like a normal ping utility, sending ICMP-echo und receiving ICMP-reply
+
+```
+hping3 -1 google.com
+```
+
+
+
+**Traceroute using ICMP**: This example is similar to famous utilities like tracert (windows) or traceroute (linux) who uses ICMP packets increasing every time in 1 its TTL value.&#x20;
+
+```
+hping3 — traceroute -V -1 testpage.com
+```
+
+we can also use the traceroute command to perform traceroute with different methods, protocols and ports. check [this section](host-discovery-and-mapping.md#traceroute) for traceroute techniques.
+
+
+
+**Checking port:** Here hping3 will send a Syn packet to a specified port (80 in our example). We can control also from which local port will start the scan (5050).
+
+```
+hping3 — traceroute -V -S -p 80 -s 5050 testpage.com
+```
+
+
+
+**Other types of ICMP: **This example sends a ICMP address mask request ( Type 17 ).
+
+```
+hping3 -c 1 -V -1 -C 17 testpage.com
+```
+
+for testing other ICMP types check out the [`ICMP`](../../network-attacks/network/icmp.md) protocol section.
+
+
+
+**Other types of Port Scanning: **First type we will try is the FIN scan. In a TCP connection the FIN flag is used to start the connection closing routine. If we do not receive a reply, that means the port is open. Normally firewalls send a RST+ACK packet back to signal that the port is closed.
+
+```
+hping3 -c 1 -V -p 80 -s 5050 -F testpage.com
+```
+
+
+
+**Ack Scan:** This scan can be used to see if a host is alive (when Ping is blocked for example). This should send a RST response back if the port is open.
+
+```
+hping3 -c 1 -V -p 80 -s 5050 -A testpage.com
+```
+
+
+
+**Xmas Scan:** This scan sets the sequence number to zero and set the URG + PSH + FIN flags in the packet. If the target device’s TCP port is closed, the target device sends a TCP RST packet in reply. If the target device’s TCP port is open, the target discards the TCP Xmas scan, sending no reply.
+
+```
+hping3 -c 1 -V -p 80 -s 5050 -M 0 -UPF testpage.com
+```
+
+
+
+**Null Scan: **This scan sets the sequence number to zero and have no flags set in the packet. If the target device’s TCP port is closed, the target device sends a TCP RST packet in reply. If the target device’s TCP port is open, the target discards the TCP NULL scan, sending no reply.
+
+```
+hping3 -c 1 -V -p 80 -s 5050 -Y testpage.com
+```
+
+
+
+**Smurf Attack: **This is a type of denial-of-service attack that floods a target system via spoofed broadcast ping messages.
+
+```
+hping3 -1 — flood -a VICTIM_IP BROADCAST_ADDRESS
+```
+
+**DOS Land Attack:**
+
+```
+hping3 -V -c 1000000 -d 120 -S -w 64 -p 445 -s 445 — flood — rand-source VICTIM_IP
+```
 
 
 
 
-
-
-
-
-
-## Firewall Test
 
 ### Black/White Box Tools
 
