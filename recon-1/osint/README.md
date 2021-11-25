@@ -2,10 +2,10 @@
 
 ![](../../.gitbook/assets/banner.png)
 
-#### OSINT is short for Open-Source Intelligence Gathering,  is a way of knowing your target without any sorts of direct contact or leaving any evidence of the recon.
+#### OSINT  (short for Open-Source Intelligence Ghering)  is a way of knowing your target without any sorts of direct contact or leaving any evidence of the recon.
 
 {% hint style="info" %}
-In OSINT you should always ask questions like: how, who, when, where and why. also try to collect and sort everything you find and make a structured map of the intel you have gathered using a mind mapping tool like [XMind](https://www.xmind.net) or [Mind Master](https://www.mindmaster.io).
+In OSINT you should **always ask questions like: how, who, when, where and why.** also try to **collect and sort everything you find and make a structured map** of the intel you have gathered using a mind mapping tool like [XMind](https://www.xmind.net) or [Mind Master](https://www.mindmaster.io).
 {% endhint %}
 
 #### OSINT reconnaissance can be further broken down into the following 5 sub-phases:

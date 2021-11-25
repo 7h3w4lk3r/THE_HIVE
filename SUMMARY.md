@@ -23,6 +23,7 @@
   * [masscan cheat sheet](recon-1/active-scanning/masscan-cheat-sheet.md)
   * [Firewall Test](recon-1/active-scanning/firewall-test.md)
   * [Web Application](recon-1/active-scanning/web-application-enumeration/README.md)
+    * [Web Server Discovery](recon-1/active-scanning/web-application-enumeration/web-server-discovery.md)
     * [Hidden Hosts](recon-1/active-scanning/web-application-enumeration/hidden-hosts.md)
     * [Directories & Subdomains](recon-1/active-scanning/web-application-enumeration/directories-and-domains.md)
     * [SSL Certs](recon-1/active-scanning/web-application-enumeration/ssl-certs.md)
