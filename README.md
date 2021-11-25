@@ -4,7 +4,7 @@
 
 #### **Hive is a long-term project with** the ultimate goal of creating a general methodology and manual for network and infrastructure penetration testing.&#x20;
 
-The documents and techniques discussed here are taken from various sources such as blogs, cyber security courses, cheat sheets, books, CTF experience and personal researches. **the soul purpose of this "book" is to** **make network penetration testing easier, keeping my handy notes somewhere and hopefully, helping the community. **
+The documents and techniques discussed here are taken from various sources such as blogs, cyber security courses, cheat sheets, books, CTF experience and personal researches. **the soul purpose of this "book" is to** **make network penetration testing easier, keeping my notes somewhere handy and hopefully, giving back to the community. **
 
 {% hint style="info" %}
 #### Hive was inspired by [HackTricks](https://book.hacktricks.xyz) and many other similar projects.
