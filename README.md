@@ -2,24 +2,18 @@
 
 ![](.gitbook/assets/logo.png)
 
-**The Hive is a place where i keep my useful hacking notes and cheat sheets, mainly focusing on network and infrastructure. this is a long-time project and its not complete, so i will update it regularly in my free time and add more sections.**
+#### **Hive is a long-term project with** the ultimate goal of creating a general methodology and manual for network and infrastructure penetration testing.&#x20;
 
-**Some of these notes are taken from various cyber security courses, websites, blogs, news and cheat sheets available online so i do not own all of the material**. also everything that i put in here **was tested in a lab environment or real world **even if its a complete clone of another resource so **everything said here will work in the right scenario.**
+The documents and techniques discussed here are taken from various sources such as blogs, cyber security courses, cheat sheets, books, CTF experience and personal researches. **the soul purpose of this "book" is to** **make network penetration testing easier, keeping my handy notes somewhere and hopefully, helping the community. **
 
-### Main Topics
+{% hint style="info" %}
+#### Hive was inspired by [HackTricks](https://book.hacktricks.xyz) and many other similar projects.
 
-* **Network Pentesting**
-* **Wireless Pentesting**
-* **Defense Evasion**
-* **Low-level System Programming**
-* **OS Security Hardening**
-* **Password/Hash Cracking**
-* **Some Misc Tools & Techniques**
+#### Your contributions are highly appreciated, you can [submit pull requests to hive](https://github.com/7h3w4lk3r/THE\_HIVE) and support me with a :star: if you like.
+{% endhint %}
 
 ### [My Other Projects on Github](https://github.com/7h3w4lk3r)
 
 ## **Contact**
 
-#### &#x20;Email : bl4ckr4z3r@gmail.com&#x20;
-
-#### &#x20;Telegram : @TH3W4LK3R
+#### ** **[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge\&logo=telegram\&logoColor=white)](https://t.me/TH3W4LK3R) [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge\&logo=gmail\&logoColor=white)](mailto:bl4ckr4z3r@gmail.com)[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge\&logo=linkedin\&logoColor=white)](https://www.linkedin.com/in/pouya-s-a-770444223)
