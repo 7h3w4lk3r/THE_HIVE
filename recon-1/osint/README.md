@@ -54,13 +54,21 @@ is an open source intelligence (OSINT) and graphical link analysis tool for gath
 
 ![](../../.gitbook/assets/maltego.jpg)
 
-## DNS Records
+## DNS Harvesting
 
 {% embed url="https://dnsdumpster.com" %}
+
+{% embed url="https://dnslookup.online" %}
+
+{% embed url="https://dnschecker.org/all-dns-records-of-domain.php" %}
 
 ## Email Harvesting
 
 {% embed url="https://hunter.io" %}
+
+{% embed url="https://www.nymeria.io/blog/how-to-manually-find-email-addresses-for-github-users" %}
+
+{% embed url="https://www.twilio.com/docs/glossary/email-harvesting" %}
 
 ## Google Hacking
 
@@ -277,8 +285,8 @@ and if you want to aggressively scan a /16 net block you can do this:
 
 and here are some other useful resources about shodan:
 
-[https://www.sans.org/blog/getting-the-most-out-of-shodan-searches/](https://www.sans.org/blog/getting-the-most-out-of-shodan-searches/)\
-[https://thor-sec.com/cheatsheet/shodan/shodan\_cheat\_sheet/](https://thor-sec.com/cheatsheet/shodan/shodan\_cheat\_sheet/)\
+[https://www.sans.org/blog/getting-the-most-out-of-shodan-searches](https://www.sans.org/blog/getting-the-most-out-of-shodan-searches/)\
+[https://thor-sec.com/cheatsheet/shodan/shodan\_cheat\_sheet](https://thor-sec.com/cheatsheet/shodan/shodan\_cheat\_sheet/)\
 [https://github.com/jakejarvis/awesome-shodan-queries](https://github.com/jakejarvis/awesome-shodan-queries)
 
 ## OSINT Framework
@@ -305,9 +313,9 @@ Tools and resources for credential leaks available online:
 
 ## Social Media Investigation
 
-For more indept social search ceck the social platforms page.
+For more in dept social search check the [social platforms page](social-platforms/).
 
-## Other Online OSINT Sources
+## Other OSINT Websites
 
 I have put together a list of the most used OSINT sources that will usually cover about 90% of your needs in  a regular pentest. remember there are endless ways to find Intel about your target. the OSINT process is limited to your own imagination.&#x20;
 
@@ -385,7 +393,7 @@ weleakinfo.com/
 
 ## Tools and Frameworks
 
-#### There are countless number of tools out there designed for active/passive recon. in fact almost one out of ten pentester/security "expert" out there has written some sort of crap recon framework/tool that only himself/herself has ever used. you wont need to know about every single one of them because most of them use the same techniques for gathering these information. in this section i will briefly introduce you to the best/well-known tools that i usually use:
+#### There are countless number of tools out there designed for active/passive recon. you wont need to know about every single one of them because most of them use the same techniques for gathering these information. in this section i will briefly introduce you to the best/well-known tools that i usually use:
 
 
 
@@ -408,8 +416,6 @@ cd theHarvester
 docker build -t theharvester .
 docker run theharvester -h 
 ```
-
-
 
 ### h8mail
 
