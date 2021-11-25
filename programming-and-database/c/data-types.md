@@ -2,9 +2,14 @@
 
 ## Integer
 
-#### &#x20;**int** → 4 float → 12.585, -.0001 ( stores less values than double) double → same as float but stores twice the precision 
+\
+**int** → 4\
+float → 12.585, -.0001 ( stores less values than double)\
+double → same as float but stores twice the precision
 
-#### &#x20;to explicitly express a float constant, append either an f or F to the end of the number: 12.54f 
+{% hint style="info" %}
+#### to explicitly express a float constant, append either an f or F to the end of the number: 12.54f
+{% endhint %}
 
 ## Boolean
 
@@ -40,8 +45,6 @@ or use preprocessors (have to include stdbool header ):
 #define no false
 
 ```
-
-
 
 ## Boolean in Conditional Loops
 

@@ -12,8 +12,6 @@ there are two ways to #include header files in a program
 
 **using double quotes ( #include "jason.h" ) tells the preprocessor to first look in the current working directory**
 
-****
-
 ## conditional compilation
 
 `#define`\
@@ -31,25 +29,29 @@ we can help reduce this problem by incorporating the values of these defines for
 \
 its also used to switch on or off various statements in the program, trace the flow of a program or debug statements that print out the values of various variables
 
+
+
+#### #if → test the value of a constant expression
+
+{% hint style="info" %}
 #### every #if construct ends with an #endif
+{% endhint %}
 
-#### if → test the value of a constant expression
+#### #else → to complement #ifdef/#ifndef and #if
 
-#### else → to complement #ifdef/#ifndef and #if
+#### #define → defines an identifier, we can define them from the command line too
 
-#### else → to complement #ifdef/#ifndef and #if
+#### #ifdef → checks wether an identifier is currently defined
 
-#### define → defines an identifier, we can define them from the command line too
+#### #ifndef → the negative of the ifdef
 
-#### ifdef → checks wether an identifier is currently defined
-
-#### ifndef → the negative of the ifdef
-
+{% hint style="info" %}
 #### directives #ifdef and #ifndef are provided as shorthand for
 
 `if defined(name)`
 
 `if !defined(name)`
+{% endhint %}
 
 #### example:
 
@@ -124,8 +126,6 @@ sprintf(some_string,"hello"); // this will raise an error
 
 #### pragma GCC message "message" → prints string as a compiler message on compilation. the message is information only not warning or error
 
-
-
 ## error directive
 
 causes the preprocessor to issue an error message that includes any text in the directive. error message is a sequence of characters by spaces. you do not have to in-close the text in quotes the message is optional.
@@ -154,8 +154,6 @@ when HELLO(john) apears in a program file it is expanded to:
 printf("Hello," "john" "\n");
 ```
 
-####
-
 #### ##→ performs token pasting. cats two tokens.
 
 example:
@@ -172,6 +170,3 @@ printf("%d",concat(x,y));
 to 
 printf("%d",xy);
 ```
-
-
-
