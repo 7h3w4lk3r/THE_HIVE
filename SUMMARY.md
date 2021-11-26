@@ -32,7 +32,6 @@
 ## Network Attacks
 
 * [Firewall Detection & Bypass](recon-1/active-scanning/firewall-test.md)
-* [Packet Crafting](network-attacks/packet-crafting.md)
 * [Services & Protocols](network-attacks/network/README.md)
   * [IPv6](network-attacks/network/ipv6.md)
   * [ICMP Types & Codes](network-attacks/network/icmp-types-and-codes.md)

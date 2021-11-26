@@ -1,6 +1,6 @@
 # IPv6
 
-## IPv6
+## :information\_source: Introduction
 
 #### [Internet Protocol Version 6](https://datatracker.ietf.org/doc/html/rfc8200)
 
@@ -8,25 +8,95 @@
 The presence of an inet6 entry doesn’t automatically mean the computer is accessible from external addresses.
 {% endhint %}
 
-In IPv6 the NS (Neighbor Solicitation) and NA (Neighbor Advertisement) replace the ARP protocol functionality. the NS is used to resolve and address, so it sends multicast packets. The NA is unicast as is used to answer the NS. A NA packet could also be sent without needing a NS packet.
+An Ipv6 address uses 128 bits as opposed to 32 bits in IPv4.
+
+IPv6 addresses are written using hexadecimal, as opposed to dotted decimal in IPv4
+
+Because an hexadecimal number uses 4 bits this means that an IPv6 address consists of 32 hexadecimal numbers.
+
+These numbers are grouped in 4’s giving 8 groups or blocks. The groups are written with a : (colon) as a separator.
+
+group1:group2: ……etc…. :group8
+
+Here is an IPv6 address example:
+
+![](<../../.gitbook/assets/image (283).png>)
 
 {% hint style="info" %}
-0:0:0:0:0:0:0:1 = 1 – This is 127.0.0.1 equivalent in IPv4.
+Because of the length of IPv6 addresses various shortening techniques are employed.
+
+The main technique being to omit repetitive 0’s as shown in the example above.
 {% endhint %}
 
-Link-local Addresses: These are private address that is not meant to be routed on the internet. They can be used locally by private or temporary LANs for sharing and distribution of file among devices on the LAN. Other devices in your local LAN using this kind of addresses can be found sending a pig to the multicast address ff02::01
+In IPv4 an address is split into two components a network component and a node component.
 
-{% hint style="info" %}
-FE80::/10 – Link-local unicast address range.
-{% endhint %}
+This was done initially using Address classes and later using subnet masking.
+
+In IPv6 we do the same. The first step is to split the address into two parts.
+
+The address is split into 2 64 bit segments the top 64 bits is the network part and the lower 64 bits the node part:
+
+![](<../../.gitbook/assets/image (277).png>)
+
+### Address Types and Scope
+
+IPv6 addresses have three types:
+
+* **Global Unicast Address** –Scope Internet- routed on Internet
+* **Unique Local** — Scope Internal Network or VPN internally routable, but **Not routed** on Internet
+* **Link Local** – Scope network link- **Not Routed** internally or externally.
+
+![](<../../.gitbook/assets/image (276).png>)
+
+### IPv6 Loop Back
+
+The IPv6 loopback address is ::1. You can ping it as follows:
 
 ```
-ping6 –I eth0 -c 5 ff02::1 > /dev/null 2>&1
-ip neigh | grep ^fe80
-
-#Or you could also use
-alive6 eth0
+ping ::1
 ```
 
-If you know the MAC address of a host in the same net as you (you could just ping its ipv4 address and view the arp table to found its MAC address), you can calculate his Link-local address to communicate with him.
+
+
+## Enumeration
+
+### nmap
+
+```
+nmap -6 -sV [ip] --version-all --max-retries 3 -T4 -Pn -n --reason –vvv 
+```
+
+```
+# NSE scripts
+
+ipv6-multicast-mld-list.nse
+ipv6-node-info.nse
+ipv6-ra-flood.nse
+targets-ipv6-map4to6.nse
+targets-ipv6-multicast-echo.nse
+targets-ipv6-multicast-invalid-dst.nse
+targets-ipv6-multicast-mld.nse
+targets-ipv6-multicast-slaac.nse
+targets-ipv6-wordlist.nse
+
+```
+
+### metasploit
+
+```
+search ipv6
+
+# auxiliary modules
+
+   auxiliary/scanner/discovery/ipv6_multicast_ping
+   auxiliary/scanner/discovery/ipv6_neighbor
+   auxiliary/scanner/discovery/ipv6_neighbor_router_advertisement
+
+```
+
+## Exploitation
+
+{% embed url="https://www.kali.org/tools/thc-ipv6" %}
+
+{% embed url="https://www.kali.org/tools/ipv6-toolkit" %}
 
