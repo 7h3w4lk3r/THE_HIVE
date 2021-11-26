@@ -5,6 +5,7 @@
 ## RECON <a href="recon-1" id="recon-1"></a>
 
 * [Passive (OSINT)](recon-1/osint/README.md)
+  * [Metadata](recon-1/osint/metadata.md)
   * [Social Platforms](recon-1/osint/social-platforms/README.md)
     * [Tumbler](recon-1/osint/social-platforms/tumbler.md)
     * [Redit](recon-1/osint/social-platforms/redit.md)
@@ -55,6 +56,7 @@
   * [RSIP](network-attacks/network/rsip.md)
   * [Rlogin](network-attacks/network/rlogin.md)
   * [VPNs](network-attacks/network/vpns.md)
+* [Layer 2 & 3 Attacks](network-attacks/layer-2-and-3-attacks.md)
 * [Windows](network-attacks/windows/README.md)
   * [Security Component](network-attacks/windows/security-component/README.md)
     * [Permissions and Access Control](network-attacks/windows/security-component/permissions.md)

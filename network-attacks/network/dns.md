@@ -10,11 +10,14 @@ description: (TCP/UDP 53)
 
 TCP port 53 by default, fall back to UDP port 53 if not possible.
 
+![](<../../.gitbook/assets/image (277).png>)
+
 ## :ballot\_box\_with\_check: Checklist
 
 * [ ] Use OSINT for DNS records
 * [ ] Check forward and reverse lookups
 * [ ] Test zone transfer
+* [ ] Test NSEC / NSEC3
 * [ ] Look for CVEs&#x20;
 
 ## DNS Enumeration
@@ -92,6 +95,12 @@ dnsenum [domain or site]
 dnsenum example.com
 ```
 
+### Identifying private addresses by using dig
+
+```
+dig @ns3.isc-sns.info -f /tmp/paypal.txt +noall +answer | awk '{printf("%s %s\n",$5,$1);}' | grep -E '^(10\.)'
+```
+
 ### bash zone transfer
 
 here is a simple bash script which performs a zone transfer:
@@ -122,10 +131,14 @@ Bruteforce reverse DNS in using IPv6 addresses
 dnsrevenum6 pri.authdns.ripe.net 2001:67c:2e8::/48 #Will use the dns pri.authdns.ripe.net
 ```
 
-## DNSSec
+## NSEC / NSEC3
+
+You can quiz name servers supporting DNSSEC to reveal valid hostnames. Scripts that automate this are dns-nsec-enum and dns-nsec3-enum
 
 ```
 nmap -sSU -p53 --script dns-nsec-enum --script-args dns-nsec-enum.domains=paypal.com ns3.isc-sns.info
+
+
 ```
 
 ## DNS Recursion DDoS

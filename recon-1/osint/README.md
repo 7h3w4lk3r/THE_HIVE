@@ -196,6 +196,16 @@ filename:logins.json # Firefox saved password collection (key3.db usually in sam
 filename:settings.py SECRET_KEY # Django secret keys (usually allows for session hijacking, RCE, etc)
 ```
 
+## PGP Public Key Servers
+
+Organizations maintain servers that provide public PGP keys to clients. You can query these to reveal user email addresses and details.
+
+{% embed url="https://pgp.mit.edu" %}
+
+{% embed url="https://keyserver.ubuntu.com" %}
+
+{% embed url="https://pgp.uni-mainz.de" %}
+
 ## CloadFlare / Tor IP Detection
 
 some tips to find real IP addresses hiding behind CloadFlare and Tor
@@ -319,37 +329,29 @@ For more in dept social search check the [social platforms page](social-platform
 
 I have put together a list of the most used OSINT sources that will usually cover about 90% of your needs in  a regular pentest. remember there are endless ways to find Intel about your target. the OSINT process is limited to your own imagination.&#x20;
 
-### 1) Top sources ( most used )
+### Top sources ( most used )
 
 #### [Skip Tracing Framework (kind of all-in-one directory for recon)](https://makensi.es/stf/)   [Robtex (search for IPs, domain names, etc )](https://www.robtex.com)   [Netcraft (very useful for website and domain recon)](https://searchdns.netcraft.com)   [SSL labs (test websites and domains SSL cert security)](https://www.ssllabs.com/ssltest)   [Security Headers (test website headers (browser plugin is available)](https://securityheaders.com)   [Archive.org (the largest Internet archive)](https://archive.org)   [iseek (not as deep as others but still useful)](https://www.iseek.com)   [Global file search (search for any file, used for passive metadata search )](http://globalfilesearch.com)   [NSLookup (query DNS records, both web and CLI tool )](https://network-tools.com/nslookup/)   [DNSdumpster (great for DNS recon)](https://dnsdumpster.com)   [Whois (both web and CLI tool )](https://www.whois.net)   [ONYPHE (internet SIEM website, that's what they call themselves )](https://www.onyphe.io) 
 
 
 
-### 2) Image search
+### Image search
 
 #### [TinEye ( reverse image search )](https://tineye.com)   [photo bucket ( image search )](https://photobucket.com)
 
 ####
 
-### 3) Username and people search
+### Username and people search
 
-#### &#x20; [User search ( search for usernames, mostly social media networks )](https://usersearch.org)   [Thats them](https://thatsthem.com)   [pipi ( investigation and research, you should sign up for it )](https://pipl.com)   [Social mention ( social media search )](http://socialmention.com)   [Social searcher ( social media search )](https://www.social-searcher.com)   [SPOKEO ( name, phone number, address, etc. )](https://www.spokeo.com)   [Find people search ( people search )](http://www.findpeoplesearch.com)   [Social bearing](https://www.socialbearing.com)   [TwimeMachine](https://www.twimemachine.com) 
+#### &#x20; [User search ( search for usernames, mostly social media networks )](https://usersearch.org)   [Thats them](https://thatsthem.com)   [pipi ( investigation and research, you should sign up for it )](https://pipl.com)   [Social mention ( social media search )](http://socialmention.com)   [Social searcher ( social media search )](https://www.social-searcher.com)   [SPOKEO ( name, phone number, address, etc. )](https://www.spokeo.com)   [Find people search ( people search )](http://www.findpeoplesearch.com)   [Social bearing](https://www.socialbearing.com)   [TwimeMachine](https://www.twimemachine.com)
 
-
-
-### 4) Metadata search
-
-#### [Archive.org](https://archive.org)  [metapicz](http://metapicz.com/#landing)  [image forensic](http://www.imageforensic.org)  [findexif](http://findexif.com)  [exif regex](http://exif.regex.info/exif.cgi)
-
-
-
-### 5) IOT and device search
+### &#x20;IOT and device search
 
 #### [shodan ( search engine for internet connected devices, command line )](https://www.shodan.io)  [open stream cam ( open stream camera )](file:///root/work/w4lk3rn3t/recon/osint/index.html)  [insecam ( live video camera search )](file:///root/work/w4lk3rn3t/recon/osint/index.html)
 
-#### &#x20;
+####
 
-### 6) Dark web engines
+### Dark web engines
 
 #### pubpeer.com
 
@@ -375,7 +377,7 @@ not evil
 
 
 
-### 7) Monitoring and alerting
+### &#x20;Monitoring and alerting
 
 Google Alerts
 
