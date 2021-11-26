@@ -5,7 +5,7 @@
 in this section we discuss the basic security concepts and components of windows security including authentication, authorization and access control
 
 {% hint style="info" %}
-Windows security components are way more complicated than Linux and any other OS partly because of the fact that windows was a single-user OS from the beginning but then turned into a multi-user OS after gaining more popularity. the other reason is probably Active Directory, which is the core of all windows-based networks and has its own security architecture and principles.
+Windows security components are way more complicated than Linux and any other OS  for that matter, partly because of the fact that windows was a single-user OS from the beginning but then turned into a multi-user OS after gaining more popularity. the other reason is probably Active Directory, which is the core of all windows-based networks and has its own security architecture and principles.
 {% endhint %}
 
 #### generally speaking, windows security is divided into 4 parts:

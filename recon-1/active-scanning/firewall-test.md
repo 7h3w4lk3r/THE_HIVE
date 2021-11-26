@@ -10,13 +10,17 @@
 
 * [ ] **Detection**
 * [ ] **Policy/Rule Test**
-* [ ] ****[**IPv6**](../../network-attacks/network/ipv6.md)****
+* [ ] **IPv6**
 * [ ] **Firewalking**
 * [ ] **Product Vulnerability **
 
 ## Detection
 
 **Usually, the presence of a firewall is detected when nmap shows some ports as filtered, but a lot of times we might face different scenarios in which the scan speed is suddenly dropped or previously live hosts are not detected as "up" in another host discovery scan.** all of these are indicators  of a change in the packet routes or target host behavior. although firewall testing is not a complicated topic, the testing scenarios can be endless depending on the firewall type and configurations.
+
+## IPv6 Scan
+
+
 
 ## Policy/Rule Test
 
