@@ -56,7 +56,6 @@
   * [RSIP](network-attacks/network/rsip.md)
   * [Rlogin](network-attacks/network/rlogin.md)
   * [VPNs](network-attacks/network/vpns.md)
-* [Layer 2 & 3 Attacks](network-attacks/layer-2-and-3-attacks.md)
 * [Windows](network-attacks/windows/README.md)
   * [Security Component](network-attacks/windows/security-component/README.md)
     * [Permissions and Access Control](network-attacks/windows/security-component/permissions.md)
