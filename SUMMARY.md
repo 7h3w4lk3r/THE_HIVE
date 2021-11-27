@@ -35,7 +35,6 @@
 * [Firewall Detection & Bypass](recon-1/active-scanning/firewall-test.md)
 * [Services & Protocols](network-attacks/network/README.md)
   * [IPv6](network-attacks/network/ipv6.md)
-  * [ICMP Types & Codes](network-attacks/network/icmp-types-and-codes.md)
   * [FTP](network-attacks/network/ftp.md)
   * [SMB](network-attacks/network/smb.md)
   * [DNS](network-attacks/network/dns.md)

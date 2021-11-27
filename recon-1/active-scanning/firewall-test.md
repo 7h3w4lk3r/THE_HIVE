@@ -10,17 +10,13 @@
 
 * [ ] **Detection**
 * [ ] **Policy/Rule Test**
-* [ ] **IPv6**
+* [ ] ****[**IPv6**](../../network-attacks/network/ipv6.md)****
 * [ ] **Firewalking**
 * [ ] **Product Vulnerability **
 
 ## Detection
 
 **Usually, the presence of a firewall is detected when nmap shows some ports as filtered, but a lot of times we might face different scenarios in which the scan speed is suddenly dropped or previously live hosts are not detected as "up" in another host discovery scan.** all of these are indicators  of a change in the packet routes or target host behavior. although firewall testing is not a complicated topic, the testing scenarios can be endless depending on the firewall type and configurations.
-
-## IPv6 Scan
-
-
 
 ## Policy/Rule Test
 
@@ -62,7 +58,7 @@ hping3 — traceroute -V -S -p 80 -s 5050 testpage.com
 hping3 -c 1 -V -1 -C 17 testpage.com
 ```
 
-for testing other ICMP types check out the [`ICMP`](../../network-attacks/network/icmp-types-and-codes.md) protocol section.
+for testing other ICMP types check out the [`ICMP`](broken-reference) protocol section.
 
 
 
