@@ -15,9 +15,9 @@ double → same as float but stores twice the precision
 
 #### boolean data type for storing 0 or 1 values. used for on/off, yes/no, true/false situation (binary choices)
 
-** \<stdbool.h> **→ include it to use bool instead of \_Bool&#x20;
+&#x20;**\<stdbool.h>** → include it to use bool instead of \_Bool&#x20;
 
-**bool **→ substitute name for the basic \_Bool data type:
+**bool** → substitute name for the basic \_Bool data type:
 
 `true: 1`
 
@@ -68,7 +68,7 @@ while(0)
 
 ## size\_t
 
-**size\_t **→ used to represent the size of objects in bytes and is therefore used as the return type by the sizeof operator. size\_t is a type guaranteed to hold any array index. only for non-negative values
+**size\_t** → used to represent the size of objects in bytes and is therefore used as the return type by the sizeof operator. size\_t is a type guaranteed to hold any array index. only for non-negative values
 
 ```
 size_t s1 = strlen(str1);
@@ -77,7 +77,7 @@ printf("%zu", s1);
 
 ## wchar\_t
 
-**wchar\_t **→ Wide char is similar to char data type, except that wide char take up twice the space and can take on much larger values as a result. char can take 256 values which corresponds to entries in the ASCII table. On the other hand, wide char can take on 65536 values which corresponds to UNICODE values which is a recent international standard which allows for the encoding of characters for virtually all languages and commonly used symbols.
+**wchar\_t** → Wide char is similar to char data type, except that wide char take up twice the space and can take on much larger values as a result. char can take 256 values which corresponds to entries in the ASCII table. On the other hand, wide char can take on 65536 values which corresponds to UNICODE values which is a recent international standard which allows for the encoding of characters for virtually all languages and commonly used symbols.
 
 example:
 
@@ -204,7 +204,7 @@ if we include the complex.h header we can do it this way:
 
 ## &#x20;Complex Functions
 
-**creal() **→ returns the real part of a value of type double complex that is passed as the argument
+**creal()** → returns the real part of a value of type double complex that is passed as the argument
 
 **cimage()** → returns the imaginary part
 
@@ -215,9 +215,9 @@ if we include the complex.h header we can do it this way:
 
 we append an f to these functions names when we are working with float complex values ( crealf() and cimagef()) and a lowercase l when using with long complex ( creall() and cmagl())
 
-**conj() **→ returns the complex conjugate of its double complex
+**conj()** → returns the complex conjugate of its double complex
 
-**conjf() and conjl() **→ return the complex conjugate for the other two types long and float
+**conjf() and conjl()** → return the complex conjugate for the other two types long and float
 
 ## &#x20;Imaginary Numbers
 
@@ -291,9 +291,9 @@ int main(){
 
 ## logical Operators
 
-**&& **→ AND operator, if both are non-zero the condition is true (A && B) is false
+**&&** → AND operator, if both are non-zero the condition is true (A && B) is false
 
-&#x20;**|| **→ OR operator, if any or both are non-zero the condition is true (A || B) is true
+&#x20;**||** → OR operator, if any or both are non-zero the condition is true (A || B) is true
 
 &#x20;**!** → NOT operator, reverse the logical statement !(A && B) is true
 

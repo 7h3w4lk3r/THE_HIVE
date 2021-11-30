@@ -142,7 +142,7 @@ smbclient \\\\[ip]\\[share name]
 smbclient \\\\192.168.30.53\\WorkSharing
 ```
 
-` ` if you see any files of interest you can type the following
+&#x20;`` if you see any files of interest you can type the following
 
 ```
 get [filename].txt /root/Desktop/[filename].txt 

@@ -59,7 +59,7 @@ A segment selector is a 16 bit value held in a segment register. It is used to s
 
 **With the flat or the segmented memory model, linear address space is mapped into the processor’s physical address space either directly or through paging**. When using direct mapping (paging disabled), each linear address has a one-to-one correspondence with a physical address. Linear addresses are sent out on the processor’s address lines without translation. **When using the IA-32 architecture’s paging mechanism (paging enabled), linear address space is divided into pages which are mapped to virtual memory.** The pages of virtual memory are then mapped as needed into physical memory. When an operating system or executive uses paging, the paging mechanism is transparent to an application program. All that the application sees is linear address space. In addition, IA-32 architecture’s paging mechanism includes extensions that support:
 
-**• Physical Address Extensions (PAE) **to address physical address space greater than 4 GBytes.
+**• Physical Address Extensions (PAE)** to address physical address space greater than 4 GBytes.
 
 **• Page Size Extensions (PSE)** to map linear address to physical address in 4-MBytes pages.
 
@@ -89,11 +89,11 @@ This mode provides an operating system or executive with a transparent mechanism
 
 ### Intel 64 Architecture (IA-32e) modes
 
-* **Compatibility mode (sub-mode of IA-32e mode) : **Compatibility mode permits most legacy 16-bit and 32-bit applications to run without re-compilation under a 64-bit operating system. For brevity, the compatibility sub-mode is referred to as compatibility mode in IA-32 architecture. The execution environment of compati- bility mode is the same as described in Section 3.2. Compatibility mode also supports all of the privilege levels that are supported in 64-bit and protected modes. Legacy applications that run in Virtual 8086 mode or use hardware task management will not work in this mode. Compatibility mode is enabled by the operating system (OS) on a code segment basis. This means that a single 64-bit OS can support 64-bit applications running in 64-bit mode and support legacy 32-bit applications (not recompiled for 64-bits) running in compatibility mode. Compatibility mode is similar to 32-bit protected mode. Applications access only the first 4 GByte of linear- address space. Compatibility mode uses 16-bit and 32-bit address and operand sizes. Like protected mode, this mode allows applications to access physical memory greater than 4 GByte using PAE (Physical Address Exten- sions).
+* **Compatibility mode (sub-mode of IA-32e mode) :** Compatibility mode permits most legacy 16-bit and 32-bit applications to run without re-compilation under a 64-bit operating system. For brevity, the compatibility sub-mode is referred to as compatibility mode in IA-32 architecture. The execution environment of compati- bility mode is the same as described in Section 3.2. Compatibility mode also supports all of the privilege levels that are supported in 64-bit and protected modes. Legacy applications that run in Virtual 8086 mode or use hardware task management will not work in this mode. Compatibility mode is enabled by the operating system (OS) on a code segment basis. This means that a single 64-bit OS can support 64-bit applications running in 64-bit mode and support legacy 32-bit applications (not recompiled for 64-bits) running in compatibility mode. Compatibility mode is similar to 32-bit protected mode. Applications access only the first 4 GByte of linear- address space. Compatibility mode uses 16-bit and 32-bit address and operand sizes. Like protected mode, this mode allows applications to access physical memory greater than 4 GByte using PAE (Physical Address Exten- sions).
 
 
 
-* **64-bit mode (sub-mode of IA-32e mode) : ** This mode enables a 64-bit operating system to run applica- tions written to access 64-bit linear address space. For brevity, the 64-bit sub-mode is referred to as 64-bit mode in IA-32 architecture. 64-bit mode extends the number of general purpose registers and SIMD extension registers from 8 to 16. General purpose registers are widened to 64 bits. The mode also introduces a new opcode prefix (REX) to access the register extensions. See Section 3.2.1 for a detailed description. 64-bit mode is enabled by the operating system on a code-segment basis. Its default address size is 64 bits and its default operand size is 32 bits. The default operand size can be overridden on an instruction-by-instruction basis using a REX opcode prefix in conjunction with an operand size override prefix. REX prefixes allow a 64-bit operand to be specified when operating in 64-bit mode. By using this mechanism, many existing instructions have been promoted to allow the use of 64-bit registers and 64-bit addresses.
+* **64-bit mode (sub-mode of IA-32e mode) :** This mode enables a 64-bit operating system to run applica- tions written to access 64-bit linear address space. For brevity, the 64-bit sub-mode is referred to as 64-bit mode in IA-32 architecture. 64-bit mode extends the number of general purpose registers and SIMD extension registers from 8 to 16. General purpose registers are widened to 64 bits. The mode also introduces a new opcode prefix (REX) to access the register extensions. See Section 3.2.1 for a detailed description. 64-bit mode is enabled by the operating system on a code-segment basis. Its default address size is 64 bits and its default operand size is 32 bits. The default operand size can be overridden on an instruction-by-instruction basis using a REX opcode prefix in conjunction with an operand size override prefix. REX prefixes allow a 64-bit operand to be specified when operating in 64-bit mode. By using this mechanism, many existing instructions have been promoted to allow the use of 64-bit registers and 64-bit addresses.
 
 
 
@@ -147,40 +147,40 @@ The flags register is not meaningful as a unit rather it is bit wise significant
 
 ![](<../../.gitbook/assets/image (123).png>)
 
-**(S) - The status flags **(bits 0, 2, 4, 6, 7, and 11) of the EFLAGS register indicate the results of arithmetic instructions, such as the ADD, SUB, MUL, and DIV instructions. The status flag functions are:
+**(S) - The status flags** (bits 0, 2, 4, 6, 7, and 11) of the EFLAGS register indicate the results of arithmetic instructions, such as the ADD, SUB, MUL, and DIV instructions. The status flag functions are:
 
 * **CF (bit 0) Carry flag** — Set if an arithmetic operation generates a carry or a borrow out of the most- significant bit of the result; cleared otherwise. This flag indicates an overflow condition for unsigned-integer arithmetic. It is also used in multiple-precision arithmetic.
 
 
 
-*   &#x20;**PF (bit 2) Parity flag **— Set if the least-significant byte of the result contains an even number of 1 bits; cleared otherwise.
+*   &#x20;**PF (bit 2) Parity flag** — Set if the least-significant byte of the result contains an even number of 1 bits; cleared otherwise.
 
 
 *   &#x20;**AF (bit 4) Auxiliary Carry flag** — Set if an arithmetic operation generates a carry or a borrow out of bit 3 of the result; cleared otherwise. This flag is used in binary-coded decimal (BCD) arithmetic.
 
-    ** **
-*   **ZF (bit 6) Zero flag **— Set if the result is zero; cleared otherwise.
+    &#x20;****&#x20;
+*   **ZF (bit 6) Zero flag** — Set if the result is zero; cleared otherwise.
 
     &#x20;
 *   **SF (bit 7) Sign flag** — Set equal to the most-significant bit of the result, which is the sign bit of a signed integer. (0 indicates a positive value and 1 indicates a negative value.)
 
     &#x20;
-* **OF (bit 11) Overflow flag **— Set if the integer result is too large a positive number or too small a negative number (excluding the sign-bit) to fit in the destination operand; cleared otherwise. This flag indicates an overflow condition for signed-integer (two’s complement) arithmetic. Of these status flags, only the CF flag can be modified directly, using the STC, CLC, and CMC instructions. Also the bit instructions (BT, BTS, BTR, and BTC) copy a specified bit into the CF flag.
+* **OF (bit 11) Overflow flag** — Set if the integer result is too large a positive number or too small a negative number (excluding the sign-bit) to fit in the destination operand; cleared otherwise. This flag indicates an overflow condition for signed-integer (two’s complement) arithmetic. Of these status flags, only the CF flag can be modified directly, using the STC, CLC, and CMC instructions. Also the bit instructions (BT, BTS, BTR, and BTC) copy a specified bit into the CF flag.
 
 ****
 
-**(C) - The direction/control flag **(DF, located in bit 10 of the EFLAGS register) controls string instructions (MOVS, CMPS, SCAS, LODS, and STOS). Setting the DF flag causes the string instructions to auto-decrement (to process strings from high addresses to low addresses). Clearing the DF flag causes the string instructions to auto-increment (process strings from low addresses to high addresses).The STD and CLD instructions set and clear the DF flag, respectively. The functions of the system flags are as follows:
+**(C) - The direction/control flag** (DF, located in bit 10 of the EFLAGS register) controls string instructions (MOVS, CMPS, SCAS, LODS, and STOS). Setting the DF flag causes the string instructions to auto-decrement (to process strings from high addresses to low addresses). Clearing the DF flag causes the string instructions to auto-increment (process strings from low addresses to high addresses).The STD and CLD instructions set and clear the DF flag, respectively. The functions of the system flags are as follows:
 
 *   **TF (bit 8) Trap flag** — Set to enable single-step mode for debugging; clear to disable single-step mode.
 
     &#x20;
-*   **IF (bit 9) Interrupt enable flag **— Controls the response of the processor to maskable interrupt requests. Set to respond to maskable interrupts; cleared to inhibit maskable interrupts.&#x20;
+*   **IF (bit 9) Interrupt enable flag** — Controls the response of the processor to maskable interrupt requests. Set to respond to maskable interrupts; cleared to inhibit maskable interrupts.&#x20;
 
 
 *   I**OPL (bits 12 and 13) I/O privilege level field** — Indicates the I/O privilege level of the currently running program or task. The current privilege level (CPL) of the currently running program or task must be less than or equal to the I/O privilege level to access the I/O address space. The POPF and IRET instructions can modify this field only when operating at a CPL of 0.
 
     &#x20;
-*   **NT (bit 14) Nested task flag **— Controls the chaining of interrupted and called tasks. Set when the current task is linked to the previously executed task; cleared when the current task is not linked to another task. RF (bit 16) Resume flag — Controls the processor’s response to debug exceptions.
+*   **NT (bit 14) Nested task flag** — Controls the chaining of interrupted and called tasks. Set when the current task is linked to the previously executed task; cleared when the current task is not linked to another task. RF (bit 16) Resume flag — Controls the processor’s response to debug exceptions.
 
     &#x20;
 *   **VM (bit 17) Virtual-8086 mode flag** — Set to enable virtual-8086 mode; clear to return to protected mode without virtual-8086 mode semantics.
@@ -189,17 +189,17 @@ The flags register is not meaningful as a unit rather it is bit wise significant
 *   **AC (bit 18) Alignment check (or access control) flag** — If the AM bit is set in the CR0 register, align- ment checking of user-mode data accesses is enabled if and only if this flag is 1. If the SMAP bit is set in the CR4 register, explicit supervisor-mode data accesses to user-mode pages are allowed if and only if this bit is 1.&#x20;
 
     &#x20;
-*   **VIF (bit 19) Virtual interrupt flag **— Virtual image of the IF flag. Used in conjunction with the VIP flag. (To use this flag and the VIP flag the virtual mode extensions are enabled by setting the VME flag in control register CR4.)&#x20;
+*   **VIF (bit 19) Virtual interrupt flag** — Virtual image of the IF flag. Used in conjunction with the VIP flag. (To use this flag and the VIP flag the virtual mode extensions are enabled by setting the VME flag in control register CR4.)&#x20;
 
     ****
-*   **VIP (bit 20) Virtual interrupt pending flag **— Set to indicate that an interrupt is pending; clear when no interrupt is pending. (Software sets and clears this flag; the processor only reads it.) Used in conjunction with the VIF flag.
+*   **VIP (bit 20) Virtual interrupt pending flag** — Set to indicate that an interrupt is pending; clear when no interrupt is pending. (Software sets and clears this flag; the processor only reads it.) Used in conjunction with the VIF flag.
 
     &#x20;
-* **ID (bit 21) Identification flag **— The ability of a program to set or clear this flag indicates support for the CPUID instruction.
+* **ID (bit 21) Identification flag** — The ability of a program to set or clear this flag indicates support for the CPUID instruction.
 
 
 
-**(X) - The system flags **and IOPL field in the EFLAGS register control operating-system or executive operations. They should not be modified by application programs.
+**(X) - The system flags** and IOPL field in the EFLAGS register control operating-system or executive operations. They should not be modified by application programs.
 
 
 

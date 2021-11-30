@@ -25,7 +25,7 @@ description: >-
 
 ## Security IDs (SID)
 
-Instead of using names (which might or might not be unique) to identify entities that perform actions in a system, Windows uses security identifiers (SIDs).** Users have SIDs, as do local and domain groups, local computers, domains, domain members, and services. A SID is a variable-length numeric value that consists of a SID structure revision number, a 48-bit identifier authority value, and a variable number of 32-bit sub-authority or relative identifier (RID) values. **The authority value identifies the agent that issued the SID, and this agent is typically a Windows local system or a domain.** Sub-authority values identify trustees relative to the issuing authority, and RIDs are simply a way for Windows to create unique SIDs based on a common base SID. **Because SIDs are long and Windows takes care to generate truly random values within each SID, it is virtually impossible for Windows to issue the same SID twice on machines or domains anywhere in the world.&#x20;
+Instead of using names (which might or might not be unique) to identify entities that perform actions in a system, Windows uses security identifiers (SIDs). **Users have SIDs, as do local and domain groups, local computers, domains, domain members, and services. A SID is a variable-length numeric value that consists of a SID structure revision number, a 48-bit identifier authority value, and a variable number of 32-bit sub-authority or relative identifier (RID) values.** The authority value identifies the agent that issued the SID, and this agent is typically a Windows local system or a domain. **Sub-authority values identify trustees relative to the issuing authority, and RIDs are simply a way for Windows to create unique SIDs based on a common base SID.** Because SIDs are long and Windows takes care to generate truly random values within each SID, it is virtually impossible for Windows to issue the same SID twice on machines or domains anywhere in the world.&#x20;
 
 When displayed textually, each SID carries an S prefix, and its various components are separated with hyphens like so:
 
@@ -35,13 +35,13 @@ S-1-5-21-1463437245-1224812800-863842198-1128
 
 In this SID, the revision number is 1, the identifier authority value is 5 (the Windows security authority), and four sub-authority values plus one RID (1128) make up the remainder of the SID. This SID is a domain SID, but a local computer on the domain would have a SID with the same revision number, identifier authority value, and number of sub-authority values.
 
-Windows issues SIDs that consist of a computer or domain SID with a predefined RID to many predefined accounts and groups. For example, **the RID for the Administrator account is 500, and the RID for the guest account is 501. **A computer’s local Administrator account, for example, has the computer SID as its base with the RID of 500 appended to it:
+Windows issues SIDs that consist of a computer or domain SID with a predefined RID to many predefined accounts and groups. For example, **the RID for the Administrator account is 500, and the RID for the guest account is 501.** A computer’s local Administrator account, for example, has the computer SID as its base with the RID of 500 appended to it:
 
 ```
 S-1-5-21-13124455-12541255-61235125-500
 ```
 
-Windows also defines a number of built-in local and domain SIDs to represent well-known groups. For example, **a SID that identifies any and all accounts (except anonymous users) is the Everyone SID: S-1-1-0.** Another example of a group that a SID can represent is the Network group, which is the group that represents users who have logged on to a machine from the network.** The Network group SID is S-1-5-2.**
+Windows also defines a number of built-in local and domain SIDs to represent well-known groups. For example, **a SID that identifies any and all accounts (except anonymous users) is the Everyone SID: S-1-1-0.** Another example of a group that a SID can represent is the Network group, which is the group that represents users who have logged on to a machine from the network. **The Network group SID is S-1-5-2.**
 
 ### A few well-known SIDs
 
@@ -53,7 +53,7 @@ Windows also defines a number of built-in local and domain SIDs to represent wel
 
 ### **SID to Name Lookup**
 
-It is important to remember that **trustees referenced in SDs are always stored as binary SIDs**. This is true for the owner, the primary group, and any trustee in any access control list (ACL). This implies that** there exists some mechanism that converts trustee names into SIDs and vice versa. This mechanism is a central part of the security accounts manager (SAM) and of Active Directory (AD)**. The former manages the local account database on any NT-based system (Windows NT right up to Windows 10, including the server variants). The latter is only available on Active Directory domain controllers where it replaces the SAM.
+It is important to remember that **trustees referenced in SDs are always stored as binary SIDs**. This is true for the owner, the primary group, and any trustee in any access control list (ACL). This implies that **there exists some mechanism that converts trustee names into SIDs and vice versa. This mechanism is a central part of the security accounts manager (SAM) and of Active Directory (AD)**. The former manages the local account database on any NT-based system (Windows NT right up to Windows 10, including the server variants). The latter is only available on Active Directory domain controllers where it replaces the SAM.
 
 ### **Special SID Types**
 
@@ -65,7 +65,7 @@ Capability SIDs cannot be resolved to/from names, they are displayed as SID stri
 
 ### Integrity levels
 
-integrity levels can override discretionary access to differentiate a process and objects running as and owned by the same user, offering the ability to isolate code and data within a user account.** The mechanism of Mandatory Integrity Control (MIC) allows the SRM to have more detailed information about the nature of the caller by associating it with an integrity level.** It also provides information on the trust required to access the object by defining an integrity level for it.&#x20;
+integrity levels can override discretionary access to differentiate a process and objects running as and owned by the same user, offering the ability to isolate code and data within a user account. **The mechanism of Mandatory Integrity Control (MIC) allows the SRM to have more detailed information about the nature of the caller by associating it with an integrity level.** It also provides information on the trust required to access the object by defining an integrity level for it.&#x20;
 
 The integrity level of a tokenThe mechanism of Mandatory Integrity Control (MIC) allows the SRM to have more detailed information about the nature of the caller by associating it with an integrity level. can be obtained with the GetTokenInformation API with the Token- IntegrityLevel enumeration value. These integrity levels are specified by a SID. Although integrity levels can be arbitrary values, the system uses six primary levels to separate privilege levels
 

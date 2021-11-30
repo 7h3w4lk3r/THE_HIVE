@@ -195,11 +195,11 @@ so now the executable will look into /root/.local/share/Trash/files/test/lib for
 
 ## Library loading
 
-**loading of a library is of two types: **
+**loading of a library is of two types:**&#x20;
 
 **dynamic loading**
 
-** static loading**
+&#x20;**static loading**
 
 ### these are different from static/dynamic linking:
 
@@ -251,7 +251,7 @@ if filename begins with "/" ( an absolute path), dlopen() will just try to use i
 
 the value of flag must be **either RTLD\_LAZY or RTL\_NOW**
 
-**RTLD\_LAZY **means to resolve all undefined symbols as code from the dynamic library is executed
+**RTLD\_LAZY** means to resolve all undefined symbols as code from the dynamic library is executed
 
 RTL\_NOW means to resolve all undefined symbols before dlopen() returns and fail if this cannot be done (used if debugging)
 

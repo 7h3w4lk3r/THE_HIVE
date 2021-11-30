@@ -2,8 +2,8 @@
 
 ## there are 3 types of loops in c:
 
-1. ** for**
-2. ** while **
+1. &#x20;**for**
+2. &#x20;**while**&#x20;
 3. **do while**
 
 ## while loop
@@ -59,7 +59,7 @@ for (int count=1 ; count <= 10 ; ++count)
 
 ## infinite for loop
 
-#### ​​for(;;) { /_ statements _/ }
+#### ​​for(;;) { / _statements_ / }
 
 ## nested loop (for loop example)
 

@@ -107,14 +107,14 @@ As a note, some [privileges](https://docs.microsoft.com/en-us/windows/win32/seca
 Following successful authentication from an interactive logon, Windows will execute the user’s shell (normally explorer.exe) on behalf of the newly logged-on user. The operating system performs this action by using the newly minted access token to spawn explorer.exe as that user via [CreateProcessAsUserA](https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessasusera). This function takes a handle to a token and spawns a new process as the user specified in the token (i.e., in a _different_ security context).
 
 \
-Typically, every process created by the user is a child of the shell process (i.e., explorer.exe)** **and every new process will (by default) run in the **same** security context as its parent; hence the child process will inherit its parent’s access token upon creation. Therefore, _all_ processes will inherit their _own_ local copy of an access token.
+Typically, every process created by the user is a child of the shell process (i.e., explorer.exe) **** and every new process will (by default) run in the **same** security context as its parent; hence the child process will inherit its parent’s access token upon creation. Therefore, _all_ processes will inherit their _own_ local copy of an access token.
 
 \
 As stated previously, access tokens act as a local “volatile repository” for the security settings associated with the logon session. As each process has its _own_ local copy of an access token, a process can modify the volatile security settings stored in its copy without affecting other processes.&#x20;
 
-When a local administrator logins,** two access tokens are created**: One with admin rights and other one with normal rights. **By default**, when this user executes a process the one with **regular** (non-administrator) **rights is used**. When this user tries to **execute **anything **as administrator **("Run as Administrator" for example) the **UAC **will be used to ask for permission.
+When a local administrator logins, **two access tokens are created**: One with admin rights and other one with normal rights. **By default**, when this user executes a process the one with **regular** (non-administrator) **rights is used**. When this user tries to **execute** anything **as administrator** ("Run as Administrator" for example) the **UAC** will be used to ask for permission.
 
-If you have** valid credentials of any other user**, you can **create **a **new logon session **with those credentials:
+If you have **valid credentials of any other user**, you can **create** a **new logon session** with those credentials:
 
 ```
 runas /user:domain\username cmd.exe

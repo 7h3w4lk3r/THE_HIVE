@@ -37,7 +37,7 @@ setspn -T megabank -Q */*
 
 ![](<../../../.gitbook/assets/image (178).png>)
 
-Services that are bind to a domain user account and not a computer account are more likely configured with a weak password since the user has selected the password. Therefore services which they have their **Canonical-Name** to **Users** should be targeted for Kerberoasting. From the list of SPNs below the service **sql.megabank.local **is associated with a user account.
+Services that are bind to a domain user account and not a computer account are more likely configured with a weak password since the user has selected the password. Therefore services which they have their **Canonical-Name** to **Users** should be targeted for Kerberoasting. From the list of SPNs below the service **sql.megabank.local** is associated with a user account.
 
 ![](<../../../.gitbook/assets/image (176).png>)
 
@@ -125,7 +125,7 @@ python /usr/share/kerberoast/tgsrepcrack.py wordlist.txt 1-40a50000-megabank@HTT
 
 ### Using Meterpreter KIWI
 
-Alternatively loading the** Kiwi module (meterpreter)** will add some additional Mimikatz commands which can performed the same task.
+Alternatively loading the **Kiwi module (meterpreter)** will add some additional Mimikatz commands which can performed the same task.
 
 ```
 load kiwi

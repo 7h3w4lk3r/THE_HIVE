@@ -20,13 +20,13 @@ int number = 2; int *numberPointer = &number;
 
 "numberPointer" now contains the address where variable "number" is stored
 
-_**poniter = 25 **→ this "_" access the data stored at the address specified by a pointer
+_**poniter = 25** → this "_" access the data stored at the address specified by a pointer
 
-#### pointers must have the same variable type of the address values that contain the data. i.e: for float: float _pointer; for char: char _pointer; etc...
+#### pointers must have the same variable type of the address values that contain the data. i.e: for float: float _pointer; for char: char_ pointer; etc...
 
 **%p** → represents the format specified for a pointer
 
-**int \*pointer = NULL; **→ is the equivalent of zero for a pointer, it doesn't point to any location in the memory.
+**int \*pointer = NULL;** → is the equivalent of zero for a pointer, it doesn't point to any location in the memory.
 
 
 
@@ -45,11 +45,11 @@ int *pnumber = &number;
 
 ## **D**isplaying an address without a pointer
 
-&#x20;**printf("number address: %p",\&number); **
+&#x20;**printf("number address: %p",\&number);**&#x20;
 
 or
 
-&#x20;**printf("number address: %p",(void**_**)\&number); **→ (void_) cast is to prevent possible warning from the compiler
+&#x20;**printf("number address: %p",(void**_**)\&number);** → (void_) cast is to prevent possible warning from the compiler
 
 example:
 
@@ -73,11 +73,11 @@ printf("value pointed to: %d\n",*pnumber); // value at the address
 
 ## Pointers in expressions
 
-**int value = 999; **
+**int value = 999;**&#x20;
 
-**pnumber = \&value; **
+**pnumber = \&value;**&#x20;
 
-**\*pnumber += 25; **→ the value of "value" variable is incremented by 25.
+**\*pnumber += 25;** → the value of "value" variable is incremented by 25.
 
 example:
 
@@ -154,7 +154,7 @@ vptr = &ch;
 printf("value of ch=%c\n",*(char *)vptr);
 ```
 
-**void **_**pointer; **_**(data\_type \*)pointer **→ use this format to assign a data type to a void pointer
+**void **_**pointer;**_** (data\_type \*)pointer** → use this format to assign a data type to a void pointer
 
 ## Pointers and arrays
 
@@ -225,9 +225,9 @@ printf("set value 3 to : %d\n",*(pointer+3));
 
 the increment and decrement operators ++ and -- are particularly useful when dealing with pointers.
 
-**++pvaluea; **→ sets pvalues pointing to the next integer in the values array (values\[1])
+**++pvaluea;** → sets pvalues pointing to the next integer in the values array (values\[1])
 
-**--pvalues; **→ sets pvalues pointing to the previous integer in the values array assuming that pvalues was not pointing to the beginning of the values array
+**--pvalues;** → sets pvalues pointing to the previous integer in the values array assuming that pvalues was not pointing to the beginning of the values array
 
 example:
 
@@ -359,9 +359,9 @@ int main(){
 
 there are few ways to pass data to a function:
 
-** pass by value**
+&#x20;**pass by value**
 
-** pass by reference**
+&#x20;**pass by reference**
 
 example pass by value:
 
@@ -594,11 +594,11 @@ funcptr = func1;
 the ID funcptr is now a synonym for the type of a pointer to function that takes no arguments and returns an integer
 
 {% hint style="info" %}
-_** **_**function returning pointer **_** --> **_ **int \*func(int a , float b);**
+&#x20;_****_** function returning pointer  **_**-->**_ **int \*func(int a , float b);**
 {% endhint %}
 
 {% hint style="info" %}
-_ _**pointer to function returning an integer**_ ** -->  **_**int (\*func)(int a , float b)**
+&#x20;__ **pointer to function returning an integer** _  **-->**_**  int (\*func)(int a , float b)**
 {% endhint %}
 
 example:

@@ -2,7 +2,7 @@
 
 ## LLMNR&#x20;
 
-**link local multi-casting name resolution **is used to identify hosts when DNS fails to do so .previously known as NBT-NS (netbios). key flaw is that the srvices utilize a users username and NTLMv2 hash when apropriately responded to.
+**link local multi-casting name resolution** is used to identify hosts when DNS fails to do so .previously known as NBT-NS (netbios). key flaw is that the srvices utilize a users username and NTLMv2 hash when apropriately responded to.
 
 ![](<../../../.gitbook/assets/image (204).png>)
 

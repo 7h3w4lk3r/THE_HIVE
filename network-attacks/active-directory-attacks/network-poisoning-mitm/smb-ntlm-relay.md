@@ -108,7 +108,7 @@ set interface vboxnet0
 run
 ```
 
-set the **JOHNPWFILE option **in order to tell Metasploit to automatically save the hashes to a file. Notice that these hashes will be automatically saved and formatted to work with john the ripper.
+set the **JOHNPWFILE option** in order to tell Metasploit to automatically save the hashes to a file. Notice that these hashes will be automatically saved and formatted to work with john the ripper.
 
 ```
 set JOHNPWFILE hashpwd

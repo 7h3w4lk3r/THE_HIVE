@@ -184,7 +184,7 @@ return 0;
 
 #### we can use the fgets() function to read from any file or stream
 
-#### char _fgets(char _str, int nchars, FILE \*strean)
+#### char _fgets(char_ str, int nchars, FILE \*strean)
 
 the function reads a string into the memory area pointed to by str, from the file specified by stream , characters are read until either a '\n' is read or nchars-1 characters have been read from the stream whichever occurs first.
 
@@ -213,7 +213,7 @@ fp = NULL;
 
 #### fscanf()
 
-#### int fscanf(FILE _stream, const char _format, ...)
+#### int fscanf(FILE _stream, const char_ format, ...)
 
 the first argument to this function is the format a C string that contains one or more of the following items: • white space character • non-white space character • format specifiers • usage is similar to scanf but from a file
 
@@ -263,7 +263,7 @@ fclose(fp);
 
 #### fputs()
 
-#### int fputs(const char _ str; FILE _ pfile);
+#### int fputs(const char _str; FILE_ pfile);
 
 first argument is a string pointer and second is a file pointer
 
@@ -285,7 +285,7 @@ fclose(fp);
 
 #### fprintf()
 
-#### int fprintf( FILE _stream, const char _format,...)
+#### int fprintf( FILE _stream, const char_ format,...)
 
 the first arg is file pointer, second is the format a C string that contains one or more of these items:
 

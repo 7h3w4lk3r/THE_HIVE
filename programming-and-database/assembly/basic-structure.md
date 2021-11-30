@@ -48,7 +48,7 @@ len equ $ - msg                 ; assign the length of the msg to len variable
 
 The following are the main parts of an assembly program:
 
-* **section .data **
+* **section .data**&#x20;
 * **section .bss**
 * **section .text**
 
@@ -56,7 +56,7 @@ The following are the main parts of an assembly program:
 you can tell that this structure is related to the program execution stack in memory. so data section is for initialized variables, bss section is for uninitialized variables and text section is the program instructions.
 {% endhint %}
 
-**section .data - **In section .data , initialized data is declared and defined, in the following format:
+**section .data -** In section .data , initialized data is declared and defined, in the following format:
 
 ```
 <variable name>    <type>   <value>

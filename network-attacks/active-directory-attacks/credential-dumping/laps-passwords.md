@@ -60,7 +60,7 @@ ldapsearch -x -h  -D "@" -w  -b "dc=<>,dc=<>,dc=<>" "(&(objectCategory=computer)
 
 ### LAPSDumper&#x20;
 
-****[** https://github.com/n00py/LAPSDumper**](https://github.com/n00py/LAPSDumper)****
+****[ **https://github.com/n00py/LAPSDumper**](https://github.com/n00py/LAPSDumper)****
 
 ```
 python laps.py -u user -p password -d domain.local

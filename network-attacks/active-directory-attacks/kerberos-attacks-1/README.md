@@ -8,11 +8,11 @@
 
 #### kerberos has three long-term keys:
 
-**client long-term secret key (derived from the client account password) **based on the password of the client account, used to check encrypted timestamp (AS-REQ) and encrypt session key (AS\_REP)
+**client long-term secret key (derived from the client account password)** based on the password of the client account, used to check encrypted timestamp (AS-REQ) and encrypt session key (AS\_REP)
 
 **target(service) long-term secret key (derived from the service account password)**. based on the password of target service, used to encrypt service portion of the ST (TGT-REP) and sign the PAC (TGT-REP)
 
-**KDC long-term secret key (derived from the krbtgt account password). **based on the infamous the krbtgt accounts password hash. used to encrypt the TGT (AS-REP) and sign the PAC (AS-REP and TGS-REP)
+**KDC long-term secret key (derived from the krbtgt account password).** based on the infamous the krbtgt accounts password hash. used to encrypt the TGT (AS-REP) and sign the PAC (AS-REP and TGS-REP)
 
 {% hint style="info" %}
 all of these keys are based on certain accounts

@@ -8,7 +8,7 @@ description: <stdio.h>
 
 ## char functions (input)
 
-**int getc(FILE \*stream); **→ read a single character from a file
+**int getc(FILE \*stream);** → read a single character from a file
 
 example read from a file:
 
@@ -95,7 +95,7 @@ int main () {
 
 ## char functions (output)
 
-**int putc(int char, FILE \*fp) **→ write a single character to a file or stdout
+**int putc(int char, FILE \*fp)** → write a single character to a file or stdout
 
 ```
 putc('\n',stdout);
@@ -126,7 +126,7 @@ use the above program like this:
 ./main < infile
 ```
 
-**int fputc(int character, FILE \*stream); **→ writes a character (an unsigned char) to the specified stream and advances the position indicator for the stream.
+**int fputc(int character, FILE \*stream);** → writes a character (an unsigned char) to the specified stream and advances the position indicator for the stream.
 
 example write characters a-z in a file:
 
@@ -237,7 +237,7 @@ rename("output",path);
 
 ## string functions(input)
 
-#### ssize\_t getline(char _\*buffer,size\_t _size, FILE \*stream);
+#### ssize\_t getline(char _\*buffer,size\_t_ size, FILE \*stream);
 
 **buffer →** a pointer to a block allocated with malloc or calloc (type char \*\*)
 
@@ -266,9 +266,9 @@ int main(){
 }
 ```
 
-**int fscanf(FILE **_**fp, const char **_**format \[,argument,...]); **→ same as printf but on a file. returns the number of arguments that are successfully read and assigned (on success), returns EOF if the end of the file is reached before any of the conversion specifications have been processed
+**int fscanf(FILE **_**fp, const char**_** format \[,argument,...]);** → same as printf but on a file. returns the number of arguments that are successfully read and assigned (on success), returns EOF if the end of the file is reached before any of the conversion specifications have been processed
 
-**fscanf(myFile, "%i", \&i); **→ reads the next integer value from the file "myFile" and stores it in the variable i
+**fscanf(myFile, "%i", \&i);** → reads the next integer value from the file "myFile" and stores it in the variable i
 
 example:
 
@@ -288,7 +288,7 @@ int main() {
 
 ## Formatting functions
 
-**int sprintf(char **_**string, const char **_**format,...) **→ used to write formatted output to a string. we can combine several data variables into a character array, instead of printing on the console we store the output to a char buffer
+**int sprintf(char **_**string, const char**_** format,...)** → used to write formatted output to a string. we can combine several data variables into a character array, instead of printing on the console we store the output to a char buffer
 
 **sprintf(string, "%d %c %f", value, c, fit);**
 
@@ -311,7 +311,7 @@ int main() {
 }
 ```
 
-**sscanf(const char **_**str, const char **_** control\_string \[arg1,arg2,...]); **→ allows to read formatted data from a string rather than stdin or keyboard
+**sscanf(const char **_**str, const char**_**  control\_string \[arg1,arg2,...]);** → allows to read formatted data from a string rather than stdin or keyboard
 
 **sscanf(buffer,"%s %d", name,\&age);**
 
@@ -341,7 +341,7 @@ int main() {
 
 ![](<../../.gitbook/assets/2 (1).png>)
 
-**fflush() **→ used to flush/clean a file or buffer
+**fflush()** → used to flush/clean a file or buffer
 
 ```
 int fflush(FILE *fp);

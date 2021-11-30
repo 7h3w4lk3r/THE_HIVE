@@ -126,7 +126,7 @@ int main(){
 \
 &#x20;4\. to compile without an IDE from command line:\
 \
-&#x20;**gcc \*.c -o \[program name] **→ compile all .c source files, headers are checked in compile time and are not included in the command\
+&#x20;**gcc \*.c -o \[program name]** → compile all .c source files, headers are checked in compile time and are not included in the command\
 \
 &#x20;use with -c without -o option to keep the object files if you want, we can use object files only to compile the program same as we did with the source files, .o and .c is the same here.
 

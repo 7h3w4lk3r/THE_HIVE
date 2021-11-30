@@ -30,7 +30,7 @@ nmap -n -sV --script "ldap* and not brute" -p 389 <DC IP>
 
 **Assuming that you are conected to the internal network (part of the domain) but dont have access to any system in the domain.**
 
-#### **check out**[** MITM**](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/active-directory-attacks/network-poisoning-mitm)** Section.**
+#### **check out**[ **MITM**](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/active-directory-attacks/network-poisoning-mitm) **Section.**
 
 ## Bypass AMSI
 
@@ -233,7 +233,7 @@ Get-NetDomainTrust
 Get-NetDomainTrust -Domain <DomainName>
 ```
 
-### ** Enum Forest Trust**
+### &#x20;**Enum Forest Trust**
 
 ```
 Get-NetForestDomain
@@ -549,7 +549,7 @@ MS-RPC (Microsoft Remote Procedure Call) is a protocol that allows requesting se
 
 RPC services over an SMB transport, i.e. port 445/TCP, are reachable through "named pipes"' (through the `IPC$` share). There are many interesting named pipes that allow various operations from NULL sessions context, to local administrative context.
 
-### Find exposed services <a href="find-exposed-services" id="find-exposed-services"></a>
+### Find exposed services <a href="#find-exposed-services" id="find-exposed-services"></a>
 
 The epmapper (MS-RPC EndPoint Mapper) maps services to ports. It uses port 135/TCP and/or port 593/TCP (for RPC over HTTP).
 
@@ -561,11 +561,11 @@ rpcdump.py -port 135 $TARGET_IP
 rpcdump.exe -p 593 $TARGET_IP
 ```
 
-### Null sessions <a href="null-sessions" id="null-sessions"></a>
+### Null sessions <a href="#null-sessions" id="null-sessions"></a>
 
 NULL sessions are unauthenticated SMB sessions that allow attackers to operate RPC calls through SMB named pipes without being authenticated first. This allows for many recon techniques like the enumeration of domain and local information (users, groups, RIDs, SIDs, policies, etc.)
 
-### Recon through interesting named pipes <a href="recon-through-interesting-named-pipes" id="recon-through-interesting-named-pipes"></a>
+### Recon through interesting named pipes <a href="#recon-through-interesting-named-pipes" id="recon-through-interesting-named-pipes"></a>
 
 The Samba utility named rpcclient can be used to operate recon through MS-RPC services behind SMB named pipes. It offers multiple useful commands.
 
@@ -585,7 +585,7 @@ getdompwinfo: get password policy
 rpcclient -c "command1,command2" $TARGET_IP
 ```
 
-### RID Cycling <a href="rid-cycling" id="rid-cycling"></a>
+### RID Cycling <a href="#rid-cycling" id="rid-cycling"></a>
 
 RID Cycling is a method that allows attackers to enumerate domain objects by bruteforcing or guessing RIDs and SIDs, based on the fact that RIDs are sequential.
 

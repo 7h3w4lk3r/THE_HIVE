@@ -4,7 +4,7 @@ Executables in Windows can be run without using their extension (e.g. “whoami.
 
 Consider the following unquoted path: C:\Program Files\Some Dir\SomeProgram.exe
 
-&#x20;To us, this obviously runs SomeProgram.exe. To Windows, C:\Program could be the executable, with two arguments: “Files\Some” and “Dir SomeProgram.exe” Windows resolves this ambiguity by checking each of the possibilities in turn.** If we can write to a location Windows checks before the actual executable, we can trick the service into executing it instead.**
+&#x20;To us, this obviously runs SomeProgram.exe. To Windows, C:\Program could be the executable, with two arguments: “Files\Some” and “Dir SomeProgram.exe” Windows resolves this ambiguity by checking each of the possibilities in turn. **If we can write to a location Windows checks before the actual executable, we can trick the service into executing it instead.**
 
 ## detecting unquoted service paths
 

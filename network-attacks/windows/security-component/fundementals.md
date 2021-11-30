@@ -2,13 +2,17 @@
 
 ## Active Directory Components
 
+
+
+
+
 ![](<../../../.gitbook/assets/image (168).png>)
 
 ### ****
 
-### **Forests **
+### **Forests**&#x20;
 
-Represents a complete Active Directory instance. **It is made of one or more domains and domain trees. **Each domain has its own characteristics, boundaries, and resources. But at the same time, it shares a common logical structure, schema, and directory configuration within the forest. Similarly, tribes have a relationship with the forest and other tribes, and **domains in the Active Directory forest will have a two-way trust relationship. The first domain controller in the Active Directory service deployment is the forest root domain.**
+Represents a complete Active Directory instance. **It is made of one or more domains and domain trees.** Each domain has its own characteristics, boundaries, and resources. But at the same time, it shares a common logical structure, schema, and directory configuration within the forest. Similarly, tribes have a relationship with the forest and other tribes, and **domains in the Active Directory forest will have a two-way trust relationship. The first domain controller in the Active Directory service deployment is the forest root domain.**
 
 {% hint style="info" %}
 Two-way transitive trust is a logical link between domains, where the trusting domain honors the logon authentication of the trusted domain. When considering the previous example, users in rebeladminit.com can authenticate into mytraining.ca , and vice versa.
@@ -20,7 +24,7 @@ Any object located in a particular domain inherently trusts other objects in oth
 
 ### Trees
 
-A domain tree is **a collection of domains that reflects the organization's structure. domains inside the domain tree have a parent-child relationship.** The first domain in the domain tree is called the parent domain. This is also the root domain. All other domains in the domain tree are called the child domains. There will be only one parent domain in a domain tree. **In some documentation, child domains are also called subdomains. **When dealing with internet domains, the creation of an additional placeholder, a sub-URL, is sometimes required
+A domain tree is **a collection of domains that reflects the organization's structure. domains inside the domain tree have a parent-child relationship.** The first domain in the domain tree is called the parent domain. This is also the root domain. All other domains in the domain tree are called the child domains. There will be only one parent domain in a domain tree. **In some documentation, child domains are also called subdomains.** When dealing with internet domains, the creation of an additional placeholder, a sub-URL, is sometimes required
 
 
 
@@ -32,9 +36,9 @@ The domain **contains the logical components to achieve the administrative goals
 
 ### Organizational units
 
-**Organizational units help group objects on a smaller scale within the domain. **The most common way is to group objects that have similar security and administrative requirements together.When deploying a domain controller, it creates a default OU structure to segment the most common object types, such as users, computers, and domain controllers. The administrator can add, remove, and delete an OU as required.
+**Organizational units help group objects on a smaller scale within the domain.** The most common way is to group objects that have similar security and administrative requirements together.When deploying a domain controller, it creates a default OU structure to segment the most common object types, such as users, computers, and domain controllers. The administrator can add, remove, and delete an OU as required.
 
-**Once an object is assigned to an OU, it inherits the security settings and permissions that are applied to the OU level**. **If the same object is moved to a different OU, then it will apply the settings from the new OU, and discard the settings that were applied from the previous OU. **OUs also help to delegate administrative control to individuals for specific tasks. Domain administrators have privileges that allow them to manage any object within the domain. But it's possible to create administrators and assign them to manage objects and resources on an OU level. **For these administrators, the OU will be the security boundary. They will not be able to modify any other object outside that particular OU**.
+**Once an object is assigned to an OU, it inherits the security settings and permissions that are applied to the OU level**. **If the same object is moved to a different OU, then it will apply the settings from the new OU, and discard the settings that were applied from the previous OU.** OUs also help to delegate administrative control to individuals for specific tasks. Domain administrators have privileges that allow them to manage any object within the domain. But it's possible to create administrators and assign them to manage objects and resources on an OU level. **For these administrators, the OU will be the security boundary. They will not be able to modify any other object outside that particular OU**.
 
 {% hint style="info" %}
 OUs can also contain object types, such as users, groups, contacts, computers, organizational units, and printers
@@ -75,7 +79,7 @@ A trust relationship can also be **transitive** (A trust B, B trust C, then A tr
 
 ### Schema
 
-**The schema is the foundation of object structures for the entire forest**.** Every domain in the forest shares the same set of object structures that are defined in the schema.** If an attacker accesses or modifies the schema, every domain in the forest will be affected. The schema is one-third of the directory database, which is stored on all domain controllers in every domain.** Only one domain controller in the forest can update the schema?the Schema Master.**
+**The schema is the foundation of object structures for the entire forest**. **Every domain in the forest shares the same set of object structures that are defined in the schema.** If an attacker accesses or modifies the schema, every domain in the forest will be affected. The schema is one-third of the directory database, which is stored on all domain controllers in every domain. **Only one domain controller in the forest can update the schema?the Schema Master.**
 
 ****
 

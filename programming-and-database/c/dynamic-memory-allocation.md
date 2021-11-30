@@ -25,7 +25,7 @@ pnumber = NULL;
 
 ### What is Heap?&#x20;
 
-The heap is a memory used by programming languages to store global variables. **By default, all global variable are stored in heap memory space**.** It supports Dynamic memory allocation.** The heap is not managed automatically for you and is not as tightly managed by the CPU. It is more like a free-floating region of memory.
+The heap is a memory used by programming languages to store global variables. **By default, all global variable are stored in heap memory space**. **It supports Dynamic memory allocation.** The heap is not managed automatically for you and is not as tightly managed by the CPU. It is more like a free-floating region of memory.
 
 ## malloc
 
@@ -72,7 +72,7 @@ int main(){
 
 ## Releasing the memory
 
-**heap memory is automatically released after program exits. **a memory leak occurs when we allocate some memory dynamically and we don't retain the reference to it, so we are unable to release the memory. because we don't release the memory when we no longer need it, the program consumes more and more of the available memory on each loop iteration and eventually may occupy it all ! to free memory that we have allocated dynamically we must still ave access to the address that references the block of memory.
+**heap memory is automatically released after program exits.** a memory leak occurs when we allocate some memory dynamically and we don't retain the reference to it, so we are unable to release the memory. because we don't release the memory when we no longer need it, the program consumes more and more of the available memory on each loop iteration and eventually may occupy it all ! to free memory that we have allocated dynamically we must still ave access to the address that references the block of memory.
 
 to release the memory for a block of dynamically allocated memory whose address we have stored in a pointer:
 

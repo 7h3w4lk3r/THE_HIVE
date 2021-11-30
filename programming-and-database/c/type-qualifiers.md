@@ -8,7 +8,7 @@ description: >-
 
 ## &#x20;const
 
-#### means the variable will not be changed by the program <a href="const-means-the-variable-will-not-be-changed-by-the-program" id="const-means-the-variable-will-not-be-changed-by-the-program"></a>
+#### means the variable will not be changed by the program <a href="#const-means-the-variable-will-not-be-changed-by-the-program" id="const-means-the-variable-will-not-be-changed-by-the-program"></a>
 
 ```
  const int z =10;
@@ -85,10 +85,10 @@ a variables visibility or linkage determines for a multiple-source-file program 
 
 #### C provides 4 storage classes:&#x20;
 
-1. **auto **
-2. **register **
-3. ** extern **
-4. ** static**
+1. **auto**&#x20;
+2. **register**&#x20;
+3. &#x20;**extern**&#x20;
+4. &#x20;**static**
 
 #### the 4 classes can be split into 2 storage duration:
 

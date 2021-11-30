@@ -2,7 +2,7 @@
 
 * [Home](README.md)
 
-## RECON <a href="recon-1" id="recon-1"></a>
+## RECON <a href="#recon-1" id="recon-1"></a>
 
 * [Passive (OSINT)](recon-1/osint/README.md)
   * [Metadata](recon-1/osint/metadata.md)
@@ -192,13 +192,15 @@
   * [SMB](network-attacks/exfiltration-file-transfer/smb.md)
   * [HTTP](network-attacks/exfiltration-file-transfer/http.md)
   * [Other Methods](network-attacks/exfiltration-file-transfer/other-methods.md)
-* [Pivoting & Tunneling](network-attacks/pivoting/README.md)
-  * [Tools](network-attacks/pivoting/tools.md)
-  * [SSH Forwarding](network-attacks/pivoting/ssh-port-forwarding.md)
-  * [HTTP Tunneling](network-attacks/pivoting/http-tunneling.md)
-  * [ICMP Tunneling](network-attacks/pivoting/icmp-tunneling.md)
-  * [DNS Tunneling](network-attacks/pivoting/dns-tunneling.md)
-  * [🔧 VPN Tunneling](network-attacks/pivoting/remote-connection.md)
+
+## Pivoting
+
+* [SSH Forwarding](pivoting/ssh-port-forwarding.md)
+* [HTTP Tunneling](pivoting/http-tunneling.md)
+* [ICMP Tunneling](pivoting/icmp-tunneling.md)
+* [DNS Tunneling](pivoting/dns-tunneling.md)
+* [🔧 VPN Tunneling](pivoting/remote-connection.md)
+* [Tools](pivoting/tools.md)
 
 ## Shells & Payloads
 

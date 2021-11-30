@@ -114,7 +114,7 @@ Is the API that can be use to authenticate users. The SSPI will be in charge of 
 *   **Schannel:** SSL and TLS %windir%\Windows\System32\Schannel.dll
 
     ****
-* **Negotiate: **It is used to negotiate the protocol to use (Kerberos or NTLM being Kerberos the default one) %windir%\Windows\System32\lsasrv.dll
+* **Negotiate:** It is used to negotiate the protocol to use (Kerberos or NTLM being Kerberos the default one) %windir%\Windows\System32\lsasrv.dll
 
 
 
@@ -123,7 +123,7 @@ Is the API that can be use to authenticate users. The SSPI will be in charge of 
 &#x20;A mechanism that allows administrators to specify which executable files, DLLs, and scripts can be used by specified users and groups. AppLocker consists of a driver (%SystemRoot%\System32\Drivers\AppId.sys) and a service (%SystemRoot%\System32\AppIdSvc.dll) running in a SvcHost process.\
 
 
-#### the relationships among some of these components and the databases they manage** are shown in picture bellow:**
+#### the relationships among some of these components and the databases they manage **are shown in picture bellow:**
 
 ![](<../../../.gitbook/assets/image (55).png>)
 

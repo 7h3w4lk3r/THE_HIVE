@@ -6,13 +6,14 @@
 
 **In most cases, the main firewall is placed in the demilitarized zone ( DMZ).** Some select additional firewalls closer to the business’s intranet and/or their industrial supervisory control and data acquisition (SCADA) may also exist.
 
-## :ballot\_box\_with\_check: Checklist <a href="next-gen-firewalls-explained" id="next-gen-firewalls-explained"></a>
+## :ballot\_box\_with\_check: Checklist <a href="#next-gen-firewalls-explained" id="next-gen-firewalls-explained"></a>
 
 * [ ] **Detection**
 * [ ] **Policy/Rule Test**
+* [ ] **Scan Timing**
 * [ ] ****[**IPv6**](../../network-attacks/network/ipv6.md)****
 * [ ] **Firewalking**
-* [ ] **Product Vulnerability **
+* [ ] **Product Vulnerability**&#x20;
 
 ## Detection
 
@@ -26,7 +27,7 @@ A great tool for packet crafting and generating custom traffic for testing firew
 
 
 
-**Testing ICMP: **In this example hping3 will behave like a normal ping utility, sending ICMP-echo und receiving ICMP-reply
+**Testing ICMP:** In this example hping3 will behave like a normal ping utility, sending ICMP-echo und receiving ICMP-reply
 
 ```
 hping3 -1 google.com
@@ -52,7 +53,7 @@ hping3 — traceroute -V -S -p 80 -s 5050 testpage.com
 
 
 
-**Other types of ICMP: **This example sends a ICMP address mask request ( Type 17 ).
+**Other types of ICMP:** This example sends a ICMP address mask request ( Type 17 ).
 
 ```
 hping3 -c 1 -V -1 -C 17 testpage.com
@@ -62,7 +63,7 @@ for testing other ICMP types check out the [`ICMP`](broken-reference) protocol s
 
 
 
-**Other types of Port Scanning: **First type we will try is the FIN scan. In a TCP connection the FIN flag is used to start the connection closing routine. If we do not receive a reply, that means the port is open. Normally firewalls send a RST+ACK packet back to signal that the port is closed.
+**Other types of Port Scanning:** First type we will try is the FIN scan. In a TCP connection the FIN flag is used to start the connection closing routine. If we do not receive a reply, that means the port is open. Normally firewalls send a RST+ACK packet back to signal that the port is closed.
 
 ```
 hping3 -c 1 -V -p 80 -s 5050 -F testpage.com
@@ -86,7 +87,7 @@ hping3 -c 1 -V -p 80 -s 5050 -M 0 -UPF testpage.com
 
 
 
-**Null Scan: **This scan sets the sequence number to zero and have no flags set in the packet. If the target device’s TCP port is closed, the target device sends a TCP RST packet in reply. If the target device’s TCP port is open, the target discards the TCP NULL scan, sending no reply.
+**Null Scan:** This scan sets the sequence number to zero and have no flags set in the packet. If the target device’s TCP port is closed, the target device sends a TCP RST packet in reply. If the target device’s TCP port is open, the target discards the TCP NULL scan, sending no reply.
 
 ```
 hping3 -c 1 -V -p 80 -s 5050 -Y testpage.com
@@ -94,7 +95,7 @@ hping3 -c 1 -V -p 80 -s 5050 -Y testpage.com
 
 
 
-**Smurf Attack: **This is a type of denial-of-service attack that floods a target system via spoofed broadcast ping messages.
+**Smurf Attack:** This is a type of denial-of-service attack that floods a target system via spoofed broadcast ping messages.
 
 ```
 hping3 -1 — flood -a VICTIM_IP BROADCAST_ADDRESS
@@ -213,7 +214,7 @@ nmap --badsum 192.168.1.12
 map -sS -T5 192.168.1.12 --script firewall-bypass
 ```
 
-**firewalk: **Tries to discover firewall rules using an IP TTL expiration technique known as firewalking.To determine a rule on a given gateway, the scanner sends a probe to a metric located behind the gateway, with a TTL one higher than the gateway. If the probe is forwarded by the gateway, then we can expect to receive an ICMP\_TIME\_EXCEEDED reply from the gateway next hop router, or eventually the metric itself if it is directly connected to the gateway. Otherwise, the probe will timeout.
+**firewalk:** Tries to discover firewall rules using an IP TTL expiration technique known as firewalking.To determine a rule on a given gateway, the scanner sends a probe to a metric located behind the gateway, with a TTL one higher than the gateway. If the probe is forwarded by the gateway, then we can expect to receive an ICMP\_TIME\_EXCEEDED reply from the gateway next hop router, or eventually the metric itself if it is directly connected to the gateway. Otherwise, the probe will timeout.
 
 It starts with a TTL equals to the distance to the target. If the probe timeout, then it is resent with a TTL decreased by one. If we get an ICMP\_TIME\_EXCEEDED, then the scan is over for this probe.
 
@@ -248,7 +249,7 @@ nmap --script=firewalk --traceroute --script-args=firewalk.probe-timeout=400ms <
 nmap --script=firewalk --traceroute --script-args=firewalk.max-probed-ports=7 <host>
 ```
 
-**Custom Scan Types : **The --scanflags option allows you to design your own scan by specifying arbitrary TCP flags. Let your creative juices flow, while evading intrusion detection systems whose vendors simply paged through the Nmap man page adding specific rules! The --scanflags argument can be a numerical flag value such as 9 (PSH and FIN), but using symbolic names is easier. Just mash together any combination of URG, ACK, PSH, RST, SYN, and FIN. For example, --scanflags URGACKPSHRSTSYNFIN sets everything, though it's not very useful for scanning. The order these are specified in is irrelevant.
+**Custom Scan Types :** The --scanflags option allows you to design your own scan by specifying arbitrary TCP flags. Let your creative juices flow, while evading intrusion detection systems whose vendors simply paged through the Nmap man page adding specific rules! The --scanflags argument can be a numerical flag value such as 9 (PSH and FIN), but using symbolic names is easier. Just mash together any combination of URG, ACK, PSH, RST, SYN, and FIN. For example, --scanflags URGACKPSHRSTSYNFIN sets everything, though it's not very useful for scanning. The order these are specified in is irrelevant.
 
 In addition to specifying the desired flags, you can specify a TCP scan type (such as -sA or -sF). That base type tells Nmap how to interpret responses. For example, a SYN scan considers no-response indicative of a filtered port, while a FIN scan treats the same as open|filtered. Nmap will behave the same way it does for the base scan type, except that it will use the TCP flags you specify instead. If you don't specify a base type, SYN scan is used.
 
@@ -275,6 +276,88 @@ nmap -sF --scanflags PSH [ip]
 {% embed url="https://0xbharath.github.io/art-of-packet-crafting-with-scapy/index.html" %}
 
 {% embed url="http://blog.facilelogin.com/2010/12/hand-crafting-tcp-handshake-with-scapy.html" %}
+
+## Scan Timing
+
+### nmap Timing Options
+
+
+
+| **Description**                     | **Option \[flag]**        |
+| ----------------------------------- | ------------------------- |
+| Timing Templates                    | **-T\[0-5]**              |
+| Set the Packet Time To Live \[TTL]  | **–ttl**                  |
+| Minimum # of Parallel Operations    | **–min-parallelism**      |
+| Maximum # of Parallel Operations    | **–max-parallelism**      |
+| Minimum Host Group Size             | **–min-hostgroup**        |
+| Maximum Host Group Size             | **–max-hostgroup**        |
+| Maximum RTT Timeout                 | **–max-rtt-timeout**      |
+| Initial RTT Timeout                 | **–initial-rtt-timeout**  |
+| Maximum Retries                     | **–max-retries**          |
+| Host Timeout                        | **–host-timeout**         |
+| Minimum Scan Delay                  | **–scan-delay**           |
+| Maximum Scan Delay                  | **–max-scan-delay**       |
+| Minimum Packet Rate                 | **–min-rate**             |
+| Maximum Packet Rate                 | **–max-rate**             |
+| Defeat Reset Rate Limits            | **–defeat-rst-ratelimit** |
+
+### **NMAP Timing Unit Flags**
+
+By default, NMAP executes time units in seconds. However, by applying a qualifier to the timing flag, we can instruct NMAP to accept timing units in milliseconds, minutes, or hours – as seen in **Table 1.2** below.
+
+
+
+| **Flag**   | **Definition**                    | **Time Unit**      | **Flag** |
+| ---------- | --------------------------------- | ------------------ | -------- |
+| **(none)** | Milliseconds (1/1000 of a second) | 60000 milliseconds | 60000ms  |
+| **s**      | Seconds                           | 60 seconds         | 60s      |
+| **m**      | Minutes                           | 1 minutes          | 1m       |
+| **h**      | Hours                             | 1 hour             | 1h       |
+
+****
+
+&#x20;For example, we can instruct NMAP to scan a target for a 1 minute before aborting using the **–host-timeout** option as shown below:
+
+```
+nmap – host-timeout 60000 192.168.130.132
+```
+
+The above command can be also executed as:
+
+```
+nmap – host-timeout 60s 192.168.130.132
+```
+
+Or:
+
+```
+nmap – host-timeout 1m 192.168.130.132
+```
+
+### **NMAP Timing Templates**
+
+**Flag:** -T
+
+**Syntax:** nmap -T\[Template No.] \[Target]
+
+**Description:** Specify an NMAP timing template for a scan.&#x20;
+
+Think of NMAP timing templates as shortcuts for different timing options.&#x20;
+
+NMAP provides six templates \[0 to 5] we can use to slow down scanning \[evade firewalls] or speed up \[get faster results] – depending on the scanning scenario, as seen in **Table 1.3** below.
+
+
+
+| **NMAP Timing Template** | **Name**        | **Description**                              |
+| ------------------------ | --------------- | -------------------------------------------- |
+| **-T0**                  | Paranoid scan   | A very slow scan                             |
+| **-T1**                  | Sneaky scan     | Excellent for avoiding firewalls             |
+| **-T2**                  | Polite scan     | Unlikely to interfere with the target system |
+| **-T3**                  | Normal scan     | The default NMAP timing template             |
+| **-T4**                  | Aggressive scan | Provides faster results on LANs              |
+| **-T5**                  | Insane scan     | A fast aggressive scan                       |
+
+{% embed url="https://nmap.org/book/man-performance.html" %}
 
 ## Port Knocking
 
