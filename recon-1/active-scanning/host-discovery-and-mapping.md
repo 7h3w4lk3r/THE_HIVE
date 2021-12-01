@@ -14,25 +14,25 @@ discovers the route that packets take between two system in the network. it help
 
 Windows:
 
-```text
+```
 tracert [target]
 ```
 
 Linux:
 
-```text
+```
 traceroute [target] 
 ```
 
 ## Linux traceroute
 
-#### Linux traceroute sends packets to target with varying TTLs in the IP header. by default sends UDP packets with incrementing destination ports starting from port 33434 going up by one port for each probe packet sent \( each hope measured three times \).
+#### Linux traceroute sends packets to target with varying TTLs in the IP header. by default sends UDP packets with incrementing destination ports starting from port 33434 going up by one port for each probe packet sent ( each hope measured three times ).
 
 ![](../../.gitbook/assets/tr.png)
 
 #### here are some of the most used options:
 
-```text
+```
 -f [number]: set the initial TTL for the first packet
 -g [host list] : specify a loose source route (8 maximum hops)
 -I : use ICMP echo request instead of UDP
@@ -51,7 +51,7 @@ traceroute [target]
 
 some useful options:
 
-```text
+```
 -h [number] : max number of hops (default 30)
 -d : dont resolve names
 -j [hostlist] : use loose source routing with a space-separated list of router IPs (up to 9 max)
@@ -74,7 +74,7 @@ some useful options:
 
 for best performance use traceroute with these three options and compare the results:
 
-```text
+```
 traceroute target
 traceroute -T target
 traceroute -T -p [test multiple ports] target
@@ -83,7 +83,7 @@ traceroute -I target
 
 for an all in one command you can use this chain of commands:
 
-```text
+```
 traceroute target.com > 1 && traceroute -T target.com > 2 && traceroute -I target.com > 3 && traceroute target.com -T 80 > 4 && cat 1 2 3 4 | grep -v '*' | sort -n -k 1 -u | sort -g
 ```
 
@@ -91,13 +91,31 @@ this will run a traceroute with multiple methods and combine the results for bet
 
 ![](../../.gitbook/assets/tr2.png)
 
-using this method we can minimize the chance of lost hopes in the route. \( the \* signs\). here is the bash script you can use with the target domain or IP as an argument to perform the same task:
+using this method we can minimize the chance of lost hopes in the route. ( the \* signs). here is the bash script you can use with the target domain or IP as an argument to perform the same task:
 
-```text
-#!/bin/bash 
-target=$1
-echo "target: &target"
-traceroute $target > 1 && traceroute -T $target > 2 && traceroute -I $target > 3 && traceroute $target -T 80 > 4 && cat 1 2 3 4 | grep -v '*' | sort -n -k 1 -u | sort -g 
+```
+#!/bin/bash
+
+if [ $# -ne 1 ]
+        then
+        echo "usage: $0 <target ip/domain>"
+        exit 1
+fi
+
+echo "[*] Using UDP with incremental from 33434 "
+traceroute $1 | tee -a tmp1
+echo "[*] Using TCP SYN port 80"
+ traceroute -T $1 | tee -a tmp2
+echo "[*] Using ICMP echo request"
+traceroute -I $1 | tee -a tmp3
+echo "[*] Using TCP SYN port 443"
+ traceroute $1  -T 443 | tee tmp4
+echo
+echo "[+] Multi-route finished [+]"
+echo "[+] Results saved to $1.txt file [+]"
+cat tmp1 tmp2 tmp3 tmp4 | grep -v '*' | sort -n -k 1 -u | sort -g | tee -a $1.txt
+rm -rf tmp1 tmp2 tmp3 tmp4
+
 ```
 
 ## Network Mapping
@@ -110,19 +128,18 @@ you can also use zenmap for network mapping which is a GUI for nmap tool and can
 
 you can use nmap, masscan or unicorn scan for this:
 
-```text
+```
 nmap -sn -T4 -oG 192.168.1.1/24 | grep “Status: Up” | cut -f 2 -d ‘ ‘ > LiveHosts.txt
 nmap –PE –sn -n 10.50.96.0/23 –oX /root/Desktop/scan.xml
 ```
 
-the -PE enables ICMP Echo request host discovery \(Ping scan\)
+the -PE enables ICMP Echo request host discovery (Ping scan)
 
- the -sn option means only do a host discovery and not a port scan
+&#x20;the -sn option means only do a host discovery and not a port scan
 
-```text
+```
 unicornscan 192.168.100.35/24:31
 masscan 192.168.2.1/24 -p80,53,443,22
 ```
 
 masscan is the fastest host discovery tool available, even faster than nmap.
-
