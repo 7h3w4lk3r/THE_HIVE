@@ -272,3 +272,7 @@
 ## Hardening & Monitoring
 
 * [🔧 Linux Hardening Checklist](hardening-and-monitoring/untitled.md)
+
+## Command & Control
+
+* [Basics](command-and-control/basics.md)

@@ -26,7 +26,7 @@ In OSINT you should **always ask questions like: how, who, when, where and why.*
 
 ### Domain
 
-![](<../../.gitbook/assets/image (275).png>)
+![](<../../.gitbook/assets/image (275) (1).png>)
 
 ### Website
 

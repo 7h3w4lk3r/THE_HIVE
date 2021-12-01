@@ -12,6 +12,10 @@ We can use the following find command to locate files with the SUID or SGID bits
 
 #### `find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null`
 
+or
+
+`find / -perm -2000 -o -perm -4000`&#x20;
+
 ## Shell Escape Sequences
 
 Just as we were able to use shell escape sequences with programs running via sudo, we can do the same with SUID / SGID files. A list of programs with their shell escape sequences can be found here: [https://gtfobins.github.io/](https://gtfobins.github.io) Refer to the previous section on shell escape sequences for how to use them.
