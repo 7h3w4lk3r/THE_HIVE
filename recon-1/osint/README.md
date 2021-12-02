@@ -229,6 +229,10 @@ Search engine for the Internet of everything. Shodan is the world's first search
 
 &#x20;here the keywords that are mostly used in shodan search queries:
 
+### Shodan Queries
+
+{% embed url="https://www.osintme.com/index.php/2021/01/16/ultimate-osint-with-shodan-100-great-shodan-queries" %}
+
 ```
 title: Search the content scraped from the HTML tag
 html: Search the full HTML content of the returned page
@@ -259,10 +263,12 @@ shodan parse --fields ip_str,port,org --separator , microsoft-data.json.gz
 shodan search --fields ip_str,port,org,hostnames microsoft iis 6.0
 ```
 
+### Shodan CLI & nmap
+
 there are several other ways to use the search engine without the website for example with the nmap NSE scripts like this:
 
 ```
-  nmap -sn -Pn -n --script=shodan-api -script-args shodan-api.apikey=[api key] [target ip]
+nmap -sn -Pn -n --script=shodan-api -script-args shodan-api.apikey=[api key] [target ip]
 ```
 
 there is also a CLI shodan interface written in python for linux which you can use or integrate in your own scripts or tools. to install and setup the CLI tool:
