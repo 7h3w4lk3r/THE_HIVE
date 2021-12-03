@@ -23,6 +23,7 @@
   * [nmap cheat sheet](recon-1/active-scanning/nmap-cheat-sheet.md)
   * [masscan cheat sheet](recon-1/active-scanning/masscan-cheat-sheet.md)
   * [Web Application](recon-1/active-scanning/web-application-enumeration/README.md)
+    * [Checklist](recon-1/active-scanning/web-application-enumeration/checklist.md)
     * [Web Server Discovery](recon-1/active-scanning/web-application-enumeration/web-server-discovery.md)
     * [Hidden Hosts](recon-1/active-scanning/web-application-enumeration/hidden-hosts.md)
     * [Directories & Subdomains](recon-1/active-scanning/web-application-enumeration/directories-and-domains.md)

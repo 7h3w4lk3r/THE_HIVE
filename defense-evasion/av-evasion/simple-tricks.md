@@ -10,7 +10,7 @@
 To search for a specific function in LOL binaries, use `/function` key word. for example : `/execute`
 {% endhint %}
 
-## Alternative Data Streams
+## Alternate Data Streams
 
 Execute a .EXE file stored as an Alternate Data Stream (ADS)
 

@@ -6,6 +6,79 @@ description: >-
 
 # Host Discovery / Network Mapping
 
+## Netdiscover
+
+Discover live hosts in LAN and get the internal IP address and MAC address of live hosts in the network.It can be used in both active and passive mode.
+
+#### Options:
+
+```
+  -i device: your network device
+  -r range: scan a given range instead of auto scan. 192.168.6.0/24,/16,/8
+  -l file: scan the list of ranges contained into the given file
+  -p passive mode: do not send anything, only sniff
+  -m file: scan the list of known MACs and host names
+  -F filter: Customize pcap filter expression (default: "arp")
+  -s time: time to sleep between each arp request (miliseconds)
+  -n node: last ip octet used for scanning (from 2 to 253)
+  -c count: number of times to send each arp reques (for nets with packet loss)
+  -f enable fastmode scan, saves a lot of time, recommended for auto
+  -d ignore home config files for autoscan and fast mode
+  -S enable sleep time supression betwen each request (hardcore mode)
+  -P print results in a format suitable for parsing by another program
+  -N Do not print header. Only valid when -P is enabled.
+  -L in parsable output mode (-P), continue listening after the active scan is completed
+```
+
+### Active Mode:
+
+Run as an ARP scanner
+
+```
+netdiscover -i eth0 -r 192.168.1.0/24
+```
+
+**Multiple Ranges from a File**
+
+```
+netdiscover -l <file containing ranges>
+```
+
+### **Passive Mode:**
+
+**Run as an ARP sniffer**
+
+```
+netdiscover -p -r <range,optional>
+```
+
+### Parsable Outputs
+
+```
+Syntax: netdiscover -P<parsable> -N<ommit headers>
+Command: netdiscover-r 192.168.1.1/24 -PN
+```
+
+## Responder
+
+**A great discovery tool for Active Directory Environments**
+
+```
+responder -I eth0 -A # see NBT-NS, BROWSER, LLMNR requests without responding.
+responder.py -I eth0 -wrf
+```
+
+## Bettercap
+
+Advanced MitM and sniffer tool.
+
+```
+bettercap -X --proxy --proxy-https -T <target IP>
+# better cap in spoofing, discovery, sniffer
+# intercepting http and https requests,
+# targetting specific IP only
+```
+
 ## Traceroute
 
 discovers the route that packets take between two system in the network. it helps us to construct network architecture diagrams and it is included in most if not all OSs.
@@ -70,9 +143,11 @@ some useful options:
 
 {% embed url="https://www.ip2location.com/free/traceroute" %}
 
-## Best performance
+## Network Mapping
 
-for best performance use traceroute with these three options and compare the results:
+### Traceroute
+
+for best performance and mapping the network hops use traceroute with these three options and compare the results:
 
 ```
 traceroute target
@@ -118,13 +193,13 @@ rm -rf tmp1 tmp2 tmp3 tmp4
 
 ```
 
-## Network Mapping
+### Zenmap
 
 you can also use zenmap for network mapping which is a GUI for nmap tool and can be downloaded from [here](https://nmap.org/zenmap/).
 
 ![](../../.gitbook/assets/zenmap.png)
 
-## Finding live hosts
+## Finding Remote Live Hosts
 
 you can use nmap, masscan or unicorn scan for this:
 
