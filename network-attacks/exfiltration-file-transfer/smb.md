@@ -1,12 +1,8 @@
 # SMB
 
-## SMB between linux and windows
-
-{% embed url="https://docs.microsoft.com/en-us/windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3" %}
-
 ## Windows
 
-### SMB v1 (client and server)
+### SMB v1&#x20;
 
 detect:
 
@@ -27,7 +23,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName smb1protocol
 Enable-WindowsOptionalFeature -Online -FeatureName "SMB1Protocol-Client" -All
 ```
 
-### SMB v2/v3 Protocol
+### SMB v2/v3&#x20;
 
 Detect:
 

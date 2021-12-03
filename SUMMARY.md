@@ -196,6 +196,8 @@
   * [FTP](network-attacks/exfiltration-file-transfer/ftp.md)
   * [HTTP](network-attacks/exfiltration-file-transfer/http.md)
   * [Other Methods](network-attacks/exfiltration-file-transfer/other-methods.md)
+* [Sniffing / Traffic Analysis](network-attacks/sniffing-traffic-analysis/README.md)
+  * [TCPDUMP](network-attacks/sniffing-traffic-analysis/tcpdump.md)
 
 ## Pivoting
 
@@ -233,7 +235,7 @@
 ## 🔧 Defense Evasion
 
 * [AV Evasion](defense-evasion/av-evasion/README.md)
-  * [Tricks](defense-evasion/av-evasion/tricks.md)
+  * [Tricks](defense-evasion/av-evasion/simple-tricks.md)
   * [AMSI Bypass](defense-evasion/av-evasion/amsi-bypass.md)
 
 ## Programming and DataBase
