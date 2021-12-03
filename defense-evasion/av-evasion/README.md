@@ -2,9 +2,7 @@
 
 ## Detection Techniques
 
-An antivirus tool is an essential component of most anti-malware suites. It must identify known and previously unseen malicious files with the goal of blocking them before they can cause damage. Though tools differ in the implementation of malware-detection mechanisms, they tend to incorporate the same virus detection techniques. Familiarity with these techniques can help you understand how antivirus software works.
-
-Malware detection techniques employed by antivirus tools can be classified as follows:
+#### Malware detection techniques employed by antivirus tools can be classified as follows:
 
 **Signature-based detection** uses key aspects of an examined file to create a static fingerprint of known malware. The signature could represent a series of bytes in the file. It could also be a cryptographic hash of the file or its sections. This method of detecting malware has been an essential aspect of antivirus tools since their inception; it remains a part of many tools to date, though its importance is diminishing. A major limitation of signature-based detection is that, by itself, this method is unable to flag malicious files for which signatures have not yet been developed. With this in mind, modern attackers frequently mutate their creations to retain malicious functionality by changing the file’s signature.
 
@@ -37,97 +35,3 @@ Cmd > WMIC /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntiVirusProdu
 PS > Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntivirusProduct
 PS > gc .\100-hosts.txt | % {gwmi -Query "select * from Win32_Process" -ComputerName $_ | ? {$_.Caption -in "avp.exe","cpda.exe","MsMpEng.exe","ntrtscan.exe","tmlisten.exe"} | select ProcessName,PSComputerName}
 ```
-
-Identify Microsoft.NET version from inspecting assembly properties:
-
-```
-PS > cd C:\Windows\Microsoft.NET\Framework64\
-PS > ls
-PS > cd .\v4.0.30319\
-PS > Get-Item .\clr.dll | Fl
-Or
-PS > [System.Diagnostics.FileVersionInfo]::GetVersionInfo($(Get-Item .\clr.dll)).FileVersion
-```
-
-Identify Microsoft.NET version from querying the registry:
-
-```
-PS > Get-ItemProperty "HKLM:SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" -Name Release
-```
-
-Windows build <-> default .NET Framework version associations:
-
-| Windows Build | Default .NET Framework Version |
-| ------------- | ------------------------------ |
-| 1511          | 4.6.1                          |
-| 1607          | 4.6.2                          |
-| 1703          | 4.7                            |
-| 1709          | 4.7.1                          |
-| 1803          | 4.7.2                          |
-| 1909+         | 4.8                            |
-
-.NET Framework version <-> CLR version associations:
-
-| .NET Framework Version | CLR Version |
-| ---------------------- | ----------- |
-| 2.0, 3.0, 3.5          | 2           |
-| 4, 4.5-4.8             | 4           |
-
-Note that we don't have to target the exact .NET Framework version when compiling our tools. It's enough to match the above relationship between .NET Framework version and CLR version, i. e. all 4.x versions will execute on CLR v4. For example, Rubeus compiled to target v4.5 will run on a machine with only .NET v4.0 installed.
-
-
-
-## Sources & Tools
-
-[https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell](https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell)
-
-[https://github.com/Flangvik/AMSI.fail](https://github.com/Flangvik/AMSI.fail)
-
-[https://github.com/p3nt4/PowerShdll](https://github.com/p3nt4/PowerShdll)
-
-[https://github.com/jaredhaight/PSAttack](https://github.com/jaredhaight/PSAttack)
-
-[https://github.com/cobbr/InsecurePowerShell](https://github.com/cobbr/InsecurePowerShell)
-
-[https://github.com/Mr-Un1k0d3r/PowerLessShell](https://github.com/Mr-Un1k0d3r/PowerLessShell)
-
-[https://github.com/tothi/PowerLessShell](https://github.com/tothi/PowerLessShell) - modified PowerLessShell
-
-[https://github.com/bitsadmin/nopowershell](https://github.com/bitsadmin/nopowershell) C# Powershell
-
-[https://github.com/OmerYa/Invisi-Shell](https://github.com/OmerYa/Invisi-Shell)
-
-[https://github.com/Hackplayers/Salsa-tools](https://github.com/Hackplayers/Salsa-tools) - Salsa Tools - ShellReverse TCP/UDP/ICMP/DNS/SSL/BINDTCP and AV bypass, AMSI patched
-
-[https://github.com/padovah4ck/PSByPassCLM](https://github.com/padovah4ck/PSByPassCLM) - Constrained language mode bypass
-
-[https://github.com/rasta-mouse/AmsiScanBufferBypass](https://github.com/rasta-mouse/AmsiScanBufferBypass)
-
-[https://github.com/itm4n/VBA-RunPE](https://github.com/itm4n/VBA-RunPE) - Applocker Bypass
-
-[https://github.com/cfalta/PowerShellArmoury](https://github.com/cfalta/PowerShellArmoury)
-
-[https://github.com/Mr-B0b/SpaceRunner](https://github.com/Mr-B0b/SpaceRunner) - This tool enables the compilation of a C# program that will execute arbitrary PowerShell code, without launching PowerShell processes through the use of runspace.
-
-[https://github.com/RythmStick/AMSITrigger](https://github.com/RythmStick/AMSITrigger) - The Hunt for Malicious Strings
-
-[https://github.com/rmdavy/AMSI\_Ordinal\_Bypass](https://github.com/rmdavy/AMSI\_Ordinal\_Bypass) - Bypass AMSI and Defender using Ordinal Values in VBS
-
-[https://github.com/mgeeky/Stracciatella](https://github.com/mgeeky/Stracciatella) - OpSec-safe Powershell runspace from within C# (aka SharpPick) with AMSI, CLM and Script Block Logging disabled at startup
-
-[https://github.com/med0x2e/NoAmci](https://github.com/med0x2e/NoAmci) - Using DInvoke to patch AMSI.dll in order to bypass AMSI detections triggered when loading .NET tradecraft via Assembly.Load().
-
-[https://github.com/rvrsh3ll/NoMSBuild](https://github.com/rvrsh3ll/NoMSBuild) - MSBuild without MSbuild.exe
-
-[https://github.com/Cn33liz/MSBuildShell](https://github.com/Cn33liz/MSBuildShell) - MSBuildShell, a Powershell Host running within MSBuild.exe
-
-[https://github.com/secdev-01/AllTheThingsExec](https://github.com/secdev-01/AllTheThingsExec) - Executes Blended Managed/Unmanged Exports
-
-[https://github.com/cyberark/Evasor](https://github.com/cyberark/Evasor) - A tool to be used in post exploitation phase for blue and red teams to bypass APPLICATIONCONTROL policies / Applocker Bypass Scan
-
-[https://github.com/tomcarver16/AmsiHook](https://github.com/tomcarver16/AmsiHook) - AmsiHook is a project I created to figure out a bypass to AMSI via function hooking.
-
-[https://github.com/G0ldenGunSec/SharpTransactedLoad](https://github.com/G0ldenGunSec/SharpTransactedLoad) - Load .net assemblies from memory while having them appear to be loaded from an on-disk location.
-
-[https://github.com/itm4n/PPLdump](https://github.com/itm4n/PPLdump) - Bypass LSA Protection - Dump the memory of a PPL with a userland exploit
-

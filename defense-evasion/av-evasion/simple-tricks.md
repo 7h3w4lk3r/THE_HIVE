@@ -1,4 +1,4 @@
-# Tricks
+# Basic Tricks
 
 ## LOLBins
 

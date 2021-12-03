@@ -186,7 +186,7 @@
     * [RSYSLOG Backdoor](network-attacks/untitled/persistence/rsyslog-backdoor.md)
     * [sshd Backdoor](network-attacks/untitled/persistence/sshd-backdoor.md)
     * [VIM Config Backdoor](network-attacks/untitled/persistence/vim-config-backdoor.md)
-    * [⚠ .bashrc Backdoor (Not OPSEC)](network-attacks/untitled/persistence/.bashrc-backdoor-not-opsec.md)
+    * [⚠ .bashrc Backdoor (Not OPSEC)](network-attacks/untitled/persistence/nash\_rc-backdoor-not-opsec.md)
     * [⚠ Adding a Root user (Not OPSEC)](network-attacks/untitled/persistence/adding-a-root-user-not-opsec.md)
     * [⚠ Crontab Reverse Shell (Not OPSEC)](network-attacks/untitled/persistence/crontab-reverse-shell-not-opsec.md)
     * [⚠ SSH persistence passwordless (Not OPSEC)](network-attacks/untitled/persistence/ssh-persistence-passwordless.md)
@@ -238,7 +238,7 @@
 ## 🔧 Defense Evasion
 
 * [AV Evasion](defense-evasion/av-evasion/README.md)
-  * [Basic Tricks](defense-evasion/av-evasion/basic-tricks.md)
+  * [Basic Tricks](defense-evasion/av-evasion/simple-tricks.md)
   * [Linux Defense Evasion](defense-evasion/av-evasion/linux-defense-evasion.md)
   * [AMSI Bypass](defense-evasion/av-evasion/amsi-bypass.md)
 
