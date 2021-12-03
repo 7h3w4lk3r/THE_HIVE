@@ -239,7 +239,6 @@
 
 * [AV Evasion](defense-evasion/av-evasion/README.md)
   * [Basic Tricks](defense-evasion/av-evasion/simple-tricks.md)
-  * [Linux Defense Evasion](defense-evasion/av-evasion/linux-defense-evasion.md)
   * [AMSI Bypass](defense-evasion/av-evasion/amsi-bypass.md)
 
 ## Programming and DataBase
