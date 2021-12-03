@@ -46,6 +46,10 @@ use auxiliary/scanner/ftp/ftp_version
 openssl s_client -connect crossfit.htb:21 -starttls ftp #Get certificate if any
 ```
 
+connect to server without authentication and use `HELP` and `FEAT` commands to find some info.
+
+
+
 ### Common FTP banners
 
 some of the most used banners for different versions of FTP.
@@ -59,6 +63,18 @@ some of the most used banners for different versions of FTP.
 ```
 telnet  [ip] [port]
 ftp [ip]
+```
+
+#### starttls
+
+```
+lftp
+lftp :~> set ftp:ssl-force true
+lftp :~> set ssl:verify-certificate no
+lftp :~> connect 10.10.10.208
+lftp 10.10.10.208:~> login                       
+Usage: login <user|URL> [<pass>]
+lftp 10.10.10.208:~> login username Password
 ```
 
 ### Browser
@@ -110,13 +126,13 @@ password: anonymous // try blank password too
 
 ![](<../../.gitbook/assets/image (279).png>)
 
-### Metasploit
+#### Metasploit
 
 ```
 use auxiliary/scanner/ftp/anonymous
 ```
 
-### nmap
+#### nmap
 
 ```
 nmap -sV --script ftp-anon [target ip]
@@ -197,7 +213,9 @@ If crypto.com disallows \*any\* FTP client connection from you at foreign.fr and
 
 You may have to retrieve your command file to the target's FTP server in ASCII mode rather than binary mode. Some FTP servers can deal with raw newlines, but others may need command lines terminated by CRLF pairs. Keep this in mind when retrieving files to daemons other than FTP servers, as well.
 
+## Filezilla Server Vulnerability
 
+&#x20;FileZilla usually binds to local an Administrative service for the FileZilla-Server (port 14147). If you can create a tunnel from your machine to access this port, you can connect to it using a blank password and create a new user for the FTP service.
 
 
 

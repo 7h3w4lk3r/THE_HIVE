@@ -1,20 +1,24 @@
 # LinkedIn
 
+{% embed url="https://github.com/vysecurity/LinkedInt" %}
+
+{% embed url="https://github.com/clr2of8/GatherContacts" %}
+
 ## Tips & Tricks
 
-```text
+```
 # Check the "see coordinates" on accounts
 # Sometimes, people link other resources
 ```
 
-```text
+```
 # Getting likes, comment etc.
 /detail/recent-activity
 ```
 
 ## Getting account linked to an e-mail
 
-```text
+```
 # Great trick
 https://www.intelligencewithsteve.com/post/a-guide-to-searching-linkedin-by-email-address
 
@@ -32,7 +36,7 @@ https://outlook.live.com/people
 
 ### ScrapedIn
 
-```text
+```
 # Tool created to assist in performing recon using the LinkedIn API.
 # Provide a search string
 # Ouput as XLSX but intented to work with Google Sheets
@@ -48,7 +52,7 @@ https://linkedin.com/in/yourprofilename/detail/photo
 
 ### linkScrape
 
-```text
+```
 # linkScrape is another enumeration tool
 # Pure Web Scrapper → It does not use the LinkedIn API
 # /!\ Some bugs → LinkedIn account can be banned and needs to have 10 contacts to perform company based searches
@@ -79,7 +83,7 @@ Search options:
 
 ### Peasant
 
-```text
+```
 # Peaseant is a scraping tool that uses the LinkedIn API
 # You can harvest data from a company, set a large connection campaign and even spoof a profile
 
@@ -94,9 +98,9 @@ Search options:
 ./peasant.py spoof_profile -pu paul-m-04773b1 -C "$creds"
 ```
 
-### Linkedin2Username \([https://github.com/initstring/linkedin2username](https://github.com/initstring/linkedin2username)\)
+### Linkedin2Username ([https://github.com/initstring/linkedin2username](https://github.com/initstring/linkedin2username))
 
-```text
+```
 # Pure web scraper used to get username list from the employee list of a company
 # It will create several lists of possible username formats for all employees of a company you point it at
 
@@ -106,4 +110,3 @@ python linkedin2username.py myname@email.com uber-com
 # Pull a shorter list and append the domain name @uber.com to them
 python linkedin2username.py myname@email.com uber-com -d 5 -n 'uber.com'
 ```
-

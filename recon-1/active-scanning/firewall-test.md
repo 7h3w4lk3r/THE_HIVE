@@ -214,6 +214,12 @@ nmap --badsum 192.168.1.12
 map -sS -T5 192.168.1.12 --script firewall-bypass
 ```
 
+**Avoiding signatures:** add garbage data to the packets so the IPS/IDS signature is avoided.
+
+```
+--data-length 25
+```
+
 **firewalk:** Tries to discover firewall rules using an IP TTL expiration technique known as firewalking.To determine a rule on a given gateway, the scanner sends a probe to a metric located behind the gateway, with a TTL one higher than the gateway. If the probe is forwarded by the gateway, then we can expect to receive an ICMP\_TIME\_EXCEEDED reply from the gateway next hop router, or eventually the metric itself if it is directly connected to the gateway. Otherwise, the probe will timeout.
 
 It starts with a TTL equals to the distance to the target. If the probe timeout, then it is resent with a TTL decreased by one. If we get an ICMP\_TIME\_EXCEEDED, then the scan is over for this probe.

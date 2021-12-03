@@ -10,7 +10,7 @@ description: (TCP/UDP 53)
 
 TCP port 53 by default, fall back to UDP port 53 if not possible.
 
-![](<../../.gitbook/assets/image (277).png>)
+![](<../../.gitbook/assets/image (277) (1).png>)
 
 ## :ballot\_box\_with\_check: Checklist
 
@@ -64,13 +64,24 @@ nmap -p 53 --script dns-brute zonetransfer.me --script-args=dns-brute.hostlist=[
 
 ### dnsrecon
 
+* `dnsrecon -d [domain]` - Displays S0A, NS, A , AAAA , MX, and SRV of the target domain&#x20;
+* `dnsrecon -d [domain] -t rvl` - Performs reverse DNS lookup for IP address or CIDR range&#x20;
+* `dnsrecon -d [domain] -t axfr` - Attempts a zone transfer of all NS record nameservers&#x20;
+* dn`srecon -d [domain] -t zonewalk` - Performs a DNSSEC zone walk by querying for NSEC records&#x20;
+* `dnsrecon -d [domain] -t snoop` - D \[dictionary file] - Scans for DNS cache snooping using a supplied dictionary file
+
+#### DNSRecon can also perform subdomain brute forcing with a dictionary using the following command:&#x20;
+
+• dnsrecon -d \[domain ] -t brt - D \[dictionary file]&#x20;
+
+#### Finally DNSRecon can output the returned data to an XML file using the — xml \[output file] flag or to an SQLite database using the db \[output file] flag
+
 ```
+# examples:
+
 dnsrecon -d [domain] -n [name server if known] -r [range-optional] -t axfr
-
 dnsrecon -d example.com -t axfr
-
 dnsrecon -d example.com -D ~/list.txt -t brt >>> list contains prefixes for domain
-
 dnsrecon -t brt -d example.com -n 127.0.0.1 -D wordlist.txt
 ```
 

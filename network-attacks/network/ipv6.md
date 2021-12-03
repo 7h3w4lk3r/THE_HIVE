@@ -20,7 +20,7 @@ group1:group2: ……etc…. :group8
 
 Here is an IPv6 address example:
 
-![](<../../.gitbook/assets/image (283).png>)
+![](<../../.gitbook/assets/image (283) (1).png>)
 
 {% hint style="info" %}
 Because of the length of IPv6 addresses various shortening techniques are employed.
@@ -36,7 +36,7 @@ In IPv6 we do the same. The first step is to split the address into two parts.
 
 The address is split into 2 64 bit segments the top 64 bits is the network part and the lower 64 bits the node part:
 
-![](<../../.gitbook/assets/image (277) (1).png>)
+![](<../../.gitbook/assets/image (277) (1) (1).png>)
 
 ### Address Types and Scope
 
