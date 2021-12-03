@@ -32,12 +32,24 @@ port TCP 25
 ## Enumeration
 
 ```
+# SMTP
 nmap -p smtp* [target]
 nc -nv [target ip] 25
 use auxiliary/scanner/smtp/smtp_version
 nmap -p25 --script smtp-commands 10.10.10.10
 lf -connect smtp.mailgun.org:465 #SSL/TLS without starttls command
 openssl s_client -starttls smtp -crlf -connect smtp.mailgun.org:587
+
+
+# SMTPS
+openssl s_client -crlf -connect smtp.mailgun.org:465 #SSL/TLS without starttls command
+openssl s_client -starttls smtp -crlf -connect smtp.mailgun.org:587
+```
+
+## Find Mail Server
+
+```
+dig +short mx google.com
 ```
 
 ## Connect
@@ -233,13 +245,19 @@ nmap --script smtp-open-relay.nse [--script-args smtp-open-relay.domain=<domain>
 use auxiliary/scanner/smtp/smtp_relay
 ```
 
-#### for more info on Email spoofing check out [this link](smtp-pop3.md#introduction).
+## Mail Spoofing
 
-#### [HackTricks ](https://book.hacktricks.xyz/pentesting/pentesting-smtp#mail-spoofing)also has a good explanation for mail spoofing attacks.
+#### [HackTricks ](https://book.hacktricks.xyz/pentesting/pentesting-smtp#mail-spoofing)has a good explanation for mail spoofing attacks.
+
+### Check for Mail Spoofing Via  SPF and DMARC Records
 
 {% embed url="https://github.com/serain/mailspoof" %}
 
+### Validating SPF and DMARC DNS Records
+
 {% embed url="https://pypi.org/project/checkdmarc" %}
+
+### Sending Fake Email
 
 {% embed url="https://www.mailsploit.com/index" %}
 

@@ -4,7 +4,9 @@
 
 {% embed url="https://docs.microsoft.com/en-us/windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3" %}
 
-## SMB v1 (client and server)
+## Windows
+
+### SMB v1 (client and server)
 
 detect:
 
@@ -25,7 +27,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName smb1protocol
 Enable-WindowsOptionalFeature -Online -FeatureName "SMB1Protocol-Client" -All
 ```
 
-## SMB v2/v3 Protocol
+### SMB v2/v3 Protocol
 
 Detect:
 
@@ -45,7 +47,7 @@ Enable:
 Set-SmbServerConfiguration -EnableSMB2Protocol $true
 ```
 
-## SMB Server on Linux (attacker side)
+## SMB Server on Linux
 
 ### Using Impacket
 
@@ -55,6 +57,25 @@ the format is: impacket-smbserver \[share name to use] \[share directory path]
 # python3 /usr/share/doc/python3-impacket/examples/smbserver.py tools .
 # python /usr/share/doc/python-impacket/examples/smbserver.py tools .
 ```
+
+### Using SAMBA
+
+```
+apt-get install samba
+mkdir /tmp/smb
+chmod 777 /tmp/smb
+#Add to the end of /etc/samba/smb.conf this:
+[public]
+    comment = Samba on Ubuntu
+    path = /tmp/smb
+    read only = no
+    browsable = yes
+    guest ok = Yes
+#Start samba
+service smbd restart
+```
+
+## SMB Client on Windows
 
 #### to view available shares from windows
 

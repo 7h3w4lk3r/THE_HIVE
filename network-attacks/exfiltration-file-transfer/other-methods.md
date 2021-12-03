@@ -41,7 +41,4 @@ ncat -nv target-ip port --ssl < file-to-send
 
 #### check out these windows native tools/utilities for file transfer (download)
 
-[https://lolbas-project.github.io/#/download](https://lolbas-project.github.io/#/download)
-
-[\
-](https://lolbas-project.github.io/#/download)
+{% embed url="https://lolbas-project.github.io/#/download" %}

@@ -189,8 +189,10 @@
     * [⚠ SSH persistence passwordless (Not OPSEC)](network-attacks/untitled/persistence/ssh-persistence-passwordless.md)
 * [Exfiltration / File Transfer](network-attacks/exfiltration-file-transfer/README.md)
   * [Encode / Decode Files](network-attacks/exfiltration-file-transfer/encode-decode-files.md)
+  * [TCP / UDP](network-attacks/exfiltration-file-transfer/tcp-udp.md)
   * [SSH](network-attacks/exfiltration-file-transfer/ssh.md)
   * [SMB](network-attacks/exfiltration-file-transfer/smb.md)
+  * [FTP](network-attacks/exfiltration-file-transfer/ftp.md)
   * [HTTP](network-attacks/exfiltration-file-transfer/http.md)
   * [Other Methods](network-attacks/exfiltration-file-transfer/other-methods.md)
 

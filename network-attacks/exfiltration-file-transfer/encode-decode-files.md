@@ -1,5 +1,21 @@
 # Encode / Decode Files
 
+## Base 64 encode/decode
+
+#### Linux
+
+```bash
+base64 -w0 <file> #Encode file
+base64 -d file #Decode file
+```
+
+#### Windows
+
+```
+certutil -encode payload.dll payload.b64
+certutil -decode payload.b64 payload.dll
+```
+
 ## Windows Downloads with exe2hex and PowerShell
 
 ```
