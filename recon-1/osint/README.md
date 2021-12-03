@@ -212,6 +212,7 @@ filename:settings.py SECRET_KEY # Django secret keys (usually allows for session
 * site: \[ companydomain ] careers Q , Keyword or Title 9
 * site: \[ companydomain ] jobs .
 * site: \[ companydomain ] openings
+* Also, searches of job-related site
 
 ## PGP Public Key Servers
 
