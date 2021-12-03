@@ -1,6 +1,6 @@
 # AMSI Bypass
 
-Microsoft has developed AMSI (Antimalware Scan Interface) as a method to defend against common malware execution and protect the end user. By default windows defender interacts with the AMSI API to scan PowerShell scripts, VBA macros, JavaScript and scripts using the Windows Script Host technology during execution to prevent arbitrary execution of code. However, other antivirus products might contain support for AMSI so organisations are not restricted to the use of windows defender.
+Microsoft has developed AMSI (Anti-malware Scan Interface) as a method to defend against common malware execution and protect the end user. By default windows defender interacts with the AMSI API to scan PowerShell scripts, VBA macros, JavaScript and scripts using the Windows Script Host technology during execution to prevent arbitrary execution of code. However, other antivirus products might contain support for AMSI so organizations are not restricted to the use of windows defender.
 
 ## How AMSI Works
 

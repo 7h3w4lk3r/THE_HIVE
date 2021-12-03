@@ -3,7 +3,7 @@
 ## Shell Rootkit
 
 {% hint style="danger" %}
-This rootkit is pretty easy to detect and analyze because it can easily be seen with the file command that programs like ps or ls have changed the type from an ELF binary to a shell script. After discovering the rootkit, it is also pretty easy to analyze the functionality of it and then selectively find the backdoors hidden by the rootkit.
+This rootkit is pretty easy to detect and analyze because it can easily be seen with the file command that programs like `ps` or `ls` have changed the type from an ELF binary to a shell script. After discovering the rootkit, it is also pretty easy to analyze the functionality of it and then selectively find the backdoors hidden by the rootkit.
 {% endhint %}
 
 The shell script version is still useful if the system doesn't contain a c compiler:

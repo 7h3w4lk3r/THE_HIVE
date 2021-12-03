@@ -163,6 +163,7 @@
     * [unshadow](network-attacks/untitled/credential-dumping/unshadow.md)
     * [3snake](network-attacks/untitled/credential-dumping/3snake.md)
   * [🔧 Lateral Movement](network-attacks/untitled/lateral-movement/README.md)
+    * [VIM Config File Keylogger](network-attacks/untitled/lateral-movement/vim-config-file-keylogger.md)
     * [Hiding Processes](network-attacks/untitled/lateral-movement/hiding-processes.md)
     * [Simple Rootkits](network-attacks/untitled/lateral-movement/simple-rootkits.md)
     * [Vino VNC Server](network-attacks/untitled/lateral-movement/vino-vnc-server.md)
@@ -184,7 +185,8 @@
     * [Auth Log Backdoor](network-attacks/untitled/persistence/auth-log-backdoor.md)
     * [RSYSLOG Backdoor](network-attacks/untitled/persistence/rsyslog-backdoor.md)
     * [sshd Backdoor](network-attacks/untitled/persistence/sshd-backdoor.md)
-    * [⚠ nash\_rc Backdoor (Not OPSEC)](network-attacks/untitled/persistence/nash\_rc-backdoor-not-opsec.md)
+    * [VIM Config Backdoor](network-attacks/untitled/persistence/vim-config-backdoor.md)
+    * [⚠ .bashrc Backdoor (Not OPSEC)](network-attacks/untitled/persistence/.bashrc-backdoor-not-opsec.md)
     * [⚠ Adding a Root user (Not OPSEC)](network-attacks/untitled/persistence/adding-a-root-user-not-opsec.md)
     * [⚠ Crontab Reverse Shell (Not OPSEC)](network-attacks/untitled/persistence/crontab-reverse-shell-not-opsec.md)
     * [⚠ SSH persistence passwordless (Not OPSEC)](network-attacks/untitled/persistence/ssh-persistence-passwordless.md)
@@ -236,7 +238,8 @@
 ## 🔧 Defense Evasion
 
 * [AV Evasion](defense-evasion/av-evasion/README.md)
-  * [Tricks](defense-evasion/av-evasion/simple-tricks.md)
+  * [Basic Tricks](defense-evasion/av-evasion/basic-tricks.md)
+  * [Linux Defense Evasion](defense-evasion/av-evasion/linux-defense-evasion.md)
   * [AMSI Bypass](defense-evasion/av-evasion/amsi-bypass.md)
 
 ## Programming and DataBase
