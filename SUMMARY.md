@@ -191,6 +191,7 @@
   * [Encode / Decode Files](network-attacks/exfiltration-file-transfer/encode-decode-files.md)
   * [TCP / UDP](network-attacks/exfiltration-file-transfer/tcp-udp.md)
   * [SSH](network-attacks/exfiltration-file-transfer/ssh.md)
+  * [ICMP](network-attacks/exfiltration-file-transfer/icmp.md)
   * [SMB](network-attacks/exfiltration-file-transfer/smb.md)
   * [FTP](network-attacks/exfiltration-file-transfer/ftp.md)
   * [HTTP](network-attacks/exfiltration-file-transfer/http.md)
@@ -232,7 +233,7 @@
 ## 🔧 Defense Evasion
 
 * [AV Evasion](defense-evasion/av-evasion/README.md)
-  * [Simple Tricks](defense-evasion/av-evasion/simple-tricks.md)
+  * [Tricks](defense-evasion/av-evasion/tricks.md)
   * [AMSI Bypass](defense-evasion/av-evasion/amsi-bypass.md)
 
 ## Programming and DataBase

