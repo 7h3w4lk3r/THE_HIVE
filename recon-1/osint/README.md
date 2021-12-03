@@ -196,6 +196,23 @@ filename:logins.json # Firefox saved password collection (key3.db usually in sam
 filename:settings.py SECRET_KEY # Django secret keys (usually allows for session hijacking, RCE, etc)
 ```
 
+## Open Job Requisitions
+
+
+
+#### Job requisitions can help us get information about the information technology products used in a target organization, such as:
+
+* Web server type
+* Web application dev environment
+* Firewall type
+* Routers
+
+### Google searches to find job reqs
+
+* site: \[ companydomain ] careers Q , Keyword or Title 9
+* site: \[ companydomain ] jobs .
+* site: \[ companydomain ] openings
+
 ## PGP Public Key Servers
 
 Organizations maintain servers that provide public PGP keys to clients. You can query these to reveal user email addresses and details.
@@ -249,7 +266,9 @@ city: Search for results in a given city
 for example these are some queries you can use with these keywords:
 
 ```
-hostname:megacorpone.com
+Also, searches of job-related sites
+.ir
+- www . monster . com: Search on Info Tech and Internet / E - commerce• Also, searches of job-related sites• Also, searches of job-related siteshostname:megacorpone.com
 title:"smb" !port:139,445
 product:IIS 8.5
 Microsoft-IIS/5.0 title:"outlook web"
