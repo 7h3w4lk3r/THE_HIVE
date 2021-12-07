@@ -55,7 +55,7 @@ ome organizations publicly distribute configuration files and keys for VPN syste
 
 #### using google search strings:
 
-![](<../../.gitbook/assets/image (278).png>)
+![](<../../.gitbook/assets/image (278) (1).png>)
 
 #### crack / decode the passwords
 
@@ -102,22 +102,3 @@ for x in *.jpg; do tesseract $x stdout -psm 11 -l eng >> tesser.out; done
 ### Music Metadata
 
 {% embed url="https://github.com/mischif/music-metadata-tools" %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

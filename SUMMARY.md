@@ -286,3 +286,5 @@
 ## Command & Control
 
 * [Basics](command-and-control/basics.md)
+* [Metasploit](command-and-control/metasploit.md)
+* [Empire](command-and-control/empire.md)
