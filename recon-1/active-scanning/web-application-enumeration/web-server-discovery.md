@@ -2,7 +2,7 @@
 
 ## Find Active Sites (Screenshots)
 
-In a lot of scenarios network scanners like nmap discovers open web service ports like 80 or 443. in a large scale assessment we are not able to manually check all hosts to see if an active web site is hosted or not. the best way is to use automated tools to take screenshots from these ports:
+In a lot of scenarios network scanners like nmap discovers open web service ports like 80 or 443. in a large scale assessment we are not able to manually check all hosts to see if an active web site is hosted or not. the best way is to use automated tools to take screenshots of discovered web servers.
 
 ### httpscreenshot
 

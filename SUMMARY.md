@@ -7,6 +7,7 @@
 * [Passive (OSINT)](recon-1/osint/README.md)
   * [Metadata](recon-1/osint/metadata.md)
   * [Social Platforms](recon-1/osint/social-platforms/README.md)
+    * [Email](recon-1/osint/social-platforms/email.md)
     * [Tumbler](recon-1/osint/social-platforms/tumbler.md)
     * [Redit](recon-1/osint/social-platforms/redit.md)
     * [Github](recon-1/osint/social-platforms/github.md)

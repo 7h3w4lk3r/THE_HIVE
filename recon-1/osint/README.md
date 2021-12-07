@@ -8,6 +8,10 @@
 In OSINT you should **always ask questions like: how, who, when, where and why.** also try to **collect and sort everything you find and make a structured map** of the intel you have gathered using a mind mapping tool like [XMind](https://www.xmind.net) or [Mind Master](https://www.mindmaster.io).
 {% endhint %}
 
+{% embed url="https://github.com/jivoi/awesome-osint#-geospatial-research-and-mapping-tools" %}
+
+## &#x20;The OSINT Process
+
 #### OSINT reconnaissance can be further broken down into the following 5 sub-phases:
 
 ![](../../.gitbook/assets/osint-process.png)
@@ -21,6 +25,8 @@ In OSINT you should **always ask questions like: how, who, when, where and why.*
 **Data Analysis**: in this phase, the attacker performs data analysis of the processed information using OSINT analysis tools.
 
 **Results Delivery**: in the final phase, OSINT analysis is complete and the findings are presented/reported to other members of the Red Team.
+
+
 
 ## Workflow
 
@@ -47,6 +53,12 @@ In OSINT you should **always ask questions like: how, who, when, where and why.*
 ### Phone
 
 ![](../../.gitbook/assets/OSINT-Telephone.png)
+
+## GEOINT <a href="#theory" id="theory"></a>
+
+Geospatial intelligence (GEOINT) is intelligence by analyzing geospatial maps and images about the human activity. This part will present some tools to find and analyze geospatial information. These information could be useful during a Red Team to scout the target's location in order to find building entrances, monitored areas, etc.
+
+
 
 ## Maltego
 
@@ -349,7 +361,7 @@ Tools and resources for credential leaks available online:
 
 ## Social Media Investigation
 
-For more in dept social search check the [social platforms page](social-platforms/).
+For more in-depth social search check the [social platforms page](social-platforms/).
 
 ## Other OSINT Websites
 
