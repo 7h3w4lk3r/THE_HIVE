@@ -150,31 +150,113 @@ kill a module or job&#x20;
 
 `kill [num]`
 
-load/unload a plugin load \[plugin] unload
+load/unload a plugin&#x20;
 
-load a third party module loadpath \[path/to/module]
+`load/unload [plugin]`&#x20;
 
-run resource(batch) files resource \[file] usefull in karmetasploit attacks and alone batch files can speedup a test by automating tasks.
+load a third party module
 
-route sockets through a session or comm route -h
+&#x20;`loadpath [path/to/module]`
 
-show/select active sessions sessions -l sessions \[num]
+run resource(batch) files
 
-set/unset options set unset
+&#x20;`resource [file] u`
 
-set/unset global variables setg \[name] \[value] unsetg
+{% hint style="info" %}
+#### sefull in karmetasploit attacks and alone batch files can speedup a test by automating tasks
+{% endhint %}
 
-save state save
+route sockets through a session or command
 
-show available options/modules show options show targets show adanced show payloads show exploits show auxiliary show encoders show nops show evation
+&#x20;`route -h`
 
-run and send an exploit to background exploit -j
+show/select active sessions&#x20;
 
+`sessions -l`&#x20;
 
+`sessions [num]`
 
+set/unset options&#x20;
 
+`set`&#x20;
 
+`unset`
 
+set/unset global variables
+
+&#x20;`setg [name] [value]`&#x20;
+
+`unsetg`
+
+save state
+
+`save`
+
+show available options/modules&#x20;
+
+`show options`&#x20;
+
+`show targets`&#x20;
+
+`show adanced`
+
+&#x20;`show payloads`&#x20;
+
+`show exploits`
+
+`show auxiliary`&#x20;
+
+`show encoders`
+
+&#x20;`show nops`
+
+&#x20;`show evation`
+
+run and send an exploit to background&#x20;
+
+`exploit -j`
+
+## Types of Exploits
+
+### Active Exploits
+
+* #### will exploit a specific host, run until complition and then exit.
+* #### bruteforce modules
+* #### stop on errors
+* #### can be forces to background with -j
+
+### Passive Exploit
+
+* wait for incomming host connections and exploit them as they connect
+* almost always focus on clients such as web browsers, FTP clients, etc.
+* can be used in conjunction with email exploits&#x20;
+* waiting for connections&#x20;
+* report shells as they happen
+* can be enumerated by passing -i to the sessions command.
+
+## Types of Payloads
+
+Single, Stager, Stages
+
+### singles&#x20;
+
+* standalone and self-contained&#x20;
+* can be caught with non-metasploit handlers such as netcat
+* &#x20;sent and executed in a single part at one time
+
+### stagers&#x20;
+
+* the payload comes in 2 parts, the first and the second stage
+* the first stage is small and is purpose is to download and run the second stage
+* the second stage is the main part of the payload with the important functionalities
+* designed to be used when size matters, small and reliable&#x20;
+* usually more stable than a large single payload.
+
+### inline (non-staged)
+
+* a single payload&#x20;
+* containing the exploit and shellcode&#x20;
+* more stable than staged
 
 
 
