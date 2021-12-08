@@ -448,6 +448,8 @@ harvester is preinstalled on pentesting OSs like kali and parrot but for others 
 ```
 apt install theharvester
 Theharvester --help
+
+theHarvester -d target.com -b google,bing,baidu,bufferoverun,crtsh,dnsdumpster,duckduckgo,github-code,hackertarget,netcraft,rapiddns,rocketreach,sublist3r,trello,urlscan  -n -r -v -s --screenshot target/harvester -g 
 ```
 
 ```
