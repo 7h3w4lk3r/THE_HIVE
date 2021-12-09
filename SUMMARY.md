@@ -207,7 +207,7 @@
 
 * [🔧 Layer 2 & 3 Attacks](layer-2-and-3-attacks/README.md)
   * [MAC Flood](layer-2-and-3-attacks/mac-flood.md)
-  * [VLAN Hopping / Double Tagging](layer-2-and-3-attacks/vlan-hopping-double-tagging.md)
+  * [VLAN Hopping / Double Tagging](layer-2-and-3-attacks/vlan-hopping.md)
   * [ARP Spoofing](layer-2-and-3-attacks/arp-spoofing.md)
 
 ## Pivoting

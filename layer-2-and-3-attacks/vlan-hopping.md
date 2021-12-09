@@ -1,4 +1,4 @@
-# VLAN Hopping
+# VLAN Hopping / Double Tagging
 
 ## Trunk Port Refresher
 
