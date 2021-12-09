@@ -173,7 +173,7 @@ exploit
 
 Once you have compromised the server with Metasploit then run it in the background and run the above post exploit within your Metasploit and set your exploited server session id.
 
-![](<../../.gitbook/assets/image (277) (1).png>)
+![](<../../.gitbook/assets/image (277) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (272).png>)
 
