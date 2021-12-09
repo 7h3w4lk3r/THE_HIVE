@@ -210,7 +210,7 @@
 * [ICMP Tunneling](pivoting/icmp-tunneling.md)
 * [DNS Tunneling](pivoting/dns-tunneling.md)
 * [🔧 VPN Tunneling](pivoting/remote-connection.md)
-* [Tools](pivoting/tools.md)
+* [🔧 Other Tools](pivoting/tools.md)
 
 ## Shells & Payloads
 
@@ -272,7 +272,7 @@
       * [Doubly Linked List](programming-and-database/c/abstract-data-types/linked-lists/doubly-linked-list.md)
   * [Libraries & Linking](programming-and-database/c/libraries-and-linking.md)
   * [Error Recovery](programming-and-database/c/error-recovery.md)
-* [Assembly ( NASM )](programming-and-database/assembly/README.md)
+* [🔧 Assembly ( NASM )](programming-and-database/assembly/README.md)
   * [Intel IA-32 Environment](programming-and-database/assembly/basics.md)
   * [Basic Structure](programming-and-database/assembly/basic-structure.md)
   * [Variables and Data Types](programming-and-database/assembly/variables-and-data-types.md)
@@ -286,5 +286,5 @@
 ## Command & Control
 
 * [Basics](command-and-control/basics.md)
-* [Metasploit](command-and-control/metasploit.md)
+* [🔧 Metasploit](command-and-control/metasploit.md)
 * [Empire](command-and-control/empire.md)
