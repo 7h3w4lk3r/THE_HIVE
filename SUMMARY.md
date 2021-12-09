@@ -203,6 +203,12 @@
 * [Sniffing / Traffic Analysis](network-attacks/sniffing-traffic-analysis/README.md)
   * [TCPDUMP](network-attacks/sniffing-traffic-analysis/tcpdump.md)
 
+***
+
+* [Layer 2 & 3 Attacks](layer-2-and-3-attacks/README.md)
+  * [MAC Flood](layer-2-and-3-attacks/mac-flood.md)
+  * [VLAN Hopping](layer-2-and-3-attacks/vlan-hopping.md)
+
 ## Pivoting
 
 * [SSH Forwarding](pivoting/ssh-port-forwarding.md)

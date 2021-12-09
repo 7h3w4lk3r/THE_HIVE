@@ -55,7 +55,7 @@ ome organizations publicly distribute configuration files and keys for VPN syste
 
 #### using google search strings:
 
-![](<../../.gitbook/assets/image (278) (1).png>)
+![](<../../.gitbook/assets/image (278) (1) (1).png>)
 
 #### crack / decode the passwords
 

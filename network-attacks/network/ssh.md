@@ -132,7 +132,7 @@ msf exploit(sshexec) >exploit
 
 as a result you can observe that we have meterpreter session of the host machine.
 
-![](<../../.gitbook/assets/image (283).png>)
+![](<../../.gitbook/assets/image (283) (1).png>)
 
 ## Default Credentials
 
@@ -173,7 +173,7 @@ exploit
 
 Once you have compromised the server with Metasploit then run it in the background and run the above post exploit within your Metasploit and set your exploited server session id.
 
-![](<../../.gitbook/assets/image (277).png>)
+![](<../../.gitbook/assets/image (277) (1).png>)
 
 ![](<../../.gitbook/assets/image (272).png>)
 
