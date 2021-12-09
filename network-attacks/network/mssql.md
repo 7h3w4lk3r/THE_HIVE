@@ -75,7 +75,7 @@ nmap -p 1433 --script ms-sql-config --script-args mssql.username=sa,mssql.passwo
 
 sample output:
 
-![](<../../.gitbook/assets/image (274).png>)
+![](<../../.gitbook/assets/image (274) (1).png>)
 
 #### Other nmap Scripts with Credentials
 
