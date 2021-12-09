@@ -26,7 +26,7 @@ RPC architecture has mainly five components of the program:
 4. **Server Stub**
 5. **Server**
 
-![](<../../.gitbook/assets/image (282) (1) (1).png>)
+![](<../../.gitbook/assets/image (282) (1) (1) (1).png>)
 
 ## :ballot\_box\_with\_check: Checklist
 

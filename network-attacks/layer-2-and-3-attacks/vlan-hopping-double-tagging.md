@@ -2,7 +2,7 @@
 
 ## Trunk Port Refresher
 
-![](<../../.gitbook/assets/image (278).png>)
+![](<../../.gitbook/assets/image (278) (1).png>)
 
 #### Trunk ports have access to all VLANs by default and are used to route traffic for multiple VLANs across the same physical link (generally used between switches). Encapsulation can be 802.1Q or ISL
 
@@ -42,11 +42,11 @@
 
 #### As a result, the attacker is a member of all the VLANs that are trunked on the switch and can “hop” between VLANs. In other words, the attacker can send and receive traffic on all those VLANs. The best way to prevent a basic VLAN hopping attack is to turn off DTP on all ports, and explicitly configure trunking mode or access mode as appropriate on each port.
 
-![](<../../.gitbook/assets/image (282).png>)
+![](<../../.gitbook/assets/image (282) (1).png>)
 
 here is the VLAN table from the switch console:
 
-![](<../../.gitbook/assets/image (292).png>)
+![](<../../.gitbook/assets/image (292) (1).png>)
 
 The interfaces (G0/0, G0/1) are assigned to VLAN 100 which are the (attacker and victim), and the interface (G0/2) is assigned to VLAN 200.
 
@@ -66,7 +66,7 @@ we can run the tool (yersinia) and choose DTP and then launch attack:
 
 Then choose “enabling trunking” and click OK:
 
-![](<../../.gitbook/assets/image (280).png>)
+![](<../../.gitbook/assets/image (280) (1).png>)
 
 Then we will go back to switch console and we can see that there are packets have been sent as\
 shown below:
@@ -75,7 +75,7 @@ shown below:
 
 We will show the VLAN table:
 
-![](<../../.gitbook/assets/image (279).png>)
+![](<../../.gitbook/assets/image (279) (1).png>)
 
 We can see that the interface (G0/0) is set on trunk which means that we can jump other VLANs!
 
@@ -91,7 +91,7 @@ We added a new VLAN interface and we gave it the ID=200. Then we added a new IP 
 
 Finally, we can ping the PC-2 that were not accessible and on other VLAN.
 
-![](<../../.gitbook/assets/image (285).png>)
+![](<../../.gitbook/assets/image (285) (1).png>)
 
 So we successfully jumped to the VLAN (200)!
 
