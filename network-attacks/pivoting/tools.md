@@ -108,7 +108,7 @@ ALLWAYS USE A BIND SHELL WHILE PIVOTING
 
 if we use a reverse shell the target machine on the internal network wont be able to route back the packets to us
 
-![](<../.gitbook/assets/image (267).png>)
+![](<../../.gitbook/assets/image (267).png>)
 
 ### PIVOTING REVERSE SHELL
 
@@ -119,7 +119,7 @@ RHOST >>> internal target
 LHOST >>> compromized machine
 ```
 
-![](<../.gitbook/assets/image (269).png>)
+![](<../../.gitbook/assets/image (269).png>)
 
 ## Ncat
 
@@ -163,7 +163,7 @@ edit the config file:
 nano /etc/rinetd.conf
 ```
 
-![](<../.gitbook/assets/image (268).png>)
+![](<../../.gitbook/assets/image (268).png>)
 
 ```
 service rinetd restart

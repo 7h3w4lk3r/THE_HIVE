@@ -132,7 +132,7 @@ msf exploit(sshexec) >exploit
 
 as a result you can observe that we have meterpreter session of the host machine.
 
-![](<../../.gitbook/assets/image (283) (1).png>)
+![](<../../.gitbook/assets/image (283) (1) (1).png>)
 
 ## Default Credentials
 

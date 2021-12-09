@@ -2,7 +2,7 @@
 
 ## MAC Address/CAM Table Review
 
-![](<../.gitbook/assets/image (298).png>)
+![](<../../.gitbook/assets/image (298).png>)
 
 • CAM Table stands for Content Addressable Memory
 
@@ -12,11 +12,11 @@
 
 ## Normal CAM Behavior
 
-![](<../.gitbook/assets/image (277) (1).png>)
+![](<../../.gitbook/assets/image (277) (1).png>)
 
-![](<../.gitbook/assets/image (300).png>)
+![](<../../.gitbook/assets/image (300).png>)
 
-![](<../.gitbook/assets/image (276) (1).png>)
+![](<../../.gitbook/assets/image (276) (1).png>)
 
 ## CAM Overflow
 
@@ -26,9 +26,9 @@
 
 • Based on CAM Table’s limited size
 
-![](<../.gitbook/assets/image (293) (1).png>)
+![](<../../.gitbook/assets/image (293) (1).png>)
 
-![](<../.gitbook/assets/image (281).png>)
+![](<../../.gitbook/assets/image (281).png>)
 
 #### Dsniff (macof) can generate 480,000 MAC entries on a switch per minute 8000/s\*60.
 
@@ -36,7 +36,7 @@ Assuming a perfect hash function the CAM table will total out at 128,000 (16,000
 
 #### Once table is full, traffic without a CAM entry floods on the VLAN, but NOT existing traffic with an existing CAM entry
 
-![](<../.gitbook/assets/image (297).png>)
+![](<../../.gitbook/assets/image (297).png>)
 
 Syntax:
 

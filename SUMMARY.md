@@ -200,24 +200,23 @@
   * [FTP](network-attacks/exfiltration-file-transfer/ftp.md)
   * [HTTP](network-attacks/exfiltration-file-transfer/http.md)
   * [Other Methods](network-attacks/exfiltration-file-transfer/other-methods.md)
-* [🔧 Sniffing / Traffic Analysis](network-attacks/sniffing-traffic-analysis/README.md)
-  * [TCPDUMP](network-attacks/sniffing-traffic-analysis/tcpdump.md)
-
-***
-
-* [🔧 Layer 2 & 3 Attacks](layer-2-and-3-attacks/README.md)
-  * [MAC Flood](layer-2-and-3-attacks/mac-flood.md)
-  * [VLAN Hopping / Double Tagging](layer-2-and-3-attacks/vlan-hopping.md)
-  * [ARP Spoofing](layer-2-and-3-attacks/arp-spoofing.md)
-
-## Pivoting
-
-* [SSH Forwarding](pivoting/ssh-port-forwarding.md)
-* [HTTP Tunneling](pivoting/http-tunneling.md)
-* [ICMP Tunneling](pivoting/icmp-tunneling.md)
-* [DNS Tunneling](pivoting/dns-tunneling.md)
-* [🔧 VPN Tunneling](pivoting/remote-connection.md)
-* [🔧 Other Tools](pivoting/tools.md)
+* [NAC](network-attacks/nac/README.md)
+  * [Captive Portal](network-attacks/nac/captive-portal.md)
+  * [802.1X](network-attacks/nac/802.1x.md)
+* [🔧 Sniffing](network-attacks/sniffing/README.md)
+  * [TCPDUMP](network-attacks/sniffing/tcpdump.md)
+* [🔧 MitM](network-attacks/mitm/README.md)
+  * [ARP Spoofing](network-attacks/mitm/arp-spoofing.md)
+* [🔧 Layer 2 & 3 Attacks](network-attacks/layer-2-and-3-attacks/README.md)
+  * [MAC Flood](network-attacks/layer-2-and-3-attacks/mac-flood.md)
+  * [VLAN Hopping / Double Tagging](network-attacks/layer-2-and-3-attacks/vlan-hopping-double-tagging.md)
+* [Pivoting](network-attacks/pivoting/README.md)
+  * [SSH Forwarding](network-attacks/pivoting/ssh-port-forwarding.md)
+  * [HTTP Tunneling](network-attacks/pivoting/http-tunneling.md)
+  * [ICMP Tunneling](network-attacks/pivoting/icmp-tunneling.md)
+  * [DNS Tunneling](network-attacks/pivoting/dns-tunneling.md)
+  * [🔧 VPN Tunneling](network-attacks/pivoting/remote-connection.md)
+  * [🔧 Other Tools](network-attacks/pivoting/tools.md)
 
 ## Shells & Payloads
 
@@ -248,6 +247,16 @@
 * [AV Evasion](defense-evasion/av-evasion/README.md)
   * [Basic Tricks](defense-evasion/av-evasion/simple-tricks.md)
   * [AMSI Bypass](defense-evasion/av-evasion/amsi-bypass.md)
+
+## Hardening & Monitoring
+
+* [🔧 Linux Hardening Checklist](hardening-and-monitoring/untitled.md)
+
+## Command & Control
+
+* [Basics](command-and-control/basics.md)
+* [🔧 Metasploit](command-and-control/metasploit.md)
+* [Empire](command-and-control/empire.md)
 
 ## Programming and DataBase
 
@@ -285,13 +294,3 @@
   * [Variables and Data Types](programming-and-database/assembly/variables-and-data-types.md)
   * [Most-used Instructions](programming-and-database/assembly/most-used-instructions.md)
   * [input / output](programming-and-database/assembly/input-output.md)
-
-## Hardening & Monitoring
-
-* [🔧 Linux Hardening Checklist](hardening-and-monitoring/untitled.md)
-
-## Command & Control
-
-* [Basics](command-and-control/basics.md)
-* [🔧 Metasploit](command-and-control/metasploit.md)
-* [Empire](command-and-control/empire.md)
