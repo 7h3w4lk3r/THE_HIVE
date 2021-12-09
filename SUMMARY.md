@@ -171,7 +171,7 @@
   * [Persistence](network-attacks/untitled/persistence/README.md)
     * [Startup User File Backdoor](network-attacks/untitled/persistence/startup-user-file-backdoor.md)
     * [PHP Backdoor](network-attacks/untitled/persistence/php-backdoor.md)
-    * [Apache mod\_roome](network-attacks/untitled/persistence/apache-mod\_roome.md)
+    * [Apache mod\_rootme](network-attacks/untitled/persistence/apache-mod\_rootme.md)
     * [Startup Service Backdoor](network-attacks/untitled/persistence/startup-service-backdoor.md)
     * [xdg Backdoor](network-attacks/untitled/persistence/xdg-backdoor.md)
     * [apt Backdoor](network-attacks/untitled/persistence/apt-backdoor.md)
