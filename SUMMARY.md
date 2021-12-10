@@ -210,14 +210,14 @@
   * [LLMNR Poisoning](network-attacks/active-directory-attacks/network-poisoning-mitm/llmnr-poisoning.md)
   * [DNS Takeover / LDAP Relay](network-attacks/active-directory-attacks/network-poisoning-mitm/dns-takeover-ldap-relay.md)
 * [Sniffing](network-attacks/sniffing/README.md)
-  * [TCPDUMP](network-attacks/sniffing/tcpdump.md)
+  * [tcpdump](network-attacks/sniffing/tcpdump.md)
 
 ## Layer 2 & 3 Attacks
 
 * [STP spoofing](layer-2-and-3-attacks/stp-spoofing.md)
 * [IPv6 Neighbor Spoofing](layer-2-and-3-attacks/ipv6-neighbor-spoofing.md)
-* [VLAN Hopping](layer-2-and-3-attacks/vlan-hopping.md)
-* [MAC Flood](layer-2-and-3-attacks/mac-flood.md)
+* [VLAN Hopping](network-attacks/layer-2-and-3-attacks/vlan-hopping-double-tagging.md)
+* [MAC Flood](network-attacks/layer-2-and-3-attacks/mac-flood.md)
 * [NAC Bypass](network-attacks/nac/README.md)
   * [Captive Portal](network-attacks/nac/captive-portal.md)
   * [802.1X](network-attacks/nac/802.1x.md)

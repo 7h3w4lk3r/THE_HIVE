@@ -192,11 +192,15 @@ set dns.spoof.all true/false
 set dns.spoof.hosts [hostsfile]
 ```
 
+## DHCPv6 Spoof
 
+```
+dhcp6.spoof on/off
+```
 
+## NDP Spoof
 
-
-
-
-
+```
+ndp.spoof on/off
+```
 
