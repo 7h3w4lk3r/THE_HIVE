@@ -34,8 +34,8 @@
 
 ## Network Attacks
 
-* [Firewall Detection & Bypass](recon-1/active-scanning/firewall-test.md)
-* [Services & Protocols](network-attacks/network/README.md)
+* [Firewall Evasion](network-attacks/firewall-evasion.md)
+* [Network Services](network-attacks/network/README.md)
   * [Echo](network-attacks/network/echo.md)
   * [IPv6](network-attacks/network/ipv6.md)
   * [FTP](network-attacks/network/ftp.md)
@@ -92,14 +92,6 @@
   * [🔧 Persistence](network-attacks/windows/persistence.md)
 * [Active Directory](network-attacks/active-directory-attacks/README.md)
   * [Domain Enumeration](network-attacks/active-directory-attacks/domain-enumeration.md)
-  * [MITM & Posoning Attacks](network-attacks/active-directory-attacks/network-poisoning-mitm/README.md)
-    * [DHCP Poisoning](network-attacks/active-directory-attacks/network-poisoning-mitm/dhcp-poisoning.md)
-    * [DHCPv6 Spoofing](network-attacks/active-directory-attacks/network-poisoning-mitm/dhcpv6-spoofing.md)
-    * [ADIDNS Poisoning](network-attacks/active-directory-attacks/network-poisoning-mitm/adidns-poisoning.md)
-    * [WPAD Abuse](network-attacks/active-directory-attacks/network-poisoning-mitm/wpad-abuse.md)
-    * [SMB/NTLM Relay](network-attacks/active-directory-attacks/network-poisoning-mitm/smb-ntlm-relay.md)
-    * [LLMNR Poisoning](network-attacks/active-directory-attacks/network-poisoning-mitm/llmnr-poisoning.md)
-    * [DNS Takeover / LDAP Relay](network-attacks/active-directory-attacks/network-poisoning-mitm/dns-takeover-ldap-relay.md)
   * [🔧 Domain Privilege Escalation](network-attacks/active-directory-attacks/domain-privilege-escalation/README.md)
     * [AD CS Abuse](network-attacks/active-directory-attacks/domain-privilege-escalation/ad-cs-abuse.md)
     * [ACL Abuse](network-attacks/active-directory-attacks/domain-privilege-escalation/acl-abuse/README.md)
@@ -200,16 +192,6 @@
   * [FTP](network-attacks/exfiltration-file-transfer/ftp.md)
   * [HTTP](network-attacks/exfiltration-file-transfer/http.md)
   * [Other Methods](network-attacks/exfiltration-file-transfer/other-methods.md)
-* [NAC](network-attacks/nac/README.md)
-  * [Captive Portal](network-attacks/nac/captive-portal.md)
-  * [802.1X](network-attacks/nac/802.1x.md)
-* [🔧 Sniffing](network-attacks/sniffing/README.md)
-  * [TCPDUMP](network-attacks/sniffing/tcpdump.md)
-* [🔧 MitM](network-attacks/mitm/README.md)
-  * [ARP Spoofing](network-attacks/mitm/arp-spoofing.md)
-* [🔧 Layer 2 & 3 Attacks](network-attacks/layer-2-and-3-attacks/README.md)
-  * [MAC Flood](network-attacks/layer-2-and-3-attacks/mac-flood.md)
-  * [VLAN Hopping / Double Tagging](network-attacks/layer-2-and-3-attacks/vlan-hopping-double-tagging.md)
 * [Pivoting](network-attacks/pivoting/README.md)
   * [SSH Forwarding](network-attacks/pivoting/ssh-port-forwarding.md)
   * [HTTP Tunneling](network-attacks/pivoting/http-tunneling.md)
@@ -217,6 +199,25 @@
   * [DNS Tunneling](network-attacks/pivoting/dns-tunneling.md)
   * [🔧 VPN Tunneling](network-attacks/pivoting/remote-connection.md)
   * [🔧 Other Tools](network-attacks/pivoting/tools.md)
+* [MITM & Posoning Attacks](network-attacks/network-poisoning-mitm/README.md)
+  * [ARP Spoofing](network-attacks/network-poisoning-mitm/arp-spoofing.md)
+  * [DHCP Poisoning](network-attacks/network-poisoning-mitm/dhcp-poisoning.md)
+  * [DHCPv6 Spoofing](network-attacks/network-poisoning-mitm/dhcpv6-spoofing.md)
+  * [ADIDNS Poisoning](network-attacks/network-poisoning-mitm/adidns-poisoning.md)
+  * [WPAD Abuse](network-attacks/network-poisoning-mitm/wpad-abuse.md)
+  * [SMB/NTLM Relay](network-attacks/network-poisoning-mitm/smb-ntlm-relay.md)
+  * [LLMNR Poisoning](network-attacks/network-poisoning-mitm/llmnr-poisoning.md)
+  * [DNS Takeover / LDAP Relay](network-attacks/network-poisoning-mitm/dns-takeover-ldap-relay.md)
+* [Sniffing](network-attacks/sniffing/README.md)
+  * [TCPDUMP](network-attacks/sniffing/tcpdump.md)
+
+## Layer 2 & 3 Attacks
+
+* [VLAN Hopping / Double Tagging](layer-2-and-3-attacks/vlan-hopping-double-tagging.md)
+* [MAC Flood / CAM Table Attack](layer-2-and-3-attacks/mac-flood-cam-table-attack.md)
+* [NAC Bypass](layer-2-and-3-attacks/nac-bypass/README.md)
+  * [Captive Portal](layer-2-and-3-attacks/nac-bypass/captive-portal.md)
+  * [802.1X](layer-2-and-3-attacks/nac-bypass/802.1x.md)
 
 ## Shells & Payloads
 

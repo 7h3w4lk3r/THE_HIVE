@@ -1,6 +1,6 @@
 # 🔧 Metasploit
 
-![](<../.gitbook/assets/image (282) (1) (1).png>)
+![](<../.gitbook/assets/image (282) (1) (1) (1).png>)
 
 {% embed url="https://www.sans.org/blog/sans-pen-test-cheat-sheet-metasploit" %}
 

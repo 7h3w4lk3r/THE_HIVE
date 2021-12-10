@@ -113,7 +113,7 @@ In some scenarios in a misconfigured server (e.g: FLASH FTP, Fermitter FTP), we 
 
 In this example we have access to Windows file system root directory (C Drive):&#x20;
 
-![](<../../.gitbook/assets/image (275) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (275) (1) (1) (1) (1).png>)
 
 ## FTP Anonymous Authentication
 

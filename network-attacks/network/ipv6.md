@@ -20,7 +20,7 @@ group1:group2: ……etc…. :group8
 
 Here is an IPv6 address example:
 
-![](<../../.gitbook/assets/image (283) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (283) (1) (1) (1) (1).png>)
 
 {% hint style="info" %}
 Because of the length of IPv6 addresses various shortening techniques are employed.

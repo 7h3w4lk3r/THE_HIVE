@@ -1,10 +1,2 @@
-# 🔧 Sniffing / Traffic Analysis
-
-
-
-
-
-
-
-
+# Sniffing
 
