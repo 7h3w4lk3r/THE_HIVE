@@ -1,4 +1,4 @@
-# VLAN Hopping / Double Tagging
+# VLAN Hopping
 
 ## Trunk Port
 
@@ -22,7 +22,7 @@
 
 #### If another switch connects to a DTP port, the DTP switch will watch for the presence of 802.1Q or ISL traffic for 30 seconds. When either protocol is discovered, the DTP port will auto-configure to match the trunking configuration, sharing VLAN information with downstream switches. If no 802.1Q or ISL traffic is observed, the switch will default the port to an access port, allowing the user to connect to the default or specified VLAN.
 
-![](<../.gitbook/assets/image (294).png>)
+![](<../.gitbook/assets/image (294) (1).png>)
 
 ### DTP Administrative States
 
@@ -62,7 +62,7 @@ he switch port is set on Dynamic Desirable thus the VLANs can be negotiated toge
 
 Now we can run the tool (yersinia) in order to enable the TRUNK mode, but before we run the attack let’s see the status of the VLAN:
 
-![](<../.gitbook/assets/image (289).png>)
+![](<../.gitbook/assets/image (289) (1).png>)
 
 ### Yersinia
 
@@ -76,7 +76,7 @@ to run in CLI mode, in you terminal type in :
 yersinia -I
 ```
 
-![](<../.gitbook/assets/image (282).png>)
+![](<../.gitbook/assets/image (283).png>)
 
 To run in GUI mode type:
 
@@ -92,7 +92,7 @@ Then choose “enabling trunking” and click OK.
 
 in CLI mode press `g` to bring up the protocol menu then choose DTP
 
-![](<../.gitbook/assets/image (286).png>)
+![](<../.gitbook/assets/image (287).png>)
 
 then press `x` to open panel and press `1` to enable trunking
 
@@ -102,7 +102,7 @@ After delivering the DTP message, press `5` to open a status dialog. Here, the s
 
 #### Yersinia will monitor network traffic observed and record information such as IP addresses, protocol information, and VLAN settings. After executing the DTP attack, we can let Yersinia continue to monitor the network and build a list of accessible VLANs. To access the list of observed VLANs, addresses, and protocols (such as the example shown in this slide), press "g" to select the protocol mode selection dialog, scroll to select the 802.1Q entry, and press Enter.
 
-![](<../.gitbook/assets/image (284).png>)
+![](<../.gitbook/assets/image (285).png>)
 
 Then we will go back to switch console and we can see that there are packets have been sent as\
 shown below:
@@ -151,7 +151,7 @@ The double-tagging (or double-encapsulated) VLAN hopping attack takes advantage 
 
 This tag allows the frame to go to a VLAN that the touter 802.1Q tag did not specify. An important characteristic of the double-encapsulated VLAN hopping attack is that it can work even if DTP is disabled on the attackers access port.
 
-![](<../.gitbook/assets/image (290).png>)
+![](<../.gitbook/assets/image (290) (1).png>)
 
 • Send double encapsulated 802.1Q frames&#x20;
 
@@ -177,7 +177,7 @@ First of all, we must have our PC connected directly to the VoIP phone that we a
 
 With the successful connection, we will capture a CDP packet. Being directly connected to the Cisco device (VoIP phone), the only package that should reach us is that of the phone itself.
 
-![](<../.gitbook/assets/image (287).png>)
+![](<../.gitbook/assets/image (288).png>)
 
 With the captured package we verify that it really is the information we need.
 
@@ -201,7 +201,7 @@ We check that it has been created successfully.
 
 We disable the interface to modify the MAC and change it for the legitimate phone (we can see this setting directly in phone options).
 
-![](<../.gitbook/assets/image (285).png>)
+![](<../.gitbook/assets/image (286).png>)
 
 With everything configured, we make a dhclient of the interface to verify that the switch provides us with the IP of the phone.
 
@@ -209,11 +209,21 @@ With everything configured, we make a dhclient of the interface to verify that t
 
 We see how we already have the IP. We only have to verify that we have a connection to the gateway to verify that we are correctly authenticated in the VoIP VLAN.
 
-![](<../.gitbook/assets/image (283).png>)
+![](<../.gitbook/assets/image (284).png>)
 
 ### Automation
 
 #### voiphopper
 
 Automates voice VLAN hopping attack,Listens for CDP to extract voice VLAN number,Creates interface, requests DHCP address.
+
+Includes attack options for Cisco, Avaya, and Nortel switches.
+
+```
+voiphopper -c 0 -i eth0
+```
+
+{% hint style="info" %}
+To use voiphopper, you must install the DHCP client utility "dhclient." Voiphopper will not attempt to create the VLAN sub-interface if the dhclient utility is missing.
+{% endhint %}
 

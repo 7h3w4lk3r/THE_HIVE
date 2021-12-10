@@ -1,4 +1,4 @@
-# MAC Flood / CAM Table Attack
+# MAC Flood
 
 ## CAM Table&#x20;
 

