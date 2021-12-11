@@ -153,11 +153,29 @@ set ticker.commands "clear; net.show; events.show 20 "
 
 ## ARP Spoof
 
+start ARP spoof
+
 ```
 arp.spoof on/off
 
 # Specify a list of target IP addresses, comma-separated
 set arp.spoof.targets [IPs]
+```
+
+run ARP spoof in ban mode (targets connection wont work )
+
+```
+arp.ban on/off
+```
+
+run full duplex ARP spoof (both target and gateway will be attacked)
+
+{% hint style="info" %}
+if the gateway has ARP spoof protection the attack will fail
+{% endhint %}
+
+```
+set arp.spoof.fullduplex true/false 
 ```
 
 ## DNS Spoof
