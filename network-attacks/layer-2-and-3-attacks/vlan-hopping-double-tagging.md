@@ -50,7 +50,7 @@
 
 here is the VLAN table from the switch console:
 
-![](<../../.gitbook/assets/image (292) (1) (1).png>)
+![](<../../.gitbook/assets/image (292) (1) (1) (1).png>)
 
 The interfaces (G0/0, G0/1) are assigned to VLAN 100 which are the (attacker and victim), and the interface (G0/2) is assigned to VLAN 200.
 
@@ -62,7 +62,7 @@ he switch port is set on Dynamic Desirable thus the VLANs can be negotiated toge
 
 Now we can run the tool (yersinia) in order to enable the TRUNK mode, but before we run the attack let’s see the status of the VLAN:
 
-![](<../../.gitbook/assets/image (289) (1).png>)
+![](<../../.gitbook/assets/image (289) (1) (1).png>)
 
 ### Yersinia
 
@@ -197,7 +197,7 @@ vconfig add eth1 29 #29 is the VLAN number of Cisco device
 
 We check that it has been created successfully.
 
-![](<../../.gitbook/assets/image (275).png>)
+![](<../../.gitbook/assets/image (275) (1).png>)
 
 We disable the interface to modify the MAC and change it for the legitimate phone (we can see this setting directly in phone options).
 
@@ -205,7 +205,7 @@ We disable the interface to modify the MAC and change it for the legitimate phon
 
 With everything configured, we make a dhclient of the interface to verify that the switch provides us with the IP of the phone.
 
-![](<../../.gitbook/assets/image (292).png>)
+![](<../../.gitbook/assets/image (292) (1).png>)
 
 We see how we already have the IP. We only have to verify that we have a connection to the gateway to verify that we are correctly authenticated in the VoIP VLAN.
 
