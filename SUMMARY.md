@@ -217,7 +217,7 @@
 * [STP spoofing](layer-2-and-3-attacks/stp-spoofing.md)
 * [IPv6 Neighbor Spoofing](layer-2-and-3-attacks/ipv6-neighbor-spoofing.md)
 * [HSRP Hijacking](layer-2-and-3-attacks/hsrp-hijacking.md)
-* [VRRP MitM](layer-2-and-3-attacks/vrrp-mitm.md)
+* [🔧 VRRP MitM](layer-2-and-3-attacks/vrrp-mitm.md)
 * [VLAN Hopping](network-attacks/layer-2-and-3-attacks/vlan-hopping-double-tagging.md)
 * [MAC Flood](network-attacks/layer-2-and-3-attacks/mac-flood.md)
 * [NAC Bypass](network-attacks/nac/README.md)
