@@ -28,7 +28,7 @@
 
 #### Administrator configurable trunk states:
 
-![](<../../.gitbook/assets/image (288) (1).png>)
+![](<../../.gitbook/assets/image (288) (1) (1).png>)
 
 #### As an attacker, if we can trick the switch into thinking our connected system is a switch using 802.1Q, then we can trick the switch into configuring the port as a trunk, passing down all VLAN traffic with similar upstream access.
 
@@ -107,7 +107,7 @@ After delivering the DTP message, press `5` to open a status dialog. Here, the s
 Then we will go back to switch console and we can see that there are packets have been sent as\
 shown below:
 
-![](<../../.gitbook/assets/image (274).png>)
+![](<../../.gitbook/assets/image (274) (1).png>)
 
 We will show the VLAN table:
 
@@ -177,7 +177,7 @@ First of all, we must have our PC connected directly to the VoIP phone that we a
 
 With the successful connection, we will capture a CDP packet. Being directly connected to the Cisco device (VoIP phone), the only package that should reach us is that of the phone itself.
 
-![](<../../.gitbook/assets/image (288).png>)
+![](<../../.gitbook/assets/image (288) (1).png>)
 
 With the captured package we verify that it really is the information we need.
 
@@ -187,7 +187,7 @@ Once we have the necessary package, we disconnect from the phone and connect dir
 
 We replicate the device package to make the Cisco switch believe that we are a VoIP device. In addition, these phones send a package every 60 seconds approximately to ensure the connection, so we must do the same to be trusted.
 
-![](<../../.gitbook/assets/image (300).png>)
+![](<../../.gitbook/assets/image (300) (1).png>)
 
 We must create a virtual interface by renaming our interface + the VLAN of the Cisco device.
 
@@ -197,7 +197,7 @@ vconfig add eth1 29 #29 is the VLAN number of Cisco device
 
 We check that it has been created successfully.
 
-![](<../../.gitbook/assets/image (275) (1).png>)
+![](<../../.gitbook/assets/image (275) (1) (1).png>)
 
 We disable the interface to modify the MAC and change it for the legitimate phone (we can see this setting directly in phone options).
 

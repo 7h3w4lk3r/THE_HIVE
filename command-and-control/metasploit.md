@@ -407,7 +407,7 @@ create a payload with msfvenom and set the `lhost` to the union address and appe
 
 in listener set lhost to your local ip address:
 
-![](<../.gitbook/assets/image (275).png>)
+![](<../.gitbook/assets/image (275) (1).png>)
 
 run the attack:
 
