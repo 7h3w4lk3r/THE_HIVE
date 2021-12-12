@@ -129,7 +129,7 @@ ifconfig eth0.200 10.0.0.6 up
 dhclient eth0.200
 ```
 
-![](<../../.gitbook/assets/image (273).png>)
+![](<../../.gitbook/assets/image (273) (1).png>)
 
 We added a new VLAN interface and we gave it the ID=200. Then we added a new IP and make it up then assign the new created VLAN interface to the eth0.200 interface and make up.
 
