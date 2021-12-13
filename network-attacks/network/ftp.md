@@ -124,7 +124,7 @@ username: anonymous
 password: anonymous // try blank password too
 ```
 
-![](<../../.gitbook/assets/image (279) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (279) (1) (1) (1) (1).png>)
 
 #### Metasploit
 

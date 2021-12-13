@@ -12,11 +12,11 @@
 
 ## Normal CAM Behavior
 
-![](<../../.gitbook/assets/image (277) (1).png>)
+![](<../../.gitbook/assets/image (277) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (300) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (276) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (276) (1) (1) (1) (1).png>)
 
 ## CAM Overflow
 
@@ -26,7 +26,7 @@
 
 • Based on CAM Table’s limited size
 
-![](<../../.gitbook/assets/image (293) (1) (1).png>)
+![](<../../.gitbook/assets/image (293) (1) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (281) (1).png>)
 

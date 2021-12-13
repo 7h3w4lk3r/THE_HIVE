@@ -27,7 +27,7 @@ Often this type of attack leads to a denial of service.
 
 use yersinia in CLI mode to and select STP from protocol menu. then press 6 to claim root and be the man in the middle:
 
-![](<../.gitbook/assets/image (294).png>)
+![](<../.gitbook/assets/image (294) (1).png>)
 
 
 

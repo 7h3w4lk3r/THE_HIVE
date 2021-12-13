@@ -2,7 +2,7 @@
 
 ## Trunk Port
 
-![](<../../.gitbook/assets/image (278) (1).png>)
+![](<../../.gitbook/assets/image (278) (1) (1).png>)
 
 #### Trunk ports have access to all VLANs by default and are used to route traffic for multiple VLANs across the same physical link (generally used between switches). Encapsulation can be 802.1Q or ISL
 
@@ -22,7 +22,7 @@
 
 #### If another switch connects to a DTP port, the DTP switch will watch for the presence of 802.1Q or ISL traffic for 30 seconds. When either protocol is discovered, the DTP port will auto-configure to match the trunking configuration, sharing VLAN information with downstream switches. If no 802.1Q or ISL traffic is observed, the switch will default the port to an access port, allowing the user to connect to the default or specified VLAN.
 
-![](<../../.gitbook/assets/image (294) (1).png>)
+![](<../../.gitbook/assets/image (294) (1) (1).png>)
 
 ### DTP Administrative States
 
@@ -96,7 +96,7 @@ in CLI mode press `g` to bring up the protocol menu then choose DTP
 
 then press `x` to open panel and press `1` to enable trunking
 
-![](<../../.gitbook/assets/image (293).png>)
+![](<../../.gitbook/assets/image (293) (1).png>)
 
 After delivering the DTP message, press `5` to open a status dialog. Here, the status indicates TRUNK/AUTO, revealing a successful attack.
 
@@ -111,7 +111,7 @@ shown below:
 
 We will show the VLAN table:
 
-![](<../../.gitbook/assets/image (279) (1).png>)
+![](<../../.gitbook/assets/image (279) (1) (1).png>)
 
 We can see that the interface (G0/0) is set on trunk which means that we can jump other VLANs!
 

