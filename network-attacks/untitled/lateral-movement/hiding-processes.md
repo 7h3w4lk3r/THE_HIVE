@@ -1,8 +1,38 @@
 # Hiding Processes
 
+## XHide
+
+{% embed url="https://flaviu.io/content/images/data/xhide.c" %}
+
+#### you can mask/camouflage a process and give Sys Admins headaches.
+
+```
+gcc -o xhide xhide.c
+```
+
+Below is proof of concept with a dummy xmrig crypto mining binary, these are becoming extremely common and widely used by attackers that want to use your resources and mine cryptocurrency for themselves.
+
+{% hint style="info" %}
+#### What is xmrig? XMRig is a crypto currency miner, users are often infected by attackers that want to make money at the expensive of their host, it can mine Monero. XMRig could cause computer overheat and poor performance.
+{% endhint %}
+
+![](../../../.gitbook/assets/image-72.png)
+
+file contents for proof of concept
+
+![dummy config.json to execute xmrig](../../../.gitbook/assets/image-74.png)
+
+After I executed xmrig64 a few processes appeared this can be seen below.
+
+![](broken-reference)
+
+
+
+
+
 ## Process Hiding Techniques
 
-### Listening sockets, hiding from ps and lsof <a href="hideprocesses" id="hideprocesses"></a>
+### Listening sockets, hiding from ps and lsof <a href="#hideprocesses" id="hideprocesses"></a>
 
 ```
 mkdir /tmp/empty
