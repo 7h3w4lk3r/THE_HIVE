@@ -399,7 +399,7 @@ find your tor hidden service hostname
 cat /var/lib/tor/hidden_service/hostname
 ```
 
-![](<../.gitbook/assets/image (289).png>)
+![](<../.gitbook/assets/image (289) (1).png>)
 
 create a payload with msfvenom and set the `lhost` to the union address and append .link to it:
 

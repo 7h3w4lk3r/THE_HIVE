@@ -62,7 +62,7 @@ he switch port is set on Dynamic Desirable thus the VLANs can be negotiated toge
 
 Now we can run the tool (yersinia) in order to enable the TRUNK mode, but before we run the attack let’s see the status of the VLAN:
 
-![](<../../.gitbook/assets/image (289) (1) (1).png>)
+![](<../../.gitbook/assets/image (289) (1) (1) (1).png>)
 
 ### Yersinia
 
@@ -111,7 +111,7 @@ shown below:
 
 We will show the VLAN table:
 
-![](<../../.gitbook/assets/image (279) (1) (1).png>)
+![](<../../.gitbook/assets/image (279) (1) (1) (1).png>)
 
 We can see that the interface (G0/0) is set on trunk which means that we can jump other VLANs!
 

@@ -369,7 +369,7 @@ root@tester:~# smbclient \\\\192.168.13.21\\www -N
 
 
 
-![](<../../.gitbook/assets/image (279).png>)
+![](<../../.gitbook/assets/image (279) (1).png>)
 
 As the image above explains, the presence of a “.pl” extension indicates that the server is likely configured to process Perl (CGI) programs.
 

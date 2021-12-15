@@ -1,4 +1,4 @@
-# STP spoofing
+# STP Spoofing
 
 ## STP
 
@@ -21,25 +21,10 @@ Often this type of attack leads to a denial of service.
 
     The hacker then sees frames he shouldn’t
 
-![](<../.gitbook/assets/image (295) (1).png>)
+![](<../.gitbook/assets/image (295) (1) (1).png>)
 
 ![](<../.gitbook/assets/image (282).png>)
 
 use yersinia in CLI mode to and select STP from protocol menu. then press 6 to claim root and be the man in the middle:
 
 ![](<../.gitbook/assets/image (294) (1).png>)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
