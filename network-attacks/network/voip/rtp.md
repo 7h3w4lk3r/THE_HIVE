@@ -1,4 +1,4 @@
-# Page 2
+# RTP
 
 ### Real-Time Protocol (RTP)
 
@@ -15,4 +15,3 @@ Real-time applications require timely delivery of information and can tolerate s
 The audio sampling rate is typically either 8000Hz or 16000Hz and the rate that RTP packets are transmitted is determined by the audio Codec by mean of its Packetization Period. Whether those packets actually arrive at a fixed rate at the receiving endpoint depends on the network performance. RTP packets might be lost by Routers, might arrive at the receiving endpoint out of sequence, or could be even duplicated when they transit through the network.
 
 Hence receiving endpoints are designed with the assumption that RTP packets will not arrive at the precise rate they were transmitted. About this reasons an endpoint incorporate a Jitter Buffer having parameters in order to manipulate the characteristics of time buffering in an attempt to produce the highest Quality of Service during the playback. Jitter Buffer uses RTP header information to accomplish its functions.
-

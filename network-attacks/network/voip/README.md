@@ -4,6 +4,8 @@
 
 [Voice Over IP](https://datatracker.ietf.org/doc/html/rfc6405)
 
+{% embed url="https://www.hackingarticles.in/penetration-testing-lab-setup-voip" %}
+
 #### Allows making audio calls in a network (or  over the internet). default port is 5060 for SIP signaling
 
 ![](<../../../.gitbook/assets/image (278).png>)

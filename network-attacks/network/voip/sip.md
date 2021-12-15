@@ -1,6 +1,4 @@
-# Page 1
-
-
+# SIP
 
 ## Session Initiation Protocol (SIP)
 
@@ -50,10 +48,3 @@ The Typical SIP Interaction Structure consists of the following:
 5. ACK is sent by the initiator.
 6. The call started using RTP.
 7. BYE request sent to end the call.
-
-
-
-
-
-
-
