@@ -49,6 +49,7 @@
   * [MySQL](network-attacks/network/mysql.md)
   * [SNMP](network-attacks/network/snmp.md)
   * [MSRPC / RPCbind](network-attacks/network/rpc.md)
+  * [VOIP](network-attacks/network/voip.md)
   * [LDAP](network-attacks/network/ldap.md)
   * [NFS](network-attacks/network/nfs.md)
   * [NTP](network-attacks/network/ntp.md)

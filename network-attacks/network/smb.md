@@ -451,6 +451,16 @@ nmblookup -A [target ip ]
 
 Once we have detected that the File and Printer Sharing service is active and we have enumerated the available shares on a target, it is time to check if a null session attack is possible To verify that, we will exploit the IPC$ administrative share by trying to connect to it without valid credentials.
 
+#### from linux
+
+```
+smbmap -H [ip/hostname]
+rpcclient -U "" -N [ip]
+smbclient \\\\[ip]\\[share name]
+```
+
+#### from windows
+
 ```
 NET USE \\[target IP address]\IPC$ '' /u:''
 net use \\10.130.40.80\IPC$ '' /u:''

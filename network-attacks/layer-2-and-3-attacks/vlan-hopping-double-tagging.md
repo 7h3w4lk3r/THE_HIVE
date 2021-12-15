@@ -2,7 +2,7 @@
 
 ## Trunk Port
 
-![](<../../.gitbook/assets/image (278) (1) (1).png>)
+![](<../../.gitbook/assets/image (278) (1) (1) (1).png>)
 
 #### Trunk ports have access to all VLANs by default and are used to route traffic for multiple VLANs across the same physical link (generally used between switches). Encapsulation can be 802.1Q or ISL
 

@@ -750,7 +750,7 @@ set rhost www.symantec.om
 run
 ```
 
-![](<../.gitbook/assets/image (296).png>)
+![](<../.gitbook/assets/image (296) (1).png>)
 
 we have the cert now create a payload using the cert:
 
