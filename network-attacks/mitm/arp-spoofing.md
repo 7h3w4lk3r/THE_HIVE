@@ -64,16 +64,18 @@ ettercap -T -q -M arp::remote /172.16.0.1-254//   /172.16.0.1-254//
 
 ### Bettercap
 
-#### specify t of IP addresses, comma=separated
+#### Refer to [Bettercap cheat sheet](arp-spoofing.md#bettercap) for full documentation.
+
+specify a number of IP addresses, comma=separated
 
 ```
 set arp.spoof.targets IPs
 ```
 
-#### turn ARP spoof on/off
+turn ARP spoof on/off
 
 ```
 arp.spoof on / off
 ```
 
-When the arp.spoof module is started, Bettercap will automatically configure the OS features for the MitM attack (such as turning on IP forwarding on Linux systems)
+#### When the arp.spoof module is started, Bettercap will automatically configure the OS features for the MitM attack (such as turning on IP forwarding on Linux systems)
