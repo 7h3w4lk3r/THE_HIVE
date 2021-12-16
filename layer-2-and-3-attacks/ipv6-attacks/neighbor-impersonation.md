@@ -1,4 +1,4 @@
-# IPv6 Neighbor Spoofing
+# Neighbor Impersonation
 
 ## IPv6 Neighbor Discovery
 
@@ -6,11 +6,17 @@ While it's true ARP does not exist in the IPv6 protocol stack, IPv6 instead reli
 
 Most similar to typical ARP usage under IPv4 is the ND address resolution function, which is used when a host wants to transmit to an on-link prefix but doesn't yet know the layer two address of the destination host. The sending host multicasts a neighbor solicitation, and the destination host, if reachable, responds with a neighbor advertisement containing its layer two address.
 
-![](<../.gitbook/assets/image (290).png>)
+![](<../../.gitbook/assets/image (290).png>)
 
 Unfortunately, as in ARP, these exchanges are completely unsecured. There are no countermeasures in place to prevent an attacker from generating a neighbor advertisement advertising his own layer two address as belonging to other hosts on the link.
 
-![](<../.gitbook/assets/image (291) (1) (1).png>)
+![](<../../.gitbook/assets/image (291) (1) (1).png>)
+
+## Exploitation
+
+The IPv6 Neighbor Impersonation MitM attack is particularly useful when exploiting link-local autoconfiguration nodes (using the address prefix FE80::/10) and when the attack intends to exploit a limited number of IPv6 targets. Since the attacker must send ICMPv6 NS messages frequently for each victim on the network, this attack does not scale well where lots of target devices are being exploited. In wide-scale IPv6 MitM attacks, an alternate attack technique using router impersonation is recommended.
+
+
 
 ## Using Scapy
 
@@ -196,3 +202,33 @@ ndp.spoof on / off
 | `ndp.spoof.prefix`        | `d00d::`  | IPv6 prefix for router advertisements spoofing, clear to disable RA. |
 | `ndp.spoof.prefix.length` | `64`      | IPv6 prefix length for router advertisements.                        |
 | `ndp.spoof.targets`       | -         | Comma separated list of IPv6 victim addresses.                       |
+
+## Parasite6
+
+#### Implemented by THC-IPV6  toolkit
+
+{% embed url="https://github.com/vanhauser-thc/thc-ipv6" %}
+
+First, the attacker must configure his Linux host to forward IPv6 traffic as a router using sysctl, setting net.ipv6.conf.all.forwarding to 1. Next, the attacker starts the parasite6 tool using the "-l" flag to loop and continue delivering the poisoned ICMPv6 NS messages. To establish a symmetric MitM attack, the attacker also specifies the "-R" argument, which will instruct parasite6 to send unsolicited ICMPv6 NS messages to the destination IPv6 node as well.
+
+#### Installation
+
+```
+apt install thc-ipv6
+```
+
+#### run attack
+
+```
+sysctl -w net.ipv6.conf.all.forward=1
+atk6-parasite6  -lR wlan0
+```
+
+
+
+
+
+
+
+
+

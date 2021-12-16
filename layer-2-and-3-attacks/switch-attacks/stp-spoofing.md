@@ -21,7 +21,7 @@ Often this type of attack leads to a denial of service.
 
     The hacker then sees frames he shouldn’t
 
-![](<../../.gitbook/assets/image (295) (1) (1).png>)
+![](<../../.gitbook/assets/image (295) (1) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (282).png>)
 

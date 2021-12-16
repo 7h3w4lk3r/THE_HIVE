@@ -88,7 +88,7 @@ yersinia -G
 
 Then choose “enabling trunking” and click OK.
 
-![](<../../.gitbook/assets/image (280) (1).png>)
+![](<../../.gitbook/assets/image (280) (1) (1).png>)
 
 in CLI mode press `g` to bring up the protocol menu then choose DTP
 

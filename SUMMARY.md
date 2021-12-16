@@ -218,7 +218,9 @@
 
 ## Layer 2 & 3 Attacks
 
-* [IPv6 Neighbor Spoofing](layer-2-and-3-attacks/ipv6-neighbor-spoofing.md)
+* [IPv6 Attacks](layer-2-and-3-attacks/ipv6-attacks/README.md)
+  * [Neighbor Impersonation](layer-2-and-3-attacks/ipv6-attacks/neighbor-impersonation.md)
+  * [Router Advertisement Flooding](layer-2-and-3-attacks/ipv6-attacks/router-advertisement-flooding.md)
 * [Switch Attacks](layer-2-and-3-attacks/switch-attacks/README.md)
   * [STP Spoofing](layer-2-and-3-attacks/switch-attacks/stp-spoofing.md)
   * [VLAN Hopping](layer-2-and-3-attacks/switch-attacks/vlan-hopping.md)
