@@ -195,4 +195,4 @@ ndp.spoof on / off
 | `ndp.spoof.neighbour`     | `fe80::1` | Neighbour IPv6 address to spoof, clear to disable NA.                |
 | `ndp.spoof.prefix`        | `d00d::`  | IPv6 prefix for router advertisements spoofing, clear to disable RA. |
 | `ndp.spoof.prefix.length` | `64`      | IPv6 prefix length for router advertisements.                        |
-| `ndp.spoof.targets`       |           | Comma separated list of IPv6 victim addresses.                       |
+| `ndp.spoof.targets`       | -         | Comma separated list of IPv6 victim addresses.                       |

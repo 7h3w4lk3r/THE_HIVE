@@ -1,6 +1,6 @@
-# Malicious Upgrade
+# Malicious Upgrade/Download
 
-#### Replacing / Presenting the victim with a malicious payload as a software update package
+#### Presenting the victim with a malicious payload as a software update package.
 
 ## IRS-Evilgrade
 
@@ -73,6 +73,44 @@ evilgrade(sunjava)>show options
 evilgrade>show status
 ```
 
-## Demo
+### Demo
 
 {% embed url="https://www.youtube.com/watch?ab_channel=Unownsec&v=nReKwL93Fnk" %}
+
+## Xerosploit
+
+{% embed url="https://github.com/LionSec/xerosploit" %}
+
+Xerosploit is a penetration testing toolkit whose goal is to perform man in the middle attacks for testing purposes. It brings various modules that allow to realise efficient attacks, and also allows to carry out denial of service attacks and port scanning.
+
+### features:
+
+* Port scanning
+* Network mapping
+* Dos attack
+* Html code injection
+* Javascript code injection
+* Download intercaption and replacement
+* Sniffing
+* Dns spoofing
+* Background audio reproduction
+* Images replacement
+* Drifnet
+* Webpage defacement and more ...
+
+#### installation
+
+```
+git clone https://github.com/LionSec/xerosploit
+cd xerosploit && sudo python install.py
+sudo xerosploit
+```
+
+### Demo
+
+{% embed url="https://www.youtube.com/watch?ab_channel=Neodrix&v=35QUrtZEV9U" %}
+
+## Combine with BeFF and Metasploit
+
+{% embed url="https://sploitech.com/exploiting-tools/how-to-do-advanced-mitm-attacks-with-beef-xerosploit" %}
+

@@ -202,9 +202,9 @@
   * [DNS Tunneling](network-attacks/pivoting/dns-tunneling.md)
   * [🔧 VPN Tunneling](network-attacks/pivoting/remote-connection.md)
   * [🔧 Other Tools](network-attacks/pivoting/tools.md)
-* [MITM & Posoning Attacks](network-attacks/active-directory-attacks/network-poisoning-mitm/README.md)
+* [MITM & Posoning](network-attacks/active-directory-attacks/network-poisoning-mitm/README.md)
   * [Bettercap](network-attacks/network-poisoning-mitm/bettercap.md)
-  * [Malicious Upgrade](network-attacks/network-poisoning-mitm/malicious-upgrade.md)
+  * [Malicious Upgrade/Download](network-attacks/network-poisoning-mitm/malicious-upgrade-download.md)
   * [ARP Spoofing](network-attacks/mitm/arp-spoofing.md)
   * [DHCP Poisoning](network-attacks/active-directory-attacks/network-poisoning-mitm/dhcp-poisoning.md)
   * [DHCPv6 Spoofing](network-attacks/active-directory-attacks/network-poisoning-mitm/dhcpv6-spoofing.md)
@@ -218,16 +218,19 @@
 
 ## Layer 2 & 3 Attacks
 
-* [STP Spoofing](layer-2-and-3-attacks/stp-spoofing.md)
 * [IPv6 Neighbor Spoofing](layer-2-and-3-attacks/ipv6-neighbor-spoofing.md)
-* [HSRP Hijacking](layer-2-and-3-attacks/hsrp-hijacking.md)
-* [🔧 VRRP MitM](layer-2-and-3-attacks/vrrp-mitm.md)
-* [🔧 OSPF Attacks](layer-2-and-3-attacks/ospf-attacks.md)
-* [VLAN Hopping](network-attacks/layer-2-and-3-attacks/vlan-hopping-double-tagging.md)
-* [MAC Flood](network-attacks/layer-2-and-3-attacks/mac-flood.md)
+* [Switch Attacks](layer-2-and-3-attacks/switch-attacks/README.md)
+  * [STP Spoofing](layer-2-and-3-attacks/switch-attacks/stp-spoofing.md)
+  * [VLAN Hopping](layer-2-and-3-attacks/switch-attacks/vlan-hopping.md)
+  * [MAC Flood](layer-2-and-3-attacks/switch-attacks/mac-flood.md)
+* [Router Attacks](layer-2-and-3-attacks/router-attacks/README.md)
+  * [HSRP Hijacking](layer-2-and-3-attacks/router-attacks/hsrp-hijacking.md)
+  * [🔧 RIP Spoofing](layer-2-and-3-attacks/router-attacks/rip-spoofing.md)
+  * [🔧 VRRP MitM](layer-2-and-3-attacks/router-attacks/vrrp-mitm.md)
+  * [🔧 OSPF Attacks](layer-2-and-3-attacks/router-attacks/ospf-attacks.md)
 * [NAC Bypass](network-attacks/nac/README.md)
   * [Captive Portal](network-attacks/nac/captive-portal.md)
-  * [802.1X](network-attacks/nac/802.1x.md)
+  * [802.1X / EAP Bypass](layer-2-and-3-attacks/nac-bypass/802.1x-eap-bypass.md)
 
 ## Shells & Payloads
 
@@ -255,7 +258,7 @@
 
 ## 🔧 Defense Evasion
 
-* [AV Evasion](defense-evasion/av-evasion/README.md)
+* [🔧 AV Evasion](defense-evasion/av-evasion/README.md)
   * [Basic Tricks](defense-evasion/av-evasion/simple-tricks.md)
   * [AMSI Bypass](defense-evasion/av-evasion/amsi-bypass.md)
 
@@ -267,7 +270,7 @@
 
 * [Basics](command-and-control/basics.md)
 * [🔧 Metasploit](command-and-control/metasploit.md)
-* [Empire](command-and-control/empire.md)
+* [🔧 Empire](command-and-control/empire.md)
 
 ## Programming and DataBase
 
