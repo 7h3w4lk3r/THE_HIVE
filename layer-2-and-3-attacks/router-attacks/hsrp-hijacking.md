@@ -35,7 +35,7 @@ If an attacker can observe the authentication string used for HSRP, he can mount
 
 Yersinia includes support for detecting the presence of HSRP traffic, revealing the source IP address of the router participating in the HSRP group, the virtual IP address, and the authentication credentials in use, as shown on this slide.
 
-![](<../../.gitbook/assets/image (276) (1) (1).png>)
+![](<../../.gitbook/assets/image (276) (1) (1) (1).png>)
 
 Press "g" to open the "Choose protocol mode" dialog; then scroll and press "Enter" on the HSRP protocol option to open the HSRP attack mode. After identifying HSRP traffic, select the target virtual IP you wish to exploit for a MitM attack and then press "x" to open the "Attack Panel" dialog, as shown. Selecting "1" will cause the attacker to become the active router but not forward traffic received, causing a DoS attack against all LAN users. Selecting "2" will implement the same attack, but the router will forward traffic to the selected HSRP member as well, creating a MitM attack.
 

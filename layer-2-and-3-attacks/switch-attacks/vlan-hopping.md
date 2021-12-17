@@ -117,7 +117,7 @@ We can see that the interface (G0/0) is set on trunk which means that we can jum
 
 And we can see that all the VLANS are allowed on interface (g0/0):
 
-![](<../../.gitbook/assets/image (301).png>)
+![](<../../.gitbook/assets/image (301) (1).png>)
 
 On Kali, we will add the below commands:
 

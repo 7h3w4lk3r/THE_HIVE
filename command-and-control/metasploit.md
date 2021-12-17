@@ -1,4 +1,4 @@
-# 🔧 Metasploit
+# Metasploit
 
 ![](<../.gitbook/assets/image (282) (1) (1) (1).png>)
 
@@ -372,6 +372,10 @@ openvas_target_create metasploitable 192.168.56.102 metasploitable  >>> create a
  openvas_task_start [id] >>> start task
 ```
 
+## Pivoting & Forwarding
+
+#### see [Metasploit pivoting ](../network-attacks/pivoting/metasploit-pivoting.md#proxy)section.
+
 ## Route Traffic over Tor
 
 ```
@@ -575,7 +579,7 @@ sleep 10 # sleep for 10 secs
 
 Once Meterpreter shellcode has been run; whether from a phish, or some other means, it will reach out to the attacker’s Command and Control (C2) server over some network transport, such as HTTP, HTTPS or TCP. However, in an unknown environment, a successful connection is not guaranteed: firewalls, proxies, or intrusion prevention systems might all prevent a certain transport method from reaching out to the public Internet.Repeated trial and error is sometimes possible, but not always. For a phish, clicks come at a premium. Some exploits only give you one shot to get a shell, before crashing the host process.Meterpreter has the ability to have multiple “transports” in a single implant. A transport is the method by which it communicates to the Metasploit C2 server: TCP, HTTP, etc. Typically, Meterpreter is deployed with a single transport, having had the payload type set in msfvenom or in a Metasploit exploit module (e.g. meterpreter\_reverse\_http).
 
-But after a connection has been made between the implant and the C2 server, an operator can add additional, backup transports. This is particularly useful for redundancy: if one path goes down (e.g. your domain becomes blacklisted), it can fall back to another.
+#### But after a connection has been made between the implant and the C2 server, an operator can add additional, backup transports. This is particularly useful for redundancy: if one path goes down (e.g. your domain becomes blacklisted), it can fall back to another.
 
 #### A transport is defined by its properties:
 
@@ -750,7 +754,7 @@ set rhost www.symantec.om
 run
 ```
 
-![](<../.gitbook/assets/image (296) (1).png>)
+![](<../.gitbook/assets/image (296) (1) (1).png>)
 
 we have the cert now create a payload using the cert:
 
@@ -766,4 +770,4 @@ set stagerverifysslcert true
 run
 ```
 
-![](<../.gitbook/assets/image (276) (1).png>)
+![](<../.gitbook/assets/image (276) (1) (1).png>)

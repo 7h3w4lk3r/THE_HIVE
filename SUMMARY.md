@@ -32,7 +32,7 @@
     * [CMS](recon-1/active-scanning/web-application-enumeration/cms.md)
     * [WAF Detection](recon-1/active-scanning/web-application-enumeration/waf-fingerprinting.md)
 
-## Network Attacks
+## Network & OS Attacks <a href="#network-attacks" id="network-attacks"></a>
 
 * [Firewall Evasion](recon-1/active-scanning/firewall-test.md)
 * [Network Services](network-attacks/network/README.md)
@@ -47,7 +47,6 @@
   * [IMAP](network-attacks/network/imap.md)
   * [MSSQL](network-attacks/network/mssql.md)
   * [MySQL](network-attacks/network/mysql.md)
-  * [SNMP](network-attacks/network/snmp.md)
   * [MSRPC / RPCbind](network-attacks/network/rpc.md)
   * [VOIP](network-attacks/network/voip/README.md)
     * [RTP](network-attacks/network/voip/rtp.md)
@@ -56,12 +55,13 @@
   * [NFS](network-attacks/network/nfs.md)
   * [NTP](network-attacks/network/ntp.md)
   * [Telnet](network-attacks/network/telnet.md)
+  * [SNMP](network-attacks/network/snmp.md)
   * [WebDAV](network-attacks/network/webdav.md)
   * [RDP](network-attacks/network/rdp.md)
   * [RSIP](network-attacks/network/rsip.md)
   * [Rlogin](network-attacks/network/rlogin.md)
   * [VPNs](network-attacks/network/vpns.md)
-* [Windows](network-attacks/windows/README.md)
+* [🔧 Windows](network-attacks/windows/README.md)
   * [Security Component](network-attacks/windows/security-component/README.md)
     * [Permissions and Access Control](network-attacks/windows/security-component/permissions.md)
     * [Loggon Sessions and Access Tokens](network-attacks/windows/security-component/loggon-sessions-and-access-tokens.md)
@@ -200,11 +200,14 @@
   * [HTTP Tunneling](network-attacks/pivoting/http-tunneling.md)
   * [ICMP Tunneling](network-attacks/pivoting/icmp-tunneling.md)
   * [DNS Tunneling](network-attacks/pivoting/dns-tunneling.md)
+  * [Metasploit Pivoting](network-attacks/pivoting/metasploit-pivoting.md)
   * [🔧 VPN Tunneling](network-attacks/pivoting/remote-connection.md)
   * [🔧 Other Tools](network-attacks/pivoting/tools.md)
 * [MITM & Posoning](network-attacks/active-directory-attacks/network-poisoning-mitm/README.md)
   * [Bettercap](network-attacks/network-poisoning-mitm/bettercap.md)
-  * [Malicious Upgrade/Download](network-attacks/network-poisoning-mitm/malicious-upgrade-download.md)
+  * [HTTPS Downgrade / HSTS Bypass](network-attacks/network-poisoning-mitm/https-downgrade-hsts-bypass.md)
+  * [Malicious Update](network-attacks/network-poisoning-mitm/malicious-update.md)
+  * [NTP Spoofing](network-attacks/network-poisoning-mitm/ntp-spoofing.md)
   * [ARP Spoofing](network-attacks/mitm/arp-spoofing.md)
   * [DHCP Poisoning](network-attacks/active-directory-attacks/network-poisoning-mitm/dhcp-poisoning.md)
   * [DHCPv6 Spoofing](network-attacks/active-directory-attacks/network-poisoning-mitm/dhcpv6-spoofing.md)
@@ -213,19 +216,22 @@
   * [SMB/NTLM Relay](network-attacks/active-directory-attacks/network-poisoning-mitm/smb-ntlm-relay.md)
   * [LLMNR Poisoning](network-attacks/active-directory-attacks/network-poisoning-mitm/llmnr-poisoning.md)
   * [DNS Takeover / LDAP Relay](network-attacks/active-directory-attacks/network-poisoning-mitm/dns-takeover-ldap-relay.md)
-* [Sniffing](network-attacks/sniffing/README.md)
+* [🔧 Sniffing](network-attacks/sniffing/README.md)
   * [tcpdump](network-attacks/sniffing/tcpdump.md)
 
 ## Layer 2 & 3 Attacks
 
+* [SNMP Attacks](layer-2-and-3-attacks/snmp.md)
 * [IPv6 Attacks](layer-2-and-3-attacks/ipv6-attacks/README.md)
   * [Neighbor Impersonation](layer-2-and-3-attacks/ipv6-attacks/neighbor-impersonation.md)
   * [Router Advertisement Flooding](layer-2-and-3-attacks/ipv6-attacks/router-advertisement-flooding.md)
 * [Switch Attacks](layer-2-and-3-attacks/switch-attacks/README.md)
+  * [Cisco Exploitation](layer-2-and-3-attacks/switch-attacks/cisco-exploitation.md)
   * [STP Spoofing](layer-2-and-3-attacks/switch-attacks/stp-spoofing.md)
   * [VLAN Hopping](layer-2-and-3-attacks/switch-attacks/vlan-hopping.md)
   * [MAC Flood](layer-2-and-3-attacks/switch-attacks/mac-flood.md)
 * [Router Attacks](layer-2-and-3-attacks/router-attacks/README.md)
+  * [Router Exploitation](layer-2-and-3-attacks/router-attacks/router-exploitation.md)
   * [HSRP Hijacking](layer-2-and-3-attacks/router-attacks/hsrp-hijacking.md)
   * [🔧 RIP Spoofing](layer-2-and-3-attacks/router-attacks/rip-spoofing.md)
   * [🔧 VRRP MitM](layer-2-and-3-attacks/router-attacks/vrrp-mitm.md)
@@ -271,7 +277,7 @@
 ## Command & Control
 
 * [Basics](command-and-control/basics.md)
-* [🔧 Metasploit](command-and-control/metasploit.md)
+* [Metasploit](command-and-control/metasploit.md)
 * [🔧 Empire](command-and-control/empire.md)
 
 ## Programming and DataBase

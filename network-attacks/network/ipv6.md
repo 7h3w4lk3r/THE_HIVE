@@ -56,22 +56,6 @@ The address is split into 2 64 bit segments the top 64 bits is the network part 
 
 ![](<../../.gitbook/assets/image (277) (1) (1) (1) (1) (1).png>)
 
-### Linux IPv6 Interface Config
-
-```
-# Load the Linux IPv6 kernel module
-modprobe ipv6
-
-#Add an IPv6 address to eth0 with a 64-bit mask
-ifconfig eth0 inet6 add fc00:660:0:1::2/64
-
-# Remove an IPv6 address 
-ifconfig eth0 inet6 del fc00:660:0:1::2/64
-
-# Display configured IPv6 addresses
-ifconfig eth0 | grep ipv6
-```
-
 ### Address Types and Scope
 
 IPv6 addresses have three types:
@@ -80,7 +64,7 @@ IPv6 addresses have three types:
 * **Unique Local** — Scope Internal Network or VPN internally routable, but **Not routed** on Internet
 * **Link Local** – Scope network link- **Not Routed** internally or externally.
 
-![](<../../.gitbook/assets/image (276) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (276) (1) (1) (1) (1) (1) (1).png>)
 
 ### IPv6 Loop Back
 
@@ -130,7 +114,8 @@ search ipv6
 
 ## Exploitation
 
+#### see[ IPv6 Attacks](../../layer-2-and-3-attacks/ipv6-attacks/) section.
+
 {% embed url="https://www.kali.org/tools/thc-ipv6" %}
 
 {% embed url="https://www.kali.org/tools/ipv6-toolkit" %}
-

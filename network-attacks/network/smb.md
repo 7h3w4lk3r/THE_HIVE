@@ -287,7 +287,7 @@ pip3 install --upgrade impacket
 smbmap -H 192.168.13.29
 ```
 
-![](<../../.gitbook/assets/image (276).png>)
+![](<../../.gitbook/assets/image (276) (1).png>)
 
 #### Once we’ve determined a writeable share is available, in this case `“tmp,”` we can use Metasploit’s “samba\_symlink\_traversal” auxiliary module to create the symlink to the root filesystem.
 

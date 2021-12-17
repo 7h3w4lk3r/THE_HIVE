@@ -55,7 +55,7 @@ The DAC feature is accessible on the loopback adapter per default, but can be ac
 sudo nmap -sU -p 1434 --script ms-sql-dac <ip>
 ```
 
-![](<../../.gitbook/assets/image (276) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (276) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 ## Query (with credentials)
 

@@ -158,6 +158,10 @@ bettercap -caplet beef-active.cap -eval "set arp.spoof.targets 192.168.1.6; arp.
 
 When user opens HTTP website, for instance time.com, hook will be executed
 
+## Bettercap + BeFF Hook
+
+{% embed url="https://www.youtube.com/watch?ab_channel=CodeOnCommand&v=CHbIV9eU2mg" %}
+
 ## Fuzzing
 
 In addition to packet-sniffing capabilities, Bettercap also can mutate packets for network protocol fuzzing using the net.fuzz module. By default, the net.fuzz module will mutate 100% of packets transmitted by Bettercap, mutating 40% of the packet payload data. You can adjust these values by changing the net.fuzz.rate and net.fuzz.ratio parameters.

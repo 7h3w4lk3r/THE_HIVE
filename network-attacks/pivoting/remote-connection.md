@@ -29,6 +29,23 @@ Set new route on client side:
 route add -net 10.0.0.0/16 gw 1.1.1.1
 ```
 
+## NETSH (Windows)
+
+{% hint style="warning" %}
+for this to work, the Windows system must have the IP Helper service running and IPv6 support must be enabled for the interface we want to use. Fortunately, both are on and enabled by default on Windows operating systems.
+{% endhint %}
+
+```
+netsh interface portproxy add v4tov4 listenport=4455 listenaddress=10.11.0.22 connectport=445 connectaddress=192.168.1.110
+netsh advfirewall firewall add rule name="forward_port_rule" protocol=TCP dir=in localip=10.11.0.22 localport=4455 action=allow
+```
+
+test:
+
+```
+smbclient -L 10.11.0.22 --port=4455 --user=Administrator
+```
+
 
 
 
