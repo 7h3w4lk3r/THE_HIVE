@@ -234,8 +234,8 @@
   * [Router Exploitation](layer-2-and-3-attacks/router-attacks/router-exploitation.md)
   * [HSRP Hijacking](layer-2-and-3-attacks/router-attacks/hsrp-hijacking.md)
   * [🔧 RIP Spoofing](layer-2-and-3-attacks/router-attacks/rip-spoofing.md)
-  * [🔧 VRRP MitM](layer-2-and-3-attacks/router-attacks/vrrp-mitm.md)
   * [🔧 OSPF Attacks](layer-2-and-3-attacks/router-attacks/ospf-attacks.md)
+  * [🔧 VRRP MitM](layer-2-and-3-attacks/router-attacks/vrrp-mitm.md)
 * [NAC Bypass](network-attacks/nac/README.md)
   * [Captive Portal](network-attacks/nac/captive-portal.md)
   * [802.1X / EAP Bypass](layer-2-and-3-attacks/nac-bypass/802.1x-eap-bypass.md)
@@ -316,3 +316,12 @@
   * [Variables and Data Types](programming-and-database/assembly/variables-and-data-types.md)
   * [Most-used Instructions](programming-and-database/assembly/most-used-instructions.md)
   * [input / output](programming-and-database/assembly/input-output.md)
+
+## Misc Tools
+
+* [cats](misc-tools/cats/README.md)
+  * [netcat](misc-tools/cats/netcat.md)
+  * [ncat](misc-tools/cats/ncat.md)
+  * [pwncat](misc-tools/cats/pwncat.md)
+  * [socat](misc-tools/cats/socat.md)
+  * [powercat](misc-tools/cats/powercat.md)
