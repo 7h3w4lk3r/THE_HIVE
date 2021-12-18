@@ -18,13 +18,13 @@ SNMP uses a disturbed architechture comprising SNMP managers, SNMP agents, and S
 
 #### 1) GetRequest : Used by the SNMP manager to request information from the SNMP Agent   2) GetNextRequest : Used by the SNMP manager continuosly to retrieve all the data stored in the array or table.   3) GetResponse : Used by the SNMP agent to satisfy a request made by the SNMP manager.   4) SetRequest : used by the SNMP manager to motify the value of a parameter within the SNMP agent’s Management Information Base (MIB).   5) Trap : Used by the SNMP agent to inform the pre-configured SNMP manager of a certain event.
 
-## MIB
+### MIB
 
 MIB stands for Management Information Base and is a collection of information organized hierarchically. These are accessed using a protocol such as SNMP. There are two types of MIBs: scalar and tabular.
 
 Scalar objects define a single object instance whereas tabular objects define multiple related object instances grouped in MIB tables.
 
-## OIDs
+### OIDs
 
 OIDs stands for Object Identifiers. OIDs uniquely identify managed objects in a MIB hierarchy. This can be depicted as a tree, the levels of which are assigned by different organizations. Top level MIB object IDs (OIDs) belong to different standard organizations.
 
@@ -69,15 +69,15 @@ The rest of the values give specific information about the device.
 7 – state of the point
 ```
 
-![](<../../.gitbook/assets/image (37).png>)
+![](<../.gitbook/assets/image (37).png>)
 
-## SNMP Versions
+### SNMP Versions
 
 There are 2 important versions of SNMP:
 
 #### SNMPv1: Main one, it is still the most frequent, the authentication is based on a string (community string) that travels in plain-text (all the information travels in plain text). Version 2 and 2c send the traffic in plain text also and uses a community string as authentication.   SNMPv3: Uses a better authentication form and the information travels encrypted using (dictionary attack could be performed but would be much harder to find the correct creds that inn SNMPv1 and v2).
 
-## Community Strings
+### Community Strings
 
 As mentioned before, in order to access the information saved on the MIB you need to know the community string on versions 1 and 2/2c and the credentials on version 3. The are 2 types of community strings:
 
@@ -216,6 +216,3 @@ Nmap's version scan will not identify the presence of Windows hosts running the 
 {% endhint %}
 
 As a secondary technique to narrow down a list of devices that are likely SNMP managed devices, DNS interrogation can also be used. Hostnames such as "cacti," "mrtg," "hpov," "Tivoli," and "nagios" are likely SNMP NMS devices, possibly accepting SNMP traps from managed devices. Further, devices with common acronyms or abbreviations indicating their functionality on the network as a router or bridge of some sort (such as "rtr," "router," "gig," "atm," and so on) in the hostname are also worthwhile targets to further evaluate as possible SNMP managed devices.
-
-
-
