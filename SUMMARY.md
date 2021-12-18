@@ -55,12 +55,12 @@
   * [NFS](network-attacks/network/nfs.md)
   * [NTP](network-attacks/network/ntp.md)
   * [Telnet](network-attacks/network/telnet.md)
-  * [SNMP](network-attacks/network/snmp.md)
   * [WebDAV](network-attacks/network/webdav.md)
   * [RDP](network-attacks/network/rdp.md)
   * [RSIP](network-attacks/network/rsip.md)
   * [Rlogin](network-attacks/network/rlogin.md)
   * [VPNs](network-attacks/network/vpns.md)
+  * [SNMP](network-attacks/network/snmp.md)
 * [🔧 Windows](network-attacks/windows/README.md)
   * [Security Component](network-attacks/windows/security-component/README.md)
     * [Permissions and Access Control](network-attacks/windows/security-component/permissions.md)
@@ -222,7 +222,6 @@
 
 ## Layer 2 & 3 Attacks
 
-* [SNMP Attacks](layer-2-and-3-attacks/snmp.md)
 * [IPv6 Attacks](layer-2-and-3-attacks/ipv6-attacks/README.md)
   * [Neighbor Impersonation](layer-2-and-3-attacks/ipv6-attacks/neighbor-impersonation.md)
   * [Router Advertisement Flooding](layer-2-and-3-attacks/ipv6-attacks/router-advertisement-flooding.md)
