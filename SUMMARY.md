@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Home](README.md)
+* [🔴 Home](README.md)
 
 ## RECON <a href="#recon-1" id="recon-1"></a>
 
