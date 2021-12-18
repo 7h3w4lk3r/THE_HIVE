@@ -324,4 +324,4 @@
   * [ncat](misc-tools/cats/ncat.md)
   * [pwncat](misc-tools/cats/pwncat.md)
   * [socat](misc-tools/cats/socat.md)
-  * [powercat](misc-tools/cats/powercat.md)
+  * [🔧 powercat](misc-tools/cats/powercat.md)
