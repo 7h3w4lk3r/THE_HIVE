@@ -269,6 +269,8 @@
 * [🔧 AV Evasion](defense-evasion/av-evasion/README.md)
   * [Basic Tricks](defense-evasion/av-evasion/simple-tricks.md)
   * [AMSI Bypass](defense-evasion/av-evasion/amsi-bypass.md)
+* [🔧 SRP Bypass](defense-evasion/srp-bypass.md)
+* [🔧 GPO Bypass](defense-evasion/gpo-bypass.md)
 
 ## Hardening & Monitoring
 
