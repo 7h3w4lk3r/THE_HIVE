@@ -264,7 +264,7 @@
   * [Perl](shells-and-payloads/reverse-bind-payloads/perl.md)
   * [Python](shells-and-payloads/reverse-bind-payloads/python.md)
 
-## 🔧 Defense Evasion
+## Defense Evasion
 
 * [🔧 AV Evasion](defense-evasion/av-evasion/README.md)
   * [Basic Tricks](defense-evasion/av-evasion/simple-tricks.md)
