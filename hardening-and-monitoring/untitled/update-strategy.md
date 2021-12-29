@@ -472,13 +472,15 @@ Once the package is installed, there are three ways to use needs-restarting. If 
 | sudo needs-restarting -s | This only shows the services that need to be restarted.                                                      |
 | sudo needs-restarting -r | This only shows the reasons why the system needs to be rebooted.                                             |
 
-## Updating Red Hat 8-based systems
+## <mark style="color:red;">Updating Red Hat 8-based systems</mark>
 
+The  difference between yum and dnf is that dnf has a different automatic update mechanism. Instead of installing the `yum-cron` package, you'll now install the `dnf-automatic` package, like so:
 
+```
+sudo dnf install dnf-automatic
+```
 
-
-
-
+In the `/etc/dnf` directory, you'll see the `automatic.conf` file, which you'll configure the same way as you did the yum-cron.conf file for CentOS 7. Instead of working as a cron job, as the old yum-cron did, `dnf-automatic` works with a systemd timer. When you first install `dnf-automatic`, the timer is disabled. Enable it and start it by running the following line of code:
 
 
 
