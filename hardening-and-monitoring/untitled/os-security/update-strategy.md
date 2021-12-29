@@ -6,6 +6,60 @@
 **the machine might be using an old unpatched software that is not compatible with newer versions of your distribution**
 {% endhint %}
 
+## <mark style="color:red;">Check Package Manager</mark>
+
+Verify package repositories are configured correctly. Depending on the package management in use one of the following command groups may provide the needed information:
+
+```
+# yum repo-list
+# apt-cache policy
+# zypper repos
+```
+
+### <mark style="color:orange;">Ensure GPG keys are configured</mark>
+
+```
+# rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\n'
+# apt-key list
+# zypper repos
+```
+
+### <mark style="color:orange;">Validate Packages before Installation</mark>
+
+```
+on redhat:
+rpm --verify
+rpm -Va >>> verify all
+
+on ubuntu:
+apt install debsums
+debsums -l >>> generate a list 
+debsums -c  >>> check all
+
+```
+
+### <mark style="color:orange;">Check Package Integrity</mark>
+
+#### <mark style="color:green;">Debian-based</mark>
+
+```
+# single package
+debsums [package]
+
+# all installed packages
+dpkg -l | egrep '^ii' | awk '{print $2}' | xargs sudo debsums | egrep -v 'OK'
+
+# If you suspect that a file changed and don't know from which package it comes from, try:
+dpkg -S /full/path/to/file
+```
+
+<mark style="color:green;">Redhat-based</mark>
+
+```
+# single package
+rpm --checksig [package]
+```
+
 ## <mark style="color:red;">Updating Debian-based systems</mark>
 
 ```
@@ -482,17 +536,26 @@ sudo dnf install dnf-automatic
 
 In the `/etc/dnf` directory, you'll see the `automatic.conf` file, which you'll configure the same way as you did the yum-cron.conf file for CentOS 7. Instead of working as a cron job, as the old yum-cron did, `dnf-automatic` works with a systemd timer. When you first install `dnf-automatic`, the timer is disabled. Enable it and start it by running the following line of code:
 
+```
+sudo systemctl enable --now dnf-automatic.timer
+```
 
+Verify that it's running by typing the following line of code:
 
+```
+sudo systemctl status dnf-automatic.timer
+```
 
+If it started successfully, you should see something like this:
 
-
-
-
-
-
-
-
-
-
-
+```
+[donnie@redhat-8 ~]$ sudo systemctl status dnf-automatic.timer
+dnf-automatic.timer - dnf-automatic timer
+Loaded: loaded (/usr/lib/systemd/system/dnf-automatic.timer;
+enabled; vendor preset: disabled)
+Active: active (waiting) since Sun 2019-07-07 19:17:14 EDT; 13s
+ago
+Trigger: Sun 2019-07-07 19:54:49 EDT; 37min left
+Jul 07 19:17:14 redhat-8 systemd[1]: Started dnf-automatic timer.
+[donnie@redhat-8 ~]$
+```

@@ -1,8 +1,8 @@
-# 🔴 Home
+# Home
 
 ![](.gitbook/assets/logo.png)
 
-#### **Hive is a long-term project with** the ultimate goal of creating a general methodology and manual for network and infrastructure penetration testing.&#x20;
+#### <mark style="color:red;">**Hive is a long-term project with**</mark> <mark style="color:red;"></mark><mark style="color:red;">the ultimate goal of creating a general methodology and manual for network and infrastructure penetration testing.</mark>&#x20;
 
 The documents and techniques discussed here are taken from various sources such as blogs, cyber security courses, cheat sheets, books, CTF experience and personal researches. **the soul purpose of this "book" is to** **make network penetration testing easier, keeping my notes somewhere handy and hopefully, giving back to the community.**&#x20;
 

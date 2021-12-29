@@ -92,7 +92,7 @@ Then choose “enabling trunking” and click OK.
 
 in CLI mode press `g` to bring up the protocol menu then choose DTP
 
-![](<../../.gitbook/assets/image (287).png>)
+![](<../../.gitbook/assets/image (287) (1).png>)
 
 then press `x` to open panel and press `1` to enable trunking
 

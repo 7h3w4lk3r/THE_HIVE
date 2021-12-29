@@ -1,6 +1,6 @@
 # Table of contents
 
-* [🔴 Home](README.md)
+* [Home](README.md)
 
 ## RECON <a href="#recon-1" id="recon-1"></a>
 
@@ -135,6 +135,7 @@
     * [HiveNightmare](network-attacks/active-directory-attacks/credential-dumping/hivenightmare.md)
     * [Other Tools / Techniques](network-attacks/active-directory-attacks/credential-dumping/other-tools-techniques.md)
 * [Linux](network-attacks/untitled/README.md)
+  * [Physical Attacks](network-attacks/untitled/physical-attacks.md)
   * [Privilege Escalation](network-attacks/untitled/privilege-escalation/README.md)
     * [Enumeration](network-attacks/untitled/privilege-escalation/enumeration.md)
     * [SUID / SGID abuse](network-attacks/untitled/privilege-escalation/suid-sgid.md)
@@ -275,7 +276,10 @@
 ## Hardening & Monitoring
 
 * [🔧 Linux Hardening](hardening-and-monitoring/untitled.md)
-  * [Update Strategy](hardening-and-monitoring/untitled/update-strategy.md)
+  * [OS Security](hardening-and-monitoring/untitled/os-security/README.md)
+    * [Update Strategy](hardening-and-monitoring/untitled/os-security/update-strategy.md)
+    * [Encryption](hardening-and-monitoring/untitled/os-security/encryption.md)
+    * [Grub Hardening](hardening-and-monitoring/untitled/os-security/grub-hardening.md)
 
 ## Command & Control
 
