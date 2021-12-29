@@ -5,10 +5,8 @@ description: >-
   hardening your OS.
 ---
 
-# 🔧 Linux Hardening Checklist
+# 🔧 Linux Hardening
 
-
-
-
-
-&#x20;
+{% hint style="warning" %}
+**This section is a combination of CIS benchmark, LPIC3 and other Linux hardening resources.**
+{% endhint %}

@@ -274,7 +274,8 @@
 
 ## Hardening & Monitoring
 
-* [🔧 Linux Hardening Checklist](hardening-and-monitoring/untitled.md)
+* [🔧 Linux Hardening](hardening-and-monitoring/untitled/README.md)
+  * [Update Strategy](hardening-and-monitoring/untitled/update-strategy.md)
 
 ## Command & Control
 
