@@ -277,9 +277,10 @@
 
 * [🔧 Linux Hardening](hardening-and-monitoring/untitled.md)
   * [OS Security](hardening-and-monitoring/untitled/os-security/README.md)
-    * [Update Strategy](hardening-and-monitoring/untitled/os-security/update-strategy.md)
-    * [Encryption](hardening-and-monitoring/untitled/os-security/encryption.md)
+    * [Physical Security](hardening-and-monitoring/untitled/os-security/physical-security.md)
     * [Grub Hardening](hardening-and-monitoring/untitled/os-security/grub-hardening.md)
+    * [Update Strategy](hardening-and-monitoring/untitled/os-security/update-strategy.md)
+  * [Encryption](hardening-and-monitoring/untitled/encryption.md)
 
 ## Command & Control
 

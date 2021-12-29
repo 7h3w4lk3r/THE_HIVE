@@ -1,5 +1,60 @@
 # Encryption
 
+## <mark style="color:red;">LUKS</mark>
+
+create a linux partition:
+
+```
+fdisk /dev/sdb1
+cryptsetup --help
+```
+
+create an encryption layer on top of /dev/sdb1
+
+```
+cryptsetup luksFormat /dev/sdb1 
+```
+
+open the device with the given name in /dev/mapper
+
+```
+cryptsetup luksOpen /dev/sdb1 [name] 
+```
+
+```
+cd /dev/mapper
+
+mkfs.ext4 /dev/mapper/[name]
+
+mkdir /secrey 
+
+mount /dev/mapper/secret /secret
+
+cryptset luksClose /dev/mapper/secret
+```
+
+for automatic mount of the encrypted device we have to create a config file and an entry in /etc/fstab:
+
+```
+dd if=/dev/urandom of=/root/lukskey bs=4096 count=1
+
+cryptsetup luksAddkey /dev/sdb1 /root/lukskey
+```
+
+nano `/etc/crypttab` add following:
+
+```
+secret  /dev/sdb1   /root/lukskey
+```
+
+`nano /etc/fstab` add following:
+
+```
+/dev/mapper/secret      /secret ext4    defaults    1   2
+```
+
+reboot
+
 ## <mark style="color:red;">GNU Privacy Guard (GPG)</mark>
 
 create key pair:
@@ -181,3 +236,126 @@ To see what VeraCrypt volumes you have mounted
 veracrypt -l
 ```
 
+## <mark style="color:red;">OpenSSL</mark>
+
+With OpenSSL, we can encrypt information on the fly as it goes across the network. There's no need to manually encrypt our data before we send it across the network because OpenSSL encryption happens automatically. This is important because online commerce and banking couldn't exist without it.
+
+generating rsa key:
+
+```
+openssl genrsa -aes256 -out example.pem 2048
+```
+
+see the key structure:
+
+```
+openssl rsa -text -in example.pem
+```
+
+separate public key from key file:
+
+```
+openssl rsa -in example.pem -pubout -out public.pem
+```
+
+generate DSA key
+
+```
+openssl dsaparam -genkey 2048 | openssl dsa -out dsa.key -aes256
+```
+
+generate an ECDSA key :
+
+```
+// Sopenssl ecparam -genkey -name secp256r1 | openssl ec -out ec.key -aes256
+```
+
+OpenSSL supports many named curves (you can get a full list with the -list\_curves switch), but, for web server keys, you’re limited to only two curves that are supported by all major browsers: secp256r1 (OpenSSL uses the name prime256v1 ) and secp384r1 .
+
+Creating Certificate Signing Requests
+
+```
+openssl -req -key -new example.pem -out example.csr
+```
+
+check the CSR:
+
+```
+openssl -req -text -in example.csr -noout
+```
+
+generate a public and private key pair:
+
+```
+ openssl genrsa -des3 -out private.pem 2048
+```
+
+That generates a 2048-bit RSA key pair, encrypts them with a password you provide and writes them to a file. You need to next extract the public key file. You will use this, for instance, on your web server to encrypt content so that it can only be read with the private key.
+
+#### create a 2048-bit private key (domain.key) and a CSR (domain.csr) from scratch:
+
+```
+ openssl req  -newkey rsa:2048 -nodes -keyout domain.key  -out domain.csr
+```
+
+Generate a CSR from an Existing Private Key
+
+```
+ openssl req  -key domain.key  -new -out domain.csr
+```
+
+Generate a Self-Signed Certificate
+
+```
+openssl req  -newkey rsa:2048 -nodes -keyout domain.key  -x509 -days 365 -out domain.crt
+```
+
+Generate a Self-Signed Certificate from an Existing Private Key
+
+```
+ openssl req  -key domain.key  -new  -x509 -days 365 -out domain.crt
+```
+
+Generate a Self-Signed Certificate from an Existing Private Key and CSR
+
+```
+ openssl x509  -signkey domain.key  -in domain.csr -req -days 365 -out domain.crt
+```
+
+View Certificate Entries
+
+```
+openssl x509 -text -noout -in domain.crt
+```
+
+Verify a Certificate was Signed by a CA
+
+```
+openssl verify -verbose -CAFile ca.crt domain.crt
+```
+
+Create a Private Key
+
+```
+openssl genrsa -des3 -out domain.key 2048
+```
+
+Verify a Private Key
+
+```
+openssl rsa -check -in domain.key
+```
+
+Verify a Private Key Matches a Certificate and CSR
+
+```
+openssl rsa -noout -modulus -in domain.key | openssl md5
+openssl x509 -noout -modulus -in domain.crt | openssl md5
+openssl req -noout -modulus -in domain.csr | openssl md5
+```
+
+Encrypt a Private Key
+
+```
+/ openssl rsa -des3 -in unencrypted.key  -out encrypted.key
+```
