@@ -6,7 +6,7 @@
 **the machine might be using an old unpatched software that is not compatible with newer versions of your distribution**
 {% endhint %}
 
-## Updating Debian-based systems
+## <mark style="color:red;">Updating Debian-based systems</mark>
 
 ```
 # update the repository
@@ -38,7 +38,7 @@ To manually install the security-related updates without installing non-security
 sudo unattended-upgrade -d
 ```
 
-## &#x20;Debian Auto Update
+## &#x20;<mark style="color:red;">Debian Auto Update</mark>
 
 You can set up automated security updates on Debian by installing a helpful utility called `unattended-upgrades`
 
@@ -94,7 +94,7 @@ Unattended-Upgrade::Origins-Pattern {
 
 ```
 
-### Blacklisting Packages <a href="#blacklisting-packages" id="blacklisting-packages"></a>
+### <mark style="color:orange;">Blacklisting Packages</mark> <a href="#blacklisting-packages" id="blacklisting-packages"></a>
 
 The `Unattended-Upgrade::Package-Blacklist` section of the configuration file allows you to block upgrades for specific packages.
 
@@ -132,7 +132,7 @@ Unattended-Upgrade::Package-Blacklist {
 ...
 ```
 
-### Deleting Dependencies <a href="#deleting-dependencies" id="deleting-dependencies"></a>
+### <mark style="color:orange;">Deleting Dependencies</mark> <a href="#deleting-dependencies" id="deleting-dependencies"></a>
 
 You can explicitly set up the unattended-upgrades service to remove unused dependencies by changing the `Remove-Unused-Kernel-Packages`, `Remove-New-Unused-Dependencies`, and `Remove-Unused-Dependencies` options to true. Remember to remove `//` to uncomment these lines.
 
@@ -157,7 +157,7 @@ Unattended-Upgrade::Remove-Unused-Dependencies "true";
 ..
 ```
 
-### Enabling Automatic Upgrades <a href="#enabling-automatic-upgrades" id="enabling-automatic-upgrades"></a>
+### <mark style="color:orange;">Enabling Automatic Upgrades</mark> <a href="#enabling-automatic-upgrades" id="enabling-automatic-upgrades"></a>
 
 To enable automatic updates create a new auto-upgrades file: `/etc/apt/apt.conf.d/20auto-upgrades` using text editor of your choice.
 
@@ -178,7 +178,7 @@ APT::Periodic::AutocleanInterval "7";
 * **AutocleanInterval**: Enables auto clean packages for `X` days. The above configuration displays 7 days
   * For example, `APT::Periodic::AutocleanInterval “7”;` means that the system clears the download archive every seven days.
 
-### Enable Auto Reboot
+### <mark style="color:orange;">Enable Auto Reboot</mark>
 
 Uncomment the line by removing the leading slashes, and change false to true, like so:
 
@@ -186,7 +186,7 @@ Uncomment the line by removing the leading slashes, and change false to true, li
 Unattended-Upgrade::Automatic-Reboot "true";
 ```
 
-### Testing The Configuration <a href="#testing-the-configuration" id="testing-the-configuration"></a>
+### <mark style="color:orange;">Testing The Configuration</mark> <a href="#testing-the-configuration" id="testing-the-configuration"></a>
 
 You can perform a dry run to test the configuration. The dry run command runs a test update but no actual changes take place.
 
@@ -196,7 +196,7 @@ You can run the dry run test by using the command:
 sudo unattended-upgrades --dry-run --debug
 ```
 
-## Ubuntu Auto Update
+## <mark style="color:red;">Ubuntu Auto Update</mark>
 
 1. update your system with `apt update && apt upgrade .`
 2.  Install it running the following command:
@@ -240,7 +240,7 @@ Unattended-Upgrade::Allowed-Origins {
 ...
 ```
 
-### Blacklisting Packages <a href="#blacklisting-packages" id="blacklisting-packages"></a>
+### <mark style="color:orange;">Blacklisting Packages</mark> <a href="#blacklisting-packages" id="blacklisting-packages"></a>
 
 The `Unattended-Upgrade::Package-Blacklist` section of the configuration file allows you to block upgrades for specific packages.
 
@@ -274,7 +274,7 @@ Unattended-Upgrade::Package-Blacklist {
 ...
 ```
 
-### Deleting Dependencies <a href="#deleting-dependencies" id="deleting-dependencies"></a>
+### <mark style="color:orange;">Deleting Dependencies</mark> <a href="#deleting-dependencies" id="deleting-dependencies"></a>
 
 You can explicitly set up the unattended-upgrades service to remove unused dependencies by changing the `Remove-Unused-Kernel-Packages`, `Remove-New-Unused-Dependencies`, and `Remove-Unused-Dependencies` options to true. Remember to remove `//` to uncomment these lines.
 
@@ -295,7 +295,7 @@ Unattended-Upgrade::Remove-Unused-Dependencies "true";
 ...
 ```
 
-### Enabling Automatic Upgrades <a href="#enabling-automatic-upgrades" id="enabling-automatic-upgrades"></a>
+### <mark style="color:orange;">Enabling Automatic Upgrades</mark> <a href="#enabling-automatic-upgrades" id="enabling-automatic-upgrades"></a>
 
 To enable automatic updates create a new auto-upgrades file: `/etc/apt/apt.conf.d/20auto-upgrades` using text editor of your choice.
 
@@ -316,7 +316,7 @@ APT::Periodic::AutocleanInterval "7";
 * **AutocleanInterval**: Enables auto clean packages for `X` days. The above configuration displays 7 days
   * For example, APT::Periodic::AutocleanInterval “7”; means that the system clears the download archive every seven days.
 
-### Enable Auto Reboot
+### <mark style="color:orange;">Enable Auto Reboot</mark>
 
 Go into the `/etc/apt/apt.conf.d` directory and open the `50unattendedupgrades` file in your favorite text editor. In the vicinity of line 68, you'll see a line that says the following:
 
@@ -342,7 +342,7 @@ t. To have the machine reboot at 2:00 A.M., just uncomment this line. To have it
 Unattended-Upgrade::Automatic-Reboot-Time "22:00";
 ```
 
-### Testing The Configuration <a href="#testing-the-configuration" id="testing-the-configuration"></a>
+### <mark style="color:orange;">Testing The Configuration</mark> <a href="#testing-the-configuration" id="testing-the-configuration"></a>
 
 You can perform a dry run to test the configuration. The dry run command runs a test update but no actual changes take place.
 
@@ -352,7 +352,7 @@ You can run the dry run test by using the command:
 sudo unattended-upgrades --dry-run --debug
 ```
 
-### Disabling Auto Updates
+### <mark style="color:orange;">Disabling Auto Updates</mark>
 
 To disable automatic updates, just go into the `/etc/apt/apt.conf.d` directory and open the `20auto-upgrades` file in your favorite text editor. What you'll see is this:
 
@@ -370,7 +370,7 @@ APT::Periodic::Unattended-Upgrade "0";
 
 Now, the system will still check for updates and show a message at the login screen when any are available, but it won't automatically install them. And of course, it should go without saying that you need to check your systems on a regular basis to see if updates are available. If you do prefer to leave automatic updates enabled, be sure to either enable automatic rebooting or to log in to the system at least a couple of times a week to see if it needs to be rebooted.
 
-## Updating Redhat7-based Systems
+## <mark style="color:red;">Updating Redhat7-based Systems</mark>
 
 With Red Hat-based systems, which include CentOS and Oracle Linux, there's no automatic update mechanism that you can set up during installation. So, with the default configuration, you'll need to perform updates yourself:
 
@@ -397,7 +397,7 @@ updateinfo list done
 sudo yum upgrade --security
 ```
 
-### CentOS 7 Auto Update
+### <mark style="color:orange;">CentOS 7 Auto Update</mark>
 
 ```
 sudo yum install yum-cron
