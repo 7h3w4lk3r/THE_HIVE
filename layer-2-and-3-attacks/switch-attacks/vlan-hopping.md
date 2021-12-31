@@ -46,7 +46,7 @@
 
 #### As a result, the attacker is a member of all the VLANs that are trunked on the switch and can “hop” between VLANs. In other words, the attacker can send and receive traffic on all those VLANs. The best way to prevent a basic VLAN hopping attack is to turn off DTP on all ports, and explicitly configure trunking mode or access mode as appropriate on each port.
 
-![](<../../.gitbook/assets/image (282) (1) (1).png>)
+![](<../../.gitbook/assets/image (282) (1) (1) (1).png>)
 
 here is the VLAN table from the switch console:
 
@@ -96,7 +96,7 @@ in CLI mode press `g` to bring up the protocol menu then choose DTP
 
 then press `x` to open panel and press `1` to enable trunking
 
-![](<../../.gitbook/assets/image (293) (1).png>)
+![](<../../.gitbook/assets/image (293) (1) (1).png>)
 
 After delivering the DTP message, press `5` to open a status dialog. Here, the status indicates TRUNK/AUTO, revealing a successful attack.
 
@@ -197,7 +197,7 @@ vconfig add eth1 29 #29 is the VLAN number of Cisco device
 
 We check that it has been created successfully.
 
-![](<../../.gitbook/assets/image (275) (1) (1).png>)
+![](<../../.gitbook/assets/image (275) (1) (1) (1).png>)
 
 We disable the interface to modify the MAC and change it for the legitimate phone (we can see this setting directly in phone options).
 

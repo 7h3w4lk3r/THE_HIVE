@@ -122,7 +122,7 @@ evilgrade(notepadplus)>start
 
 we invoke the "evilgrade" executable to invoke the handler for the Notepad++ software update process. At the "evilgrade>" prompt, enter "conf notepadplus" to invoke the Notepad++ handler. For any Evilgrade module, running "show options" will display configuration information and options that can be manipulated using the "set" command, such as the filename to an alternative executable to deliver to the attacker. Finally, launch the module by issuing the "start" command, which will invoke the Evilgrade web server.
 
-![](<../../.gitbook/assets/image (276).png>)
+![](<../../.gitbook/assets/image (276) (1).png>)
 
 Evilgrade will log to standard output the status of client requests for updates, as shown on this slide. The first log entry indicates that the Notepad++ client requested the getDownLoadUrl.php page, which checks for an available update. The second entry indicates the client's request for the executable file to download and install, followed by the delivery of the agent/agent.exe file to the victim.
 

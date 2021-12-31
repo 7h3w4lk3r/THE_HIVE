@@ -16,7 +16,7 @@
 
 ![](<../../.gitbook/assets/image (300) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (276) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (276) (1) (1) (1) (1) (1) (1).png>)
 
 ## CAM Overflow
 
@@ -26,9 +26,9 @@
 
 • Based on CAM Table’s limited size
 
-![](<../../.gitbook/assets/image (293) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (293) (1) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (281) (1) (1).png>)
+![](<../../.gitbook/assets/image (281) (1) (1) (1).png>)
 
 #### Dsniff (macof) can generate 480,000 MAC entries on a switch per minute 8000/s\*60.
 

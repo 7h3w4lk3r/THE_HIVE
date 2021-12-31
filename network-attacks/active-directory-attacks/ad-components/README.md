@@ -1,5 +1,7 @@
 # 🔧 AD Components
 
+![](<../../../.gitbook/assets/image (282).png>)
+
 {% hint style="info" %}
 This section is an overview of different Active Directory components taken from the book: <mark style="color:orange;">Mastering Active Directory</mark> by <mark style="color:orange;">Dishan Francis.</mark>
 {% endhint %}
@@ -59,7 +61,7 @@ In order to view the GUID and SID values for the user account, the following Pow
 Get-ADUser username
 ```
 
-![](<../../.gitbook/assets/image (281).png>)
+![](<../../../.gitbook/assets/image (281) (1).png>)
 
 `ObjectGUID` is a 128-bit value, and is applied to each and every object in Active Directory. This value is not just for the particular Active Directory domain. It is valid globally as well. Once a GUID is assigned to an object, it will be there until the object is deleted from the directory. Modifying or moving objects will not change the value of the GUID. The ObjectGUID attribute value will be published to the global catalog servers. If an application in a domain needs to search for a user object, the best method will be to query using ObjectGUID , as it will give an accurate result.
 
@@ -160,15 +162,109 @@ There are six role services for AD CS:
 5. <mark style="color:orange;">Certificate Enrollment Web Service:</mark> This role service works with the Certificate Enrollment Policy Web Service, and allows users and computers to perform certificate enrollment using HTTPS. It also allows certificate enrollment for domain computers or devices that are not connected to the domain, and computers or devices that are not part of the domain.
 6. <mark style="color:orange;">Certificate Enrollment Policy Web Service:</mark> This publishes the certificate enrollment policy information to users and computers.
 
+## <mark style="color:red;">FSMO roles</mark>
 
+There are five flexible single master operations roles in the Active Directory infrastructure.
 
+&#x20;Each of them perform specific Active Directory tasks that other domain controllers in the infrastructure are not permitted to perform. These five FSMO roles are divided into two categories based on their operation boundaries:
 
+| Forest level                    | Domain level                                                   |
+| ------------------------------- | -------------------------------------------------------------- |
+| Schema operations master        | The primary domain controller (PDC) emulator operations master |
+| Domain-naming operations master | The relative identifier (RID) operations master                |
+| N/A                             | The infrastructure operations master                           |
 
+When we create the first Active Directory forest and the first Active Directory domain, all these FSMO roles will be installed in the domain's first domain controller.
 
+### <mark style="color:orange;">Moving FSMO roles</mark>
 
+we need to check the current FSMO role holder:
 
+```
+netdom query fsmo
+```
 
+move FSMO roles:
 
+```
+Move-ADDirectoryServerOperationMasterRole -Identity NEW-FSMO-DC2 -OperationMasterRole PDCEmulator, RIDMaster, InfrastructureMast
+```
+
+Once the move is completed, we can check the role owners again.
+
+If we need to move all five FSMO roles to a new host, we can use the following command:
+
+```
+Move-ADDirectoryServerOperationMasterRole -Identity REBEL-SDC02 -OperationMasterRole SchemaMaster, DomainNamingMaster, PDCEmula
+```
+
+## <mark style="color:red;">Schema operations master</mark>
+
+This role boundary is the forest. This means that an Active Directory forest can have only one schema master. The owner of this role is the only domain controller in the forest who can update the Active Directory schema. In order to make schema changes in the forest, it also needs to have a user account that is a member of the Schema Admins group. Once the schema changes are done from the schema master role owner, those changes will be replicated to other domain controllers in the forest
+
+In an Active Directory forest, the schema master role owner can be found using the following command:
+
+```
+Get-ADForest | select SchemaMaster
+```
+
+## <mark style="color:red;">Domain-naming operations master</mark>
+
+The domain-naming operations master role holder is responsible for adding and removing domains controllers to and from the Active Directory forest. In the Active Directory forest, the domain-naming operations master role owner can be found using the following command:
+
+```
+Get-ADForest | select DomainNamingMaster
+```
+
+When you add or remove a domain controller, it will contact the domain- naming operations master role holder via the Remote Procedure Call (RPC) connection, and if it fails, it will not allow you to add or remove the domain controller from the forest. This is a forest-wide role, and only one domain-naming operations master role holder can exist in one forest.
+
+## <mark style="color:red;">Primary domain controller emulator operations master</mark>
+
+The primary domain controller (PDC) operations master role is a domain- wide setting, which means each domain in the forest will have a PDC operations master role holder. PDC is responsible for time synchronization.
+
+In an Active Directory environment, it allows a maximum of a 5-minute time difference (time skew) between server and client to maintain successful authentication. If it's more than 5 minutes, devices will not be able to be added to the domain, users will not be able to authenticate, and the Active Directory-integrated application will start throwing authentication-related errors.
+
+![](<../../../.gitbook/assets/image (275).png>)
+
+the PDC role holder is also responsible for maintaining password change replications. Also, in the event of authentication failures, PDC is responsible for locking down the account. All the passwords changed in other domain controllers will be reported back to the PDC role holder. If any authentication failure occurs in a domain controller before it passes the authentication failure message to the user, itwill check the password saved in the PDC, as that will prevent errors that can occur due to password replication issues.
+
+In the Active Directory domain, the PDC role owner can be found using the following command:
+
+```
+Get-ADDomain | select PDCEmulator
+```
+
+The PDC is also responsible for managing the Group Policy Object (GPO) edit. Every time a GPO is viewed or updated, it will be done from the copy stored in the PDC's `SYSVOL` folder.
+
+## <mark style="color:red;">Relative ID operations master role</mark>
+
+The relative identifier (RID) master role is a domain-wide setting, and each domain in the forest can have RID role owners. It is responsible for maintaining a pool of relative identifiers that will be used when creating objects in the domain. Each and every object in a domain has a unique security identifier (SID).&#x20;
+
+The RID value is used in the process of SID value creation. The SID is a unique value to represent an object in Active Directory. The RID is the incremental portion of the SID value. Once the RID value is being used to generate a SID, it will not be used again. Even after deleting an object from AD, it will not able to reclaim the RID value back. This ensure the uniqueness of the SID value.
+
+&#x20;The RID role owner maintains a pool of RIDs. When the domain has multiple domain controllers, it will assign a block of 500 RID values for each domain controller. When they are used more than 50%, domain controllers will request another block of RIDs for the RID role owner
+
+In the Active Directory domain, the RID role owner can be found using the following command:
+
+```
+Get-ADDomain | select RIDMaster
+```
+
+![](<../../../.gitbook/assets/image (276).png>)
+
+## <mark style="color:red;">Infrastructure operations master</mark>
+
+This role is also a domain-wide setting, and it is responsible for replicating SID and distinguished name (DN) value changes to cross-domains.&#x20;
+
+SID and DN values get changed based on their location in the forest. So, if objects are moved, their new values need to be updated in groups and ACLs located in different domains. This is taken care of by the infrastructure operations master. This will ensure that the changed objects have access to their resources without interruptions.
+
+In the Active Directory domain, the infrastructure operations master role owner can be found using the following command:
+
+```
+Get-ADDomain | select InfrastructureMaster
+```
+
+<mark style="color:red;"></mark>
 
 
 

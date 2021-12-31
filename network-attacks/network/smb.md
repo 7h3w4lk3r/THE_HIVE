@@ -287,7 +287,7 @@ pip3 install --upgrade impacket
 smbmap -H 192.168.13.29
 ```
 
-![](<../../.gitbook/assets/image (276) (1).png>)
+![](<../../.gitbook/assets/image (276) (1) (1).png>)
 
 #### Once we’ve determined a writeable share is available, in this case `“tmp,”` we can use Metasploit’s “samba\_symlink\_traversal” auxiliary module to create the symlink to the root filesystem.
 
@@ -313,7 +313,7 @@ Add the following under global:
 smbclient \\\\192.168.13.29\\tmp -N
 ```
 
-![](<../../.gitbook/assets/image (293).png>)
+![](<../../.gitbook/assets/image (293) (1).png>)
 
 #### From here, we can simply use smbclient to change into the rootfs directory, and begin post exploitation, downloading/uploading files, etc. using the smbclient “get”
 

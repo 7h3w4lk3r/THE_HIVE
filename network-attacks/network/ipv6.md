@@ -64,7 +64,7 @@ IPv6 addresses have three types:
 * **Unique Local** — Scope Internal Network or VPN internally routable, but **Not routed** on Internet
 * **Link Local** – Scope network link- **Not Routed** internally or externally.
 
-![](<../../.gitbook/assets/image (276) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (276) (1) (1) (1) (1) (1) (1) (1).png>)
 
 ### IPv6 Loop Back
 

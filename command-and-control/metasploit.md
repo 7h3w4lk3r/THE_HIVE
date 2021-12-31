@@ -1,6 +1,6 @@
 # Metasploit
 
-![](<../.gitbook/assets/image (282) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (282) (1) (1) (1) (1).png>)
 
 {% embed url="https://www.sans.org/blog/sans-pen-test-cheat-sheet-metasploit" %}
 
@@ -411,7 +411,7 @@ create a payload with msfvenom and set the `lhost` to the union address and appe
 
 in listener set lhost to your local ip address:
 
-![](<../.gitbook/assets/image (275) (1).png>)
+![](<../.gitbook/assets/image (275) (1) (1).png>)
 
 run the attack:
 
@@ -770,4 +770,4 @@ set stagerverifysslcert true
 run
 ```
 
-![](<../.gitbook/assets/image (276) (1) (1).png>)
+![](<../.gitbook/assets/image (276) (1) (1) (1).png>)
