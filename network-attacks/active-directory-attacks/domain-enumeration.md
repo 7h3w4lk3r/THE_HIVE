@@ -70,8 +70,38 @@ Invoke-WebRequest -UseBasicParsing http://192.168.52.200/Tools/file.exe -OutFile
 
 ```
 git clone https://github.com/ropnop/windapsearch.git
-pip install python-ldap #or apt-get install python-ldap
-./windapsearch.py
+
+apt install python3-ldap
+
+# enute the AD with credentials via WPAD
+python3 windapsearch.py -d megabank.local -u megabank\\Administrator -p "letmein.123" --dc-ip 192.168.56.103 -U -o output
+
+# other options:
+
+ --functionality       Enumerate Domain Functionality level. Possible through anonymous bind
+  -G, --groups          Enumerate all AD Groups
+  -U, --users           Enumerate all AD Users
+  -PU, --privileged-users
+                        Enumerate All privileged AD Users. Performs recursive lookups for nested members.
+  -C, --computers       Enumerate all AD Computers
+  -m GROUP_NAME, --members GROUP_NAME
+                        Enumerate all members of a group
+  --da                  Shortcut for enumerate all members of group 'Domain Admins'. Performs recursive
+                        lookups for nested members.
+  --admin-objects       Enumerate all objects with protected ACLs (i.e. admins)
+  --user-spns           Enumerate all users objects with Service Principal Names (for kerberoasting)
+  --unconstrained-users
+                        Enumerate all user objects with unconstrained delegation
+  --unconstrained-computers
+                        Enumerate all computer objects with unconstrained delegation
+  --gpos                Enumerate Group Policy Objects
+  -s SEARCH_TERM, --search SEARCH_TERM
+                        Fuzzy search for all matching LDAP entries
+  -l DN, --lookup DN    Search through LDAP and lookup entry. Works with fuzzy search. Defaults to printing
+                        all attributes, but honors '--attrs'
+  --custom CUSTOM_FILTER
+                        Perform a search with a custom object filter. Must be valid LDAP filter syntax
+
 ```
 
 ### [PowerView](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1)
@@ -102,6 +132,12 @@ python ldapdomaindump.py
 #or
 python -m ldapdomaindump
 ldapdomaindump
+```
+
+### Enum4linux
+
+```
+enum4linux -u administrator -p letmein.1234 -a 192.168.56.103
 ```
 
 ### [ADRecon](https://github.com/sense-of-security/ADRecon)
