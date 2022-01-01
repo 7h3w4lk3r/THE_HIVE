@@ -6,6 +6,24 @@
 Any changes made to /etc/login.defswill only be applied if the usermodcommand is used. If user IDs are added a different way, use the chagecommand to effect changes to individual user IDs.
 {% endhint %}
 
+## <mark style="color:red;">Login Security</mark>
+
+### <mark style="color:orange;">Restrict su Command</mark>
+
+The su command allows a user to run a command or shell as another user. The program has been superseded by sudo , which allows for more granular control over privileged access. Normally, the su command can be executed by any user. By uncommenting the pam\_wheel.so statement in /etc/pam.d/su , the su command will only allow users in the wheel group to execute su .
+
+Add the following line to the `/etc/pam.d/su` file:
+
+```
+auth required pam_wheel.so use_uid
+```
+
+Create a comma separated list of users in the wheel statement in the /etc/group file:
+
+```
+wheel:x:10:root,<user list>
+```
+
 ## <mark style="color:red;">Password Security</mark>
 
 ### <mark style="color:orange;">Expiration</mark>
@@ -133,18 +151,6 @@ If any accounts in the /etc/shadow file do not have a password, run the followin
 ```
 passwd -l <username>
 ```
-
-### <mark style="color:orange;">Check for UID 0 accounts</mark>
-
-Any account with UID 0 has superuser privileges on the system
-
-Run the following command and verify that only "root" is returned:
-
-```
-awk -F: '($3 == 0) { print $1 }' /etc/passwd
-```
-
-Remove any users other than root with UID 0 or assign them a new UID if appropriate.
 
 ### <mark style="color:orange;">Check Root PATH Integrity</mark>
 
