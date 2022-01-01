@@ -339,4 +339,5 @@
   * [pwncat](misc-tools/cats/pwncat.md)
   * [socat](misc-tools/cats/socat.md)
   * [🔧 powercat](misc-tools/cats/powercat.md)
+* [Steganography](misc-tools/steganography.md)
 * [Curl](misc-tools/curl.md)
