@@ -46,7 +46,7 @@
 
 #### As a result, the attacker is a member of all the VLANs that are trunked on the switch and can “hop” between VLANs. In other words, the attacker can send and receive traffic on all those VLANs. The best way to prevent a basic VLAN hopping attack is to turn off DTP on all ports, and explicitly configure trunking mode or access mode as appropriate on each port.
 
-![](<../../.gitbook/assets/image (282) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (282) (1) (1) (1) (1).png>)
 
 here is the VLAN table from the switch console:
 
@@ -151,7 +151,7 @@ The double-tagging (or double-encapsulated) VLAN hopping attack takes advantage 
 
 This tag allows the frame to go to a VLAN that the touter 802.1Q tag did not specify. An important characteristic of the double-encapsulated VLAN hopping attack is that it can work even if DTP is disabled on the attackers access port.
 
-![](<../../.gitbook/assets/image (290) (1).png>)
+![](<../../.gitbook/assets/image (290) (1) (1).png>)
 
 • Send double encapsulated 802.1Q frames&#x20;
 

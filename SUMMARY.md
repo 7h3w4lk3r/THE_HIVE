@@ -282,6 +282,9 @@
     * [Physical Security](hardening-and-monitoring/untitled/os-security/physical-security.md)
     * [Grub Hardening](hardening-and-monitoring/untitled/os-security/grub-hardening.md)
     * [Update Strategy](hardening-and-monitoring/untitled/os-security/update-strategy.md)
+  * [Account Security](hardening-and-monitoring/untitled/account-security/README.md)
+    * [Users / Groups](hardening-and-monitoring/untitled/account-security/users-groups.md)
+    * [passwd / Sudoers](hardening-and-monitoring/untitled/account-security/passwd-sudoers.md)
   * [Encryption](hardening-and-monitoring/untitled/encryption.md)
 
 ## Command & Control

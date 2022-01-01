@@ -1,6 +1,6 @@
 # 🔧 AD Components
 
-![](<../../../.gitbook/assets/image (282).png>)
+![](<../../../.gitbook/assets/image (282) (1).png>)
 
 {% hint style="info" %}
 This section is an overview of different Active Directory components taken from the book: <mark style="color:orange;">Mastering Active Directory</mark> by <mark style="color:orange;">Dishan Francis.</mark>
