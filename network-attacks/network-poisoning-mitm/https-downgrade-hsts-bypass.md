@@ -16,7 +16,7 @@ HTTPS or HTTP over SSL is relied upon as a critical network technology for many 
 
 Instead of using an invalid certificate and tricking the user into terminating the SSL session with the attacker, Sslstrip avoids any certificate warnings by rewriting all HTTP traffic to remove references to HTTPS. Sslstrip proxies all traffic intended to use SSL to the legitimate SSL server, but only responds with HTTP traffic to the victim, allowing the attacker to access all content while logging activity such as POST statements. Sslstrip also uses some clever tricks to assuage user concerns about seeing their traffic sent over HTTP instead of HTTPS.
 
-![](<../../.gitbook/assets/image (301).png>)
+![](<../../.gitbook/assets/image (301) (1).png>)
 
 Sslstrip takes advantage of a common flaw in HTTPS websites: Many users start with a plain HTTP request, which is later redirected to HTTPS by the server. Consider, for example, logging in to a Gmail account. Very few users will enter "https://www.gmail.com" in the web browser, instead relying on Gmail to redirect HTTP traffic to HTTPS. However, since the user is relying on a weak protocol (HTTP) to redirect them, the security of a stronger protocol (HTTPS) is threatened.
 

@@ -20,7 +20,7 @@ Because an hexadecimal number uses 4 bits this means that an IPv6 address consis
 
 Here is an IPv6 address example:
 
-![](<../../.gitbook/assets/image (283) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (283) (1) (1) (1) (1) (1).png>)
 
 Broadcast addresses are no longer used in IPv6, replaced with multicast addresses. If an IPv6 host wants to send traffic to all the hosts on the LAN, which would have formerly used a broadcast IPv4 address and an `FF:FF:FF:FF:FF:FF` MAC address, the host uses the `FF02::1 IPv6` address with a destination MAC address of `33:33:00:00:00:01`
 

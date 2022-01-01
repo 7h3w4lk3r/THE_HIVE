@@ -76,7 +76,7 @@ to run in CLI mode, in you terminal type in :
 yersinia -I
 ```
 
-![](<../../.gitbook/assets/image (283).png>)
+![](<../../.gitbook/assets/image (283) (1).png>)
 
 To run in GUI mode type:
 
@@ -117,7 +117,7 @@ We can see that the interface (G0/0) is set on trunk which means that we can jum
 
 And we can see that all the VLANS are allowed on interface (g0/0):
 
-![](<../../.gitbook/assets/image (301) (1).png>)
+![](<../../.gitbook/assets/image (301) (1) (1).png>)
 
 On Kali, we will add the below commands:
 
