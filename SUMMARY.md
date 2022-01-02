@@ -222,6 +222,7 @@
   * [DNS Takeover / LDAP Relay](network-attacks/active-directory-attacks/network-poisoning-mitm/dns-takeover-ldap-relay.md)
 * [Sniffing](network-attacks/sniffing/README.md)
   * [Wireshark](network-attacks/sniffing/wireshark.md)
+  * [🔧 tshark](network-attacks/sniffing/tshark.md)
   * [tcpdump](network-attacks/sniffing/tcpdump.md)
 
 ## Layer 2 & 3 Attacks

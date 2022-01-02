@@ -108,7 +108,7 @@ you can set the number of days before an account with an expired password will g
 sudo usermod -f 5 charlie
 ```
 
-### <mark style="color:orange;">Set the Account Expire Date</mark>
+### <mark style="color:orange;">Account Expiration Date</mark>
 
 ```
   -I, --inactive INACTIVE       set password inactive after expiration
@@ -123,7 +123,7 @@ chage -E 2020-12-31 charlie
 
 ```
 
-### <mark style="color:orange;">Set Default Account Aging Options</mark>
+### <mark style="color:orange;">Default Account Aging</mark>
 
 for Red Hat or CentOS only
 
@@ -161,11 +161,11 @@ lastlog → last time a user has logged in
 /var/log/auth.log
 ```
 
-## <mark style="color:red;">Configure the root access</mark>
+## <mark style="color:red;">Configure Root Access</mark>
 
 you can disable root logins entirely by setting root’s encrypted password to \* or to some other fixed, arbitrary string. On Linux, passwd -l “locks” an account by prepending a ! to the encrypted password, with equivalent results. The \* and the ! are just conventions; no software checks for them explicitly. Their effect derives from their not being valid password hashes. As a result, attempts to verify root’s password simply fail.
 
-### <mark style="color:orange;">make sure only root has uid 0</mark>
+### <mark style="color:orange;">make sure only root has UID 0</mark>
 
 ```
 awk -F: '($3 == "0")'  /etc/passwd
@@ -178,7 +178,7 @@ pwconv - convert to shadow passwords.
 pwunconv - convert from shadow passwords.
 ```
 
-### <mark style="color:orange;">/etc/shadow format</mark>
+### <mark style="color:orange;">/etc/shadow Format</mark>
 
 ```
 Username
@@ -192,14 +192,14 @@ Days since epoch when account expires
 Reserved
 ```
 
-### <mark style="color:orange;">lock and unlock the password</mark>
+### <mark style="color:orange;">Lock/Unlock the Password</mark>
 
 ```
 passwd -l account
 passwd -u account 
 ```
 
-### set the account shell to no login
+#### set the account shell to no login
 
 ```
 /sbin/nologin

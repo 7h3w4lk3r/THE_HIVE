@@ -3,7 +3,7 @@
 {% embed url="https://www.tecmint.com/sudoers-configurations-for-setting-sudo-in-linux" %}
 
 {% hint style="info" %}
-Any changes made to /etc/login.defswill only be applied if the usermodcommand is used. If user IDs are added a different way, use the chagecommand to effect changes to individual user IDs.
+Any changes made to `/etc/login.defs` will only be applied if the `usermod` command is used. If user IDs are added a different way, use the `chage` command to effect changes to individual user IDs.
 {% endhint %}
 
 ## <mark style="color:red;">Login Security</mark>
