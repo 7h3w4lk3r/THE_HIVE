@@ -2,6 +2,10 @@
 
 ## <mark style="color:red;">LUKS</mark>
 
+{% hint style="info" %}
+You can implement LUKS only before system installation because LUKS is an FDE solution and your file system will be implemented on top of it, so there is no way to setup LUKS on a system with installed OS.
+{% endhint %}
+
 create a linux partition:
 
 ```
