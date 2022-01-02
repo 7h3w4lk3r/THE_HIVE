@@ -205,7 +205,7 @@ passwd -u account
 /sbin/nologin
 ```
 
-![](<../../../.gitbook/assets/image (290).png>)
+![](<../../../.gitbook/assets/image (290) (1).png>)
 
 #### or using chsh command:
 

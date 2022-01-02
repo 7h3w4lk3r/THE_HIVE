@@ -22,7 +22,7 @@
 
 #### If another switch connects to a DTP port, the DTP switch will watch for the presence of 802.1Q or ISL traffic for 30 seconds. When either protocol is discovered, the DTP port will auto-configure to match the trunking configuration, sharing VLAN information with downstream switches. If no 802.1Q or ISL traffic is observed, the switch will default the port to an access port, allowing the user to connect to the default or specified VLAN.
 
-![](<../../.gitbook/assets/image (294) (1) (1).png>)
+![](<../../.gitbook/assets/image (294) (1) (1) (1).png>)
 
 ### DTP Administrative States
 
@@ -151,7 +151,7 @@ The double-tagging (or double-encapsulated) VLAN hopping attack takes advantage 
 
 This tag allows the frame to go to a VLAN that the touter 802.1Q tag did not specify. An important characteristic of the double-encapsulated VLAN hopping attack is that it can work even if DTP is disabled on the attackers access port.
 
-![](<../../.gitbook/assets/image (290) (1) (1).png>)
+![](<../../.gitbook/assets/image (290) (1) (1) (1).png>)
 
 • Send double encapsulated 802.1Q frames&#x20;
 
@@ -181,7 +181,7 @@ With the successful connection, we will capture a CDP packet. Being directly con
 
 With the captured package we verify that it really is the information we need.
 
-![](<../../.gitbook/assets/image (297).png>)
+![](<../../.gitbook/assets/image (297) (1).png>)
 
 Once we have the necessary package, we disconnect from the phone and connect directly to the network (that is, because we are going to impersonate the Cisco dispositive, if we leave the device connected, the switch will detect that there are two devices with the same configuration and impersonation will not take effect).&#x20;
 
