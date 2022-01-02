@@ -107,6 +107,52 @@ Uninstall prelink using the appropriate package manager or manual installation:
 
 ## <mark style="color:red;">Kernel Parameters</mark>
 
+### <mark style="color:orange;">install Lynis tool</mark>
+
+{% hint style="info" %}
+A best practice is to install lynis on a fresh OS and run the checks before installing any extra packages and services.
+{% endhint %}
+
+**Installing Lynis on Ubuntu/Debian/LinuxMint**
+
+```
+sudo apt-get install lynis
+```
+
+**Installing Lynis on RHEL/CentOS**
+
+```
+ sudo yum install lynis
+```
+
+**Installing Lynis on Fedora**
+
+```
+sudo dnf install lynis
+```
+
+**Installing Lynis on openSUSE**
+
+```
+sudo zypper install lynis
+```
+
+**Installing Lynis on Arch Linux based system**
+
+```
+sudo pacman -S lynis
+```
+
+### <mark style="color:orange;">Run Lynis</mark>
+
+
+
+
+
+
+
+
+
 
 
 
