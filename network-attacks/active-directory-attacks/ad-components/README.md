@@ -224,7 +224,7 @@ The primary domain controller (PDC) operations master role is a domain- wide set
 
 In an Active Directory environment, it allows a maximum of a 5-minute time difference (time skew) between server and client to maintain successful authentication. If it's more than 5 minutes, devices will not be able to be added to the domain, users will not be able to authenticate, and the Active Directory-integrated application will start throwing authentication-related errors.
 
-![](<../../../.gitbook/assets/image (275).png>)
+![](<../../../.gitbook/assets/image (275) (1).png>)
 
 the PDC role holder is also responsible for maintaining password change replications. Also, in the event of authentication failures, PDC is responsible for locking down the account. All the passwords changed in other domain controllers will be reported back to the PDC role holder. If any authentication failure occurs in a domain controller before it passes the authentication failure message to the user, itwill check the password saved in the PDC, as that will prevent errors that can occur due to password replication issues.
 

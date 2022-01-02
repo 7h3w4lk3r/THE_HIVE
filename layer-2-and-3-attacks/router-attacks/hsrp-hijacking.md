@@ -6,7 +6,7 @@ First hop redundancy protocols including [HSRP](http://en.wikipedia.org/wiki/Hot
 
 HSRP (Hot Standby Router Protocol) is a Cisco proprietary protocol that provides network redundancy in case of default gateway router failure. It is one of the most common protocols, however, it contains vulnerability that can lead to denial of service or to data capturing by attackers. We will show you how the HSRP attack can take place and how to protect your network against it.
 
-![](<../../.gitbook/assets/image (275) (1).png>)
+![](<../../.gitbook/assets/image (275) (1) (1).png>)
 
 In an HSRP environment, a primary router and one or more secondary routers route traffic for downstream devices. All HSRP participating routers are configured with a common virtual IP address that is set as the gateway for client devices.
 

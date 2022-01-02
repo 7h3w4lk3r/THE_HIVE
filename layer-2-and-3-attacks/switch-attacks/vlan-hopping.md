@@ -197,7 +197,7 @@ vconfig add eth1 29 #29 is the VLAN number of Cisco device
 
 We check that it has been created successfully.
 
-![](<../../.gitbook/assets/image (275) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (275) (1) (1) (1) (1).png>)
 
 We disable the interface to modify the MAC and change it for the legitimate phone (we can see this setting directly in phone options).
 

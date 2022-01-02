@@ -83,15 +83,113 @@ Users and groups can be identified by name or by UID/GID. The exact number of en
 
 ### <mark style="color:orange;">User ACLs / Rules</mark>
 
+u:uid:perms Set the access ACL for a user.
 
+```
+tfacl -m u:jason:rwx start.sh
+setfacl -m u:sam:xr start.sh
+```
 
+### <mark style="color:orange;">Group ACLs / Rules</mark>
 
+```
+g:gid:perms Sets the access ACL for a group.
+setfacl -m g:sales:rw sales.txt
+```
 
+### <mark style="color:orange;">Mask ACLs / Rules</mark>
 
+```
+m:perms >>> Sets the effective rights mask.
+setfacl -m m:rx sales.txt
+```
 
+### <mark style="color:orange;">Other ACLs / Rules</mark>
 
+```
+o:perms >>> Sets the access ACL for others.
+setfacl -m o:r sales.txt
+```
 
+### <mark style="color:orange;">Creating Multiple ACLs at Once</mark>
 
+```
+setfacl -m u:bob:r,g:sales:rw sales.txt
+```
 
+### <mark style="color:orange;">Default ACLs</mark>
 
+```
+d:[ugo]:perms  >>> Sets the default ACL.
+setfacl -m d:g:sales:rw sales
+```
 
+### <mark style="color:orange;">Setting ACLs Recursively (-R)</mark>
+
+```
+setfacl -R -m g:sales:rw sales
+```
+
+### <mark style="color:orange;">Removing ACLs</mark>
+
+```
+setfacl -x ACL FILE_OR_DIRECTORY
+setfacl -x u:jason sales.txt
+setfacl -x g:sales sales.txt
+setfacl -b sales.txt
+```
+
+### <mark style="color:orange;">Viewing ACLs</mark>
+
+```
+getfacl sales.txt
+```
+
+### <mark style="color:orange;">Detecting Files with ACLs</mark>
+
+![](<../../../.gitbook/assets/image (275).png>)
+
+example commands:
+
+To add permission for user
+
+```
+setfacl -m "u:user:permissions" /path/to/file
+```
+
+To add permissions for a group
+
+```
+setfacl -m "g:group:permissions" /path/to/file
+```
+
+To allow all files or directories to inherit ACL entries from the directory it is within.
+
+```
+setfacl -dm "entry" /path/to/dir
+```
+
+To remove a specific entry
+
+```
+setfacl -x "entry" /path/to/file
+```
+
+To remove all entries
+
+```
+setfacl -b path/to/file
+```
+
+example:
+
+```
+setfacl -m u:mandeep:r-x test/declarations.h
+```
+
+Using the tar `--acls` option to prevent the loss of ACLs during a backup
+
+```
+cd perm_demo_dir
+tar cJvf new_perm_dir_backup.tar.xz new_perm_dir/ --acls
+```
