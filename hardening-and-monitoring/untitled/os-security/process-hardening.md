@@ -4,7 +4,7 @@
 
 A core dump is the memory of an executable program. It is generally used to determine why a program aborted. It can also be used to glean confidential information from a core file. The system provides the ability to set a soft limit for core dumps, but this can be overridden by the user.
 
-Setting a hard limit on core dumps prevents users from overriding the soft variable. If core dumps are required, consider setting limits for user groups (see limits.conf(5) ). In addition, setting the fs.suid\_dumpable variable to 0 will prevent setuid programs from dumping core.
+Setting a hard limit on core dumps prevents users from overriding the soft variable. If core dumps are required, consider setting limits for user groups (see limits.conf(5) ). In addition, setting the fs.suid\_dumpable variable to 0 will prevent setuid programs from dumping core.&#x20;
 
 Run the following commands and verify output matches:
 
@@ -144,6 +144,24 @@ sudo pacman -S lynis
 ```
 
 ### <mark style="color:orange;">Run Lynis</mark>
+
+We can now use Lynis to perform security audits on our system. We can view the list of commands to execute with the help of Lynis. Use the following command to list the number of commands to execute.
+
+```
+lynis show commands
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

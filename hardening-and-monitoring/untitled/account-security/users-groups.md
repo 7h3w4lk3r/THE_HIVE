@@ -6,7 +6,7 @@
 
 ## <mark style="color:red;">User Management</mark>
 
-#### create user:
+### <mark style="color:orange;">Create User</mark>
 
 ```
 useradd [username]
@@ -30,59 +30,72 @@ adduser [username]
 While the command useradd runs a system binary file the command adduser is a perl script to interact with useradd With the adduser command, the advantage is the home is created automatically. If using the command adduser we need to specify the -m option.
 {% endhint %}
 
-#### change user home directory:
+### <mark style="color:orange;">Add Root User</mark>
+
+```
+useradd -ou 0 -g 0 [username]
+```
+
+#### add user to sudoers group (user will be created of doesnt exist)
+
+```
+//usermod -aG [group] [username]
+usermod -aG [group1,group2,group3,...] [username]
+```
+
+### <mark style="color:orange;">Change User Home Directory</mark>
 
 ```
 usermod -d [dir] [username]
 ```
 
-#### lock/unlock user
+### <mark style="color:orange;">Lock/Unlock User</mark>
 
 ```
 usermod -L [username]
 usermod -U [username]
 ```
 
-#### set new uid for user
+### <mark style="color:orange;">Set New UID for User</mark>
 
 ```
 usermod -u [username]
 ```
 
-#### deleting user
+### <mark style="color:orange;">Deleting User</mark>
 
 ```
 userdel [username]
 ```
 
-#### password
+### <mark style="color:orange;">Password</mark>
 
 ```
 set password
 passwd [username]
 ```
 
-#### List commands you are allowed to run:
+### <mark style="color:orange;">List commands you are allowed to run</mark>
 
 ```
 sudo -l
 sudo -ll
 ```
 
-#### change user shell with:
+### <mark style="color:orange;">Change User Shell</mark>
 
 ```
 chsh -s [shell ] [username]
 chsh -s /bin/bash hesher
 ```
 
-#### List commands another USER is allowed:
+### <mark style="color:orange;">List commands another USER is allowed</mark>
 
 ```
 sudo -l -U user
 ```
 
-#### sudo commands:
+### <mark style="color:orange;">sudo Commands</mark>
 
 ```
 Run as root:
@@ -96,7 +109,7 @@ sudo -s
 sudo -s -u USER
 ```
 
-#### Account Aging:
+### <mark style="color:orange;">Account Aging</mark>
 
 ```
 sudo useradd -e 2020-12-31 charlie
@@ -152,7 +165,7 @@ lastb
 lastlog → last time a user has logged in
 ```
 
-#### authentication log files
+### <mark style="color:orange;">Authentication Log Files</mark>
 
 ```
 /var/log/messages
@@ -192,14 +205,14 @@ Days since epoch when account expires
 Reserved
 ```
 
-### <mark style="color:orange;">Lock/Unlock the Password</mark>
+## <mark style="color:red;">Lock/Unlock the Password</mark>
 
 ```
 passwd -l account
 passwd -u account 
 ```
 
-#### set the account shell to no login
+### <mark style="color:orange;">set the account shell to no login</mark>
 
 ```
 /sbin/nologin
@@ -207,7 +220,7 @@ passwd -u account
 
 ![](<../../../.gitbook/assets/image (290) (1).png>)
 
-#### or using chsh command:
+### <mark style="color:orange;">Using chsh Command</mark>
 
 ```
 chsh -s SHELL ACCOUNT
@@ -237,82 +250,67 @@ chmod go= .
 
 ## <mark style="color:red;">Group Management</mark>
 
-#### create a new group
+### <mark style="color:orange;">Create a New Group</mark>
 
 ```
 groupadd [name]
 ```
 
-#### change group name
+### <mark style="color:orange;">Change Group Name</mark>
 
 ```
 groupmod -n [new name] [old name] 
 ```
 
-#### change the group id
+### <mark style="color:orange;">Change the Group ID</mark>
 
 ```
 groupmod -q 4000 [group]
 ```
-
-#### groupmod -q 4000 \[group]
 
 ```
 chmod g+rwx [group]
 chown [user]:[group] [file]
 ```
 
-#### set GID:
+### <mark style="color:orange;">set GID</mark>
 
 ```
 chmod g+s [group]
 ```
 
-#### add root user:
-
-```
-useradd -ou 0 -g 0 [username]
-```
-
-#### add user to sudoers group (user will be created of doesnt exist)
-
-```
-//usermod -aG [group] [username]
-usermod -aG [group1,group2,group3,...] [username]
-```
-
-#### change primary group
+### <mark style="color:orange;">change primary group</mark>
 
 ```
 usermod -g [group] [usename]
 groupmod -g [gid] -n [new name] [oldname]
 ```
 
-#### remove a user from a group
+### <mark style="color:orange;">remove a user from a group</mark>
 
 ```
 gpasswd -d [username] [groupname]
 ```
 
-remove a group
+### <mark style="color:orange;">remove a group</mark>
 
 ```
 groupdel [name]
 ```
 
-#### list all system groups
+### <mark style="color:orange;">list all system groups</mark>
 
 ```
 cat /etc/groups
 ```
 
-list current user groups
+### <mark style="color:orange;">list current user groups</mark>
 
 ```
 groups
 ```
 
-list groups of another account
+### <mark style="color:orange;">list groups of another account</mark>
 
 ```
 groups [username]

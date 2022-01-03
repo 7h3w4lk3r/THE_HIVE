@@ -286,12 +286,12 @@
     * [Grub Hardening](hardening-and-monitoring/untitled/os-security/grub-hardening.md)
     * [Update Strategy](hardening-and-monitoring/untitled/os-security/update-strategy.md)
     * [🔧 Process Hardening](hardening-and-monitoring/untitled/os-security/process-hardening.md)
-  * [Account Security](hardening-and-monitoring/untitled/account-security/README.md)
-    * [Users / Groups](hardening-and-monitoring/untitled/account-security/users-groups.md)
-    * [passwd / Sudoers](hardening-and-monitoring/untitled/account-security/passwd-sudoers.md)
   * [File System Security](hardening-and-monitoring/untitled/file-system-security.md)
     * [Permissions & Ownership](hardening-and-monitoring/untitled/file-system-security/permissions-and-ownership.md)
   * [Encryption](hardening-and-monitoring/untitled/encryption.md)
+  * [Account Security](hardening-and-monitoring/untitled/account-security/README.md)
+    * [Users / Groups](hardening-and-monitoring/untitled/account-security/users-groups.md)
+    * [passwd / Sudoers](hardening-and-monitoring/untitled/account-security/passwd-sudoers.md)
 
 ## Command & Control
 

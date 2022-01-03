@@ -129,7 +129,7 @@ Run the following command and verify that the `noexec` option is set on all remo
 
 &#x20;Edit the `/etc/fstab` file and add `noexec` to the fourth field
 
-## <mark style="color:red;">Sticky Bit on World-wriable Directories</mark>
+## <mark style="color:red;">Sticky Bit on World-writable Directories</mark>
 
 Run the following command to verify no world writable directories exist without the sticky bit set:
 
