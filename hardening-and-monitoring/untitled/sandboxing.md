@@ -256,9 +256,143 @@ Interestingly, processes in the jailed shell run as a simple child process of th
 
 {% embed url="https://github.com/kazuho/jailing" %}
 
-****
+## <mark style="color:red;">Ip-netns</mark>
 
+The Ip-netns utility is one of the few that directly use network namespaces to create virtual interfaces. To create a new network namespace, use the following command:
 
+```
+ip netns add netns1
+```
 
+To check the interfaces inside, use the command shown below:
 
+```
+ip netns exec netns ip addr
+```
 
+You can even get the shell inside it, as follows:
+
+```
+ip netns exec netns /bin/bash
+```
+
+This will take you inside the network namespace, which has only a single network interface with no IP. So, you are not connected with the external network and also cant ping.
+
+```
+ip netns exec netns ip link set dev lo up
+```
+
+This will bring the loop interface up. But to connect to the external network you need to create a virtual Ethernet and add it to _netns_ as follows:
+
+```
+# ip link add veth0 type veth peer name veth1
+# ip link set veth1 netns netns1
+```
+
+Now, its time to set the IP to these devices, as follows:
+
+```
+# ip netns exec netns1 ifconfig veth1 10.1.1.1/24 up
+# ifconfig veth0 10.1.1.2/24 up
+```
+
+## <mark style="color:red;">Unshare</mark>
+
+The unshare utility is used to create any namespace isolated environment and run a program or shell inside it.
+
+To get a network namespace and run the shell inside it, use the command shown below:
+
+```
+unshare --net /bin/bash
+```
+
+The shell you get back will come with a different network stack. You can check this by using _#ip addr_, as follows:
+
+```
+// Some code1: lo: <LOOPBACK> mtu 65536 qdisc noop state DOWN mode DEFAULT group default
+link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+```
+
+To create a user namespace environment, use the following command:
+
+```
+unshare --user /bin/bash
+```
+
+You can check your user inside the shell by using the command below:
+
+```
+# whoami
+nobody
+```
+
+To get the PID namespace, use the following command:
+
+```
+unshare --pid --fork /bin/bash
+```
+
+Inside this namespace, you can see all the processes but cannot kill any.
+
+```
+#ps -aux |grep firefox
+
+root 1110 42.6 11.0 1209424 436756 tty1 Sl 23:36 0:15 .firefox1/./firefox
+root 1208 0.0 0.0 12660 1648 pts/2 S+ 23:37 0:00 grep firefox
+#kill 1110
+bash: kill: (1110) - No such process
+```
+
+To get a whole different degree of process tree isolation you need to mount another proc for the namespace, as follows:
+
+```
+unshare --pid --fork --mount-proc /bin/bash
+```
+
+In this way, you can use unshare to create a single namespace. More about it can be found out on the man page of unshare.
+
+A namespace created by using unshare can also be combined to create a single shell which uses different namespaces. For example:
+
+```
+#unshare --pid --fork --user /bin/bash
+```
+
+This will create an isolated environment using the PID and user namespaces.
+
+## <mark style="color:red;">Firejail</mark>
+
+Firejail is an SUID sandbox program that is used to isolate programs for testing or security purposes. It is written in C and can be configured to use most of the namespaces. To start a service in firejail, use the following command:
+
+```
+#firejail firefox
+```
+
+It will start Firefox in a sandbox with the root file system mounted as read only. To start Firefox with only _\~/Downloads_ and _\~/.mozilla_ mounted to write, use the following command:
+
+```
+firejail --whitelist=~/.mozilla --whitelist=~/Download firefox
+```
+
+Firejail, by default, uses the user namespace and mounts empty temporary file systems (_tmpfs_) on top of the user home directory in private mode. To start a program in private mode, use the command given below:
+
+```
+firejail --private firefox
+```
+
+To start firejail in a new network stack, use the following command:
+
+```
+firejail --net=eth0 --whitelist=~/.mozilla --whitelist=~/Download firefox
+```
+
+To assign an IP address to the sandbox, use the following command:
+
+```
+firejail --net=eth0 --ip=192.168.1.155 firefox
+```
+
+To sandbox all programs running by a user, you can change the default shell of that user to /usr/bin/firejail.
+
+```
+chsh shell /usr/bin/firejail
+```
