@@ -1,5 +1,44 @@
 # SSH
 
+## <mark style="color:red;">Understanding SSH encryption algorithms</mark>
+
+*   <mark style="color:orange;">Ciphers :</mark> These are the symmetric algorithms that encrypt the data that the client and server exchange with each other.
+
+
+*   <mark style="color:orange;">HostKeyAlgorithms :</mark> This is the list of host key types that the server can use.
+
+
+*   <mark style="color:orange;">KexAlgorithms :</mark> These are the algorithms that the server can use to perform the symmetric key exchange.
+
+
+* <mark style="color:orange;">MAC :</mark> Message Authentication Codes are hashing algorithms that cryptographically sign the encrypted data in transit. This ensures data integrity and will let you know if someone has tampered with your data.
+
+## <mark style="color:red;">Scanning for enabled SSH algorithms</mark>
+
+We have two good ways to scan an SSH server. If your server is accessible via the internet, you can go to the SSHCheck site at https:/​ / ​ sshcheck.​ com/
+
+Then, just type in either the IP address or hostname of your server. If you've changed the port from the default port 22 , enter the port number as well. When the scan completes, you'll see the list of enabled algorithms, along with recommendations on which ones to either enable or disable.
+
+If the machine that you want to scan isn't accessible from the internet, or if you would rather use a local scanning tool, you can install ssh\_scan.
+
+```
+sudo apt install ruby gem
+sudo gem install ssh_scan
+```
+
+ssh\_scan executable will be installed in the /usr/local/bin/ directory.
+
+```
+sudo ssh_scan -t 192.168.0.7
+```
+
+save the output to a .json file
+
+```
+sudo ssh_scan -t 178.60.214.30 -p 222 -o ssh_scan-178-60-214-30.json
+sudo ssh_scan -t 192.168.0.7 -o ssh_scan-7.json
+```
+
 ## <mark style="color:red;">Using a Key Pair</mark>
 
 ### <mark style="color:orange;">generate and use SSH key pair</mark>
@@ -76,8 +115,6 @@ ssh -o IdentitiesOnly=yes -i id1.key myuser@myserver.com
 ssh-keygen -f my_ssh.pub -i
 ```
 
-
-
 ### <mark style="color:orange;">Using OpenSSL</mark>
 
 ```
@@ -144,6 +181,183 @@ sed -i 's/^PermitRootLogin yes/#PermitRootLogin yes/'  /etc/ssh/sshd_config
 StrictHostKeyChecking yes
 ```
 
+### <mark style="color:orange;">Creating a group and configuring the sshd\_config file</mark>
+
+```
+sudo groupadd sftpusers
+sudo useradd -G sftpusers max
+sudo useradd -m -d /home/max -s /bin/bash -G sftpusers max
+```
+
+Open the `/etc/ssh/sshd_config` file in your favorite text editor. Find the line that says the following:
+
+```
+Subsystem sftp /usr/lib/openssh/sftp-server
+```
+
+Change it to the following:
+
+```
+Subsystem sftp internal-sftp
+```
+
+This setting allows you to disable normal SSH login for certain users. At the bottom of the sshd\_config file, add a Match Group stanza:
+
+```
+Match Group sftpusers
+    ChrootDirectory /home
+    AllowTCPForwarding no
+    AllowAgentForwarding no
+    X11Forwarding no
+    ForceCommand internal-sftp
+```
+
+An important consideration here is that the ChrootDirectory has to be owned by the root user, and it can't be writable by anyone other than the root user. When Max logs in, he'll be in the /home directory, and will then have to cd into his own directory. This also means that you want all your users' home directories to have the restrictive 700 permissions settings, in order to keep everyone out of everyone else's stuff.
+
+Save the file and restart the SSH daemon.
+
+## <mark style="color:red;">Jail SSH user to home directory on Linux</mark>
+
+Jailing an SSH user to their home directory allows you (the administrator) to exercise a lot of control and security over the user accounts on a Linux system.
+
+{% hint style="info" %}
+The jailed user still has access to their home directory, but can’t traverse the rest of the system. This keeps everything else on the system private and will prevent anything from being tampered with by an SSH user. It’s an ideal setup for a system that has various users and each user’s files need to stay private and isolated from the others.
+{% endhint %}
+
+making the chroot directory, which will contain the various nodes, libs, and shell for our jailed user(s):
+
+```
+mkdir /var/chroot
+```
+
+copy some essential `/dev` nodes over to the chroot directory, which allows users basic use of the terminal.
+
+```
+# mkdir /var/chroot/dev		
+# cd /var/chroot/dev
+# mknod -m 666 null c 1 3
+# mknod -m 666 tty c 5 0
+# mknod -m 666 zero c 1 5
+# mknod -m 666 random c 1 8
+```
+
+set permissions on the chroot directory. The root user will need to own the directory in order to make sure that the jailed users can’t leave it. Other users can only have read and execute permissions.
+
+```
+# chown root:root /var/chroot
+# chmod 755 /var/chroot
+```
+
+give our jailed user(s) a shell. We’ll be using the bash shell in this example, though you could use a different one if you wanted to.
+
+```
+# mkdir /var/chroot/bin
+# cp /bin/bash /var/chroot/bin
+```
+
+The bash shell requires various `libs` to run, so they will also need to be copied to the `chroot` directory. You can see what `libs` are required with the `ldd` command:
+
+```
+# ldd /bin/bash
+	linux-vdso.so.1 (0x00007ffd59492000)
+	libtinfo.so.6 => /lib/x86_64-linux-gnu/libtinfo.so.6 (0x00007f91714cd000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f91714c7000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f91712d5000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f917163a000)
+```
+
+```
+# mkdir -p /var/chroot/lib/x86_64-linux-gnu /var/chroot/lib64
+# cp /lib/x86_64-linux-gnu/{libtinfo.so.6,libdl.so.2,libc.so.6} /var/chroot/lib/x86_64-linux-gnu
+# cp /lib64/ld-linux-x86-64.so.2 /var/chroot/lib64
+```
+
+create the user and set a password for the account.
+
+```
+# useradd example
+# passwd example
+```
+
+Add the `/etc/passwd` and `/etc/group` files into the chroot directory.
+
+```
+# mkdir /var/chroot/etc
+# cp /etc/{passwd,group} /var/chroot/etc
+```
+
+we need to do some editing to the SSH config file. Use `nano` or your favorite text editor to open it.
+
+```
+# sudo nano /etc/ssh/sshd_config
+```
+
+Add the following lines to the bottom of the file.
+
+```
+Match user example
+ChrootDirectory /var/chroot
+```
+
+Save your changes and restart the SSH service for the changes to take effect.
+
+```
+# systemctl restart sshd
+```
+
+Create a home directory for the user and give it proper permissions.
+
+```
+# mkdir -p /var/chroot/home/example
+# chown example:example /var/chroot/home/example
+# chmod 700 /var/chroot/home/example
+```
+
+At this point, the user should be able to login and use native bash commands, but they won’t have access to much. Let’s give them access to some more basics like **ls, cat, echo, rm, vi, date, mkdir**. Rather than manually copying over all the shared libraries for these commands, you can use the following script to streamline the process.
+
+```
+#!/bin/bash
+# This script can be used to create simple chroot environment
+# Written by LinuxConfig.org 
+# (c) 2020 LinuxConfig under GNU GPL v3.0+
+
+#!/bin/bash
+
+CHROOT='/var/chroot'
+mkdir $CHROOT
+
+for i in $( ldd $* | grep -v dynamic | cut -d " " -f 3 | sed 's/://' | sort | uniq )
+  do
+    cp --parents $i $CHROOT
+  done
+
+# ARCH amd64
+if [ -f /lib64/ld-linux-x86-64.so.2 ]; then
+   cp --parents /lib64/ld-linux-x86-64.so.2 /$CHROOT
+fi
+
+# ARCH i386
+if [ -f  /lib/ld-linux.so.2 ]; then
+   cp --parents /lib/ld-linux.so.2 /$CHROOT
+fi
+
+echo "Chroot jail is ready. To access it execute: chroot $CHROOT"
+```
+
+Using that script, let’s enable some of these commands.
+
+```
+# ./chroot.sh /bin/{ls,cat,echo,rm,vi,date,mkdir}
+```
+
+We’re finally done. You can SSH with the user you created to make sure everything works correctly.
+
+```
+# ssh example@localhost
+```
+
+The SSH user is jailed to the chroot but has access to basic commands.
+
 ## <mark style="color:red;">fail2ban</mark>
 
 #### Protect SSH server from brute force attacks
@@ -180,6 +394,39 @@ This parameter configures the action that fail2ban takes when it wants to instit
 
 If you would like to <mark style="color:orange;">configure email alerts</mark>, add or uncomment the action item to the jail.local file and change its value from action\_ to action\_mw. If you want the email to include the relevant log lines, you can change it to action\_mwl. Make sure you have the appropriate mail settings configured if you choose to use mail alerts.
 
+## <mark style="color:red;">Configuring automatic logout for both local and remote users</mark>
+
+This first method will automatically log out idle users who are logged on either at the local console or remotely via SSH. Go into the /etc/profile.d/ directory and create the autologout.sh file with the following contents:
+
+```
+TMOUT=100
+readonly TMOUT
+export TMOUT
+```
+
+This sets a timeout value of 100 seconds. ( TMOUT is a Linux environmental variable that sets timeout values.)
+
+Set the executable permission for everybody:
+
+```
+sudo chmod +x autologout.sh
+```
+
+Log out and then log back in. Then, let the VM sit idle. After 100 seconds, you should see that the VM is back at the login prompt
+
+though, that if any users are already logged in at the time you create this file, the new configuration won't take effect for them until they log out and then log back in.
+
+### <mark style="color:orange;">Configuring automatic logout in sshd\_config</mark>
+
+The second method only logs out users who are logged in remotely via SSH. Instead of creating the /etc/profile.d/autologout.sh file, look for these two lines in the `/etc/ssh/sshd_config` file:
+
+```
+ClientAliveInterval 100
+ClientAliveCountMax 0
+```
+
+Then, restart the SSH service to make the change take effect.
+
 ## <mark style="color:red;">SCP ( secure file transfer )</mark>
 
 ### <mark style="color:orange;">Download a remote folder</mark>
@@ -214,15 +461,167 @@ sshfs name@server:/path/remote_folder /path/local_folder
 
 ## <mark style="color:red;">SSH Logs</mark>
 
+### <mark style="color:orange;">Events of ssh down</mark>
+
+```
+grep -R "ssh.*Received signal 15" /var/log/auth.log
+```
+
+### <mark style="color:orange;">Events of ssh up</mark>
+
+```
+grep -R "sshd.*Server listening" /var/log/auth.log
+```
+
+### <mark style="color:orange;">Events of ssh failed login</mark>
+
+```
+grep -R "sshd.*Failed password for invalid user" /var/log/auth.log
+grep -R "sshd.*Failed" /var/log/auth.log
+```
+
+### <mark style="color:orange;">Events of ssh break-in attemp</mark>
+
+```
+grep -R "sshd.*POSSIBLE BREAK-IN ATTEMPT!" /var/log/auth.log
+```
+
+### <mark style="color:orange;">Events of ssh port scap</mark>
+
+```
+grep -R "sshd.*Bad protocol version identification" /var/log/auth.log
+```
+
+### <mark style="color:orange;">Events of ssh login by public key</mark>
+
+```
+grep -R "sshd.*Accepted publickey for" /var/log/auth.log
+```
+
+### <mark style="color:orange;">Events of ssh login by password</mark>
+
+```
+grep -R "sshd.*Accepted password for" /var/log/auth.log
+```
+
+### <mark style="color:orange;">Events of ssh logout event</mark>
+
+```
+grep -R "sshd.*pam_unix(sshd:session): session closed for" /var/log/auth.log
+```
+
+## <mark style="color:red;">Configuring more detailed logging</mark>
+
+Open the `sshd_config` man page and scroll down to the LogLevel item. There, you'll see the various settings that provide different levels of detail for logging SSH messages
+
+Open the `/etc/ssh/sshd_config` file in your favorite text editor. Find the line that says the following:
+
+```
+#LogLevel INFO
+
+Change it to the following:
+
+LogLevel DEBUG3
+
+sudo systemctl restart ssh
+```
 
 
 
+## <mark style="color:red;">Configuring access control with whitelists and TCP Wrappers</mark>
 
+we can also set up a couple of access control mechanisms that will allow only certain users, groups, or client machines to log in to an SSH server. These two mechanisms are as follows:
 
+#### Whitelists within the sshd\_config file, TCP Wrappers, via the `/etc/hosts.allow` and `/etc/hosts.deny` files
 
+### <mark style="color:orange;">Configuring whitelists within sshd\_config</mark>
 
+The four access control directives that you can set within sshd\_config are as follows:
 
+```
+DenyUsers
+AllowUsers
+DenyGroups
+AllowGroups
+```
 
+For each directive, you can specify more than one username or group name, separating them with a blank space.
+
+```
+AllowUsers donnie
+sudo systemctl restart ssh
+```
+
+### <mark style="color:orange;">Configuring whitelists with TCP Wrappers</mark>
+
+TCP Wrappers – singular, not plural – listens to incoming network connections, and either allows or denies connection requests. Whitelists and blacklists are configured in the /etc/hosts.allow file and the /etc/hosts.deny file. Both of these files work together. If you create a whitelist in hosts.allow without adding anything to hosts.deny , nothing will be blocked. That's because TCP Wrappers consults hosts.allow first, and if it finds a whitelisted item there, it will just skip over looking in hosts.deny .
+
+&#x20;If a connection request comes in for something that isn't whitelisted, TCP Wrappers will consult hosts.allow , find that there's nothing there for the source of this connection request, and then will consult hosts.deny . If nothing is in hosts.deny , the connection request will still go through. So, after you configure hosts.allow , you have to also configure hosts.deny in order to block anything.
+
+To whitelist a single IP address, place a line like this into the /etc/hosts.allow file:
+
+```
+/SSHD: 192.168.0.225
+```
+
+Then, place this line into the /etc/hosts.deny file:
+
+```
+SSHD: ALL
+```
+
+Now, if you try to log in from anywhere else besides the IP address that's listed in hosts.allow , you will be denied access.
+
+## <mark style="color:red;">SSH Tools</mark>
+
+### <mark style="color:orange;">Export local env to Internet</mark>
+
+{% embed url="https://ngrok.com" %}
+
+### <mark style="color:orange;">SSH by auto input password</mark>
+
+```
+apt install sshpass
+```
+
+```
+sshpass sshpass -p “$PASSWORD” ssh -o StrictHostKeyChecking=no $username@$sship=
+```
+
+## <mark style="color:red;">Scripts</mark>
+
+### <mark style="color:orange;">Inject local key to remote ssh server server</mark>
+
+```
+// Some cat ~/.ssh/id_rsa.pub | ssh $username@$ssh_hostk "cat - >> ~/.ssh/authorized_keys"
+
+ssh $username@$ssh_hostk "cat ~/.ssh/authorized_keys"
+```
+
+### <mark style="color:orange;">Use expect to run ssh command with credential auto input</mark>
+
+```
+#!/usr/bin/expect
+set timeout 20
+set command "cat /etc/hosts"
+set user "vagrant"
+set password "vagrant"
+set ip "192.168.50.10"
+spawn ssh -o stricthostkeychecking=no $user@$ip "$command"
+expect "*password:*"
+send "$password\r"
+expect eof;
+```
+
+### <mark style="color:orange;">SSH reverse tunnel with autossh</mark>
+
+```
+autossh -M 40000 -p 2702 -i /home/denny/al -fN \
+    -o "PubkeyAuthentication=yes" \
+    -o "StrictHostKeyChecking=false" -o "PasswordAuthentication=no" \
+    -o "ServerAliveInterval 60" -o "ServerAliveCountMax 3" \
+    -R 123.57.240.189:29995:localhost:22 root@123.57.240.189
+```
 
 
 
