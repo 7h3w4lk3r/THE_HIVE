@@ -1,59 +1,13 @@
-# Sandboxing
+# 🔧 Sandboxing
 
-Sandboxing involves providing a safe environment for a program or software so that you can play around with it without hurting your system. It actually keeps your program isolated from the rest of the system, by using any one of the different methods available in the Linux kernel.
-
-### <mark style="color:orange;">Namespaces</mark>
-
-Namespaces are features available in Linux to isolate processes in different system resource aspects. There are six types of namespaces available up to kernel 4.0. And more will be added in the future. These are:
-
-* _mnt_ (mount points, file systems)
-* _pid_ (processes)
-* _net_ (network stack)
-* _ipc_ (system V IPC)
-* _uts_ (host name)
-* _user_ (UIDs)
-
-Creation of new namespaces is done by the ``` `_`clone()`_` ``` system call, which is also used to start a process. The `setns()` system call adds a running process to the existing namespace. The `unshare()` call works on a process inside the namespace, and makes the caller a member of the namespace. Its main purpose is to isolate the namespace without having to create a new process or thread (as is done by ``` `_`clone()`_).You can directly use some services to get the features of these namespaces. CLONE\_NEW\* identifiers are used with these system calls to identify the type of namespace. These three system calls make use of the `CLONE_NEW*` as `CLONE_NEWIPC`, `CLONE_NEWNS`, `CLONE_NEWNET`, `CLONE_NEWPID`, `CLONE_NEWUSER`, and `CLONE_NEWUTS`. A process in a namespace can be different because of its unique inode number when it is created.
-
-```
-#ls -al /proc/<pid>/ns
-lrwxrwxrwx 1 root root 0 Feb 7 13:52 ipc -> ipc:[4026532253]
-lrwxrwxrwx 1 root root 0 Feb 7 15:39 mnt -> mnt:[4026532251]
-lrwxrwxrwx 1 root root 0 Feb 7 13:52 net -> net:[4026531957]
-lrwxrwxrwx 1 root root 0 Feb 7 13:52 pid -> pid:[4026532254]
-lrwxrwxrwx 1 root root 0 Feb 7 13:52 user -> user:[4026531837]
-lrwxrwxrwx 1 root root 0 Feb 7 15:39 uts -> uts:[4026532252]
-```
-
-### <mark style="color:orange;">Mount namespace</mark>
-
-A process views different mount points other than the original system mount point. It creates a separate file system tree associated with different processes, which restricts them from making changes to the root file system.
-
-### <mark style="color:orange;">PID namespace</mark>
-
-PID namespace isolates a process ID from the main PID hierarchy. A process inside a PID namespace can have the same PID as a process outside it, and even inside the namespace, you can have different init with PID 1.
-
-### <mark style="color:orange;">UTS namespace</mark>
-
-In the UTS (UNIX Timesharing System) namespace, a process can have a different set of domain names and host names than the main system. It uses sethostname() and setdomainname() to do that.
-
-### <mark style="color:orange;">IPC namespace</mark>
-
-This is used for inter-process communication resources isolation and POSIX message queues.
-
-### <mark style="color:orange;">User namespace</mark>
-
-This isolates user and group IDs inside a namespace, which is allowed to have the same UID or GID in the namespace as in the host machine. In your system, unprivileged processes can create user namespaces in which they have full privileges.
-
-### <mark style="color:orange;">Network namespace</mark>
-
-Inside this namespace, processes can have different network stacks, i.e., different network devices, IP addresses, routing tables, etc.
-
-Sandboxing tools available in Linux use this namespaces feature to isolate a process or create a new virtual environment. A much more secure tool will be that which uses maximum namespaces for isolation. Now, lets talk about different methods of sandboxing, from soft to hard isolation.
+#### Sandboxing involves providing a safe environment for a program or software so that you can play around with it without hurting your system. It actually keeps your program isolated from the rest of the system, by using any one of the different methods available in the Linux kernel.
 
 ## <mark style="color:red;">chroot</mark>
 
-_chroot_ is the oldest sandboxing tool available in Linux. Its work is the same as mount namespace, but it is implemented much earlier. _chroot_ changes the root directory for a process to any _chroot_ directory (like /_chroot_). As the root directory is the top of the file system hierarchy, applications are unable to access directories higher up than the root directory, and so are isolated from the rest of the system. This prevents applications inside the _chroot_ from interfering with files elsewhere on your computer. To create an isolated environment in old SystemV based operating systems, you first need to copy all required packages and libraries to that directory. For demonstration purposes, I am running  is on the chroot directory.
+_chroot_ command in Linux/Unix system is used to change the root directory. Every process/command in Linux/Unix like systems has a current working directory called **root directory**. It changes the root directory for currently running processes as well as its child processes.\
+A process/command that runs in such a modified environment cannot access files outside the root directory. This modified environment is known as “chroot jail” or **“jailed directory”**. Some root user and privileged process are allowed to use chroot command.
+
+### <mark style="color:orange;">systemv based</mark>
 
 First, create a directory to set as root a file system for a process:
 
@@ -68,6 +22,241 @@ Next, make the required directory inside it.
 ```
 
 Now, the most important step is to copy the executable and libraries. To get the shell inside the _chroot_, you also need _/bin/bash_
+
+```
+cp -v /bin/{bash,ls} /chroot/bin
+```
+
+To see the libraries required for this script, run the following command:
+
+```
+#ldd /bin/bash
+linux-vdso.so.1 (0x00007fff70deb000)
+libncurses.so.5 => /lib/x86_64-linux-gnu/libncurses.so.5 (0x00007f25e33a9000)
+libtinfo.so.5 => /lib/x86_64-linux-gnu/libtinfo.so.5 (0x00007f25e317f000)
+libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f25e2f7a000)
+libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f25e2bd6000)
+/lib64/ld-linux-x86-64.so.2 (0x00007f25e360d000)
+ 
+#ldd /bin/ls
+linux-vdso.so.1 (0x00007fff4f8e6000)
+libselinux.so.1 => /lib/x86_64-linux-gnu/libselinux.so.1 (0x00007f9f00aec000)
+libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f9f00748000)
+libpcre.so.3 => /lib/x86_64-linux-gnu/libpcre.so.3 (0x00007f9f004d7000)
+libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f9f002d3000)
+/lib64/ld-linux-x86-64.so.2 (0x00007f9f00d4f000)
+libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f9f000b6000)
+```
+
+Now, copy these files to the _lib_ or _lib64_ of _/chroot_ as required.
+
+Once you have copied all the necessary files, its time to enter the _chroot_.
+
+```
+sudo chroot /chroot/ /bin/bash
+```
+
+You will be prompted with a shell running inside your virtual environment. Here, you dont have much to run besides ls, but it has changed the root file system for this process to _/chroot._
+
+To get a more full-featured environment you can use the _debootstrap_ utility to bootstrap a basic Debian system:
+
+```
+debootstrap --arch=amd64 unstable my_deb/
+```
+
+It will download a minimal system to run under _chroot_. You can use this to even test 32-bit applications on 64-bit systems or for testing your program before installation. To get process management, mount _proc_ to the _chroot_, and to make the contents of _home_ lost on exit, mount _tmpfs_ at _/home//_:
+
+```
+sudo mount -o bind /proc my_deb/proc
+mount -t tmpfs -o size=100m tmpfs /home/user
+```
+
+To get Internet connection inside, use the following command:
+
+```
+sudo cp /etc/resolv.conf /var/chroot/etc/resolv.conf
+```
+
+After that, you are ready to enter your environment.
+
+```
+chroot my_deb/ /bin/bash
+```
+
+Here, you get a whole basic operating system inside your _chroot_. But it differs from your main system by mount point, because it only uses the mount property as the isolator. It has the same hostname, IP address and process running as in the main system. That’s why it is much less secure (this is even mentioned in the man page of chroot), and any running process can still harm your computer by killing your tasks or affecting network based services.
+
+{% hint style="info" %}
+&#x20;__ To run graphical applications inside chroot, open x server by running the following command on the main system:
+
+`xhost +`
+
+and on chroot system
+
+`export DISPLAY=:0.0`
+{% endhint %}
+
+### <mark style="color:orange;">systemd based</mark>
+
+On _systemd_ based systems, chrooting is pretty straightforward. Its needed to define the root directory on the processes unit file only.
+
+```
+[Unit]
+Description=my_chroot_Service
+[Service]
+RootDirectory=/chroot/foobar
+ExecStartPre=/usr/local/bin/pre.sh
+ExecStart=/bin/my_program
+RootDirectoryStartOnly=yes
+```
+
+Here _RootDirectory_ shows where the root directory is for the foobar process.
+
+{% hint style="info" %}
+The program script path has to be inside chroot, which makes the full path of that process script as `/chroot/bin/my_program`.
+{% endhint %}
+
+Before the daemon is started, a shell script pre.sh is invoked, the purpose of which is to set up the chroot environment as necessary, i.e., mount _/proc_ and similar file systems into it, depending on what the service might need. You can start your service by using the following command:
+
+```
+systemctl start my_chroot_Service.service
+```
+
+## <mark style="color:red;">chroot Jail</mark>
+
+The basic command to create a chroot jail is as follows:
+
+```
+chroot /path/to/new/root command
+#OR
+chroot /path/to/new/root /path/to/server
+#OR
+chroot [options] /path/to/new/root /path/to/server
+```
+
+{% hint style="info" %}
+_Only a root/privileged user can use the chroot system call. A non-privileged user with the access to the command can bypass the chroot jail._
+{% endhint %}
+
+### <mark style="color:orange;">**create a mini-jail for the ‘bash’ and the ‘ls’ command**</mark>
+
+**Create a directory which will act as the root of the command.**
+
+```
+mkdir jailed
+cd jailed
+```
+
+**Create all the essential directories for the command to run**
+
+Depending on your operating system, the required directories may change. Logically, we create all these directories to keep a copy of required libraries. To see what all directories are required, see Step 4.
+
+```
+mkdir -p bin lib64/x86_64-linux-gnu lib/x86_64-linux-gnu
+```
+
+**Run the ‘which’ command**
+
+Run the ‘which’ command to find the location of ls and bash command.After running which command,copy those binaries in the ‘bin’ directory of our jail. Make sure you don’t have any of these commands aliased. From now on, we would be referring to our directory as **‘Jailed’** directory for convenience.
+
+```
+  $ unalias ls          # Required only if you have aliased ls command
+  $ unalias bash        # Required only if you have aliased bash command
+  $ cp $(which ls) ./bin/
+  $ cp $(which bash) ./bin/
+```
+
+&#x20;**Copy appropriate libraries/objects**
+
+For the executables in our **Jailed**directory to work we need to copy the appropriate libraries/objects in the JAILED directory. By default, the executable looks at the locations starting with ‘/’. To find the dependencies we use the command ‘ldd’
+
+```
+$ ldd $(which bash)
+    linux-vdso.so.1 =>  (0x00007ffc75dd4000)
+    libtinfo.so.5 => /lib/x86_64-linux-gnu/libtinfo.so.5 (0x00007f6577768000)
+    libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f6577564000)
+    libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f657719a000)
+    /lib64/ld-linux-x86-64.so.2 (0x000055979f3fd000)
+```
+
+Run the following commands to create appropriate directories.
+
+```
+$ cp /lib/x86_64-linux-gnu/libtinfo.so.5 lib/x86_64-linux-gnu/
+$ cp /lib/x86_64-linux-gnu/libdl.so.2 lib/x86_64-linux-gnu/
+$ cp /lib/x86_64-linux-gnu/libc.so.6 lib/x86_64-linux-gnu/
+$ cp /lib64/ld-linux-x86-64.so.2 lib64/
+```
+
+Similarly for ls,
+
+```
+$ ldd $(which ls)
+    linux-vdso.so.1 =>  (0x00007fff4f05d000)
+    libselinux.so.1 => /lib/x86_64-linux-gnu/libselinux.so.1 (0x00007f9a2fd07000)
+    libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f9a2f93e000)
+    libpcre.so.3 => /lib/x86_64-linux-gnu/libpcre.so.3 (0x00007f9a2f6cd000)
+    libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f9a2f4c9000)
+    /lib64/ld-linux-x86-64.so.2 (0x000055e836c69000)
+    libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f9a2f2ac000)
+```
+
+```
+$ cp /lib/x86_64-linux-gnu/libselinux.so.1 lib/x86_64-linux-gnu/
+$ cp /lib/x86_64-linux-gnu/libc.so.6 lib/x86_64-linux-gnu/
+$ cp /lib/x86_64-linux-gnu/libpcre.so.3 lib/x86_64-linux-gnu/
+$ cp /lib/x86_64-linux-gnu/libdl.so.2 lib/x86_64-linux-gnu/
+$ cp /lib64/ld-linux-x86-64.so.2  lib64/
+$ cp /lib/x86_64-linux-gnu/libpthread.so.0 lib/x86_64-linux-gnu/
+```
+
+**Sudo chroot:**Run this command to change the root to the JAILED directory, along with the path to the shell. By default it will try to load ‘/bin/sh’ shell.
+
+```
+cd ..
+sudo chroot jailed /bin/bash
+```
+
+You might face this error while running the chroot command**:**
+
+```
+chroot: failed to run command `/bin/bash': No such file or directory
+```
+
+This may be due to 2 reasons, either the file does not exist(which is obvious), or when the loading library fails or is not available. Double-Check if the libraries are in correct location.
+
+**A new shell must pop up:**Its our jailed bash. We currently have only 2 commands installed, bash and ls. Fortunately cd and pwd are builtin commands in bash shell, and so you can use them as well.
+
+Roam around the directory, try accessing ‘cd /../’ or something similar. Try to break the jail, probably you won’t be able to.&#x20;
+
+To exit from the jail**:**
+
+```
+exit
+```
+
+The most important and interesting part is that, when you run:
+
+```
+ ps aux
+```
+
+and find the process, you’ll find that there is only one process:
+
+```
+root     24958  …  03:21   0:00 /usr/bin/sudo -E chroot jailed/ /bin/bash
+```
+
+Interestingly, processes in the jailed shell run as a simple child process of this shell. All the processes inside the JAILED environment, are just simple user level process in the host OS and are isolated by the namespaces provided by the kernel, thus there is minimal overhead and as an added benefit we get isolation.
+
+### <mark style="color:orange;">sample script</mark>
+
+{% embed url="https://github.com/pmenhart/make_chroot_jail" %}
+
+{% embed url="https://github.com/cheshirekow/uchroot" %}
+
+{% embed url="https://github.com/kazuho/jailing" %}
+
+****
 
 
 

@@ -292,12 +292,12 @@
   * [Account Security](hardening-and-monitoring/untitled/account-security/README.md)
     * [Users / Groups](hardening-and-monitoring/untitled/account-security/users-groups.md)
     * [Password Security &  Sudoers](hardening-and-monitoring/untitled/account-security/password-security-and-sudoers.md)
+  * [Permissions & Ownership](hardening-and-monitoring/untitled/permissions-and-ownership.md)
   * [File System Security](hardening-and-monitoring/untitled/file-system-security.md)
-    * [Permissions & Ownership](hardening-and-monitoring/untitled/file-system-security/permissions-and-ownership.md)
-  * [Sandboxing](hardening-and-monitoring/untitled/sandboxing.md)
-  * [🔧 Network](hardening-and-monitoring/untitled/network/README.md)
-    * [Service Hardening](hardening-and-monitoring/untitled/network/service-hardening/README.md)
-      * [SSH](hardening-and-monitoring/untitled/network/service-hardening/ssh.md)
+  * [🔧 Sandboxing](hardening-and-monitoring/untitled/sandboxing.md)
+  * [🔧 Network](hardening-and-monitoring/untitled/network.md)
+  * [Service Hardening](hardening-and-monitoring/untitled/service-hardening/README.md)
+    * [SSH](hardening-and-monitoring/untitled/service-hardening/ssh.md)
   * [Encryption](hardening-and-monitoring/untitled/encryption.md)
 
 ## Command & Control
