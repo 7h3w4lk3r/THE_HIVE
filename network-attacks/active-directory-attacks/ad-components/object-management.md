@@ -20,7 +20,7 @@ New-ADUser -Name "Talib Idris" -GivenName "Talib" -Surname "Idris" -SamAccountNa
 
 Instead of executing multiple commands to create multiple user objects, we can create a Comma-Separated Values (CSV) file that includes data for attributes and use it to create accounts in one go.
 
-![](<../../../.gitbook/assets/image (281).png>)
+![](<../../../.gitbook/assets/image (281) (1).png>)
 
 ```
 Import-Csv "C:\ADUsers.csv" | ForEach-Object {

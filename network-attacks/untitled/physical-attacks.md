@@ -14,11 +14,11 @@ when grub options are displayed press `‘e’`. Then you will land in a screen 
 'init=bin/bash'
 ```
 
-![](<../../.gitbook/assets/image (272).png>)
+![](<../../.gitbook/assets/image (272) (1).png>)
 
 Once that is done all you need to do is press f10 to boot. You may want to press fn + f10 in some cases. Then you will see a screen like this.
 
-![](<../../.gitbook/assets/image (287).png>)
+![](<../../.gitbook/assets/image (287) (1).png>)
 
 Now you must issue the commands:
 
@@ -28,7 +28,7 @@ mount -o remount,rw /
 
 At this point, you are ready to reset the root password. So go ahead and change it. Finally, you need to issue the command `touch /.autorelabel`.(This is because you have done an unauthorized thing and need to clean the mess or clear the tracks).
 
-![](<../../.gitbook/assets/image (296).png>)
+![](<../../.gitbook/assets/image (296) (1).png>)
 
 Afterwards when you reboot into the machine, you will be able to access the root account with the new password you have used.
 

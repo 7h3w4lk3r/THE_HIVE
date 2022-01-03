@@ -1,4 +1,34 @@
-# 🔧 Process Hardening
+# Process Hardening
+
+{% embed url="https://michielkalkman.com/posts/isolation-modeling-001" %}
+
+## <mark style="color:red;">Preventing users from seeing each others' processes</mark>
+
+By default, users can use a utility such as ps or top to see everyone else's processes, as well as their own.
+
+the best way to deal with this is to mount the /proc filesystem with the hidepid option. You can do this by adding the following line to the end of the /etc/fstab file, like so:
+
+`nano /etc/fstab`
+
+```
+proc    /proc   proc    hidepid=2   0   0
+```
+
+Then, remount /proc , like so:
+
+```
+sudo mount -o remount proc
+```
+
+Now, any user who doesn't have sudo privileges can only view his or her own processes.
+
+The three values for the hidepid option are as follows:
+
+<mark style="color:orange;">0 :</mark> This is the default, which allows all users to see each others' processes.&#x20;
+
+<mark style="color:orange;">1 :</mark> This allows all users to see other users' process directories within /proc . However, users will only be able to cd into their own process directories. Also, they'll only be able to see their own process information with ps or top .&#x20;
+
+<mark style="color:orange;">2 :</mark> This hides all other users' process information, including the process directories within /proc .
 
 ## <mark style="color:red;">Restrict Core Dumps</mark>
 
@@ -104,76 +134,4 @@ Uninstall prelink using the appropriate package manager or manual installation:
 # apt-get remove prelink
 # zypper remove prelink
 ```
-
-## <mark style="color:red;">Kernel Parameters</mark>
-
-### <mark style="color:orange;">install Lynis tool</mark>
-
-{% hint style="info" %}
-A best practice is to install lynis on a fresh OS and run the checks before installing any extra packages and services.
-{% endhint %}
-
-**Installing Lynis on Ubuntu/Debian/LinuxMint**
-
-```
-sudo apt-get install lynis
-```
-
-**Installing Lynis on RHEL/CentOS**
-
-```
- sudo yum install lynis
-```
-
-**Installing Lynis on Fedora**
-
-```
-sudo dnf install lynis
-```
-
-**Installing Lynis on openSUSE**
-
-```
-sudo zypper install lynis
-```
-
-**Installing Lynis on Arch Linux based system**
-
-```
-sudo pacman -S lynis
-```
-
-### <mark style="color:orange;">Run Lynis</mark>
-
-We can now use Lynis to perform security audits on our system. We can view the list of commands to execute with the help of Lynis. Use the following command to list the number of commands to execute.
-
-```
-lynis show commands
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

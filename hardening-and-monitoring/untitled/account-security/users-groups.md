@@ -2,7 +2,7 @@
 
 
 
-![](<../../../.gitbook/assets/image (282).png>)
+![](<../../../.gitbook/assets/image (282) (1).png>)
 
 ## <mark style="color:red;">User Management</mark>
 
@@ -218,7 +218,7 @@ passwd -u account
 /sbin/nologin
 ```
 
-![](<../../../.gitbook/assets/image (290) (1).png>)
+![](<../../../.gitbook/assets/image (290) (1) (1).png>)
 
 ### <mark style="color:orange;">Using chsh Command</mark>
 

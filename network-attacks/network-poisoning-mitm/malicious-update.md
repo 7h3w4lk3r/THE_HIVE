@@ -114,7 +114,7 @@ evilgrade(notepadplus)>show options
 
 ```
 
-![](<../../.gitbook/assets/image (296) (1).png>)
+![](<../../.gitbook/assets/image (296) (1) (1).png>)
 
 ```
 evilgrade(notepadplus)>start

@@ -1,6 +1,6 @@
 # Metasploit
 
-![](<../.gitbook/assets/image (282) (1) (1) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (282) (1) (1) (1) (1) (1) (1).png>)
 
 {% embed url="https://www.sans.org/blog/sans-pen-test-cheat-sheet-metasploit" %}
 
@@ -407,7 +407,7 @@ cat /var/lib/tor/hidden_service/hostname
 
 create a payload with msfvenom and set the `lhost` to the union address and append .link to it:
 
-![](<../.gitbook/assets/image (272) (1).png>)
+![](<../.gitbook/assets/image (272) (1) (1).png>)
 
 in listener set lhost to your local ip address:
 
@@ -754,7 +754,7 @@ set rhost www.symantec.om
 run
 ```
 
-![](<../.gitbook/assets/image (296) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (296) (1) (1) (1) (1).png>)
 
 we have the cert now create a payload using the cert:
 

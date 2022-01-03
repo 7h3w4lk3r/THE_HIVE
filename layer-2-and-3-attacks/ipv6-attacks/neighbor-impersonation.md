@@ -6,7 +6,7 @@ While it's true ARP does not exist in the IPv6 protocol stack, IPv6 instead reli
 
 Most similar to typical ARP usage under IPv4 is the ND address resolution function, which is used when a host wants to transmit to an on-link prefix but doesn't yet know the layer two address of the destination host. The sending host multicasts a neighbor solicitation, and the destination host, if reachable, responds with a neighbor advertisement containing its layer two address.
 
-![](<../../.gitbook/assets/image (290) (1) (1).png>)
+![](<../../.gitbook/assets/image (290) (1) (1) (1).png>)
 
 Unfortunately, as in ARP, these exchanges are completely unsecured. There are no countermeasures in place to prevent an attacker from generating a neighbor advertisement advertising his own layer two address as belonging to other hosts on the link.
 

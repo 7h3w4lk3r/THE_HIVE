@@ -1,6 +1,6 @@
 # 🔧 AD Components
 
-![](<../../../.gitbook/assets/image (282) (1).png>)
+![](<../../../.gitbook/assets/image (282) (1) (1).png>)
 
 {% hint style="info" %}
 This section is an overview of different Active Directory components taken from the book: <mark style="color:orange;">Mastering Active Directory</mark> by <mark style="color:orange;">Dishan Francis.</mark>
@@ -61,7 +61,7 @@ In order to view the GUID and SID values for the user account, the following Pow
 Get-ADUser username
 ```
 
-![](<../../../.gitbook/assets/image (281) (1).png>)
+![](<../../../.gitbook/assets/image (281) (1) (1).png>)
 
 `ObjectGUID` is a 128-bit value, and is applied to each and every object in Active Directory. This value is not just for the particular Active Directory domain. It is valid globally as well. Once a GUID is assigned to an object, it will be there until the object is deleted from the directory. Modifying or moving objects will not change the value of the GUID. The ObjectGUID attribute value will be published to the global catalog servers. If an application in a domain needs to search for a user object, the best method will be to query using ObjectGUID , as it will give an accurate result.
 

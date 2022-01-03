@@ -132,7 +132,7 @@ msf exploit(sshexec) >exploit
 
 as a result you can observe that we have meterpreter session of the host machine.
 
-![](<../../.gitbook/assets/image (283) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (283) (1) (1) (1) (1) (1).png>)
 
 ## Default Credentials
 
@@ -175,7 +175,7 @@ Once you have compromised the server with Metasploit then run it in the backgrou
 
 ![](<../../.gitbook/assets/image (277) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (272) (1) (1).png>)
+![](<../../.gitbook/assets/image (272) (1) (1) (1).png>)
 
 Once you find that you can get the key for that you have to start the session and download the key.
 

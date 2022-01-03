@@ -2,7 +2,7 @@
 
 ## CAM Table&#x20;
 
-![](<../../.gitbook/assets/image (298) (1) (1).png>)
+![](<../../.gitbook/assets/image (298) (1) (1) (1).png>)
 
 • CAM Table stands for Content Addressable Memory
 
@@ -14,7 +14,7 @@
 
 ![](<../../.gitbook/assets/image (277) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (300) (1) (1).png>)
+![](<../../.gitbook/assets/image (300) (1) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (276) (1) (1) (1) (1) (1) (1).png>)
 
@@ -28,7 +28,7 @@
 
 ![](<../../.gitbook/assets/image (293) (1) (1) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (281) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (281) (1) (1) (1) (1).png>)
 
 #### Dsniff (macof) can generate 480,000 MAC entries on a switch per minute 8000/s\*60.
 
@@ -36,7 +36,7 @@ Assuming a perfect hash function the CAM table will total out at 128,000 (16,000
 
 #### Once table is full, traffic without a CAM entry floods on the VLAN, but NOT existing traffic with an existing CAM entry
 
-![](<../../.gitbook/assets/image (297) (1) (1).png>)
+![](<../../.gitbook/assets/image (297) (1) (1) (1).png>)
 
 Syntax:
 

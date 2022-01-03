@@ -2,9 +2,9 @@
 
 ## <mark style="color:red;">chmod</mark>
 
-![](<../../../.gitbook/assets/image (298).png>)
+![](<../../../.gitbook/assets/image (298) (1).png>)
 
-![](<../../../.gitbook/assets/image (294).png>)
+![](<../../../.gitbook/assets/image (294) (1).png>)
 
 ### <mark style="color:orange;">chmod Recursively</mark>
 
@@ -77,7 +77,7 @@ tune2fs -l /path/to/dev | grep options
 setfacl -m ACL FILE_OR_DIRECTORY
 ```
 
-![](<../../../.gitbook/assets/image (290).png>)
+![](<../../../.gitbook/assets/image (290) (1).png>)
 
 Users and groups can be identified by name or by UID/GID. The exact number of entries that an ACL can contain varies with the filesystem implementation but is usually at least 32.
 

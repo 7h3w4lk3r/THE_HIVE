@@ -303,7 +303,7 @@ smbmap -H 192.168.13.29
 use auxiliary/admin/smb/samba_symlink_traversal
 ```
 
-![](<../../.gitbook/assets/image (294) (1).png>)
+![](<../../.gitbook/assets/image (294) (1) (1).png>)
 
 #### We can see from the above output, that a new “rootfs” directory has been created within the “tmp” share.
 
@@ -377,7 +377,7 @@ root@tester:~# smbclient \\\\192.168.13.21\\www -N
 
 
 
-![](<../../.gitbook/assets/image (279) (1).png>)
+![](<../../.gitbook/assets/image (279) (1) (1).png>)
 
 As the image above explains, the presence of a “.pl” extension indicates that the server is likely configured to process Perl (CGI) programs.
 

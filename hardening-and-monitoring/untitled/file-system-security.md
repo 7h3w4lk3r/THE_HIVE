@@ -320,7 +320,7 @@ Linux defines a set of supplemental flags that can be set on files to request sp
 
 Linux uses the commands lsattr and chattr to view and change file attributes
 
-![](<../../.gitbook/assets/image (297).png>)
+![](<../../.gitbook/assets/image (297) (1).png>)
 
 ### <mark style="color:orange;">Viewing Attributes</mark>
 
