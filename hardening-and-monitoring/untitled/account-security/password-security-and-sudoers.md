@@ -1,4 +1,4 @@
-# passwd / Sudoers
+# Password Security &  Sudoers
 
 {% embed url="https://www.tecmint.com/sudoers-configurations-for-setting-sudo-in-linux" %}
 
@@ -28,7 +28,7 @@ wheel:x:10:root,<user list>
 
 ### <mark style="color:orange;">Expiration</mark>
 
-Set the PASS\_MAX\_DAYS parameter to conform to site policy in /etc/login.defs :&#x20;
+Set the PASS\_MAX\_DAYS parameter to conform to site policy in `/etc/login.defs` :&#x20;
 
 ```
 PASS_MAX_DAYS 365
@@ -40,7 +40,7 @@ Modify user parameters for all users with a password set to match:
 chage --maxdays 365 <user>
 ```
 
-You can also check this setting in /etc/shadow directly. The 5th field should be 365 or less for all users with a password.
+You can also check this setting in `/etc/shadow` directly. The 5th field should be 365 or less for all users with a password.
 
 {% hint style="info" %}
 A value of -1 will disable password expiration. Additionally the password expiration must be greater than the minimum days between password changes or users will be unable to change their password.
@@ -48,7 +48,7 @@ A value of -1 will disable password expiration. Additionally the password expira
 
 ### <mark style="color:orange;">Password Change Minimum Limit</mark>
 
-The PASS\_MIN\_DAYS parameter in /etc/login.defs allows an administrator to prevent users from changing their password until a minimum number of days have passed since the last time the user changed their password. It is recommended that PASS\_MIN\_DAYS parameter be set to 7 or more days
+The `PASS_MIN_DAYS` parameter in `/etc/login.defs` allows an administrator to prevent users from changing their password until a minimum number of days have passed since the last time the user changed their password. It is recommended that `PASS_MIN_DAYS` parameter be set to 7 or more days
 
 Set the PASS\_MIN\_DAYS parameter to 7 in /etc/login.defs :
 
@@ -68,9 +68,9 @@ You can also check this setting in /etc/shadow directly. The 4th field should be
 
 ### <mark style="color:orange;">Expiration Warning Days</mark>
 
-The PASS\_WARN\_AGE parameter in /etc/login.defs allows an administrator to notify users that their password will expire in a defined number of days. It is recommended that the PASS\_WARN\_AGE parameter be set to 7 or more days.
+The PASS\_WARN\_AGE parameter in `/etc/login.defs` allows an administrator to notify users that their password will expire in a defined number of days. It is recommended that the `PASS_WARN_AGE` parameter be set to 7 or more days.
 
-Set the PASS\_WARN\_AGE parameter to 7 in /etc/login.defs :
+Set the `PASS_WARN_AGE` parameter to 7 in `/etc/login.defs` :
 
 ```
 PASS_WARN_AGE 7
@@ -86,7 +86,7 @@ chage --warndays 7 <user>
 You can also check this setting in /etc/shadow directly. The 6th field should be 7 or more for all users with a password.
 {% endhint %}
 
-### <mark style="color:orange;">Inactive Password Lock</mark>
+### <mark style="color:orange;">Inactive Account Password Lock</mark>
 
 User accounts that have been inactive for over a given period of time can be automatically disabled. It is recommended that accounts that are inactive for 30 days after password expiration be disabled.
 
@@ -266,23 +266,23 @@ format:
 user host=(run_as_user : run_as_group) command
 ```
 
-<mark style="color:green;">root</mark> ALL=(ALL:ALL) ALL&#x20;
+<mark style="color:blue;">root</mark> ALL=(ALL:ALL) ALL&#x20;
 
 The first field indicates the username that the rule will apply to (root).
 
-demo <mark style="color:green;">ALL</mark>=(ALL:ALL) ALL&#x20;
+demo <mark style="color:blue;">ALL</mark>=(ALL:ALL) ALL&#x20;
 
 The first “ALL” indicates that this rule applies to all hosts.
 
-demo ALL=(<mark style="color:green;">ALL</mark>:ALL) ALL&#x20;
+demo ALL=(<mark style="color:blue;">ALL</mark>:ALL) ALL&#x20;
 
 This “ALL” indicates that the root user can run commands as all users.
 
-demo ALL=(ALL<mark style="color:green;">:ALL</mark>) ALL&#x20;
+demo ALL=(ALL<mark style="color:green;">:</mark><mark style="color:blue;">ALL</mark>) ALL&#x20;
 
 This “ALL” indicates that the root user can run commands as all groups.
 
-demo ALL=(ALL:ALL) <mark style="color:yellow;"></mark> <mark style="color:green;">ALL</mark> <mark style="color:yellow;"></mark>&#x20;
+demo ALL=(ALL:ALL) <mark style="color:yellow;"></mark> <mark style="color:blue;">ALL</mark> <mark style="color:yellow;"></mark>&#x20;
 
 The last “ALL” indicates these rules apply to all commands. This means that our root user can run any command using sudo, as long as they provide their password.
 
@@ -352,4 +352,37 @@ To restrict this, we could use a line like this:
 ```
 username  ALL = NOEXEC: /usr/bin/less
 ```
+
+### <mark style="color:orange;">Limiting the user's actions with commands</mark>
+
+Let's say that you create a sudo rule so that Sylvester can use the systemctl command:
+
+```
+sylvester ALL=(ALL) /usr/bin/systemctl
+```
+
+This allows Sylvester to have full use of the systemctl features. He can control daemons, edit service files, shut down or reboot, and carry out every other function that systemctl does. That's probably not what you want. It would be better to specify what systemctl functions that Sylvester is allowed to do. Let's say that you want him to be able to control just the Secure Shell service.&#x20;
+
+he syntax would be like this:
+
+```
+useraccount run-what=(run-as) command * parameters
+```
+
+You can make the line look like this:
+
+```
+sylvester ALL=(ALL) /usr/bin/systemctl * sshd
+```
+
+Sylvester can now do everything he needs to do with the Secure Shell service, but he can't shut down or reboot the system, edit other service files, or change systemd targets. But what if you want Sylvester to do only certain specific actions with the Secure Shell service? Then you'll have to omit the wildcard and specify all of the actions that you want Sylvester to do:
+
+```
+sylvester ALL=(ALL) /usr/bin/systemctl status sshd, /usr/bin/systemctl
+restart sshd
+```
+
+Now, Sylvester can only restart the Secure Shell service or check its status.
+
+
 

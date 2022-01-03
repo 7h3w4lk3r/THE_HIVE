@@ -1,7 +1,5 @@
 # Curl
 
-## <mark style="color:red;">curl</mark>
-
 ### Options <a href="#options-1" id="options-1"></a>
 
 ```bash

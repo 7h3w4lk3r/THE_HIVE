@@ -286,12 +286,15 @@
     * [Grub Hardening](hardening-and-monitoring/untitled/os-security/grub-hardening.md)
     * [Update Strategy](hardening-and-monitoring/untitled/os-security/update-strategy.md)
     * [🔧 Process Hardening](hardening-and-monitoring/untitled/os-security/process-hardening.md)
-  * [File System Security](hardening-and-monitoring/untitled/file-system-security.md)
-    * [Permissions & Ownership](hardening-and-monitoring/untitled/file-system-security/permissions-and-ownership.md)
-  * [Encryption](hardening-and-monitoring/untitled/encryption.md)
   * [Account Security](hardening-and-monitoring/untitled/account-security/README.md)
     * [Users / Groups](hardening-and-monitoring/untitled/account-security/users-groups.md)
-    * [passwd / Sudoers](hardening-and-monitoring/untitled/account-security/passwd-sudoers.md)
+    * [Password Security &  Sudoers](hardening-and-monitoring/untitled/account-security/password-security-and-sudoers.md)
+  * [File System Security](hardening-and-monitoring/untitled/file-system-security.md)
+    * [Permissions & Ownership](hardening-and-monitoring/untitled/file-system-security/permissions-and-ownership.md)
+  * [Network](hardening-and-monitoring/untitled/network/README.md)
+    * [Service Hardening](hardening-and-monitoring/untitled/network/service-hardening/README.md)
+      * [SSH](hardening-and-monitoring/untitled/network/service-hardening/ssh.md)
+  * [Encryption](hardening-and-monitoring/untitled/encryption.md)
 
 ## Command & Control
 
@@ -338,11 +341,12 @@
 
 ## Misc Tools
 
-* [cats](misc-tools/cats/README.md)
+* [SSH Tricks](misc-tools/ssh-tricks.md)
+* [Cats](misc-tools/cats/README.md)
   * [netcat](misc-tools/cats/netcat.md)
   * [ncat](misc-tools/cats/ncat.md)
   * [pwncat](misc-tools/cats/pwncat.md)
   * [socat](misc-tools/cats/socat.md)
   * [🔧 powercat](misc-tools/cats/powercat.md)
-* [Steganography](misc-tools/steganography.md)
+* [🔧 Steganography](misc-tools/steganography.md)
 * [Curl](misc-tools/curl.md)

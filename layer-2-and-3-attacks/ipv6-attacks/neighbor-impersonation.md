@@ -10,7 +10,7 @@ Most similar to typical ARP usage under IPv4 is the ND address resolution functi
 
 Unfortunately, as in ARP, these exchanges are completely unsecured. There are no countermeasures in place to prevent an attacker from generating a neighbor advertisement advertising his own layer two address as belonging to other hosts on the link.
 
-![](<../../.gitbook/assets/image (291) (1) (1).png>)
+![](<../../.gitbook/assets/image (291) (1) (1) (1).png>)
 
 ## Exploitation
 
