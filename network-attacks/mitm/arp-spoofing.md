@@ -8,7 +8,7 @@
 
 • The computer mentioned in the request sends a response; all other computers process and discard the request without sending a response
 
-![](<../../.gitbook/assets/image (293) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (293) (1) (1) (1) (1).png>)
 
 ## Gratuitous ARP
 

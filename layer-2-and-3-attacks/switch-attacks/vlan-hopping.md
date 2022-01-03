@@ -28,7 +28,7 @@
 
 #### Administrator configurable trunk states:
 
-![](<../../.gitbook/assets/image (288) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (288) (1) (1) (1) (1).png>)
 
 #### As an attacker, if we can trick the switch into thinking our connected system is a switch using 802.1Q, then we can trick the switch into configuring the port as a trunk, passing down all VLAN traffic with similar upstream access.
 
@@ -50,13 +50,13 @@
 
 here is the VLAN table from the switch console:
 
-![](<../../.gitbook/assets/image (292) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (292) (1) (1) (1) (1) (1).png>)
 
 The interfaces (G0/0, G0/1) are assigned to VLAN 100 which are the (attacker and victim), and the interface (G0/2) is assigned to VLAN 200.
 
 in order to make the attack successful, the switch has to be on default configuration (in Dynamic Desirable), let’s check the configuration of the attacker’s interface (G0/0):
 
-![](<../../.gitbook/assets/image (286) (1) (1).png>)
+![](<../../.gitbook/assets/image (286) (1) (1) (1).png>)
 
 he switch port is set on Dynamic Desirable thus the VLANs can be negotiated together.
 
@@ -92,11 +92,11 @@ Then choose “enabling trunking” and click OK.
 
 in CLI mode press `g` to bring up the protocol menu then choose DTP
 
-![](<../../.gitbook/assets/image (287) (1) (1).png>)
+![](<../../.gitbook/assets/image (287) (1) (1) (1).png>)
 
 then press `x` to open panel and press `1` to enable trunking
 
-![](<../../.gitbook/assets/image (293) (1) (1).png>)
+![](<../../.gitbook/assets/image (293) (1) (1) (1).png>)
 
 After delivering the DTP message, press `5` to open a status dialog. Here, the status indicates TRUNK/AUTO, revealing a successful attack.
 
@@ -177,11 +177,11 @@ First of all, we must have our PC connected directly to the VoIP phone that we a
 
 With the successful connection, we will capture a CDP packet. Being directly connected to the Cisco device (VoIP phone), the only package that should reach us is that of the phone itself.
 
-![](<../../.gitbook/assets/image (288) (1) (1).png>)
+![](<../../.gitbook/assets/image (288) (1) (1) (1).png>)
 
 With the captured package we verify that it really is the information we need.
 
-![](<../../.gitbook/assets/image (297) (1) (1).png>)
+![](<../../.gitbook/assets/image (297) (1) (1) (1).png>)
 
 Once we have the necessary package, we disconnect from the phone and connect directly to the network (that is, because we are going to impersonate the Cisco dispositive, if we leave the device connected, the switch will detect that there are two devices with the same configuration and impersonation will not take effect).&#x20;
 
@@ -201,11 +201,11 @@ We check that it has been created successfully.
 
 We disable the interface to modify the MAC and change it for the legitimate phone (we can see this setting directly in phone options).
 
-![](<../../.gitbook/assets/image (286) (1).png>)
+![](<../../.gitbook/assets/image (286) (1) (1).png>)
 
 With everything configured, we make a dhclient of the interface to verify that the switch provides us with the IP of the phone.
 
-![](<../../.gitbook/assets/image (292) (1) (1).png>)
+![](<../../.gitbook/assets/image (292) (1) (1) (1).png>)
 
 We see how we already have the IP. We only have to verify that we have a connection to the gateway to verify that we are correctly authenticated in the VoIP VLAN.
 

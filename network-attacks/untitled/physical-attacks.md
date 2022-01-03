@@ -18,7 +18,7 @@ when grub options are displayed press `‘e’`. Then you will land in a screen 
 
 Once that is done all you need to do is press f10 to boot. You may want to press fn + f10 in some cases. Then you will see a screen like this.
 
-![](<../../.gitbook/assets/image (287) (1).png>)
+![](<../../.gitbook/assets/image (287) (1) (1).png>)
 
 Now you must issue the commands:
 

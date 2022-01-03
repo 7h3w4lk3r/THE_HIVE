@@ -26,7 +26,7 @@
 
 • Based on CAM Table’s limited size
 
-![](<../../.gitbook/assets/image (293) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (293) (1) (1) (1) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (281) (1) (1) (1) (1).png>)
 
@@ -36,7 +36,7 @@ Assuming a perfect hash function the CAM table will total out at 128,000 (16,000
 
 #### Once table is full, traffic without a CAM entry floods on the VLAN, but NOT existing traffic with an existing CAM entry
 
-![](<../../.gitbook/assets/image (297) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (297) (1) (1) (1) (1).png>)
 
 Syntax:
 

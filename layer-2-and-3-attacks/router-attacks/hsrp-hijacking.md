@@ -22,7 +22,7 @@ Note that because the HSRP hello messages are sent to the multicast address 224.
 
 ## HSRP Hijacking
 
-![](<../../.gitbook/assets/image (288) (1).png>)
+![](<../../.gitbook/assets/image (288) (1) (1).png>)
 
 If an attacker can observe the authentication string used for HSRP, he can mount a MitM attack by exploiting HSRP and becoming the new primary router on the network. After observing HSRP hello messages from the primary device, the attacker can identify the authentication key and the priority of the active router. By impersonating an HSRP router, the attacker can have all network traffic redirected to himself:
 

@@ -321,7 +321,7 @@ Add the following under global:
 smbclient \\\\192.168.13.29\\tmp -N
 ```
 
-![](<../../.gitbook/assets/image (293) (1).png>)
+![](<../../.gitbook/assets/image (293) (1) (1).png>)
 
 #### From here, we can simply use smbclient to change into the rootfs directory, and begin post exploitation, downloading/uploading files, etc. using the smbclient “get”
 

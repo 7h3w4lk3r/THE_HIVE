@@ -1,7 +1,5 @@
 # Users / Groups
 
-
-
 ![](<../../../.gitbook/assets/image (282) (1).png>)
 
 ## <mark style="color:red;">User Management</mark>
@@ -173,6 +171,89 @@ lastlog → last time a user has logged in
 /var/log/secure
 /var/log/auth.log
 ```
+
+
+
+## <mark style="color:red;">**Configure Password complexity with pam**</mark>
+
+### <mark style="color:orange;">Debian-based</mark>
+
+Ensuring that password meets a certain degree of complexity is equally crucial and further thwarts any attempts by hackers to infiltrate your system using brute force.
+
+As a general rule, a strong password should have a combination of Uppercase, lowercase, numeric and special characters and should be at least 12-15 characters long.
+
+To enforce password complexity in Debian / Ubuntu systems, you need to install the `libpam-pwquality` package as shown:
+
+```
+sudo apt install libpam-pwquality
+```
+
+Once installed, head out to the `/etc/pam.d/common-password` file from where you are going to set the password policies. Be default, the file appears as shown:
+
+![](<../../../.gitbook/assets/image (287).png>)
+
+Locate the line shown below
+
+```
+password   requisite   pam_pwquality.so retry=3
+```
+
+Add the following attributes to the line:
+
+```
+minlen=12 maxrepeat=3 ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1 difok=4 reject_username enforce_for_root
+```
+
+The entire line should appear as shown:
+
+![](<../../../.gitbook/assets/image (292).png>)
+
+#### Let’s flesh out what these directives stand for:
+
+* retry=3: This option will prompt the user 3 times before exiting and returning an error.
+* minlen=12: This specifies that the password cannot be less than 12 characters.
+* maxrepeat=3: This allows implies that only a maximum of 3 repeated characters can be included in the password.
+* ucredit=-1: The option requires at least one uppercase character in the password.
+* lcredit=-1: The option requires at least one lowercase character in the password.
+* dcredit=-1: This implies that the password should have at last a numeric character.
+* ocredit=-1: The option requires at least one special character included in the password.
+* difok=3: This implies that only a  maximum of 3 character changes in the new password should be present in the old password.
+* reject\_username: The option rejects a password if it consists of the username either in its normal way or in reverse.
+* enforce\_for\_root: This ensures that the password policies are adhered to even if it’s the root user configuring the passwords.
+
+### <mark style="color:orange;">Redhat-based</mark>
+
+For Debian and Ubuntu systems, we enforced the password policy by making changes to the **/etc/pam.d/common-password** configuration file.
+
+For CentOS 7 and other derivatives, we are going to modify the **`/etc/pam.d/system-auth`**  or **`/etc/security/pwquality.conf`**` ``` configuration file.
+
+So, proceed and open the file:
+
+```
+sudo vim /etc/pam.d/system-auth
+```
+
+Locate the line shown below
+
+```
+password    requisite     pam_pwquality.so try_first_pass local_users_only retry=3 authtok_type=
+```
+
+Append the options in the line as shown.
+
+```
+minlen=12 lcredit=-1 ucredit=-1 dcredit=-1 ocredit=-1 enforce_for_root
+```
+
+You will end up having the line below:
+
+![](<../../../.gitbook/assets/image (288).png>)
+
+Once done, save the password policies and exit the file.
+
+Once again, when you try creating a user with a weak password that doesn’t adhere to the enforced policies, you will encounter the error shown in the terminal.
+
+![](<../../../.gitbook/assets/image (297).png>)
 
 ## <mark style="color:red;">Configure Root Access</mark>
 
