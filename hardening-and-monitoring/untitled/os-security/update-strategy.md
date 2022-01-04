@@ -1,7 +1,7 @@
 # Update Strategy
 
 {% hint style="danger" %}
-**Before updating he system kernel, services or programs, remember to check for any software that might break as a result of a system update/upgrade.**&#x20;
+**Before updating he system kernel, services or programs, remember to check for any software hat might break as a result of a system update/upgrade.**&#x20;
 
 **the machine might be using an old unpatched software that is not compatible with newer versions of your distribution**
 {% endhint %}
