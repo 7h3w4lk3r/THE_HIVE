@@ -12,8 +12,8 @@ The documents and techniques discussed here are taken from various sources such 
 #### Your contributions are highly appreciated, you can [submit pull requests to hive](https://github.com/7h3w4lk3r/THE\_HIVE) and support me with a :star: if you like.
 {% endhint %}
 
-### [My Other Projects on Github](https://github.com/7h3w4lk3r)
+### [<mark style="color:red;">Other Projects on Github</mark>](https://github.com/7h3w4lk3r)<mark style="color:red;"></mark>
 
-## **Contact**
+## <mark style="color:red;">**Contact**</mark>
 
 #### &#x20;**** [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge\&logo=telegram\&logoColor=white)](https://t.me/TH3W4LK3R) [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge\&logo=gmail\&logoColor=white)](mailto:bl4ckr4z3r@gmail.com)
