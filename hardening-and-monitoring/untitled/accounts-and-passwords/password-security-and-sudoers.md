@@ -315,6 +315,8 @@ GROUPTHREE  ALL = POWER
 
 We create a command alias called POWER that contains commands to power off and reboot the machine. We then allow the members of GROUPTHREE to execute these commands.
 
+### <mark style="color:orange;">Run As</mark>
+
 We can also create “Run as” aliases, which can replace the portion of the rule that specifies the user to execute the command as:
 
 ```
@@ -324,24 +326,28 @@ GROUPONE    ALL = (WEB) ALL
 
 This will allow anyone who is a member of GROUPONE to execute commands as the www-data user or the apache user.
 
+### <mark style="color:orange;">sudo without password</mark>
+
 If we want to allow users to execute it with root privileges without having to type a password, we can make a rule like this:
 
-```
+```bash
 /user ALL=(ALL) NOPASSWD: ALL
 GROUPONE    ALL = NOPASSWD: /usr/bin/updatedb
 ```
 
+### <mark style="color:orange;">Tags</mark>
+
 A tag is relevant for the rest of the rule unless overruled by its “twin” tag later down the line.
 
-```
+```bash
 GROUPTWO    ALL = NOPASSWD: /usr/bin/updatedb, PASSWD: /bin/kill
 ```
 
-Another helpful tag is NOEXEC, which can be used to prevent some dangerous behavior in certain programs.
+Another helpful tag is <mark style="color:orange;">NOEXEC</mark>, which can be used to prevent some dangerous behavior in certain programs.
 
 For example, some programs, like “less”, can spawn other commands by typing this from within their interface:
 
-```
+```bash
 !command_to_run
 ```
 
@@ -349,15 +355,63 @@ This basically executes any command the user gives it with the same permissions 
 
 To restrict this, we could use a line like this:
 
-```
+```bash
 username  ALL = NOEXEC: /usr/bin/less
+```
+
+### <mark style="color:orange;">disable sudo timer</mark>
+
+In order to set a different timeout (globally) than the default (=15 min) you can edit `/etc/sudoers`:
+
+```bash
+sudo visudo                                       # opens /etc/sudoers for editing
+# change the following line:
+# Defaults    env_reset
+# to:
+Defaults        env_reset,timestamp_timeout=30    # timeout in minutes
+```
+
+or:
+
+```bash
+cd /etc/sudoers.d
+sudo visudo -f username
+Defaults        env_reset,timestamp_timeout=30    # timeout in minutes
+```
+
+Special values:
+
+* `-1`: no timeout
+* `0`: get prompted every single time
+
+## <mark style="color:red;">Prevent Shell Escapes</mark>
+
+Certain programs, especially text editors and pagers, have a handy shell escape feature. This allows a user to run a shell command without having to exit the program first.
+
+### <mark style="color:orange;">Set sudoedit as a Text Editor</mark>
+
+#### some of the programs that have shell escape feature:
+
+* nano
+* vi
+* vim
+* less
+* emacs
+* view
+* more
+* ...
+
+to prevent user from shell escape with text editors, give them sudo permissions for `sudoedit` only, sudoedit has no shell escape feature
+
+```
+frank ALL=(ALL) sudoedit /etc/ssh/sshd_config
 ```
 
 ### <mark style="color:orange;">Limiting the user's actions with commands</mark>
 
 Let's say that you create a sudo rule so that Sylvester can use the systemctl command:
 
-```
+```bash
 sylvester ALL=(ALL) /usr/bin/systemctl
 ```
 
@@ -365,13 +419,13 @@ This allows Sylvester to have full use of the systemctl features. He can control
 
 he syntax would be like this:
 
-```
+```bash
 useraccount run-what=(run-as) command * parameters
 ```
 
 You can make the line look like this:
 
-```
+```bash
 sylvester ALL=(ALL) /usr/bin/systemctl * sshd
 ```
 
@@ -383,6 +437,4 @@ restart sshd
 ```
 
 Now, Sylvester can only restart the Secure Shell service or check its status.
-
-
 

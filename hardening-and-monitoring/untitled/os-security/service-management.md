@@ -6,7 +6,61 @@
 #### disable unused services and ports, remove them from startup tasks.
 {% endhint %}
 
-![](<../../../../.gitbook/assets/image (285).png>)
+![](<../../../.gitbook/assets/image (285).png>)
+
+## <mark style="color:red;">Cheat sheet</mark>
+
+#### <mark style="color:green;">Systemd Service Commands</mark>
+
+| Command                                  | Description                          |
+| ---------------------------------------- | ------------------------------------ |
+| systemctl stop service-name              | systemd stop running service         |
+| systemctl start service-name             | systemctl start service              |
+| systemctl restart service-name           | systemd restart running service      |
+| systemctl reload service-name            | reloads all config files for service |
+| systemctl status service-name            | systemctl show if service is running |
+| systemctl enable service-name            | systemctl start service at boot      |
+| systemctrl disable service-name          | systemctl - disable service at boot  |
+| systemctl show service-name              | show systemctl service info          |
+| systemctl -H target command service-name | run systemctl commands remotely      |
+
+#### <mark style="color:green;">Systemd Information Commands</mark>
+
+\
+Systemd commands that show useful system information.\
+
+
+| Command                     | Description                                    |
+| --------------------------- | ---------------------------------------------- |
+| systemctl list-dependencies | show and units dependencies                    |
+| systemctl list-sockets      | systemd list sockets and activities            |
+| systemctl list-jobs         | view active systemd jobs                       |
+| systemctl list-unit-files   | systemctl list unit files and their states     |
+| systemctl list-units        | systemctl list default target (like run level) |
+
+#### <mark style="color:green;">Changing System State</mark>
+
+\
+systemd reboot, shutdown, default target etc
+
+| Command             | Description                               |
+| ------------------- | ----------------------------------------- |
+| systemctl reboot    | systemctl reboot the system               |
+| systemctl poweroff  | systemctl shutdown (power off the system) |
+| systemctl emergency | Put in emergency mode                     |
+| systemctl default   | systemctl default mode                    |
+
+\
+<mark style="color:green;">Systemctl Viewing Log Messages</mark>
+
+| Command                    | Description                     |
+| -------------------------- | ------------------------------- |
+| journalctl                 | show all collected log messages |
+| journalctl -u sshd.service | see sshd service messages       |
+| journelctl -f              | follow messages as they appear  |
+| journelctl -k              | show kernel messages only       |
+
+
 
 ## <mark style="color:red;">systemctl</mark>
 
@@ -16,13 +70,13 @@ Running systemctl without any arguments invokes the default list-units subcom- m
 systemctl
 ```
 
-![](<../../../../.gitbook/assets/image (296).png>)
+![](<../../../.gitbook/assets/image (296).png>)
 
 ## <mark style="color:red;">Unit statuses</mark>
 
 The last four lines are recent log entries. **By default, the log entries are condensed so that each entry takes only one line.** This compression often makes entries un- readable, so we included the -l option to request full entries. It makes no difference in this case, but it’s a useful habit to acquire
 
-![](<../../../../.gitbook/assets/image (283).png>)
+![](<../../../.gitbook/assets/image (283).png>)
 
 Many units have no installation procedure, so they can’t truly be said to be enabled or disabled; they’re just available. Such units’ status is listed as static . They only become active if activated by hand (systemctl start) or named as a dependency of other active units.
 
@@ -42,7 +96,7 @@ sudo systemctl isolate multi-user.target
 
 The isolate subcommand is so-named because it activates the stated target and its dependencies but deactivates all other units.
 
-![](<../../../../.gitbook/assets/image (282).png>)
+![](<../../../.gitbook/assets/image (282).png>)
 
 To see the target the system boots into by default:
 
@@ -70,7 +124,7 @@ Individual units can turn off these assumptions with the line:
 
 in the \[Unit] section of their unit file; the default is true . See the man page for systemd.unit-type to see the exact assumptions that apply to each type of unit (e.g., man systemd.service).
 
-![](<../../../../.gitbook/assets/image (284).png>)
+![](<../../../.gitbook/assets/image (284).png>)
 
 all the options in the table express the basic idea that the unit being configured depends on some set of other units. The exact dis- tinctions among these options are subtle and primarily of interest to service devel- opers. The least restrictive variant, Wants , is preferred when possible.
 

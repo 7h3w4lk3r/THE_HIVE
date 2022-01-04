@@ -85,7 +85,7 @@ sudo systemctl set-property user-1001.slice CPUQuota=20% MemoryLimit=500M
 
 If we look in the `/etc/systemd/system.control/user-1001.slice.d` directory, we'll see the same set of files that were created for the httpd service.
 
-## <mark style="color:red;">kernel capabilities</mark>
+## <mark style="color:red;">Kernel Capabilities</mark>
 
 When you perform a ps aux command — or a sudo ps aux command if you've mounted /proc with the hidepid=1 or hidepid=2 option — you'll see many processes that are owned by the root user. This is because these processes have to access some sort of system resource that unprivileged users can't access. However, having services run with full root privileges can be a bit of a security problem. Fortunately, there are some ways to mitigate that.
 
@@ -109,7 +109,7 @@ to set the caps (check them in man page and choose what's best for your needs ):
 sudo setcap 'CAP_NET_BIND_SERVICE+ep'  /usr/bin/python2.7
 ```
 
-## <mark style="color:red;">SECCOMP and system calls</mark>
+## <mark style="color:red;">SECCOMP & Containers</mark>
 
 Secure Computing (SECCOMP), originally created for the Google Chrome web browser, **allows you to either enable just a certain subset of syscalls that you want for a process to use or disable certain syscalls that you want to prevent a process from using**. Unless you're a software developer or a Docker container developer, you probably won't be working with this directly all that much. However, this is yet another building block for the technologies that are used daily by normal humans.
 
@@ -120,64 +120,3 @@ Secure Computing (SECCOMP), originally created for the Google Chrome web browser
 {% embed url="https://training.play-with-docker.com/security-seccomp" %}
 
 {% embed url="https://dzone.com/articles/hardening-docker-container-using-seccomp-security" %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

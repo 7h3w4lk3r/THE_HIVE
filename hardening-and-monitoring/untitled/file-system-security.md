@@ -15,13 +15,13 @@ When installing a fresh OS, its better to keep these directories in separate par
 /var/log/audit
 ```
 
-## <mark style="color:red;">Set Security Mount Options on Directories</mark>
+## <mark style="color:red;">Directory Security Mount Options</mark>&#x20;
 
-### <mark style="color:orange;">**Set nodev Option**</mark>** **&#x20;
+### <mark style="color:orange;">**nodev Option**</mark>** **&#x20;
 
 The `nodev` mount option specifies that the filesystem cannot contain special devices.&#x20;
 
-### /tmp:
+#### <mark style="color:green;">/tmp</mark>
 
 Since the `/tmp` filesystem is not intended to support devices, set this option to ensure that users cannot attempt to create block or character special devices in `/tmp`.
 
@@ -33,7 +33,7 @@ Run the following command to remount `/tmp` :
 
 &#x20;`# mount -o remount,nodev /tmp`
 
-### **/var/tmp:**
+#### <mark style="color:green;">**/var/tmp**</mark>
 
 `mount | grep /var/tmp`&#x20;
 
@@ -41,7 +41,7 @@ Edit the `/etc/fstab` file and add `nodev` to the fourth field&#x20;
 
 `# mount -o remount,nodev /var/tmp`
 
-### **/home:**
+#### <mark style="color:green;">**/hom**</mark>
 
 `mount | grep /home`&#x20;
 
@@ -49,7 +49,7 @@ Edit the `/etc/fstab` file and add `nodev` to the fourth field:
 
 `# mount -o remount,nodev`&#x20;
 
-### **dev/shm:**
+#### <mark style="color:green;">**dev/shm:**</mark>
 
 `mount | grep /dev/shm`
 
@@ -57,7 +57,7 @@ Edit the `/etc/fstab` file and add `nodev` to the fourth field:
 
 `# mount -o remount,nodev`&#x20;
 
-### **removable media partitions:**
+#### <mark style="color:green;">**removable media partitions**</mark>
 
 Run the following command and verify that the `nodev` option is set on all removable media partitions &#x20;
 
@@ -65,9 +65,9 @@ Run the following command and verify that the `nodev` option is set on all remov
 
 &#x20;Edit the `/etc/fstab` file and a**dd `nodev` to the fourth field**
 
-### <mark style="color:orange;">**Set nosuid Option**</mark>** **&#x20;
+### <mark style="color:orange;">**nosuid Option**</mark>** **&#x20;
 
-### /tmp:
+#### <mark style="color:green;">/tmp</mark>
 
 If a `/tmp` partition exists run the following command and verify that the `nosuid` option is set on `/tmp:`&#x20;
 
@@ -77,7 +77,7 @@ Edit the `/etc/fstab` file and add `nosuid` to the fourth field (mounting option
 
 \# `mount -o remount,nosuid /tmp`
 
-### **/var/tmp:**
+#### <mark style="color:green;">**/var/tmp**</mark>
 
 `mount | grep /var/tmp`&#x20;
 
@@ -85,7 +85,7 @@ Edit the `/etc/fstab` file and add `nosuid` to the fourth field:
 
 `# mount -o remount,nosuid`&#x20;
 
-### **/dev/shm:**
+#### <mark style="color:green;">**/dev/shm**</mark>
 
 `mount | grep /dev/shm`
 
@@ -93,7 +93,7 @@ Edit the `/etc/fstab` file and add `nosuid` to the fourth field:
 
 `# mount -o remount,nosuid /dev/shm`
 
-### **removable media partitions:**
+#### <mark style="color:green;">**removable media partitions**</mark>
 
 Run the following command and verify that the `nosuid` option is set on all removable media partitions&#x20;
 
@@ -101,9 +101,9 @@ Run the following command and verify that the `nosuid` option is set on all remo
 
 Edit the `/etc/fstab` file and add `nosuid` to the fourth field
 
-### <mark style="color:orange;">**Set noexec Option**</mark>** **&#x20;
+### <mark style="color:orange;">**noexec Option**</mark>** **&#x20;
 
-### **/var/tmp:**
+#### <mark style="color:green;">**/var/tmp**</mark>
 
 `mount | grep /var/tmp`&#x20;
 
@@ -111,7 +111,7 @@ Edit the `/etc/fstab` file and add `noexec` to the fourth field:
 
 `# mount -o remount,noexec /var/tmp`
 
-### **/dev/shm:**
+#### <mark style="color:green;">**/dev/shm**</mark>
 
 `mount | grep /dev/shm`&#x20;
 
@@ -119,9 +119,7 @@ Edit the `/etc/fstab` file and add `noexec` to the fourth field:
 
 `#mount -o remount,noexec /dev/shm`
 
-
-
-### **removable media partitions:**
+#### <mark style="color:green;">**removable media partitions**</mark>
 
 Run the following command and verify that the `noexec` option is set on all removable media partitions&#x20;
 
@@ -138,24 +136,6 @@ Run the following command to verify no world writable directories exist without 
 No output should be returned Run the following command to set the sticky bit on all world writable directories:
 
 &#x20;`df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d -perm -0002 2>//dev/null | xargs chmod a+t`
-
-## <mark style="color:red;">Set Sticky Bit</mark>
-
-Use on a directory to only allow the owner of the file/directory to delete it.
-
-Adding the Sticky Bit
-
-```
-chmod o+s /path/to/directory
-chmod 1777 /path/to/directory
-```
-
-Removing the Sticky Bit
-
-```
-chmod o-t /path/to/directory
-chmod 0777 /path/to/directory
-```
 
 ## <mark style="color:red;">Disable Auto Mounting</mark>
 
@@ -288,7 +268,7 @@ Run the following command and verify no files are returned:
 
 `find [partition]  -xdev -nouser`
 
-## <mark style="color:red;">Chek for  Ungrouped Files or Directories</mark>
+## <mark style="color:red;">Check for  Ungrouped Files or Directories</mark>
 
 Run the following command and verify no files are returned:
 
@@ -312,35 +292,6 @@ r the following command can be run manually for each partition:
 
 find `[partition]` -xdev -type f -perm -2000
 
-
-
-## <mark style="color:red;">File Attribute</mark>
-
-Linux defines a set of supplemental flags that can be set on files to request special handling. For example, the a flag makes a file append-only, and the i flag makes it immutable and undeletable
-
-Linux uses the commands lsattr and chattr to view and change file attributes
-
-![](<../../.gitbook/assets/image (297) (1) (1).png>)
-
-### <mark style="color:orange;">Viewing Attributes</mark>
-
-```
-lsattr /etc/motd
-```
-
-### <mark style="color:orange;">Modifying Attributes</mark>
-
-Use the chattr command.
-
-```
-+ adds attributes.
-- removes attributes.
-= sets the exact attributes.
-
-chattr +a /var/log/messages
-chattr -a /var/log/messages
-```
-
 ## <mark style="color:red;">Add/remove SUID/SGID Attribute</mark>
 
 Adding the Setuid & Setgid Attributes:
@@ -354,4 +305,3 @@ Removing the Setgid Attribute:
 `chmod g-s /path/to/file`
 
 `chmod 0755 /path/to/file`
-
