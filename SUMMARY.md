@@ -249,6 +249,7 @@
 * [Reverse / Bind Payloads](shells-and-payloads/reverse-bind-payloads/README.md)
   * [msfvenom](shells-and-payloads/reverse-bind-payloads/msfvenom.md)
   * [Web Shells](shells-and-payloads/reverse-bind-payloads/web-shells.md)
+  * [LOL Binaries](shells-and-payloads/reverse-bind-payloads/lol-binaries.md)
   * [Bash](shells-and-payloads/reverse-bind-payloads/bash.md)
   * [Netcat](shells-and-payloads/reverse-bind-payloads/netcat.md)
   * [Ncat](shells-and-payloads/reverse-bind-payloads/ncat.md)
