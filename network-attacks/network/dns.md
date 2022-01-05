@@ -10,7 +10,7 @@ description: (TCP/UDP 53)
 
 TCP port 53 by default, fall back to UDP port 53 if not possible.
 
-![](<../../.gitbook/assets/image (277) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (277) (1) (1) (1) (1) (1).png>)
 
 ## :ballot\_box\_with\_check: Checklist
 

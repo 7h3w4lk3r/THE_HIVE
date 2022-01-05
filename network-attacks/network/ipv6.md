@@ -54,7 +54,7 @@ In IPv6 we do the same. The first step is to split the address into two parts.
 
 The address is split into 2 64 bit segments the top 64 bits is the network part and the lower 64 bits the node part:
 
-![](<../../.gitbook/assets/image (277) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (277) (1) (1) (1) (1) (1) (1).png>)
 
 ### Address Types and Scope
 

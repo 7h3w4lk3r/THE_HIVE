@@ -1,4 +1,4 @@
-# Kernel Hardening
+# Kernel Parameters
 
 ## <mark style="color:red;">Namespace Isolation</mark>
 
@@ -69,7 +69,7 @@ This command created two more files in the `/etc/systemd/system.control/httpd.se
 
 ![](<../../../.gitbook/assets/image (290).png>)
 
-![](<../../../.gitbook/assets/image (294).png>)
+![](<../../../.gitbook/assets/image (294) (1).png>)
 
 We can allocate resources to other services in the same manner. For example, if this were a Linux-Apache-MySQL/MariaDB-PHP (LAMP) server, we could allocate a portion of the remaining CPU and memory resources to the PHP service, and the rest to the MySQL/MariaDB service.
 

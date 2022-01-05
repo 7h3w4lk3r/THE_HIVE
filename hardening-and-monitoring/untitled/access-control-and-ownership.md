@@ -1,4 +1,4 @@
-# Access Control
+# Access Control & Ownership
 
 ## <mark style="color:red;">chmod</mark>
 
@@ -6,7 +6,7 @@
 
 ![](<../../.gitbook/assets/image (298) (1).png>)
 
-![](<../../.gitbook/assets/image (294) (1).png>)
+![](<../../.gitbook/assets/image (294) (1) (1).png>)
 
 ### <mark style="color:orange;">chmod Recursively</mark>
 

@@ -16,7 +16,7 @@
 
 • Gratuitous ARP is a broadcast packet (like an ARP request)
 
-![](<../../.gitbook/assets/image (277) (1).png>)
+![](<../../.gitbook/assets/image (277) (1) (1).png>)
 
 HOST W: Hey everyone I’m host W and my IP Address is 1.2.3.4 and my MAC address is 12:34:56:78:9A:BC
 

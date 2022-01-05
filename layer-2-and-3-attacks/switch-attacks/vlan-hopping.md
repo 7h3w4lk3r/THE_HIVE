@@ -22,7 +22,7 @@
 
 #### If another switch connects to a DTP port, the DTP switch will watch for the presence of 802.1Q or ISL traffic for 30 seconds. When either protocol is discovered, the DTP port will auto-configure to match the trunking configuration, sharing VLAN information with downstream switches. If no 802.1Q or ISL traffic is observed, the switch will default the port to an access port, allowing the user to connect to the default or specified VLAN.
 
-![](<../../.gitbook/assets/image (294) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (294) (1) (1) (1) (1) (1).png>)
 
 ### DTP Administrative States
 
@@ -129,7 +129,7 @@ ifconfig eth0.200 10.0.0.6 up
 dhclient eth0.200
 ```
 
-![](<../../.gitbook/assets/image (273) (1).png>)
+![](<../../.gitbook/assets/image (273) (1) (1).png>)
 
 We added a new VLAN interface and we gave it the ID=200. Then we added a new IP and make it up then assign the new created VLAN interface to the eth0.200 interface and make up.
 

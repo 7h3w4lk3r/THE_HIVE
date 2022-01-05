@@ -303,7 +303,7 @@ smbmap -H 192.168.13.29
 use auxiliary/admin/smb/samba_symlink_traversal
 ```
 
-![](<../../.gitbook/assets/image (294) (1) (1).png>)
+![](<../../.gitbook/assets/image (294) (1) (1) (1).png>)
 
 #### We can see from the above output, that a new “rootfs” directory has been created within the “tmp” share.
 
@@ -383,7 +383,7 @@ As the image above explains, the presence of a “.pl” extension indicates tha
 
 We can download the index.pl file with the “get” command, and take a look at its contents; perhaps we can gain some insight as to its purpose or function
 
-![](<../../.gitbook/assets/image (277).png>)
+![](<../../.gitbook/assets/image (277) (1).png>)
 
 Looking at the file, we can determine that index.pl is a script that simply prints some environment variables regarding the web server configuration, as well as confirming that the server is also interpreting Perl scripts.
 
