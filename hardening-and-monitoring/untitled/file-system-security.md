@@ -149,15 +149,13 @@ Verify result is not "enabled". to disable autof:
 
 ## <mark style="color:red;">Security Related Mount Options</mark>
 
-nodev : no device access&#x20;
+**nodev :** no device access&#x20;
 
-nosuid : no setuid&#x20;
+**nosuid :** no setuid&#x20;
 
-programs noexec :&#x20;
+**programs noexec** :  prevent running exec&#x20;
 
-prevent running exec&#x20;
-
-\--remount, noexec : mount again with no exe
+**--remount, noexec** : mount again with no exe
 
 ## <mark style="color:red;">File System Integrity</mark>
 

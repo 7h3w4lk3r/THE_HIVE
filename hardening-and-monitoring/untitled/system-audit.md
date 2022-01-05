@@ -1,4 +1,4 @@
-# 🔧 System Audit
+# System Audit
 
 ## <mark style="color:red;">Lynis</mark>
 
@@ -25,26 +25,3 @@
 ## <mark style="color:red;">AppArmore</mark>
 
 {% embed url="https://kubernetes.io/docs/tutorials/clusters/apparmor" %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

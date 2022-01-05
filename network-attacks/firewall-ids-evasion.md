@@ -1,4 +1,4 @@
-# Firewall Evasion
+# Firewall / IDS Evasion
 
 ## :information\_source: Introduction
 
@@ -11,7 +11,7 @@
 * [ ] **Detection**
 * [ ] **Policy/Rule Test**
 * [ ] **Scan Timing**
-* [ ] ****[**IPv6**](../../network-attacks/network/ipv6.md)****
+* [ ] ****[**IPv6**](network/ipv6.md)****
 * [ ] **Firewalking**
 * [ ] **Product Vulnerability**&#x20;
 
@@ -41,7 +41,7 @@ hping3 -1 google.com
 hping3 — traceroute -V -1 testpage.com
 ```
 
-we can also use the traceroute command to perform traceroute with different methods, protocols and ports. check [this section](host-discovery-and-mapping.md#traceroute) for traceroute techniques.
+we can also use the traceroute command to perform traceroute with different methods, protocols and ports. check [this section](../recon-1/active-scanning/host-discovery-and-mapping.md#traceroute) for traceroute techniques.
 
 
 
@@ -275,9 +275,9 @@ nmap -sF --scanflags PSH [ip]
 
 {% embed url="https://resources.infosecinstitute.com/topic/port-scanning-using-scapy" %}
 
-{% file src="../../.gitbook/assets/Scapy 802.11 Cheat Sheet v0.1.pdf" %}
+{% file src="../.gitbook/assets/Scapy 802.11 Cheat Sheet v0.1.pdf" %}
 
-{% file src="../../.gitbook/assets/ScapyCheatSheet_v0.2.pdf" %}
+{% file src="../.gitbook/assets/ScapyCheatSheet_v0.2.pdf" %}
 
 {% embed url="https://0xbharath.github.io/art-of-packet-crafting-with-scapy/index.html" %}
 
