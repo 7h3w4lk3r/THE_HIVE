@@ -18,7 +18,7 @@
 
 #### <mark style="color:red;">change access modes / permissions</mark>
 
-![](<../../.gitbook/assets/image (298) (1).png>)
+![](<../../.gitbook/assets/image (298) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (294) (1) (1).png>)
 

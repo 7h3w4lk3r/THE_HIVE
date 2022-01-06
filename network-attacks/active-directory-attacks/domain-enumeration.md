@@ -187,6 +187,8 @@ Invoke-AzureHound
 
 ### [BloodHound](https://github.com/BloodHoundAD/BloodHound)
 
+![](<../../.gitbook/assets/image (298).png>)
+
 ```
 # run the collector on the machine using SharpHound.exe
 # https://github.com/BloodHoundAD/BloodHound/blob/master/Collectors/SharpHound.exe
@@ -223,6 +225,8 @@ Go to http://127.0.0.1:7474, use db:bolt://localhost:7687, user:neo4J, pass:neo4
 {% hint style="info" %}
 we can use the exe version without argument and get the same output. download and extract it and upload all files in bloodhound UI.
 {% endhint %}
+
+### [sharphound ](https://github.com/BloodHoundAD/BloodHound/blob/master/Collectors/SharpHound.ps1)
 
 ### [bloodhound - python](https://github.com/fox-it/BloodHound.py)
 
