@@ -25,3 +25,9 @@
 ## <mark style="color:red;">AppArmore</mark>
 
 {% embed url="https://kubernetes.io/docs/tutorials/clusters/apparmor" %}
+
+## SELinux
+
+{% embed url="https://linuxhint.com/a-beginners-guide-to-selinux-on-centos" %}
+
+{% embed url="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/selinux_users_and_administrators_guide/index" %}

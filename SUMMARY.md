@@ -294,7 +294,7 @@
   * [File System Security](hardening-and-monitoring/untitled/file-system-security.md)
   * [Sandboxing](hardening-and-monitoring/untitled/sandboxing.md)
   * [Network](hardening-and-monitoring/untitled/network.md)
-  * [🔧 IPTables](hardening-and-monitoring/untitled/iptables.md)
+  * [iptables](hardening-and-monitoring/untitled/iptables.md)
   * [🔧 Service Hardening](hardening-and-monitoring/untitled/service-hardening/README.md)
     * [SSH](hardening-and-monitoring/untitled/service-hardening/ssh.md)
   * [Encryption](hardening-and-monitoring/untitled/encryption.md)

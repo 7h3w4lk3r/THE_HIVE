@@ -1,4 +1,4 @@
-# 🔧 IPTables
+# iptables
 
 {% embed url="https://www.andreafortuna.org/2019/05/08/iptables-a-simple-cheatsheet" %}
 
@@ -276,6 +276,13 @@ iptables -A INPUT -s IP-Address -j DROP
 
 # works without ip tables
 ip route add prohibit 192.168.30.83/32  
+```
+
+### <mark style="color:orange;">allow a specific IP</mark>
+
+```
+iptables -I INPUT -p tcp -s XXX.XXX.XXX.XXX -j ACCEPT
+iptables -I OUTPUT -p tcp -d  XXX.XXX.XXX.XXX -j ACCEPT`
 ```
 
 ### <mark style="color:orange;">deleting a rule</mark>
