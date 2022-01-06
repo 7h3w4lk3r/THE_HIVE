@@ -341,6 +341,28 @@ iptables -A INPUT -i eth1 -s 10.1.1.0/24 -p tcp -j ACCEPT
 iptables -A OUTPUT -o eth1 -d 10.1.1.0/24 -p tcp -j ACCEPT
 ```
 
+## <mark style="color:red;">Logging</mark>&#x20;
+
+#### <mark style="color:orange;">logging rules can apply anywhere in the table.</mark>
+
+{% hint style="danger" %}
+#### Don't put logging rules at the top of your table as the first rule, otherwise iptables will log EVERYTHING and will lead to a DoS condition if you dont have enough resource to store that data.
+
+#### &#x20;A best practice is to add logging rules at the end of the table as the last rule so anything that is not filtered by other rules will be logged.
+{% endhint %}
+
+{% hint style="info" %}
+#### Remember that anything you drop before the log rules will not be logged.
+{% endhint %}
+
+#### add these at the end:
+
+```
+iptables -A INPUT -j LOG
+iptables -A OUTPUT -j LOG
+iptables -A FORWARD -j LOG
+```
+
 ## <mark style="color:red;">Rate Limiting</mark>
 
 Protect against DDoS
