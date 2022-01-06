@@ -69,12 +69,12 @@ Type the password which you want. It will generate the hash of your password whi
 nano /etc/grub.d/10_linux
 ```
 
-After opening this file go to the end of the file, and type below lines as it is and change the user name as the places I have highlighted with red, which you want to give and make sure that user has been created in this server system and put the password at the place after username which I have highlighted with light green.
+After opening this file go to the end of the file, and type below lines as it is and change the user name which you want to give and make sure that user has been created in this server system and put the password at the place after username then replace the \[HASH] with the hash you got.
 
 ```
 cat << EOF
-set superusers=“sahil”
-password_pbkdf2 sahil [HASH]
+set superusers="root"
+password_pbkdf2 root [HASH]
 EOF
 ```
 
