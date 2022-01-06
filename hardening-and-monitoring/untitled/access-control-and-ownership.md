@@ -1,5 +1,19 @@
 # Access Control & Ownership
 
+## <mark style="color:red;">SELinux</mark>
+
+{% embed url="https://linuxhint.com/a-beginners-guide-to-selinux-on-centos" %}
+
+{% embed url="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/selinux_users_and_administrators_guide/index" %}
+
+{% embed url="https://wiki.gentoo.org/wiki/Category:SELinux" %}
+
+## <mark style="color:red;">AppArmore</mark>
+
+{% embed url="https://kubernetes.io/docs/tutorials/clusters/apparmor" %}
+
+{% embed url="https://wiki.debian.org/AppArmor/HowToUse" %}
+
 ## <mark style="color:red;">chmod</mark>
 
 #### <mark style="color:red;">change access modes / permissions</mark>
@@ -340,4 +354,3 @@ Use the chattr command.
 chattr +a /var/log/messages
 chattr -a /var/log/messages
 ```
-

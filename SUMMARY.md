@@ -305,11 +305,10 @@
 
 * [Basics](command-and-control/basics.md)
 * [Metasploit](command-and-control/metasploit.md)
-* [🔧 Empire](command-and-control/empire.md)
 
 ## Programming and DataBase
 
-* [C](programming-and-database/c/README.md)
+* [C Programming](programming-and-database/c/README.md)
   * [Basic Structure](programming-and-database/c/basic-structure.md)
   * [GCC Compiler](programming-and-database/c/gcc-compiler.md)
   * [Preprocessors](programming-and-database/c/preprocessors.md)
@@ -344,14 +343,13 @@
   * [Most-used Instructions](programming-and-database/assembly/most-used-instructions.md)
   * [input / output](programming-and-database/assembly/input-output.md)
 
-## Misc Tools
+## miscellaneous
 
-* [SSH Tricks](misc-tools/ssh-tricks.md)
-* [Cats](misc-tools/cats/README.md)
-  * [netcat](misc-tools/cats/netcat.md)
-  * [ncat](misc-tools/cats/ncat.md)
-  * [pwncat](misc-tools/cats/pwncat.md)
-  * [socat](misc-tools/cats/socat.md)
-  * [🔧 powercat](misc-tools/cats/powercat.md)
-* [🔧 Steganography](misc-tools/steganography.md)
-* [Curl](misc-tools/curl.md)
+* [SSH Tricks](miscellaneous/ssh-tricks.md)
+* [Cats](miscellaneous/cats/README.md)
+  * [netcat](miscellaneous/cats/netcat.md)
+  * [ncat](miscellaneous/cats/ncat.md)
+  * [pwncat](miscellaneous/cats/pwncat.md)
+  * [socat](miscellaneous/cats/socat.md)
+  * [🔧 powercat](miscellaneous/cats/powercat.md)
+* [Curl](miscellaneous/curl.md)

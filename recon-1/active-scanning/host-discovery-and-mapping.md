@@ -10,6 +10,10 @@ description: >-
 
 Discover live hosts in LAN and get the internal IP address and MAC address of live hosts in the network.It can be used in both active and passive mode.
 
+```
+netdiscover -i [interface]
+```
+
 #### Options:
 
 ```

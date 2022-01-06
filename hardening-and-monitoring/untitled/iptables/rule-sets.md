@@ -125,29 +125,4 @@ iptables -A INPUT -s "$BLOCK_ADDRESS" -j DROP
 iptables -A INPUT -i eth0 -s “$ BLOCK_ADDRESS ” -j DROP
 iptables -A INPUT -i eth0 -p tcp -s “$ BLOCK_ADDRESS ” -j DROP
 
-
-
-
-
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

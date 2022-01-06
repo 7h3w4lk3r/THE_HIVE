@@ -1,7 +1,7 @@
 # Social Platforms
 
 {% hint style="danger" %}
-### This part of OSINT section is a complete copy of  [https://cheatsheet.haax.fr/open-source-intelligence-osint/platforms-hunting/](https://cheatsheet.haax.fr/open-source-intelligence-osint/platforms-hunting/) and not all the methods and techniques are tested yet.&#x20;
+#### This part of OSINT section is a complete copy of  [https://cheatsheet.haax.fr/open-source-intelligence-osint/platforms-hunting/](https://cheatsheet.haax.fr/open-source-intelligence-osint/platforms-hunting/) and not all the methods and techniques are tested yet.&#x20;
 
-### I put it here just for convenience :relaxed:
+#### I put it here just for convenience :relaxed:
 {% endhint %}

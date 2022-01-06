@@ -1,16 +1,18 @@
 # iptables
 
+{% hint style="danger" %}
+#### **Be careful with iptables rules, you might lock yourself out of remote machines.**
+
+#### In iptables, Default Policy Rules and the First Matching Rule Wins.
+
+**Remember to insert your rule at the beginning of the table or removing mismatching rules from previous line.**
+{% endhint %}
+
 {% embed url="https://www.andreafortuna.org/2019/05/08/iptables-a-simple-cheatsheet" %}
 
 {% embed url="https://sbcode.net/zabbix/iptables-cheatsheet" %}
 
 {% embed url="https://www.unix-ninja.com/p/An_iptables_cheat-sheet" %}
-
-{% hint style="danger" %}
-#### In iptables, Default Policy Rules and the First Matching Rule Wins.
-
-**remember to insert your rule at the beginning of the table or removing mismatching rules from previous line.**
-{% endhint %}
 
 ## <mark style="color:red;">Kernel Configuration</mark>
 
@@ -61,8 +63,6 @@ Log packets with impossible addresses
 ```
 echo "1" > /proc/sys/net/ipv4/conf/all/log_martians
 ```
-
-
 
 ## <mark style="color:red;">Command Options</mark>
 
