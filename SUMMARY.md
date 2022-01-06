@@ -35,6 +35,7 @@
 ## Network & OS Attacks <a href="#network-attacks" id="network-attacks"></a>
 
 * [Firewall / IDS Evasion](network-attacks/firewall-ids-evasion.md)
+* [Printer Exploitation](network-attacks/printer-exploitation.md)
 * [Network Services](network-attacks/network/README.md)
   * [DNS](network-attacks/network/dns.md)
   * [IPv6](network-attacks/network/ipv6.md)

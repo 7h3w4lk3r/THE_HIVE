@@ -417,3 +417,11 @@ NAT Slipstreaming allows an attacker to remotely access any TCP/UDP services bou
 {% embed url="https://github.com/tcstool/Fireaway" %}
 
 {% embed url="https://github.com/clayball/wily-possum" %}
+
+## Other Resources
+
+{% embed url="https://medium.com/@IamLucif3r/top-10-firewall-ids-evasion-techniques-cb1e1cc06f24" %}
+
+{% embed url="https://nmap.org/book/man-bypass-firewalls-ids.html" %}
+
+{% embed url="https://pentestlab.blog/tag/firewall-evasion" %}
