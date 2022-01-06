@@ -276,6 +276,9 @@ sudo fail2ban client status sshd
 To revoke an IP address in fail2ban and remove it from the jail, use the following syntax:
 
 ```
+# unban ip from all jails
+fail2ban-client unban [ip]
+
 sudo fail2ban-client to adjust jail_name unbanip xxx.xxx.xxx.xxx
 sudo fail2ban-client to adjust sshd unbanip 192.168.72.186
 ```
