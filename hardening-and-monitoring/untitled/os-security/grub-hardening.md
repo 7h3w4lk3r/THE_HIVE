@@ -55,7 +55,7 @@ Reboot your system. Soon after the splash screen appears, you should be prompted
 
 Once you've successfully typed the password, you'll either find yourself in Single User mode (if you opted for that boot method) or at the login prompt.
 
-## <mark style="color:red;">Redhat-based</mark>&#x20;
+## <mark style="color:red;">Redhat 7-based</mark>&#x20;
 
 generate a password
 
@@ -79,3 +79,27 @@ EOF
 ```
 
 Save the file
+
+## <mark style="color:red;">Redhat 8-based</mark>&#x20;
+
+```
+grub2-setpassword
+```
+
+This command generates a hashed password that is stored in the /boot/grub2/user.cfg file.
+
+By default user.cfg does not exist. If you have previously generated a password using the command grub2-setpassword then this file will exist, otherwise this command will generate a new file.
+
+You can display the generated password using the cat command.
+
+```
+cat /boot/grub2/user.cfg 
+```
+
+Recreate the GRUB2 Configuration file
+
+```
+grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+
+We have successfully set the grub2 password
