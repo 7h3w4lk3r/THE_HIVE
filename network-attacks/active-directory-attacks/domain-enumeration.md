@@ -4,13 +4,13 @@
 Commands mentioned here are a combination of windows system built-in commands and automated tools.
 {% endhint %}
 
-## Enumerating with no Access / Creds
+## Enumerating without Credentials
 
-If you just have access to an AD environment but you don't have any credentials/sessions
+If you just have access to an AD environment but you don't have any credentials/sessions.
 
 ### **Check for null and Guest Access on SMB Services**
 
-**for old versions of windows**
+**for old versions of windows.**
 
 ```
 enum4linux -a -u "" -p "" <DC IP> && enum4linux -a -u "guest" -p "" <DC IP>
@@ -25,6 +25,10 @@ smbclient -U '%' -L //<DC IP> && smbclient -U 'guest%' -L //
 ```
 nmap -n -sV --script "ldap* and not brute" -p 389 <DC IP>
 ```
+
+## Exploitation with Credentials
+
+### Check [crackmapexec](crackmapexec.md) and [Impacket ](impacket.md)section.
 
 ## **Poisoning the Network**
 
