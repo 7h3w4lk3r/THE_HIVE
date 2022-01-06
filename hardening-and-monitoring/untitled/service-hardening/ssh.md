@@ -224,141 +224,11 @@ Jailing an SSH user to their home directory allows you (the administrator) to ex
 The jailed user still has access to their home directory, but can’t traverse the rest of the system. This keeps everything else on the system private and will prevent anything from being tampered with by an SSH user. It’s an ideal setup for a system that has various users and each user’s files need to stay private and isolated from the others.
 {% endhint %}
 
-making the chroot directory, which will contain the various nodes, libs, and shell for our jailed user(s):
-
-```
-mkdir /var/chroot
-```
-
-copy some essential `/dev` nodes over to the chroot directory, which allows users basic use of the terminal.
-
-```
-# mkdir /var/chroot/dev		
-# cd /var/chroot/dev
-# mknod -m 666 null c 1 3
-# mknod -m 666 tty c 5 0
-# mknod -m 666 zero c 1 5
-# mknod -m 666 random c 1 8
-```
-
-set permissions on the chroot directory. The root user will need to own the directory in order to make sure that the jailed users can’t leave it. Other users can only have read and execute permissions.
-
-```
-# chown root:root /var/chroot
-# chmod 755 /var/chroot
-```
-
-give our jailed user(s) a shell. We’ll be using the bash shell in this example, though you could use a different one if you wanted to.
-
-```
-# mkdir /var/chroot/bin
-# cp /bin/bash /var/chroot/bin
-```
-
-The bash shell requires various `libs` to run, so they will also need to be copied to the `chroot` directory. You can see what `libs` are required with the `ldd` command:
-
-```
-# ldd /bin/bash
-	linux-vdso.so.1 (0x00007ffd59492000)
-	libtinfo.so.6 => /lib/x86_64-linux-gnu/libtinfo.so.6 (0x00007f91714cd000)
-	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f91714c7000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f91712d5000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007f917163a000)
-```
-
-```
-# mkdir -p /var/chroot/lib/x86_64-linux-gnu /var/chroot/lib64
-# cp /lib/x86_64-linux-gnu/{libtinfo.so.6,libdl.so.2,libc.so.6} /var/chroot/lib/x86_64-linux-gnu
-# cp /lib64/ld-linux-x86-64.so.2 /var/chroot/lib64
-```
-
-create the user and set a password for the account.
-
-```
-# useradd example
-# passwd example
-```
-
-Add the `/etc/passwd` and `/etc/group` files into the chroot directory.
-
-```
-# mkdir /var/chroot/etc
-# cp /etc/{passwd,group} /var/chroot/etc
-```
-
-we need to do some editing to the SSH config file. Use `nano` or your favorite text editor to open it.
-
-```
-# sudo nano /etc/ssh/sshd_config
-```
-
-Add the following lines to the bottom of the file.
-
-```
-Match user example
-ChrootDirectory /var/chroot
-```
-
-Save your changes and restart the SSH service for the changes to take effect.
-
-```
-# systemctl restart sshd
-```
-
-Create a home directory for the user and give it proper permissions.
-
-```
-# mkdir -p /var/chroot/home/example
-# chown example:example /var/chroot/home/example
-# chmod 700 /var/chroot/home/example
-```
-
-At this point, the user should be able to login and use native bash commands, but they won’t have access to much. Let’s give them access to some more basics like **ls, cat, echo, rm, vi, date, mkdir**. Rather than manually copying over all the shared libraries for these commands, you can use the following script to streamline the process.
-
-```
-#!/bin/bash
-# This script can be used to create simple chroot environment
-# Written by LinuxConfig.org 
-# (c) 2020 LinuxConfig under GNU GPL v3.0+
-
-#!/bin/bash
-
-CHROOT='/var/chroot'
-mkdir $CHROOT
-
-for i in $( ldd $* | grep -v dynamic | cut -d " " -f 3 | sed 's/://' | sort | uniq )
-  do
-    cp --parents $i $CHROOT
-  done
-
-# ARCH amd64
-if [ -f /lib64/ld-linux-x86-64.so.2 ]; then
-   cp --parents /lib64/ld-linux-x86-64.so.2 /$CHROOT
-fi
-
-# ARCH i386
-if [ -f  /lib/ld-linux.so.2 ]; then
-   cp --parents /lib/ld-linux.so.2 /$CHROOT
-fi
-
-echo "Chroot jail is ready. To access it execute: chroot $CHROOT"
-```
-
-Using that script, let’s enable some of these commands.
-
-```
-# ./chroot.sh /bin/{ls,cat,echo,rm,vi,date,mkdir}
-```
-
-We’re finally done. You can SSH with the user you created to make sure everything works correctly.
-
-```
-# ssh example@localhost
-```
-
-The SSH user is jailed to the chroot but has access to basic commands.
+{% embed url="https://www.tecmint.com/restrict-ssh-user-to-directory-using-chrooted-jail" %}
 
 ## <mark style="color:red;">fail2ban</mark>
+
+{% embed url="https://cloudcone.com/docs/article/how-to-install-fail2ban-on-centos-7" %}
 
 #### Protect SSH server from brute force attacks
 
@@ -393,6 +263,22 @@ You will want to evaluate the <mark style="color:orange;">destemail, sendername,
 This parameter configures the action that fail2ban takes when it wants to institute a ban. The value action\_ is defined in the file shortly before this parameter. The default action is to simply configure the firewall to reject traffic from the offending host until the ban time elapses.
 
 If you would like to <mark style="color:orange;">configure email alerts</mark>, add or uncomment the action item to the jail.local file and change its value from action\_ to action\_mw. If you want the email to include the relevant log lines, you can change it to action\_mwl. Make sure you have the appropriate mail settings configured if you choose to use mail alerts.
+
+### <mark style="color:orange;">unban a client</mark>
+
+use the following command with the jail name to view banned IPs:
+
+```
+sudo fail2ban client status <jail_name>
+sudo fail2ban client status sshd
+```
+
+To revoke an IP address in fail2ban and remove it from the jail, use the following syntax:
+
+```
+sudo fail2ban-client to adjust jail_name unbanip xxx.xxx.xxx.xxx
+sudo fail2ban-client to adjust sshd unbanip 192.168.72.186
+```
 
 ## <mark style="color:red;">Configuring automatic logout for both local and remote users</mark>
 
@@ -461,6 +347,12 @@ sshfs name@server:/path/remote_folder /path/local_folder
 
 ## <mark style="color:red;">SSH Logs</mark>
 
+{% hint style="info" %}
+for Redhat the log file is in /var/log/secure
+
+for Debian the log file is in /var/log/auth.log&#x20;
+{% endhint %}
+
 ### <mark style="color:orange;">Events of ssh down</mark>
 
 ```
@@ -525,8 +417,6 @@ LogLevel DEBUG3
 
 sudo systemctl restart ssh
 ```
-
-
 
 ## <mark style="color:red;">Configuring access control with whitelists and TCP Wrappers</mark>
 
