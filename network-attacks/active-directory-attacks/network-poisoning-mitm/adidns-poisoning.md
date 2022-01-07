@@ -39,7 +39,7 @@ This can be set with the `--legacy` or `--forest` option on dnstool.py, or with 
 
 ## Dynamic spoofing
 
-Using [Inveigh](https://github.com/Kevin-Robertson/Inveigh) (Powershell), the following command will
+Using [Inveigh](https://github.com/Kevin-Robertson/Inveigh) (Powershell), the following command will:
 
 * operate LLMNR, NBT-NS and mDNS spoofing​
 * operate ADIDNS spoofing

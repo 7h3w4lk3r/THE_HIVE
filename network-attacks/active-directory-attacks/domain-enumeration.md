@@ -28,7 +28,7 @@ nmap -n -sV --script "ldap* and not brute" -p 389 <DC IP>
 
 ## Exploitation with Credentials
 
-### Check [crackmapexec](crackmapexec.md) and [Impacket ](impacket.md)section.
+### Check [crackmapexec](lateral-movement/pass-the-hash-password/crackmapexec.md) and [Impacket ](impacket.md)section.
 
 ## **Poisoning the Network**
 
