@@ -28,7 +28,7 @@ mount -o remount,rw /
 
 At this point, you are ready to reset the root password. So go ahead and change it. Finally, you need to issue the command `touch /.autorelabel`.(This is because you have done an unauthorized thing and need to clean the mess or clear the tracks).
 
-![](<../../.gitbook/assets/image (296) (1).png>)
+![](<../../.gitbook/assets/image (296) (1) (1).png>)
 
 Afterwards when you reboot into the machine, you will be able to access the root account with the new password you have used.
 

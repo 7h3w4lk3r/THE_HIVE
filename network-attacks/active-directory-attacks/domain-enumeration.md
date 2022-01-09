@@ -191,7 +191,7 @@ Invoke-AzureHound
 
 ### [BloodHound](https://github.com/BloodHoundAD/BloodHound)
 
-![](<../../.gitbook/assets/image (298).png>)
+![](<../../.gitbook/assets/image (298) (1).png>)
 
 ```
 # run the collector on the machine using SharpHound.exe

@@ -248,10 +248,11 @@
 ## Shells & Payloads
 
 * [shell Escape / Interactive TTY](shells-and-payloads/interactive-shell.md)
-* [Reverse / Bind Payloads](shells-and-payloads/reverse-bind-payloads/README.md)
-  * [msfvenom](shells-and-payloads/reverse-bind-payloads/msfvenom.md)
+* [Magic Unicorn](shells-and-payloads/magic-unicorn.md)
+* [msfvenom](shells-and-payloads/msfvenom.md)
+* [LOL Binaries](shells-and-payloads/lol-binaries.md)
+* [Other Methods](shells-and-payloads/reverse-bind-payloads/README.md)
   * [Web Shells](shells-and-payloads/reverse-bind-payloads/web-shells.md)
-  * [🔧 LOL Binaries](shells-and-payloads/reverse-bind-payloads/lol-binaries.md)
   * [Bash](shells-and-payloads/reverse-bind-payloads/bash.md)
   * [Netcat](shells-and-payloads/reverse-bind-payloads/netcat.md)
   * [Ncat](shells-and-payloads/reverse-bind-payloads/ncat.md)

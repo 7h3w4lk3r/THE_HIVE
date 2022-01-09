@@ -66,7 +66,7 @@ Sent 5 packets.
 
 The screenshot below is the packet capture during the attack.
 
-![](<../../.gitbook/assets/image (300) (1).png>)
+![](<../../.gitbook/assets/image (300) (1) (1).png>)
 
 If you look at frame #6, that’s when Scapy first sent the crafted HSRP message.
 

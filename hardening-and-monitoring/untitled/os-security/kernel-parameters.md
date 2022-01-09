@@ -53,7 +53,7 @@ The command would be the same on an Ubuntu machine, except that we would have ap
 
 when we look in the `/etc/systemd/system.control` directory, we'll see that we've created an httpd.service.d directory. Within that directory are the files that turn on our accounting functions:
 
-![](<../../../.gitbook/assets/image (300).png>)
+![](<../../../.gitbook/assets/image (300) (1).png>)
 
 Inside each file, we can see two lines that modify the original httpd.service file in order to turn on accounting. For example, here's the one for CPUAccounting :&#x20;
 

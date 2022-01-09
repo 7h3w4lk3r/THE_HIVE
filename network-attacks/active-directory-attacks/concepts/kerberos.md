@@ -22,7 +22,7 @@ Before Kerberos was introduced, pre-Active Directory Windows domains (Windows NT
 
 ## <mark style="color:red;">Kerberos authentication</mark>
 
-![](<../../../.gitbook/assets/image (301).png>)
+![](<../../../.gitbook/assets/image (301) (1).png>)
 
 Firstly, Kerberos is an authentication protocol, not authorization. In other words, it allows to identify each user, who provides a secret password, however, it does not validates to which resources or services can this user access.
 

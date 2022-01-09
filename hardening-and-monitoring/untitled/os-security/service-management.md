@@ -70,7 +70,7 @@ Running systemctl without any arguments invokes the default list-units subcom- m
 systemctl
 ```
 
-![](<../../../.gitbook/assets/image (296).png>)
+![](<../../../.gitbook/assets/image (296) (1).png>)
 
 ## <mark style="color:red;">Unit statuses</mark>
 

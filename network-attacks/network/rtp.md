@@ -4,7 +4,7 @@
 
 The RTP is a network protocol for delivering audio and video over networks. RTP protocol is used in communication and entertainment systems that involve streaming media such as telephony and video or teleconference applications. RTP default port from 16384 to 32767, those ports used for sip calls. In our scenario, we are using the UDP port range 10000-20000 for RTP-the media stream, voice, and video channels.
 
-![](<../../../.gitbook/assets/image (295) (1).png>)
+![](<../../.gitbook/assets/image (295) (1) (1).png>)
 
 RTP is used in conjunction with the Real-Time Control Protocol (RTCP) which is used to monitor transmission statistics and Quality of Service aiding synchronization of multiple streams. While RTP is originated and received on even port numbers, the associated RTCP packets use the next higher odd port number.
 

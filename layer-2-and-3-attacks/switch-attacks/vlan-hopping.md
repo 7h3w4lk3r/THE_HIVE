@@ -117,7 +117,7 @@ We can see that the interface (G0/0) is set on trunk which means that we can jum
 
 And we can see that all the VLANS are allowed on interface (g0/0):
 
-![](<../../.gitbook/assets/image (301) (1) (1).png>)
+![](<../../.gitbook/assets/image (301) (1) (1) (1).png>)
 
 On Kali, we will add the below commands:
 
@@ -187,7 +187,7 @@ Once we have the necessary package, we disconnect from the phone and connect dir
 
 We replicate the device package to make the Cisco switch believe that we are a VoIP device. In addition, these phones send a package every 60 seconds approximately to ensure the connection, so we must do the same to be trusted.
 
-![](<../../.gitbook/assets/image (300) (1) (1).png>)
+![](<../../.gitbook/assets/image (300) (1) (1) (1).png>)
 
 We must create a virtual interface by renaming our interface + the VLAN of the Cisco device.
 

