@@ -249,8 +249,8 @@
 
 * [shell Escape / Interactive TTY](shells-and-payloads/interactive-shell.md)
 * [Magic Unicorn](shells-and-payloads/magic-unicorn.md)
-* [msfvenom](shells-and-payloads/msfvenom.md)
-* [LOL Binaries](shells-and-payloads/lol-binaries.md)
+* [msfvenom](shells-and-payloads/reverse-bind-payloads/msfvenom.md)
+* [LOL Binaries](shells-and-payloads/reverse-bind-payloads/lol-binaries.md)
 * [Other Methods](shells-and-payloads/reverse-bind-payloads/README.md)
   * [Web Shells](shells-and-payloads/reverse-bind-payloads/web-shells.md)
   * [Bash](shells-and-payloads/reverse-bind-payloads/bash.md)
@@ -276,7 +276,7 @@
 * [🔧 AV Evasion](defense-evasion/av-evasion/README.md)
   * [Basic Tricks](defense-evasion/av-evasion/simple-tricks.md)
   * [AMSI Bypass](defense-evasion/av-evasion/amsi-bypass.md)
-* [🔧 SRP Bypass](defense-evasion/srp-bypass.md)
+* [🔧 SRP & AppLocker Bypass](defense-evasion/srp-and-applocker-bypass.md)
 * [🔧 GPO Bypass](defense-evasion/gpo-bypass.md)
 
 ## Hardening & Monitoring
