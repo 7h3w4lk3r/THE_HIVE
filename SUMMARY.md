@@ -74,7 +74,7 @@
   * [Local Enumeration](network-attacks/active-directory-attacks/enumeration.md)
   * [Domain Enumeration](network-attacks/active-directory-attacks/domain-enumeration.md)
   * [crackmapexec](network-attacks/active-directory-attacks/lateral-movement/pass-the-hash-password/crackmapexec.md)
-  * [Zero Logon](network-attacks/active-directory-attacks/zero-logon.md)
+  * [Zero Logon](network-attacks/active-directory-attacks/domain-privilege-escalation/zero-logon.md)
   * [impacket](network-attacks/active-directory-attacks/impacket.md)
   * [Local Privilege Escalation](network-attacks/active-directory-attacks/local-privilege-escalation/README.md)
     * [DLL Hijacking](network-attacks/active-directory-attacks/local-privilege-escalation/dll-injection/README.md)

