@@ -1,8 +1,8 @@
-# Passive (OSINT)
+# 🔴 Passive
 
 ![](../../.gitbook/assets/banner.png)
 
-#### OSINT  (short for Open-Source Intelligence Ghering)  is a way of knowing your target without any sorts of direct contact or leaving any evidence of the recon.
+#### OSINT (short for Open-Source Intelligence Ghering) is a way of knowing your target without any sorts of direct contact or leaving any evidence of the recon.
 
 {% hint style="info" %}
 In OSINT you should **always ask questions like: how, who, when, where and why.** also try to **collect and sort everything you find and make a structured map** of the intel you have gathered using a mind mapping tool like [XMind](https://www.xmind.net) or [Mind Master](https://www.mindmaster.io).
@@ -10,7 +10,7 @@ In OSINT you should **always ask questions like: how, who, when, where and why.*
 
 {% embed url="https://github.com/jivoi/awesome-osint#-geospatial-research-and-mapping-tools" %}
 
-## &#x20;The OSINT Process
+## The OSINT Process
 
 #### OSINT reconnaissance can be further broken down into the following 5 sub-phases:
 
@@ -25,8 +25,6 @@ In OSINT you should **always ask questions like: how, who, when, where and why.*
 **Data Analysis**: in this phase, the attacker performs data analysis of the processed information using OSINT analysis tools.
 
 **Results Delivery**: in the final phase, OSINT analysis is complete and the findings are presented/reported to other members of the Red Team.
-
-
 
 ## Workflow
 
@@ -58,7 +56,11 @@ In OSINT you should **always ask questions like: how, who, when, where and why.*
 
 Geospatial intelligence (GEOINT) is intelligence by analyzing geospatial maps and images about the human activity. This part will present some tools to find and analyze geospatial information. These information could be useful during a Red Team to scout the target's location in order to find building entrances, monitored areas, etc.
 
+## OSINT Framework
 
+[the OSINT framework](https://osintframework.com) is a great collection of OSINT resources that you should definitely check them out.
+
+![](<../../.gitbook/assets/image (1).png>)
 
 ## Maltego
 
@@ -69,8 +71,6 @@ is an open source intelligence (OSINT) and graphical link analysis tool for gath
 ## DNS Harvesting
 
 {% embed url="https://dnsdumpster.com" %}
-
-{% embed url="https://dnslookup.online" %}
 
 {% embed url="https://dnschecker.org/all-dns-records-of-domain.php" %}
 
@@ -119,49 +119,49 @@ python3 ghdb_scraper.py -j -s
 python3 pagodo.py -d example.com -g dorks.txt -l 50 -s -e 35.0 -j 1.1
 ```
 
-### Advanced Search Keywords&#x20;
+### Advanced Search Keywords
 
 besides the google dorks which are more advanced, there are some google search tricks (keywords) that will make your life easier. these are the keywords used in advanced google search**e**s:
 
-#### **cache:**&#x20;
+#### **cache:**
 
 If you include other words in the query, Google will highlight those words within the cached document. For instance, \[cache:www.google.com web] will show the cached content with the word “web” highlighted. This functionality is also accessible by clicking on the “Cached” link on Google’s main results page. The query \[cache:] will show the version of the web page that Google has in its cache. For instance, \[cache:www.google.com] will show Google’s cache of the Google homepage. Note there can be no space between the “cache:” and the web page url.
 
-#### **link:**&#x20;
+#### **link:**
 
 The query \[link:] will list webpages that have links to the specified webpage. For instance, \[link:www.google.com] will list webpages that have links pointing to the Google homepage. Note there can be no space between the “link:” and the web page url.
 
-**related:**&#x20;
+**related:**
 
 The query \[related:] will list web pages that are “similar” to a specified web page. For instance, \[related:www.google.com] will list web pages that are similar to the Google homepage. Note there can be no space between the “related:” and the web page url.
 
-#### **info:**&#x20;
+#### **info:**
 
 The query \[info:] will present some information that Google has about that web page. For instance, \[info:www.google.com] will show information about the Google homepage. Note there can be no space between the “info:” and the web page url.
 
 #### **define:**
 
-&#x20;The query \[define:] will provide a definition of the words you enter after it, gathered from various online sources. The definition will be for the entire phrase entered (i.e., it will include all the words in the exact order you typed them).
+The query \[define:] will provide a definition of the words you enter after it, gathered from various online sources. The definition will be for the entire phrase entered (i.e., it will include all the words in the exact order you typed them).
 
 #### **stocks:**
 
-&#x20;If you begin a query with the \[stocks:] operator, Google will treat the rest of the query terms as stock ticker symbols, and will link to a page showing stock information for those symbols. For instance, \[stocks: intc yhoo] will show information about Intel and Yahoo. (Note you must type the ticker symbols, not the company name.)
+If you begin a query with the \[stocks:] operator, Google will treat the rest of the query terms as stock ticker symbols, and will link to a page showing stock information for those symbols. For instance, \[stocks: intc yhoo] will show information about Intel and Yahoo. (Note you must type the ticker symbols, not the company name.)
 
-#### **site:**&#x20;
+#### **site:**
 
 If you include \[site:] in your query, Google will restrict the results to those websites in the given domain. For instance, \[help site:www.google.com] will find pages about help within www.google.com. \[help site:com] will find pages about help within .com urls. Note there can be no space between the “site:” and the domain.
 
 #### **allintitle:**
 
-&#x20;**** If you start a query with \[allintitle:], Google will restrict the results to those with all of the query words in the title. For instance, \[allintitle: google search] will return only documents that have both “google” and “search” in the title.
+\*\*\*\* If you start a query with \[allintitle:], Google will restrict the results to those with all of the query words in the title. For instance, \[allintitle: google search] will return only documents that have both “google” and “search” in the title.
 
-#### **intitle:**&#x20;
+#### **intitle:**
 
 If you include \[intitle:] in your query, Google will restrict the results to documents containing that word in the title. For instance, \[intitle:google search] will return documents that mention the word “google” in their title, and mention the word “search” anywhere in the document (title or no). Note there can be no space between the “intitle:” and the following word. Putting \[intitle:] in front of every word in your query is equivalent to putting \[allintitle:] at the front of your query: \[intitle:google intitle:search] is the same as \[allintitle: google search].
 
 #### **inurl:**
 
-&#x20;If you include \[inurl:] in your query, Google will restrict the results to documents containing that word in the url. For instance, \[inurl:google search] will return documents that mention the word “google” in their url, and mention the word “search” anywhere in the document (url or no). Note there can be no space between the “inurl:” and the following word. Putting “inurl:” in front of every word in your query is equivalent to putting “allinurl:” at the front of your query: \[inurl:google inurl:search] is the same as \[allinurl: google search].
+If you include \[inurl:] in your query, Google will restrict the results to documents containing that word in the url. For instance, \[inurl:google search] will return documents that mention the word “google” in their url, and mention the word “search” anywhere in the document (url or no). Note there can be no space between the “inurl:” and the following word. Putting “inurl:” in front of every word in your query is equivalent to putting “allinurl:” at the front of your query: \[inurl:google inurl:search] is the same as \[allinurl: google search].
 
 #### and these are some simple rules for combining the queries and dorks as well:
 
@@ -210,8 +210,6 @@ filename:settings.py SECRET_KEY # Django secret keys (usually allows for session
 
 ## Open Job Requisitions
 
-
-
 #### Job requisitions can help us get information about the information technology products used in a target organization, such as:
 
 * Web server type
@@ -257,7 +255,7 @@ ip:xxx.xxx.xxx.xxx
 
 Search engine for the Internet of everything. Shodan is the world's first search engine for Internet-connected devices including computers, servers, CCTV cameras, SCADA systems and everything that is connected to the internet with or without attention. Shodan can be used both as a source for gathering info about random targets for mass attacks and a tool for finding weak spots in a large network of systems to attack and take the low-hanging fruit. Shodan has a free and commercial membership and is accessible at [shodan.io](https://www.shodan.io) . the search syntax in the search engine is somehow special and can be found in the help section of the website. with shodan you can search for specific systems, ports, services, regions and countries or even specific vulnerable versions of a software or OS service running on systems like SMB v1 and much more.
 
-&#x20;here the keywords that are mostly used in shodan search queries:
+here the keywords that are mostly used in shodan search queries:
 
 ### Shodan Queries
 
@@ -317,7 +315,7 @@ you can use the CLI tool by simply specifying a single host/IP:
 shodan host [target ip]
 ```
 
-shodan will return ports, services and even some possible CVEs  ( which are not very reliable ).
+shodan will return ports, services and even some possible CVEs ( which are not very reliable ).
 
 for the free API keys you cant use the same method to scan a whole net block but with some bash voodoo you can use the free API instead of paid ones to scan the whole /24 net block this way and see if any systems on this net block is exposed :
 
@@ -341,7 +339,7 @@ and here are some other useful resources about shodan:
 
 [the OSINT framework](https://osintframework.com) is a great collection of OSINT resources that you should definitely check them out.
 
-![OSINT framework hierarchy sources structure  ](../../.gitbook/assets/osint-framework.jpg)
+![OSINT framework hierarchy sources structure](../../.gitbook/assets/osint-framework.jpg)
 
 ## Credential Leaks
 
@@ -365,27 +363,46 @@ For more in-depth social search check the [social platforms page](social-platfor
 
 ## Other OSINT Websites
 
-I have put together a list of the most used OSINT sources that will usually cover about 90% of your needs in  a regular pentest. remember there are endless ways to find Intel about your target. the OSINT process is limited to your own imagination.&#x20;
+I have put together a list of the most used OSINT sources that will usually cover about 90% of your needs in a regular pentest. remember there are endless ways to find Intel about your target. the OSINT process is limited to your own imagination.
 
 ### Top sources ( most used )
 
-#### [Skip Tracing Framework (kind of all-in-one directory for recon)](https://makensi.es/stf/)   [Robtex (search for IPs, domain names, etc )](https://www.robtex.com)   [Netcraft (very useful for website and domain recon)](https://searchdns.netcraft.com)   [SSL labs (test websites and domains SSL cert security)](https://www.ssllabs.com/ssltest)   [Security Headers (test website headers (browser plugin is available)](https://securityheaders.com)   [Archive.org (the largest Internet archive)](https://archive.org)   [iseek (not as deep as others but still useful)](https://www.iseek.com)   [Global file search (search for any file, used for passive metadata search )](http://globalfilesearch.com)   [NSLookup (query DNS records, both web and CLI tool )](https://network-tools.com/nslookup/)   [DNSdumpster (great for DNS recon)](https://dnsdumpster.com)   [Whois (both web and CLI tool )](https://www.whois.net)   [ONYPHE (internet SIEM website, that's what they call themselves )](https://www.onyphe.io) 
-
-
+* #### [Skip Tracing Framework (kind of all-in-one directory for recon)](https://makensi.es/stf/)
+* #### [Robtex (search for IPs, domain names, etc )](https://www.robtex.com)
+* #### &#x20;[Netcraft (very useful for website and domain recon)](https://searchdns.netcraft.com)&#x20;
+* #### [SSL labs (test websites and domains SSL cert security)](https://www.ssllabs.com/ssltest)&#x20;
+* #### [Security Headers (test website headers (browser plugin is available)](https://securityheaders.com)&#x20;
+* #### [Archive.org (the largest Internet archive)](https://archive.org)&#x20;
+* #### [iseek (not as deep as others but still useful)](https://www.iseek.com)&#x20;
+* #### [Global file search (search for any file, used for passive metadata search )](http://globalfilesearch.com)&#x20;
+* #### [NSLookup (query DNS records, both web and CLI tool )](https://network-tools.com/nslookup/)&#x20;
+* #### [DNSdumpster (great for DNS recon)](https://dnsdumpster.com)&#x20;
+* #### [Whois (both web and CLI tool )](https://www.whois.net)&#x20;
+* #### [ONYPHE (internet SIEM website, that's what they call themselves )](https://www.onyphe.io)
 
 ### Image search
 
-#### [TinEye ( reverse image search )](https://tineye.com)   [photo bucket ( image search )](https://photobucket.com)
+* ****[**TinEye ( reverse image search )**](https://tineye.com) ****&#x20;
+* #### [photo bucket ( image search )](https://photobucket.com)
 
-####
+
 
 ### Username and people search
 
-#### &#x20; [User search ( search for usernames, mostly social media networks )](https://usersearch.org)   [Thats them](https://thatsthem.com)   [pipi ( investigation and research, you should sign up for it )](https://pipl.com)   [Social mention ( social media search )](http://socialmention.com)   [Social searcher ( social media search )](https://www.social-searcher.com)   [SPOKEO ( name, phone number, address, etc. )](https://www.spokeo.com)   [Find people search ( people search )](http://www.findpeoplesearch.com)   [Social bearing](https://www.socialbearing.com)   [TwimeMachine](https://www.twimemachine.com)
+* [**User search ( search for usernames, mostly social media networks )**](https://usersearch.org) ****&#x20;
+* ****[**Thats them**](https://thatsthem.com) ****&#x20;
+* ****[**pipi ( investigation and research, you should sign up for it )**](https://pipl.com) ****&#x20;
+* ****[**Social mention ( social media search )**](http://socialmention.com) ****&#x20;
+* ****[**Social searcher ( social media search )**](https://www.social-searcher.com) ****&#x20;
+* ****[**SPOKEO ( name, phone number, address, etc. )**](https://www.spokeo.com) ****&#x20;
+* ****[**Find people search ( people search )**](http://www.findpeoplesearch.com) ****&#x20;
+* ****[**Social bearing**](https://www.socialbearing.com) **** [**TwimeMachine**](https://www.twimemachine.com)****
 
-### &#x20;IOT and device search
+### IOT and device search
 
-#### [shodan ( search engine for internet connected devices, command line )](https://www.shodan.io)  [open stream cam ( open stream camera )](file:///root/work/w4lk3rn3t/recon/osint/index.html)  [insecam ( live video camera search )](file:///root/work/w4lk3rn3t/recon/osint/index.html)
+* ****[**shodan ( search engine for internet connected devices, command line )**](https://www.shodan.io)****
+* &#x20;**** [**open stream cam ( open stream camera )**](file:///root/work/w4lk3rn3t/recon/osint/index.html) ****&#x20;
+* ****[**insecam ( live video camera search )**](file:///root/work/w4lk3rn3t/recon/osint/index.html)****
 
 ####
 
@@ -411,11 +428,7 @@ ahmia.fi
 
 not evil
 
-
-
-
-
-### &#x20;Monitoring and alerting
+### Monitoring and alerting
 
 Google Alerts
 
@@ -434,8 +447,6 @@ weleakinfo.com/
 ## Tools and Frameworks
 
 #### There are countless number of tools out there designed for active/passive recon. you wont need to know about every single one of them because most of them use the same techniques for gathering these information. in this section i will briefly introduce you to the best/well-known tools that i usually use:
-
-
 
 ### Theharvester
 
@@ -471,15 +482,11 @@ python3 -m pip install h8mail
 h8mail -t target@example.com
 ```
 
-
-
 ### gitrob
 
 a tool to help find potentially sensitive files pushed to public repositories on Github. Gitrob will clone repositories belonging to a user or organization down to a configurable depth and iterate through the commit history and flag files that match signatures for potentially sensitive files. The findings will be presented through a web interface for easy browsing and analysis.
 
 {% embed url="https://github.com/michenriksen/gitrob/releases/tag/v2.0.0-beta" %}
-
-
 
 ### inspy
 
@@ -493,7 +500,6 @@ inspy --empspy /usr/share/inspy/wordlists/title-list-large.txt --emailformat fla
 --email format is how the emails work
 
 inspy --empspy /usr/share/inspy/wordlists/title-list-large.txt --emailformat
-
 ```
 
 ### amass
@@ -508,8 +514,6 @@ run the help to see the options:
 amass --help
 ```
 
-
-
 ### spiderfoot
 
 an open source intelligence (OSINT) automation tool. It calmes to integrate with just about every data source available and utilities a range of methods for data analysis, making that data easy to navigate.
@@ -519,8 +523,6 @@ an open source intelligence (OSINT) automation tool. It calmes to integrate with
 ```
 spiderfoot -l 127.0.0.1:5001  → run web GUI on local host, connect with browser
 ```
-
-
 
 ### recon-ng
 
@@ -572,8 +574,6 @@ recon/hosts-hosts/reverse_resolve
 discovery/info_disclosure/cache_snoop       → useful for finding AVs in use
 ```
 
-
-
 ### Sherlock
 
 find user accounts on social media
@@ -589,19 +589,15 @@ python3 sherlock --help
 python3 sherlock user1 user2 user3
 ```
 
-
-
 ### TWINT
 
 advanced Twitter scraping tool written in Python that allows for scraping Tweets from Twitter profiles without using Twitter's API.
 
 {% embed url="https://github.com/twintproject/twint" %}
 
-
-
 ### social-analyzer
 
-for analyzing and finding a person's profile across +800 social media  websites
+for analyzing and finding a person's profile across +800 social media websites
 
 ```
 python3 -m pip install social-analyzer
@@ -791,4 +787,3 @@ VLC
 Yubico Utilities
 → tools for using yubikeys
 ```
-

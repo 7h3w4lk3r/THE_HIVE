@@ -1,4 +1,4 @@
-# SSL Certs
+# ⭕ SSL Certs
 
 ## Test SSL certs
 
@@ -8,7 +8,6 @@ Not really important as an attack vector but its something you should definitely
 
 ## nmap
 
-```text
+```
 nmap -p 443 --script=ssl-enum-ciphers target.com
 ```
-

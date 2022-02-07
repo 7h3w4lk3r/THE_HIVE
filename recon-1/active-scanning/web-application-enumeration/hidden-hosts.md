@@ -1,4 +1,4 @@
-# Hidden Hosts
+# ⭕ Hidden Hosts
 
 ## Finding Hidden Virtual Hosts/Subdomains
 
@@ -8,11 +8,9 @@ certificate transparency reports offer a penetration tester an additional method
 
 {% embed url="https://transparencyreport.google.com/https/certificates" %}
 
+#### here is a simple bash script i wrote to automate the subdomain enumeration task. it uses various online resources to discover every subdomain that is publicly available. <a href="#here-is-a-simple-bash-script-i-wrote-to-automate-the-subdomain-enumeration-task-it-uses-various-onli" id="here-is-a-simple-bash-script-i-wrote-to-automate-the-subdomain-enumeration-task-it-uses-various-onli"></a>
 
-
-#### here is a simple bash script i wrote to automate the subdomain enumeration task. it uses various online resources to discover every subdomain that is publicly available. <a id="here-is-a-simple-bash-script-i-wrote-to-automate-the-subdomain-enumeration-task-it-uses-various-online-resources-to-discover-every-subdomain-that-is-publicly-available"></a>
-
-```text
+```
 #!/bin/bash
 
 # simple script to find subdomains from various online sources
@@ -76,14 +74,4 @@ rm -rf temp.txt
 mv output.txt $TARGET.txt
 
 printf "\n [+] Output saved to $TARGET.txt [+]\n"
-
 ```
-
-
-
-
-
-
-
-
-

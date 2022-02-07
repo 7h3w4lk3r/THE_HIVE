@@ -18,7 +18,7 @@ TCP port 53 by default, fall back to UDP port 53 if not possible.
 * [ ] Check forward and reverse lookups
 * [ ] Test zone transfer
 * [ ] Test NSEC / NSEC3
-* [ ] Look for CVEs&#x20;
+* [ ] Look for CVEs
 
 ## DNS Enumeration
 
@@ -36,7 +36,7 @@ run in interactive mode:
 
 ### dig
 
-&#x20;mostly used to perform a zone transfer
+mostly used to perform a zone transfer
 
 ```
 dig @[dns server] [domain]
@@ -64,15 +64,15 @@ nmap -p 53 --script dns-brute zonetransfer.me --script-args=dns-brute.hostlist=[
 
 ### dnsrecon
 
-* `dnsrecon -d [domain]` - Displays S0A, NS, A , AAAA , MX, and SRV of the target domain&#x20;
-* `dnsrecon -d [domain] -t rvl` - Performs reverse DNS lookup for IP address or CIDR range&#x20;
-* `dnsrecon -d [domain] -t axfr` - Attempts a zone transfer of all NS record nameservers&#x20;
-* dn`srecon -d [domain] -t zonewalk` - Performs a DNSSEC zone walk by querying for NSEC records&#x20;
+* `dnsrecon -d [domain]` - Displays S0A, NS, A , AAAA , MX, and SRV of the target domain
+* `dnsrecon -d [domain] -t rvl` - Performs reverse DNS lookup for IP address or CIDR range
+* `dnsrecon -d [domain] -t axfr` - Attempts a zone transfer of all NS record nameservers
+* dn`srecon -d [domain] -t zonewalk` - Performs a DNSSEC zone walk by querying for NSEC records
 * `dnsrecon -d [domain] -t snoop` - D \[dictionary file] - Scans for DNS cache snooping using a supplied dictionary file
 
-#### DNSRecon can also perform subdomain brute forcing with a dictionary using the following command:&#x20;
+#### DNSRecon can also perform subdomain brute forcing with a dictionary using the following command:
 
-• dnsrecon -d \[domain ] -t brt - D \[dictionary file]&#x20;
+• dnsrecon -d \[domain ] -t brt - D \[dictionary file]
 
 #### Finally DNSRecon can output the returned data to an XML file using the — xml \[output file] flag or to an SQLite database using the db \[output file] flag
 
@@ -148,7 +148,6 @@ You can quiz name servers supporting DNSSEC to reveal valid hostnames. Scripts t
 
 ```
 nmap -sSU -p53 --script dns-nsec-enum --script-args dns-nsec-enum.domains=paypal.com ns3.isc-sns.info
-
 
 ```
 

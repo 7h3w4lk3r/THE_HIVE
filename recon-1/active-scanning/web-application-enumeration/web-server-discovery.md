@@ -1,4 +1,4 @@
-# Web Server Discovery
+# ⭕ Web Server Discovery
 
 ## Find Active Sites (Screenshots)
 
@@ -38,16 +38,9 @@ whatweb example.com -v
 
 ## Test HTTP Strict Transport Security (HSTS)
 
-
-
 ```
 curl -s -D- https://domain.com/ | grep Strict
 
 Result expected:
 Strict-Transport-Security: max-age=...
 ```
-
-
-
-
-

@@ -2,7 +2,7 @@
 
 A queue is simply a linear list of information that is accessed in first-in, first-out order, which is sometimes called FIFO. That is, the first item placed on the queue is the first item retrieved, the second item put in is the second item retrieved, and so on. This is the only means of storage and retrieval in a queue; random access of any specific item is not allowed.
 
-```text
+```
 functions
 equeue → insert an element at the end of the queue
 dequeue → remove and return the first element of the queue if the queue is not empty
@@ -11,17 +11,17 @@ size → return the number of elements in the queue
 isEmpty → return true if the queue is empty
 ```
 
-![](../../../.gitbook/assets/image%20%2828%29.png)
+![](<../../../.gitbook/assets/image (28).png>)
 
-the functions qstore\( \) and qretrieve\( \) shown here are needed for the simple scheduling program. They will store pointers to the strings that describe the appointments.
+the functions qstore( ) and qretrieve( ) shown here are needed for the simple scheduling program. They will store pointers to the strings that describe the appointments.
 
-![](../../../.gitbook/assets/image%20%2827%29.png)
+![](<../../../.gitbook/assets/image (27).png>)
 
 example:
 
 a queue for entering,removing and listing apointments
 
-```text
+```
 /* Mini Appointment-Scheduler */
 #include <string.h>
 #include <stdlib.h>
@@ -113,8 +113,7 @@ return p[rpos-1];
 
 example:
 
-```text
-
+```
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -239,7 +238,7 @@ int main() {
 
 example:
 
-```text
+```
 // C program for array implementation of queue 
 #include <limits.h>
 #include <stdio.h>
@@ -343,17 +342,15 @@ int main()
     return 0;
 } 
 
-
 ```
 
 ## The Circular Queue
 
-Instead of having the program stop when the limit of the array used to store the queue is reached, you could have both the store index \(spos\) and the retrieve index \(rpos\) loop back to the start of the array. In this way, any number of items could be placed on the queue, so long as items were also being taken off. This implementation of a queue is called a circular queue because it uses its storage array as if it were a circle instead of a linear list.
+Instead of having the program stop when the limit of the array used to store the queue is reached, you could have both the store index (spos) and the retrieve index (rpos) loop back to the start of the array. In this way, any number of items could be placed on the queue, so long as items were also being taken off. This implementation of a queue is called a circular queue because it uses its storage array as if it were a circle instead of a linear list.
 
 example:
 
-```text
-
+```
 /* Mini Appointment-Scheduler */
 #include <string.h>
 #include <stdlib.h>
@@ -446,20 +443,4 @@ char *qretrieve(void)
     rpos++;
     return p[rpos-1];
 }
-
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -105,7 +105,6 @@ python3 windapsearch.py -d megabank.local -u megabank\\Administrator -p "letmein
                         all attributes, but honors '--attrs'
   --custom CUSTOM_FILTER
                         Perform a search with a custom object filter. Must be valid LDAP filter syntax
-
 ```
 
 ### [PowerView](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1)
@@ -163,12 +162,9 @@ git clone https://github.com/sense-of-security/ADRecon.git
 
 # generate the ADRecon-Report.xlsx based on ADRecon output (CSV Files).
 .\ADRecon.ps1 -GenExcel C:\ADRecon-Report-<timestamp>
-
 ```
 
 #### When you run ADRecon, a `ADRecon-Report-<timestamp>` folder will be created which will contain ADRecon-Report.xlsx and CSV-Folder with the raw files.
-
-
 
 ### [Active Directory Assessment and Privilege Escalation Script](https://github.com/hausec/ADAPE-Script)
 
@@ -230,7 +226,7 @@ Go to http://127.0.0.1:7474, use db:bolt://localhost:7687, user:neo4J, pass:neo4
 we can use the exe version without argument and get the same output. download and extract it and upload all files in bloodhound UI.
 {% endhint %}
 
-### [sharphound ](https://github.com/BloodHoundAD/BloodHound/blob/master/Collectors/SharpHound.ps1)
+### [sharphound](https://github.com/BloodHoundAD/BloodHound/blob/master/Collectors/SharpHound.ps1)
 
 ### [bloodhound - python](https://github.com/fox-it/BloodHound.py)
 
@@ -277,7 +273,7 @@ Get-NetDomainTrust
 Get-NetDomainTrust -Domain <DomainName>
 ```
 
-### &#x20;**Enum Forest Trust**
+### **Enum Forest Trust**
 
 ```
 Get-NetForestDomain
@@ -379,7 +375,7 @@ Invoke-UserHunter -Stealth
 Invoke-UserHunter -CheckAccess
 ```
 
-****
+***
 
 ### Users in the current domain
 
@@ -429,8 +425,8 @@ get-userproperty -properties logoncount
 
 ```
 Get-UserProperty -Properties pwdlastset (Powerview)
-Get-ADUser -Filter * -Properties * | select -First 1 | Get-Member -Membertype *Property | select Name        (Active Directory)
-Get-ADUser -Filter * -Properties * | select name,@{expression={[datetime]::fromFileTime($_.pwdlastset)}}    (Active Directory)
+Get-ADUser -Filter * -Properties * | select -First 1 | Get-Member -Membertype *Property | select Name        (Active Directory)
+Get-ADUser -Filter * -Properties * | select name,@{expression={[datetime]::fromFileTime($_.pwdlastset)}}    (Active Directory)
 ```
 
 ### Get Users by Name
@@ -579,9 +575,9 @@ LDAP anonymous binding is usually disabled but it's worth checking
 
 MS-RPC (Microsoft Remote Procedure Call) is a protocol that allows requesting service from a program on another computer without having to understand the details of that computer's network. An MS-RPC service can be accessed through different transport protocols, among which:
 
-#### . a network SMB pipe (listening ports are 139 & 445)&#x20;
+#### . a network SMB pipe (listening ports are 139 & 445)
 
-#### . plain TCP or plain UDP (listening port set at the service creation)&#x20;
+#### . plain TCP or plain UDP (listening port set at the service creation)
 
 #### . a local SMB pipe
 
@@ -686,7 +682,6 @@ Invoke-ACLScanner -ResolveGUIDs
 #Check the ACLs associated with a specified path (e.g smb share)
 Get-PathAcl -Path "\\Path\Of\A\Share"
 
-
 ```
 
 ### Get ACLs associated with the specified object
@@ -701,13 +696,11 @@ Get-ObjectACL -SamAccountName user123 -ResolveGUIDs
 Get-objectACL -ADSprefix 'CN=Administrator,CN=Users' -Verbose
 ```
 
-### GenericWrite&#x20;
+### GenericWrite
 
 ```
 Get-ObjectAcl -SamAccountName * –ResolveGUIDs | ? { ($_.ActiveDirectoryRights -match 'GenericWrite') -and ($_.SecurityIdentifier -match 'S-1-5-21-1070240333-336889418-1185445934-1603') }
 ```
-
-
 
 ## **Enum Shares**
 
@@ -753,5 +746,4 @@ Find-DomainShare -CheckShareAccess
 
 #Enumerate "Interesting" Files on accessible shares
 Find-InterestingDomainShareFile -Include *passwords*
-
 ```

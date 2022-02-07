@@ -1,4 +1,4 @@
-# Metadata
+# ⭕ Metadata
 
 ## Online
 
@@ -6,7 +6,11 @@
 
 ### Metadata Sites
 
-#### [Archive.org](https://archive.org)  [metapicz](http://metapicz.com/#landing)  [image forensic](http://www.imageforensic.org)  [findexif](http://findexif.com)  [exif regex](http://exif.regex.info/exif.cgi)
+* [**Archive.org**](https://archive.org) ****&#x20;
+* ****[**metapicz**](http://metapicz.com/#landing) ****&#x20;
+* ****[**image forensic**](http://www.imageforensic.org) ****&#x20;
+* ****[**findexif**](http://findexif.com) ****&#x20;
+* ****[**exif regex**](http://exif.regex.info/exif.cgi)****
 
 ### wget
 
@@ -40,14 +44,13 @@ python infoga.py
 python infoga.py --domain nsa.gov --source all --breach -v 2 --report ../nsa_gov.txt
 
 python infoga.py --info m4ll0k@protonmail.com --breach -v 3 --report ../m4ll0k.txt
-
 ```
 
 ### VPN Configuration files
 
-ome organizations publicly distribute configuration files and keys for VPN systems. Cisco profile configuration files (PCFs) contain IPsec VPN client variables, including the following:&#x20;
+ome organizations publicly distribute configuration files and keys for VPN systems. Cisco profile configuration files (PCFs) contain IPsec VPN client variables, including the following:
 
-• VPN server endpoint addresses&#x20;
+• VPN server endpoint addresses
 
 • Plaintext credentials (group name and password)
 

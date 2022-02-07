@@ -48,7 +48,7 @@ len equ $ - msg                 ; assign the length of the msg to len variable
 
 The following are the main parts of an assembly program:
 
-* **section .data**&#x20;
+* **section .data**
 * **section .bss**
 * **section .text**
 
@@ -68,7 +68,7 @@ section .data can also contain constants, which are values that cannot be change
 <constant name>   equ   <value>
 ```
 
-**section .bss**  -  The acronym bss stands for Block Started by Symbol , and its history goes back to the fifties, when it was part of assembly language developed for the IBM 704. In this section go the uninitialized variables. Space for uninitialized variables is declared in this section, in the following format:
+**section .bss** - The acronym bss stands for Block Started by Symbol , and its history goes back to the fifties, when it was part of assembly language developed for the IBM 704. In this section go the uninitialized variables. Space for uninitialized variables is declared in this section, in the following format:
 
 ```
 <variable name>   <type>   <number>
@@ -128,7 +128,6 @@ int     80h
 mov     eax, 1
 mov     ebx, 0
 int     80h
-
 
 ```
 

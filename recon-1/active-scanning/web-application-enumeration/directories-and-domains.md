@@ -1,4 +1,4 @@
-# Directories & Subdomains
+# ⭕ Directories & Subdomains
 
 ## Directory and Subdomain Discovery
 
@@ -78,11 +78,11 @@ gobuster vhost -u example.com -w /usr/share/seclists/Discovery/Web-Content/direc
 
 ### dirbuster
 
-add url wtih port : example: [http://127.0.0.1:80/](http://127.0.0.1)&#x20;
+add url wtih port : example: [http://127.0.0.1:80/](http://127.0.0.1)
 
 wordlist for bruteforce is in /usr/share/wordlists/dirbuster
 
-&#x20;set go faster 200 threats (usually works best) in file extentions add any file type you want to look for like rar,docx,zip, etc.
+set go faster 200 threats (usually works best) in file extentions add any file type you want to look for like rar,docx,zip, etc.
 
 ![](<../../../.gitbook/assets/image (155).png>)
 

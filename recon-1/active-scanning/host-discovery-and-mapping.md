@@ -4,7 +4,27 @@ description: >-
   structure using the discovered hosts and/or network devices.
 ---
 
-# Host Discovery / Network Mapping
+# ⭕ Host Discovery / Network Mapping
+
+## Finding Remote Live Hosts
+
+you can use nmap, masscan or unicorn scan for this:
+
+```
+nmap -sn -T4 -oG 192.168.1.1/24 | grep “Status: Up” | cut -f 2 -d ‘ ‘ > LiveHosts.txt
+nmap –PE –sn -n 10.50.96.0/23 –oX /root/Desktop/scan.xml
+```
+
+the `-PE` enables ICMP Echo request host discovery (Ping scan)
+
+&#x20;the `-sn` option means only do a host discovery and not a port scan
+
+```
+unicornscan 192.168.100.35/24:31
+masscan 192.168.2.1/24 -p80,53,443,22
+```
+
+masscan is the fastest host discovery tool available, even faster than nmap.
 
 ## Netdiscover
 
@@ -194,7 +214,6 @@ echo "[+] Multi-route finished [+]"
 echo "[+] Results saved to $1.txt file [+]"
 cat tmp1 tmp2 tmp3 tmp4 | grep -v '*' | sort -n -k 1 -u | sort -g | tee -a $1.txt
 rm -rf tmp1 tmp2 tmp3 tmp4
-
 ```
 
 ### Zenmap
@@ -202,23 +221,3 @@ rm -rf tmp1 tmp2 tmp3 tmp4
 you can also use zenmap for network mapping which is a GUI for nmap tool and can be downloaded from [here](https://nmap.org/zenmap/).
 
 ![](../../.gitbook/assets/zenmap.png)
-
-## Finding Remote Live Hosts
-
-you can use nmap, masscan or unicorn scan for this:
-
-```
-nmap -sn -T4 -oG 192.168.1.1/24 | grep “Status: Up” | cut -f 2 -d ‘ ‘ > LiveHosts.txt
-nmap –PE –sn -n 10.50.96.0/23 –oX /root/Desktop/scan.xml
-```
-
-the -PE enables ICMP Echo request host discovery (Ping scan)
-
-&#x20;the -sn option means only do a host discovery and not a port scan
-
-```
-unicornscan 192.168.100.35/24:31
-masscan 192.168.2.1/24 -p80,53,443,22
-```
-
-masscan is the fastest host discovery tool available, even faster than nmap.

@@ -1,4 +1,4 @@
-# masscan cheat sheet
+# ⭕ masscan cheat sheet
 
 ### **Target speficication**
 
@@ -64,7 +64,7 @@ masscan 10.0.0.1 --pcap <filename>
 masscan 10.0.0.1 --packet-trace
 ```
 
-### Output <a href="output" id="output"></a>
+### Output <a href="#output" id="output"></a>
 
 ```bash
 # Output in binary mode
@@ -89,10 +89,9 @@ masscan --readscan bin-test.scan
 masscan --readscan bin-test.scan -oX bin-test.xml
 ```
 
-\
+\\
 
-
-#### Complete commands <a href="complete-commands" id="complete-commands"></a>
+#### Complete commands <a href="#complete-commands" id="complete-commands"></a>
 
 ```bash
 # Quick port identification
