@@ -1,16 +1,14 @@
 # ⭕ Enumeration
 
-{% hint style="info" %}
-Commands mentioned here are a combination of windows system built-in commands and automated tools.
-{% endhint %}
-
-## <mark style="color:red;">Enumerating without Credentials</mark>
+## <mark style="color:red;">Network Enumerating</mark>&#x20;
 
 If you just have access to an AD environment but you don't have any credentials/sessions.
 
 ### <mark style="color:orange;">**Check for null and Guest Access on SMB Services**</mark>
 
-**for old versions of windows.**
+{% hint style="info" %}
+**for old versions of windows, probably wont find it anymore.**
+{% endhint %}
 
 ```
 enum4linux -a -u "" -p "" <DC IP> && enum4linux -a -u "guest" -p "" <DC IP>
