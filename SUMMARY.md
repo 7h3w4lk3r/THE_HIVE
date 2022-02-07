@@ -34,9 +34,9 @@
 ## 🔷 Red Team <a href="#network-attacks" id="network-attacks"></a>
 
 * [⭕ Firewall / IDS Evasion](network-attacks/firewall-ids-evasion.md)
-* [⭕ IPv6 Attacks](network-attacks/ipv6-attacks/README.md)
-  * [Neighbor Impersonation](network-attacks/ipv6-attacks/neighbor-impersonation.md)
-  * [Router Advertisement Flooding](network-attacks/ipv6-attacks/router-advertisement-flooding.md)
+* [⭕ IPv6 Attacks](layer-2-and-3-attacks/ipv6-attacks/README.md)
+  * [Neighbor Impersonation](layer-2-and-3-attacks/ipv6-attacks/neighbor-impersonation.md)
+  * [Router Advertisement Flooding](layer-2-and-3-attacks/ipv6-attacks/router-advertisement-flooding.md)
 * [🔴 Network Services](network-attacks/network/README.md)
   * [DNS](network-attacks/network/dns.md)
   * [IPv6](network-attacks/network/ipv6.md)

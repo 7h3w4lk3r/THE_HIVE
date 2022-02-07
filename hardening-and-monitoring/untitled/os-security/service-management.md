@@ -214,7 +214,7 @@ if you edit a `/lib/systemd/system` file (a unit file/ a service file), then you
 systemctl --system daemon-reload
 ```
 
-### <mark style="color:orange;">Viewing Systemd Information</mark>
+### <mark style="color:orange;">Viewing systemd Information</mark>
 
 ```
 // Some cosystemctl list-dependencies : Show a unit’s dependencies
@@ -231,7 +231,7 @@ systemctl get – default : List default target (like run level)
  systemd-tmpfiles
 ```
 
-## <mark style="color:red;">Create a Systemd Service</mark>
+## <mark style="color:red;">Create a systemd Service</mark>
 
 ### <mark style="color:orange;">common unit file paths</mark>
 

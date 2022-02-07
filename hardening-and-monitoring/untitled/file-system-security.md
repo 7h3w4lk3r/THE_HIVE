@@ -133,7 +133,9 @@ Run the following command to verify no world writable directories exist without 
 
 `# df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null`
 
-No output should be returned Run the following command to set the sticky bit on all world writable directories:
+No output should be returned.
+
+&#x20;Run the following command to set the sticky bit on all world writable directories:
 
 `df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d -perm -0002 2>//dev/null | xargs chmod a+t`
 
@@ -141,7 +143,7 @@ No output should be returned Run the following command to set the sticky bit on 
 
 Run the following command to verify autofs is not enabled:
 
-`# systemctl is-enabled autof`
+`# systemctl is-enabled autofs`
 
 Verify result is not "enabled". to disable autof:
 
@@ -193,7 +195,7 @@ log file: /etc/log/aide
 
 db: /etc/lib/aid
 
-### scheduling
+### <mark style="color:orange;">scheduling</mark>
 
 determine if there is a cron job scheduled to run the aide check:
 
