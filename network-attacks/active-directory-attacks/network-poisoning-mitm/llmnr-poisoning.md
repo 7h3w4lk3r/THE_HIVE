@@ -1,6 +1,6 @@
-# LLMNR Poisoning
+# ⭕ LLMNR Poisoning
 
-## LLMNR&#x20;
+## LLMNR
 
 **link local multi-casting name resolution** is used to identify hosts when DNS fails to do so .previously known as NBT-NS (netbios). key flaw is that the srvices utilize a users username and NTLMv2 hash when apropriately responded to.
 
@@ -12,7 +12,7 @@ we use the responder to sniff the request while inside the network this is the f
 responder -I vboxnet0 -rdwv
 ```
 
-#### the trigger for this attack can be any wrong query in the domain for example when a user from a workstation is trying to access a share and a typo happens the DNS service will fail to locate the resource. this is when responder comes in and  claims to know the resource location and asks the client for the NTLM hash. another example is when the client is pointed to the attacker machine:
+#### the trigger for this attack can be any wrong query in the domain for example when a user from a workstation is trying to access a share and a typo happens the DNS service will fail to locate the resource. this is when responder comes in and claims to know the resource location and asks the client for the NTLM hash. another example is when the client is pointed to the attacker machine:
 
 ![](<../../../.gitbook/assets/image (211).png>)
 
@@ -27,4 +27,3 @@ hashcat -m 5600 hash.txt /usr/share/wordlists/rockyou.txt --force
 ## other forms of LLMNR and NBT-NS attacks
 
 {% embed url="https://www.4armed.com/blog/llmnr-nbtns-poisoning-using-responder/" %}
-

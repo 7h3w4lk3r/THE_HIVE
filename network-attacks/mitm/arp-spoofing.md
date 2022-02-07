@@ -1,10 +1,10 @@
-# ARP Spoofing
+# ⭕ ARP Spoofing
 
 ## ARP
 
-• An ARP request message should be placed in a frame and broadcast to all computers on the network&#x20;
+• An ARP request message should be placed in a frame and broadcast to all computers on the network
 
-• Each computer receives the request and examines the IP address&#x20;
+• Each computer receives the request and examines the IP address
 
 • The computer mentioned in the request sends a response; all other computers process and discard the request without sending a response
 
@@ -12,7 +12,7 @@
 
 ## Gratuitous ARP
 
-• Gratuitous ARP is used by hosts to “announce” their IP address to the local network and avoid duplicate IP addresses on the network; routers and other network hardware may use cache information gained from gratuitous ARPs&#x20;
+• Gratuitous ARP is used by hosts to “announce” their IP address to the local network and avoid duplicate IP addresses on the network; routers and other network hardware may use cache information gained from gratuitous ARPs
 
 • Gratuitous ARP is a broadcast packet (like an ARP request)
 

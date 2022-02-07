@@ -1,4 +1,4 @@
-# Encode / Decode Files
+# ⭕ Encode / Decode Files
 
 ## Base 64 encode/decode
 

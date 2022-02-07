@@ -1,4 +1,4 @@
-# HTTPS Downgrade / HSTS Bypass
+# ⭕ HTTPS Downgrade / HSTS Bypass
 
 {% embed url="https://itigic.com/how-to-decrypt-https-traffic-with-bettercap-on-linux" %}
 
@@ -7,7 +7,7 @@
 HTTPS or HTTP over SSL is relied upon as a critical network technology for many organizations, used by web browsers and many other applications to protect the confidentiality, integrity, and authenticity of data. Certificate validation for HTTPS has significantly improved in web browsers in the past few years, where earlier browsers would make it too simple for an uninformed user to accept a certificate warning without understanding the impact of doing so.
 
 {% hint style="info" %}
-#### Modern web browsers such as Firefox demonstrate a significant warning when a certificate is invalid for any reason, as shown on this slide. To bypass this warning and continue with the invalid certificate, the user must click through five options before continuing.
+**Modern web browsers such as Firefox demonstrate a significant warning when a certificate is invalid for any reason, as shown on this slide. To bypass this warning and continue with the invalid certificate, the user must click through five options before continuing.**
 {% endhint %}
 
 ## HTTPS Downgrade Attack
@@ -58,7 +58,7 @@ tail -f sslstrip.log
 ettercap -TqM arp:remote -P sslstrip /172.16.0.1// /172.16.0.11//
 ```
 
-### Bettercap SSLStrip&#x20;
+### Bettercap SSLStrip
 
 ```
 http.proxy on/off

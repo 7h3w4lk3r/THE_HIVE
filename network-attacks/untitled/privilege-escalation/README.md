@@ -1,4 +1,4 @@
-# Privilege Escalation
+# ⭕ Privilege Escalation
 
 ## know before you start
 
@@ -22,7 +22,7 @@
 
 {% embed url="https://resources.infosecinstitute.com/topic/privilege-escalation-linux-live-examples/" %}
 
-****
+{% embed url="https://hackmag.com/security/linux-privileges-escalation" %}
 
 ## Methods
 
@@ -37,8 +37,6 @@
 9. **docker**
 10. **Unix socket exploitation**
 11. **and much more...**
-
-
 
 ## Automated Tools
 

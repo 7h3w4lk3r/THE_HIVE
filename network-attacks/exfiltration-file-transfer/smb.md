@@ -1,8 +1,8 @@
-# SMB
+# ⭕ SMB
 
 ## Windows
 
-### SMB v1&#x20;
+### SMB v1
 
 detect:
 
@@ -23,7 +23,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName smb1protocol
 Enable-WindowsOptionalFeature -Online -FeatureName "SMB1Protocol-Client" -All
 ```
 
-### SMB v2/v3&#x20;
+### SMB v2/v3
 
 Detect:
 

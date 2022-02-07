@@ -1,4 +1,4 @@
-# NTP Spoofing
+# ⭕ NTP Spoofing
 
 Distributing accurate time is a vital part of sustaining network infrastructure. It’s also a critical element of network security, both when it comes to the expiry dates on certificates and timestamped system logs used for troubleshooting.
 

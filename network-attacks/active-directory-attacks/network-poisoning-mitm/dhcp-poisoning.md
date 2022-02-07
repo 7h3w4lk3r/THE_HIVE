@@ -1,4 +1,4 @@
-# DHCP Poisoning
+# ⭕ DHCP Poisoning
 
 When a workstation reboots or plugs into a network, a broadcast DHCP request is emitted. It's goal is to ask for network settings like an IPv4 address.
 
@@ -10,8 +10,6 @@ When a workstation reboots or plugs into a network, a broadcast DHCP request is 
 
 ​[Responder](https://github.com/SpiderLabs/Responder) (Python) (from v3.0.7.0) can be used to operate DHCP poisoning in the following manner.
 
-
-
 * race against the legit DHCP server to answer `DHCP REQUEST` messages
 * sent a DHCP ACK response with a rogue WPAD server address in `option 252` in the network parameters, with a short lease (10 seconds)
 * wait the lease to expire so that the poisoned client asks for a new lease
@@ -20,8 +18,6 @@ When a workstation reboots or plugs into a network, a broadcast DHCP request is 
 * with the injected WPAD server address, the Windows client will try to obtain the wpad.dat file on the rogue WPAD. Responder will then require the client to authenticate.
 
 In order to start DHCP poisoning for WPAD spoofing with Responder, the `Responder.conf` file needs to be tweaked.
-
-
 
 ```
 WPADScript = function FindProxyForURL(url, host){if ((host == "localhost") || shExpMatch(host, "localhost.*") ||(host == "127.0.0.1") || isPlainHostName(host)) return "DIRECT"; if (dnsDomainIs(host, "ProxySrv")||shExpMatch(host, "(*.ProxySrv|ProxySrv)")) return "DIRECT"; return 'PROXY ProxySrv:3128; PROXY ProxySrv:3141; DIRECT';}
@@ -42,4 +38,3 @@ responder --interface "eth0" --wredir --ProxyAuth --NBTNSdomain --verbose
 The proxy auth NTLM authentication can either be captured with Responder with the command line above or relayed with [ntlmrelayx](https://github.com/SecureAuthCorp/impacket/blob/master/examples/ntlmrelayx.py) (by using the `--http-port 3128` argument. The `--wredir` and `--ProxyAuth` arguments need to be removed from Responder's command line.).
 
 {% embed url="https://g-laurent.blogspot.com/2021/08/responders-dhcp-poisoner.html" %}
-

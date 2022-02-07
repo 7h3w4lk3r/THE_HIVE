@@ -1,4 +1,4 @@
-# DHCPv6 Spoofing
+# ⭕ DHCPv6 Spoofing
 
 ## DHCPv6 Spoofing and Poisoning
 
@@ -26,4 +26,3 @@ set dns.spoof.domains $DOMAIN_FQDN
 set dns.spoot.all true
 dns.spoof on
 ```
-

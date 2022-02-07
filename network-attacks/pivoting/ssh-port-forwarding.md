@@ -1,4 +1,4 @@
-# SSH Forwarding
+# ⭕ SSH Forwarding
 
 ## Local Port Forwarding
 
@@ -17,7 +17,7 @@ ssh -N -L localhost:localport:targethost:targetport [username@middlehost]
 * localhost : attackers machine local ip address, usually use 0.0.0.0 for all interfaces.
 * local port : port on attackers machine, will be used for connection later
 * target host / port : ip and port of the target machine inside the internal network that we want to access
-* middlehost : the compromised machine that is going to be used as a pivot  point.
+* middlehost : the compromised machine that is going to be used as a pivot point.
 
 #### example for smb port 445:
 
@@ -50,7 +50,7 @@ ssh -N -R attackerhost:attackerport:middlehost:middleport [username@attackerhost
 ```
 
 {% hint style="info" %}
-Port numbers don't have to be the same here.&#x20;
+Port numbers don't have to be the same here.
 {% endhint %}
 
 example for MySQL service port 3306:
@@ -138,7 +138,7 @@ sudo ssh -N -D 127.0.0.1:8080 student@10.11.0.128
 
 #### Now we must somehow direct our reconnaissance and attack tools to use this proxy. We can run any network application through HTTP, SOCKS4, and SOCKS5 proxies with the help of ProxyChains.
 
-#### we simply edit the main configuration file ` /etc/proxychains.conf` and add our SOCKS4 proxy to it:
+#### we simply edit the main configuration file `/etc/proxychains.conf` and add our SOCKS4 proxy to it:
 
 ![](<../../.gitbook/assets/image (264).png>)
 
@@ -206,4 +206,3 @@ sshuttle -r user@pivoting_machine x.x.x.x/24
 # -x == exclude some network to not transmit over the tunnel
 sshuttle -vNr user@pivoting_machine -x x.x.x.x.x/24
 ```
-

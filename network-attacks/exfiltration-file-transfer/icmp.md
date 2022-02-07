@@ -1,4 +1,4 @@
-# ICMP
+# ⭕ ICMP
 
 ## ICMP Exfiltration Service (Metasploit)
 
@@ -55,8 +55,3 @@ def process_packet(pkt):
 
 sniff(iface="tun0", prn=process_packet)
 ```
-
-
-
-
-

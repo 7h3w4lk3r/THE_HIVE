@@ -1,8 +1,8 @@
-# SSH
+# ⭕ SSH
 
 ## SSH - SCP
 
-### Generate Key Pair&#x20;
+### Generate Key Pair
 
 if you manage to upload a reverse-shell and get access to the machine you might be able to enter using ssh. Which might give you a better shell and more stability, and all the other features of SSH. Like transferring files.
 
@@ -55,7 +55,6 @@ echo 'set pass "password"' >> scp.exp
 echo 'expect {' >> scp.exp
 echo 'password: {send "$pass\r"; exp_continue}' >> scp.exp
 echo '}' >> scp.exp
-
 ```
 
 To run this file
@@ -65,40 +64,5 @@ expect scp.exp
 ```
 
 {% hint style="info" %}
-&#x20;you MUST use single quotes to surround the lines, as using double quotes will overlap with the double quotes that are included within the line, and will cause an issue with the first line
+you MUST use single quotes to surround the lines, as using double quotes will overlap with the double quotes that are included within the line, and will cause an issue with the first line
 {% endhint %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

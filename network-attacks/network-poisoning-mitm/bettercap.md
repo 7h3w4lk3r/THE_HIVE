@@ -1,4 +1,4 @@
-# Bettercap
+# ⭕ Bettercap
 
 ## Official Documentation
 
@@ -180,7 +180,7 @@ net.fuzz on/off
 set net.fuzz.layer [layers]
 ```
 
-#### change the percentage of packet and byte mutation&#x20;
+#### change the percentage of packet and byte mutation
 
 ```
 net.fuzz.rate
@@ -411,8 +411,6 @@ wifi.recon covers both 2.4 Ghz and 5Ghz frequencies. It’s doing everything you
 {% hint style="info" %}
 In case of an error: Can’t restore interface wlan0 wireless mode (SIOCSIWMODE failed: Bad file descriptor). Please adjust manually. Quit bettercap and manually set the wireless interface to monitor mode. For example, as follows:
 
-
-
 ```
 $ sudo ip link set wlan0 down
 $ sudo iw wlan0 set monitor control
@@ -488,10 +486,9 @@ Write the bytes `ff ff ff ff ff ff ff ff` to the BLE device `04:ff:de:ff:be:ff` 
 ```
 
 {% hint style="info" %}
-ble.enum only works one time per execution&#x20;
+ble.enum only works one time per execution
 
-incomplete support for macOS&#x20;
+incomplete support for macOS
 
 not supported on Windows
 {% endhint %}
-

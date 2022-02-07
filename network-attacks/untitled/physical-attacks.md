@@ -1,4 +1,4 @@
-# Physical Attacks
+# ⭕ Physical Attacks
 
 In this section we discuss Linux physical attack vectors and security bypass techniques.
 
