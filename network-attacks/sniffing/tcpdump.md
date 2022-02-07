@@ -1,4 +1,4 @@
-# TCPDUMP
+# ⭕ tcpdump
 
 ## tcpdump
 
@@ -13,7 +13,7 @@ when adding options like `stc, dst, port, host` ,etc. use `and` keyword between 
 ### Useful options
 
 * \-n : Host IP addresses and port numbers instead of names
-* \-i  \[int] :  Sniff on a particular interface ( - D lists interfaces )
+* \-i \[int] : Sniff on a particular interface ( - D lists interfaces )
 * \-v : Be verbose ( show TTL, IP ID, Total Length , IP options, and so on )
 * \-w : Dump packets to a file ( use -r to read file later )
 * \-x : Print hex
@@ -28,13 +28,13 @@ sudo tcpdump - w - | tee file . pcap | tcpdump - r -
 ### Expressions
 
 * **Protocol:** ether, ip , ip6 , arp , rarp , tcp , udp: protocol type
-* **Type:**&#x20;
+* **Type:**
   * host \[host] : Only give me packets to or from that host
-  * &#x20;net \[network] : Only packets for a given network
-  * &#x20;port \[portnum] : Only packets for that port&#x20;
+  * net \[network] : Only packets for a given network
+  * port \[portnum] : Only packets for that port
   * portrange \[start - end] : Only packets in that range of ports
-* **Direction:**&#x20;
-  * src : Only give me packets from that host or port&#x20;
+* **Direction:**
+  * src : Only give me packets from that host or port
   * dst : Only give me packets to that host
 * Use "and" or "or" to combine these together
 * Use "not" to negate

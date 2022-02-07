@@ -33,5 +33,5 @@ At this point, you are ready to reset the root password. So go ahead and change 
 Afterwards when you reboot into the machine, you will be able to access the root account with the new password you have used.
 
 {% hint style="info" %}
-The solution to this problem is to [enabling grub password authentication](../../hardening-and-monitoring/untitled/os-security/grub-hardening.md).
+The solution to this problem is to [enabling grub password authentication](../../blue-team/untitled/os-security/grub-hardening.md).
 {% endhint %}

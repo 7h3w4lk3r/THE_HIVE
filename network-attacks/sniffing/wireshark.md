@@ -1,4 +1,4 @@
-# Wireshark
+# ⭕ Wireshark
 
 ## Sample pcap Captures
 
@@ -73,6 +73,3 @@ tcp[0xd]&18=2 → capture only SYN packets
 Full Cheat Sheet
 
 {% embed url="https://cdn.comparitech.com/wp-content/uploads/2019/06/Wireshark-Cheat-Sheet.pdf" %}
-
-
-

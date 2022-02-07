@@ -24,19 +24,19 @@ Here is an IPv6 address example:
 
 Broadcast addresses are no longer used in IPv6, replaced with multicast addresses. If an IPv6 host wants to send traffic to all the hosts on the LAN, which would have formerly used a broadcast IPv4 address and an `FF:FF:FF:FF:FF:FF` MAC address, the host uses the `FF02::1 IPv6` address with a destination MAC address of `33:33:00:00:00:01`
 
-#### Common IPv6 addresses include the following:&#x20;
+#### Common IPv6 addresses include the following:
 
-**FE80::/10** – Link local (analogous to IPv4 169.254.0.0/16 address space defined in RFC 5735 and RFC 3927)&#x20;
+**FE80::/10** – Link local (analogous to IPv4 169.254.0.0/16 address space defined in RFC 5735 and RFC 3927)
 
-**FC00::/7** – Unique local address (analogous to IPv4 192.168.0.0/16, 10.0.0.0/8, and 172.16.0.0/12 address space defined in RFC 1918)&#x20;
+**FC00::/7** – Unique local address (analogous to IPv4 192.168.0.0/16, 10.0.0.0/8, and 172.16.0.0/12 address space defined in RFC 1918)
 
 **FF00::/8** – Multicast IPv6 traffic
 
 **FF02::1/64** – All nodes multicast address, replacing IPv4 broadcast address 255.255.255.255
 
-**2000::/16** – Used for stateless autoconfiguration of IPv6 addresses using the EUI 64 expansion method, leveraging the client MAC address&#x20;
+**2000::/16** – Used for stateless autoconfiguration of IPv6 addresses using the EUI 64 expansion method, leveraging the client MAC address
 
-**2001::/16** – Internet-wide global allocation of IPv6 address space to regional registries (analogous to the former IPv4 unique organizational address space allocations, such as 4.0.0.0/8, 64.24.0.0/16, and so on)&#x20;
+**2001::/16** – Internet-wide global allocation of IPv6 address space to regional registries (analogous to the former IPv4 unique organizational address space allocations, such as 4.0.0.0/8, 64.24.0.0/16, and so on)
 
 **2001:db8::/32** – Used for documentation purposes
 
@@ -74,8 +74,6 @@ The IPv6 loopback address is ::1. You can ping it as follows:
 ping ::1
 ```
 
-
-
 ## Enumeration
 
 ### nmap
@@ -96,7 +94,6 @@ targets-ipv6-multicast-invalid-dst.nse
 targets-ipv6-multicast-mld.nse
 targets-ipv6-multicast-slaac.nse
 targets-ipv6-wordlist.nse
-
 ```
 
 ### metasploit
@@ -109,12 +106,11 @@ search ipv6
    auxiliary/scanner/discovery/ipv6_multicast_ping
    auxiliary/scanner/discovery/ipv6_neighbor
    auxiliary/scanner/discovery/ipv6_neighbor_router_advertisement
-
 ```
 
 ## Exploitation
 
-#### see[ IPv6 Attacks](../../layer-2-and-3-attacks/ipv6-attacks/) section.
+#### see[ IPv6 Attacks](../../network-devices/ipv6-attacks/) section.
 
 {% embed url="https://www.kali.org/tools/thc-ipv6" %}
 
