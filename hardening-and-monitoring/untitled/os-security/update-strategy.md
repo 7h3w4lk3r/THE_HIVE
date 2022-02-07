@@ -11,7 +11,7 @@
 Verify package repositories are configured correctly. Depending on the package management in use one of the following command groups may provide the needed information:
 
 ```
-# yum repo-list
+# yum repolist
 # apt-cache policy
 # zypper repos
 ```

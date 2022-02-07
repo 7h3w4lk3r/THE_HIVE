@@ -15,13 +15,13 @@
 * [ ] **Firewalking**
 * [ ] **Product Vulnerability**
 
-## Detection
+## <mark style="color:red;">Detection</mark>
 
 **Usually, the presence of a firewall is detected when nmap shows some ports as filtered, but a lot of times we might face different scenarios in which the scan speed is suddenly dropped or previously live hosts are not detected as "up" in another host discovery scan.** all of these are indicators of a change in the packet routes or target host behavior. although firewall testing is not a complicated topic, the testing scenarios can be endless depending on the firewall type and configurations.
 
-## Policy/Rule Test
+## <mark style="color:red;">Policy/Rule Test</mark>
 
-### Hping3
+### <mark style="color:orange;">Hping3</mark>
 
 A great tool for packet crafting and generating custom traffic for testing firewall rules and anti-DoS systems.
 
@@ -31,7 +31,7 @@ A great tool for packet crafting and generating custom traffic for testing firew
 hping3 -1 google.com
 ```
 
-**Traceroute using ICMP**: This example is similar to famous utilities like tracert (windows) or traceroute (linux) who uses ICMP packets increasing every time in 1 its TTL value.
+<mark style="color:green;">**Traceroute using ICMP**</mark><mark style="color:green;">:</mark> This example is similar to famous utilities like tracert (windows) or traceroute (linux) who uses ICMP packets increasing every time in 1 its TTL value.
 
 ```
 hping3 — traceroute -V -1 testpage.com
@@ -45,7 +45,7 @@ we can also use the traceroute command to perform traceroute with different meth
 hping3 — traceroute -V -S -p 80 -s 5050 testpage.com
 ```
 
-**Other types of ICMP:** This example sends a ICMP address mask request ( Type 17 ).
+<mark style="color:green;">**Other types of ICMP:**</mark> This example sends a ICMP address mask request ( Type 17 ).
 
 ```
 hping3 -c 1 -V -1 -C 17 testpage.com
@@ -53,43 +53,43 @@ hping3 -c 1 -V -1 -C 17 testpage.com
 
 for testing other ICMP types check out the [`ICMP`](broken-reference/) protocol section.
 
-**Other types of Port Scanning:** First type we will try is the FIN scan. In a TCP connection the FIN flag is used to start the connection closing routine. If we do not receive a reply, that means the port is open. Normally firewalls send a RST+ACK packet back to signal that the port is closed.
+<mark style="color:green;">**Other types of Port Scanning:**</mark> First type we will try is the FIN scan. In a TCP connection the FIN flag is used to start the connection closing routine. If we do not receive a reply, that means the port is open. Normally firewalls send a RST+ACK packet back to signal that the port is closed.
 
 ```
 hping3 -c 1 -V -p 80 -s 5050 -F testpage.com
 ```
 
-**Ack Scan:** This scan can be used to see if a host is alive (when Ping is blocked for example). This should send a RST response back if the port is open.
+<mark style="color:green;">**Ack Scan:**</mark> This scan can be used to see if a host is alive (when Ping is blocked for example). This should send a RST response back if the port is open.
 
 ```
 hping3 -c 1 -V -p 80 -s 5050 -A testpage.com
 ```
 
-**Xmas Scan:** This scan sets the sequence number to zero and set the URG + PSH + FIN flags in the packet. If the target device’s TCP port is closed, the target device sends a TCP RST packet in reply. If the target device’s TCP port is open, the target discards the TCP Xmas scan, sending no reply.
+<mark style="color:green;">**Xmas Scan:**</mark> This scan sets the sequence number to zero and set the URG + PSH + FIN flags in the packet. If the target device’s TCP port is closed, the target device sends a TCP RST packet in reply. If the target device’s TCP port is open, the target discards the TCP Xmas scan, sending no reply.
 
 ```
 hping3 -c 1 -V -p 80 -s 5050 -M 0 -UPF testpage.com
 ```
 
-**Null Scan:** This scan sets the sequence number to zero and have no flags set in the packet. If the target device’s TCP port is closed, the target device sends a TCP RST packet in reply. If the target device’s TCP port is open, the target discards the TCP NULL scan, sending no reply.
+<mark style="color:green;">**Null Scan:**</mark> This scan sets the sequence number to zero and have no flags set in the packet. If the target device’s TCP port is closed, the target device sends a TCP RST packet in reply. If the target device’s TCP port is open, the target discards the TCP NULL scan, sending no reply.
 
 ```
 hping3 -c 1 -V -p 80 -s 5050 -Y testpage.com
 ```
 
-**Smurf Attack:** This is a type of denial-of-service attack that floods a target system via spoofed broadcast ping messages.
+<mark style="color:green;">**Smurf Attack:**</mark> This is a type of denial-of-service attack that floods a target system via spoofed broadcast ping messages.
 
 ```
 hping3 -1 — flood -a VICTIM_IP BROADCAST_ADDRESS
 ```
 
-**DOS Land Attack:**
+<mark style="color:green;">**DOS Land Attack:**</mark>
 
 ```
 hping3 -V -c 1000000 -d 120 -S -w 64 -p 445 -s 445 — flood — rand-source VICTIM_IP
 ```
 
-#### useful hping3 options:
+#### <mark style="color:green;">useful hping3 options:</mark>
 
 ```
 # MODE   default mode     TCP
@@ -160,9 +160,9 @@ hping3 -V -c 1000000 -d 120 -S -w 64 -p 445 -s 445 — flood — rand-source VIC
   -B  --safe       enable 'safe' protocol
 ```
 
-### nmap
+### <mark style="color:orange;">nmap</mark>
 
-**fragmentation :** The -f command induces our scan to deploy diminutive fragmented IP packets. Specifically, our command utilizes 16 bytes per fragment which diminishes the number of fragments. Fragmented packets is one of them and consist in sending several tiny packets instead of one normal size packet.
+<mark style="color:green;">**fragmentation :**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> The -f command induces our scan to deploy diminutive fragmented IP packets. Specifically, our command utilizes 16 bytes per fragment which diminishes the number of fragments. Fragmented packets is one of them and consist in sending several tiny packets instead of one normal size packet.
 
 You can use fragmented packets with Nmap using the "-f" option, however, nowadays most firewall and IDS detect fragmented packets.
 
@@ -172,7 +172,7 @@ nmap -f 192.168.1.12
 
 ***
 
-**custom offset size :** nmap `--mtu` command allows us to specify our own offset size. Remember that the offset size has to be a multiple of 16.
+<mark style="color:green;">**custom offset size :**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> nmap `--mtu` command allows us to specify our own offset size. Remember that the offset size has to be a multiple of 16.
 
 * Nmap is giving the option to the user to set a specific MTU (Maximum Transmission Unit) to the packet.
 * This is similar to the packet fragmentation technique.
@@ -184,25 +184,25 @@ nmap -f 192.168.1.12
 nmap --badsum 192.168.1.12
 ```
 
-**bad checksum :** Badsum command induces the deployment of an invalid TCP/UDP/SCTP checksum for packets transmitted to our target. As practically every host IP stack would correctly drop the packets, each response accepted is possibly originating from a firewall or Intrusion Detection System that wasn’t concerned with confirming the checksum. Additionally, we try to use some scripts from the Nmap NSE like "firewall-bypass," but I should warn you that results from the usage of this script can be a false positive with a high percentage.
+<mark style="color:green;">**bad checksum :**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> Badsum command induces the deployment of an invalid TCP/UDP/SCTP checksum for packets transmitted to our target. As practically every host IP stack would correctly drop the packets, each response accepted is possibly originating from a firewall or Intrusion Detection System that wasn’t concerned with confirming the checksum. Additionally, we try to use some scripts from the Nmap NSE like "firewall-bypass," but I should warn you that results from the usage of this script can be a false positive with a high percentage.
 
 ```
 nmap --badsum 192.168.1.12
 ```
 
-**helper bypass :** This script detects a vulnerability in Netfilter and other firewalls that use helpers to dynamically open ports for protocols such as FTP and sip (in our case, we also combine it with stealth scan). The script works by spoofing a packet from the target server asking for opening a related connection to a target port, which will be fulfilled by the firewall through the adequate protocol helper port. The attacking machine should be on the same network segment as the firewall for this to work. The script supports FTP helper on both IPv4 and IPv6. Real path filter is used to prevent such attacks.
+<mark style="color:green;">**helper bypass :**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> This script detects a vulnerability in Netfilter and other firewalls that use helpers to dynamically open ports for protocols such as FTP and sip (in our case, we also combine it with stealth scan). The script works by spoofing a packet from the target server asking for opening a related connection to a target port, which will be fulfilled by the firewall through the adequate protocol helper port. The attacking machine should be on the same network segment as the firewall for this to work. The script supports FTP helper on both IPv4 and IPv6. Real path filter is used to prevent such attacks.
 
 ```
 map -sS -T5 192.168.1.12 --script firewall-bypass
 ```
 
-**Avoiding signatures:** add garbage data to the packets so the IPS/IDS signature is avoided.
+<mark style="color:green;">**Avoiding signatures:**</mark> add garbage data to the packets so the IPS/IDS signature is avoided.
 
 ```
 --data-length 25
 ```
 
-**firewalk:** Tries to discover firewall rules using an IP TTL expiration technique known as firewalking.To determine a rule on a given gateway, the scanner sends a probe to a metric located behind the gateway, with a TTL one higher than the gateway. If the probe is forwarded by the gateway, then we can expect to receive an ICMP\_TIME\_EXCEEDED reply from the gateway next hop router, or eventually the metric itself if it is directly connected to the gateway. Otherwise, the probe will timeout.
+<mark style="color:green;">**firewalk:**</mark> Tries to discover firewall rules using an IP TTL expiration technique known as firewalking.To determine a rule on a given gateway, the scanner sends a probe to a metric located behind the gateway, with a TTL one higher than the gateway. If the probe is forwarded by the gateway, then we can expect to receive an ICMP\_TIME\_EXCEEDED reply from the gateway next hop router, or eventually the metric itself if it is directly connected to the gateway. Otherwise, the probe will timeout.
 
 It starts with a TTL equals to the distance to the target. If the probe timeout, then it is resent with a TTL decreased by one. If we get an ICMP\_TIME\_EXCEEDED, then the scan is over for this probe.
 
@@ -237,7 +237,7 @@ nmap --script=firewalk --traceroute --script-args=firewalk.probe-timeout=400ms <
 nmap --script=firewalk --traceroute --script-args=firewalk.max-probed-ports=7 <host>
 ```
 
-**Custom Scan Types :** The --scanflags option allows you to design your own scan by specifying arbitrary TCP flags. Let your creative juices flow, while evading intrusion detection systems whose vendors simply paged through the Nmap man page adding specific rules! The --scanflags argument can be a numerical flag value such as 9 (PSH and FIN), but using symbolic names is easier. Just mash together any combination of URG, ACK, PSH, RST, SYN, and FIN. For example, --scanflags URGACKPSHRSTSYNFIN sets everything, though it's not very useful for scanning. The order these are specified in is irrelevant.
+<mark style="color:green;">**Custom Scan Types :**</mark> The --scanflags option allows you to design your own scan by specifying arbitrary TCP flags. Let your creative juices flow, while evading intrusion detection systems whose vendors simply paged through the Nmap man page adding specific rules! The --scanflags argument can be a numerical flag value such as 9 (PSH and FIN), but using symbolic names is easier. Just mash together any combination of URG, ACK, PSH, RST, SYN, and FIN. For example, --scanflags URGACKPSHRSTSYNFIN sets everything, though it's not very useful for scanning. The order these are specified in is irrelevant.
 
 In addition to specifying the desired flags, you can specify a TCP scan type (such as -sA or -sF). That base type tells Nmap how to interpret responses. For example, a SYN scan considers no-response indicative of a filtered port, while a FIN scan treats the same as open|filtered. Nmap will behave the same way it does for the base scan type, except that it will use the TCP flags you specify instead. If you don't specify a base type, SYN scan is used.
 
@@ -253,7 +253,7 @@ nmap -sS --scanflags SYNFIN [ip]
 nmap -sF --scanflags PSH [ip]
 ```
 
-### Scapy
+### <mark style="color:orange;">Scapy</mark>
 
 {% embed url="https://resources.infosecinstitute.com/topic/port-scanning-using-scapy" %}
 
@@ -265,9 +265,9 @@ nmap -sF --scanflags PSH [ip]
 
 {% embed url="http://blog.facilelogin.com/2010/12/hand-crafting-tcp-handshake-with-scapy.html" %}
 
-## Scan Timing
+## <mark style="color:red;">Scan Timing</mark>
 
-### nmap Timing Options
+### <mark style="color:orange;">nmap Timing Options</mark>
 
 | **Description**                    | **Option \[flag]**        |
 | ---------------------------------- | ------------------------- |
@@ -287,7 +287,7 @@ nmap -sF --scanflags PSH [ip]
 | Maximum Packet Rate                | **–max-rate**             |
 | Defeat Reset Rate Limits           | **–defeat-rst-ratelimit** |
 
-### **NMAP Timing Unit Flags**
+### <mark style="color:orange;">**NMAP Timing Unit Flags**</mark>
 
 By default, NMAP executes time units in seconds. However, by applying a qualifier to the timing flag, we can instruct NMAP to accept timing units in milliseconds, minutes, or hours – as seen in **Table 1.2** below.
 
@@ -318,7 +318,7 @@ Or:
 nmap – host-timeout 1m 192.168.130.132
 ```
 
-### **NMAP Timing Templates**
+### <mark style="color:orange;">**NMAP Timing Templates**</mark>
 
 **Flag:** -T
 
@@ -341,7 +341,29 @@ NMAP provides six templates \[0 to 5] we can use to slow down scanning \[evade f
 
 {% embed url="https://nmap.org/book/man-performance.html" %}
 
-## Port Knocking
+## <mark style="color:red;">Fire Walking</mark>
+
+Fire walking is the method of determining the movement of a data packet from an untrusted external host to a protected internal host through a firewall.\
+\
+The idea behind fire walking is to determine which ports are open and whether packets with control information can pass through a packet filtering device.
+
+### <mark style="color:orange;">firewalk</mark> <a href="#techopedia-explains-fire-walking" id="techopedia-explains-fire-walking"></a>
+
+Firewalk is an active reconnaissance network security tool that attempts to determine what layer 4 protocols a given IP forwarding device will pass. It works by sending out TCP or UDP packets with a TTL one hop greater than the targeted gateway. If the gateway allows the traffic, it will forward the packets to the next hop where they will expire and elicit an ICMP\_TIME\_EXCEEDED message. Otherwise, it will likely drop the packets and there will be no response.
+
+To get the correct IP TTL that will result in packets expiring one hop beyond the gateway, Firewalk needs to ramp up hop counts. It does this in the same manner that traceroute works. Once the scan is `bound` (that is, Firewalk knows the gateway hop count), it begins the scan. The ultimate destination host does not have to be reached, it only needs to be somewhere downstream, on the other side of the gateway, from the scanning host.
+
+Firewalk helps in assessing the security configuration of packet filtering devices, such as those used in firewall systems. It is relevant for network security assessments, like network penetration tests (pentests).
+
+<mark style="color:green;">Scan ports 8079-8081 (</mark><mark style="color:green;">`-S8079-8081`</mark><mark style="color:green;">) through the eth0 interface (</mark><mark style="color:green;">`-i eth0`</mark><mark style="color:green;">), do not resolve hostnames (</mark><mark style="color:green;">`-n`</mark><mark style="color:green;">), use TCP (</mark><mark style="color:green;">`-pTCP`</mark><mark style="color:green;">) via the gateway (</mark><mark style="color:green;">`192.168.1.1`</mark><mark style="color:green;">) against the target IP (</mark><mark style="color:green;">`192.168.0.1`</mark><mark style="color:green;">):</mark>
+
+```
+firewalk -S8079-8081  -i eth0 -n -pTCP 192.168.1.1 192.168.0.1
+```
+
+
+
+## <mark style="color:red;">Port Knocking</mark>
 
 Port-knocking the a obfuscation-as-security technique. I basically means that after knocking on ports in a specific sequence a certain port will open automatically. It seems to be more popular in Capture-the-flag contests than real life networks. But I have included it anyways, since CTF:s are great.
 
@@ -349,7 +371,7 @@ This is a way to hide certain ports, so you don't get unwanted intrusion-intents
 
 When you "knock" on a port you are really just sending TCP-packets with `SYN`-flag to that port. The closed port will then respond with a `ACK/RST`. Which basically means that the host has received the `TCP`-packet, and it ACKnolwdge it, but responds with a Reset (`RST`) flag. `RST` just means that the port is closed.
 
-#### Knock
+### <mark style="color:orange;">Knock</mark>
 
 ```
 apt install knockd
@@ -363,13 +385,13 @@ rescan the system to see if any ports are now open, try to connect to new ports:
 nc 192.168.1.102 8888
 ```
 
-#### nmap
+### <mark style="color:orange;">nmap</mark>
 
 ```
 for x in 4000 5000 6000; do nmap -Pn --host_timeout 201 --max-retries 0 -p $x server_ip_address; done
 ```
 
-#### Netcat
+### <mark style="color:orange;">Netcat</mark>
 
 ```
 nc 192.168.1.102 4000
@@ -378,23 +400,23 @@ nc 192.168.1.102 6000
 nc 192.168.1.102 8888
 ```
 
-## NAT Slipstreaming
+## <mark style="color:red;">NAT Slipstreaming</mark>
 
 NAT Slipstreaming allows an attacker to remotely access any TCP/UDP services bound to a victim machine, bypassing the victim’s NAT/firewall, just by the victim visiting a website
 
 {% embed url="https://github.com/samyk/slipstream" %}
 
-## Bypass by DNS History
+## <mark style="color:red;">Bypass by DNS History</mark>
 
 {% embed url="https://github.com/vincentcox/bypass-firewalls-by-DNS-history" %}
 
-## Ohter Tools
+## <mark style="color:red;">Ohter Tools</mark>
 
 {% embed url="https://github.com/tcstool/Fireaway" %}
 
 {% embed url="https://github.com/clayball/wily-possum" %}
 
-## Other Resources
+## <mark style="color:red;">Other Resources</mark>
 
 {% embed url="https://medium.com/@IamLucif3r/top-10-firewall-ids-evasion-techniques-cb1e1cc06f24" %}
 
