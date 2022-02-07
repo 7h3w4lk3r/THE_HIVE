@@ -22,7 +22,7 @@ Most of the attacks in this section (in real world scenarios as well) are based 
 8. **Asset Access**
 9. **Exfiltration**
 
-### Active Directory Kill Chain
+## <mark style="color:red;">Active Directory Kill Chain</mark>
 
 ![](<../../.gitbook/assets/image (174).png>)
 

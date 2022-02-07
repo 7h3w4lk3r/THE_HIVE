@@ -1,14 +1,14 @@
-# Domain Enumeration
+# ⭕ Enumeration
 
 {% hint style="info" %}
 Commands mentioned here are a combination of windows system built-in commands and automated tools.
 {% endhint %}
 
-## Enumerating without Credentials
+## <mark style="color:red;">Enumerating without Credentials</mark>
 
 If you just have access to an AD environment but you don't have any credentials/sessions.
 
-### **Check for null and Guest Access on SMB Services**
+### <mark style="color:orange;">**Check for null and Guest Access on SMB Services**</mark>
 
 **for old versions of windows.**
 
@@ -20,7 +20,7 @@ smbmap -u "" -p "" -P 445 -H <DC IP> && smbmap -u "guest" -p "" -P 445 -H <DC IP
 smbclient -U '%' -L //<DC IP> && smbclient -U 'guest%' -L //
 ```
 
-### **Enumerate LDAP**
+### <mark style="color:orange;">**Enumerate LDAP**</mark>
 
 ```
 nmap -n -sV --script "ldap* and not brute" -p 389 <DC IP>
@@ -28,7 +28,7 @@ nmap -n -sV --script "ldap* and not brute" -p 389 <DC IP>
 
 ## Exploitation with Credentials
 
-### Check [crackmapexec](lateral-movement/pass-the-hash-password/crackmapexec.md) and [Impacket ](impacket.md)section.
+### Check [crackmapexec](exploitation/crackmapexec.md) and [Impacket ](exploitation/impacket.md)section.
 
 ## **Poisoning the Network**
 

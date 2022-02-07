@@ -1,4 +1,4 @@
-# 🔧 Credential Dumping
+# ⭕ Credential Dumping
 
 ## Registry
 
@@ -36,19 +36,13 @@ The Windows 10 Task Manager can also be used to dump LSASS memory, without the h
 
 WDigest protocol was introduced in Windows XP and was designed to be used with HTTP Protocol for authentication. Microsoft has this protocol enabled by default in multiple versions of Windows (Windows XP — Windows 8.0 and Windows Server 2003 — Windows Server 2012) which means that plain-text passwords are stored in the LSASS (Local Security Authority Subsystem Service).
 
-
-
 ### LSA Protection
 
 Microsoft in Windows 8.1 and later has provided additional protection for the LSA to prevent untrusted processes from being able to read its memory or to inject code. This will prevent regular mimikatz.exe sekurlsa:logonpasswords for working properly. To activate this protection you need to set the value RunAsPPL in HKEY\_LOCAL\_MACHINE\SYSTEM\CurrentControlSet\Control\LSA to 1.
 
-
-
 ### Credential Guard
 
 Credential Guard is a new feature in Windows 10 (Enterprise and Education edition) that helps to protect your credentials on a machine from threats such as pass the hash. This works through a technology called Virtual Secure Mode (VSM) which utilizes virtualization extensions of the CPU (but is not an actual virtual machine) to provide protection to areas of memory (you may hear this referred to as Virtualization Based Security or VBS). VSM creates a separate "bubble" for key processes that are isolated from the regular operating system processes, even the kernel and only specific trusted processes may communicate to the processes (known as trustlets) in VSM. This means a process in the main OS cannot read the memory from VSM, even kernel processes. The Local Security Authority (LSA) is one of the trustlets in VSM in addition to the standard LSASS process that still runs in the main OS to ensure support with existing processes but is really just acting as a proxy or stub to communicate with the version in VSM ensuring actual credentials run on the version in VSM and are therefore protected from attack. Credential Guard must be turned on and deployed in your organization as it is not enabled by default.
-
-
 
 ### RDP RestrictedAdmin Mode
 
@@ -87,8 +81,6 @@ A cached verifier is not created at sign-in or unlock, so offline sign-in is no 
 After the user account is added to the Protected Users group, protection will begin when the user signs in to the device.
 
 ## Windows Hash Types
-
-
 
 Below is a short list of the most useful hash types for Active Directory hunting.
 

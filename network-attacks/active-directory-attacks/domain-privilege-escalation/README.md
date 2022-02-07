@@ -1,2 +1,2 @@
-# 🔧 Domain Privilege Escalation
+# ⭕ Privilege Escalation
 
