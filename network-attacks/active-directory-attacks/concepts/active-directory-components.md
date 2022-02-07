@@ -1,28 +1,8 @@
 # Active Directory Components
 
-
+## <mark style="color:red;">Active Directory Components</mark>
 
 ![](<../../../.gitbook/assets/image (168).png>)
-
-### **Forests**&#x20;
-
-Represents a complete Active Directory instance. **It is made of one or more domains and domain trees.** Each domain has its own characteristics, boundaries, and resources. But at the same time, it shares a common logical structure, schema, and directory configuration within the forest. Similarly, tribes have a relationship with the forest and other tribes, and **domains in the Active Directory forest will have a two-way trust relationship. The first domain controller in the Active Directory service deployment is the forest root domain.**
-
-{% hint style="info" %}
-Two-way transitive trust is a logical link between domains, where the trusting domain honors the logon authentication of the trusted domain. When considering the previous example, users in rebeladminit.com can authenticate into mytraining.ca , and vice versa.
-
-Any object located in a particular domain inherently trusts other objects in other domains in the same forest. This is not the same as when considering authentication between forests. For that, it may (depending on the trust method) require additional login credentials. An organization can have a single forest or multiple forests based on the company's business requirements.
-{% endhint %}
-
-### Trees
-
-A domain tree is **a collection of domains that reflects the organization's structure. domains inside the domain tree have a parent-child relationship.** The first domain in the domain tree is called the parent domain. This is also the root domain. All other domains in the domain tree are called the child domains. There will be only one parent domain in a domain tree. **In some documentation, child domains are also called subdomains.** When dealing with internet domains, the creation of an additional placeholder, a sub-URL, is sometimes required
-
-### Domain
-
-The domain **contains the logical components to achieve the administrative goals of the organization.** By default, **the domain becomes the security boundary for the objects inside it.** Each object has its own administrative goals. **Individuals in tribes have different identities and responsibilities, but all of them are part of the tribe and the forest.** In the same way, all the objects in the domain are part of a common database. Also, everyone in the tribe still needs to follow some of the common rules. Objects in the domain are also controlled by the defined security rules.
-
-### Organizational units
 
 **Organizational units help group objects on a smaller scale within the domain.** The most common way is to group objects that have similar security and administrative requirements together.When deploying a domain controller, it creates a default OU structure to segment the most common object types, such as users, computers, and domain controllers. The administrator can add, remove, and delete an OU as required.
 
@@ -32,7 +12,7 @@ The domain **contains the logical components to achieve the administrative goals
 OUs can also contain object types, such as users, groups, contacts, computers, organizational units, and printers
 {% endhint %}
 
-### Domain Trust
+### <mark style="color:orange;">Domain Trust</mark>
 
 At a high level, a **domain trust** establishes the ability for **users in one domain to authenticate** to resources or act as a security principal **in another domain**.
 
@@ -55,65 +35,7 @@ A trust relationship can also be **transitive** (A trust B, B trust C, then A tr
 * **Forest** – a transitive trust between one forest root domain and another forest root domain. Forest trusts also enforce SID filtering.
 * **MIT** – a trust with a non-Windows RFC4120-compliant Kerberos domain. I hope to dive more into MIT trusts in the future.
 
-
-
-### Schema
-
-**The schema is the foundation of object structures for the entire forest**. **Every domain in the forest shares the same set of object structures that are defined in the schema.** If an attacker accesses or modifies the schema, every domain in the forest will be affected. The schema is one-third of the directory database, which is stored on all domain controllers in every domain. **Only one domain controller in the forest can update the schema?the Schema Master.**
-
-****
-
-### Account Policy
-
-The Account Policy for domain users is established at the domain level. The Account Policy for the domain level includes control over passwords, account lockout, and Kerberos authentication. This means that domain user accounts cannot be controlled at the organizational unit level; they must be controlled at the domain level. Also, the Account Policy is not inherited from the parent domain, if we are focusing in on a child domain. There is no possible way to get a parent domain to push down Account Policies to child domains.\
-
-
-### Group Policy Objects
-
-GPOs are the main form of pushing out security to computers in the domain. However, GPOs that are configured within a domain do not and cannot span multiple domains by inheritance or hierarchy. The GPOs can be available to other domains, but there is no option to configure GPOs to span domains with a single configuration.
-
-****
-
-### Delegation
-
-By far one of the most important features of Active Directory is delegation. However, delegation without a solid OU design is almost impossible to implement. OUs need to be designed to delegate administration. The key to delegation is to have the OU contain the objects that the delegate will control. For example, if you have delegated the ability for the HR manager to reset passwords for only the HR employees, then there needs to be an OU for these user accounts. A good design would have an OU named HR\_employees, which contains only the user accounts of the HR employees. The design would have this OU low in the OU hierarchy, so that no other OUs are below it. In that design, the HR manager will not have control over any other user accounts by default.\
-
-
-### GPO deployment
-
-Many administrators leave out the consideration of GPO deployment when they design OUs. This is a mistake, mainly for security reasons. The GPO deployment should be interwoven with delegation considerations. If there is a conflict between the two design needs, the delegation needs usually win. In this case, the GPO deployment will be taken care of by filtering the GPO (setting permissions on the GPO). An example of a typical GPO design would be the configuration of the Internet Explorer proxy settings for a branch office. All employees in the branch office need to have the same proxy settings for IE, which can easily be set by using GPOs. In this case, there would be an OU named Branch1\_employees, which contains the user accounts for only the branch office. This OU would be low in the OU hierarchy, with no other OUs below it.
-
-An error that many companies make is to duplicate their company's organizational chart for their OU design. The OUs are not well suited for this model, since this model usually breaks how the administration of objects and deployment of GPOs are implemented. This is not to say that a small percentage of companies have not successfully used the org chart for the OU design, but in most cases it will cause more anguish than benefit.
-
-
-
-{% hint style="info" %}
-This section is an overview of different Active Directory components taken from the book: <mark style="color:orange;">Mastering Active Directory</mark> by <mark style="color:orange;">Dishan Francis.</mark>
-{% endhint %}
-
-## <mark style="color:red;">Domain controllers</mark>
-
-The domain controller is a computer that runs a Windows server operating system, and holds the Active Directory Domain Services role. It can be either a physical server or a virtual server.
-
-The domain controller holds the directory partition that will be replicated to the other domain controllers in the same domain. The domain can have any number of domain controllers
-
-In Windows NT, it uses multiple domain controllers, but it maintains a single-master schema. This means that directory changes can only be made from a specific domain controller.
-
-Any object-level changes made in one domain controller will be replicated to all other domain controllers (directory service-related). That said, some of the Active Directory-related operational role changes can only be modified by the designated operation master role owner (FSMO roles).
-
-## <mark style="color:red;">Read-only domain controllers</mark>
-
-RODC <mark style="color:red;"></mark> allows organizations to have domain controllers in locations where data security and network security cannot be guaranteed.&#x20;
-
-Domain controllers contain a writable copy of the AD DS database. It is replicated among all the domain controllers in the same domain, but the read-only domain controller will have a read-only AD DS database.
-
-{% hint style="info" %}
-This feature is useful in a branch network
-{% endhint %}
-
-The RODC holds a copy of Active Directory objects and attributes from writable domain controllers, except the account passwords. If any changes need to be made to objects, they need to be made in a writable domain controller. Sometimes, the branch office may host applications that need write capabilities to the directory services. These requests will be pointed to the writable domain controller instead of the RODC.
-
-## <mark style="color:red;">Global catalog server</mark>
+###
 
 The global catalog server holds the full writable copy of objects in its host domain, and the partial copy of the objects in other domains in the same forest. The partial replica contains a copy of every object in the forest and the most commonly used attributes in queries.&#x20;
 
@@ -172,7 +94,7 @@ CN=Dishan Francis,CN=Users,DC=rebeladmin,DC=com
 
 Here, DC=rebeladmin,DC=com represents the domain name, CN=Users represents the user container, and at the end, CN=Dishan Francis represents the actual object name.
 
-&#x20;<mark style="color:orange;">Relative distinguished name (RDN)</mark> is a unique value within its parent container. For the preceding example, the RDN for the object is CN=Dishan Francis . Active Directory allows you to have the same RDN for multiple objects within the directory, but all of them need to be in separate containers. It is not permitted to have the same RDN for the object within the same container.
+<mark style="color:orange;">Relative distinguished name (RDN)</mark> is a unique value within its parent container. For the preceding example, the RDN for the object is CN=Dishan Francis . Active Directory allows you to have the same RDN for multiple objects within the directory, but all of them need to be in separate containers. It is not permitted to have the same RDN for the object within the same container.
 
 Changing values in the object will not modify the SID value. But if the hierarchical path was changed for an object, the Distinguished Name (DN) will be changed. For example, if you move a user object from one OU to another, the DN value for the user object will be changed.
 
@@ -191,7 +113,7 @@ Each of these server roles can be installed and configured using PowerShell. The
 | PowerShell cmdlets                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Install- WindowsFeature AD-Domain-Services | AD DS                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Install- WindowsFeature AD FS- Federation  |  AD FS                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Install- WindowsFeature AD FS- Federation  | AD FS                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Install-WindowsFeature ADLDS               | AD LDS                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Install- WindowsFeature ADRMS              | AD RMS - This role has two subfeatures, which are AD Rights Management Server and Identity Federation Support. If required, these individual roles can be installed using `Install- WindowsFeature ADRMS, ADRMS-Server, ADRMS-Identity` or `Install- WindowsFeature ADRMS -IncludeAllSubFeature` . It will install all the subfeatures.                                                                                                                                      |
 | Install- WindowsFeature AD-Certificate     | AD CS - This role has six subroles, which are certification authority ( `ADCS-Cert- Authority` ), Certificate Enrollment Policy Web Service ( `ADCS-Enroll-Web-Po`l ), Certificate Enrollment Web Service ( `ADCS-Enroll-Web-Svc` ), Certification Authority Web Enrollment ( `ADCS-Web-Enrollment` ), Network Device Enrollment Service ( `ADCS-Device-Enrollment` ), and Online Responder ( `ADCS-Online-Cert` ). These subfeatures can be added individually or together. |
@@ -200,7 +122,7 @@ Each of these server roles can be installed and configured using PowerShell. The
 
 AD FS allows you to share identities between trusted identity infrastructures and is based on a claim-based authorization (CBA) mechanism.
 
-It will trust identities from completely different identity infrastructures, and pass identity information as claims to the organization that hosts the applications. Then, the company that hosts the application will map these claims to claims that the application understands, and make the authorization decisions.&#x20;
+It will trust identities from completely different identity infrastructures, and pass identity information as claims to the organization that hosts the applications. Then, the company that hosts the application will map these claims to claims that the application understands, and make the authorization decisions.
 
 In normal scenarios, if you share a web-based system or application between two identity infrastructures, the partner organizations need to provide two credentials. One credential is to authenticate themselves with their own infrastructure, and the second one is to authenticate themselves with the remote infrastructure. AD FS allows users to have a SSO experience with the application.
 
@@ -241,7 +163,7 @@ AD CS helps organizations build public key infrastructure (PKI) in an easy, cost
 There are six role services for AD CS:
 
 1. <mark style="color:orange;">Certification authority (CA):</mark> Mainly, there are two types of CA. Microsoft named them root and subordinate CA. The placement of these on a network will be dependent on the PKI design. CA is responsible for issuing certificates to users, computers, and devices. It will also manage the validity of certificates.
-2. <mark style="color:orange;">Certification Authority Web Enrollment:</mark> This is a web interface that connects to CA in order to allow users to submit certificate requests, retrieve issued certificates, and download the certificate chain.&#x20;
+2. <mark style="color:orange;">Certification Authority Web Enrollment:</mark> This is a web interface that connects to CA in order to allow users to submit certificate requests, retrieve issued certificates, and download the certificate chain.
 3. <mark style="color:orange;">Online Responder:</mark> This will receive and respond to individual user requests to verify the status of digital certificates.
 4. <mark style="color:orange;">Network Device Enrollment Service:</mark> This service allows non- domain-joined network devices to obtain certificates.
 5. <mark style="color:orange;">Certificate Enrollment Web Service:</mark> This role service works with the Certificate Enrollment Policy Web Service, and allows users and computers to perform certificate enrollment using HTTPS. It also allows certificate enrollment for domain computers or devices that are not connected to the domain, and computers or devices that are not part of the domain.
@@ -251,7 +173,7 @@ There are six role services for AD CS:
 
 There are five flexible single master operations roles in the Active Directory infrastructure.
 
-&#x20;Each of them perform specific Active Directory tasks that other domain controllers in the infrastructure are not permitted to perform. These five FSMO roles are divided into two categories based on their operation boundaries:
+Each of them perform specific Active Directory tasks that other domain controllers in the infrastructure are not permitted to perform. These five FSMO roles are divided into two categories based on their operation boundaries:
 
 | Forest level                    | Domain level                                                   |
 | ------------------------------- | -------------------------------------------------------------- |
@@ -323,11 +245,11 @@ The PDC is also responsible for managing the Group Policy Object (GPO) edit. Eve
 
 ## <mark style="color:red;">Relative ID operations master role</mark>
 
-The relative identifier (RID) master role is a domain-wide setting, and each domain in the forest can have RID role owners. It is responsible for maintaining a pool of relative identifiers that will be used when creating objects in the domain. Each and every object in a domain has a unique security identifier (SID).&#x20;
+The relative identifier (RID) master role is a domain-wide setting, and each domain in the forest can have RID role owners. It is responsible for maintaining a pool of relative identifiers that will be used when creating objects in the domain. Each and every object in a domain has a unique security identifier (SID).
 
 The RID value is used in the process of SID value creation. The SID is a unique value to represent an object in Active Directory. The RID is the incremental portion of the SID value. Once the RID value is being used to generate a SID, it will not be used again. Even after deleting an object from AD, it will not able to reclaim the RID value back. This ensure the uniqueness of the SID value.
 
-&#x20;The RID role owner maintains a pool of RIDs. When the domain has multiple domain controllers, it will assign a block of 500 RID values for each domain controller. When they are used more than 50%, domain controllers will request another block of RIDs for the RID role owner
+The RID role owner maintains a pool of RIDs. When the domain has multiple domain controllers, it will assign a block of 500 RID values for each domain controller. When they are used more than 50%, domain controllers will request another block of RIDs for the RID role owner
 
 In the Active Directory domain, the RID role owner can be found using the following command:
 
@@ -339,7 +261,7 @@ Get-ADDomain | select RIDMaster
 
 ## <mark style="color:red;">Infrastructure operations master</mark>
 
-This role is also a domain-wide setting, and it is responsible for replicating SID and distinguished name (DN) value changes to cross-domains.&#x20;
+This role is also a domain-wide setting, and it is responsible for replicating SID and distinguished name (DN) value changes to cross-domains.
 
 SID and DN values get changed based on their location in the forest. So, if objects are moved, their new values need to be updated in groups and ACLs located in different domains. This is taken care of by the infrastructure operations master. This will ensure that the changed objects have access to their resources without interruptions.
 

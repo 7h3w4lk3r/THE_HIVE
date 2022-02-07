@@ -20,13 +20,11 @@ Each value consists of a value name and its associated data, if any. **MaxObject
 
 #### A registry tree can be 512 levels deep. You can create up to 32 levels at a time through a single registry API call.
 
-## Structure of the Registry
+## <mark style="color:red;">Structure of the Registry</mark>
 
 Much of the registry consists of nested containers known as subtrees, keys, and subkeys, which are like folders. The actual data is stored in the registry entries, the lowest level element in the registry. The entries are like files. The series of nested containers make up a path to each entry. Because entry names are unique only within a path, entries are referenced by their full registry path and name.
 
-
-
-### Subtree <a href="subtree" id="subtree"></a>
+### <mark style="color:orange;">Subtree</mark> <a href="#subtree" id="subtree"></a>
 
 Subtrees are the _root_, or primary divisions, of the registry. The Windows Server 2003 registry is divided into five subtrees. Subtrees themselves do not contain configuration data; they contain the keys, subkeys, and entries in which the data is stored. Click the name of a subtree to see its description:
 
@@ -36,29 +34,25 @@ Subtrees are the _root_, or primary divisions, of the registry. The Windows Serv
 * HKEY\_USERS
 * [HKEY\_CURRENT\_CONFIG](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc776168\(v=ws.10\))
 
-
-
-### Key <a href="key" id="key"></a>
+### <mark style="color:orange;">Key</mark> <a href="#key" id="key"></a>
 
 Keys are the next level down from subtree, which contain at least one subkey (for example, [Hardware Key](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc786058\(v=ws.10\))). Some subtrees do not have keys.
 
 
 
-### Subkey <a href="subkey" id="subkey"></a>
+### <mark style="color:orange;">Subkey</mark> <a href="#subkey" id="subkey"></a>
 
 Subkeys are the next level down from keys or subtrees (if the subtree has no keys). Subkeys store entries and other subkeys.
 
 
 
-### Entry <a href="entry" id="entry"></a>
+### <mark style="color:orange;">Entry</mark> <a href="#entry" id="entry"></a>
 
 Entries are the lowest-level element in the registry. They appear in the right pane of the registry editor window. Each entry consists of the entry name, its [Data Types in the Registry](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc785172\(v=ws.10\)) (which defines the length and format of data that the entry can store), and a field known as the _value_ of the registry entry. Data is stored in the value. Entries are referenced by their registry path and name.
 
 Entries store the actual configuration data for the operating system and the programs that run on the system. As such, they are different from subtrees, keys, and subkeys, which are merely containers.
 
-
-
-### Hive Files <a href="hive-files" id="hive-files"></a>
+### <mark style="color:orange;">Hive Files</mark> <a href="#hive-files" id="hive-files"></a>
 
 The permanent parts of the registry are stored as a set of files called the hive files. You can find a list of locations for these files in the hivelist subkey in HKLM\SYSTEM\CurrentControlSet\Control. These files are saved in systemroot\System32\Config and updated with each login. They consist of the following files, which store four of the five keys in HKEY\_LOCAL\_MACHINE and one key in HKEY\_USERS:
 
@@ -70,9 +64,7 @@ The permanent parts of the registry are stored as a set of files called the hive
 
 #### HKEY\_LOCAL\_MACHINE\HARDWARE is not stored as a file, because it is recreated each time the system starts.
 
-
-
-### Data Types
+### <mark style="color:orange;">Data Types</mark>
 
 Here is a list of common Types and what they represent:
 
@@ -80,30 +72,28 @@ Here is a list of common Types and what they represent:
 * **REG\_DWORD** – These values are commonly a “0” for a disabled option or a “1” for an enabled option.
 * **REG\_SZ** – These values are stored in a human readable format.
 
-## Registry Key Security and Access Rights <a href="registry-key-security-and-access-rights" id="registry-key-security-and-access-rights"></a>
+## <mark style="color:red;">Registry Key Security and Access Rights</mark> <a href="#registry-key-security-and-access-rights" id="registry-key-security-and-access-rights"></a>
 
 The valid access rights for registry keys include the DELETE, READ\_CONTROL, WRITE\_DAC, and WRITE\_OWNER [standard access rights](https://docs.microsoft.com/en-us/windows/desktop/SecAuthZ/standard-access-rights). Registry keys do not support the SYNCHRONIZE standard access right.
 
 The following table lists the specific access rights for registry key objects.
 
+| Value                                      | Meaning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <p>KEY_ALL_ACCESS (0xF003F)<br></p>        | <p>Combines the STANDARD_RIGHTS_REQUIRED, KEY_QUERY_VALUE, KEY_SET_VALUE, KEY_CREATE_SUB_KEY, KEY_ENUMERATE_SUB_KEYS, KEY_NOTIFY, and KEY_CREATE_LINK access rights.<br></p>                                                                                                                                                                                                                                                                                                                                                   |
+| <p>KEY_CREATE_LINK (0x0020)<br></p>        | <p>Reserved for system use.<br></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| <p>KEY_CREATE_SUB_KEY (0x0004)<br></p>     | <p>Required to create a subkey of a registry key.<br></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| <p>KEY_ENUMERATE_SUB_KEYS (0x0008)<br></p> | <p>Required to enumerate the subkeys of a registry key.<br></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| <p>KEY_EXECUTE (0x20019)<br></p>           | <p>Equivalent to KEY_READ.<br></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| <p>KEY_NOTIFY (0x0010)<br></p>             | <p>Required to request change notifications for a registry key or for subkeys of a registry key.<br></p>                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| <p>KEY_QUERY_VALUE (0x0001)<br></p>        | <p>Required to query the values of a registry key.<br></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| <p>KEY_READ (0x20019)<br></p>              | <p>Combines the STANDARD_RIGHTS_READ, KEY_QUERY_VALUE, KEY_ENUMERATE_SUB_KEYS, and KEY_NOTIFY values.<br></p>                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| <p>KEY_SET_VALUE (0x0002)<br></p>          | <p>Required to create, delete, or set a registry value.<br></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| <p>KEY_WOW64_32KEY (0x0200)<br></p>        | <p>Indicates that an application on 64-bit Windows should operate on the 32-bit registry view. This flag is ignored by 32-bit Windows. For more information, see <a href="https://docs.microsoft.com/en-us/windows/desktop/WinProg64/accessing-an-alternate-registry-view">Accessing an Alternate Registry View</a>.<br>This flag must be combined using the OR operator with the other flags in this table that either query or access registry values.<br><strong>Windows 2000:</strong> This flag is not supported.<br></p> |
+| <p>KEY_WOW64_64KEY (0x0100)<br></p>        | <p>Indicates that an application on 64-bit Windows should operate on the 64-bit registry view. This flag is ignored by 32-bit Windows. For more information, see <a href="https://docs.microsoft.com/en-us/windows/desktop/WinProg64/accessing-an-alternate-registry-view">Accessing an Alternate Registry View</a>.<br>This flag must be combined using the OR operator with the other flags in this table that either query or access registry values.<br><strong>Windows 2000:</strong> This flag is not supported.<br></p> |
+| <p>KEY_WRITE (0x20006)<br></p>             | Combines the STANDARD\_RIGHTS\_WRITE, KEY\_SET\_VALUE, and KEY\_CREATE\_SUB\_KEY access rights.                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
-
-| Value                                      | Meaning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <p>KEY_ALL_ACCESS (0xF003F)<br></p>        | <p>Combines the STANDARD_RIGHTS_REQUIRED, KEY_QUERY_VALUE, KEY_SET_VALUE, KEY_CREATE_SUB_KEY, KEY_ENUMERATE_SUB_KEYS, KEY_NOTIFY, and KEY_CREATE_LINK access rights.<br></p>                                                                                                                                                                                                                                                                                                                                                     |
-| <p>KEY_CREATE_LINK (0x0020)<br></p>        | <p>Reserved for system use.<br></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| <p>KEY_CREATE_SUB_KEY (0x0004)<br></p>     | <p>Required to create a subkey of a registry key.<br></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| <p>KEY_ENUMERATE_SUB_KEYS (0x0008)<br></p> | <p>Required to enumerate the subkeys of a registry key.<br></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| <p>KEY_EXECUTE (0x20019)<br></p>           | <p>Equivalent to KEY_READ.<br></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| <p>KEY_NOTIFY (0x0010)<br></p>             | <p>Required to request change notifications for a registry key or for subkeys of a registry key.<br></p>                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| <p>KEY_QUERY_VALUE (0x0001)<br></p>        | <p>Required to query the values of a registry key.<br></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| <p>KEY_READ (0x20019)<br></p>              | <p>Combines the STANDARD_RIGHTS_READ, KEY_QUERY_VALUE, KEY_ENUMERATE_SUB_KEYS, and KEY_NOTIFY values.<br></p>                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| <p>KEY_SET_VALUE (0x0002)<br></p>          | <p>Required to create, delete, or set a registry value.<br></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| <p>KEY_WOW64_32KEY (0x0200)<br></p>        | <p>Indicates that an application on 64-bit Windows should operate on the 32-bit registry view. This flag is ignored by 32-bit Windows. For more information, see <a href="https://docs.microsoft.com/en-us/windows/desktop/WinProg64/accessing-an-alternate-registry-view">Accessing an Alternate Registry View</a>.<br> This flag must be combined using the OR operator with the other flags in this table that either query or access registry values.<br> <strong>Windows 2000:</strong> This flag is not supported.<br></p> |
-| <p>KEY_WOW64_64KEY (0x0100)<br></p>        | <p>Indicates that an application on 64-bit Windows should operate on the 64-bit registry view. This flag is ignored by 32-bit Windows. For more information, see <a href="https://docs.microsoft.com/en-us/windows/desktop/WinProg64/accessing-an-alternate-registry-view">Accessing an Alternate Registry View</a>.<br> This flag must be combined using the OR operator with the other flags in this table that either query or access registry values.<br> <strong>Windows 2000:</strong> This flag is not supported.<br></p> |
-| <p>KEY_WRITE (0x20006)<br></p>             | Combines the STANDARD\_RIGHTS\_WRITE, KEY\_SET\_VALUE, and KEY\_CREATE\_SUB\_KEY access rights.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-
-## Editing Registry Entries
+## <mark style="color:red;">Editing Registry Entries</mark>
 
 To run reg.exe, you first need to start Command Prompt as an administrator with the following steps:
 
@@ -138,7 +128,7 @@ reg unload
 You'll get the return codes: **0** meaning that the operation completed successfully, and **1** indicating that the operation failed. However, you won't get any return codes using the **Compare** switch.
 {% endhint %}
 
-### view registry entries
+### <mark style="color:orange;">view registry entries</mark>
 
 If you’re only interested in looking up a key, you will not need the name of a value. When you look up a key, you basically look up what values and keys exist under it.
 
@@ -167,22 +157,20 @@ Reg Query "Path to key" /v NameOfValue
 Reg Query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v InstallDate
 ```
 
-
-
-### add and delete registry entries
+### <mark style="color:orange;">add and delete registry entries</mark>
 
 ```
 Add: REG ADD KeyName [{/v ValueName | /ve}] [/t Type] [/f]
 Delete: REG DELETE KeyName [{/v ValueName | /ve | /va}] [/f]
 ```
 
-**KeyName:** Defines the path to the subkey or entry. Valid registry key shortcuts include HKLM, HKCU, HKCR, HKU, and HKCC. If you're trying to edit the registry on a remote computer, you can only use these shortcuts: HKLM and HKU.
+<mark style="color:green;">**KeyName:**</mark> Defines the path to the subkey or entry. Valid registry key shortcuts include HKLM, HKCU, HKCR, HKU, and HKCC. If you're trying to edit the registry on a remote computer, you can only use these shortcuts: HKLM and HKU.
 
-**/v ValueName:** Specifies the name for the registry key to be added or deleted.
+<mark style="color:green;">**/v ValueName:**</mark> Specifies the name for the registry key to be added or deleted.
 
-**/ve:** Defines if you're adding or deleting an entry that has a null value.
+<mark style="color:green;">**/ve:**</mark> Defines if you're adding or deleting an entry that has a null value.
 
-**/t Type:** Specifies the type of registry entries. Here's the list of valid types:
+<mark style="color:green;">**/t Type:**</mark> Specifies the type of registry entries. Here's the list of valid types:
 
 * REG\_SZ
 * REG\_MULTI\_SZ
@@ -194,11 +182,11 @@ Delete: REG DELETE KeyName [{/v ValueName | /ve | /va}] [/f]
 * REG\_FULL\_RESOURCE\_DESCRIPTOR
 * REG\_EXPAND\_SZ
 
-**/f:** Adds or deletes registry content without prompting for confirmation.
+<mark style="color:green;">**/f:**</mark> Adds or deletes registry content without prompting for confirmation.
 
-**/s Separator:** Defines the character you use to separate multiple instances of data when the **REG\_MULTI\_SZ** data type is specified and you need to add more than one entry. The default separator is **\0** if it is not specified.
+<mark style="color:green;">**/s Separator**</mark>**:** Defines the character you use to separate multiple instances of data when the **REG\_MULTI\_SZ** data type is specified and you need to add more than one entry. The default separator is **\0** if it is not specified.
 
-**/d Data:** Specifies the data for the new entry in the registry.
+<mark style="color:green;">**/d Data:**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> Specifies the data for the new entry in the registry.
 
 example:
 
@@ -246,7 +234,7 @@ REG DELETE HKLM\Software\MySubkey /f
 
 ###
 
-### copy registry entries
+### <mark style="color:orange;">copy registry entries</mark>
 
 ```
 Copy: REG COPY KeyName1 KeyName2 [/s] [/f]
@@ -271,7 +259,7 @@ REG COPY \\ComputerName\HKLM\Software\MySubkey1 HKLM\Software\MySubkey2
 
 ###
 
-### export and import registry entries
+### <mark style="color:orange;">export and import registry entries</mark>
 
 ```
 Export: REG EXPORT KeyName FileName [/y]
@@ -302,7 +290,7 @@ REG IMPORT C:\RegKeyBackup.reg
 
 ###
 
-### save and restore registry entries
+### <mark style="color:orange;">save and restore registry entries</mark>
 
 ```
 Save: REG SAVE KeyName FileName [/y]
@@ -324,8 +312,3 @@ To restore all the content, including subkeys, entries, and values within the su
 ```
 REG RESTORE HKLM\Software\MySubkey C:\RegKeyBackup.hiv
 ```
-
-
-
-
-

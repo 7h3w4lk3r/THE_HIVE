@@ -1,6 +1,6 @@
 # Object Management
 
-The <mark style="color:orange;">Active Directory Users and Computers (ADUC)</mark> <mark style="color:orange;">Microsoft Management Console (MMC)</mark>  can manage AD objects. With AD DS 2008 R2, Microsoft introduced the <mark style="color:orange;">Active Directory Administrative Center (ADAC),</mark> which is a built-in PowerShell command-line interface technology
+The <mark style="color:orange;">Active Directory Users and Computers (ADUC)</mark> <mark style="color:orange;">Microsoft Management Console (MMC)</mark> can manage AD objects. With AD DS 2008 R2, Microsoft introduced the <mark style="color:orange;">Active Directory Administrative Center (ADAC),</mark> which is a built-in PowerShell command-line interface technology
 
 To access the ADAC console, you can type `dsac.exe` in a PowerShell command line or the Run box.
 
@@ -139,8 +139,8 @@ A service account is a dedicated account with specific privileges that is used t
 
 Microsoft's MSAs have the following:
 
-* There is no more password management. MSAs use a complex and random, 240-character password that changes automatically when it reaches the domain or computer password expiry date.&#x20;
-* An MSA cannot be locked out or used for interactive login. Only one MSA can be used in one computer. It cannot be shared between multiple computers.&#x20;
+* There is no more password management. MSAs use a complex and random, 240-character password that changes automatically when it reaches the domain or computer password expiry date.
+* An MSA cannot be locked out or used for interactive login. Only one MSA can be used in one computer. It cannot be shared between multiple computers.
 * An MSA provides simplified SPN management; the system will automatically change the SPN value if the SamAccountName details of the computer change or DNS name property changes.
 
 In order to create an MSA, we can use the following command. I am running this from the domain controller:
@@ -183,9 +183,9 @@ There are operational requirements that require the same service account to be s
 
 The gMSA has the following capabilities:
 
-* No password management&#x20;
-* Supports sharing across multiple hosts&#x20;
-* Can be used to run scheduled tasks (MSAs do not support the running of scheduled tasks)&#x20;
+* No password management
+* Supports sharing across multiple hosts
+* Can be used to run scheduled tasks (MSAs do not support the running of scheduled tasks)
 * Uses Microsoft's Key Distribution Center (KDC) to create and manage passwords for the gMSA
 
 <mark style="color:orange;">Key Distribution Service (KDS)</mark> was introduced with Windows Server 2012 . KDS shares a secret (root key ID) among all the KDS instances in the domain. This value changes periodically. When a gMSA requires a password, a Windows Server domain controller generates a password based on a common algorithm that includes a root key ID. Then, all the hosts that share the gMSA will query from the domain controllers to retrieve the latest password.
@@ -233,8 +233,3 @@ Test-ADServiceAccount " Mygmsa1"
 ```
 Remove-ADServiceAccount –identity "Mygmsa1"
 ```
-
-
-
-
-

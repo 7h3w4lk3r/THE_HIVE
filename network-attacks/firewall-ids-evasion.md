@@ -11,7 +11,7 @@
 * [ ] **Detection**
 * [ ] **Policy/Rule Test**
 * [ ] **Scan Timing**
-* [ ] [**IPv6**](../network-attacks/network/ipv6.md)
+* [ ] [**IPv6**](network/ipv6.md)
 * [ ] **Firewalking**
 * [ ] **Product Vulnerability**
 
@@ -51,7 +51,7 @@ hping3 — traceroute -V -S -p 80 -s 5050 testpage.com
 hping3 -c 1 -V -1 -C 17 testpage.com
 ```
 
-for testing other ICMP types check out the [`ICMP`](../network-attacks/broken-reference/) protocol section.
+for testing other ICMP types check out the [`ICMP`](broken-reference/) protocol section.
 
 **Other types of Port Scanning:** First type we will try is the FIN scan. In a TCP connection the FIN flag is used to start the connection closing routine. If we do not receive a reply, that means the port is open. Normally firewalls send a RST+ACK packet back to signal that the port is closed.
 

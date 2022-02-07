@@ -1,6 +1,6 @@
 # Loggon Sessions and Access Tokens
 
-## Logon sessions and access tokens
+## <mark style="color:red;">Logon sessions and access tokens</mark>
 
 The key concept to grasp in order to understand authentication in Windows environments is the relationship between **logon sessions** and **access tokens**. A logon session is used to represent the _presence_ of a user on a machine and begins when a user is successfully authenticated and ends when the user logs off.
 
