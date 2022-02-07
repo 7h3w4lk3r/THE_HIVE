@@ -1,4 +1,4 @@
-# 🔧 Command & Control
+# 🔴 Command & Control
 
 ## <mark style="color:red;">Red Teaming</mark>
 
