@@ -1,4 +1,4 @@
-# Firewall / IDS Evasion
+# 🔴 Firewall / IDS Evasion
 
 ## :information\_source: Introduction
 
@@ -11,13 +11,13 @@
 * [ ] **Detection**
 * [ ] **Policy/Rule Test**
 * [ ] **Scan Timing**
-* [ ] ****[**IPv6**](network/ipv6.md)****
+* [ ] [**IPv6**](network/ipv6.md)
 * [ ] **Firewalking**
-* [ ] **Product Vulnerability**&#x20;
+* [ ] **Product Vulnerability**
 
 ## Detection
 
-**Usually, the presence of a firewall is detected when nmap shows some ports as filtered, but a lot of times we might face different scenarios in which the scan speed is suddenly dropped or previously live hosts are not detected as "up" in another host discovery scan.** all of these are indicators  of a change in the packet routes or target host behavior. although firewall testing is not a complicated topic, the testing scenarios can be endless depending on the firewall type and configurations.
+**Usually, the presence of a firewall is detected when nmap shows some ports as filtered, but a lot of times we might face different scenarios in which the scan speed is suddenly dropped or previously live hosts are not detected as "up" in another host discovery scan.** all of these are indicators of a change in the packet routes or target host behavior. although firewall testing is not a complicated topic, the testing scenarios can be endless depending on the firewall type and configurations.
 
 ## Policy/Rule Test
 
@@ -25,17 +25,13 @@
 
 A great tool for packet crafting and generating custom traffic for testing firewall rules and anti-DoS systems.
 
-
-
 **Testing ICMP:** In this example hping3 will behave like a normal ping utility, sending ICMP-echo und receiving ICMP-reply
 
 ```
 hping3 -1 google.com
 ```
 
-
-
-**Traceroute using ICMP**: This example is similar to famous utilities like tracert (windows) or traceroute (linux) who uses ICMP packets increasing every time in 1 its TTL value.&#x20;
+**Traceroute using ICMP**: This example is similar to famous utilities like tracert (windows) or traceroute (linux) who uses ICMP packets increasing every time in 1 its TTL value.
 
 ```
 hping3 — traceroute -V -1 testpage.com
@@ -43,15 +39,11 @@ hping3 — traceroute -V -1 testpage.com
 
 we can also use the traceroute command to perform traceroute with different methods, protocols and ports. check [this section](../recon-1/active-scanning/host-discovery-and-mapping.md#traceroute) for traceroute techniques.
 
-
-
 **Checking port:** Here hping3 will send a Syn packet to a specified port (80 in our example). We can control also from which local port will start the scan (5050).
 
 ```
 hping3 — traceroute -V -S -p 80 -s 5050 testpage.com
 ```
-
-
 
 **Other types of ICMP:** This example sends a ICMP address mask request ( Type 17 ).
 
@@ -59,9 +51,7 @@ hping3 — traceroute -V -S -p 80 -s 5050 testpage.com
 hping3 -c 1 -V -1 -C 17 testpage.com
 ```
 
-for testing other ICMP types check out the [`ICMP`](broken-reference) protocol section.
-
-
+for testing other ICMP types check out the [`ICMP`](broken-reference/) protocol section.
 
 **Other types of Port Scanning:** First type we will try is the FIN scan. In a TCP connection the FIN flag is used to start the connection closing routine. If we do not receive a reply, that means the port is open. Normally firewalls send a RST+ACK packet back to signal that the port is closed.
 
@@ -69,15 +59,11 @@ for testing other ICMP types check out the [`ICMP`](broken-reference) protocol s
 hping3 -c 1 -V -p 80 -s 5050 -F testpage.com
 ```
 
-
-
 **Ack Scan:** This scan can be used to see if a host is alive (when Ping is blocked for example). This should send a RST response back if the port is open.
 
 ```
 hping3 -c 1 -V -p 80 -s 5050 -A testpage.com
 ```
-
-
 
 **Xmas Scan:** This scan sets the sequence number to zero and set the URG + PSH + FIN flags in the packet. If the target device’s TCP port is closed, the target device sends a TCP RST packet in reply. If the target device’s TCP port is open, the target discards the TCP Xmas scan, sending no reply.
 
@@ -85,15 +71,11 @@ hping3 -c 1 -V -p 80 -s 5050 -A testpage.com
 hping3 -c 1 -V -p 80 -s 5050 -M 0 -UPF testpage.com
 ```
 
-
-
 **Null Scan:** This scan sets the sequence number to zero and have no flags set in the packet. If the target device’s TCP port is closed, the target device sends a TCP RST packet in reply. If the target device’s TCP port is open, the target discards the TCP NULL scan, sending no reply.
 
 ```
 hping3 -c 1 -V -p 80 -s 5050 -Y testpage.com
 ```
-
-
 
 **Smurf Attack:** This is a type of denial-of-service attack that floods a target system via spoofed broadcast ping messages.
 
@@ -188,9 +170,9 @@ You can use fragmented packets with Nmap using the "-f" option, however, nowaday
 nmap -f 192.168.1.12
 ```
 
-****
+***
 
-**custom offset size :**  nmap `--mtu` command allows us to specify our own offset size. Remember that the offset size has to be a multiple of 16.
+**custom offset size :** nmap `--mtu` command allows us to specify our own offset size. Remember that the offset size has to be a multiple of 16.
 
 * Nmap is giving the option to the user to set a specific MTU (Maximum Transmission Unit) to the packet.
 * This is similar to the packet fragmentation technique.
@@ -287,31 +269,27 @@ nmap -sF --scanflags PSH [ip]
 
 ### nmap Timing Options
 
-
-
-| **Description**                     | **Option \[flag]**        |
-| ----------------------------------- | ------------------------- |
-| Timing Templates                    | **-T\[0-5]**              |
-| Set the Packet Time To Live \[TTL]  | **–ttl**                  |
-| Minimum # of Parallel Operations    | **–min-parallelism**      |
-| Maximum # of Parallel Operations    | **–max-parallelism**      |
-| Minimum Host Group Size             | **–min-hostgroup**        |
-| Maximum Host Group Size             | **–max-hostgroup**        |
-| Maximum RTT Timeout                 | **–max-rtt-timeout**      |
-| Initial RTT Timeout                 | **–initial-rtt-timeout**  |
-| Maximum Retries                     | **–max-retries**          |
-| Host Timeout                        | **–host-timeout**         |
-| Minimum Scan Delay                  | **–scan-delay**           |
-| Maximum Scan Delay                  | **–max-scan-delay**       |
-| Minimum Packet Rate                 | **–min-rate**             |
-| Maximum Packet Rate                 | **–max-rate**             |
-| Defeat Reset Rate Limits            | **–defeat-rst-ratelimit** |
+| **Description**                    | **Option \[flag]**        |
+| ---------------------------------- | ------------------------- |
+| Timing Templates                   | **-T\[0-5]**              |
+| Set the Packet Time To Live \[TTL] | **–ttl**                  |
+| Minimum # of Parallel Operations   | **–min-parallelism**      |
+| Maximum # of Parallel Operations   | **–max-parallelism**      |
+| Minimum Host Group Size            | **–min-hostgroup**        |
+| Maximum Host Group Size            | **–max-hostgroup**        |
+| Maximum RTT Timeout                | **–max-rtt-timeout**      |
+| Initial RTT Timeout                | **–initial-rtt-timeout**  |
+| Maximum Retries                    | **–max-retries**          |
+| Host Timeout                       | **–host-timeout**         |
+| Minimum Scan Delay                 | **–scan-delay**           |
+| Maximum Scan Delay                 | **–max-scan-delay**       |
+| Minimum Packet Rate                | **–min-rate**             |
+| Maximum Packet Rate                | **–max-rate**             |
+| Defeat Reset Rate Limits           | **–defeat-rst-ratelimit** |
 
 ### **NMAP Timing Unit Flags**
 
 By default, NMAP executes time units in seconds. However, by applying a qualifier to the timing flag, we can instruct NMAP to accept timing units in milliseconds, minutes, or hours – as seen in **Table 1.2** below.
-
-
 
 | **Flag**   | **Definition**                    | **Time Unit**      | **Flag** |
 | ---------- | --------------------------------- | ------------------ | -------- |
@@ -320,9 +298,9 @@ By default, NMAP executes time units in seconds. However, by applying a qualifie
 | **m**      | Minutes                           | 1 minutes          | 1m       |
 | **h**      | Hours                             | 1 hour             | 1h       |
 
-****
+***
 
-&#x20;For example, we can instruct NMAP to scan a target for a 1 minute before aborting using the **–host-timeout** option as shown below:
+For example, we can instruct NMAP to scan a target for a 1 minute before aborting using the **–host-timeout** option as shown below:
 
 ```
 nmap – host-timeout 60000 192.168.130.132
@@ -346,13 +324,11 @@ nmap – host-timeout 1m 192.168.130.132
 
 **Syntax:** nmap -T\[Template No.] \[Target]
 
-**Description:** Specify an NMAP timing template for a scan.&#x20;
+**Description:** Specify an NMAP timing template for a scan.
 
-Think of NMAP timing templates as shortcuts for different timing options.&#x20;
+Think of NMAP timing templates as shortcuts for different timing options.
 
 NMAP provides six templates \[0 to 5] we can use to slow down scanning \[evade firewalls] or speed up \[get faster results] – depending on the scanning scenario, as seen in **Table 1.3** below.
-
-
 
 | **NMAP Timing Template** | **Name**        | **Description**                              |
 | ------------------------ | --------------- | -------------------------------------------- |

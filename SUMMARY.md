@@ -2,7 +2,7 @@
 
 * [Home](README.md)
 
-## RECON <a href="#recon-1" id="recon-1"></a>
+## 🔷 RECON <a href="#recon-1" id="recon-1"></a>
 
 * [🔴 Passive](recon-1/osint/README.md)
   * [⭕ Metadata](recon-1/osint/metadata.md)
@@ -31,9 +31,9 @@
     * [⭕ CMS](recon-1/active-scanning/web-application-enumeration/cms.md)
     * [⭕ WAF Detection](recon-1/active-scanning/web-application-enumeration/waf-fingerprinting.md)
 
-## Network & OS Attacks <a href="#network-attacks" id="network-attacks"></a>
+## 🔷 OS & Services <a href="#network-attacks" id="network-attacks"></a>
 
-* [Firewall / IDS Evasion](network-attacks/firewall-ids-evasion.md)
+* [🔴 Firewall / IDS Evasion](network-attacks/firewall-ids-evasion.md)
 * [Printer Exploitation](network-attacks/printer-exploitation.md)
 * [Network Services](network-attacks/network/README.md)
   * [DNS](network-attacks/network/dns.md)
