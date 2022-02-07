@@ -6,7 +6,7 @@
 
 {% embed url="https://www.hackingarticles.in/penetration-testing-lab-setup-voip" %}
 
-#### Allows making audio calls in a network (or over the internet). default port is 5060 for SIP signaling
+#### Allows making audio calls in a network (or  over the internet). default port is 5060 for SIP signaling
 
 ![](<../../../.gitbook/assets/image (278).png>)
 
@@ -22,7 +22,7 @@ The most common VoIP protocols are listed as follows:
 | H.248 (Gateway Control Protocol)                                                                | Also known as Megaco Protocol. This is a master/slave protocol and allows a media gateway controller to control media gateways. Uses H.323 and SIP to communicate between controllers. Discussed in detail in RFC 3525.                   |
 | H.323                                                                                           | Commonly used by telecom equipment manufacturers and service providers. ITU recommendation that addresses call signaling and control. H.323 is a master/slave protocol.                                                                   |
 | Inter-Asterisk Exchange (IAX)                                                                   | Asterisk protocol but also used by many other equipment manufacturers as a communications protocol between servers. IAX has now been replaced by IAX2. Discussed in detail in RFC 5456.                                                   |
-| Media Gateway Control Protocol (MGCP)                                                           | VoIP signaling and call control protocol that enables communications with the PSTN (public switched telephone network). Master/Slave protocol. The core RFC for MGP is RFC 3435 and there are also a number of related RFCs.              |
+| Media Gateway Control Protocol  (MGCP)                                                          | VoIP signaling and call control protocol that enables communications with the PSTN (public switched telephone network). Master/Slave protocol. The core RFC for MGP is RFC 3435 and there are also a number of related RFCs.              |
 | Network Voice Protocol                                                                          | Early version of Voice over Internet Protocol.                                                                                                                                                                                            |
 | Open Settlement Protocol                                                                        | This is a client server protocol that is used by ISP's for the exchange of authorization and accounting information related to VoIP.                                                                                                      |
 | Real-time Transport Protocol (RTP)                                                              | Protocol that manages real-time communications over telephony networks. Discussed in detail in RFC 3550.                                                                                                                                  |
@@ -37,3 +37,46 @@ The most common VoIP protocols are listed as follows:
 | T.38                                                                                            | Enables faxes to be transmitted over a packet network.                                                                                                                                                                                    |
 
 VoIP telephony uses mainly two protocols in order to set up a call and to transport Audio/Video signal. They’re described in the following subsections.
+
+
+
+## :ballot\_box\_with\_check: Checklist
+
+*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&#x20;
+
+
+
+
+
+
+
