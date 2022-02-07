@@ -33,9 +33,7 @@
 
 ## 🔷 OS & Services <a href="#network-attacks" id="network-attacks"></a>
 
-* [🔴 Firewall / IDS Evasion](network-attacks/firewall-ids-evasion.md)
-* [Printer Exploitation](network-attacks/printer-exploitation.md)
-* [Network Services](network-attacks/network/README.md)
+* [🔴 Network Services](network-attacks/network/README.md)
   * [DNS](network-attacks/network/dns.md)
   * [IPv6](network-attacks/network/ipv6.md)
   * [FTP](network-attacks/network/ftp.md)
@@ -61,6 +59,9 @@
   * [Echo](network-attacks/network/echo.md)
   * [🔧 VOIP](network-attacks/network/voip/README.md)
     * [SIP](network-attacks/network/voip/sip.md)
+* [🔴 Firewall / IDS Evasion](network-attacks/firewall-ids-evasion.md)
+* [Printer Exploitation](network-attacks/printer-exploitation.md)
+* [🔴 Windows](network-attacks/windows.md)
 * [Windows & AD](network-attacks/active-directory-attacks/README.md)
   * [Concepts](network-attacks/active-directory-attacks/concepts/README.md)
     * [Security Components](network-attacks/active-directory-attacks/concepts/security-component.md)
