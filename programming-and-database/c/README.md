@@ -4,7 +4,7 @@ description: >-
   need to know before diving into reversing and exploit development.
 ---
 
-# C Programming
+# 🔴 C Programming
 
 #### C might sound a bit old when it comes to the new era of coding and software development specially when the social media and software companies are filled with web developers/designers, AI and ML folks and so-called data scientists. but when it comes to software security, reversing and exploit development, C is the first language to know simply because its the only low-level language with a high-level syntax that was specifically designed for developing operating systems and system programming and it teaches you everything you need to know about how computers work and how you can manage and manipulate memory. for windows reversing you will probably face C++ desktop apps more but we start with Linux because it always makes things easier for beginners and its FOSS :)
 

@@ -40,7 +40,7 @@ The following command can be used to identify binaries that have capabilities al
 getcap -r / 2>/dev/null
 ```
 
-![](<../../../.gitbook/assets/image (19).png>)
+![](<../../../.gitbook/assets/image (46).png>)
 
 Whereas the following command can be used to check whether a running process has capabilities assigned:
 
@@ -54,13 +54,13 @@ Capabilities assigned to users are stored in the /etc/security/capability.conf c
 
 Additionally, systemd offers directives for configuring capabilities on service units, through the “AmbientCapabilities” variable:
 
-![](<../../../.gitbook/assets/image (15).png>)
+![](<../../../.gitbook/assets/image (23).png>)
 
 ### <mark style="color:orange;">LinPEAS</mark>
 
 The easiest way to identify misconfigured capabilities is to use enumeration scripts such as LinPEAS:
 
-![](<../../../.gitbook/assets/image (10).png>)
+![](<../../../.gitbook/assets/image (14).png>)
 
 
 
@@ -76,11 +76,11 @@ Aaccording to GTFOBins, it can be easily exploited with the following command, w
 /usr/bin/python3 -c 'import os; os.setuid(0); os.system("/bin/sh")'
 ```
 
-![](<../../../.gitbook/assets/image (8).png>)
+![](<../../../.gitbook/assets/image (11).png>)
 
 Executing the command while logged in as a non-root user:
 
-![](<../../../.gitbook/assets/image (16).png>)
+![](<../../../.gitbook/assets/image (24).png>)
 
 As shown above, this has allowed to escalate privileges to root, many different capabilities can be exploited to read/write to files, intercept network traffic, mount/unmount file systems and more, which can potentially lead to escalation of privileges.
 

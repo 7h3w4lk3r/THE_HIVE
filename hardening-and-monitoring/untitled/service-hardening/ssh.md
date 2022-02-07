@@ -147,6 +147,34 @@ chmod 700 ~/.ssh, chown -R $USER:$USER ~/.ssh
 chmod 644 ~/.ssh/authorized_keys
 ```
 
+## <mark style="color:red;">Run Commands on Multiple Systems via SSH</mark>
+
+### <mark style="color:orange;">Tools</mark>
+
+* [pssh](https://github.com/robinbowes/pssh)
+* [pdsh](https://github.com/grondo/pdsh)
+* [clusterit](http://clusterit.sourceforge.net)
+* [mussh](http://mussh.sourceforge.net)
+* [sshmux](https://github.com/dvopsway/sshmux)
+
+{% embed url="https://www.linux.com/news/parallel-ssh-execution-and-single-shell-control-them-all" %}
+
+### <mark style="color:orange;">bash script</mark>
+
+```
+for host in $(cat hosts.txt); do ssh "$host" "$command" >"output.$host"; done
+```
+
+Authenticating with name/password is really no good idea. You should set up a private key for this:
+
+```
+ssh-keygen && for host in $(cat hosts.txt); do ssh-copy-id $host; done
+```
+
+### <mark style="color:orange;">cluster SSH</mark>
+
+{% embed url="https://www.putorius.net/cluster-ssh.html" %}
+
 ## <mark style="color:red;">Mute Warning: Permanently added</mark>
 
 ```

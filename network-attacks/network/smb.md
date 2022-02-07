@@ -28,7 +28,7 @@ SMB functions as a request-response or client-server protocol. The only time tha
 * SMB 3.02 / SMB3: This version used in Windows 8.1 and Windows Server 2012 R2.
 * SMB 3.1: This version used in Windows Server 2016 and Windows 10.
 
-## &#x20;:ballot\_box\_with\_check: Checklist
+## :ballot\_box\_with\_check: Checklist
 
 * [ ] Enumerate hosts, shares and your access to shares
 * [ ] Check for null sessions
@@ -50,7 +50,6 @@ nmap -sT –sU -sV 192.168.13.26 -p135,137,138,139,445 --open
 ### Hostname Enumeration
 
 ```
-
 nmblookup -A [ip]
 enum4linux -a [ip]
 ```
@@ -103,7 +102,6 @@ nmap -p445 --script smb-enum-sessions [target]
 $ nmap -p445 --script smb-brute --script-args userdb=users.txt,passdb=passwords.txt [target]
 nmap -sU -p137 --script smb-enum-sessions [target]
 nmap -p445 --script smb-vuln-double-pulsar-backdoor [target]
-
 ```
 
 ## Linux
@@ -147,7 +145,7 @@ smbclient \\\\[ip]\\[share name]
 smbclient \\\\192.168.30.53\\WorkSharing
 ```
 
-&#x20;`` if you see any files of interest you can type the following
+\`\` if you see any files of interest you can type the following
 
 ```
 get [filename].txt /root/Desktop/[filename].txt 
@@ -215,7 +213,7 @@ nbtscan -v [IP Address orr address range IE /24]>
 nbtscan [ip]
 ```
 
-&#x20;if you then see something like     ELS-WINXP    <20>    Unique    Registered -- then there is a server or share
+if you then see something like ELS-WINXP <20> Unique Registered -- then there is a server or share
 
 ## Windows
 
@@ -262,9 +260,9 @@ The format of a UNC path is:
 
 There are also some special default administrative shares which are used by system administrators and Windows itself:
 
-• \ComputerName\C$ lets an administrator access a volume on the local machine. Every volume has a share (C$, D$, E$, etc.)&#x20;
+• \ComputerName\C$ lets an administrator access a volume on the local machine. Every volume has a share (C$, D$, E$, etc.)
 
-• \ComputerName\admin$ points to the windows installation directory&#x20;
+• \ComputerName\admin$ points to the windows installation directory
 
 • \ComputerName\ipc$ is used for inter-process communication. You cannot browse it via Windows Explorer
 
@@ -375,8 +373,6 @@ We can connect to the share with smbclient and execute the Linux “ls” comman
 root@tester:~# smbclient \\\\192.168.13.21\\www -N
 ```
 
-
-
 ![](<../../.gitbook/assets/image (279) (1) (1).png>)
 
 As the image above explains, the presence of a “.pl” extension indicates that the server is likely configured to process Perl (CGI) programs.
@@ -416,8 +412,6 @@ smb: \> put test.pl
 
 Next, let’s point a browser to our test.pl file on the target system and confirm that the output of the “id” command is printed to the page. This will confirm for us that we can upload our own Perl scripts to the server and can execute remote operating system commands through our test script
 
-
-
 ## Null Sessions
 
 Null session attacks can be used to enumerate a lot of information. Attackers can steal information about:
@@ -437,7 +431,7 @@ In Windows, the most common command to use when enumerating Windows shares is nb
 
 ![](<../../.gitbook/assets/image (42).png>)
 
-#### the first line tells us the name of the machine \[OVERLORD]  the record type 00 tells us that OVERLORD is a workstation.  the type UNIQUE tells us that this computer must have only one IP address assigned.  second line contains the workgroup or the domain the computer is joined to.  type 20 record means that the file sharing service is up and running on the machine. 
+#### the first line tells us the name of the machine \[OVERLORD] the record type 00 tells us that OVERLORD is a workstation. the type UNIQUE tells us that this computer must have only one IP address assigned. second line contains the workgroup or the domain the computer is joined to. type 20 record means that the file sharing service is up and running on the machine.
 
 ​Once an attacker knows that a machine has the File Server service running, they can enumerate the shares by using the NET VIEW command.
 
@@ -453,7 +447,7 @@ This machine is sharing a directory; the share name is shares You can also perfo
 nmblookup -A [target ip ]
 ```
 
-![](<../../.gitbook/assets/image (38).png>)
+![](<../../.gitbook/assets/image (38) (1).png>)
 
 ## Checking for Null Sessions
 

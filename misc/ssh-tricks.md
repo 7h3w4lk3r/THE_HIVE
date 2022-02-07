@@ -1,6 +1,4 @@
-# SSH Tricks
-
-
+# 🔴 SSH Tricks
 
 ## <mark style="color:red;">**Run Single Command**</mark>
 
@@ -12,7 +10,7 @@ ssh -p 2222 username@hostname pwd
 ssh -vvv -p 2702 root@45.33.87.74 date 2>&1
 ```
 
-## <mark style="color:red;">**SSH**</mark> <mark style="color:red;"></mark><mark style="color:red;">without input password</mark>
+## <mark style="color:red;">**SSH**</mark> <mark style="color:red;">without input password</mark>
 
 ```
 // Sapt install sshpass
@@ -141,7 +139,7 @@ Host foobar
     Option value
 ```
 
-For example, you can reduce the command**:**
+For example, you can reduce the command\*\*:\*\*
 
 ```
 ssh -p12345 foo@bar.baz.edu -i ~/.ssh/customkey
@@ -193,4 +191,4 @@ Host busyserver
 
 This means upon first connection to `busyserver`, ssh will create a socket in `~/.ssh/` which can be shared by other commands. If you’re using commands like rsync or scp, this can make repetitive copy tasks much quicker.
 
-****
+***

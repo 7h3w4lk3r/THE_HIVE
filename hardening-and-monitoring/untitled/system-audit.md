@@ -1,4 +1,4 @@
-# System Audit
+# ⭕ System Audit
 
 ## <mark style="color:red;">Lynis</mark>
 

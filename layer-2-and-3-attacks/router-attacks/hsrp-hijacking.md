@@ -6,7 +6,7 @@ First hop redundancy protocols including [HSRP](http://en.wikipedia.org/wiki/Hot
 
 HSRP (Hot Standby Router Protocol) is a Cisco proprietary protocol that provides network redundancy in case of default gateway router failure. It is one of the most common protocols, however, it contains vulnerability that can lead to denial of service or to data capturing by attackers. We will show you how the HSRP attack can take place and how to protect your network against it.
 
-![](<../../../.gitbook/assets/image (275) (1) (1).png>)
+![](<../../.gitbook/assets/image (275) (1) (1).png>)
 
 In an HSRP environment, a primary router and one or more secondary routers route traffic for downstream devices. All HSRP participating routers are configured with a common virtual IP address that is set as the gateway for client devices.
 
@@ -22,7 +22,7 @@ Note that because the HSRP hello messages are sent to the multicast address 224.
 
 ## HSRP Hijacking
 
-![](<../../../.gitbook/assets/image (288) (1) (1).png>)
+![](<../../.gitbook/assets/image (288) (1) (1).png>)
 
 If an attacker can observe the authentication string used for HSRP, he can mount a MitM attack by exploiting HSRP and becoming the new primary router on the network. After observing HSRP hello messages from the primary device, the attacker can identify the authentication key and the priority of the active router. By impersonating an HSRP router, the attacker can have all network traffic redirected to himself:
 
@@ -35,11 +35,11 @@ If an attacker can observe the authentication string used for HSRP, he can mount
 
 Yersinia includes support for detecting the presence of HSRP traffic, revealing the source IP address of the router participating in the HSRP group, the virtual IP address, and the authentication credentials in use, as shown on this slide.
 
-![](<../../../.gitbook/assets/image (276) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (276) (1) (1) (1) (1).png>)
 
 Press "g" to open the "Choose protocol mode" dialog; then scroll and press "Enter" on the HSRP protocol option to open the HSRP attack mode. After identifying HSRP traffic, select the target virtual IP you wish to exploit for a MitM attack and then press "x" to open the "Attack Panel" dialog, as shown. Selecting "1" will cause the attacker to become the active router but not forward traffic received, causing a DoS attack against all LAN users. Selecting "2" will implement the same attack, but the router will forward traffic to the selected HSRP member as well, creating a MitM attack.
 
-![](<../../../.gitbook/assets/image (274).png>)
+![](<../../.gitbook/assets/image (274).png>)
 
 ### scapy
 
@@ -66,7 +66,7 @@ Sent 5 packets.
 
 The screenshot below is the packet capture during the attack.
 
-![](<../../../.gitbook/assets/image (300) (1) (1).png>)
+![](<../../.gitbook/assets/image (300) (1) (1).png>)
 
 If you look at frame #6, that’s when Scapy first sent the crafted HSRP message.
 

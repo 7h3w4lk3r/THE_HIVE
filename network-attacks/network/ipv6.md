@@ -110,7 +110,7 @@ search ipv6
 
 ## Exploitation
 
-#### see[ IPv6 Attacks](../network-devices/ipv6-attacks/) section.
+#### see[ IPv6 Attacks](../../layer-2-and-3-attacks/ipv6-attacks/) section.
 
 {% embed url="https://www.kali.org/tools/thc-ipv6" %}
 

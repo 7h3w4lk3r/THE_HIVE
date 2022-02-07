@@ -1,4 +1,4 @@
-# Sandboxing
+# ⭕ Sandboxing
 
 #### Sandboxing involves providing a safe environment for a program or software so that you can play around with it without hurting your system. It actually keeps your program isolated from the rest of the system, by using any one of the different methods available in the Linux kernel.
 

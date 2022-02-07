@@ -36,7 +36,7 @@ void dlstore(struct address *i, struct address **last){
 }
 ```
 
-![](<../../../../.gitbook/assets/image (34).png>)
+![](<../../../../.gitbook/assets/image (34) (1).png>)
 
 The function dlstore( ) puts each new entry on the end of the list. You must call it with a pointer to the data to be stored as well as a pointer to the end of the list, which must be null on the first call.
 

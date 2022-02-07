@@ -1,2 +1,2 @@
-# 🔧 Service Hardening
+# ⭕ Service Hardening
 

@@ -4,9 +4,9 @@ description: (TCP/UDP 389, TCP 636, 3268, 3269)
 
 # LDAP
 
-## &#x20;:information\_source: Introduction
+## :information\_source: Introduction
 
-#### [Lightweight Directory Access Protocol ](https://datatracker.ietf.org/doc/html/rfc4511)
+#### [Lightweight Directory Access Protocol](https://datatracker.ietf.org/doc/html/rfc4511)
 
 Lightweight Directory Access Protocol (LDAP) is an internet protocol works on TCP/IP, used to access information from directories. LDAP protocol is basically used to access an active directory.
 
@@ -27,7 +27,7 @@ Lightweight Directory Access Protocol (LDAP) is an internet protocol works on TC
 
 Directories are set of object with similar attributes, organised in a logical and hierarchical manner. For example, Telephonic Directories. It is a distributed database application used to manage attributes in a directory.
 
-![](<../../.gitbook/assets/image (45).png>)
+![](<../../.gitbook/assets/image (45) (1).png>)
 
 LDAP defines operations for accessing and modifying directory entries such as:
 
@@ -56,17 +56,15 @@ This model describes how information in an LDAP Directory is organized and ident
 
 LDAP defines operations for accessing and modifying directory entries . In this we discuss about LDAP operations in a programming language independent manner LDAP operations can be divided into following categories:
 
-• Query&#x20;
+• Query
 
 • Update
 
-&#x20;• Authentication
+• Authentication
 
 #### Security Model:
 
 This model describes how information in LDAP directory can be protected from unauthorized access. It is based on BIND operation. There are several bind operation can be performed.
-
-
 
 #### You can try to enumerate a LDAP with or without credentials using python: pip3 install ldap3
 
@@ -81,9 +79,7 @@ True
 >>> server.info
 ```
 
-``\
-`` If the response is True like in the previous example, you can obtain some interesting data of the LDAP (like the naming context or domain name) server from:\
-
+`\` If the response is True like in the previous example, you can obtain some interesting data of the LDAP (like the naming context or domain name) server from:\\
 
 ```
 >>> server.info
@@ -110,4 +106,3 @@ True
 ```
 
 #### for more information on LDAP NULL Bind exploitation check out this [link](https://www.n00py.io/2020/02/exploiting-ldap-server-null-bind/)
-

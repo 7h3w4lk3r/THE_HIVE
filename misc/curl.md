@@ -1,4 +1,4 @@
-# Curl
+# 🔴 Curl
 
 ### Options <a href="#options-1" id="options-1"></a>
 
@@ -78,8 +78,6 @@
 | Curl post send json | `curl <URL> -H "content-type: application/json" -d "{ \"woof\": \"bark\"}"` |
 
 ### Examples (Advanced):
-
-
 
 | Name                         | Command                                                                                     |
 | ---------------------------- | ------------------------------------------------------------------------------------------- |
