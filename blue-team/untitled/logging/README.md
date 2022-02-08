@@ -6,7 +6,7 @@
 
 ### <mark style="color:orange;">Important Linux Log Files</mark>
 
-![](<../../../.gitbook/assets/image (10).png>)
+![](<../../../.gitbook/assets/image (10) (1).png>)
 
 ## <mark style="color:red;">journalctl</mark>
 
