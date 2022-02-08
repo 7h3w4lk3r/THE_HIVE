@@ -6,7 +6,7 @@ description: >-
 
 # ⭕ Host Discovery / Network Mapping
 
-## Finding Remote Live Hosts
+## <mark style="color:red;">Remote Discovery</mark>
 
 you can use nmap, masscan or unicorn scan for this:
 
@@ -26,7 +26,9 @@ masscan 192.168.2.1/24 -p80,53,443,22
 
 masscan is the fastest host discovery tool available, even faster than nmap.
 
-## Netdiscover
+## <mark style="color:red;">Local Discovery</mark>
+
+### <mark style="color:orange;">Netdiscover</mark>
 
 Discover live hosts in LAN and get the internal IP address and MAC address of live hosts in the network.It can be used in both active and passive mode.
 
@@ -54,36 +56,32 @@ netdiscover -i [interface]
   -L in parsable output mode (-P), continue listening after the active scan is completed
 ```
 
-### Active Mode:
-
-Run as an ARP scanner
+#### <mark style="color:green;">Active Mode ( Run as an ARP scanner )</mark>
 
 ```
 netdiscover -i eth0 -r 192.168.1.0/24
 ```
 
-**Multiple Ranges from a File**
+<mark style="color:green;">**Multiple Ranges from a File**</mark>
 
 ```
 netdiscover -l <file containing ranges>
 ```
 
-### **Passive Mode:**
-
-**Run as an ARP sniffer**
+#### <mark style="color:green;">**Passive Mode ( Run as an ARP sniffer )**</mark>
 
 ```
 netdiscover -p -r <range,optional>
 ```
 
-### Parsable Outputs
+#### <mark style="color:green;">Parsable Outputs</mark>
 
 ```
 Syntax: netdiscover -P<parsable> -N<ommit headers>
 Command: netdiscover-r 192.168.1.1/24 -PN
 ```
 
-## Responder
+### <mark style="color:orange;">Responder</mark>
 
 **A great discovery tool for Active Directory Environments**
 
@@ -92,7 +90,7 @@ responder -I eth0 -A # see NBT-NS, BROWSER, LLMNR requests without responding.
 responder.py -I eth0 -wrf
 ```
 
-## Bettercap
+### <mark style="color:orange;">Bettercap</mark>
 
 Advanced MitM and sniffer tool.
 
@@ -103,11 +101,13 @@ bettercap -X --proxy --proxy-https -T <target IP>
 # targetting specific IP only
 ```
 
-## Traceroute
+
+
+## <mark style="color:red;">Traceroute</mark>
 
 discovers the route that packets take between two system in the network. it helps us to construct network architecture diagrams and it is included in most if not all OSs.
 
-### using traceroute
+<mark style="color:orange;"></mark>
 
 Windows:
 
@@ -121,7 +121,7 @@ Linux:
 traceroute [target] 
 ```
 
-## Linux traceroute
+### <mark style="color:orange;">Linux traceroute</mark>
 
 #### Linux traceroute sends packets to target with varying TTLs in the IP header. by default sends UDP packets with incrementing destination ports starting from port 33434 going up by one port for each probe packet sent ( each hope measured three times ).
 
@@ -142,7 +142,7 @@ traceroute [target]
 -6 : force use of IPv6
 ```
 
-## windows traceroute
+### <mark style="color:orange;">windows traceroute</mark>
 
 #### sends ICMP echo request messages to target, starting with small TTLs.
 
@@ -157,7 +157,7 @@ some useful options:
 -6 : force use of IPv6
 ```
 
-## Web based traceroute services
+### <mark style="color:orange;">Web based traceroute services</mark>
 
 #### instead of tracing from your address to target various websites allow you to trace from them to the target. so you can traceroute from around the world. by domain name or IP address. this is very useful in seeing if you are being shunned during a test.
 
@@ -167,9 +167,9 @@ some useful options:
 
 {% embed url="https://www.ip2location.com/free/traceroute" %}
 
-## Network Mapping
+## <mark style="color:red;">Network Mapping</mark>
 
-### Traceroute
+### <mark style="color:orange;">Traceroute</mark>
 
 for best performance and mapping the network hops use traceroute with these three options and compare the results:
 
@@ -216,7 +216,7 @@ cat tmp1 tmp2 tmp3 tmp4 | grep -v '*' | sort -n -k 1 -u | sort -g | tee -a $1.tx
 rm -rf tmp1 tmp2 tmp3 tmp4
 ```
 
-### Zenmap
+### <mark style="color:orange;">Zenmap</mark>
 
 you can also use zenmap for network mapping which is a GUI for nmap tool and can be downloaded from [here](https://nmap.org/zenmap/).
 

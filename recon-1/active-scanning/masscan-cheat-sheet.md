@@ -89,6 +89,8 @@ masscan --readscan bin-test.scan
 masscan --readscan bin-test.scan -oX bin-test.xml
 ```
 
+\\
+
 #### Complete commands <a href="#complete-commands" id="complete-commands"></a>
 
 ```bash
