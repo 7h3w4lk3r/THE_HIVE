@@ -172,6 +172,7 @@
       * [SUID Docker](network-attacks/untitled/privilege-escalation/docker-1/docker.md)
   * [⭕ Lateral Movement](network-attacks/untitled/lateral-movement/README.md)
     * [VIM Config File Keylogger](network-attacks/untitled/lateral-movement/vim-config-file-keylogger.md)
+    * [SSH Hijacking](network-attacks/untitled/lateral-movement/ssh-hijacking.md)
     * [Hiding Processes](network-attacks/untitled/lateral-movement/hiding-processes.md)
     * [Simple Rootkits](network-attacks/untitled/lateral-movement/simple-rootkits.md)
     * [Vino VNC Server](network-attacks/untitled/lateral-movement/vino-vnc-server.md)
