@@ -34,7 +34,7 @@ hping3 -1 google.com
 <mark style="color:green;">**Traceroute using ICMP**</mark><mark style="color:green;">:</mark> This example is similar to famous utilities like tracert (windows) or traceroute (linux) who uses ICMP packets increasing every time in 1 its TTL value.
 
 ```
-hping3 — traceroute -V -1 testpage.com
+hping3 traceroute -V -1 testpage.com
 ```
 
 we can also use the traceroute command to perform traceroute with different methods, protocols and ports. check [this section](../recon-1/active-scanning/host-discovery-and-mapping.md#traceroute) for traceroute techniques.
