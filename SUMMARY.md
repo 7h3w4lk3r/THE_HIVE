@@ -33,10 +33,10 @@
 
 ## 🔷 Red Team <a href="#network-attacks" id="network-attacks"></a>
 
-* [⭕ Firewall / IDS Evasion](network-attacks/firewall-ids-evasion.md)
-* [⭕ IPv6 Attacks](layer-2-and-3-attacks/ipv6-attacks/README.md)
-  * [Neighbor Impersonation](layer-2-and-3-attacks/ipv6-attacks/neighbor-impersonation.md)
-  * [Router Advertisement Flooding](layer-2-and-3-attacks/ipv6-attacks/router-advertisement-flooding.md)
+* [🔴 Firewall / IDS Evasion](network-attacks/firewall-ids-evasion.md)
+* [🔴 IPv6 Attacks](layer-2-and-3-attacks/ipv6-attacks/README.md)
+  * [⭕ Neighbor Impersonation](layer-2-and-3-attacks/ipv6-attacks/neighbor-impersonation.md)
+  * [⭕ Router Advertisement Flooding](layer-2-and-3-attacks/ipv6-attacks/router-advertisement-flooding.md)
 * [🔴 Network Services](network-attacks/network/README.md)
   * [DNS](network-attacks/network/dns.md)
   * [IPv6](network-attacks/network/ipv6.md)
@@ -228,7 +228,7 @@
   * [⭕ Magic Unicorn](shells-and-payloads/magic-unicorn.md)
   * [⭕ LOL Binaries](shells-and-payloads/reverse-bind-payloads/lol-binaries.md)
   * [⭕ msfvenom](shells-and-payloads/reverse-bind-payloads/msfvenom.md)
-  * [⭕ Other Methods](network-attacks/payloads-and-shell-escape/reverse-bind-payloads.md)
+  * [⭕ Other Methods](shells-and-payloads/reverse-bind-payloads/README.md)
 * [🔴 Command & Control](network-attacks/command-and-control/README.md)
   * [⭕ Metasploit](command-and-control/metasploit.md)
 * [🔴 Exfiltration / File Transfer](network-attacks/exfiltration-file-transfer/README.md)
@@ -242,6 +242,8 @@
   * [⭕ Other Methods](network-attacks/exfiltration-file-transfer/other-methods.md)
 * [🔴 Pivoting](network-attacks/pivoting/README.md)
   * [⭕ SSH Forwarding](network-attacks/pivoting/ssh-port-forwarding.md)
+  * [⭕ Socat Stealth Port Forward](network-attacks/pivoting/socat-stealth-port-forward.md)
+  * [⭕ Socat Reverse Shell Relay](network-attacks/pivoting/socat-reverse-shell-relay.md)
   * [⭕ HTTP Tunneling](network-attacks/pivoting/http-tunneling.md)
   * [⭕ ICMP Tunneling](network-attacks/pivoting/icmp-tunneling.md)
   * [⭕ DNS Tunneling](network-attacks/pivoting/dns-tunneling.md)

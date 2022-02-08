@@ -24,20 +24,6 @@
 
 {% embed url="https://hackmag.com/security/linux-privileges-escalation" %}
 
-## Methods
-
-1. **cron/crontab abuse**
-2. **/etc/passwd & /etc/shadow**
-3. **MySQL UDF**
-4. **sudo abuse**
-5. **Environment variables**
-6. **SUID/SGID binaries**
-7. **Shared object injection**
-8. **NFS**
-9. **docker**
-10. **Unix socket exploitation**
-11. **and much more...**
-
 ## Automated Tools
 
 a list of automated tools used in post-exploitation enumeration and privilege escalation.

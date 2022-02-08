@@ -1,4 +1,4 @@
-# ⭕ Local Privilege Escalation
+# ⭕ Privilege Escalation
 
 ## <mark style="color:red;">know before you start</mark>
 
@@ -21,25 +21,6 @@
 {% embed url="https://joshruppe.com/basic-windows-enumeration/" %}
 
 {% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md" %}
-
-## <mark style="color:red;">**Methods**</mark>
-
-* ​​**Stored Credentials**
-* **Windows Kernel Exploit**
-* **DLL Injection**
-* **process injection**
-* **Unattended Answer File**
-* **Insecure File/Folder Permissions**
-* **Insecure Service Permissions**
-* **DLL Hijacking**
-* **Unquoted Service Path**
-* **Always Install Elevated**
-* **Token Manipulation**
-* **Insecure Registry Permissions**
-* **Autologon User Credential**
-* **User Account Control (UAC) Bypass**
-* **Insecure Named Pipes Permissions**
-* **and much more...**
 
 ## <mark style="color:red;">Automated Tools</mark> <a href="#automated-tools" id="automated-tools"></a>
 
