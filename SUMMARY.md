@@ -252,7 +252,7 @@
   * [⭕ Metasploit Pivoting](network-attacks/pivoting/metasploit-pivoting.md)
   * [🔧 VPN Tunneling](network-attacks/pivoting/remote-connection.md)
   * [🔧 Other Tools](network-attacks/pivoting/tools.md)
-* [🔴 MITM & Posoning](network-attacks/active-directory-attacks/network-poisoning-mitm/README.md)
+* [🔴 MITM & Poisoning](network-attacks/active-directory-attacks/network-poisoning-mitm/README.md)
   * [⭕ Bettercap](network-attacks/network-poisoning-mitm/bettercap.md)
   * [⭕ HTTPS Downgrade / HSTS Bypass](network-attacks/network-poisoning-mitm/https-downgrade-hsts-bypass.md)
   * [⭕ Malicious Update](network-attacks/network-poisoning-mitm/malicious-update.md)
