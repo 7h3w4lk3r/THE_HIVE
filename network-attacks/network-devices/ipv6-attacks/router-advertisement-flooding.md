@@ -1,4 +1,4 @@
-# ⭕ Router Advertisement Flooding
+# Router Advertisement Flooding
 
 ## Router Advertisement
 
@@ -69,6 +69,6 @@ fake_router6 [-HFD] interface network-address/prefix-length [dns-server [router-
 fake_router6 eth0 <replace with your interface> bad::00/64 <replace with your fake n/w>
 ```
 
-![](<../../.gitbook/assets/image (280).png>)
+![](<../../../.gitbook/assets/image (280).png>)
 
-![](<../../.gitbook/assets/image (295) (1).png>)
+![](<../../../.gitbook/assets/image (295) (1).png>)

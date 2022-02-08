@@ -2,9 +2,9 @@
 
 ![](.gitbook/assets/logo.png)
 
-#### <mark style="color:red;">A place for keeping my hacking and coding notes handy.</mark>
+#### <mark style="color:red;">**A place for keeping my hacking and coding notes handy.**</mark>
 
-The documents and techniques discussed here are taken from various sources such as blogs, cyber security courses, cheat sheets, books, CTF experience and personal researches. **the soul purpose of this "book" is to** **make network penetration testing easier, keeping my notes somewhere handy and hopefully, giving back to the community.**&#x20;
+The documents and techniques discussed here are taken from various sources such as blogs, cyber security courses, cheat sheets, books, CTF experience and personal researches. **the soul purpose of this book is to** **make network penetration testing easier, keeping my notes somewhere handy and hopefully, giving back to the community.**&#x20;
 
 ## <mark style="color:red;">**Contact**</mark>
 
