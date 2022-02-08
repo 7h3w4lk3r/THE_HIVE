@@ -217,7 +217,7 @@
   * [⭕ NAC Bypass](network-attacks/nac/README.md)
     * [Captive Portal](network-attacks/nac/captive-portal.md)
     * [802.1X / EAP Bypass](layer-2-and-3-attacks/nac-bypass/802.1x-eap-bypass.md)
-  * [🔧 Printer Exploitation](network-attacks/printer-exploitation.md)
+  * [⭕ Printer Exploitation](network-attacks/printer-exploitation.md)
 * [🔴 Defense Evasion](network-attacks/defense-evasion/README.md)
   * [⭕ Basic Tricks](defense-evasion/av-evasion/simple-tricks.md)
   * [⭕ AMSI Bypass](defense-evasion/av-evasion/amsi-bypass.md)
