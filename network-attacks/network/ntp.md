@@ -30,7 +30,7 @@ Through NTP enumeration you can gather information such as lists of hosts connec
 nmap -sU -p 123 --script ntp-info [target]
 ```
 
-![](<../../.gitbook/assets/image (40).png>)
+![](<../../.gitbook/assets/image (40) (1).png>)
 
 The ntp-info script can extract the remote system's timestamp against the first host and a great deal of information about the second host including kernel version and ntpd version.
 
@@ -49,14 +49,3 @@ auxiliary/scanner/ntp/ntp_monlist
 ```
 
 This module identifies NTP servers which permit the above mentioned "monlist" queries and obtains the recent client's list. The monlist feature allows remote attackers to cause a denial of service (traf fic amplification) via spoofed requests. The more clients there ar e in the record, the higher the amplification
-
-
-
-
-
-
-
-
-
-
-

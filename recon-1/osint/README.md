@@ -60,7 +60,7 @@ Geospatial intelligence (GEOINT) is intelligence by analyzing geospatial maps an
 
 [the OSINT framework](https://osintframework.com) is a great collection of OSINT resources that you should definitely check them out.
 
-![](<../../.gitbook/assets/image (1) (1).png>)
+![](<../../.gitbook/assets/image (1) (1) (1).png>)
 
 ## Maltego
 

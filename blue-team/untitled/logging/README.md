@@ -2,7 +2,7 @@
 
 ### <mark style="color:orange;">Centralized Logging</mark>
 
-![](<../../../.gitbook/assets/image (47).png>)
+![](<../../../.gitbook/assets/image (47) (1).png>)
 
 ### <mark style="color:orange;">Important Linux Log Files</mark>
 
@@ -200,7 +200,7 @@ config file is at `/etc/rsyslog.conf` .
 
 
 
-![](<../../../.gitbook/assets/image (13).png>)
+![](<../../../.gitbook/assets/image (13) (1).png>)
 
 ![](<../../../.gitbook/assets/image (49).png>)
 
