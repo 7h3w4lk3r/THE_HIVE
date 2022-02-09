@@ -46,7 +46,7 @@ if the user clicks on the scanner icon in windows explorer > networks, the defau
 
 if the user enters the credentials, EvilSSDP will grab and show them
 
-![](<../../.gitbook/assets/image (15).png>)
+![](<../../.gitbook/assets/image (15) (1).png>)
 
 ## Other templates
 

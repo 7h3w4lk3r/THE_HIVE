@@ -95,6 +95,7 @@
   * [⭕ SMB/NTLM Relay](network-attacks/active-directory-attacks/network-poisoning-mitm/smb-ntlm-relay.md)
   * [⭕ LLMNR Poisoning](network-attacks/active-directory-attacks/network-poisoning-mitm/llmnr-poisoning.md)
   * [⭕ DNS Takeover + LDAP Relay](network-attacks/active-directory-attacks/network-poisoning-mitm/dns-takeover-ldap-relay.md)
+* [🔴 Wireless Attacks](network-attacks/wireless-attacks.md)
 * [🔧 Wireless](network-attacks/wireless.md)
 * [🔴 Windows](network-attacks/windows.md)
   * [⭕ Security Concepts](network-attacks/active-directory-attacks/concepts/README.md)

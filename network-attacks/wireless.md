@@ -22,7 +22,7 @@ The IEEE 802.11b amendment adds Complementary Code Keying (CCK) coding to the st
 
 The following table shows the relationship between each channel number and its corresponding frequency:
 
-![](<../.gitbook/assets/image (13).png>)
+![](<../.gitbook/assets/image (14).png>)
 
 A quick calculation will show that it’s only possible to have 3 non-overlapping channels and channel availability is dictated by the local standards of each country or region. For example:
 
@@ -161,13 +161,13 @@ Wireless control frames are short messages that tell devices when to start or st
 
 <mark style="color:green;">PS-Poll :</mark>
 
-Wireless adapters can be placed in power-saving mode (nearly off) to increase battery life. When a station is in power-save mode, the AP buffers the traffic destined for it. The AP uses a Traffic Information Message (TIM) to inform the station that it has some data waiting for it and transmits it in beacon frames. When a station finds its AID in the TIM map, it uses PS-Poll frames to request the buffered frames from the AP. Each frame must be ACK’d before being removed from the APs buffer. Figure 3-4 below demonstrates how PS-Poll works.
+Wireless adapters can be placed in power-saving mode (nearly off) to increase battery life. When a station is in power-save mode, the AP buffers the traffic destined for it. The AP uses a Traffic Information Message (TIM) to inform the station that it has some data waiting for it and transmits it in beacon frames. When a station finds its AID in the TIM map, it uses PS-Poll frames to request the buffered frames from the AP. Each frame must be ACK’d before being removed from the APs buffer.
 
 <mark style="color:green;">RTS/CTS :</mark>&#x20;
 
 RTS/CTS is a supplement to the CSMA/CA mechanism that helps in reducing collisions. It adds overhead to the wireless communication, as additional packets have to be added to the beginning of the communication.
 
-![](<../.gitbook/assets/image (14).png>)
+![](<../.gitbook/assets/image (15).png>)
 
 we assume that Node 1 wants to communicate with Node 2. Node 2 can be either an AP or a STA.
 
@@ -196,7 +196,7 @@ Management frames are used to negotiate and control the relationship between acc
 
 Beacon frames are the most common packets as they are sent at a rate of approximately 10 times per second. Beacons are broadcast by the AP to keep the network synchronized.
 
-![](<../.gitbook/assets/image (40).png>)
+![](<../.gitbook/assets/image (50).png>)
 
 The beacons contain useful information about the network such as the network name (unless SSID broadcast is disabled), the capabilities of the AP, the data rates available, etc. Beacons are typically sent every 102.4ms at a rate of 1 Mbit for 802.11b and 2 Mbit for 802.11a or g. This value can be changed.
 
@@ -208,46 +208,19 @@ Wireless probe frames are used to scan for existing access points.
 
 robe requests are sent by wireless stations to determine what APs are within range and what their capabilities are
 
+![](<../.gitbook/assets/image (48).png>)
+
+<mark style="color:green;">Probe Response :</mark>&#x20;
+
+A probe response is only sent if the rate and ESSID values are the same as the ones that are supported by the node. The node that answers the request is the last node that sent out a beacon. A node can be an AP if the network is in infrastructure mode or a station if it is in ad-hoc (IBSS) mode.
+
+![](<../.gitbook/assets/image (13).png>)
 
 
 
 
 
 
-
-
-
-
-
-
-## <mark style="color:red;">Tools</mark>
-
-### <mark style="color:orange;">Wifi Hacking</mark>
-
-* [aircrack-ng](https://www.kali.org/tools/aircrack-ng/) - A complete suite of tools to assess WiFi network security
-  * [https://www.aircrack-ng.org/](https://www.aircrack-ng.org)
-  * [airgraph-ng](https://www.kali.org/tools/aircrack-ng/#airgraph-ng) is a tool to create a graph ouf of the txt file created by airodump with its -w option. The graph shows the relationships between the clients and the access points.
-* [airgeddon](https://www.kali.org/tools/airgeddon/) - a menu driven 3rd party tools wrapper to audit wireless networks with many features.
-* [bully](https://www.kali.org/tools/bully/) - Bully is a new implementation of the WPS brute force attack, written in C. It is conceptually identical to other programs, in that it exploits the (now well known) design flaw in the WPS specification.
-* [cowpatty](https://www.kali.org/tools/cowpatty/) - If you are auditing WPA-PSK or WPA2-PSK networks, you can use this tool to identify weak passphrases that were used to generate the PMK.
-* [eaphammer](https://www.kali.org/tools/eaphammer/) - This package contains a toolkit for performing targeted evil twin attacks against WPA2-Enterprise networks
-* [kismet](https://www.kali.org/tools/kismet/)  Kismet is a wireless network and device detector, sniffer, wardriving tool, and WIDS (wireless intrusion detection) framework.
-* [mdk4](https://www.kali.org/tools/mdk4/) - A Wi-Fi testing tool from E7mer, ASPj of k2wrlz, it uses the osdep library from the aircrack-ng project to inject frames on several operating systems.
-
-### <mark style="color:orange;">Bluetooth</mark>
-
-* [bluelog](https://www.kali.org/tools/bluelog/) - Bluelog is a Bluetooth scanner designed to tell you how many discoverable devices there are in an area as quickly as possible. It is intended to be used as a site survey tool, identifying the number of possible Bluetooth targets there are in the surrounding environment.
-* [blueranger](https://www.kali.org/tools/blueranger/) - Use the Bluetooth interface to scan for the specified remote address.
-* [bluesnarfer](https://www.kali.org/tools/bluesnarfer/) - A bluetooth bluesnarfing Utility
-* [bluez](https://www.kali.org/tools/bluez/) - This package contains tools and system daemons for using Bluetooth devices. BlueZ is the official Linux Bluetooth protocol stack.
-* [btscanner](https://www.kali.org/tools/btscanner/) - btscanner is a tool designed specifically to extract as much information as possible from a Bluetooth device without the requirement to pair.
-* [crackle](https://www.kali.org/tools/crackle/) - crackle exploits a flaw in the BLE pairing process that allows an attacker to guess or very quickly brute force the TK (Temporary Key). With the TK and other data collected from the pairing process, the STK (Short Term Key) and later the LTK (Long Term Key) can be collected.
-* [redfang](https://www.kali.org/tools/redfang/) - a small proof-of-concept application to find non discoveredable bluetooth devices. This is done by brute forcing the last six (6) bytes of the bluetooth address of the device and doing a read\_remote\_name().
-* [spooftooph](https://www.kali.org/tools/spooftooph/) - Spooftooph is designed to automate spoofing or cloning Bluetooth device Name, Class, and Address.
-
-## <mark style="color:red;">Resources</mark>
-
-{% embed url="https://null-byte.wonderhowto.com/how-to/hack-wi-fi-getting-started-with-terms-technologies-0147659" %}
 
 
 
