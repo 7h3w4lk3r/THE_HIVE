@@ -1,6 +1,6 @@
 # ⭕ Metasploit
 
-![](<../.gitbook/assets/image (282) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (282) (1) (1) (1) (1) (1) (1).png>)
 
 {% embed url="https://www.sans.org/blog/sans-pen-test-cheat-sheet-metasploit" %}
 
@@ -405,19 +405,19 @@ find your tor hidden service hostname
 cat /var/lib/tor/hidden_service/hostname
 ```
 
-![](<../.gitbook/assets/image (289) (1).png>)
+![](<../../.gitbook/assets/image (289) (1).png>)
 
 create a payload with msfvenom and set the `lhost` to the union address and append .link to it:
 
-![](<../.gitbook/assets/image (272) (1) (1).png>)
+![](<../../.gitbook/assets/image (272) (1) (1).png>)
 
 in listener set lhost to your local ip address:
 
-![](<../.gitbook/assets/image (275) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (275) (1) (1) (1).png>)
 
 run the attack:
 
-![](<../.gitbook/assets/image (291) (1) (1).png>)
+![](<../../.gitbook/assets/image (291) (1) (1).png>)
 
 using tor is extremely slow ad your session may timeout, play around with timeout values.
 
@@ -756,7 +756,7 @@ set rhost www.symantec.om
 run
 ```
 
-![](<../.gitbook/assets/image (296) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (296) (1) (1) (1) (1) (1).png>)
 
 we have the cert now create a payload using the cert:
 
@@ -772,4 +772,4 @@ set stagerverifysslcert true
 run
 ```
 
-![](<../.gitbook/assets/image (276) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (276) (1) (1) (1).png>)

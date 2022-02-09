@@ -53,18 +53,18 @@ As for a generic approach, let’s say you enabled it like:
 
 **File->properties->ribbons->developer mode**
 
-![](<../.gitbook/assets/image (296).png>)
+![](<../../.gitbook/assets/image (296).png>)
 
 You will see an extra tab labeled developer once it gets enabled.
 
 As for the attack, go to developer->macros and create a new macro named “Auto\_Open”
 
-![](<../.gitbook/assets/image (295).png>)
+![](<../../.gitbook/assets/image (295).png>)
 
 Simply paste the contents from “powershell\_attack.txt” to this xlsx module and save it.
 
-![](<../.gitbook/assets/image (298).png>)
+![](<../../.gitbook/assets/image (298).png>)
 
 As soon as you click run (little green icon on the top), it will give you an error! Don’t worry! You want that error. It is supposed to happen.
 
-![](<../.gitbook/assets/image (301).png>)
+![](<../../.gitbook/assets/image (301).png>)
