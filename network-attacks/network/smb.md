@@ -447,7 +447,7 @@ This machine is sharing a directory; the share name is shares You can also perfo
 nmblookup -A [target ip ]
 ```
 
-![](<../../.gitbook/assets/image (38) (1).png>)
+![](<../../.gitbook/assets/image (38) (1) (1).png>)
 
 ## Checking for Null Sessions
 

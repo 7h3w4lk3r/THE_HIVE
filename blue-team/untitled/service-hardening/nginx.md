@@ -1,7 +1,5 @@
 # Nginx
 
-
-
 ## <mark style="color:red;">Disable Unwanted Modules</mark>
 
 When you install nginx, it automatically includes many modules. Currently, you cannot choose modules at runtime. To disable certain modules, you need to recompile nginx. We recommend that you disable any modules that are not required as this will minimize the risk of potential attacks by limiting allowed operations.&#x20;
@@ -67,7 +65,7 @@ If no value is specified, the header will be displayed empty. We can also create
 
 To completely disable the server header, find server\_token in the Nginx configuration file and set it to server\_tokens off (by removing # in the _**nginx.conf**_ file).
 
-![](<../../../.gitbook/assets/image (38).png>)
+![](<../../../.gitbook/assets/image (38) (1).png>)
 
 ## <mark style="color:red;">Control Resources and Limits</mark>&#x20;
 

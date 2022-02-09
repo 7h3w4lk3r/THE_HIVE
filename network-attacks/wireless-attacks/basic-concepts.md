@@ -74,7 +74,7 @@ An Extended Service Set (ESS) is a set of 2 or more wireless APs connected to th
 On Linux-type operating systems, acting as a STA is usually called “Managed” mode and when acting as an AP, it is usually referred to as “Master” mode.
 {% endhint %}
 
-![](<../../.gitbook/assets/image (34).png>)
+![](<../../.gitbook/assets/image (34) (1).png>)
 
 ### <mark style="color:orange;">Ad-Hoc Mode</mark>&#x20;
 
@@ -192,7 +192,7 @@ An RTS frame has a length of 20 bytes:
 
 A CTS frame has the same length (14 bytes) and structure as an ACK frame:
 
-![](<../../.gitbook/assets/image (51).png>)
+![](<../../.gitbook/assets/image (51) (1).png>)
 
 ### <mark style="color:orange;">Management Frames</mark>
 
@@ -204,7 +204,7 @@ Management frames are used to negotiate and control the relationship between acc
 
 Beacon frames are the most common packets as they are sent at a rate of approximately 10 times per second. Beacons are broadcast by the AP to keep the network synchronized.
 
-![](<../../.gitbook/assets/image (50).png>)
+![](<../../.gitbook/assets/image (50) (1).png>)
 
 The beacons contain useful information about the network such as the network name (unless SSID broadcast is disabled), the capabilities of the AP, the data rates available, etc. Beacons are typically sent every 102.4ms at a rate of 1 Mbit for 802.11b and 2 Mbit for 802.11a or g. This value can be changed.
 
@@ -224,9 +224,110 @@ A probe response is only sent if the rate and ESSID values are the same as the o
 
 ![](<../../.gitbook/assets/image (13).png>)
 
+### <mark style="color:orange;">Authentication Frames</mark>
+
+Within an authentication frame, the Authentication Algorithm identifies the type of authentication used. A value of “0” is used to indicate Open System authentication and a value of “1” is used for Shared Key authentication.
+
+![](<../../.gitbook/assets/image (4).png>)
+
+The authentication process consists of several authentication frames (the exact number of frames exchanged can vary). The Authentication Transaction Sequence Number keeps track of the current state of the authentication process and can take values from 1 to 65535. The challenge text will only be present on shared authentication systems.
+
+The Status code value will indicate either success (0) or failure (other than 0) in the authentication process.
+
+### <mark style="color:orange;">Association/Reassociation Frames</mark>
+
+Once a station successfully authenticates to an AP, it needs to perform an association before fully joining the network. An association request frame has the following structure.
+
+![](<../../.gitbook/assets/image (38).png>)
+
+### <mark style="color:orange;">Reassociation Request Frame</mark>
+
+A reassociation request has a structure that is nearly identical to the association request except that it also has a Source Address field.
+
+![](<../../.gitbook/assets/image (50).png>)
+
+### <mark style="color:orange;">Association Response Frame</mark>
+
+Access points respond to an association request with an Association Response either rejecting or accepting the association request. The association response has the following structure.
+
+![](<../../.gitbook/assets/image (34).png>)
+
+### <mark style="color:orange;">Disassociation/Deauthentication Frame</mark>
+
+![](<../../.gitbook/assets/image (21).png>)
+
+The table below outlines different values that can be used for the Reason code in the frame.
+
+![](<../../.gitbook/assets/image (51).png>)
+
+### <mark style="color:orange;">Data Frames</mark>
+
+The purpose of a data frame is to transfer data from an upper layer of a station to another wireless or wired station on the network. there are a number of different types of data frames. The table below will help you in remembering them.
+
+![](<../../.gitbook/assets/image (53).png>)
+
+### <mark style="color:orange;">Null Frame</mark>
+
+ull frames consist only of MAC headers and a FCS. They are used by stations to indicate that they are going into power-saving mode.
+
+## <mark style="color:red;">Wireless Connection and Transmission Process</mark>
+
+![](<../../.gitbook/assets/image (49).png>)
+
+We can separate this process into 3 main parts:
+
+#### <mark style="color:green;">Probe</mark>
+
+1. The STA first sends a probe on all channels to find the AP
+2. The APs in range answer the probe request
 
 
 
+#### <mark style="color:green;">Authentication</mark>
+
+1. The STA authenticates to the AP, by default to the one with the best signal
+2. The authentication process occurs (the length of the process varies)
+3. The AP sends a response to the authentication
+
+
+
+#### <mark style="color:green;">Association</mark>
+
+1. The STA sends an association request
+2. The AP sends an association response
+3. The STA can communicate with the network
+
+After this process is completed, data can then be exchanged on the network.
+
+{% hint style="info" %}
+For WPA encryption, there is another phase, key exchange and verification, that happens just after association before being able to use the network.
+{% endhint %}
+
+## <mark style="color:red;">Security Technology</mark>
+
+### <mark style="color:orange;">WEP</mark>
+
+WEP, or wired equivalent privacy, was the first wireless security scheme employed. As it name implies, it was designed to provide security to the end-user that was essentially equivalent to the privacy that was enjoyed in a wired environment. Unfortunately, it failed miserably.
+
+For a number of reasons, WEP is extraordinarily easy to crack because of a flawed implementation of the RC4 encryption algorithm. It's not unusual to be able to crack WEP in less than 5 minutes. This is because WEP used a very small (24-bit) initialization vector (IV) that could be captured in the datastream, and this IV could then be used to discover the password using statistical techniques.
+
+### <mark style="color:orange;">WPA</mark>
+
+WPA was the response by the industry to the revealed weaknesses of WEP. It's often referred to as WPA1 to distinguish it from WPA2.
+
+WPA used Temporal Key Integrity Protocol (TKIP) to improve the security of WEP without requiring new hardware. It still uses WEP for encryption, but it makes the statistical attacks used to crack WEP much more difficult and time-consuming.
+
+### <mark style="color:orange;">WPA2-PSK</mark>
+
+WPA2-PSK is the implementation of WPA2 for the home or small business user. As the name implies, it's the WPA2 implementation that uses a pre-shared key (PSK). It's this security standard that is used by most households today, and although it's far more secure, it's still vulnerable to various attacks.
+
+{% hint style="info" %}
+A feature that was added in 2007 called Wi-Fi Protected Setup, or WPS, allows us to bypass the security in WP2-PSK .
+{% endhint %}
+
+### <mark style="color:orange;">WPA2-AES</mark>
+
+WPA2-AES is the enterprise implementation of WPA2. It uses the Advanced Encryption Standard or AES to encrypt data and is the most secure. It's often coupled with a RADIUS server that is dedicated for authentication. Although cracking it is possible, it significantly more difficult.
 
 
 
