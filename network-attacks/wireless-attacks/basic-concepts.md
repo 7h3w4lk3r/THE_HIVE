@@ -1,12 +1,12 @@
-# 🔧 Wireless
+# ⭕ Basic Concepts
 
-## <mark style="color:red;">Basics</mark>
+## <mark style="color:red;">Standards</mark>
 
 the access point that sends out the radio frequency (RF) signal is known as the AP. These APs are capable of sending out signals (between 2.4 and 5 Ghz) that comply with a number of different standards. These standards are known as 802.11a, 802.11b, 802.11g, and 802.11n. In the very near future, we'll see a new standard that's tentatively named 802.11ac.
 
 The following table lists the main 802.11 protocols along with some of their properties:
 
-![](<../.gitbook/assets/image (24).png>)
+![](<../../.gitbook/assets/image (24).png>)
 
 These standards are generally backwardly compatible, so that a wireless n adapter will also be able to pick up g and b signals. We will focus upon the most widely used of these standards— b, g, and n.
 
@@ -22,7 +22,7 @@ The IEEE 802.11b amendment adds Complementary Code Keying (CCK) coding to the st
 
 The following table shows the relationship between each channel number and its corresponding frequency:
 
-![](<../.gitbook/assets/image (14).png>)
+![](<../../.gitbook/assets/image (14).png>)
 
 A quick calculation will show that it’s only possible to have 3 non-overlapping channels and channel availability is dictated by the local standards of each country or region. For example:
 
@@ -53,7 +53,7 @@ The speed increase in IEEE 802.11n is due in large part to its use of Multiple-I
 
 There is also a new mode called Greenfield mode that introduces a new preamble for 802.11n only whereby only devices operating in 802.11n will be “allowed” on the network.
 
-### <mark style="color:orange;">Wireless Operating Modes</mark>
+## <mark style="color:red;">Wireless Operating Modes</mark>
 
 There are 2 main wireless operating modes:
 
@@ -64,7 +64,9 @@ In both modes, a Service Set Identifier (SSID) is required for network verificat
 
 The AP broadcasts the SSID in beacon frames approximately 10 times per second and the client, when connecting to a wireless network, also advertises the SSID. These basic features are used by wireless sniffers to identify network names and gather other interesting pieces of information.
 
-<mark style="color:green;">**Infrastructure Network :**</mark>  <mark style="color:green;"></mark><mark style="color:green;"></mark>  In infrastructure mode, there is at least one AP and one station, which together form a Basic Service Set (BSS). The AP is most commonly connected to a wired network, which is called a Distribution System (DS).
+### <mark style="color:orange;">**Infrastructure Network**</mark>** **<mark style="color:green;">****</mark>&#x20;
+
+&#x20;<mark style="color:green;"></mark> In infrastructure mode, there is at least one AP and one station, which together form a Basic Service Set (BSS). The AP is most commonly connected to a wired network, which is called a Distribution System (DS).
 
 An Extended Service Set (ESS) is a set of 2 or more wireless APs connected to the same wired network, defining a single logical network segment.
 
@@ -72,9 +74,9 @@ An Extended Service Set (ESS) is a set of 2 or more wireless APs connected to th
 On Linux-type operating systems, acting as a STA is usually called “Managed” mode and when acting as an AP, it is usually referred to as “Master” mode.
 {% endhint %}
 
-![](<../.gitbook/assets/image (34).png>)
+![](<../../.gitbook/assets/image (34).png>)
 
-<mark style="color:green;">Ad-Hoc Mode :</mark>&#x20;
+### <mark style="color:orange;">Ad-Hoc Mode</mark>&#x20;
 
 An ad-hoc network, also known as an Independent Basic Service Set (IBSS), consists of at least 2 STAs communicating without an AP. This mode is also called “peer to peer mode”. In an ad-hoc network, one of the participating stations takes on some of the responsibilities of an AP such as:
 
@@ -83,22 +85,28 @@ An ad-hoc network, also known as an Independent Basic Service Set (IBSS), consis
 
 In ad-hoc mode, the STA taking on the responsibilities of the AP does not relay packets to other nodes like an AP does.&#x20;
 
-![](<../.gitbook/assets/image (46).png>)
+![](<../../.gitbook/assets/image (46).png>)
 
-<mark style="color:green;">Wireless Distribution System :</mark> A Wireless Distribution System (WDS) is similar to a standard DS but is done via wireless and APs communicate with one another. WDS has 2 connectivity modes:
+### <mark style="color:orange;">Wireless Distribution System</mark>
+
+A Wireless Distribution System (WDS) is similar to a standard DS but is done via wireless and APs communicate with one another. WDS has 2 connectivity modes:
 
 * Wireless Bridging – Only allows WDS APs to communicate with each other
 * Wireless Repeating – Allows both stations and APs to communicate with each other&#x20;
 
-![](<../.gitbook/assets/image (47).png>)
+![](<../../.gitbook/assets/image (47).png>)
 
-<mark style="color:green;">Monitor Mode :</mark> Monitor mode is not really a wireless mode but it is especially important in attacking wireless networks. In a nutshell, Monitor mode allows a wireless card to “monitor” the packets that are received without any filtering. Monitor mode is essentially the “promiscuous mode” equivalent for wireless. When using some wireless drivers, this mode allows for the sending of raw 802.11 frames. Airodump-ng, Aireplay-ng, and many other wireless tools require that the adapter be placed in monitor mode in order to operate.
+### <mark style="color:orange;">Monitor Mode</mark>&#x20;
 
-<mark style="color:green;">Master mode:</mark> In master mode, a wireless card acts as if it were an access point. In many cases, the same wireless card that is used for client systems is also used for the access point itself, relying on different driver functionality to handle the demands of an access point.
+Monitor mode is not really a wireless mode but it is especially important in attacking wireless networks. In a nutshell, Monitor mode allows a wireless card to “monitor” the packets that are received without any filtering. Monitor mode is essentially the “promiscuous mode” equivalent for wireless. When using some wireless drivers, this mode allows for the sending of raw 802.11 frames. Airodump-ng, Aireplay-ng, and many other wireless tools require that the adapter be placed in monitor mode in order to operate.
+
+### <mark style="color:orange;">Master mode</mark>
+
+In master mode, a wireless card acts as if it were an access point. In many cases, the same wireless card that is used for client systems is also used for the access point itself, relying on different driver functionality to handle the demands of an access point.
 
 ## <mark style="color:red;">802.11 MAC Frame</mark>
 
-![](<../.gitbook/assets/image (11).png>)
+![](<../../.gitbook/assets/image (11).png>)
 
 ### <mark style="color:orange;">Header</mark>
 
@@ -122,7 +130,7 @@ Depending on the frame type, this field can have to different meanings:
 
 The following table represents the different cases of these addresses, depending on the From/To DS bits:
 
-![](<../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (1).png>)
 
 The first case in the table is IBSS mode. The FromDS and ToDS bits are not set as is the case when 2 STAs communicate with one another. The other 3 cases are in infrastructure mode:
 
@@ -157,7 +165,7 @@ The Frame Check Sequence (FCS) is the Cyclic Redundancy Check (CRC) of the curre
 
 Wireless control frames are short messages that tell devices when to start or stop transmitting and whether a connection failure occurred. The following table can help you remember the different types of control frames:
 
-![](<../.gitbook/assets/image (29).png>)
+![](<../../.gitbook/assets/image (29).png>)
 
 <mark style="color:green;">PS-Poll :</mark>
 
@@ -167,7 +175,7 @@ Wireless adapters can be placed in power-saving mode (nearly off) to increase ba
 
 RTS/CTS is a supplement to the CSMA/CA mechanism that helps in reducing collisions. It adds overhead to the wireless communication, as additional packets have to be added to the beginning of the communication.
 
-![](<../.gitbook/assets/image (15).png>)
+![](<../../.gitbook/assets/image (15).png>)
 
 we assume that Node 1 wants to communicate with Node 2. Node 2 can be either an AP or a STA.
 
@@ -180,23 +188,23 @@ we assume that Node 1 wants to communicate with Node 2. Node 2 can be either an 
 
 An RTS frame has a length of 20 bytes:
 
-![](<../.gitbook/assets/image (12).png>)
+![](<../../.gitbook/assets/image (12).png>)
 
 A CTS frame has the same length (14 bytes) and structure as an ACK frame:
 
-![](<../.gitbook/assets/image (51).png>)
+![](<../../.gitbook/assets/image (51).png>)
 
 ### <mark style="color:orange;">Management Frames</mark>
 
 Management frames are used to negotiate and control the relationship between access points and stations. The following table outlines the different types of wireless management frames.
 
-![](<../.gitbook/assets/image (5).png>)
+![](<../../.gitbook/assets/image (5).png>)
 
 ### <mark style="color:orange;">Beacon Frames</mark>
 
 Beacon frames are the most common packets as they are sent at a rate of approximately 10 times per second. Beacons are broadcast by the AP to keep the network synchronized.
 
-![](<../.gitbook/assets/image (50).png>)
+![](<../../.gitbook/assets/image (50).png>)
 
 The beacons contain useful information about the network such as the network name (unless SSID broadcast is disabled), the capabilities of the AP, the data rates available, etc. Beacons are typically sent every 102.4ms at a rate of 1 Mbit for 802.11b and 2 Mbit for 802.11a or g. This value can be changed.
 
@@ -208,13 +216,13 @@ Wireless probe frames are used to scan for existing access points.
 
 robe requests are sent by wireless stations to determine what APs are within range and what their capabilities are
 
-![](<../.gitbook/assets/image (48).png>)
+![](<../../.gitbook/assets/image (48).png>)
 
 <mark style="color:green;">Probe Response :</mark>&#x20;
 
 A probe response is only sent if the rate and ESSID values are the same as the ones that are supported by the node. The node that answers the request is the last node that sent out a beacon. A node can be an AP if the network is in infrastructure mode or a station if it is in ad-hoc (IBSS) mode.
 
-![](<../.gitbook/assets/image (13).png>)
+![](<../../.gitbook/assets/image (13).png>)
 
 
 
