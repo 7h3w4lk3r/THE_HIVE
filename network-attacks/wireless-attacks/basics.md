@@ -258,7 +258,18 @@ When replaying (injecting) packets, the following options apply. Bear in mind th
 
 \-i  : interface
 
+### <mark style="color:orange;">Aircrack-ng</mark>
 
+Aircrack-ng is a wireless WEP and WPA/WPA2-PSK cracking program included in the Aircrack-ng suite. Aircrack-ng can recover the WEP key from a capture dump once enough encrypted packets have been captured with Airodump-ng. Aircrack-ng can use the following three methods in order to extract a WEP key:&#x20;
 
+* The Pyshkin, Tews, Weinmann (PTW) approach, the main advantage of which is that very few data packets are required in order to crack the WEP key. The drawback of this method is that it requires ARP packets in order to work.
+* The FMS/KoreK method. The FMS/KoreK method incorporates various statistical attacks to discover the WEP key together with brute force techniques.
+* Lastly, Aircrack-ng offers a dictionary method for determining the WEP key. When cracking WPA/WPA2 pre-shared keys, the dictionary method is the only technique used.
 
+```
+aircrack-ng [options] <capture file(s)>
+```
 
+options that Aircrack-ng supports:
+
+![](<../../.gitbook/assets/image (50).png>)
