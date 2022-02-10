@@ -64,6 +64,6 @@ python3 evil_ssdp.py eth0 -t office365
 python3 evil_ssdp.py eth0 -t bitcoin -b
 ```
 
-![](<../../.gitbook/assets/image (7).png>)
+![](<../../.gitbook/assets/image (7) (1).png>)
 
 check the repository for other available templates or use your own template and xml description file.

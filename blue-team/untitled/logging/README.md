@@ -200,7 +200,7 @@ config file is at `/etc/rsyslog.conf` .
 
 
 
-![](<../../../.gitbook/assets/image (13) (1).png>)
+![](<../../../.gitbook/assets/image (13) (1) (1).png>)
 
 ![](<../../../.gitbook/assets/image (49) (1).png>)
 

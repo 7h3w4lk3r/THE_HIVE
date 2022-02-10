@@ -188,7 +188,7 @@ we assume that Node 1 wants to communicate with Node 2. Node 2 can be either an 
 
 An RTS frame has a length of 20 bytes:
 
-![](<../../.gitbook/assets/image (12).png>)
+![](<../../.gitbook/assets/image (12) (1).png>)
 
 A CTS frame has the same length (14 bytes) and structure as an ACK frame:
 
@@ -198,7 +198,7 @@ A CTS frame has the same length (14 bytes) and structure as an ACK frame:
 
 Management frames are used to negotiate and control the relationship between access points and stations. The following table outlines the different types of wireless management frames.
 
-![](<../../.gitbook/assets/image (5).png>)
+![](<../../.gitbook/assets/image (5) (1).png>)
 
 ### <mark style="color:orange;">Beacon Frames</mark>
 
@@ -222,7 +222,7 @@ robe requests are sent by wireless stations to determine what APs are within ran
 
 A probe response is only sent if the rate and ESSID values are the same as the ones that are supported by the node. The node that answers the request is the last node that sent out a beacon. A node can be an AP if the network is in infrastructure mode or a station if it is in ad-hoc (IBSS) mode.
 
-![](<../../.gitbook/assets/image (13).png>)
+![](<../../.gitbook/assets/image (13) (1).png>)
 
 ### <mark style="color:orange;">Authentication Frames</mark>
 
