@@ -165,7 +165,7 @@ The Frame Check Sequence (FCS) is the Cyclic Redundancy Check (CRC) of the curre
 
 Wireless control frames are short messages that tell devices when to start or stop transmitting and whether a connection failure occurred. The following table can help you remember the different types of control frames:
 
-![](<../../.gitbook/assets/image (29).png>)
+![](<../../.gitbook/assets/image (29) (1).png>)
 
 <mark style="color:green;">PS-Poll :</mark>
 
@@ -204,7 +204,7 @@ Management frames are used to negotiate and control the relationship between acc
 
 Beacon frames are the most common packets as they are sent at a rate of approximately 10 times per second. Beacons are broadcast by the AP to keep the network synchronized.
 
-![](<../../.gitbook/assets/image (50) (1).png>)
+![](<../../.gitbook/assets/image (50) (1) (1).png>)
 
 The beacons contain useful information about the network such as the network name (unless SSID broadcast is disabled), the capabilities of the AP, the data rates available, etc. Beacons are typically sent every 102.4ms at a rate of 1 Mbit for 802.11b and 2 Mbit for 802.11a or g. This value can be changed.
 
@@ -244,7 +244,7 @@ Once a station successfully authenticates to an AP, it needs to perform an assoc
 
 A reassociation request has a structure that is nearly identical to the association request except that it also has a Source Address field.
 
-![](<../../.gitbook/assets/image (50).png>)
+![](<../../.gitbook/assets/image (50) (1).png>)
 
 ### <mark style="color:orange;">Association Response Frame</mark>
 

@@ -205,3 +205,60 @@ airmon-ng start wlan0
 ```
 tcpdump -neti mon0
 ```
+
+## <mark style="color:red;">Aircrack Toolkit</mark>
+
+### <mark style="color:orange;">Airodump-ng</mark>
+
+Airodump-ng is used for the packet capture of raw 802.11 frames and is particularly suitable for collecting weak WEP Initialization Vectors (IVs) for the later use with Aircrack- ng. With a GPS receiver connected to the computer, Airodump-ng is also capable of logging the GPS coordinates of the detected APs. This GPS data can then be imported into a database and online maps in order to map the locations of the access points geographically.
+
+```
+airodump-ng <options><interface name>[,<interface name>,...]
+
+# example:
+aircrack-ng wlan0 -w [output file] --bssid [AP name]  -c [channel number] [interface name]
+airodump-ng -c 3 --bssid 34:08:04:09:3D:38 -w cap1 mon0
+```
+
+The table below contains descriptions of all of the Airodump fields.
+
+![](<../../.gitbook/assets/image (16).png>)
+
+### <mark style="color:orange;">Aireplay-ng</mark>
+
+Aireplay-ng is primarily used to generate or accelerate wireless traffic for the later use with Aircrack-ng to crack WEP and WPA-PSK keys. Aireplay-ng supports various attacks such as deauthentication (for the purpose of capturing the 4-way WPA handshake), fake authentication, interactive packet replay, and more.
+
+```
+aireplay-ng <options><interface name>
+
+# example :
+aireplay-ng -9 -e <ESSID> -a <AP MAC> -i <interface><interface name>
+aireplay-ng -9 -e wifu -a 34:08:04:09:3D:38 mon0
+```
+
+#### <mark style="color:green;">Attack types:</mark>
+
+![](<../../.gitbook/assets/image (9).png>)
+
+#### <mark style="color:green;">Filter options:</mark>
+
+For all attacks, with the exception of deauthentication and fake authentication, you may use the following filters to limit the packets that will be used in the attack. The most commonly used filter option is ‘-b’ to single out a specific AP.
+
+![](<../../.gitbook/assets/image (23).png>)
+
+<mark style="color:green;">**Replay Options:**</mark>
+
+When replaying (injecting) packets, the following options apply. Bear in mind that not every option is relevant for every attack. The specific attack documentation provides examples of the relevant options.
+
+![](<../../.gitbook/assets/image (29).png>)
+
+<mark style="color:green;">Surce Options:</mark>
+
+\-r : source file
+
+\-i  : interface
+
+
+
+
+

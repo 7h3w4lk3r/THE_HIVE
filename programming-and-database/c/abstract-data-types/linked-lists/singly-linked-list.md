@@ -38,7 +38,7 @@ Three possible situations can occur when you insert an item in a singly linked l
 
 Keep in mind that if you change the first item in the list, you must update the entry point to the list elsewhere in your program. To avoid this overhead, you can use a sentinel as a first item. In this case, choose a special value that will always be first in the list to keep the entry point to the list from changing. This method has the disadvantage of using one extra storage location to hold the sentinel, but this is usually not an important factor.
 
-![](<../../../../.gitbook/assets/image (29) (1).png>)
+![](<../../../../.gitbook/assets/image (29) (1) (1).png>)
 
 The function shown next, sls\_store( ), will insert address structures into the mailing list in ascending order based on the name field. The function must be passed a pointer to the pointer to the first element and the last element in the list along with a pointer to the information to be stored. Since the first or last element in the list could change, sls\_store( ) automatically updates the pointers to the beginning and end of the list if necessary. The first time your program calls sls\_store( ), first and last must point to null.
 

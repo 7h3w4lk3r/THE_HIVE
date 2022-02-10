@@ -54,7 +54,7 @@ Capabilities assigned to users are stored in the /etc/security/capability.conf c
 
 Additionally, systemd offers directives for configuring capabilities on service units, through the “AmbientCapabilities” variable:
 
-![](<../../../.gitbook/assets/image (23).png>)
+![](<../../../.gitbook/assets/image (23) (1).png>)
 
 ### <mark style="color:orange;">LinPEAS</mark>
 
