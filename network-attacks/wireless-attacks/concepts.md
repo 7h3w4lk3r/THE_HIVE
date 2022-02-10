@@ -1,4 +1,4 @@
-# ⭕ Basic Concepts
+# ⭕ Concepts
 
 ## <mark style="color:red;">Standards</mark>
 
@@ -329,10 +329,24 @@ A feature that was added in 2007 called Wi-Fi Protected Setup, or WPS, allows us
 
 WPA2-AES is the enterprise implementation of WPA2. It uses the Advanced Encryption Standard or AES to encrypt data and is the most secure. It's often coupled with a RADIUS server that is dedicated for authentication. Although cracking it is possible, it significantly more difficult.
 
+### <mark style="color:orange;">WPA3</mark>
 
+Similar to WPA2, WPA3 includes WPA3-Personal and WPA3-Enterprise.
 
+<mark style="color:green;">**WPA3-Personal: Enhanced Password Protection**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> : WPA3-Personal uses Simultaneous Authentication of Equals (SAE) to replace PSK authentication in WPA2-Personal.
 
+In WPA2, PSK authentication involves a 4-way handshake for key negotiation. Before the negotiation, a PMK is generated based on the service set identifier (SSID) and PSK, which are both fixed. Therefore, the generated PMK is fixed and can be calculated. As a result, the same key is used for each reinstallation. The SAE protocol used by WPA3 adds an SAE handshake before the original PSK 4-way handshake and introduces a dynamic random variable in the PMK generation process. Therefore, the PMK negotiated each time is different, ensuring the randomness of the key. As such, SAE provides a more secure key authentication mechanism for WPA3 to resolve the security risks exposed by WPA2. SAE enables individuals or home users to set Wi-Fi passwords that are easier to remember and provide the same security protection even if the passwords are not complex enough.
 
+<mark style="color:green;">**WPA3-Enterprise: Enhanced Security**</mark> :  Based on WPA2-Enterprise, WPA3-Enterprise provides WPA3-Enterprise 192-bit, a more secure optional mode. This mode provides the following security protection measures:
+
+* Data protection: The 192-bit Suite-B security suite is used. Compared with the 128-bit key used by WPA2, this suite increases the key length to 192 bits, further improving the password defense strength.
+* Key protection: The more secure HMAC-SHA-384 algorithm is used to export and confirm keys in the 4-way handshake phase. (HMAC: hash-based message authentication code; SHA: secure hash algorithm)
+* Traffic protection: The more secure Galois-Counter Mode Protocol-256 (GCMP-256) is used to protect wireless traffic after STAs go online.
+* Protected management frame (PMF): The Galois Message Authentication Code-256 (GMAC-256) of GCMP is used to protect multicast management frames.
+
+<mark style="color:green;">**OWE Authentication: Open Network Protection**</mark>** :** Most Wi-Fi networks in public venues, such as airports, stations, and cafes, use the traditional open authentication mode. With OWE, users can access Wi-Fi networks without entering passwords, and data transmitted between users and Wi-Fi networks is not encrypted. This increases the risk of unauthorized network access.
+
+WPA3 introduces an Enhanced Open network authentication mode for open networks. This allows users to access the network without entering the password, facilitating user access to the open Wi-Fi networks. Additionally, OWE uses the Diffie-Hellman key exchange algorithm to exchange keys between users and Wi-Fi devices, encrypting transmitted data and protecting user data security.\
 
 
 

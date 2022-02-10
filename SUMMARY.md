@@ -96,7 +96,7 @@
   * [⭕ LLMNR Poisoning](network-attacks/active-directory-attacks/network-poisoning-mitm/llmnr-poisoning.md)
   * [⭕ DNS Takeover + LDAP Relay](network-attacks/active-directory-attacks/network-poisoning-mitm/dns-takeover-ldap-relay.md)
 * [🔧 Wireless Attacks](network-attacks/wireless-attacks/README.md)
-  * [⭕ Basic Concepts](network-attacks/wireless-attacks/basic-concepts.md)
+  * [⭕ Concepts](network-attacks/wireless-attacks/concepts.md)
   * [⭕ Basics](network-attacks/wireless-attacks/basics.md)
   * [⭕ Rogue AP](network-attacks/wireless-attacks/rogue-ap.md)
 * [🔴 Sniffing](network-attacks/sniffing/README.md)

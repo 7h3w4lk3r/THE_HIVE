@@ -37,6 +37,57 @@ Get a list of Networks around you and the channel that they are on
  iw dev wlan0 scan | egrep "DS\ Parameter\ set|SSID"
 ```
 
+### <mark style="color:orange;">Setting Monitoring Mode</mark>
+
+#### <mark style="color:green;">Manual</mark>
+
+```
+iw dev wlan0 interface add mon0 type monitor
+ifconfig mon0 up
+iw dev mon0 set channel 1
+iw dev mon0 info
+
+iw dev mon0 del
+```
+
+#### <mark style="color:green;">airmon-ng</mark>
+
+```
+# list interfaces
+airmon-ng
+
+# put interface in monitoring mode
+airmon-ng start/stop wlan0\
+iw dev wlan0 del
+```
+
+### <mark style="color:orange;">Changing Channels</mark>
+
+```
+# put the interface in monitoring mode
+# use iwdev to changethe channel 
+
+iw dev mon0 set channel 132
+iw dev mon0 set channel 132 HT40+
+iw dev mon0 set channel 132 HT40-
+iw dev mon0 info | grep channel
+```
+
+#### Change Regulatory Domain Settings
+
+```
+# check the current regulatory settings
+iw reg get
+
+# change the country
+iw reg set US
+iw reg set CH
+iw reg set JP
+
+# check new settings
+iw reg get | grep country
+```
+
 ## <mark style="color:red;">Create a VAP</mark>
 
 virtual access point that is in monitor mode
@@ -95,30 +146,6 @@ aireplay-ng -0 30 -a BC:F6:85:BF:4F:70 mon0
 
 the SSID should now be visible in airodump-ng terminal.
 
-### <mark style="color:orange;">Setting Monitoring Mode</mark>
-
-#### <mark style="color:green;">Manual</mark>
-
-```
-iw dev wlan0 interface add mon0 type monitor
-ifconfig mon0 up
-iw dev mon0 set channel 1
-iw dev mon0 info
-
-iw dev mon0 del
-```
-
-#### <mark style="color:green;">airmon-ng</mark>
-
-```
-# list interfaces
-airmon-ng
-
-# put interface in monitoring mode
-airmon-ng start/stop wlan0\
-iw dev wlan0 del
-```
-
 ## <mark style="color:red;">Sniffing</mark>
 
 ### <mark style="color:orange;">Managed Mode Sniffing</mark>
@@ -133,6 +160,9 @@ The interface is in managed mode
 
 ```
 tcpdump -neti wlan0
+tcpdump -n -i mon0 -s 0 -w capture.dump
+tcpdump -r capture.dump -n -c 2
+tcpdump -t -r capture.dump -n -c 1 -X
 ```
 
 #### tcpdump filters for wireless frames:
