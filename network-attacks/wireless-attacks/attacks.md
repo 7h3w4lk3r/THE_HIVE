@@ -382,6 +382,8 @@ aircrack-ng -r NEW_DB <Handshaked_PCAP>
 
 {% embed url="https://github.com/vanhoefm/dragondrain-and-time" %}
 
+{% embed url="https://www.youtube.com/watch?v=msTugNs8bnM" %}
+
 ## <mark style="color:red;">Rogue AP</mark>
 
 ```
