@@ -2,6 +2,22 @@
 
 ## Intro
 
+DDE is an old MS technology that is used to facilitate data transfer between applications. DDE sends messages between applications that share data and uses shared memory to exchange data between applications.  DDE can be embedded in several Office file formats
+
+To leverage this attack vector:
+
+Open a new MS document and insert a field
+
+![](<../../.gitbook/assets/image (51).png>)
+
+It will add an "!Unexpected End of Formula" to the document, we right-click it and "Toggle field codes" :
+
+![](<../../.gitbook/assets/image (33).png>)
+
+We then replace the = \* MERGEFORMAT with the payload: 1 { DDEAUTO "C:\Programs\Microsoft\Office\MSWord.exe\\..\\..\\..\windows\system32\WindowsPowershell\v1.0\powershell.exe start calc # " "required"}​ Copied! If we save the document, reopen our document and accept the 2 prompts, calculator will popup.
+
+
+
 This attack has been tested on the latest Windows10 LTSC edition with Microsoft Office 365 with up-to-date Windows Defender.
 
 #### Requirements:
@@ -12,12 +28,6 @@ This attack has been tested on the latest Windows10 LTSC edition with Microsoft 
 Warning presented to the user who opens the worksheet:
 
 ![](<../../.gitbook/assets/image (2).png>)
-
-sample CMD command for injection into Excel function:
-
-```
-=cmd|'/c cmd.exe /c calc.exe'!'A1'
-```
 
 ## Exploitation
 

@@ -192,7 +192,7 @@ An RTS frame has a length of 20 bytes:
 
 A CTS frame has the same length (14 bytes) and structure as an ACK frame:
 
-![](<../../.gitbook/assets/image (51) (1) (1).png>)
+![](<../../.gitbook/assets/image (51) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Management Frames</mark>
 
@@ -258,7 +258,7 @@ Access points respond to an association request with an Association Response eit
 
 The table below outlines different values that can be used for the Reason code in the frame.
 
-![](<../../.gitbook/assets/image (51) (1).png>)
+![](<../../.gitbook/assets/image (51) (1) (1).png>)
 
 ### <mark style="color:orange;">Data Frames</mark>
 
