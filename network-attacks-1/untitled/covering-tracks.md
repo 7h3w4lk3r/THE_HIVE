@@ -1,8 +1,10 @@
 # ⭕ Covering Tracks
 
-{% embed url="http://www.dankalia.com/tutor/01005/0100501003.htm" %}
+## <mark style="color:red;">Tools</mark>
 
-## Log files
+
+
+## <mark style="color:red;">Log files</mark>
 
 `/etc/syslog.conf`
 
@@ -26,7 +28,7 @@ Here you have failed and successful login attempts. SSH, SUDO, and much more.
 /var/log/auth.log
 ```
 
-## Apache
+## <mark style="color:red;">Apache</mark>
 
 ```
 /var/log/apache2/access.log
@@ -45,7 +47,7 @@ What it does is simply to copy all lines except the lines that contain your IP-a
 grep -v <entry-to-remove> <logfile> > /tmp/a ; mv /tmp/a <logfile> ; rm -f /tmp/a
 ```
 
-## UTMP and WTMP
+## <mark style="color:red;">UTMP and WTMP</mark>
 
 These logs are not stored in plaintext but instead as binaries. Which makes it a bit harder to clear.
 
@@ -61,7 +63,7 @@ last
 lastlog
 ```
 
-## Command history
+## <mark style="color:red;">Command history</mark>
 
 All your commands are also stored.
 
@@ -78,7 +80,7 @@ export HISTSIZE=0
 
 If you set it when you get shell you won't have to worry about cleaning up the history.
 
-## Shred files
+## <mark style="color:red;">Shred files</mark>
 
 Shredding files lets you remove files in a more secure way.
 
