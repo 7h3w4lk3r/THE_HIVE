@@ -26,6 +26,12 @@ masscan 192.168.2.1/24 -p80,53,443,22
 
 masscan is the fastest host discovery tool available, even faster than nmap.
 
+### <mark style="color:orange;">Extracting Live IPs from Nmap Scan</mark>
+
+```bash
+nmap 10.1.1.1 --open -oG scan-results; cat scan-results | grep "/open" | cut -d " " -f 2 > exposed-services-ips
+```
+
 ## <mark style="color:red;">Local Discovery</mark>
 
 ### <mark style="color:orange;">Netdiscover</mark>

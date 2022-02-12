@@ -25,6 +25,12 @@ nmap -v -Pn -n -T4 -sT -p- --reason 192.168.1.1
 nmap -v -Pn -n -T4 -sV --version-intensity=5 -sT -p T:ports_found --reason <IP>
 ```
 
+### Extracting Live IPs from Nmap Scan
+
+```bash
+nmap 10.1.1.1 --open -oG scan-results; cat scan-results | grep "/open" | cut -d " " -f 2 > exposed-services-ips
+```
+
 ### Target specification <a href="#target-specification" id="target-specification"></a>
 
 ```bash

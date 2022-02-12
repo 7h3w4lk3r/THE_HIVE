@@ -247,6 +247,7 @@
     * [⚠ Adding a Root user (Not OPSEC)](network-attacks/untitled/persistence/adding-a-root-user-not-opsec.md)
     * [⚠ Crontab Reverse Shell (Not OPSEC)](network-attacks/untitled/persistence/crontab-reverse-shell-not-opsec.md)
     * [⚠ SSH persistence passwordless (Not OPSEC)](network-attacks/untitled/persistence/ssh-persistence-passwordless.md)
+* [⭕ Covering Tracks](network-attacks-1/covering-tracks.md)
 * [🔴 Pivoting](network-attacks/pivoting/README.md)
   * [⭕ SSH Forwarding](network-attacks/pivoting/ssh-port-forwarding.md)
   * [⭕ Socat Stealth Port Forward](network-attacks/pivoting/socat-stealth-port-forward.md)
@@ -358,3 +359,4 @@
   * [socat](misc/cats/socat.md)
   * [🔧 powercat](misc/cats/powercat.md)
 * [🔴 Curl](misc/curl.md)
+* [Compiling Exploits](misc/compiling-exploits.md)
