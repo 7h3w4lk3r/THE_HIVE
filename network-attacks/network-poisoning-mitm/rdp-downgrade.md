@@ -33,7 +33,7 @@ Where normally a normal RDP connection will produce a results similar to that of
 
 Assuming the victim accepts the malicious certificate request the Attacking-PC will receive a Network NTLM hash for the user and the users password in cleartext.
 
-![](<../../.gitbook/assets/image (2).png>)
+![](<../../.gitbook/assets/image (2) (1).png>)
 
 The victim user should continue to connect to the destination server and be none the wiser to the attack.
 

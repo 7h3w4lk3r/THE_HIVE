@@ -248,6 +248,8 @@
     * [⚠ Crontab Reverse Shell (Not OPSEC)](network-attacks/untitled/persistence/crontab-reverse-shell-not-opsec.md)
     * [⚠ SSH persistence passwordless (Not OPSEC)](network-attacks/untitled/persistence/ssh-persistence-passwordless.md)
   * [⭕ Covering Tracks](network-attacks-1/covering-tracks.md)
+* [🔧 Client Side](network-attacks-1/client-side/README.md)
+  * [⭕ DDE Auto - Word/Excel](network-attacks-1/client-side/dde-auto-word-excel.md)
 * [🔴 Pivoting](network-attacks/pivoting/README.md)
   * [⭕ SSH Forwarding](network-attacks/pivoting/ssh-port-forwarding.md)
   * [⭕ Socat Stealth Port Forward](network-attacks/pivoting/socat-stealth-port-forward.md)
