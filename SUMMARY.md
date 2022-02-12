@@ -247,7 +247,7 @@
     * [⚠ Adding a Root user (Not OPSEC)](network-attacks/untitled/persistence/adding-a-root-user-not-opsec.md)
     * [⚠ Crontab Reverse Shell (Not OPSEC)](network-attacks/untitled/persistence/crontab-reverse-shell-not-opsec.md)
     * [⚠ SSH persistence passwordless (Not OPSEC)](network-attacks/untitled/persistence/ssh-persistence-passwordless.md)
-  * [⭕ Covering Tracks](network-attacks-1/untitled/covering-tracks.md)
+  * [⭕ Covering Tracks](network-attacks-1/covering-tracks.md)
 * [🔴 Pivoting](network-attacks/pivoting/README.md)
   * [⭕ SSH Forwarding](network-attacks/pivoting/ssh-port-forwarding.md)
   * [⭕ Socat Stealth Port Forward](network-attacks/pivoting/socat-stealth-port-forward.md)
@@ -280,6 +280,11 @@
   * [⭕ FTP](network-attacks/exfiltration-file-transfer/ftp.md)
   * [⭕ HTTP](network-attacks/exfiltration-file-transfer/http.md)
   * [⭕ Other Methods](network-attacks/exfiltration-file-transfer/other-methods.md)
+* [🔴 Password Attacks](network-attacks-1/password-attacks/README.md)
+  * [⭕ Online Attacks](network-attacks-1/password-attacks/online-attacks.md)
+  * [⭕ Offline Attack](network-attacks-1/password-attacks/offline-attack.md)
+  * [⭕ Word List](network-attacks-1/password-attacks/word-list.md)
+  * [⭕ Cheat Sheet](network-attacks-1/password-attacks/cheat-sheet.md)
 
 ## 🔷 Blue Team
 

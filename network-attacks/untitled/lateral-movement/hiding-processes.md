@@ -2,6 +2,8 @@
 
 ## Process Hiding Techniques
 
+{% embed url="https://flaviu.io/linux-how-to-a-hide-processes" %}
+
 ### Listening sockets, hiding from ps and lsof <a href="#hideprocesses" id="hideprocesses"></a>
 
 ```

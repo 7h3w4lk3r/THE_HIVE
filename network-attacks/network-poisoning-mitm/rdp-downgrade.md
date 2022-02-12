@@ -39,4 +39,4 @@ The victim user should continue to connect to the destination server and be none
 
 if the group policy option  "Disallow connections if the certificate cannot be validated" is enabled, we cant see the cleartext credentials, however, we will get the user hash anyways and we can pass or crack that hash later.
 
-![](<../../.gitbook/assets/image (14) (1).png>)
+![](<../../.gitbook/assets/image (14) (1) (1).png>)

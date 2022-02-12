@@ -60,7 +60,7 @@ Additionally, systemd offers directives for configuring capabilities on service 
 
 The easiest way to identify misconfigured capabilities is to use enumeration scripts such as LinPEAS:
 
-![](<../../../.gitbook/assets/image (14) (1) (1).png>)
+![](<../../../.gitbook/assets/image (14) (1) (1) (1).png>)
 
 
 

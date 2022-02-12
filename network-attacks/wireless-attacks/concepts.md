@@ -22,7 +22,7 @@ The IEEE 802.11b amendment adds Complementary Code Keying (CCK) coding to the st
 
 The following table shows the relationship between each channel number and its corresponding frequency:
 
-![](<../../.gitbook/assets/image (14).png>)
+![](<../../.gitbook/assets/image (14) (1).png>)
 
 A quick calculation will show that it’s only possible to have 3 non-overlapping channels and channel availability is dictated by the local standards of each country or region. For example:
 
@@ -74,7 +74,7 @@ An Extended Service Set (ESS) is a set of 2 or more wireless APs connected to th
 On Linux-type operating systems, acting as a STA is usually called “Managed” mode and when acting as an AP, it is usually referred to as “Master” mode.
 {% endhint %}
 
-![](<../../.gitbook/assets/image (34) (1).png>)
+![](<../../.gitbook/assets/image (34) (1) (1).png>)
 
 ### <mark style="color:orange;">Ad-Hoc Mode</mark>&#x20;
 
@@ -192,7 +192,7 @@ An RTS frame has a length of 20 bytes:
 
 A CTS frame has the same length (14 bytes) and structure as an ACK frame:
 
-![](<../../.gitbook/assets/image (51) (1).png>)
+![](<../../.gitbook/assets/image (51) (1) (1).png>)
 
 ### <mark style="color:orange;">Management Frames</mark>
 
@@ -250,7 +250,7 @@ A reassociation request has a structure that is nearly identical to the associat
 
 Access points respond to an association request with an Association Response either rejecting or accepting the association request. The association response has the following structure.
 
-![](<../../.gitbook/assets/image (34).png>)
+![](<../../.gitbook/assets/image (34) (1).png>)
 
 ### <mark style="color:orange;">Disassociation/Deauthentication Frame</mark>
 
@@ -258,7 +258,7 @@ Access points respond to an association request with an Association Response eit
 
 The table below outlines different values that can be used for the Reason code in the frame.
 
-![](<../../.gitbook/assets/image (51).png>)
+![](<../../.gitbook/assets/image (51) (1).png>)
 
 ### <mark style="color:orange;">Data Frames</mark>
 
