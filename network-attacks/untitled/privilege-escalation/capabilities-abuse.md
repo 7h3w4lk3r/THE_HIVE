@@ -54,13 +54,13 @@ Capabilities assigned to users are stored in the /etc/security/capability.conf c
 
 Additionally, systemd offers directives for configuring capabilities on service units, through the “AmbientCapabilities” variable:
 
-![](<../../../.gitbook/assets/image (23) (1).png>)
+![](<../../../.gitbook/assets/image (23) (1) (1).png>)
 
 ### <mark style="color:orange;">LinPEAS</mark>
 
 The easiest way to identify misconfigured capabilities is to use enumeration scripts such as LinPEAS:
 
-![](<../../../.gitbook/assets/image (14) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (14) (1) (1) (1) (1).png>)
 
 
 
@@ -76,11 +76,11 @@ Aaccording to GTFOBins, it can be easily exploited with the following command, w
 /usr/bin/python3 -c 'import os; os.setuid(0); os.system("/bin/sh")'
 ```
 
-![](<../../../.gitbook/assets/image (11) (1).png>)
+![](<../../../.gitbook/assets/image (11) (1) (1).png>)
 
 Executing the command while logged in as a non-root user:
 
-![](<../../../.gitbook/assets/image (24) (1).png>)
+![](<../../../.gitbook/assets/image (24) (1) (1).png>)
 
 As shown above, this has allowed to escalate privileges to root, many different capabilities can be exploited to read/write to files, intercept network traffic, mount/unmount file systems and more, which can potentially lead to escalation of privileges.
 

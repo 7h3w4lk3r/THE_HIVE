@@ -6,7 +6,7 @@
 
 ### <mark style="color:orange;">Important Linux Log Files</mark>
 
-![](<../../../.gitbook/assets/image (10) (1).png>)
+![](<../../../.gitbook/assets/image (10) (1) (1).png>)
 
 ## <mark style="color:red;">journalctl</mark>
 
@@ -192,15 +192,15 @@ log files are stored at `/var/log/syslog` .
 
 config file is at `/etc/rsyslog.conf` .
 
-![](<../../../.gitbook/assets/image (45).png>)
+![](<../../../.gitbook/assets/image (45) (1).png>)
 
 
 
-![](<../../../.gitbook/assets/image (17).png>)
+![](<../../../.gitbook/assets/image (17) (1).png>)
 
 
 
-![](<../../../.gitbook/assets/image (13) (1) (1).png>)
+![](<../../../.gitbook/assets/image (13) (1) (1) (1).png>)
 
 ![](<../../../.gitbook/assets/image (49) (1).png>)
 

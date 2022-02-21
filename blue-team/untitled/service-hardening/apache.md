@@ -4,7 +4,7 @@
 
 When you install Apache with source or any other package installers like yum, it displays the version of your Apache web server installed on your server with the Operating system name of your server in Errors. It also shows the information about Apache modules installed in your server.
 
-![](<../../../.gitbook/assets/image (3) (1).png>)
+![](<../../../.gitbook/assets/image (3) (1) (1).png>)
 
 In above picture, you can see that Apache is showing its version with the OS installed in your server. This can be a major security threat to your web server as well as your Linux box too. To prevent Apache to not to display these information to the world, we need to make some changes in Apache main configuration file. Open configuration file with vim editor and search for `“ServerSignature“,` its by default On. We need to Off these server signature and the second line `“ServerTokens Prod”` tells Apache to return only Apache as product in the server response header on the every page request, It suppress the OS, major and minor version info.
 
@@ -27,7 +27,7 @@ restart the service:
 # service apache2 restart (Debian/Ubuntu)
 ```
 
-![](<../../../.gitbook/assets/image (19).png>)
+![](<../../../.gitbook/assets/image (19) (1).png>)
 
 ## <mark style="color:red;">Disable Directory Listing</mark>
 
@@ -43,7 +43,7 @@ Options -Indexes
 </Directory>
 ```
 
-![](<../../../.gitbook/assets/image (18).png>)
+![](<../../../.gitbook/assets/image (18) (1).png>)
 
 ## <mark style="color:red;">Keep updating Apache Regularly</mark>
 

@@ -1,0 +1,39 @@
+# ⭕ HTA
+
+An HTML Application (HTA) is a Microsoft Windows program whose source consists of HTML, Dynamic HTML, and one or more scripting languages supported by Internet Explorer, such as VBScript or JScript.
+
+In this example we will be assuming that attachments are not allowed in our Emails, so we will need to send a user a Direct link where we will bypass the email attachment and directly download our Binary(HTA), in the following we will use Empire Framework to create our malicious binary. This attack can also be considered an attachment but here an HTA file is being downloaded and executed.
+
+Empire is a post-exploitation framework that includes a pure Powershell2.0 Windows agent, and a pure Python 2.6/2.7 Linux/OS X agent. It is the merge of the previous PowerShell Empire and Python EmPyre projects. Empire implements the ability to run Powershell agents without the need of powershell.exe, rapidly deployable post-exploitation modules from keyloggers to evade network detection PowerShell premiered at BSides in 2015.
+
+### Examples
+
+We can create Macros, HTA files and OLE Objects for phishing (this example will contain a HTA phishing style and there will be links for reference) we can start Empire from our Linux box and use the following steps \[Remember this is the most basic attack so it will get detected].
+
+`At the time of writing I was using Empire 2.5 there is a newer version 3.0, major updates but procedure is similar`
+
+We execute Empire :&#x20;
+
+![](<../../.gitbook/assets/image (18).png>)
+
+We will need to setup a listener that will listen for our connection once executed on the victim
+
+![](<../../.gitbook/assets/image (40).png>)
+
+We proceed to execute
+
+![](<../../.gitbook/assets/image (16).png>)
+
+We will setup our listener and an OutFile to send to our victim
+
+![](<../../.gitbook/assets/image (3).png>)
+
+Execute again to create our payload, make sure to add the extension to it or Empire will create a file not functional for our attack.
+
+![](<../../.gitbook/assets/image (10).png>)
+
+Once here it's up to creativity on how to send this file I will continue with this just for DEMO purposes.
+
+![](<../../.gitbook/assets/image (22).png>)
+
+after execution, when get a reverse shell.

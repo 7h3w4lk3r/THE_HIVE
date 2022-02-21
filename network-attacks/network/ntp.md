@@ -30,7 +30,7 @@ Through NTP enumeration you can gather information such as lists of hosts connec
 nmap -sU -p 123 --script ntp-info [target]
 ```
 
-![](<../../.gitbook/assets/image (40) (1).png>)
+![](<../../.gitbook/assets/image (40) (1) (1).png>)
 
 The ntp-info script can extract the remote system's timestamp against the first host and a great deal of information about the second host including kernel version and ntpd version.
 

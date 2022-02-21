@@ -222,7 +222,7 @@ airodump-ng -c 3 --bssid 34:08:04:09:3D:38 -w cap1 mon0
 
 The table below contains descriptions of all of the Airodump fields.
 
-![](<../../.gitbook/assets/image (16).png>)
+![](<../../.gitbook/assets/image (16) (1).png>)
 
 ### <mark style="color:orange;">Aireplay-ng</mark>
 
@@ -238,19 +238,19 @@ aireplay-ng -9 -e wifu -a 34:08:04:09:3D:38 mon0
 
 #### <mark style="color:green;">Attack types:</mark>
 
-![](<../../.gitbook/assets/image (9).png>)
+![](<../../.gitbook/assets/image (9) (1).png>)
 
 #### <mark style="color:green;">Filter options:</mark>
 
 For all attacks, with the exception of deauthentication and fake authentication, you may use the following filters to limit the packets that will be used in the attack. The most commonly used filter option is ‘-b’ to single out a specific AP.
 
-![](<../../.gitbook/assets/image (23).png>)
+![](<../../.gitbook/assets/image (23) (1).png>)
 
 <mark style="color:green;">**Replay Options:**</mark>
 
 When replaying (injecting) packets, the following options apply. Bear in mind that not every option is relevant for every attack. The specific attack documentation provides examples of the relevant options.
 
-![](<../../.gitbook/assets/image (29).png>)
+![](<../../.gitbook/assets/image (29) (1).png>)
 
 <mark style="color:green;">Surce Options:</mark>
 
@@ -272,4 +272,4 @@ aircrack-ng [options] <capture file(s)>
 
 options that Aircrack-ng supports:
 
-![](<../../.gitbook/assets/image (50).png>)
+![](<../../.gitbook/assets/image (50) (1).png>)

@@ -1,2 +1,0 @@
-# 🔴 Payloads & Shell Escape
-
