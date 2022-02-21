@@ -254,6 +254,7 @@
   * [⭕ embedded OLE + LNK objects](network-attacks-1/payload-delivery/embedded-ole-+-lnk-objects.md)
   * [⭕ .SLK Excel](network-attacks-1/payload-delivery/.slk-excel.md)
   * [⭕ HTA](network-attacks-1/payload-delivery/hta.md)
+  * [⭕ .SCR](network-attacks-1/payload-delivery/.scr.md)
   * [⭕ XLM Macro 4.0](network-attacks-1/payload-delivery/xlm-macro-4.0.md)
 * [🔴 Pivoting](network-attacks/pivoting/README.md)
   * [⭕ SSH Forwarding](network-attacks/pivoting/ssh-port-forwarding.md)
