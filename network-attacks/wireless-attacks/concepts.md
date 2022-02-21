@@ -272,7 +272,7 @@ ull frames consist only of MAC headers and a FCS. They are used by stations to i
 
 ## <mark style="color:red;">Wireless Connection and Transmission Process</mark>
 
-![](<../../.gitbook/assets/image (49).png>)
+![](<../../.gitbook/assets/image (49) (1).png>)
 
 We can separate this process into 3 main parts:
 

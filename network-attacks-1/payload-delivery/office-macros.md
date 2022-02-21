@@ -335,4 +335,6 @@ rundll32 msi.dll,main
 
 {% embed url="https://github.com/MartinSohn/Office-phish-templates" %}
 
+{% embed url="https://github.com/infosecn1nja/MaliciousMacroMSBuild" %}
+
 {% embed url="https://github.com/sevagas/macro_pack" %}

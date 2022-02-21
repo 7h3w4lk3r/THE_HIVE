@@ -1,4 +1,4 @@
-# ⭕ .SCR
+# ⭕ SCR
 
 SCR files are screensaver files used by Windows for energy saving purposes. Screensavers are programs that execute after a configurable time of user inactivity and consists of Portable Executable(PE) files with a `.scr` file extension. The Windows screensaver application scrnsave.scr is located in `C:\Windows\System32` , and `C;\Windoww\sysWOW64\` on 64-bit Windows systems. The screensaver settings are stored in the Registry (`HKCU:\Control Panel\Desktop\`) and can also be manipulated for persistence.
 

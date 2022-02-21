@@ -29,7 +29,7 @@ On connection request we see the following.
 
 Where normally a normal RDP connection will produce a results similar to that of below. Taking note of the extra warnings provided above as opposed to the legitimate request below.
 
-![](<../../.gitbook/assets/image (22) (1).png>)
+![](<../../.gitbook/assets/image (22) (1) (1).png>)
 
 Assuming the victim accepts the malicious certificate request the Attacking-PC will receive a Network NTLM hash for the user and the users password in cleartext.
 

