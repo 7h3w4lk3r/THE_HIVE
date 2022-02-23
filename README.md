@@ -10,4 +10,4 @@ The documents and techniques discussed here are taken from various sources such 
 
 #### <mark style="color:orange;"></mark>[<mark style="color:orange;">Github Profile</mark>](https://github.com/7h3w4lk3r)<mark style="color:orange;"></mark>
 
-#### &#x20;**** [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge\&logo=telegram\&logoColor=white)](https://t.me/TH3W4LK3R) [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge\&logo=gmail\&logoColor=white)](mailto:bl4ckr4z3r@gmail.com)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge\&logo=telegram\&logoColor=white)](https://t.me/TH3W4LK3R) [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge\&logo=gmail\&logoColor=white)](mailto:bl4ckr4z3r@gmail.com)
