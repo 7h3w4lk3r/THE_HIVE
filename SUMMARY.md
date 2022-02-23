@@ -152,7 +152,6 @@
     * [Password spraying](network-attacks/active-directory-attacks/password-spraying.md)
     * [EternalBlue](network-attacks/active-directory-attacks/exploitation/eternalblue.md)
     * [ZeroLogon](network-attacks/active-directory-attacks/exploitation/zerologon.md)
-    * [Untitled](network-attacks/active-directory-attacks/exploitation/untitled.md)
     * [MS Exchange ProxyShell](network-attacks/active-directory-attacks/exploitation/ms-exchange-proxyshell.md)
     * [MS Exchange ProxyLogon](network-attacks/active-directory-attacks/exploitation/ms-exchange-proxylogon.md)
     * [Java JBOSS](network-attacks/active-directory-attacks/exploitation/java-jboss.md)
