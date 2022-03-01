@@ -34,7 +34,7 @@ public class Popme
 }
 ```
 
-#### Compile
+#### <mark style="color:green;">Compile</mark>
 
 ```
 #Test
@@ -46,7 +46,7 @@ DotNetToJScript.exe  -l JScript -o output.txt -c <Classname. eg: Popme> sample.d
 #Append : o.<Method Name>();
 ```
 
-#### Create HTA
+#### <mark style="color:green;">Create HTA</mark>
 
 ```
 <html>

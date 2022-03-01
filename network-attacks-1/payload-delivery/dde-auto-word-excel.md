@@ -4,7 +4,7 @@
 
 {% embed url="https://github.com/MartinSohn/Office-phish-templates" %}
 
-## Intro
+## <mark style="color:red;">Intro</mark>
 
 DDE is an old MS technology that is used to facilitate data transfer between applications. DDE sends messages between applications that share data and uses shared memory to exchange data between applications.  DDE can be embedded in several Office file formats
 
@@ -33,7 +33,7 @@ Warning presented to the user who opens the worksheet:
 
 ![](<../../.gitbook/assets/image (2) (1).png>)
 
-## Exploitation
+## <mark style="color:red;">Exploitation</mark>
 
 generate msfvenom shellcode:
 
