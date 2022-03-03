@@ -10,7 +10,9 @@ with MS Office the VBA code is embedded in a document like a word processor file
 VBA is more powerful than VBS because it can interface directly with the windows API. VBA programs are not restricted in their access to the operating system.
 {% endhint %}
 
-## <mark style="color:red;">VBA Download & Execute</mark>
+## <mark style="color:red;">VBA Macro</mark>
+
+### <mark style="color:orange;">VBA Download & Execute</mark>
 
 ```
 Sub AutoOpen()
@@ -100,7 +102,7 @@ Sub Wait(n As Long)
 End Sub
 ```
 
-## <mark style="color:red;">Shellcode VBA</mark>
+## <mark style="color:red;">Shellcode Execution via VBA</mark>
 
 {% embed url="https://github.com/iilegacyyii/UsefulScripts/blob/master/ShellcodeToVBA.py" %}
 

@@ -1,5 +1,7 @@
 # ⭕ HTML Smuggling
 
+{% embed url="https://outflank.nl/blog/2018/08/14/html-smuggling-explained" %}
+
 {% embed url="https://github.com/Arno0x/EmbedInHTML" %}
 
 Using a combination of HTML5 and JavaScript to sneak malicious files past content filters.This mechanism has been incorporated into popular offensive frameworks such as [Demiguise](https://www.nccgroup.trust/uk/about-us/newsroom-and-events/blogs/2017/august/smuggling-hta-files-in-internet-exploreredge/) and [SharpShooter](https://github.com/mdsecactivebreach/SharpShooter) .
