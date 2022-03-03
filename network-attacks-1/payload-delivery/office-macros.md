@@ -195,7 +195,7 @@ End Function
 
 Procedures able to automatically run macros :&#x20;
 
-![](<../../.gitbook/assets/image (9).png>)
+![](<../../.gitbook/assets/image (9) (1).png>)
 
 ## <mark style="color:red;">OS-aware Macro</mark>
 
@@ -333,9 +333,11 @@ rundll32 msi.dll,main
 * [Didier Steven's file2fbsscript python script](https://didierstevens.com/files/software/file2vbscript\_v0\_3.zip)
 * On-disk footprint is high. Use an evasing executable/DLL.
 
-![](<../../.gitbook/assets/image (17).png>)
+![](<../../.gitbook/assets/image (17) (1).png>)
 
 ## <mark style="color:red;">Other Tools</mark>
+
+
 
 {% embed url="https://github.com/MartinSohn/Office-phish-templates" %}
 

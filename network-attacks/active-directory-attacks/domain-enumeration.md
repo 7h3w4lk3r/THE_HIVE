@@ -20,8 +20,15 @@ smbclient -U '%' -L //<DC IP> && smbclient -U 'guest%' -L //
 
 ### <mark style="color:orange;">**Enumerate LDAP**</mark>
 
+A lot of information on an AD domain can be obtained through LDAP. Most of the information can only be obtained with an authenticated bind but metadata (naming contexts, dns server name, domain functional level) can be obtainable anonymously, even with anonymous binding disabled.
+
+{% hint style="info" %}
+LDAP anonymous binding is usually disabled but it's worth checking.
+{% endhint %}
+
 ```
 nmap -n -sV --script "ldap* and not brute" -p 389 <DC IP>
+ldapdomaindump -u DOMAIN\\username -p password -d domain.local
 ```
 
 ### <mark style="color:orange;">Find systems with SMB signing disabled</mark>
@@ -43,7 +50,7 @@ By default, windows servers and domain controllers a have this enabled but its d
 ```
 smbmap -H 10.10.10.100    # null session
 smbmap -H 10.10.10.100 -R # recursive listing
-smbmap -H 10.10.10.100 -d active.htb -u SVC_TGS -p GPPstillStandingStrong2k18
+smbmap -H 10.10.10.100 -d test.local -u username -p password
 
 
 smbclient -I 10.10.10.100 -L ACTIVE -N -U ""
@@ -53,6 +60,7 @@ ls            # list files
 
 
 pth-smbclient -U "AD/ADMINISTRATOR%aad3b435b51404eeaad3b435b51404ee:2[...]A" //192.168.10.100/Share
+pth-smbclient -U "MEGA/administrator%password.123" //192.168.56.103/SYSVOL
 ls  # list files
 cd  # move inside a folder
 get # download files
@@ -62,21 +70,24 @@ put # replace a file
 <mark style="color:green;">Mount a share</mark>
 
 ```
+sudo apt install cifs-utils
+
+sudo mount -t cifs -o vers=1.0,username=user_name //server_name/share_name /mnt/data
 smbmount //X.X.X.X/c$ /mnt/remote/ -o username=user,password=pass,rw
 ```
 
-#### <mark style="color:green;">from inside:</mark>
+#### <mark style="color:green;">from inside (powrview):</mark>
 
 ```
-get-netshare
+get-netshare  
 get-dfsshare
-get-netfileserver
+get-netfileserver 
 
 #Enumerate Domain Shares
-Find-DomainShare
+Find-DomainShare 
 
 #Enumerate Domain Shares the current user has access
-Find-DomainShare -CheckShareAccess
+Find-DomainShare -CheckShareAccess  (powrview)
 
 #Enumerate "Interesting" Files on accessible shares
 Find-InterestingDomainShareFile -Include *passwords*
@@ -96,18 +107,6 @@ In many cases, there will be MAC address filtering, static IP addressing, VLANs 
 
 
 #### We can  also spoof a fake [DHCP](broken-reference) or [DHCPv6](broken-reference) server and capture some password hashes.
-{% endhint %}
-
-## <mark style="color:red;">Enum LDAP</mark>
-
-A lot of information on an AD domain can be obtained through LDAP. Most of the information can only be obtained with an authenticated bind but metadata (naming contexts, dns server name, domain functional level) can be obtainable anonymously, even with anonymous binding disabled.
-
-```
-ldapdomaindump --user 'DOMAIN\USER' --password $PASSWORD --outdir ldapdomaindump $DOMAIN_CONTROLLER
-```
-
-{% hint style="info" %}
-LDAP anonymous binding is usually disabled but it's worth checking.
 {% endhint %}
 
 ## <mark style="color:red;">Enum MSRPC</mark>

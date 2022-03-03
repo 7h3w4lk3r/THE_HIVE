@@ -238,7 +238,7 @@ aireplay-ng -9 -e wifu -a 34:08:04:09:3D:38 mon0
 
 #### <mark style="color:green;">Attack types:</mark>
 
-![](<../../.gitbook/assets/image (9) (1).png>)
+![](<../../.gitbook/assets/image (9) (1) (1).png>)
 
 #### <mark style="color:green;">Filter options:</mark>
 
