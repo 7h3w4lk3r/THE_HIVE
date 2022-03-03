@@ -16,7 +16,7 @@ We can create Macros, HTA files and OLE Objects for phishing (this example will 
 
 We execute Empire :&#x20;
 
-![](<../../.gitbook/assets/image (18).png>)
+![](<../../.gitbook/assets/image (18) (1).png>)
 
 We will need to setup a listener that will listen for our connection once executed on the victim
 
@@ -36,7 +36,7 @@ Execute again to create our payload, make sure to add the extension to it or Emp
 
 Once here it's up to creativity on how to send this file I will continue with this just for DEMO purposes.
 
-![](<../../.gitbook/assets/image (22) (1).png>)
+![](<../../.gitbook/assets/image (22) (1) (1).png>)
 
 after execution, when get a reverse shell.
 

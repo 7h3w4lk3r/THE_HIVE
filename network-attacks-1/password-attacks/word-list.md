@@ -56,7 +56,7 @@ cewl www.megacorpone.com -m 6 -w megacorp-cewl.txt
 
 ## crunch
 
-![](<../../.gitbook/assets/image (51) (1).png>)
+![](<../../.gitbook/assets/image (51) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (14) (1).png>)
 

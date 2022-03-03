@@ -27,13 +27,13 @@ restart the service:
 # service apache2 restart (Debian/Ubuntu)
 ```
 
-![](<../../../.gitbook/assets/image (19) (1).png>)
+![](<../../../.gitbook/assets/image (19) (1) (1).png>)
 
 ## <mark style="color:red;">Disable Directory Listing</mark>
 
 By default Apache list all the content of Document root directory in the absence of index file. Please see the image below.
 
-![](<../../../.gitbook/assets/image (5) (1) (1).png>)
+![](<../../../.gitbook/assets/image (5) (1) (1) (1).png>)
 
 We can turn off directory listing by using Options directive in configuration file for a specific directory. For that we need to make an entry in `httpd.conf` or `apache2.conf` file.
 
@@ -43,7 +43,7 @@ Options -Indexes
 </Directory>
 ```
 
-![](<../../../.gitbook/assets/image (18) (1).png>)
+![](<../../../.gitbook/assets/image (18) (1) (1).png>)
 
 ## <mark style="color:red;">Keep updating Apache Regularly</mark>
 

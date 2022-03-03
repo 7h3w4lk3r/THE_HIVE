@@ -244,7 +244,7 @@ aireplay-ng -9 -e wifu -a 34:08:04:09:3D:38 mon0
 
 For all attacks, with the exception of deauthentication and fake authentication, you may use the following filters to limit the packets that will be used in the attack. The most commonly used filter option is ‘-b’ to single out a specific AP.
 
-![](<../../.gitbook/assets/image (23) (1).png>)
+![](<../../.gitbook/assets/image (23) (1) (1).png>)
 
 <mark style="color:green;">**Replay Options:**</mark>
 

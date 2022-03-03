@@ -122,6 +122,6 @@ void sldelete(
 }
 ```
 
-![](<../../../../.gitbook/assets/image (31) (1).png>)
+![](<../../../../.gitbook/assets/image (31) (1) (1).png>)
 
 sldelete( ) must be sent pointers to the deleted item, the item before it in the chain, and the first and last items in the list. If the first item is to be removed, the previous pointer must be null. The function automatically updates start and last when the item one of them points to is deleted. Singly linked lists have one major drawback that prevents their extensive use: The list cannot be read in reverse order. For this reason, doubly linked lists are usually used.

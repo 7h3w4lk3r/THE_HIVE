@@ -85,7 +85,7 @@ An ad-hoc network, also known as an Independent Basic Service Set (IBSS), consis
 
 In ad-hoc mode, the STA taking on the responsibilities of the AP does not relay packets to other nodes like an AP does.&#x20;
 
-![](<../../.gitbook/assets/image (46) (1).png>)
+![](<../../.gitbook/assets/image (46) (1) (1).png>)
 
 ### <mark style="color:orange;">Wireless Distribution System</mark>
 
@@ -94,7 +94,7 @@ A Wireless Distribution System (WDS) is similar to a standard DS but is done via
 * Wireless Bridging – Only allows WDS APs to communicate with each other
 * Wireless Repeating – Allows both stations and APs to communicate with each other&#x20;
 
-![](<../../.gitbook/assets/image (47).png>)
+![](<../../.gitbook/assets/image (47) (1).png>)
 
 ### <mark style="color:orange;">Monitor Mode</mark>&#x20;
 
@@ -106,7 +106,7 @@ In master mode, a wireless card acts as if it were an access point. In many case
 
 ## <mark style="color:red;">802.11 MAC Frame</mark>
 
-![](<../../.gitbook/assets/image (11) (1).png>)
+![](<../../.gitbook/assets/image (11) (1) (1).png>)
 
 ### <mark style="color:orange;">Header</mark>
 
@@ -188,17 +188,17 @@ we assume that Node 1 wants to communicate with Node 2. Node 2 can be either an 
 
 An RTS frame has a length of 20 bytes:
 
-![](<../../.gitbook/assets/image (12) (1) (1).png>)
+![](<../../.gitbook/assets/image (12) (1) (1) (1).png>)
 
 A CTS frame has the same length (14 bytes) and structure as an ACK frame:
 
-![](<../../.gitbook/assets/image (51) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (51) (1) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Management Frames</mark>
 
 Management frames are used to negotiate and control the relationship between access points and stations. The following table outlines the different types of wireless management frames.
 
-![](<../../.gitbook/assets/image (5) (1).png>)
+![](<../../.gitbook/assets/image (5) (1) (1).png>)
 
 ### <mark style="color:orange;">Beacon Frames</mark>
 
@@ -254,11 +254,11 @@ Access points respond to an association request with an Association Response eit
 
 ### <mark style="color:orange;">Disassociation/Deauthentication Frame</mark>
 
-![](<../../.gitbook/assets/image (21) (1).png>)
+![](<../../.gitbook/assets/image (21) (1) (1).png>)
 
 The table below outlines different values that can be used for the Reason code in the frame.
 
-![](<../../.gitbook/assets/image (51) (1) (1).png>)
+![](<../../.gitbook/assets/image (51) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Data Frames</mark>
 

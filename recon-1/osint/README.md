@@ -84,8 +84,6 @@ is an open source intelligence (OSINT) and graphical link analysis tool for gath
 
 ## Google Hacking
 
-![](../../.gitbook/assets/1-tphe8yriuyletxgl6nyd9w.jpeg)
-
 also named Google dorking, is a hacker technique that uses Google Search and other Google applications to find security holes in web applications, finding loots, targeting databases, login pages or even exposed backup files and directories.
 
 ### **Google Dorks**
@@ -250,8 +248,6 @@ ip:xxx.xxx.xxx.xxx
 ```
 
 ## Shodan
-
-![](../../.gitbook/assets/1-xmmhvlmpbibj6o9smb50fg-2x.jpeg)
 
 Search engine for the Internet of everything. Shodan is the world's first search engine for Internet-connected devices including computers, servers, CCTV cameras, SCADA systems and everything that is connected to the internet with or without attention. Shodan can be used both as a source for gathering info about random targets for mass attacks and a tool for finding weak spots in a large network of systems to attack and take the low-hanging fruit. Shodan has a free and commercial membership and is accessible at [shodan.io](https://www.shodan.io) . the search syntax in the search engine is somehow special and can be found in the help section of the website. with shodan you can search for specific systems, ports, services, regions and countries or even specific vulnerable versions of a software or OS service running on systems like SMB v1 and much more.
 

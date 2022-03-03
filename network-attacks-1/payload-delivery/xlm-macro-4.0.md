@@ -23,7 +23,7 @@ We can then execute command by typing into the cells:
 
 Note how we need to rename the `A1` cell to `Auto_Open` if we want the Macros to fire off once the document is opened:
 
-![](<../../.gitbook/assets/image (20).png>)
+![](<../../.gitbook/assets/image (20) (1).png>)
 
 {% file src="../../.gitbook/assets/Excel 4.0 Macro Functions Reference (1).pdf" %}
 

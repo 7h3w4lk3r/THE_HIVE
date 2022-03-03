@@ -275,6 +275,7 @@
   * [🔧 Other Tools](network-attacks/pivoting/tools.md)
 * [🔴 Defense Evasion](network-attacks/defense-evasion/README.md)
   * [⭕ Basic Tricks](defense-evasion/av-evasion/simple-tricks.md)
+  * [⭕ Binary Properties & Code Signing](network-attacks-1/defense-evasion/binary-properties-and-code-signing.md)
   * [⭕ AMSI Bypass](defense-evasion/av-evasion/amsi-bypass.md)
   * [🔧 SRP & AppLocker Bypass](defense-evasion/srp-and-applocker-bypass.md)
   * [🔧 GPO Bypass](defense-evasion/gpo-bypass.md)

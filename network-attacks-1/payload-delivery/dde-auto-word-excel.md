@@ -12,11 +12,11 @@ To leverage this attack vector:
 
 Open a new MS document and insert a field
 
-![](<../../.gitbook/assets/image (51).png>)
+![](<../../.gitbook/assets/image (51) (1).png>)
 
 It will add an "!Unexpected End of Formula" to the document, we right-click it and "Toggle field codes" :
 
-![](<../../.gitbook/assets/image (33) (1).png>)
+![](<../../.gitbook/assets/image (33) (1) (1).png>)
 
 We then replace the = \* MERGEFORMAT with the payload: 1 { DDEAUTO "C:\Programs\Microsoft\Office\MSWord.exe\\..\\..\\..\windows\system32\WindowsPowershell\v1.0\powershell.exe start calc # " "required"}​ Copied! If we save the document, reopen our document and accept the 2 prompts, calculator will popup.
 
