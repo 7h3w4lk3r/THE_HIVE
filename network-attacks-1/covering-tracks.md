@@ -1,9 +1,5 @@
 # ⭕ Covering Tracks
 
-## <mark style="color:red;">Tools</mark>
-
-
-
 ## <mark style="color:red;">Login Events</mark>
 
 `/var/log/auth.log` This is where are the activity and login's are stored, including failed attempted login's\
@@ -120,16 +116,3 @@ Shred renames a files to 0's many times and at the end deletes it
 A few other command line tricks\
 `sudo lsof | grep .log` check for currently open and active log files\
 `sudo find / -cmin 0 -print` find recent documents on the system
-
-
-
-
-
-
-
-
-
-
-
-
-

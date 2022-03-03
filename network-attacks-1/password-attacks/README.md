@@ -1,6 +1,6 @@
 # 🔴 Password Attacks
 
-## <mark style="color:red;">Online cracking databases</mark>
+## Online cracking databases
 
 {% embed url="http://hashtoolkit.com/reverse-hash" %}
 
@@ -20,7 +20,7 @@
 
 {% embed url="https://www.md5online.org/md5-decrypt.html" %}
 
-## <mark style="color:red;">Default Credentials</mark>
+## Default Credentials
 
 * [**https://github.com/ihebski/DefaultCreds-cheat-sheet**](https://github.com/ihebski/DefaultCreds-cheat-sheet)
 * [**http://www.phenoelit.org/dpl/dpl.html**](http://www.phenoelit.org/dpl/dpl.html)

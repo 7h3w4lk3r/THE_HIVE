@@ -1,6 +1,6 @@
 # ⭕ Offline Attack
 
-## <mark style="color:red;">sucrack</mark>
+## sucrack
 
 local user account bruteforce tool using su
 
@@ -52,19 +52,19 @@ By default, failed authentications on various Linux distributions causes a three
 sucrack -w 10 wordlist.txt
 ```
 
-## <mark style="color:red;">Hashcat</mark>
+## Hashcat
 
-### <mark style="color:orange;">cheat sheets</mark>
+### cheat sheets
 
 #### [https://github.com/frizb/Hashcat-Cheatsheet](https://github.com/frizb/Hashcat-Cheatsheet) [https://hashcat.net/wiki/doku.php?id=hashcat](https://hashcat.net/wiki/doku.php?id=hashcat) [https://hashcat.net/wiki/doku.php?id=example\_hashes](https://hashcat.net/wiki/doku.php?id=example\_hashes)
 
-### <mark style="color:orange;">MAX POWER!</mark>
+### MAX POWER!
 
 ```
 --force -O -w 4 --opencl-device-types 1,2
 ```
 
-### <mark style="color:orange;">Options</mark>
+### Options
 
 ```
 -m  >>> hash type
@@ -87,7 +87,7 @@ sucrack -w 10 wordlist.txt
 -g >>> generate num random rules
 ```
 
-### <mark style="color:orange;">attack modes</mark>
+### attack modes
 
 ```
 Dictionary attack >>> try all words in a list, straight mode (-a 0)
@@ -105,7 +105,7 @@ Rule-based attack>>>>applying rules to words from wordlists; combines with wordl
 Toggle-case attack >>> toggling case of characters; now accomplished with rules
 ```
 
-### <mark style="color:orange;">bruteforcing rules</mark>
+### bruteforcing rules
 
 ```
 predefined charsets
@@ -127,7 +127,7 @@ Brute force all passwords length 1-8 with possible characters A-Z a-z 0-9:
 hashcat64 -m 500 hashes.txt -a 3 ?1?1?1?1?1?1?1?1 --increment -1 ?l?d?u
 ```
 
-### <mark style="color:orange;">NTLM Crack</mark>
+### NTLM Crack
 
 ```
 impacket-secretsdump -system SYSTEM -ntds ntds.dit -hashes lmhash:nthash LOCAL -outputfile ntlm-extract
@@ -155,13 +155,13 @@ LM hash
  hashcat -m 4500 -a 0 hash.txt /usr/share/wordlists/rockyou.txt --status
 ```
 
-### <mark style="color:orange;">Kerberos Crack</mark>
+### Kerberos Crack
 
 ```
 hashcat64 -m 13100 -a 0 -w 4 --force --opencl-device-types 1,2 -O d:\krb5tgs.hash d:\WORDLISTS\realhuman_phill.txt -r OneRuleToRuleThemAll.rule
 ```
 
-### <mark style="color:orange;">Cracking NTLMv2 Hashes from a Packet Capture</mark>
+### Cracking NTLMv2 Hashes from a Packet Capture
 
 You may be asked to recover a password from an SMB authentication (NTLMv2) from a Packet Capture. The following is a 9-step process for formatting the hash correctly to do this.
 
@@ -183,7 +183,7 @@ example of a dumped ntlmv2 hash:
  zapas::MEGACORP:546d064d69d88987:716AE78B341EAA483A6E5611B5236883:0101000000000000C0653150DE09D2000000000000000
 ```
 
-### <mark style="color:orange;">Crack a zip password</mark>
+### Crack a zip password
 
 ```
 zip2john Zipfile.zip | cut -d ':' -f 2 > hashes.txt
@@ -196,7 +196,7 @@ Hashcat appears to have issues with some zip hash formats generated from zip2joh
 $zip2$*0*3*0*b5d2b7bf57ad5e86a55c400509c672bd*d218*0**ca3d736d03a34165cfa9*$/zip2$
 ```
 
-### <mark style="color:orange;">PRINCE Password Generation</mark>
+### PRINCE Password Generation
 
 PRINCE (PRobability INfinite Chained Elements) is a hashcat utility for randomly generating probable passwords:
 
@@ -206,7 +206,7 @@ PRINCE (PRobability INfinite Chained Elements) is a hashcat utility for randomly
  pp64.bin --pw-min=8 < dict.txt | head -20 shuf dict.txt | pp64.bin --pw-min=8 | head -20
 ```
 
-### <mark style="color:orange;">Purple Rain</mark>
+### Purple Rain
 
 Purple Rain attack uses a combination of Prince, a dictionary and random Mutation rules to dynamicaly create infinite combinations of passwords.
 
@@ -218,7 +218,7 @@ shuf dict.txt | pp64.bin --pw-min=8 | hashcat -a 0 -m #type -w 4 -O hashes.txt -
 
 ![](<../../.gitbook/assets/image (34) (1).png>)
 
-### <mark style="color:orange;">Hashcat Rules</mark>
+### Hashcat Rules
 
 {% embed url="https://notsosecure.com/one-rule-to-rule-them-all" %}
 
@@ -242,7 +242,7 @@ oclHashcat v1.20 (by https://github.com/evilmog) (generated2.rule)
 hashcat64.exe --force -m300 --status -w3 -o found.txt --remove --potfile-disable -r rules\OneRuleToRuleThemAll.rule hash.txt rockyou.txt
 ```
 
-### <mark style="color:orange;">writing hashcat rules</mark>
+### writing hashcat rules
 
 [https://laconicwolf.com/2019/03/29/hashcat-tutorial-rule-writing/](https://laconicwolf.com/2019/03/29/hashcat-tutorial-rule-writing/)\
 \
@@ -253,7 +253,7 @@ rule generator:\
 
 ![](<../../.gitbook/assets/image (7) (1).png>)
 
-## <mark style="color:red;">John The Reaper</mark>
+## John The Reaper
 
 wordlist and attack rules manual
 
@@ -304,7 +304,7 @@ john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt --format=NT
 john --rules --wordlist=/usr/share/wordlists/rockyou.txt hash.txt --format=NT
 ```
 
-### <mark style="color:orange;">show cracked</mark>
+### show cracked
 
 ```
 john --show --shells=-/etc/expired mypasswd
@@ -334,7 +334,7 @@ And finally, to check for privileged groups:
 	john --show --groups=0,1 mypasswd
 ```
 
-### <mark style="color:orange;">Rules</mark>
+### Rules
 
 ```
 Rule reject flags.

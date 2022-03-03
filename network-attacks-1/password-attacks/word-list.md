@@ -1,6 +1,6 @@
 # ⭕ Word List
 
-## <mark style="color:red;">Wordlists</mark>
+## wordlists
 
 \
 [https://github.com/danielmiessler/SecLists​](https://github.com/danielmiessler/SecLists%E2%80%8B)\
@@ -9,7 +9,10 @@
 \
 
 
-## <mark style="color:red;">Default Credentials</mark>
+## Default Credentials
+
+\
+
 
 {% embed url="http://www.phenoelit.org/dpl/dpl.html%E2%80%8B" %}
 
@@ -26,7 +29,7 @@
 
 {% embed url="https://github.com/danielmiessler/SecLists/blob/master/Passwords/Default-Credentials/default-passwords.csv%E2%80%8B" %}
 
-## <mark style="color:red;">crawl website to find words for a wordlist</mark>
+## crawl website to find words for a wordlist
 
 ```
 cewl www.megacorpone.com -m 6 -w megacorp-cewl.txt
@@ -51,13 +54,13 @@ cewl www.megacorpone.com -m 6 -w megacorp-cewl.txt
 -v, --verbose: Verbose.
 ```
 
-## <mark style="color:red;">crunch</mark>
+## crunch
 
 ![](<../../.gitbook/assets/image (51) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (14) (1).png>)
 
-### <mark style="color:orange;">Example Rules</mark>
+### Example Rules
 
 \[Capital Letter] \[2 x lower case letters] \[2 x special chars] \[3 x numeric]
 
@@ -90,7 +93,7 @@ crunch 11 11 1234567890 -t 091%%%%%%%%
 crunch 11 11 1234567890 -t 099%%%%%%%%
 ```
 
-## <mark style="color:red;">rsmangler</mark>
+## rsmangler
 
 will take an existing wordlist and perform various manipulations resulting in a more targeted wordlist which will include permutations and variations of words we can in our wordlist.
 
@@ -102,7 +105,7 @@ Using the following command line, we can generate a list containing variations a
 cat words.txt | rsmangler --file - > words_new.txt
 ```
 
-## <mark style="color:red;">mentalist</mark>
+## mentalist
 
 #### [https://github.com/sc0tfree/mentalist/wiki](https://github.com/sc0tfree/mentalist/wiki)
 
