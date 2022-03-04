@@ -222,7 +222,7 @@ airodump-ng -c 3 --bssid 34:08:04:09:3D:38 -w cap1 mon0
 
 The table below contains descriptions of all of the Airodump fields.
 
-![](<../../.gitbook/assets/image (16) (1).png>)
+![](<../../.gitbook/assets/image (16) (1) (1).png>)
 
 ### <mark style="color:orange;">Aireplay-ng</mark>
 

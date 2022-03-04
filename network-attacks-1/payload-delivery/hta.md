@@ -24,7 +24,7 @@ We will need to setup a listener that will listen for our connection once execut
 
 We proceed to execute
 
-![](<../../.gitbook/assets/image (16).png>)
+![](<../../.gitbook/assets/image (16) (1).png>)
 
 We will setup our listener and an OutFile to send to our victim
 

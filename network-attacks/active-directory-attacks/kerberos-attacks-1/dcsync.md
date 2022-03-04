@@ -6,7 +6,7 @@ Most organizations need more than one domain controller for their Active Directo
 Any member of Administrators, Domain Admins, or Enterprise Admins as well as Domain Controller computer accounts are able to run DCSync to pull password data.
 {% endhint %}
 
-## **DCSYNC Attack**
+## <mark style="color:red;">**DCSYNC Attack**</mark>
 
 The Mimikatz DCSYNC-function allows an attacker to replicate Domain Controller (DC) behaviour. Typically impersonates as a domain controller and request other DC’s for user credential data via GetNCChanges.
 
@@ -16,7 +16,7 @@ But compromised account should be a member of administrators, Domain Admin or En
 **For this attack to work, we need to have a user account with domain admins membership.**
 {% endhint %}
 
-### **Using Mimikatz DCSync**
+### <mark style="color:orange;">**Using Mimikatz DCSync**</mark>
 
 ```
 # DCSync only one user
@@ -30,7 +30,7 @@ mimikatz# lsadump::dcsync /domain:htb.local /all /csv
 Read-Only Domain Controllers are not allowed to pull password data for users by default.
 {% endhint %}
 
-### **PowerShell Empire**
+### <mark style="color:orange;">**PowerShell Empire**</mark>
 
 ```
 usemodule credentials/mimikatz/dcsync_hashdump
@@ -45,7 +45,7 @@ usemodule credentials/mimikatz/dcsync_hashdump
 execute
 ```
 
-### **Metasploit**
+### <mark style="color:orange;">**Metasploit**</mark>
 
 If you have meterpreter session of the victim machine who account is member of domain admin, then here also you can execute Mimikatz-DCSYNC attack in order to obtain user’s password.
 
@@ -55,7 +55,7 @@ dcsync_ntlm krbtgt
 dcsync krbtgt
 ```
 
-### Impacket secretsdump
+### <mark style="color:orange;">Impacket secretsdump</mark>
 
 ```
 # using a plaintext password

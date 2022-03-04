@@ -23,7 +23,7 @@ ALT+F11 to switch back to the document editing mode and add a flair of social en
 
 Save the file as a macro enabled document, for example a Doc3.dotm:
 
-![](<../../.gitbook/assets/image (19) (1).png>)
+![](<../../.gitbook/assets/image (19) (1) (1).png>)
 
 Victim launching the Doc3.dotm:
 

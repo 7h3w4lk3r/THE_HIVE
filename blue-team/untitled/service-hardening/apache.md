@@ -27,7 +27,7 @@ restart the service:
 # service apache2 restart (Debian/Ubuntu)
 ```
 
-![](<../../../.gitbook/assets/image (19) (1) (1).png>)
+![](<../../../.gitbook/assets/image (19) (1) (1) (1).png>)
 
 ## <mark style="color:red;">Disable Directory Listing</mark>
 

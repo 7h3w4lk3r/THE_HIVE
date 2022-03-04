@@ -228,7 +228,7 @@ A probe response is only sent if the rate and ESSID values are the same as the o
 
 Within an authentication frame, the Authentication Algorithm identifies the type of authentication used. A value of “0” is used to indicate Open System authentication and a value of “1” is used for Shared Key authentication.
 
-![](<../../.gitbook/assets/image (4).png>)
+![](<../../.gitbook/assets/image (4) (1).png>)
 
 The authentication process consists of several authentication frames (the exact number of frames exchanged can vary). The Authentication Transaction Sequence Number keeps track of the current state of the authentication process and can take values from 1 to 65535. The challenge text will only be present on shared authentication systems.
 

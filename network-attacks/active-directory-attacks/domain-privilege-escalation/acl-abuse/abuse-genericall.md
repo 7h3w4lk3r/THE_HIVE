@@ -1,4 +1,6 @@
-# Abuse GenericAll
+# GenericAll
+
+## <mark style="color:red;">GenericAll in Users</mark>
 
 Find domain users that current user has `GenericAll` access right to:
 
@@ -13,6 +15,8 @@ The attacker can change password of discovered users:
 ```
 Cmd > net user snovvcrash Passw0rd! /domain
 ```
+
+## <mark style="color:red;">GenericAll on Groups</mark>
 
 Find domain groups that current user has `GenericAll` access right to:
 

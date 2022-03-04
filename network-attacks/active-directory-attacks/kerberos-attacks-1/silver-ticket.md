@@ -1,8 +1,10 @@
 # Silver Ticket
 
-## Intro
+## <mark style="color:red;">Intro</mark>
 
-Silver ticket attack is one of the ways to gain domain persistence. Once you have gained domain admin or you could dump hashes of a service account some how. If you have recalled how Kerberos works let’s see where this attack fits in the cycle.
+#### This attack includes forging a cracked TGS Kerberos ticket in order to impersonate another user and escalate privileges from the perspective of a service the TGS was cracked for.
+
+
 
 On the last step of the process when the client sends a TGS to the service that is where we can send a forged TGS and get access directly to the service and get a service ticket using this method.
 
@@ -11,12 +13,16 @@ On the last step of the process when the client sends a TGS to the service that 
 #### Silver ticket abuses the part of Kerberos authentication where a client sends a Valid TGS to get a service ticket. So if an attacker knows the hash of the service account he can forge a fake service ticket with it. Kerberos will trust it since it can be decrypted by the service as its signed by the NTLM hash of the service.
 
 {% hint style="info" %}
-downside of this attack is at unlike golden ticket which gives us access to everything. A silver ticket will only allow us access to a particular service or all the services that are running with the same service account.
+downside of this attack is at unlike golden ticket which gives us access to everything.
 
-Another disadvantage of this attack is if the service account is a machine account or a user account. If the password of the account changes this attack will fail. Since we wont have the correct hash of the user/machine account usually it changes within 30 days for machines. We would generally target these services when it comes to performing a silver ticket attack. CIFS (file system), HOST ( can schedule tasks ), RPCSS Host (runs wmi), WSman/http (ps remoting) all of these use the machine account as there service account.
+&#x20;A silver ticket will only allow us access to a particular service or all the services that are running with the same service account.
+
+Another disadvantage of this attack is if the service account is a machine account or a user account. If the password of the account changes this attack will fail. Since we wont have the correct hash of the user/machine account usually it changes within 30 days for machines.&#x20;
+
+We would generally target these services when it comes to performing a silver ticket attack. CIFS (file system), HOST ( can schedule tasks ), RPCSS Host (runs wmi), WSman/http (ps remoting) all of these use the machine account as there service account.
 {% endhint %}
 
-## Dumping Password Hash
+## <mark style="color:red;">Dumping Password Hash</mark>
 
 If an attacker can gain admin rights to the computer (to gain debug access) or be able to run code as local System, the attacker can dump the AD computer account password hash from the system using Mimikatz (the NTLM password hash is used to encrypt RC4 Kerberos tickets)
 
@@ -36,7 +42,7 @@ powershell -ep bypass -c "iex(new-object system.net.webclient).downloadstring('h
 
 ![](<../../../.gitbook/assets/image (186).png>)
 
-## Forging Silver Ticket
+## <mark style="color:red;">Forging Silver Ticket</mark>
 
 #### the syntax for mimikatz command is:
 
@@ -66,7 +72,7 @@ powershell -ep bypass -c "iex(new-object system.net.webclient).downloadstring('h
 
 #### Now if we try to access the file system on sql.megabank.local machine. We can do it because we already have the tickets to authenticate us.
 
-## Host Exploitation with Silver Ticket
+## <mark style="color:red;">Host Exploitation with Silver Ticket</mark>
 
 By issuing a klist command you can see that we now have the ticket for sql service.
 
