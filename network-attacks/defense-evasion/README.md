@@ -66,14 +66,14 @@ PsSetLoadImageNotifyRoutine()
 * happen, it will get reported with EventWriteTransfer(), which will get traced down to EtwEventWrite(), and then into NtTraceEvent() which is a kernel syscall
 * Then, the kernel has the event information which it then sends to Eventlog Service which then spits out the logs back into the user
 
-![](<../../.gitbook/assets/image (18).png>)
+![](<../../.gitbook/assets/image (18) (1).png>)
 
 ### <mark style="color:orange;">Userland Hooking</mark>
 
 * Injects a dll which hooks certain "potentially malicious functions" to see their behavior and deduce if they are malicious or not
 * For example, we can hook NtWriteVirtualMemory and scan the buffer passed to it at runtime
 
-![](<../../.gitbook/assets/image (42).png>)
+![](<../../.gitbook/assets/image (42) (1).png>)
 
 ### <mark style="color:orange;">Process Memory Scanning</mark>
 

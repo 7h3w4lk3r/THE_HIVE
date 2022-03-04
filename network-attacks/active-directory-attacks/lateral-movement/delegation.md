@@ -1,8 +1,10 @@
-# Delegation
+# Kerberos Delegation
 
 ## Unconstrained Delegation
 
 {% embed url="https://resources.infosecinstitute.com/topic/active-directory-series-unconstrained-delegation" %}
+
+Unrestricted kerberos delegation is a privilege that can be assigned to a domain computer or a user; Usually, this privilege is given to computers (in this lab, it is assigned to a computer IIS01) running services like IIS, MSSQL, etc.; Those services usually require access to some back-end database (or some other server), so it can read/modify the database on the authenticated user's behalf; When a user authenticates to a computer that has unresitricted kerberos delegation privilege turned on, authenticated user's TGT ticket gets saved to that computer's memory; The reason TGTs get cached in memory is so the computer (with delegation rights) can impersonate the authenticated user as and when required for accessing any other services on that user's behalf. Essentially this looks like so: User --- authenticates to ---> IIS server ---> authenticates on behalf of the user ---> DB server
 
 ```
 # get tickets

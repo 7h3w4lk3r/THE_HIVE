@@ -1,10 +1,10 @@
 # Pass The Ticket
 
-## Pass The Ticket
+## <mark style="color:red;">Pass The Ticket</mark>
 
-In a pass the ticket attack access is gained to a resource of a system (for example the administrative shares) using a kerberos ticket that was generated or obtained from a compromised machine (TGT or TGS)
+**In a pass the ticket attack access is gained to a resource of a system (for example the administrative shares) using a kerberos ticket that was generated or obtained from a compromised machine (TGT or TGS)**
 
-{% hint style="info" %}
+{% hint style="warning" %}
 PtT affects all windows platforms relying on kerberos.
 {% endhint %}
 
@@ -28,7 +28,7 @@ misc::cmd
 
 ![](<../../../../.gitbook/assets/image (195).png>)
 
-## Rubeus
+## <mark style="color:red;">Rubeus</mark>
 
 [rubeus](https://github.com/r3motecontrol/Ghostpack-CompiledBinaries) is a C# toolset for raw Kerberos interaction and abuses.
 

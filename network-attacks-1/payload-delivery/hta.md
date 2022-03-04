@@ -16,7 +16,7 @@ We can create Macros, HTA files and OLE Objects for phishing (this example will 
 
 We execute Empire :&#x20;
 
-![](<../../.gitbook/assets/image (18) (1).png>)
+![](<../../.gitbook/assets/image (18) (1) (1).png>)
 
 We will need to setup a listener that will listen for our connection once executed on the victim
 

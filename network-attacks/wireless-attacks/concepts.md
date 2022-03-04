@@ -6,7 +6,7 @@ the access point that sends out the radio frequency (RF) signal is known as the 
 
 The following table lists the main 802.11 protocols along with some of their properties:
 
-![](<../../.gitbook/assets/image (24) (1).png>)
+![](<../../.gitbook/assets/image (24) (1) (1).png>)
 
 These standards are generally backwardly compatible, so that a wireless n adapter will also be able to pick up g and b signals. We will focus upon the most widely used of these standards— b, g, and n.
 
@@ -216,7 +216,7 @@ Wireless probe frames are used to scan for existing access points.
 
 robe requests are sent by wireless stations to determine what APs are within range and what their capabilities are
 
-![](<../../.gitbook/assets/image (48).png>)
+![](<../../.gitbook/assets/image (48) (1).png>)
 
 <mark style="color:green;">Probe Response :</mark>&#x20;
 

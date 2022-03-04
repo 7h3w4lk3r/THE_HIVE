@@ -1,10 +1,10 @@
 # ACL Abuse
 
-## ACL BloodHound Abuse Hierarchy
+## <mark style="color:red;">ACL BloodHound Abuse Hierarchy</mark>
 
 ![](<../../../../.gitbook/assets/image (271).png>)
 
-Some AD object security permissions abusable with PowerView/SharpView:
+#### <mark style="color:green;">Some AD object security permissions abusable with PowerView/SharpView:</mark>
 
 * **ForceChangePassword** abused with `Set-DomainUserPassword`.
 * **AddMembers** abused with `Add-DomainGroupMember`.
@@ -14,13 +14,13 @@ Some AD object security permissions abusable with PowerView/SharpView:
 * **WriteDACL** abused with `Add-DomainObjectACL`.
 * **AllExtendedRights** abused with `Set-DomainUserPassword` or `Add-DomainGroupMember`.
 
-## SDDL (Security Descriptor Definition Language)
+## <mark style="color:red;">SDDL (Security Descriptor Definition Language)</mark>
 
 At the lowest level, the Security Descriptor Definition Language is used in the nTSecurityDescriptor attribute (and on registry keys and NTFS files) to define the ACL. Fortunately, one does not need to know this level of detail in normal conditions.
 
 But advanced administrators may want to write scripts or code that can correctly construct SDDL strings. Also the security templates (located at %systemroot%\security\templates) use SDDL if you manually edit them with a text editor instead of the MMC interface.manually editing these templates turns out to be the most effective way to manipulate them. It is most likely that you will simply need to be able to read a SDDL string.
 
-### Format of nTSecurityDescriptor string
+### <mark style="color:orange;">Format of nTSecurityDescriptor string</mark>
 
 ```
 O:owner_sidG:group_sidD:dacl_flags(string_ace1)(string_ace2)…
@@ -29,9 +29,9 @@ O:owner_sidG:group_sidD:dacl_flags(string_ace1)(string_ace2)…
 
 Each nTSecurityDescriptor SDDL string is composed of 5 primary parts which correspond to the Header, DACL (D:), SACL (S:), primary group (G:)and owner (O:). Each of these parts is designated with the prefix noted in parenthesis. The header contains some record keeping information, along with 2 flags that designate whether the object is blocking inheritance for the SACL and DACL. The contents of both the primary group and owner parts are simply a single SID. The contents of both the SACL and DACL parts are a string with no fixed length. ACEs make up the contents of these strings. ACEs are enclosed within parenthesis, and there are 6 fields in each ACE. These 6 fields are separated by a semicolon delimiter. The fields are ACE type (allow/deny/audit), ACE flags (inheritance and audit settings), Permissions (list of incremental permissions), ObjectType (GUID), Inherited Object Type (GUID), and Trustee (SID).
 
-### ACE Type
+### <mark style="color:orange;">ACE Type</mark>
 
-The ACE type designates whether the trustee is allowed, denied or audited.
+#### The ACE type designates whether the trustee is allowed, denied or audited.
 
 | **Value** | **Description**                                                   |
 | --------- | ----------------------------------------------------------------- |
@@ -44,7 +44,7 @@ The ACE type designates whether the trustee is allowed, denied or audited.
 | “OU”      | OBJECT SYSTEM AUDIT                                               |
 | “OL”      | OBJECT SYSTEM ALARM                                               |
 
-### ACE Flags
+### <mark style="color:orange;">ACE Flags</mark>
 
 The ACE flags denote the inheritance options for the ACE, and if it is a SACL, the audit settings.
 
@@ -58,7 +58,7 @@ The ACE flags denote the inheritance options for the ACE, and if it is a SACL, t
 | “SA”      | SUCCESSFUL ACCESS AUDIT                                                                                        |
 | “FA”      | FAILED ACCESS AUDIT                                                                                            |
 
-### Permissions
+### <mark style="color:orange;">Permissions</mark>
 
 The Permissions are a list of the incremental permissions given (or denied/audited) to the trustee-these correspond to the permissions discussed earlier and are simply appended together. However, the incremental permissions are not the only permissions available. The table below lists all the permissions.
 
@@ -99,11 +99,11 @@ The Permissions are a list of the incremental permissions given (or denied/audit
 |                                     | KEY QUERY VALUE          | 0x0001                |                        |
 |                                     | KEY SET VALUE            | 0x0002                |                        |
 
-### Object Type and Inherited Object Type
+### <mark style="color:orange;">Object Type and Inherited Object Type</mark>
 
 The ObjectType is a GUID representing an object class, attribute, attribute set, or extended right. If present it limits the ACE to the object the GUID represents. The Inherited Object Type is a GUID representing an object class. If present it limits inheritance of the ACE to the child entries of only that object class.
 
-### Trustee
+### <mark style="color:orange;">Trustee</mark>
 
 The Trustee is the SID of the user or group being given access (or denied or audited). Instead of a SID, there are several commonly used acronyms for well-known SIDs. The most common are listed in the table below, but you can review more at [https://docs.microsoft.com/en-us/windows/win32/secauthz/sid-strings](https://docs.microsoft.com/en-us/windows/win32/secauthz/sid-strings):
 
@@ -174,9 +174,9 @@ Ace Sid:
 S-1-1-0
 ```
 
-## Hunt for ACLs <a href="#hunt-for-acls" id="hunt-for-acls"></a>
+## <mark style="color:red;">Hunt for ACLs</mark> <a href="#hunt-for-acls" id="hunt-for-acls"></a>
 
-### ActiveDirectory <a href="#activedirectory" id="activedirectory"></a>
+### <mark style="color:orange;">ActiveDirectory</mark> <a href="#activedirectory" id="activedirectory"></a>
 
 Enumerate ACLs which `snovvcrash` user possesses against `j.doe` user:
 
@@ -204,7 +204,7 @@ PowerView3 > $dcsync = Get-ObjectACL "DC=megacorp,DC=local" -ResolveGUIDs | ? {$
 PowerView3 > Convert-SidToName $dcsync
 ```
 
-### PowerView2 <a href="#powerview2" id="powerview2"></a>
+### <mark style="color:orange;">PowerView2</mark> <a href="#powerview2" id="powerview2"></a>
 
 Search for interesting ACLs:
 
@@ -231,7 +231,7 @@ AccessControlType     : Allow
 ObjectSID             : S-1-5-21-3167813660-1240564177-918740779-3110
 ```
 
-### PowerView3 <a href="#powerview3" id="powerview3"></a>
+### <mark style="color:orange;">PowerView3</mark> <a href="#powerview3" id="powerview3"></a>
 
 Search for interesting ACLs:
 

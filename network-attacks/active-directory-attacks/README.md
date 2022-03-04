@@ -1,5 +1,11 @@
 # 🔴 Active Directory
 
+## <mark style="color:red;">Definition</mark> <a href="#definition" id="definition"></a>
+
+Active Directory is a centralized directory service used to manage Windows networks. It stores information about objects on the network and make it easy to configure what is needed.
+
+![](<../../.gitbook/assets/image (24).png>)
+
 ## <mark style="color:red;">Intro</mark>
 
 Active Directory attacks is a huge topic, a lot of the scenarios depend on the situation of attacker and network infrastructure. this section of the book is about the known active directory attacks and tips/tricks.

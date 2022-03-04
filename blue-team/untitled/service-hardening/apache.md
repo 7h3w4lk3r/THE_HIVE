@@ -43,7 +43,7 @@ Options -Indexes
 </Directory>
 ```
 
-![](<../../../.gitbook/assets/image (18) (1) (1).png>)
+![](<../../../.gitbook/assets/image (18) (1) (1) (1).png>)
 
 ## <mark style="color:red;">Keep updating Apache Regularly</mark>
 

