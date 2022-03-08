@@ -94,7 +94,7 @@ A Wireless Distribution System (WDS) is similar to a standard DS but is done via
 * Wireless Bridging – Only allows WDS APs to communicate with each other
 * Wireless Repeating – Allows both stations and APs to communicate with each other&#x20;
 
-![](<../../.gitbook/assets/image (47) (1).png>)
+![](<../../.gitbook/assets/image (47) (1) (1).png>)
 
 ### <mark style="color:orange;">Monitor Mode</mark>&#x20;
 

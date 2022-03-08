@@ -263,6 +263,7 @@
   * [⭕ Covering Tracks](network-attacks-1/covering-tracks.md)
 * [🔴 Command & Control](network-attacks/command-and-control/README.md)
   * [⭕ Metasploit](command-and-control/metasploit.md)
+  * [🔧 Covenant](network-attacks-1/command-and-control/covenant.md)
 * [🔴 Shells and Payloads](network-attacks-1/shells-and-payloads/README.md)
   * [⭕ Shell Escape / Interactive TTY](network-attacks-1/shells-and-payloads/interactive-shell.md)
   * [⭕ Magic Unicorn](network-attacks-1/shells-and-payloads/magic-unicorn.md)
