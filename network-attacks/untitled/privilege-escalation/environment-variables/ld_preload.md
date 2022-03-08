@@ -14,6 +14,8 @@ Note that the env\_keep option includes the LD\_PRELOAD environment variable.
 
 ![](../../../../.gitbook/assets/env1.png)
 
+### Exploitation
+
 Create a file (preload.c) with the following contents:
 
 `#include <stdio.h>`\

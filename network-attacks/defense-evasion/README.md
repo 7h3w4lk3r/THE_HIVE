@@ -46,7 +46,7 @@ PsSetCreatethreadNotifyRoutine()
 PsSetLoadImageNotifyRoutine()
 ```
 
-![](<../../.gitbook/assets/image (7).png>)
+![](<../../.gitbook/assets/image (7) (1).png>)
 
 ### <mark style="color:orange;">AMSI</mark>
 

@@ -141,7 +141,7 @@ Because the system stops checking ACEs when the requested access is explicitly g
 
 ### <mark style="color:orange;">Access Control Entry Layout</mark>
 
-![](<../../../.gitbook/assets/image (52) (1).png>)
+![](<../../../.gitbook/assets/image (52) (1) (1).png>)
 
 ### <mark style="color:orange;">Access Mask Layout</mark>
 
