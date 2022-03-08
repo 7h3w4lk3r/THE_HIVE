@@ -12,7 +12,7 @@ NTP Spoofing is hard to detect and the only mitigation is NTP encryption or sync
 
 {% embed url="https://github.com/crazyarashi/ntp-spoof" %}
 
-A scapy script for spoofing NTP responses with a MITM attack
+A scapy script for spoofing NTP responses with an MITM attack
 
 1. ARP-Cache-Poisons the target and the gateway
 2. Positions your machine between target and gateway in MITM attack
