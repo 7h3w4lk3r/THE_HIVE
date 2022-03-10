@@ -512,6 +512,10 @@ Invoke-AzureHound
 # /usr/lib/bloodhound/resources/app/Collectors/SharpHound.ps1
 Invoke-BloodHound -SearchForest -CSVFolder C:\Users\Public
 Invoke-BloodHound -CollectionMethod All  -LDAPUser <UserName> -LDAPPass <Password> -OutputDirectory <PathToFile>
+
+# with the newer version of bloodhound.ps1
+powershell-import /path/to/BloodHound.ps1
+powershell Get-BloodHoundData | Export-BloodHoundCSV
 ```
 
 Then import the zip/json files into the Neo4J database and query them.
