@@ -399,4 +399,4 @@
   * [socat](misc/cats/socat.md)
   * [🔧 powercat](misc/cats/powercat.md)
 * [🔴 Curl](misc/curl.md)
-* [Compiling Exploits](misc/compiling-exploits.md)
+* [🔴 Cross-compiling Exploits](misc/compiling-exploits.md)
