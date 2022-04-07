@@ -13,7 +13,7 @@ size → return the number of elements in the stack
 isEmpty → return true if the stack is empty
 ```
 
-![](<../../../.gitbook/assets/image (33) (1) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (33) (1) (1) (1) (1) (1) (1).png>)
 
 ```
 int stack[MAX];

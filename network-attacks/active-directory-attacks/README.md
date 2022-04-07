@@ -4,7 +4,7 @@
 
 Active Directory is a centralized directory service used to manage Windows networks. It stores information about objects on the network and make it easy to configure what is needed.
 
-![](<../../.gitbook/assets/image (24).png>)
+![](<../../.gitbook/assets/image (24) (1).png>)
 
 ## <mark style="color:red;">Intro</mark>
 

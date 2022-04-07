@@ -269,6 +269,7 @@
   * [⭕ Magic Unicorn](network-attacks-1/shells-and-payloads/magic-unicorn.md)
   * [⭕ LOL Binaries](network-attacks-1/shells-and-payloads/lol-binaries.md)
   * [⭕ msfvenom](network-attacks-1/shells-and-payloads/msfvenom.md)
+  * [⭕ Shellcode Runners/Injectors](network-attacks-1/shells-and-payloads/shellcode-runners-injectors.md)
   * [⭕ Other Payloads](network-attacks-1/shells-and-payloads/reverse-bind-payloads.md)
 * [🔴 Payload Delivery](network-attacks-1/payload-delivery/README.md)
   * [⭕ HTML Smuggling](network-attacks-1/payload-delivery/html-smuggling.md)

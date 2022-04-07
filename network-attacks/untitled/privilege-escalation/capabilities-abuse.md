@@ -80,7 +80,7 @@ Aaccording to GTFOBins, it can be easily exploited with the following command, w
 
 Executing the command while logged in as a non-root user:
 
-![](<../../../.gitbook/assets/image (24) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (24) (1) (1) (1) (1).png>)
 
 As shown above, this has allowed to escalate privileges to root, many different capabilities can be exploited to read/write to files, intercept network traffic, mount/unmount file systems and more, which can potentially lead to escalation of privileges.
 

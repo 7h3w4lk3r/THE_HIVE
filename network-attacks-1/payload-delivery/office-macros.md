@@ -19,7 +19,7 @@ End Sub
 
 ALT+F11 to switch back to the document editing mode and add a flair of social engineering like so:
 
-![](<../../.gitbook/assets/image (24) (1).png>)
+![](<../../.gitbook/assets/image (24) (1) (1).png>)
 
 Save the file as a macro enabled document, for example a Doc3.dotm:
 
@@ -109,7 +109,7 @@ DOCX files referencing a template that includes macros can "execute" macros as w
 
 **2]** Create a .DOCX file from Word default templates -> Rename as .zip -> Extract .zip -> Modify `word\_rels\settings.xml.rels`
 
-![](<../../.gitbook/assets/image (33) (1).png>)
+![](<../../.gitbook/assets/image (33) (1) (1).png>)
 
 **3]** Save file → Select all unzipped files and zip → Change extension to .docx
 

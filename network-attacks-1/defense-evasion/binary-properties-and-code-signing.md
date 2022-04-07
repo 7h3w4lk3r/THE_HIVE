@@ -26,7 +26,7 @@ Then check off the version info box:
 
 You should now see something like this, you can then modify the descriptions and values to fit whatever you are doing but for now, we are just going to stick with this:
 
-![](<../../.gitbook/assets/image (33).png>)
+![](<../../.gitbook/assets/image (33) (1).png>)
 
 After, we can then click the save button to save our file.
 
