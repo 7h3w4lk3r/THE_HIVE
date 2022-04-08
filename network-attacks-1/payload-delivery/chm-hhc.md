@@ -4,7 +4,7 @@ These are Microsoft's online help format, these consist of HTML pages, indexes a
 
 example:
 
-```
+```html
 <!DOCTYPE html><html><head><title>Click Me</title><head></head><body>
 This is a demo ! <br>
 <OBJECT id=x classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" width=1 height=1>

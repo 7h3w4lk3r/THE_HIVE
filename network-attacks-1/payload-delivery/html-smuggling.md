@@ -12,7 +12,7 @@ Using a combination of HTML5 and JavaScript to sneak malicious files past conten
 
 HTML5 introduced the [“download” attribute](https://www.w3schools.com/tags/att\_a\_download.asp) for anchor tags. Consider the following line of HTML, which is supported by all modern browsers:
 
-```
+```html
 <a href="/files/doc123.doc" download="myfile.doc">Click</a>
 ```
 
@@ -27,20 +27,20 @@ myAnchor.download = 'filename.doc';
 
 A Blob is an immutable object that represents raw data. Blobs allow you to construct file-like objects on the client that you can pass to JavaScript APIs that expect URLs. Instead of requiring that the web server provides the file, the Blob can be constructed locally using pure JavaScript.
 
-```
+```javascript
 var myBlob = new Blob([myData], {type: 'octet/stream'});
 ```
 
 This line creates a Blob of MIME type “octet/stream” and fills is with the data contained in variable myData. We can then use URL.createObjectURL to create a URL from our Blob object and have an anchor point to it:
 
-```
+```javascript
 var myUrl = window.URL.createObjectURL(blob);
 myAnchor.href = myUrl;
 ```
 
 Lastly, we can simulate a click on the anchor object using JavaScript’s HTMLElement.click() method:
 
-```
+```javascript
 myAnchor.click();
 ```
 
@@ -58,7 +58,7 @@ base64 /var/www/html/msfstaged.exe
 
 We’ll then place the array buffer into our Blob. Next, we’ll create a hidden “a” tag. The data from our Blob is then moved to the href reference of our “a” tag. Our Blob code in the href is given the file name of ‘msfnonstaged.exe’. Finally, a click action is performed to download our file. The complete webpage used to trigger the HTML smuggling with the Meterpreter executable is given below:
 
-```
+```html
 <html>
     <body>
         <script>

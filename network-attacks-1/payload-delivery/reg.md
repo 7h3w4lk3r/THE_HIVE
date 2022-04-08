@@ -1,6 +1,6 @@
 # ⭕ REG
 
-```
+```csharp
 Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce]
