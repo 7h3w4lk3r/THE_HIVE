@@ -40,6 +40,8 @@ Most of the attacks in this section (in real world scenarios as well) are based 
 
 {% embed url="https://wiki.bufu-sec.com/active_directory/domain_enumeration/domain_acl" %}
 
+{% embed url="https://powersploit.readthedocs.io/en/latest" %}
+
 {% embed url="https://github.com/cfalta/MicrosoftWontFixList/blob/main/README.md" %}
 
 {% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Active%20Directory%20Attack.md#active-directory-attacks" %}
@@ -58,6 +60,10 @@ Most of the attacks in this section (in real world scenarios as well) are based 
 
 {% embed url="https://github.com/lgandx/Responder" %}
 
+{% embed url="https://github.com/S3cur3Th1sSh1t/PowerSharpPack" %}
+
+{% embed url="https://github.com/S3cur3Th1sSh1t/WinPwn" %}
+
 {% embed url="https://github.com/Kevin-Robertson/InveighZero" %}
 
 {% embed url="https://github.com/gentilkiwi/mimikatz" %}
@@ -69,8 +75,6 @@ Most of the attacks in this section (in real world scenarios as well) are based 
 {% embed url="https://github.com/byt3bl33d3r/CrackMapExec" %}
 
 {% embed url="https://github.com/fox-it/mitm6.git" %}
-
-{% embed url="https://github.com/sense-of-security/ADRecon" %}
 
 {% embed url="https://github.com/sense-of-security/ADRecon" %}
 

