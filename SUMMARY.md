@@ -224,6 +224,7 @@
     * [UDEVD](network-attacks/untitled/privilege-escalation/udevd.md)
     * [STDIN/STDOUT](network-attacks/untitled/privilege-escalation/stdin-stdout.md)
     * [Unix Socket Exploitation](network-attacks/untitled/privilege-escalation/unix-socket-exploitation.md)
+    * [Dirty Pipe](network-attacks-1/untitled/privilege-escalation/dirty-pipe.md)
     * [Docker](network-attacks/untitled/privilege-escalation/docker-1/README.md)
       * [SUID Docker](network-attacks/untitled/privilege-escalation/docker-1/docker.md)
   * [⭕ Lateral Movement](network-attacks/untitled/lateral-movement/README.md)
