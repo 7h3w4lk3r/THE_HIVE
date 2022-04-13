@@ -2,7 +2,7 @@
 
 NFS (Network File System) is a popular distributed file system.NFS shares are configured in the /etc/exports file. Remote users can mount shares, access, create, modify files. By default, created files inherit the remote user’s id and group id (as owner and group respectively), even if they don’t exist on the NFS server.
 
-## Useful Commands
+## <mark style="color:red;">Useful Commands</mark>
 
 Show the NFS server’s export list:
 
@@ -16,11 +16,11 @@ Mount an NFS share:
 
 #### `mount -o rw,vers=2 [target]:[share] [local_directory]`
 
-## Root Squashing
+## <mark style="color:red;">Root Squashing</mark>
 
 Root Squashing is how NFS prevents an obvious privilege escalation. If the remote user is (or claims to be) root (uid=0), NFS will instead “squash” the user and treat them as if they are the “nobody” user, in the “nogroup” group.While this behavior is default, it can be disabled!
 
-## no\_root\_squash
+## <mark style="color:red;">no\_root\_squash</mark>
 
 no\_root\_squash is an NFS configuration option which turns root squashing off. When included in a writable share configuration, a remote user who identifies as “root” can create files on the NFS share as the local root user.
 

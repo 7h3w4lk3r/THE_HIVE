@@ -1,9 +1,9 @@
 # Simple Rootkits
 
-## Shell Rootkit
+## <mark style="color:red;">Shell Rootkit</mark>
 
 {% hint style="danger" %}
-This rootkit is pretty easy to detect and analyze because it can easily be seen with the file command that programs like `ps` or `ls` have changed the type from an ELF binary to a shell script. After discovering the rootkit, it is also pretty easy to analyze the functionality of it and then selectively find the backdoors hidden by the rootkit.
+#### This rootkit is pretty easy to detect and analyze because it can easily be seen with the file command that programs like `ps` or `ls` have changed the type from an ELF binary to a shell script. After discovering the rootkit, it is also pretty easy to analyze the functionality of it and then selectively find the backdoors hidden by the rootkit.
 {% endhint %}
 
 The shell script version is still useful if the system doesn't contain a c compiler:
@@ -18,7 +18,7 @@ The which command lists the absolute path of the programs to maniuplate in the r
 * The string "grep" => Don't show that grep is running in the output of ps
 * The string "177" => This is used for the stuff which should be hidden by the rootkit.
 
-## The C Version
+## <mark style="color:red;">The C Version</mark>
 
 In order to make finding and analyzing the rootkit more difficult, it is also possible to compile small binaries instead of the shell script:
 

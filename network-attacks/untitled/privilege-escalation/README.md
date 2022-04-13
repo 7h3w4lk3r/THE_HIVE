@@ -1,6 +1,6 @@
 # ⭕ Privilege Escalation
 
-## know before you start
+## <mark style="color:red;">know before you start</mark>
 
 **1. first rule of privilege escalation is that you HAVE TO be familiar with target system command line, actually the more comfortable you are with the shell the better and easier will be the privesc phase.**
 
@@ -10,7 +10,7 @@
 
 **4. all privilege escalations are effectively examples of access control violations. so if you can access what you want, there is usually no need to gain a root shell, except in a CTF or when you're trying to impress your client.**
 
-## Resources
+## <mark style="color:red;">Resources</mark>
 
 {% embed url="https://book.hacktricks.xyz/linux-unix/privilege-escalation#apparmor" %}
 
@@ -24,7 +24,7 @@
 
 {% embed url="https://hackmag.com/security/linux-privileges-escalation" %}
 
-## Automated Tools
+## <mark style="color:red;">Automated Tools</mark>
 
 a list of automated tools used in post-exploitation enumeration and privilege escalation.
 

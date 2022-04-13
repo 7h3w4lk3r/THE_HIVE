@@ -1,4 +1,4 @@
-# ⚠ .bashrc Backdoor (Not OPSEC)
+# .bashrc Backdoor
 
 {% hint style="danger" %}
 .bashrc file is easily readable for the user and he backdoor can be easily detected

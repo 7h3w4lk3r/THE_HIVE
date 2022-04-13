@@ -8,9 +8,9 @@ description: >-
 
 By using a program called strace, we can track these system calls and determine whether any shared objects were not found. If we can write to the location the program tries to open, we can create a shared object and spawn a root shell when it is loaded.
 
-## How Does the OS Find a Shared Library?
+## <mark style="color:red;">How Does the OS Find a Shared Library?</mark>
 
-#### When an application that uses shared libraries runs, the OS searches for the library in the following order
+#### <mark style="color:green;">When an application that uses shared libraries runs, the OS searches for the library in the following order:</mark>
 
 1. Any directories specified by rpath-link options (directories specified by rpath-link options are only effective at link time)
 2. Any directories specified by –rpath options (directories specified by rpath options are included in the executable and used at runtime)
@@ -62,7 +62,7 @@ Run the SUID executable to get a root shell:
 
 #### `/usr/local/bin/suid-so`
 
-## PATH Environment Variable
+## <mark style="color:red;">PATH Environment Variable</mark>
 
 The PATH environment variable contains a list of directories where the shell should try to find programs. If a program tries to execute another program, but only specifies the program name, rather than its full (absolute) path, the shell will search the PATH directories until it is found. Since a user has full control over their PATH variable, we can tell the shell to first look for programs in a directory we can write to.
 
@@ -122,7 +122,7 @@ Prepend the current directory (or where the new service executable is located) t
 
 ![](../../../.gitbook/assets/soi7.png)
 
-## Abusing Shell Features
+## <mark style="color:red;">Abusing Shell Features</mark>
 
 #### In some shells (notably Bash <4.2-048) it is possible to define user functions with an absolute path name. These functions can be exported so that sub processes have access to them, and the functions can take precedence over the actual executable being called.
 
@@ -162,7 +162,7 @@ Execute the SUID file for a root shell:
 
 #### `/usr/local/bin/suid-env2`
 
-## Abusing Shell Features (#2)
+## <mark style="color:red;">Abusing Shell Features (#2)</mark>
 
 Bash has a debugging mode which can be enabled with the –x command line option, or by modifying the SHELLOPTS environment variable to include xtrace. By default, SHELLOPTS is read only, however the env command allows SHELLOPTS to be set. When in debugging mode, Bash uses the environment variable PS4 to display an extra prompt for debug statements. This variable can include an embedded command, which will execute every time it is shown. If a SUID file runs another program via Bash (e.g. by using system() ) these environment variables can be inherited. If an SUID file is being executed, this command will execute with the privileges of the file owner. In Bash versions 4.4 and above, the PS4 environment variable is not inherited by shells running as root
 

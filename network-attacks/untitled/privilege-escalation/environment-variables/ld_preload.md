@@ -2,7 +2,7 @@
 
 LD\_PRELOAD is an environment variable which can be set to the path of a shared object (.so) file. When set, the shared object will be loaded before any others. By creating a custom shared object and creating an init() function, we can execute code as soon as the object is loaded.
 
-## Limitations
+## <mark style="color:red;">Limitations</mark>
 
 LD\_PRELOAD will not work if the real user ID is different from the effective user ID. sudo must be configured to preserve the LD\_PRELOAD environment variable using the env\_keep option.
 
@@ -14,7 +14,7 @@ Note that the env\_keep option includes the LD\_PRELOAD environment variable.
 
 ![](../../../../.gitbook/assets/env1.png)
 
-### Exploitation
+## <mark style="color:red;">Exploitation</mark>
 
 Create a file (preload.c) with the following contents:
 

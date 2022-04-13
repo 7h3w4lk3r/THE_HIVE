@@ -1,4 +1,4 @@
-# ⚠ SSH persistence passwordless (Not OPSEC)
+# SSH persistence password-less
 
 ```
 kali@kali:~$ ssh-keygen
@@ -19,7 +19,7 @@ now login without password:
 kali@kali:~$ ssh root@sandbox.local
 ```
 
-### Tips
+## <mark style="color:red;">Tips</mark>
 
 Hide the payload with ANSI chars, the following chars will clear the terminal when using cat to display the content of your payload.
 
@@ -39,7 +39,7 @@ Clear the last line of the history.
 history -d $(history | tail -2 | awk '{print $1}') 2> /dev/null
 ```
 
-Clear history
+Clear history:
 
 ```
 [SPACE] ANY COMMAND

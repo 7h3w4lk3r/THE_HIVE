@@ -1,6 +1,6 @@
 # cron/crontab abuse
 
-## Crontab <a href="#top" id="top"></a>
+## <mark style="color:red;">Crontab</mark> <a href="#top" id="top"></a>
 
 #### cron or crontab is a unix job scheduler tool. a best friend for system administrators and when misconfigured, the best chance for an attacker to gain root access. cron instructions usually consist of simple commands like a regular rsync command or a log cleaner one-liner script.but it gets real interesting when we find a path for a script to run as sudoer or root user in the crontab entries.if we are lucky enough to have an insecure file permission we can use it to escalate our privileges. In order to leverage insecure file permissions, we must locate an executable file that not only allows us write access but also runs at an elevated privilege level. On a Linux system, the cron time based job scheduler is a prime target, as system-level scheduled jobs are executed with root user privileges and system administrators often create scripts for cron jobs with insecure permissions.
 
@@ -18,7 +18,7 @@ greate, we have read/write access to a file that is executed by root user every 
 
 ![](../../../.gitbook/assets/cron3.png)
 
-## PATH Environment Variable
+## <mark style="color:red;">PATH Environment Variable</mark>
 
 \
 The crontab PATH environment variable is by default set to /usr/bin:/bin The PATH variable can be overwritten in the crontab file. If a cron job program/script does not use an absolute path, and one of the PATH directories is writable by our user, we may be able to create a program/script with the same name as the cron job.\
@@ -45,7 +45,7 @@ we can also make a copy of /bin/bash to have a root shell without spawning a new
 
 ![](../../../.gitbook/assets/cron6.png)
 
-## Wildcards
+## <mark style="color:red;">Wildcards</mark>
 
 \
 Since filesystems in Linux are generally very permissive with filenames, and filename expansion happens before the command is executed, it is possible to pass command line options (e.g. -h, --help) to commands by creating files with these names. The following commands should show how this works:\

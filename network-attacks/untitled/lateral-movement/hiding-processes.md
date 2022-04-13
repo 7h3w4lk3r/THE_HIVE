@@ -1,10 +1,10 @@
 # Hiding Processes
 
-## Process Hiding Techniques
+## <mark style="color:red;">Process Hiding Techniques</mark>
 
 {% embed url="https://flaviu.io/linux-how-to-a-hide-processes" %}
 
-### Listening sockets, hiding from ps and lsof <a href="#hideprocesses" id="hideprocesses"></a>
+#### <mark style="color:green;">Listening sockets, hiding from ps and lsof</mark> <a href="#hideprocesses" id="hideprocesses"></a>
 
 ```
 mkdir /tmp/empty
@@ -14,11 +14,11 @@ sudo mount --bind /tmp/empty /proc/$!
 ps aux | grep $!
 ```
 
-#### Countermeasure:
+#### <mark style="color:green;">Countermeasure:</mark>
 
 `netstat -tulpe` and checking `cat /proc/$$/mountinfo` for suspicious mounts over `/proc`
 
-### Script:
+## <mark style="color:red;">Script</mark>
 
 Run the script to protect the backdoor from discovery through **ps**, **netstat** or **lsof**
 

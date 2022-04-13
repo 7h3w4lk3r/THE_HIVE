@@ -6,7 +6,7 @@ we want to create a rudimentary keylogger to log any changes a user makes to a f
 For this scenario we imagine that the current system uses a restricted VIM environment that blocks any shell commands.
 {% endhint %}
 
-## AutoCommand
+## <mark style="color:red;">AutoCommand</mark>
 
 We can use `:autocmd` in a VIM configuration file or in the editor to set actions for a collection of predefined events
 
@@ -24,7 +24,7 @@ vi
 
 In the above command, we start by specifying that we’re defining an autocommand via :autocmd . BufWritePost is the event we’re going to trigger on, meaning that after a buffer is written to a file, we will perform our action. The “\*” specifies that this action will be performed for all files being edited. We could change this to match only files with a particular name or file extension, but in our case we want to do this for every file. Everything after this point is the actual command we’ll perform when the trigger is activated.
 
-## Keylogger
+## <mark style="color:red;">Keylogger</mark>
 
 The command being run after our condition is triggered is made up of several subcommands. First, we specify that there shouldn’t be any debug output by using the :silent command. We then use :w! to save the buffer contents. The exclamation point (!) is a force modifier. In this case, it will overwrite an existing file if one exists and write to file, even if the file doesn’t already exist. We then redirect the output to append to `/tmp/hackedfromvim.txt.`
 
@@ -36,7 +36,7 @@ While this doesn’t prevent the user from viewing the file, it does make it les
 It’s also possible to run shell commands on an autocommand trigger. For example, if we wanted to run a shell script instead of saving the buffer to a file, we could just replace everything after `“:silent”` with `“!”` followed by a shell script name or shell command. Note that in our current restricted environment, we can’t use this approach.
 {% endhint %}
 
-## Being More Specific
+## <mark style="color:red;">Being More Specific</mark>
 
 This approach is useful, but it logs the entire contents of the changed file to our log file for every file the target user edits. Our log file could grow quickly. Let’s refine our attack to include only files that the user is editing using elevated permissions.
 

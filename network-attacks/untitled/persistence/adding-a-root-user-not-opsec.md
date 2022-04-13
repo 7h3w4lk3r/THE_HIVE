@@ -1,4 +1,4 @@
-# ⚠ Adding a Root user (Not OPSEC)
+# Adding a Root user
 
 {% hint style="danger" %}
 This technique IS NOT OPSEC AT ALL.

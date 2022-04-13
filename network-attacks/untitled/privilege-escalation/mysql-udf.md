@@ -1,6 +1,6 @@
 # MySQL UDF
 
-## Preparing system for test
+## <mark style="color:red;">Simulation</mark>
 
 for testing purposes you can make your mysql service vulnerable manually
 
@@ -8,7 +8,7 @@ To configure this vulnerability on Kali to test run the following commands.
 
 #### `chown -R root:root /var/lib/mysql` `nano /etc/mysql/mariadb.conf.d/50-server.cnf` `Change user=mysql to user=root and save the file` `service mysql restart`
 
-## Find which user the mysql servie is running as
+## <mark style="color:red;">Find mysql service user</mark>
 
 in some situations we have a mysql running as root which we can use for privs. first we have to determin the commands that we can use in mysql.mysql has a module called UDF(User-Defined Function) which lets us run commands as the current user which myssql is runnung as. so whit this in mind we might be able to run root commands from mysql.
 
@@ -27,7 +27,9 @@ its running as root.login:
 
 ![](../../../.gitbook/assets/udf2.png)
 
-## if the mysql service already has the function we can skip exploit part:
+## <mark style="color:red;">Exploitation</mark>
+
+#### <mark style="color:green;">if the mysql service already has the function we can skip exploit part:</mark>
 
 now we use udf to copy /bin/sh to /tmp and make it executable for john to get a root prompt:
 
@@ -43,7 +45,9 @@ run sh file:
 
 ![](../../../.gitbook/assets/udf4.png)
 
-## if mysql doesnt have the function already we add it using the exploit:
+## <mark style="color:red;">Adding the UDF function</mark>
+
+#### <mark style="color:green;">if mysql doesn't have the function already we add it using the exploit:</mark>
 
 {% embed url="https://www.exploit-db.com/download/1518.c" %}
 

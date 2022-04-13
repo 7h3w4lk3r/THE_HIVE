@@ -6,7 +6,7 @@
 
 If the file is owned by root, it gets executed with root privileges, and we may be able to use it to escalate privileges.
 
-## Finding SUID / SGID Files
+## <mark style="color:red;">Finding SUID / SGID Files</mark>
 
 We can use the following find command to locate files with the SUID or SGID bits set:
 
@@ -16,15 +16,15 @@ or
 
 `find / -perm -2000 -o -perm -4000`
 
-## Shell Escape Sequences
+## <mark style="color:red;">Shell Escape Sequences</mark>
 
 Just as we were able to use shell escape sequences with programs running via sudo, we can do the same with SUID / SGID files. A list of programs with their shell escape sequences can be found here: [https://gtfobins.github.io/](https://gtfobins.github.io) Refer to the previous section on shell escape sequences for how to use them.
 
-### A Quick Word on LD\_PRELOAD & LD\_LIBRARY\_PATH
+### <mark style="color:orange;">A Quick Word on LD\_PRELOAD & LD\_LIBRARY\_PATH</mark>
 
 why we can’t just use the same LD\_PRELOAD and LD\_LIBRARY\_PATH environment variable tricks we used with sudo privilege escalation?
 
-#### By default, this is disabled in Linux, due to the obvious security risk it presents!
+#### <mark style="color:green;">By default, this is disabled in Linux, due to the obvious security risk it presents!</mark>
 
 Both these environment variables get ignored when SUID files are executed
 
@@ -62,7 +62,7 @@ Execute the script to gain a root shell:
 
 `./privesc.sh`
 
-## Abusing cat to read files with SUID executables
+## <mark style="color:red;">Abusing cat to read files with SUID executables</mark>
 
 we have a suid program that prints out a given file contents named printfile we have a password file that cant be read by this program which contains root password .it seems the program printfile outputs the text from a file; just like cat. Therefore, we can assume that it’s using cat somewhere in the code.
 

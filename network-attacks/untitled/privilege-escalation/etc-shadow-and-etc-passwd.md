@@ -4,7 +4,7 @@ in a real life scenario its really uncommon to see /etc/passwd or /etc/shadow fi
 
 the methods shown here are mostly seen in easy or intermediate level CTFs but its still good to know these.
 
-## Add /etc/passwd new root user
+## <mark style="color:red;">Add /etc/passwd new root user</mark>
 
 if we have write permission to /etc/passwd we can add a new root user with password hash and the right format\
 \
@@ -17,7 +17,7 @@ now login using the new root account:
 
 ![](../../../.gitbook/assets/etc1.png)
 
-## Change the /etc/shadow root hash
+## <mark style="color:red;">Change the /etc/shadow root hash</mark>
 
 if we have write access to /etc/shadow file we can add a new password hash for the root user:
 
@@ -27,7 +27,7 @@ replace the root hash with this new hash and login:
 
 ![](../../../.gitbook/assets/etc2.png)
 
-## Hash cracking
+## <mark style="color:red;">Hash cracking</mark>
 
 if the /etc/shadow is readable copy the root user hash to the local system:
 

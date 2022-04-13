@@ -16,7 +16,7 @@ There are two different scripts available, a shell script, and a python script. 
 
 ![](<../../../.gitbook/assets/1 (17).png>)
 
-#### \*An "X" denotes full support while a "\~" denotes a feature with known bugs.
+#### <mark style="color:green;">\*An "X" denotes full support while a "\~" denotes a feature with known bugs.</mark>
 
 Once we’ve uploaded and executed the MimiPenguin scripts on our target system, we can see that they were both successful at obtaining the root password, either from the Gnome Keyring or the Gnome Display Manager in this case
 
