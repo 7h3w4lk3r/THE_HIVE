@@ -1,6 +1,6 @@
 # ⭕ LLMNR Poisoning
 
-## LLMNR
+## <mark style="color:red;">LLMNR</mark>
 
 **link local multi-casting name resolution** is used to identify hosts when DNS fails to do so .previously known as NBT-NS (netbios). key flaw is that the srvices utilize a users username and NTLMv2 hash when apropriately responded to.
 
@@ -24,6 +24,6 @@ then we crack the hash with hashcat :
 hashcat -m 5600 hash.txt /usr/share/wordlists/rockyou.txt --force
 ```
 
-## other forms of LLMNR and NBT-NS attacks
+## <mark style="color:red;">other forms of LLMNR and NBT-NS attacks</mark>
 
 {% embed url="https://www.4armed.com/blog/llmnr-nbtns-poisoning-using-responder/" %}

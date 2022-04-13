@@ -1,14 +1,14 @@
 # ⭕ SSDP Spoofing
 
-## SSDP
+## <mark style="color:red;">SSDP</mark>
 
 SSDP or Simple Service Discovery Protocol is a network protocol designed for advertisement and discovery of network services. It can work without any DHCP or DNS Configuration. It was designed to be used in residential or small office environments. It uses UDP as the underlying transport protocol on port 1900. It uses the HTTP method NOTIFY to announce the establishment or withdrawal of services to a multicast group. It is the basis of the discovery protocol UPnP.
 
-## UPnP
+## <mark style="color:red;">UPnP</mark>
 
 UPnP or Universal Plug and Play is a set of networking protocols that allows networked devices, such as personal computers, printers, Internet gateways, Wi-Fi access points, and mobile devices to discover each other’s availability on the network and establish network services for communications, data sharing, and entertainment. The UPnP architecture supports zero-configuration networking. A UPnP compatible device from any vendor can dynamically join a network, obtain an IP address, announce its name, advertise or convey its capabilities upon request, and learn about the presence and capabilities of other devices.
 
-## Evil SSDP
+## <mark style="color:red;">Evil SSDP</mark>
 
 {% embed url="https://github.com/initstring/evil-ssdp" %}
 
@@ -48,9 +48,9 @@ if the user enters the credentials, EvilSSDP will grab and show them
 
 ![](<../../.gitbook/assets/image (15) (1) (1).png>)
 
-## Other templates
+## <mark style="color:red;">Other templates</mark>
 
-### Office 365
+### <mark style="color:orange;">Office 365</mark>
 
 ```
 python3 evil_ssdp.py eth0 -t office365
@@ -58,7 +58,7 @@ python3 evil_ssdp.py eth0 -t office365
 
 ![](../../.gitbook/assets/image.png)
 
-### Bitcoin Wallet
+### <mark style="color:orange;">Bitcoin Wallet</mark>
 
 ```
 python3 evil_ssdp.py eth0 -t bitcoin -b

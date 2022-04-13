@@ -1,6 +1,6 @@
 # Potatos
 
-## Hot Potato
+## <mark style="color:red;">Hot Potato</mark>
 
 Hot Potato is the name of an attack that uses a spoofing attack along with an NTLM relay attack to gain SYSTEM privileges. The attack tricks Windows into authenticating as the SYSTEM user to a fake HTTP server using NTLM. The NTLM credentials then get relayed to SMB in order to gain command execution. This attack works on Windows 7, 8, early versions of Windows 10, and their server counterparts.
 
@@ -26,11 +26,11 @@ Wait for a Windows Defender update, or trigger one manually.
 
 Unfortunately, multiple problems have been found with service accounts, making them easier to escalate privileges with.
 
-## Rotten Potato
+## <mark style="color:red;">Rotten Potato</mark>
 
 The original Rotten Potato exploit was identified in 2016. Service accounts could intercept a SYSTEM ticket and use it to impersonate the SYSTEM user. This was possible because service accounts usually have the “SeImpersonatePrivilege” privilege enabled
 
-## Juicy Potato
+## <mark style="color:red;">Juicy Potato</mark>
 
 Rotten Potato was quite a limited exploit. Juicy Potato works in the same way as Rotten Potato, but the authors did extensive research and found many more ways to exploit.
 
@@ -64,6 +64,6 @@ If the CLSID ({03ca...) doesn’t work for you, either check this list:
 or run the GetCLSID.ps1 PowerShell script.
 {% endhint %}
 
-## MultiPotato
+## <mark style="color:red;">MultiPotato</mark>
 
 {% embed url="https://github.com/S3cur3Th1sSh1t/MultiPotato" %}

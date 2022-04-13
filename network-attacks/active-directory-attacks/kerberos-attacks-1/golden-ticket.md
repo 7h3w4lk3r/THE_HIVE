@@ -1,6 +1,6 @@
 # Golden Ticket
 
-## Intro
+## <mark style="color:red;">Intro</mark>
 
 #### Golden Ticket Attack is a example of the Pass the Ticket Attack. the most infamous kerberos attack is known as the Golden Ticket which obviously is a kerberos ticket but with some differences.
 

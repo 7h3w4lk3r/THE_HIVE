@@ -1,6 +1,6 @@
 # comsvcs.dll
 
-## Dumping LSASS with comsvcs.dll
+## <mark style="color:red;">Dumping LSASS with comsvcs.dll</mark>
 
 #### There’s a DLL called comsvcs.dll, located in C:\Windows\System32 that dumps process memory whenever they crash. This DLL contains a function called MiniDumpW that is written so it can be called with rundll32.exe. The first two arguments are not used, but the third one is split into 3 parts. First part is the process ID that will be dumped, second part is the dump file location, and third part is the word full. There is no other choice.
 

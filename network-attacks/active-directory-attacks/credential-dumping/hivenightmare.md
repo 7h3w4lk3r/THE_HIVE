@@ -2,7 +2,7 @@
 
 #### CVE-2021–36934 allows you to retrieve all registry hives (SAM,SECURITY,SYSTEM) in Windows 10 and 11 as a non-administrator user.
 
-## Exploitation
+## <mark style="color:red;">Exploitation</mark>
 
 Check for the vulnerability using icacls
 

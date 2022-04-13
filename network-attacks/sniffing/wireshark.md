@@ -1,16 +1,16 @@
 # ⭕ Wireshark
 
-## Sample pcap Captures
+## <mark style="color:red;">Sample pcap Captures</mark>
 
 {% embed url="http://www.pcapr.net" %}
 
-## Attack Detection
+## <mark style="color:red;">Attack Detection</mark>
 
 {% embed url="https://www.infosecmatter.com/detecting-network-attacks-with-wireshark" %}
 
-## Useful Filters
+## <mark style="color:red;">Useful Filters</mark>
 
-### src/dst filters
+### <mark style="color:orange;">src/dst filters</mark>
 
 ```
 icmp.type
@@ -22,14 +22,14 @@ ip.addr = general filter for src and dst
 eth.addr
 ```
 
-### http filters
+### <mark style="color:orange;">http filters</mark>
 
 ```
 http.request
 http.response
 ```
 
-### tcp filters
+### <mark style="color:orange;">tcp filters</mark>
 
 ```
 tcp.analysis.ack_rtt  = Round-trip time
@@ -39,7 +39,7 @@ tcp.dstport==80
 tcp.port
 ```
 
-### udp filters
+### <mark style="color:orange;">udp filters</mark>
 
 ```
 udp.port==80
@@ -47,14 +47,14 @@ udp.srcport == xx
 udp.dstport == xx
 ```
 
-### mixed filters
+### <mark style="color:orange;">mixed filters</mark>
 
 ```
 ip.addr==192.168.1.2&&(tcp.port==53||udp.port==53)
 http & ip.src == 192.168.0.1
 ```
 
-### flag filters
+### <mark style="color:orange;">flag filters</mark>
 
 ```
 tcp.flags.syn
@@ -64,7 +64,7 @@ tcp[0xd]&2=2  → capture all the frames with the SYN bit set (SYN as well as SY
 tcp[0xd]&18=2 → capture only SYN packets
 ```
 
-## Display Filter Cheat Sheets
+## <mark style="color:red;">Display Filter Cheat Sheets</mark>
 
 {% embed url="https://www.cellstream.com/resources/2013-09-10-11-55-21/cellstream-public-documents/wireshark-related/83-wireshark-display-filter-cheat-sheet/file" %}
 

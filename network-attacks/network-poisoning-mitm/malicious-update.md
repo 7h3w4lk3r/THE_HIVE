@@ -2,7 +2,7 @@
 
 #### Presenting the victim with a malicious payload as a software update package.
 
-## IRS-Evilgrade
+## <mark style="color:red;">IRS-Evilgrade</mark>
 
 {% embed url="https://github.com/infobyte/evilgrade" %}
 
@@ -73,7 +73,7 @@ evilgrade(sunjava)>show options
 evilgrade>show status
 ```
 
-### Exploitation
+### <mark style="color:orange;">Exploitation</mark>
 
 we'll look at manipulating the update process of the popular text editor Notepad++. First, we'll use Ettercap to create a MitM attack position and impersonate the notepad-plus.sourceforge.net server used to check for update availability and to deliver the updated software.
 
@@ -129,17 +129,17 @@ Evilgrade will log to standard output the status of client requests for updates,
 Evilgrade-like techniques are still possible, but the proliferation of HTTPS makes upgrade attacks a little more difficult. If a pen tester notices a MitM situation is possible during an update, they are more likely to create a custom script that performs the replacement, rather than use a framework.
 {% endhint %}
 
-### Demo
+### <mark style="color:orange;">Demo</mark>
 
 {% embed url="https://www.youtube.com/watch?ab_channel=Unownsec&v=nReKwL93Fnk" %}
 
-## Xerosploit
+## <mark style="color:red;">Xerosploit</mark>
 
 {% embed url="https://github.com/LionSec/xerosploit" %}
 
 Xerosploit is a penetration testing toolkit whose goal is to perform man in the middle attacks for testing purposes. It brings various modules that allow to realise efficient attacks, and also allows to carry out denial of service attacks and port scanning.
 
-### features:
+### <mark style="color:orange;">features:</mark>
 
 * Port scanning
 * Network mapping
@@ -162,10 +162,10 @@ cd xerosploit && sudo python install.py
 sudo xerosploit
 ```
 
-### Demo
+### <mark style="color:orange;">Demo</mark>
 
 {% embed url="https://www.youtube.com/watch?ab_channel=Neodrix&v=35QUrtZEV9U" %}
 
-## Combine with BeFF and Metasploit
+## <mark style="color:red;">Combine with BeFF and Metasploit</mark>
 
 {% embed url="https://sploitech.com/exploiting-tools/how-to-do-advanced-mitm-attacks-with-beef-xerosploit" %}

@@ -42,7 +42,7 @@ secretsdump.py -sam '/path/to/sam.save' -system '/path/to/system.save' LOCAL
 secretsdump.py -sam '/path/to/sam.save' -security '/path/to/security.save' -system '/path/to/system.save' LOCAL
 ```
 
-## Other Resources
+## <mark style="color:red;">Other Resources</mark>
 
 {% embed url="https://medium.com/@benichmt1/secretsdump-demystified-bfd0f933dd9b" %}
 

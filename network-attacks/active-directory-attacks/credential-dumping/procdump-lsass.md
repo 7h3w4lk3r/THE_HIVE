@@ -1,6 +1,6 @@
 # Procdump & LSASS
 
-## Procdump
+## <mark style="color:red;">Procdump</mark>
 
 {% embed url="https://en.hackndo.com/remote-lsass-dump-passwords/" %}
 
@@ -14,7 +14,7 @@ the syntax is like this:
 procdump --accepteula -ma <processus> processus_dump.dmp
 ```
 
-## Dumping LSASS from Memory
+## <mark style="color:red;">Dumping LSASS from Memory</mark>
 
 #### it’s possible to dump lsass memory on a host, download its dump locally and extract the credentials using Mimikatz.
 
@@ -32,7 +32,7 @@ The dump then needs to be downloaded on the attacker’s host, and traces on the
 
 #### Credentials can be retrieved with Mimikatz: the first line loads the memory dump, and the second one retrieves the secrets.but we need a windows system for that.
 
-## Pypykatz
+## <mark style="color:red;">Pypykatz</mark>
 
 This technique is very practical since it does not generate much noise and only legitimate executable is used on the targeted hosts. pypykatz is usefull for situations when we want to run everything on a linux machine:
 

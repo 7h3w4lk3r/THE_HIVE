@@ -4,14 +4,14 @@
 User accounts created to be used as service accounts rarely have their password changed. Group Managed Service Accounts (GMSAs) provide a better approach (starting in the Windows 2012 timeframe). The password is managed by AD and automatically changed.
 {% endhint %}
 
-## **GMSA Attributes in the Active Directory**
+## <mark style="color:red;">**GMSA Attributes in the Active Directory**</mark>
 
 * **msDS-GroupMSAMembership** (PrincipalsAllowedToRetrieveManagedPassword) - stores the security principals that can access the GMSA password.
 * **msds-ManagedPassword** - This attribute contains a BLOB with password information for group-managed service accounts.
 * **msDS-ManagedPasswordId** - This constructed attribute contains the key identifier for the current managed password data for a group MSA.
 * **msDS-ManagedPasswordInterval** - This attribute is used to retrieve the number of days before a managed password is automatically changed for a group MSA.
 
-### **Extract NT hash from the Active Directory**
+### <mark style="color:orange;">**Extract NT hash from the Active Directory**</mark>
 
 GMSAPasswordReader (C#)
 

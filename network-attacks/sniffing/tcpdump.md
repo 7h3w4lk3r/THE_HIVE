@@ -1,6 +1,6 @@
 # ⭕ tcpdump
 
-## tcpdump
+## <mark style="color:red;">tcpdump</mark>
 
 ```
 apt install tcpdump
@@ -10,7 +10,7 @@ apt install tcpdump
 when adding options like `stc, dst, port, host` ,etc. use `and` keyword between them to apply all of them
 {% endhint %}
 
-### Useful options
+### <mark style="color:orange;">Useful options</mark>
 
 * \-n : Host IP addresses and port numbers instead of names
 * \-i \[int] : Sniff on a particular interface ( - D lists interfaces )
@@ -25,7 +25,7 @@ when adding options like `stc, dst, port, host` ,etc. use `and` keyword between 
 sudo tcpdump - w - | tee file . pcap | tcpdump - r -
 ```
 
-### Expressions
+### <mark style="color:orange;">Expressions</mark>
 
 * **Protocol:** ether, ip , ip6 , arp , rarp , tcp , udp: protocol type
 * **Type:**
@@ -121,7 +121,7 @@ not or !
  
 ```
 
-## Isolate TCP Flags
+## <mark style="color:red;">Isolate TCP Flags</mark>
 
 The filters below find these various packets because tcp\[13] looks at offset 13 in the TCP header, the number represents the location within the byte, and the !=0 means that the flag in question is set to 1, i.e. it’s on.
 
@@ -130,48 +130,48 @@ tcpdump 'tcp[13] & 4!=0'
 tcpdump 'tcp[tcpflags] == tcp-rst'
 ```
 
-#### Isolate TCP SYN flags
+#### <mark style="color:green;">Isolate TCP SYN flags</mark>
 
 ```
 tcpdump 'tcp[13] & 2!=0'
 tcpdump 'tcp[tcpflags] == tcp-syn'
 ```
 
-#### Isolate packets that have both the SYN and ACK flags set.
+#### <mark style="color:green;">Isolate packets that have both the SYN and ACK flags set.</mark>
 
 ```
 tcpdump 'tcp[13]=18'
 ```
 
-#### Isolate TCP URG flags
+#### <mark style="color:green;">Isolate TCP URG flags</mark>
 
 ```
 tcpdump 'tcp[13] & 32!=0'
 tcpdump 'tcp[tcpflags] == tcp-urg'
 ```
 
-#### Isolate TCP ACK flags
+#### <mark style="color:green;">Isolate TCP ACK flags</mark>
 
 ```
 tcpdump 'tcp[13] & 16!=0'
 tcpdump 'tcp[tcpflags] == tcp-ack'
 ```
 
-#### Isolate TCP PSH flags
+#### <mark style="color:green;">Isolate TCP PSH flags</mark>
 
 ```
 tcpdump 'tcp[13] & 8!=0'
 tcpdump 'tcp[tcpflags] == tcp-psh'
 ```
 
-#### Isolate TCP FIN flags
+#### <mark style="color:green;">Isolate TCP FIN flags</mark>
 
 ```
 tcpdump 'tcp[13] & 1!=0'
 tcpdump 'tcp[tcpflags] == tcp-fin'
 ```
 
-### Find HTTP User Agents
+### <mark style="color:orange;">Find HTTP User Agents</mark>
 
 The -l switch lets you see the traffic as you’re capturing it, and helps when sending to commands like grep.
 
@@ -179,25 +179,25 @@ The -l switch lets you see the traffic as you’re capturing it, and helps when 
  tcpdump -vvAls0 | grep 'User-Agent:'
 ```
 
-### Cleartext GET Requests
+### <mark style="color:orange;">Cleartext GET Requests</mark>
 
 ```
  tcpdump -vvAls0 | grep 'GET'
 ```
 
-### Find HTTP Host Headers
+### <mark style="color:orange;">Find HTTP Host Headers</mark>
 
 ```
 tcpdump -vvAls0 | grep 'Host:'
 ```
 
-### Find HTTP Cookies
+### <mark style="color:orange;">Find HTTP Cookies</mark>
 
 ```
 tcpdump -vvAls0 | grep 'Set-Cookie|Host:|Cookie:'
 ```
 
-### Find SSH Connections
+### <mark style="color:orange;">Find SSH Connections</mark>
 
 This one works regardless of what port the connection comes in on, because it’s getting the banner response.
 
@@ -205,19 +205,19 @@ This one works regardless of what port the connection comes in on, because it’
 tcpdump 'tcp[(tcp[12]>>2):4] = 0x5353482D'
 ```
 
-### Find DNS Traffic
+### <mark style="color:orange;">Find DNS Traffic</mark>
 
 ```
 tcpdump -vvAs0 port 53
 ```
 
-### Find FTP Traffic
+### <mark style="color:orange;">Find FTP Traffic</mark>
 
 ```
 tcpdump -vvAs0 port ftp or ftp-data
 ```
 
-## Find Cleartext Passwords
+## <mark style="color:red;">Find Cleartext Passwords</mark>
 
 ```
 tcpdump port http or port ftp or port smtp or port imap or port pop3 or port telnet -lA | egrep -i -B5 'pass=|pwd=|log=|login=|user=|username=|pw=|passw=|passwd= |password=|pass:|user:|username:|password:|login:|pass |user '

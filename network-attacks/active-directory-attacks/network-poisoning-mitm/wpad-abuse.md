@@ -1,10 +1,10 @@
 # ⭕ WPAD Abuse
 
-## WPAD
+## <mark style="color:red;">WPAD</mark>
 
 Organisations allow employees to access the internets through proxy servers to increase performance, ensure security and track traffic.Users who connected to the corporate network need to know proxy server for specific URL without doing configuration. The Web Proxy Auto-Discovery Protocol (WPAD) is a method used by clients to locate the URL of a configuration file using DHCP and/or DNS discovery methods. Once detection and download of the configuration file is complete, it can be executed to determine the proxy for a specified URL.
 
-### How WPAD works <a href="#how-wpad-works" id="how-wpad-works"></a>
+### <mark style="color:orange;">How WPAD works</mark> <a href="#how-wpad-works" id="how-wpad-works"></a>
 
 The client wants to access the wpad.dat configuration file for proxy configuration. It searches computers named as “wpad” on the local network to find this file. And then following steps are carried out:
 
@@ -19,7 +19,7 @@ According to the above sequence, DHCP poisoning attack can be done for the first
 The important thing is that WPAD protocol is built in Windows operating systems. This configuration can be seen in the LAN Settings Section of the Internet Explorer browser. With this configuration, Internet Explorer makes a WPAD name resolution query on the whole network.
 {% endhint %}
 
-## Abusing WPAD
+## <mark style="color:red;">Abusing WPAD</mark>
 
 #### Responder serves a fake WPAD Server and responds to clients’ WPAD name resolution. The client then requests the wpad.dat file from this fake WPAD Server. Responder creates an authentication screen and asks clients to enter the username and password they use in the domain. Naturally, employees write usernames and passwords used in the domain name. Finally, we can see their username and passwords.
 
@@ -61,7 +61,7 @@ snippet
 [SMB] Requested Share : \\RESPPROXYSRV\PICTURES
 ```
 
-## Backdoor with Responder
+## <mark style="color:red;">Backdoor with Responder</mark>
 
 The responder is not only MiTM attack for the WPAD service. It can force victims to downloadinga malicious files by directing ze to a fake web page. Social engineering can be used to realistically prepare the web page to be used for this attack. However, the Responder itself has a fake redirect page as well. All we need to do is make a few changes to the responder.conf file. We set “Serve-HTML” and “Serve-EXE” parameters to “On”.
 

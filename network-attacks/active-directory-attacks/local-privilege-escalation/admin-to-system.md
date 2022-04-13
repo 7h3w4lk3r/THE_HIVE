@@ -1,6 +1,6 @@
 # PSEXEC (admin to system)
 
-## PSEXEC.exe
+## <mark style="color:red;">PSEXEC.exe</mark>
 
 To escalate from an admin user to full SYSTEM privileges, you can use the PsExec tool from Windows Sysinternals
 

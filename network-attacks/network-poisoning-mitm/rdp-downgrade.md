@@ -6,7 +6,7 @@ RDP MiTM attacks are possible through the usage of a tool called Seth. Seth is a
 This attack works on latest versions on windows with default configurations.
 {% endhint %}
 
-## SETH
+## <mark style="color:red;">SETH</mark>
 
 {% embed url="https://github.com/SySS-Research/Seth" %}
 

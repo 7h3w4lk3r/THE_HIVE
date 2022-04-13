@@ -1,6 +1,6 @@
 # ⭕ DNS Takeover + LDAP Relay
 
-## IPv6 DNS Takeover
+## <mark style="color:red;">IPv6 DNS Takeover</mark>
 
 ipv6 is setup by default on all windows machines in a network even if the network doesnt utilize v6 so no one is doing dns resolotion for v6 .an attacker can setup a fake dns server and resolve all ipv6 requests in a network and forward them to the DC so we can sniff the authentication and hashs on the way with a tool like MitM6.
 
@@ -16,7 +16,7 @@ python mitm6.py -i vboxnet0 -d megacorp.local
 
 leave the terminal open, for now we are playing the role of an IPv6 DNS server in the network.
 
-## LDAP Relay
+## <mark style="color:red;">LDAP Relay</mark>
 
 we use ntlmrelayx.py script from impacket tools to relay the credentials when a client requests for IPv6 resources.
 
@@ -36,7 +36,7 @@ ntlmrelayx.py -6  -t ldaps://[DC address] -wh fakewpad.megacorp.local -l lootme
 
 #### we can open up the results with firefox
 
-## NTLM Relay + Kerberos Delegation
+## <mark style="color:red;">NTLM Relay + Kerberos Delegation</mark>
 
 similarly we can use these commands to target WPAD and grab NTLM hashes:
 

