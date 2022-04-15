@@ -1,5 +1,9 @@
 # Hiding Processes
 
+{% embed url="https://sysdig.com/blog/hiding-linux-processes-for-fun-and-profit" %}
+
+{% embed url="https://www.linode.com/docs/guides/linux-defense-evasion-hiding-linux-processes" %}
+
 ## <mark style="color:red;">Process Hiding Techniques</mark>
 
 {% embed url="https://flaviu.io/linux-how-to-a-hide-processes" %}

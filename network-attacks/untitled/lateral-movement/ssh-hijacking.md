@@ -29,3 +29,7 @@ Finally, we can log into the remote system our victim is logged into:
 ```
 ssh remotesystem -l victim
 ```
+
+{% embed url="https://jekhokie.github.io/linux/ssh/security/hijacking/2019/09/07/ssh-agent-hijacking.html" %}
+
+{% embed url="https://hx015.medium.com/ssh-session-hijack-analytic-a2c684ba410f" %}
