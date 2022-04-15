@@ -8,7 +8,9 @@ install docker using this:
 
 after the installation is completed add a new user for this test and add it to the docker group
 
-#### `adduser test` `usermod -aG docker test`
+#### `adduser test`&#x20;
+
+#### `usermod -aG docker test`
 
 Now ssh to the target with the new user
 

