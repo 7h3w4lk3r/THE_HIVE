@@ -2,7 +2,7 @@
 description: (TCP/UDP 53)
 ---
 
-# DNS
+# ⭕ DNS
 
 ## :information\_source: Introduction
 

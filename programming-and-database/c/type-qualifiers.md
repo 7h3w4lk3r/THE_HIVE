@@ -4,7 +4,7 @@ description: >-
   the intended use of the variable.
 ---
 
-# Type Qualifiers
+# ⭕ Type Qualifiers
 
 ## const
 

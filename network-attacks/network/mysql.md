@@ -2,7 +2,7 @@
 description: (TCP 3306, 33060, 33061)
 ---
 
-# MySQL
+# ⭕ MySQL
 
 ## :information\_source: Introduction
 
@@ -21,8 +21,6 @@ The shell ports for MySQL services are:
 * [ ] Check for MySQL arbitrary file read
 * [ ] Check for CVEs
 
-
-
 ## Enumeration
 
 ```
@@ -33,7 +31,7 @@ nmap -sV -p 3306 --script mysql-audit,mysql-databases,mysql-dump-hashes,mysql-em
 auxiliary/scanner/mysql/mysql_file_enum
 ```
 
-## Query ( with credentials ) <a href="basics" id="basics"></a>
+## Query ( with credentials ) <a href="#basics" id="basics"></a>
 
 ### Manual
 
@@ -51,14 +49,13 @@ use database_name;
 show tables;
 describe table_name;
 select host, user, password from mysql.user;
-
 ```
 
 {% embed url="https://www.mysqltutorial.org/mysql-cheat-sheet.aspx" %}
 
 ### Automated
 
-#### nmap :&#x20;
+#### nmap :
 
 ```bash
 # Audits MySQL database server security configuration
@@ -161,4 +158,3 @@ The client’s file will be read and send to the server. The execution result of
 an overview of the attack
 
 {% embed url="http://russiansecurity.expert/2016/04/20/mysql-connect-file-read" %}
-

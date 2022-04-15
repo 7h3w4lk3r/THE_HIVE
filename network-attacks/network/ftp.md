@@ -2,7 +2,7 @@
 description: (TCP 21, 20)
 ---
 
-# FTP
+# ⭕ FTP
 
 ## :information\_source: Introduction
 
@@ -26,7 +26,7 @@ ftp> help >> to see the list of commands
 1. **Active Mode** : client connects from a random unprivileged port (N > 1024) to the FTP server's command port, port 21. Then, the client starts listening to port N+1 and sends the FTP command PORT N+1 to the FTP server. The server will then connect back to the client's specified data port from its local data port, which is port 20.
 2. **Passive Mode** : client initiates both connections to the server, solving the problem of firewalls filtering the incoming data port connection to the client from the server
 
-## &#x20;:ballot\_box\_with\_check: Checklist
+## :ballot\_box\_with\_check: Checklist
 
 * [ ] Check for vulnerable versions (e.g: vsftpd with RCE vulns)
 * [ ] Check anonymous login
@@ -47,8 +47,6 @@ openssl s_client -connect crossfit.htb:21 -starttls ftp #Get certificate if any
 ```
 
 connect to server without authentication and use `HELP` and `FEAT` commands to find some info.
-
-
 
 ### Common FTP banners
 
@@ -111,7 +109,7 @@ nmap --script ftp-brute -p 21 <host
 
 In some scenarios in a misconfigured server (e.g: FLASH FTP, Fermitter FTP), we are able to change active working directory of FTP client to access sensitive directories or OS file system.
 
-In this example we have access to Windows file system root directory (C Drive):&#x20;
+In this example we have access to Windows file system root directory (C Drive):
 
 ![](<../../.gitbook/assets/image (275) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
@@ -137,8 +135,6 @@ use auxiliary/scanner/ftp/anonymous
 ```
 nmap -sV --script ftp-anon [target ip]
 ```
-
-
 
 ## vsftpd
 
@@ -203,7 +199,7 @@ ftp-bounce.username
 ftp-bounce.checkhost
 ```
 
-### Note&#x20;
+### Note
 
 There are several variants of this. Your PASV listener connection can be opened on any machine that you have file write access to -- your own, another connection to ufred.edu, or somewhere completely unrelated. In fact, it does not even have to be an FTP server -- any utility that will listen on a known TCP port and read raw data from it into a file will do. A passive-mode FTP data connection is simply a convenient way to do this.
 
@@ -215,7 +211,4 @@ You may have to retrieve your command file to the target's FTP server in ASCII m
 
 ## Filezilla Server Vulnerability
 
-&#x20;FileZilla usually binds to local an Administrative service for the FileZilla-Server (port 14147). If you can create a tunnel from your machine to access this port, you can connect to it using a blank password and create a new user for the FTP service.
-
-
-
+FileZilla usually binds to local an Administrative service for the FileZilla-Server (port 14147). If you can create a tunnel from your machine to access this port, you can connect to it using a blank password and create a new user for the FTP service.

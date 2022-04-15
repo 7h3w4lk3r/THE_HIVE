@@ -2,7 +2,7 @@
 description: <stdio.h>
 ---
 
-# Input / Output
+# ⭕ Input / Output
 
 ![](<../../.gitbook/assets/1 (4).png>)
 

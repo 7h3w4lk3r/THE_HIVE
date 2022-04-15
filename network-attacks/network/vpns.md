@@ -1,4 +1,4 @@
-# VPNs
+# ⭕ VPNs
 
 ## Resources
 
@@ -12,7 +12,7 @@
 
 {% embed url="https://0xrick.github.io/hack-the-box/conceal#ike-scan-Setting-up-The-Connection" %}
 
-## Techniques <a href="exploitation-techniques" id="exploitation-techniques"></a>
+## Techniques <a href="#exploitation-techniques" id="exploitation-techniques"></a>
 
 ### IKEv2 Authenthication IP spoofing
 
@@ -60,4 +60,3 @@ psk-crack -b 5 IP
 psk-crack -b 5 --charset="01233456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" <IP>
 psk-crack -d wordlist.txt <IP>
 ```
-

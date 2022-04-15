@@ -1,9 +1,9 @@
-# RDP
+# ⭕ RDP
 
 ### remote connect
 
 {% hint style="info" %}
-#### remember when you access an active RDP session the current user will be kicked off
+**remember when you access an active RDP session the current user will be kicked off**
 {% endhint %}
 
 remote desktop connection from linux
@@ -84,4 +84,3 @@ The last parameter is optional. It can contain a command that is executed on the
 
 \
 The shell script performs ARP spoofing to gain a Man-in-the-Middle position and redirects the traffic such that it runs through an RDP proxy. The proxy can be called separately. This can be useful if you want use Seth in combination with Responder. Use Responder to gain a Man-in-the-Middle position and run Seth at the same time. Run seth.py -h for more information.
-

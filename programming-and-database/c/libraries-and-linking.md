@@ -4,7 +4,7 @@ description: >-
   exposed for use by other programs
 ---
 
-# Libraries & Linking
+# ⭕ Libraries & Linking
 
 interface expressed in a header file implementation expressed in a .c file
 

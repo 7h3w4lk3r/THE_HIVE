@@ -2,7 +2,7 @@
 description: (TCP 110, 995)
 ---
 
-# POP3
+# ⭕ POP3
 
 ## :information\_source: Introduction
 
@@ -19,7 +19,7 @@ TCP port 995 for using SSL/TLS.
 * [ ] Login brute force
 * [ ] Check for POP - NTLM auth
 * [ ] Try credential capture
-* [ ] use POP3 commands manually&#x20;
+* [ ] use POP3 commands manually
 * [ ] Check for CVEs
 
 ## Enumeration

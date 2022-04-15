@@ -2,7 +2,7 @@
 description: ( TCP 22 )
 ---
 
-# SSH
+# ⭕ SSH
 
 ## Enumeration
 
@@ -158,8 +158,6 @@ ls /usr/share/seclists/Passwords/Default-Credentials/
 | NetApp     | admin                                                                                                       | netapp123                                                                                                                                                                                                  |
 | Oracle     | root, oracle, oravis, applvis, ilom-admin, ilom-operator, nm2user                                           | changeme, ilom-admin, ilom-operator, welcome1, oracle                                                                                                                                                      |
 | VMware     | vi-admin, root, hqadmin, vmware, admin                                                                      | vmware, vmw@re, hqadmin, default                                                                                                                                                                           |
-
-
 
 ## Stealing SSH Keys (post)
 

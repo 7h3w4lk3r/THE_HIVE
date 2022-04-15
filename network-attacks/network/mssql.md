@@ -2,7 +2,7 @@
 description: (TCP 1433-4, 135/UDP 143)(TCP 1433-4, 135/UDP 143)
 ---
 
-# MSSQL
+# ⭕ MSSQL
 
 ## :information\_source: Introduction
 
@@ -205,24 +205,3 @@ set password MyPassword!
 This technique is mostly used for privilege escalation.
 
 {% embed url="https://www.netspi.com/blog/technical/network-penetration-testing/hacking-sql-server-stored-procedures-part-2-user-impersonation" %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

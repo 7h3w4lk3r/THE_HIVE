@@ -1,4 +1,4 @@
-# ⚠ Crontab Reverse Shell (Not OPSEC)
+# Crontab Reverse Shell (Not OPSEC)
 
 {% hint style="danger" %}
 cron jobs are obviously visible in crontab, so this method is not recommended.

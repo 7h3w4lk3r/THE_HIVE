@@ -2,7 +2,7 @@
 description: (TCP/UDP 389, TCP 636, 3268, 3269)
 ---
 
-# LDAP
+# ⭕ LDAP
 
 ## :information\_source: Introduction
 

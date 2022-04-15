@@ -1,4 +1,4 @@
-# GCC Compiler
+# ⭕ GCC Compiler
 
 #### GCC (upper case) refers to the GNU Compiler Collection. This is an open source compiler suite which include compilers for C, C++, Objective C, Fortran, Ada, Go and Java. gcc (lower case) is the C compiler in the GNU Compiler Collection. Historically GCC and gcc have been used interchangeably, but efforts are being made to separate the two terms as GCC contains tools to compile more than C.
 

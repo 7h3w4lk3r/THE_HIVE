@@ -4,7 +4,7 @@ description: >-
   processing feature and are expanded similar to normal functions.
 ---
 
-# Macros
+# ⭕ Macros
 
 ![](../../.gitbook/assets/77777.png)
 

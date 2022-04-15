@@ -2,15 +2,13 @@
 description: (TCP 587, 25, 465)
 ---
 
-# SMTP
+# ⭕ SMTP
 
 ## :information\_source: Introduction
 
-#### [Simple Mail Transfer Protocol ](https://tools.ietf.org/html/rfc821/)
+#### [Simple Mail Transfer Protocol](https://tools.ietf.org/html/rfc821/)
 
-used for submission (send) or relay. mostly widely-used SMTP  on linux is **sendmail** service, on windows, its **Microsoft Exchange**. both can be setup to support POP3.
-
-
+used for submission (send) or relay. mostly widely-used SMTP on linux is **sendmail** service, on windows, its **Microsoft Exchange**. both can be setup to support POP3.
 
 #### submission:
 
@@ -26,7 +24,7 @@ port TCP 25
 
 * [ ] User enumeration
 * [ ] Login brute force
-* [ ] Check for info disclosure in  delivery status notification
+* [ ] Check for info disclosure in delivery status notification
 * [ ] Check for SMTP-NTLM Auth info disclosure
 * [ ] Check for open relay
 * [ ] Test other scenarios with SMTP commands
@@ -152,7 +150,7 @@ hydra -l <username> -P /path/to/passwords.txt -s 587 <IP> -S -v -V #Port 587 for
 
 ## Delivery Status Notification Disclosure
 
-&#x20;If you send an **email** to an organisation to an **invalid address**, the organisation will notify that the address was invalided sending a **mail back to you**. **Headers** of the returned email will **contain** possible **sensitive information** (like IP address of the mail services that interacted with the reports or anti-virus software info).
+If you send an **email** to an organisation to an **invalid address**, the organisation will notify that the address was invalided sending a **mail back to you**. **Headers** of the returned email will **contain** possible **sensitive information** (like IP address of the mail services that interacted with the reports or anti-virus software info).
 
 example:
 
@@ -173,7 +171,7 @@ If a SMTP server has accepted the task of relaying a message and later finds tha
 
 #### ( Internal Information disclosure )
 
-In Windows environment (MS Exchange) with SMTP - NTLM Auth available, if an attacker sends a null NTLM Auth request, the server to respond with a NTLMSSP message and disclose some information about the target host such as NetBIOS, DNS, OS and version.&#x20;
+In Windows environment (MS Exchange) with SMTP - NTLM Auth available, if an attacker sends a null NTLM Auth request, the server to respond with a NTLMSSP message and disclose some information about the target host such as NetBIOS, DNS, OS and version.
 
 ### nmap
 
@@ -218,9 +216,7 @@ MAIL FROM: me
 250 2.1.0 me@PRODSERV01.somedomain.com....Sender OK
 ```
 
-## Open Relay Attack&#x20;
-
-
+## Open Relay Attack
 
 An SMTP server that works as an open relay, is a email server that does not verify if the user is authorized to send email from the specified email address. Therefore, users would be able to send email originating from any third-party email address that they want.
 
@@ -251,7 +247,7 @@ use auxiliary/scanner/smtp/smtp_relay
 
 #### [HackTricks ](https://book.hacktricks.xyz/pentesting/pentesting-smtp#mail-spoofing)has a good explanation for mail spoofing attacks.
 
-### Check for Mail Spoofing Via  SPF and DMARC Records
+### Check for Mail Spoofing Via SPF and DMARC Records
 
 {% embed url="https://github.com/serain/mailspoof" %}
 
@@ -269,13 +265,13 @@ use auxiliary/scanner/smtp/smtp_relay
 
 #### HELO
 
-&#x20;(Hello) The client sends this command to the SMTP server to identify itself and initiate the SMTP conversation. The domain name or IP address of the SMTP client is usually sent as an argument together with the command (e.g. “HELO client.example.com”). If a domain name is used as an argument with the HELO command, it must be a fully qualified domain name (also called FQDN)
+(Hello) The client sends this command to the SMTP server to identify itself and initiate the SMTP conversation. The domain name or IP address of the SMTP client is usually sent as an argument together with the command (e.g. “HELO client.example.com”). If a domain name is used as an argument with the HELO command, it must be a fully qualified domain name (also called FQDN)
 
 ```
 helo w4lk3r
 ```
 
-#### MAIL FROM&#x20;
+#### MAIL FROM
 
 Specifies the e-mail address of the sender. This command also tells the SMTP server that a new mail transaction is starting and makes the server to reset all its state tables and buffers etc. This command is usually sent as the first command after the identifying and login process. If the senders e-mail address is accepted the server will reply with a 250 OK reply code. Example:
 
@@ -284,7 +280,7 @@ C: MAIL FROM:[mail@samlogic.com]
 S: 250 OK
 ```
 
-#### RCPT TO&#x20;
+#### RCPT TO
 
 (Recipient To) Specifies the e-mail address of the recipient. This command can be repeated multiple times for a give n e-mail message in order to deliver a single e-mail message to ultiple recipients. The example below shows how this command can be used to send same e-mail message to two recipients:
 
@@ -297,7 +293,7 @@ C: RCPT TO:[peggy@mail.com]
 S: 250 OK
 ```
 
-#### DATA&#x20;
+#### DATA
 
 The DATA command starts the transfer of th e message contents (body text, attachments etc). After that the DATA command has been sent to the server from the client, the server will respond with a 354 reply code. After that, the message contents can be transferred to the server. When al l message contents have been sent, a single dot (“.”) must be sent in a li ne by itself. If the message is accepted for delivery, the SMTP server wil l response with a 250 reply code. Example (the message contents is set to italic in the example below):
 
@@ -316,19 +312,19 @@ C: .
 S: 250 OK
 ```
 
-#### RSET&#x20;
+#### RSET
 
 (Reset) If the RSET command is sent to the e-mail se rver the current mail transaction will be aborted. The connection wi ll not be closed (this is reserved for the QUIT command, see below) but a ll information about the sender, recipients and e-mail data will be remo ved and buffers and state tables will be cleared.
 
 #### VRFY
 
-&#x20;(Verify) This command asks the server to confirm that a specified user name or mailbo x is valid (exists). If the user name is asked, the full name of the u ser and the fully specified mailbox are returned. In some e-mail servers the VRFY command is ignored because it can be a security hole. The command c an be used to probe for login names on servers. Servers that ignore the VRF Y command will usually send some kind of reply, but they will not send the i nformation that the client asked for
+(Verify) This command asks the server to confirm that a specified user name or mailbo x is valid (exists). If the user name is asked, the full name of the u ser and the fully specified mailbox are returned. In some e-mail servers the VRFY command is ignored because it can be a security hole. The command c an be used to probe for login names on servers. Servers that ignore the VRF Y command will usually send some kind of reply, but they will not send the i nformation that the client asked for
 
-#### NOOP&#x20;
+#### NOOP
 
 (No operation) The NOOP command does nothing else than makes the receiver to send a n OK reply. The main purpose is to check that the server is still connec ted and is able to communicate with the client.
 
-#### QUIT&#x20;
+#### QUIT
 
 Asks the server to close the connection. If the connection can be closed the servers replies with a 221 numerical code and then is the session closed.
 
@@ -350,4 +346,3 @@ Sincerely,
 ```
 swaks --to $(cat emails | tr '\n' ',' | less) --from test@sneakymailer.htb --header "Subject: test" --body "please click here http://10.10.14.42/" --server 10.10.10.197
 ```
-

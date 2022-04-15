@@ -12,7 +12,7 @@
 
 #### Create a thread in current process and execute the shellcode there.
 
-#### <mark style="color:orange;">C#</mark>
+### <mark style="color:orange;">C#</mark>
 
 {% code title="shellcode-runner.cs" %}
 ```csharp
@@ -83,7 +83,7 @@ namespace TestClass
 
 #### open a handle to another process with the same security context (privilege level), create a new remote thread in that process and execute the shellcode in the thread.
 
-#### <mark style="color:orange;">C#</mark>
+### <mark style="color:orange;">C#</mark>
 
 {% code title="shellcode-injector.cs" %}
 ```csharp
@@ -165,7 +165,7 @@ namespace Inject
 
 in this case the dll is downloaded and saved on disk.
 
-#### <mark style="color:orange;">C#</mark>
+### <mark style="color:orange;">C#</mark>
 
 {% code title="dll-injector.cs" %}
 ```csharp
@@ -227,7 +227,7 @@ namespace Inject
 Injection works from Windows NT4 up to and including Windows 8, running on x86, x64 and ARM where applicable.
 {% endhint %}
 
-#### <mark style="color:orange;">Powershell</mark>
+### <mark style="color:orange;">Powershell</mark>
 
 {% embed url="https://raw.githubusercontent.com/charnim/Invoke-ReflectivePEInjection.ps1/main/Invoke-ReflectivePEInjection.ps1" %}
 
@@ -255,7 +255,7 @@ Invoke-ReflectivePEInjection -PEBytes $bytes -procid $procid
 
 {% embed url="https://github.com/r3nhat/XORedReflectiveDLL" %}
 
-#### <mark style="color:orange;">NIM</mark>
+### <mark style="color:orange;">NIM</mark>
 
 {% embed url="https://github.com/S3cur3Th1sSh1t/Nim-RunPE/blob/main/NimRunPE.nim" %}
 
@@ -270,8 +270,12 @@ Invoke-ReflectivePEInjection -PEBytes $bytes -procid $procid
 A bootstrap application creates a seemingly innocent process in a suspended state. The legitimate image is then unmapped and replaced with the image that is to be hidden. If the preferred image base of the new image does not match that of the old image, the new image must be rebased. Once the new image is loaded in memory the EAX register of the suspended thread is set to the entry point. The process is then resumed and the entry point of the new image is executed.
 
 {% hint style="info" %}
-compile for specific architecture.
+Compile the code for a specific architecture.
+
+Remember that you don't want your process to be detected so the target should be one of the trusted windows processes like `svchost.exe` or `explorer.exe`.
 {% endhint %}
+
+### <mark style="color:orange;">C#</mark>
 
 {% code title="process-hollowing.cs" %}
 ```csharp

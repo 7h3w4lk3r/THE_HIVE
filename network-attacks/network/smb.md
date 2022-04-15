@@ -2,7 +2,7 @@
 description: ( TCP 445,139 )
 ---
 
-# SMB
+# ⭕ SMB
 
 ## ![](broken-reference):information\_source: Introduction
 

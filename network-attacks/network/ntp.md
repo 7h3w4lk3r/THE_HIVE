@@ -1,4 +1,4 @@
-# NTP
+# ⭕ NTP
 
 ## :information\_source: Introduction
 

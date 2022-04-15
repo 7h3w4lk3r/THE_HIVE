@@ -2,7 +2,7 @@
 description: ( TCP 23 )
 ---
 
-# Telnet
+# ⭕ Telnet
 
 ## connect and test
 

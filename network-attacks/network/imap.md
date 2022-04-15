@@ -2,7 +2,7 @@
 description: (TCP 143, 993)
 ---
 
-# IMAP
+# ⭕ IMAP
 
 ## :information\_source: Introduction
 
@@ -14,12 +14,12 @@ port TCP 143 for no encryption
 
 port TCP 993 for SSL/TLS
 
-## &#x20;:ballot\_box\_with\_check: Checklist
+## :ballot\_box\_with\_check: Checklist
 
 * [ ] Login brute force
 * [ ] Check for IMAP - NTLM auth
 * [ ] Use curl to navigate
-* [ ] Try to capture IMAP credentials&#x20;
+* [ ] Try to capture IMAP credentials
 
 ## Enumeration
 
@@ -93,4 +93,3 @@ Downloading a message (imap command `SELECT Drafts` and then `FETCH 1 BODY[]`)
 ```
 $ curl -k 'imaps://1.2.3.4/Drafts;MAILINDEX=1' --user user:pass
 ```
-

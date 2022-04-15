@@ -2,7 +2,7 @@
 description: ( TCP 161 )
 ---
 
-# SNMP
+# ⭕ SNMP
 
 ## :information\_source: Introduction
 
@@ -10,13 +10,13 @@ description: ( TCP 161 )
 
 SNMP (Simple Network Management Protocol) is an application layer protocol which uses UDP protocol to maintain and manage routers, hubs and switches other network devices on an IP network. SNMP is a very common protocol found enabled on a variety of operating systems like Windows Server, Linux & UNIX servers as well as network devices like routers, switches etc. SNMP enumeration is used to enumerate user accounts, passwords, groups, system names, devices on a target system. SNMP contains two passwords that for configuring and accessing the SNMP agent from the management station. The two SNMP passwords are:
 
-#### 1) Read Community String : Configuring of the device or system can be viewed with help of this password. These strings are public.   2) Read/Write Community String : Configuration on the device can be changed or edited using this password. These strings are private.
+#### 1) Read Community String : Configuring of the device or system can be viewed with help of this password. These strings are public. 2) Read/Write Community String : Configuration on the device can be changed or edited using this password. These strings are private.
 
 When administrators leave the community strings at the default setting, attacker can use these default community strings (passwords) for changing or viewing the configuration of the device or system. Attackers enumerate SNMP to extract information about network resources such as hosts, routers, devices, shares, etc, and network information such as ARP tables, routing tables, device specific, and traffic stastitics.
 
 SNMP uses a disturbed architechture comprising SNMP managers, SNMP agents, and Several related components. Commands associated with SNMP include:
 
-#### 1) GetRequest : Used by the SNMP manager to request information from the SNMP Agent   2) GetNextRequest : Used by the SNMP manager continuosly to retrieve all the data stored in the array or table.   3) GetResponse : Used by the SNMP agent to satisfy a request made by the SNMP manager.   4) SetRequest : used by the SNMP manager to motify the value of a parameter within the SNMP agent’s Management Information Base (MIB).   5) Trap : Used by the SNMP agent to inform the pre-configured SNMP manager of a certain event.
+#### 1) GetRequest : Used by the SNMP manager to request information from the SNMP Agent 2) GetNextRequest : Used by the SNMP manager continuosly to retrieve all the data stored in the array or table. 3) GetResponse : Used by the SNMP agent to satisfy a request made by the SNMP manager. 4) SetRequest : used by the SNMP manager to motify the value of a parameter within the SNMP agent’s Management Information Base (MIB). 5) Trap : Used by the SNMP agent to inform the pre-configured SNMP manager of a certain event.
 
 ### MIB
 
@@ -75,7 +75,7 @@ The rest of the values give specific information about the device.
 
 There are 2 important versions of SNMP:
 
-#### SNMPv1: Main one, it is still the most frequent, the authentication is based on a string (community string) that travels in plain-text (all the information travels in plain text). Version 2 and 2c send the traffic in plain text also and uses a community string as authentication.   SNMPv3: Uses a better authentication form and the information travels encrypted using (dictionary attack could be performed but would be much harder to find the correct creds that inn SNMPv1 and v2).
+#### SNMPv1: Main one, it is still the most frequent, the authentication is based on a string (community string) that travels in plain-text (all the information travels in plain text). Version 2 and 2c send the traffic in plain text also and uses a community string as authentication. SNMPv3: Uses a better authentication form and the information travels encrypted using (dictionary attack could be performed but would be much harder to find the correct creds that inn SNMPv1 and v2).
 
 ### Community Strings
 
