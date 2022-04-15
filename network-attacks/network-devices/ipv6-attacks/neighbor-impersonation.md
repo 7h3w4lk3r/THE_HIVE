@@ -1,6 +1,6 @@
 # Neighbor Impersonation
 
-## IPv6 Neighbor Discovery
+## <mark style="color:red;">IPv6 Neighbor Discovery</mark>
 
 While it's true ARP does not exist in the IPv6 protocol stack, IPv6 instead relies on ICMPv6 for many of the same operations carried out via ARP under IPv4. Collectively, these functions make up IPv6's [Neighbor Discovery (ND)](https://packetlife.net/blog/2008/aug/28/ipv6-neighbor-discovery/) protocol, described in [RFC 4861](http://tools.ietf.org/html/rfc4861).
 
@@ -12,11 +12,11 @@ Unfortunately, as in ARP, these exchanges are completely unsecured. There are no
 
 ![](<../../../.gitbook/assets/image (291) (1) (1) (1).png>)
 
-## Exploitation
+## <mark style="color:red;">Exploitation</mark>
 
 The IPv6 Neighbor Impersonation MitM attack is particularly useful when exploiting link-local autoconfiguration nodes (using the address prefix FE80::/10) and when the attack intends to exploit a limited number of IPv6 targets. Since the attacker must send ICMPv6 NS messages frequently for each victim on the network, this attack does not scale well where lots of target devices are being exploited. In wide-scale IPv6 MitM attacks, an alternate attack technique using router impersonation is recommended.
 
-## Using Scapy
+## <mark style="color:red;">Using Scapy</mark>
 
 We can put this theory into practice by fabricating our own custom neighbor advertisements and unicasting them to our intended victim. For this example, we'll use Scapy to craft our malicious advertisement layer by layer:
 
@@ -110,7 +110,7 @@ Victim$ ip neigh show dev eth0
 fe80::1 lladdr 00:00:00:00:00:0c REACHABLE
 ```
 
-## Sylkie
+## <mark style="color:red;">Sylkie</mark>
 
 Sylkie is a command line device and library for testing systems for normal address spoofing security vulnerabilities in IPv6 systems utilizing the Neighbor Discovery Protocol. This venture is still in the early periods of advancement. On the off chance that you keep running into any issues, please consider presenting an issue. It presently just keeps running on Linux.
 
@@ -128,7 +128,7 @@ make install
 sylkie -h
 ```
 
-### DoS (Router Advert)
+### <mark style="color:orange;">DoS (Router Advert)</mark>
 
 The basic usage of the router-advert command is listed below. This command will send a Router Advertisement message to the given ip or the all nodes multicast addres causing the targeted nodes to remove / from their list of default routes.
 
@@ -154,7 +154,7 @@ sylkie ra -i ens3 \
 
 This would send a “forged” Router Advertisement to the link local scope all-nodes address ff02::1 causing all of the nodes to remove fe80::b95b:ee1:cafe:9720/64 (link-layer address 52:54:00:e3:f4:06) from their list of default routes.
 
-### Address spoofing (Neighbor Advert)
+### <mark style="color:orange;">Address spoofing (Neighbor Advert)</mark>
 
 The basic usage of the sylkie neighbor advert command is listed below. This command will send a forged Neighbor Advertisement message to the given ip
 
@@ -182,7 +182,7 @@ sylkie na -i ens3 \
 --timeout 3
 ```
 
-## Bettercap
+## <mark style="color:red;">Bettercap</mark>
 
 NDP.SPOOF (IPV6)
 
@@ -201,7 +201,7 @@ ndp.spoof on / off
 | `ndp.spoof.prefix.length` | `64`      | IPv6 prefix length for router advertisements.                        |
 | `ndp.spoof.targets`       | -         | Comma separated list of IPv6 victim addresses.                       |
 
-## Parasite6
+## <mark style="color:red;">Parasite6</mark>
 
 #### Implemented by THC-IPV6 toolkit
 

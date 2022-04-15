@@ -1,6 +1,6 @@
 # MAC Flood
 
-## CAM Table
+## <mark style="color:red;">CAM Table</mark>
 
 ![](<../../.gitbook/assets/image (298) (1) (1) (1) (1) (1).png>)
 
@@ -10,7 +10,7 @@
 
 • CAM Tables have a fixed size
 
-## Normal CAM Behavior
+## <mark style="color:red;">Normal CAM Behavior</mark>
 
 ![](<../../.gitbook/assets/image (277) (1) (1) (1).png>)
 
@@ -18,7 +18,7 @@
 
 ![](<../../.gitbook/assets/image (276) (1) (1) (1) (1) (1) (1).png>)
 
-## CAM Overflow
+## <mark style="color:red;">CAM Overflow</mark>
 
 • Theoretical attack until May 1999
 
@@ -30,7 +30,7 @@
 
 ![](<../../.gitbook/assets/image (281) (1) (1) (1) (1).png>)
 
-#### Dsniff (macof) can generate 480,000 MAC entries on a switch per minute 8000/s\*60.
+#### <mark style="color:green;">Dsniff (macof) can generate 480,000 MAC entries on a switch per minute 8000/s\*60.</mark>
 
 Assuming a perfect hash function the CAM table will total out at 128,000 (16,000 x 8) 131,052 to be exact Since hash isn’t perfect it actually takes 70 seconds to fill the CAM table.
 
@@ -54,7 +54,7 @@ macof [-i interface] [-s src] [-d dst] [-e tha] [-x sport] [-y dport] [-n times]
 
 #### Macof can flood a switch with random MAC addresses. This is called MAC flooding. This fills in the switch’s CAM table, thus new MAC addresses can not be saved, and the switch starts to send all packets to all ports, so it starts to act as a hub, and thus we can monitor all traffic passing through it.
 
-## Targeted Flooding
+## <mark style="color:red;">Targeted Flooding</mark>
 
 Macof can flood a switch with random MAC addresses destinated to 192.168.1.1.
 
@@ -64,7 +64,7 @@ macof -i eth1 -n 10
 
 While conducting a pentest, this tool comes in handy while sniffing. Some switches don’t allow to spoof arp packets. This tool can be used in such situations to check if the switch is overloaded. Some switches behave like hubs, transmitting all source packets to all destinations. Then sniffing would be very easy. Some switches tend to crash & reboot also. Such kind of layer 2 stress testing can be done with this handy tool
 
-## MAC flooding with scapy
+## <mark style="color:red;">MAC flooding with scapy</mark>
 
 ```python
 #! /usr/bin/python

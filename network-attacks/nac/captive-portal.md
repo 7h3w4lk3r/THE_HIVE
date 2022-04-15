@@ -2,21 +2,21 @@
 
 #### The initial barrier in some networks with inline or OOB management. captive portal changes the VLAN with SNMP post-authentication. sometimes IP and/or MAC is used to validate clients.
 
-### Attack Surfaces
+### <mark style="color:orange;">Attack Surfaces</mark>
 
 * Targeting captive portal server (web application authentication form)
 * Targeting pre-auth services such as DNS and DHCP
 * Targeting pre-authenticated client devices (MAC spoof)
 
-## Pre-Auth Client Impersonation
+## <mark style="color:red;">Pre-Auth Client Impersonation</mark>
 
-### MAC Spoof
+### <mark style="color:orange;">MAC Spoof</mark>
 
 #### use wireshark or other sniffers to find the MAC address of current authenticated devices
 
 now try to impersonate that MAC address:
 
-#### Linux
+#### <mark style="color:green;">Linux</mark>
 
 ```
 ifconfig eth0 down
@@ -24,13 +24,13 @@ ifconfig eth0 hw ether <MAC address>
 ifconfig eth0 up
 ```
 
-#### Windows
+#### <mark style="color:green;">Windows</mark>
 
 ```
 macshift.exe -i "Wireless Network Connection" <MAC address without colon>
 ```
 
-#### OSX
+#### <mark style="color:green;">OSX</mark>
 
 ```
 sudo ifconfig en0 ether <MAC address>
@@ -40,13 +40,13 @@ sudo ifconfig en0 ether <MAC address>
 You find a list of all OUIs in `/usr/local/share/oui.txt` file in linux
 {% endhint %}
 
-## Authentication Bypass (Avoiding)
+## <mark style="color:red;">Authentication Bypass (Avoiding)</mark>
 
-### User-Agent Impersonation
+### <mark style="color:orange;">User-Agent Impersonation</mark>
 
 We can use browser plugins such as "user-agent switcher" for firefox to impersonate another device identity.
 
-### TCP Stack Fingerprinting
+### <mark style="color:orange;">TCP Stack Fingerprinting</mark>
 
 An additional method used for identifying the OS of clients in a NAC environment is through TCP stack fingerprinting. Primarily used by inline captive portal systems, the gateway can passively monitor TCP traffic to identify characteristics that correlate to the known platform. This technique is similar to that used by the opensource tool "p0f", which examines TCP SYN frames for the following characteristics:
 
@@ -65,9 +65,9 @@ An additional method used for identifying the OS of clients in a NAC environment
 p0f
 ```
 
-### OS Impersonation
+### <mark style="color:orange;">OS Impersonation</mark>
 
-#### Linux
+#### <mark style="color:green;">Linux</mark>
 
 [The fingerprint format](https://github.com/p0f/p0f/blob/master/docs/README#L513-L624):
 
@@ -80,7 +80,7 @@ p0f
 * TCP window size: `sudo sysctl -w net.ipv4.tcp_rmem='8192 87380 4194304' && sudo sysctl -w net.ipv4.tcp_wmem='8192 87380 4194304'`
 * Unfortunately, at the `olayout` section you cannot change these settings in Linux. So, you cannot spoof these. The same is true in the `quirks` section. It just so happens that `olayout` "...is one of the most valuable TCP fingerprinting signals.
 
-#### Windows
+#### <mark style="color:green;">Windows</mark>
 
 use the OSfuscate tool from Irongeek, available at http://www.irongeek.com/i.php?page=security/code. OSfuscate uses a simple list of Windows INI formatted profile descriptor files to describe several characteristics of a target TCP/IP stack.
 
@@ -92,7 +92,7 @@ NAC systems do not attempt to perform OS characterization and client checking fo
 
 we can craft packets using any arbitrary settings to send for the NAC to use in its evaluation, generating our traffic to appear like an iPad device. Tools such as Scapy make this straightforward, allowing us to send the initial TCP SYN and complete the three-way handshake.
 
-#### scapy script
+#### <mark style="color:green;">scapy script</mark>
 
 ```python
 #!/usr/bin/python
@@ -118,21 +118,21 @@ send(ip/RST)
 
 Using this script, the p0f tool identifies the traffic as an "iOS Apple iPad/iTouch/iPad" device, sufficiently fooling a NAC device into thinking the TCP stack is of an iPad or related device. Once you complete the three-way handshake and send data, the NAC system will pass the client for this TCP fingerprint check, allowing you to disable the local firewall rules we created earlier ("iptables -F") and use your native operating system TCP stack.
 
-### JavaScript OS Validation
+### <mark style="color:orange;">JavaScript OS Validation</mark>
 
 identify the native operating system of a client is to insert JavaScript code in an HTTP server's response that queries several browser DOM fields.
 
-#### four fields commonly used for client OS detection:
+#### <mark style="color:green;">four fields commonly used for client OS detection:</mark>
 
-• navigator.buildID – Used to disclose the build number for the browser; not used by Apple's Safari on the iPad
+**• navigator.buildID** – Used to disclose the build number for the browser; not used by Apple's Safari on the iPad
 
-• navigator.oscpu – Used to disclose the CPU type used on the host; not used by Apple's Safari on the iPad
+**• navigator.oscpu** – Used to disclose the CPU type used on the host; not used by Apple's Safari on the iPad
 
-• navigator.product – Used to disclose the product name; set to "Gecko"
+• **navigator.product** – Used to disclose the product name; set to "Gecko"
 
-• navigator.productSub – Used to disclose a sub-name to the product field; set to "20030107" on Apple's Safari on the iPad
+• **navigator.productSub** – Used to disclose a sub-name to the product field; set to "20030107" on Apple's Safari on the iPad
 
-#### To bypass a NAC system using JavaScript OS validation, we need to manipulate the responses from these fields as well. We could use a different plugin, tampering proxy, or fake the settings with the browser itself to deceive fingerprinting techniques.
+#### <mark style="color:green;">To bypass a NAC system using JavaScript OS validation, we need to manipulate the responses from these fields as well. We could use a different plugin, tampering proxy, or fake the settings with the browser itself to deceive fingerprinting techniques.</mark>
 
 {% hint style="info" %}
 Firefox allows us to customize the values that are returned from the DOM through JavaScript by creating configuration keys in the format general.XXX.override, where "XXX" is the all-lowercase name of the DOM suffix after "navigator." (For example, to override navigator.oscpu, we can create a key called general.oscpu.override with an arbitrary string value.)

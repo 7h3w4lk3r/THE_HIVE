@@ -1,6 +1,6 @@
 # 🔴 Curl
 
-### Options <a href="#options-1" id="options-1"></a>
+### <mark style="color:red;">Options</mark> <a href="#options-1" id="options-1"></a>
 
 ```bash
 -o <file>    # --output: write to file
@@ -19,7 +19,7 @@
 -I           # --head: headers only
 ```
 
-### Request <a href="#request" id="request"></a>
+### <mark style="color:red;">Request</mark> <a href="#request" id="request"></a>
 
 ```bash
 -X POST          # --request
@@ -27,7 +27,7 @@
 -F 	             # --form: HTTP POST data for multipart/form-data
 ```
 
-### Data
+### <mark style="color:red;">Data</mark>
 
 ```bash
 -d 'data'    # --data: HTTP post data, URL encoded (eg, status="Hello")
@@ -35,7 +35,7 @@
 -G           # --get: send -d data via get
 ```
 
-### Headers <a href="#headers" id="headers"></a>
+### <mark style="color:red;">Headers</mark> <a href="#headers" id="headers"></a>
 
 ```bash
 -A <str>         # --user-agent
@@ -45,7 +45,7 @@
 --compressed     # use deflate/gzip
 ```
 
-### SSL <a href="#ssl" id="ssl"></a>
+### <mark style="color:red;">SSL</mark> <a href="#ssl" id="ssl"></a>
 
 ```bash
     --cacert <file>
@@ -58,7 +58,7 @@
 -k, --insecure        # for self-signed certs
 ```
 
-### Examples (GET/HEAD):
+### <mark style="color:red;">Examples (GET/HEAD):</mark>
 
 | Name                                                                                                                                    | Command                                                              |
 | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -70,14 +70,14 @@
 | [Curl get with extra headers](https://stackoverflow.com/questions/356705/how-to-send-a-header-using-a-http-request-through-a-curl-call) | `curl --verbose --header "Host: www.mytest.com:8182" www.google.com` |
 | Curl get response with headers                                                                                                          | `curl -k -v https://www.google.com`                                  |
 
-### Examples (POST):
+### <mark style="color:red;">Examples (POST):</mark>
 
 | Name                | Command                                                                     |
 | ------------------- | --------------------------------------------------------------------------- |
 | Curl post request   | `curl -d "name=username&password=123456" <URL>`                             |
 | Curl post send json | `curl <URL> -H "content-type: application/json" -d "{ \"woof\": \"bark\"}"` |
 
-### Examples (Advanced):
+### <mark style="color:red;">Examples (Advanced):</mark>
 
 | Name                         | Command                                                                                     |
 | ---------------------------- | ------------------------------------------------------------------------------------------- |

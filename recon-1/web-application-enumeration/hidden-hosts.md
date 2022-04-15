@@ -1,6 +1,6 @@
 # ⭕ Hidden Hosts
 
-## Finding Hidden Virtual Hosts/Subdomains
+## <mark style="color:red;">Finding Hidden Virtual Hosts/Subdomains</mark>
 
 certificate transparency reports offer a penetration tester an additional method for discovering hosts and subdomains within a domain. this includes hidden virtual hosts that are not linked publicly and google doesn't know about them but they have been issued an x.509 cert. use these links for cert discovery:
 

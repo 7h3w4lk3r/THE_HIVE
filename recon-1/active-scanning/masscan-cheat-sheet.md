@@ -1,6 +1,6 @@
 # ⭕ masscan cheat sheet
 
-### **Target speficication**
+### <mark style="color:orange;">**Target speficication**</mark>
 
 ```bash
 # Target specification
@@ -14,7 +14,7 @@ masscan 10.0.0.1/24 --excludeFile <file>
 masscan 180.215.0.0/16 --exclude=180.215.122.120
 ```
 
-### **Port specification**
+### <mark style="color:orange;">**Port specification**</mark>
 
 ```bash
 # Port specification
@@ -26,7 +26,7 @@ masscan 10.0.0.0.1 -p 80,443
 masscan 10.0.0.0.1 -pU 53
 ```
 
-### **Timing and Performance**
+### <mark style="color:orange;">**Timing and Performance**</mark>
 
 ```bash
 # Used to scan in offline mode
@@ -64,7 +64,7 @@ masscan 10.0.0.1 --pcap <filename>
 masscan 10.0.0.1 --packet-trace
 ```
 
-### Output <a href="#output" id="output"></a>
+### <mark style="color:orange;">Output</mark> <a href="#output" id="output"></a>
 
 ```bash
 # Output in binary mode
@@ -89,7 +89,7 @@ masscan --readscan bin-test.scan
 masscan --readscan bin-test.scan -oX bin-test.xml
 ```
 
-#### Complete commands <a href="#complete-commands" id="complete-commands"></a>
+#### <mark style="color:green;">Complete commands</mark> <a href="#complete-commands" id="complete-commands"></a>
 
 ```bash
 # Quick port identification

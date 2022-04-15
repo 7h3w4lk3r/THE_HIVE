@@ -1,6 +1,6 @@
 # 🔧 VRRP MitM
 
-## VRRP
+## <mark style="color:red;">VRRP</mark>
 
 In comparison to HSRP, the Virtual Router Redundancy Protocol (VRRP) is a standards-based protocol described in RFC 3768 and augmented in RFC 5798 for IPv6 networks. The operation of VRRP is similar to HSRP, where two or more routers share responsibility for a virtual IP address using the MAC address`00:00:5e:00:01:XX` (where "XX" is the VRRP group). The multicast group 224.0.0.18 is used by the master to send keep-alive messages to other standby devices.
 

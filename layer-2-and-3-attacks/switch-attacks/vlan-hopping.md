@@ -1,12 +1,12 @@
 # VLAN Hopping
 
-## Trunk Port
+## <mark style="color:red;">Trunk Port</mark>
 
 ![](<../../.gitbook/assets/image (278) (1) (1) (1).png>)
 
 #### Trunk ports have access to all VLANs by default and are used to route traffic for multiple VLANs across the same physical link (generally used between switches). Encapsulation can be 802.1Q or ISL
 
-## Dynamic Trunk Protocol (DTP)
+## <mark style="color:red;">Dynamic Trunk Protocol (DTP)</mark>
 
 #### The Dynamic Trunking Protocol (DTP) is a Cisco proprietary implementation to allow the switch to determine and negotiate the switchport state as a trunk port using IEEE 802.1Q or Inter-Switch LAN (ISL, a Cisco proprietary trunking protocol) or as an access port.
 
@@ -24,7 +24,7 @@
 
 ![](<../../.gitbook/assets/image (294) (1) (1) (1) (1) (1).png>)
 
-### DTP Administrative States
+### <mark style="color:red;">DTP Administrative States</mark>
 
 #### Administrator configurable trunk states:
 
@@ -32,7 +32,7 @@
 
 #### As an attacker, if we can trick the switch into thinking our connected system is a switch using 802.1Q, then we can trick the switch into configuring the port as a trunk, passing down all VLAN traffic with similar upstream access.
 
-## Basic VLAN Hopping
+## <mark style="color:red;">Basic VLAN Hopping</mark>
 
 {% embed url="http://www.jay-miah.co.uk/vlan-hopping-concept-attack-example-and-prevention" %}
 
@@ -64,7 +64,7 @@ Now we can run the tool (yersinia) in order to enable the TRUNK mode, but before
 
 ![](<../../.gitbook/assets/image (289) (1) (1) (1).png>)
 
-### Yersinia
+### <mark style="color:orange;">Yersinia</mark>
 
 we can run the tool (yersinia) and choose DTP and then launch attack.
 
@@ -143,7 +143,7 @@ So we successfully jumped to the VLAN (200)!
 nmap -sS -F -p- 10.0.0.4
 ```
 
-## Double Tagging
+## <mark style="color:red;">Double Tagging</mark>
 
 {% embed url="https://notsosecure.com/exploiting-vlan-double-tagging" %}
 
@@ -163,7 +163,7 @@ This tag allows the frame to go to a VLAN that the touter 802.1Q tag did not spe
 This works even if trunk ports are set to off
 {% endhint %}
 
-## Voic VLAN Hopping
+## <mark style="color:red;">Voice VLAN Hopping</mark>
 
 Another technique to evaluate when evading the NAC system is the option to perform VLAN hopping, particularly in environments where VoIP devices are used to bridge a workstation and a phone over a single network cable. Cisco switches support a special configuration mode where a single switch port can be used to connect a VoIP phone to a voice VLAN, while a second device can connect to the phone to access a different VLAN.
 
@@ -171,7 +171,7 @@ The Cisco VoIP phone effectively becomes a two-port switch, allowing the custome
 
 To bridge the traffic from the workstation on a different VLAN than the phone, however, the VoIP phone must become a trunk port, if only a limited one, to differentiate between its own traffic and the traffic of the downstream device.
 
-### Exploitation
+### <mark style="color:orange;">Exploitation</mark>
 
 First of all, we must have our PC connected directly to the VoIP phone that we are going to spoof (obviously, this will be connected to the corresponding switch).
 
@@ -211,9 +211,9 @@ We see how we already have the IP. We only have to verify that we have a connect
 
 ![](<../../.gitbook/assets/image (284) (1).png>)
 
-### Automation
+### <mark style="color:orange;">Automation</mark>
 
-#### voiphopper
+#### <mark style="color:green;">voiphopper</mark>
 
 Automates voice VLAN hopping attack,Listens for CDP to extract voice VLAN number,Creates interface, requests DHCP address.
 

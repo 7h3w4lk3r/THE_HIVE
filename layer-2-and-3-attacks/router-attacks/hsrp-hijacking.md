@@ -2,7 +2,7 @@
 
 First hop redundancy protocols including [HSRP](http://en.wikipedia.org/wiki/Hot\_Standby\_Router\_Protocol), [VRRP](http://en.wikipedia.org/wiki/Virtual\_Router\_Redundancy\_Protocol), and [GLBP](http://en.wikipedia.org/wiki/Gateway\_Load\_Balancing\_Protocol) can be used to emulate a virtual router on a subnet, typically hosts' default gateway. However, if adequate authentication is not enabled, a malicious user can claim a higher priority and become the active router, which positions him to create a denial of service (DoS) or man in the middle (MITM) attack. All three protocols mentioned posess this vulnerability.
 
-## HSRP
+## <mark style="color:red;">HSRP</mark>
 
 HSRP (Hot Standby Router Protocol) is a Cisco proprietary protocol that provides network redundancy in case of default gateway router failure. It is one of the most common protocols, however, it contains vulnerability that can lead to denial of service or to data capturing by attackers. We will show you how the HSRP attack can take place and how to protect your network against it.
 
@@ -14,13 +14,13 @@ Using a single virtual MAC address of 00:00:0c:07:ac:XX, where XX is the multica
 
 HSRP uses the concept of priorities to set the order of priority for handling network traffic. The priority field is 8 bits in length, with a highest possible priority of 255. Priorities are set by the network administrator to designate the role of each HSRP router (primary, secondary, tertiary, and so on) when the network is set up.
 
-### HSRP Authentication
+### <mark style="color:orange;">HSRP Authentication</mark>
 
 By default, HSRP uses plaintext passwords for authentication, which are included in the HSRP hello messages. The default password for HSRP configurations is "cisco," unless otherwise specified by the network administrator, as shown on this slide.
 
 Note that because the HSRP hello messages are sent to the multicast address 224.0.0.2, all nodes on the network receive these frames. It is not necessary for an attacker to mount a MitM attack to observe the presence of HSRP traffic and the HSRP authentication data.
 
-## HSRP Hijacking
+## <mark style="color:red;">HSRP Hijacking</mark>
 
 ![](<../../.gitbook/assets/image (288) (1) (1).png>)
 
@@ -31,7 +31,7 @@ If an attacker can observe the authentication string used for HSRP, he can mount
 3. Next, the attacker changes his network card MAC address to 00:00:0c:07:ac:XX, replacing XX with the HSRP group address observed in the hello message, and uses the IP address of the default gateway.
 4. Using the IP address of the default gateway, the attacker becomes a central point for all traffic on the network and MitM before forwarding the traffic to be delivered to one of the other HSRP routers. Periodically, the attacker sends HSRP hello messages on the network to maintain its position as the primary router.
 
-### Yersinia
+### <mark style="color:orange;">Yersinia</mark>
 
 Yersinia includes support for detecting the presence of HSRP traffic, revealing the source IP address of the router participating in the HSRP group, the virtual IP address, and the authentication credentials in use, as shown on this slide.
 
@@ -41,7 +41,7 @@ Press "g" to open the "Choose protocol mode" dialog; then scroll and press "Ente
 
 ![](<../../.gitbook/assets/image (274).png>)
 
-### scapy
+### <mark style="color:orange;">scapy</mark>
 
 Scapy provides a very convenient interface for constructing, transmitting, and capturing packets. We can make use of its prebuilt libraries to easily construct a forged HSRP packet. Each protocol layer is built from an independent Python object:
 

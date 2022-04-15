@@ -10,7 +10,7 @@ In OSINT you should **always ask questions like: how, who, when, where and why.*
 
 {% embed url="https://github.com/jivoi/awesome-osint#-geospatial-research-and-mapping-tools" %}
 
-## The OSINT Process
+## <mark style="color:red;">The OSINT Process</mark>
 
 #### OSINT reconnaissance can be further broken down into the following 5 sub-phases:
 
@@ -26,55 +26,55 @@ In OSINT you should **always ask questions like: how, who, when, where and why.*
 
 **Results Delivery**: in the final phase, OSINT analysis is complete and the findings are presented/reported to other members of the Red Team.
 
-## Workflow
+## <mark style="color:red;">Workflow</mark>
 
-### Domain
+### <mark style="color:orange;">Domain</mark>
 
 ![](<../../.gitbook/assets/image (275) (1) (1) (1) (1) (1) (1) (1).png>)
 
-### Website
+### <mark style="color:orange;">Website</mark>
 
 ![](../../.gitbook/assets/OSINT-Website.jfif)
 
-### Email
+### <mark style="color:orange;">Email</mark>
 
 ![](<../../.gitbook/assets/osintemail (1).JPG>)
 
-### Location
+### <mark style="color:orange;">Location</mark>
 
 ![](../../.gitbook/assets/OSINT-Location.png)
 
-### Username / Real Name
+### <mark style="color:orange;">Username / Real Name</mark>
 
 ![](../../.gitbook/assets/OSINT-Real-Name.png)
 
-### Phone
+### <mark style="color:orange;">Phone</mark>
 
 ![](../../.gitbook/assets/OSINT-Telephone.png)
 
-## GEOINT <a href="#theory" id="theory"></a>
+## <mark style="color:red;">GEOINT</mark> <a href="#theory" id="theory"></a>
 
 Geospatial intelligence (GEOINT) is intelligence by analyzing geospatial maps and images about the human activity. This part will present some tools to find and analyze geospatial information. These information could be useful during a Red Team to scout the target's location in order to find building entrances, monitored areas, etc.
 
-## OSINT Framework
+## <mark style="color:red;">OSINT Framework</mark>
 
 [the OSINT framework](https://osintframework.com) is a great collection of OSINT resources that you should definitely check them out.
 
 ![](<../../.gitbook/assets/image (1) (1) (1).png>)
 
-## Maltego
+## <mark style="color:red;">Maltego</mark>
 
 is an open source intelligence (OSINT) and graphical link analysis tool for gathering and connecting information for investigative tasks. its preinstalled in kali linux. you can download it from [here](https://www.maltego.com)
 
 ![](../../.gitbook/assets/maltego.jpg)
 
-## DNS Harvesting
+## <mark style="color:red;">DNS Harvesting</mark>
 
 {% embed url="https://dnsdumpster.com" %}
 
 {% embed url="https://dnschecker.org/all-dns-records-of-domain.php" %}
 
-## Email Harvesting
+## <mark style="color:red;">Email Harvesting</mark>
 
 {% embed url="https://hunter.io" %}
 
@@ -82,17 +82,17 @@ is an open source intelligence (OSINT) and graphical link analysis tool for gath
 
 {% embed url="https://www.twilio.com/docs/glossary/email-harvesting" %}
 
-## Google Hacking
+## <mark style="color:red;">Google Hacking</mark>
 
 also named Google dorking, is a hacker technique that uses Google Search and other Google applications to find security holes in web applications, finding loots, targeting databases, login pages or even exposed backup files and directories.
 
-### **Google Dorks**
+### <mark style="color:orange;">**Google Dorks**</mark>
 
 #### there is an expanding database of these search queries maintained by offensive security folks called the [google hacking database (GHDB) ](https://www.exploit-db.com/google-hacking-database). you can use the site search to find dorks for specific types of targets.
 
 {% embed url="https://pentest-tools.com/information-gathering/google-hacking#" %}
 
-### Automated Dork Tools
+### <mark style="color:orange;">Automated Dork Tools</mark>
 
 [GoogD0rker](https://github.com/ZephrFish/GoogD0rker/)
 
@@ -117,51 +117,51 @@ python3 ghdb_scraper.py -j -s
 python3 pagodo.py -d example.com -g dorks.txt -l 50 -s -e 35.0 -j 1.1
 ```
 
-### Advanced Search Keywords
+### <mark style="color:orange;">Advanced Search Keywords</mark>
 
 besides the google dorks which are more advanced, there are some google search tricks (keywords) that will make your life easier. these are the keywords used in advanced google search**e**s:
 
-#### **cache:**
+#### <mark style="color:green;">**cache:**</mark>
 
 If you include other words in the query, Google will highlight those words within the cached document. For instance, \[cache:www.google.com web] will show the cached content with the word “web” highlighted. This functionality is also accessible by clicking on the “Cached” link on Google’s main results page. The query \[cache:] will show the version of the web page that Google has in its cache. For instance, \[cache:www.google.com] will show Google’s cache of the Google homepage. Note there can be no space between the “cache:” and the web page url.
 
-#### **link:**
+#### <mark style="color:green;">**link:**</mark>
 
 The query \[link:] will list webpages that have links to the specified webpage. For instance, \[link:www.google.com] will list webpages that have links pointing to the Google homepage. Note there can be no space between the “link:” and the web page url.
 
-**related:**
+<mark style="color:green;">**related:**</mark>
 
 The query \[related:] will list web pages that are “similar” to a specified web page. For instance, \[related:www.google.com] will list web pages that are similar to the Google homepage. Note there can be no space between the “related:” and the web page url.
 
-#### **info:**
+#### <mark style="color:green;">**info:**</mark>
 
 The query \[info:] will present some information that Google has about that web page. For instance, \[info:www.google.com] will show information about the Google homepage. Note there can be no space between the “info:” and the web page url.
 
-#### **define:**
+#### <mark style="color:green;">**define:**</mark>
 
 The query \[define:] will provide a definition of the words you enter after it, gathered from various online sources. The definition will be for the entire phrase entered (i.e., it will include all the words in the exact order you typed them).
 
-#### **stocks:**
+#### <mark style="color:green;">**stocks:**</mark>
 
 If you begin a query with the \[stocks:] operator, Google will treat the rest of the query terms as stock ticker symbols, and will link to a page showing stock information for those symbols. For instance, \[stocks: intc yhoo] will show information about Intel and Yahoo. (Note you must type the ticker symbols, not the company name.)
 
-#### **site:**
+#### <mark style="color:green;">**site:**</mark>
 
 If you include \[site:] in your query, Google will restrict the results to those websites in the given domain. For instance, \[help site:www.google.com] will find pages about help within www.google.com. \[help site:com] will find pages about help within .com urls. Note there can be no space between the “site:” and the domain.
 
-#### **allintitle:**
+#### <mark style="color:green;">**allintitle:**</mark>
 
 \*\*\*\* If you start a query with \[allintitle:], Google will restrict the results to those with all of the query words in the title. For instance, \[allintitle: google search] will return only documents that have both “google” and “search” in the title.
 
-#### **intitle:**
+#### <mark style="color:green;">**intitle:**</mark>
 
 If you include \[intitle:] in your query, Google will restrict the results to documents containing that word in the title. For instance, \[intitle:google search] will return documents that mention the word “google” in their title, and mention the word “search” anywhere in the document (title or no). Note there can be no space between the “intitle:” and the following word. Putting \[intitle:] in front of every word in your query is equivalent to putting \[allintitle:] at the front of your query: \[intitle:google intitle:search] is the same as \[allintitle: google search].
 
-#### **inurl:**
+#### <mark style="color:green;">**inurl:**</mark>
 
 If you include \[inurl:] in your query, Google will restrict the results to documents containing that word in the url. For instance, \[inurl:google search] will return documents that mention the word “google” in their url, and mention the word “search” anywhere in the document (url or no). Note there can be no space between the “inurl:” and the following word. Putting “inurl:” in front of every word in your query is equivalent to putting “allinurl:” at the front of your query: \[inurl:google inurl:search] is the same as \[allinurl: google search].
 
-#### and these are some simple rules for combining the queries and dorks as well:
+#### <mark style="color:green;">and these are some simple rules for combining the queries and dorks as well:</mark>
 
 OR : ( | )
 
@@ -171,7 +171,7 @@ NOT
 
 define : define a word or phrase
 
-## Github Dorks
+## <mark style="color:red;">Github Dorks</mark>
 
 we can use github advanced search keywords and dorks to find sensitive data in repositories.
 
@@ -206,23 +206,23 @@ filename:logins.json # Firefox saved password collection (key3.db usually in sam
 filename:settings.py SECRET_KEY # Django secret keys (usually allows for session hijacking, RCE, etc)
 ```
 
-## Open Job Requisitions
+## <mark style="color:red;">Open Job Requisitions</mark>
 
-#### Job requisitions can help us get information about the information technology products used in a target organization, such as:
+#### <mark style="color:green;">Job requisitions can help us get information about the information technology products used in a target organization, such as:</mark>
 
 * Web server type
 * Web application dev environment
 * Firewall type
 * Routers
 
-### Google searches to find job reqs
+### <mark style="color:orange;">Google searches to find job reqs</mark>
 
 * site: \[ companydomain ] careers Q , Keyword or Title 9
 * site: \[ companydomain ] jobs .
 * site: \[ companydomain ] openings
 * Also, searches of job-related site
 
-## PGP Public Key Servers
+## <mark style="color:red;">PGP Public Key Servers</mark>
 
 Organizations maintain servers that provide public PGP keys to clients. You can query these to reveal user email addresses and details.
 
@@ -232,13 +232,13 @@ Organizations maintain servers that provide public PGP keys to clients. You can 
 
 {% embed url="https://pgp.uni-mainz.de" %}
 
-## CloadFlare / Tor IP Detection
+## <mark style="color:red;">CloadFlare / Tor IP Detection</mark>
 
 some tips to find real IP addresses hiding behind CloadFlare and Tor
 
 {% embed url="https://www.secjuice.com/finding-real-ips-of-origin-servers-behind-cloudflare-or-tor/" %}
 
-## Identify Host Sharing
+## <mark style="color:red;">Identify Host Sharing</mark>
 
 see if a single server or ip is hosting multiple websites/domains:
 
@@ -247,13 +247,13 @@ see if a single server or ip is hosting multiple websites/domains:
 ip:xxx.xxx.xxx.xxx
 ```
 
-## Shodan
+## <mark style="color:red;">Shodan</mark>
 
 Search engine for the Internet of everything. Shodan is the world's first search engine for Internet-connected devices including computers, servers, CCTV cameras, SCADA systems and everything that is connected to the internet with or without attention. Shodan can be used both as a source for gathering info about random targets for mass attacks and a tool for finding weak spots in a large network of systems to attack and take the low-hanging fruit. Shodan has a free and commercial membership and is accessible at [shodan.io](https://www.shodan.io) . the search syntax in the search engine is somehow special and can be found in the help section of the website. with shodan you can search for specific systems, ports, services, regions and countries or even specific vulnerable versions of a software or OS service running on systems like SMB v1 and much more.
 
 here the keywords that are mostly used in shodan search queries:
 
-### Shodan Queries
+### <mark style="color:orange;">Shodan Queries</mark>
 
 {% embed url="https://www.osintme.com/index.php/2021/01/16/ultimate-osint-with-shodan-100-great-shodan-queries" %}
 
@@ -289,7 +289,7 @@ shodan parse --fields ip_str,port,org --separator , microsoft-data.json.gz
 shodan search --fields ip_str,port,org,hostnames microsoft iis 6.0
 ```
 
-### Shodan CLI & nmap
+### <mark style="color:orange;">Shodan CLI & nmap</mark>
 
 there are several other ways to use the search engine without the website for example with the nmap NSE scripts like this:
 
@@ -313,13 +313,13 @@ shodan host [target ip]
 
 shodan will return ports, services and even some possible CVEs ( which are not very reliable ).
 
-for the free API keys you cant use the same method to scan a whole net block but with some bash voodoo you can use the free API instead of paid ones to scan the whole /24 net block this way and see if any systems on this net block is exposed :
+#### for the free API keys you cant use the same method to scan a whole net block but with some bash voodoo you can use the free API instead of paid ones to scan the whole /24 net block this way and see if any systems on this net block is exposed :
 
 ```
 for host in {1..254}; do shodan host 192.168.1.$host 2>&1 | grep -v "Error" ; done
 ```
 
-and if you want to aggressively scan a /16 net block you can do this:
+#### and if you want to aggressively scan a /16 net block you can do this:
 
 ```
  for netblock in {1..254};do for host in {1..254}; do shodan host 192.168.$netblock.$host 2>&1 | grep -v "Error" ; done ; done
@@ -331,13 +331,13 @@ and here are some other useful resources about shodan:
 [https://thor-sec.com/cheatsheet/shodan/shodan\_cheat\_sheet](https://thor-sec.com/cheatsheet/shodan/shodan\_cheat\_sheet/)\
 [https://github.com/jakejarvis/awesome-shodan-queries](https://github.com/jakejarvis/awesome-shodan-queries)
 
-## OSINT Framework
+## <mark style="color:red;">OSINT Framework</mark>
 
 [the OSINT framework](https://osintframework.com) is a great collection of OSINT resources that you should definitely check them out.
 
 ![OSINT framework hierarchy sources structure](../../.gitbook/assets/osint-framework.jpg)
 
-## Credential Leaks
+## <mark style="color:red;">Credential Leaks</mark>
 
 Tools and resources for credential leaks available online:
 
@@ -353,15 +353,15 @@ Tools and resources for credential leaks available online:
 
 {% embed url="https://breachdirectory.tk/" %}
 
-## Social Media Investigation
+## <mark style="color:red;">Social Media Investigation</mark>
 
-For more in-depth social search check the [social platforms page](social-platforms/).
+#### For more in-depth social search check the [social platforms page](social-platforms/).
 
-## Other OSINT Websites
+## <mark style="color:red;">Other OSINT Websites</mark>
 
 I have put together a list of the most used OSINT sources that will usually cover about 90% of your needs in a regular pentest. remember there are endless ways to find Intel about your target. the OSINT process is limited to your own imagination.
 
-### Top sources ( most used )
+### <mark style="color:orange;">Top sources ( most used )</mark>
 
 * #### [Skip Tracing Framework (kind of all-in-one directory for recon)](https://makensi.es/stf/)
 * #### [Robtex (search for IPs, domain names, etc )](https://www.robtex.com)
@@ -376,14 +376,14 @@ I have put together a list of the most used OSINT sources that will usually cove
 * #### [Whois (both web and CLI tool )](https://www.whois.net)&#x20;
 * #### [ONYPHE (internet SIEM website, that's what they call themselves )](https://www.onyphe.io)
 
-### Image search
+### <mark style="color:orange;">Image search</mark>
 
 * ****[**TinEye ( reverse image search )**](https://tineye.com) ****&#x20;
 * #### [photo bucket ( image search )](https://photobucket.com)
 
 
 
-### Username and people search
+### <mark style="color:orange;">Username and people search</mark>
 
 * [**User search ( search for usernames, mostly social media networks )**](https://usersearch.org) ****&#x20;
 * ****[**Thats them**](https://thatsthem.com) ****&#x20;
@@ -394,7 +394,7 @@ I have put together a list of the most used OSINT sources that will usually cove
 * ****[**Find people search ( people search )**](http://www.findpeoplesearch.com) ****&#x20;
 * ****[**Social bearing**](https://www.socialbearing.com) **** [**TwimeMachine**](https://www.twimemachine.com)****
 
-### IOT and device search
+### <mark style="color:orange;">IOT and device search</mark>
 
 * ****[**shodan ( search engine for internet connected devices, command line )**](https://www.shodan.io)****
 * &#x20;**** [**open stream cam ( open stream camera )**](file:///root/work/w4lk3rn3t/recon/osint/index.html) ****&#x20;
@@ -402,7 +402,7 @@ I have put together a list of the most used OSINT sources that will usually cove
 
 ####
 
-### Dark web engines
+### <mark style="color:orange;">Dark web engines</mark>
 
 #### pubpeer.com
 
@@ -424,7 +424,7 @@ ahmia.fi
 
 not evil
 
-### Monitoring and alerting
+### <mark style="color:orange;">Monitoring and alerting</mark>
 
 Google Alerts
 
@@ -440,11 +440,11 @@ weleakinfo.com/
 
 {% embed url="https://GetNotify.com" %}
 
-## Tools and Frameworks
+## <mark style="color:red;">Tools and Frameworks</mark>
 
 #### There are countless number of tools out there designed for active/passive recon. you wont need to know about every single one of them because most of them use the same techniques for gathering these information. in this section i will briefly introduce you to the best/well-known tools that i usually use:
 
-### Theharvester
+### <mark style="color:orange;">Theharvester</mark>
 
 a well-known tool among pentesters and OSINT investigators which is mostly good for collecting subdomains and email addresses.
 
@@ -466,7 +466,7 @@ docker build -t theharvester .
 docker run theharvester -h 
 ```
 
-### h8mail
+### <mark style="color:orange;">h8mail</mark>
 
 An email OSINT and breach hunting tool using different breach and reconnaissance services, or local breaches such as Troy Hunt's "Collection1" and the infamous "Breach Compilation" torrent.
 
@@ -478,13 +478,13 @@ python3 -m pip install h8mail
 h8mail -t target@example.com
 ```
 
-### gitrob
+### <mark style="color:orange;">gitrob</mark>
 
 a tool to help find potentially sensitive files pushed to public repositories on Github. Gitrob will clone repositories belonging to a user or organization down to a configurable depth and iterate through the commit history and flag files that match signatures for potentially sensitive files. The findings will be presented through a web interface for easy browsing and analysis.
 
 {% embed url="https://github.com/michenriksen/gitrob/releases/tag/v2.0.0-beta" %}
 
-### inspy
+### <mark style="color:orange;">inspy</mark>
 
 LinkedIn enumeration tool. preinstalled on kali.
 
@@ -498,7 +498,7 @@ inspy --empspy /usr/share/inspy/wordlists/title-list-large.txt --emailformat fla
 inspy --empspy /usr/share/inspy/wordlists/title-list-large.txt --emailformat
 ```
 
-### amass
+### <mark style="color:orange;">amass</mark>
 
 In-depth Attack Surface Mapping and Asset Discovery, preinstalled on kali. The OWASP Amass Project performs network mapping of attack surfaces and external asset discovery using open source information gathering and active reconnaissance techniques.
 
@@ -510,7 +510,7 @@ run the help to see the options:
 amass --help
 ```
 
-### spiderfoot
+### <mark style="color:orange;">spiderfoot</mark>
 
 an open source intelligence (OSINT) automation tool. It calmes to integrate with just about every data source available and utilities a range of methods for data analysis, making that data easy to navigate.
 
@@ -520,7 +520,7 @@ an open source intelligence (OSINT) automation tool. It calmes to integrate with
 spiderfoot -l 127.0.0.1:5001  → run web GUI on local host, connect with browser
 ```
 
-### recon-ng
+### <mark style="color:orange;">recon-ng</mark>
 
 By far, the best recon framework out there with both active and passive modules. designed like metasploit framework and each type of recon has its own specific module and options. the modules are installed from the "marketplace" plus a bunch of reporting modules for different formats. recon-ng is preinstalled on kali linux and parrot OS.
 
@@ -570,7 +570,7 @@ recon/hosts-hosts/reverse_resolve
 discovery/info_disclosure/cache_snoop       → useful for finding AVs in use
 ```
 
-### Sherlock
+### <mark style="color:orange;">Sherlock</mark>
 
 find user accounts on social media
 
@@ -585,13 +585,13 @@ python3 sherlock --help
 python3 sherlock user1 user2 user3
 ```
 
-### TWINT
+### <mark style="color:orange;">TWINT</mark>
 
 advanced Twitter scraping tool written in Python that allows for scraping Tweets from Twitter profiles without using Twitter's API.
 
 {% embed url="https://github.com/twintproject/twint" %}
 
-### social-analyzer
+### <mark style="color:orange;">social-analyzer</mark>
 
 for analyzing and finding a person's profile across +800 social media websites
 
@@ -601,7 +601,7 @@ python3 -m pip install social-analyzer
 social-analyzer --username "johndoe" --metadata --extract --mode fast
 ```
 
-## Other Tools
+## <mark style="color:red;">Other Tools</mark>
 
 ```
 # Firefox and some plugins

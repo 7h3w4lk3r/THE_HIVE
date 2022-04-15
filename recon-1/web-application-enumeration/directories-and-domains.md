@@ -1,20 +1,20 @@
 # ⭕ Directories & Subdomains
 
-## Directory and Subdomain Discovery
+## <mark style="color:red;">Directory and Subdomain Discovery</mark>
 
-### sublist3r
+### <mark style="color:orange;">sublist3r</mark>
 
 ```
 sublist3r -d [domain] -t [threads] -o [output] -v -b [brute force mode>]
 ```
 
-### DIRB
+### <mark style="color:orange;">DIRB</mark>
 
 ```
 dirb http://example.com -r
 ```
 
-### dirsearch
+### <mark style="color:orange;">dirsearch</mark>
 
 one of the best tools for discovering sub-directories and metadata search.
 
@@ -26,13 +26,13 @@ python3 dirsearch.py -u http://192.168.56.103 -e php,exe.elf.cgi,asp,txt,pdf,png
 python3 tools/webapp/dirsearch/dirsearch.py -e php,exe.elf.cgi,asp,txt,pdf,png,jpg -r --suppress-empty -t 5 --clean-view -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt  -x 403,404 -u istt.ir -l istt/osint/subdomains --full-url --random-agents --follow-redirects --simple-report=subdir
 ```
 
-### patator
+### <mark style="color:orange;">patator</mark>
 
 ```
 patator http_fuzz url=[url] method=POST body
 ```
 
-### gobuster
+### <mark style="color:orange;">gobuster</mark>
 
 Used for both subdomain/vhost and subdirectory discovery.
 
@@ -58,25 +58,25 @@ dns → subdomain bruteforce
 -a → set user agent
 ```
 
-#### GoBuster Web Content Discovery
+#### <mark style="color:green;">GoBuster Web Content Discovery</mark>
 
 ```
 gobuster -u http:/// -w /usr/share/seclists/Discovery/ Web_Content/common.txt -s '200,204,301,302,307,403,500' -e
 ```
 
-#### GoBuster subdomain brute forcing
+#### <mark style="color:green;">GoBuster subdomain brute forcing</mark>
 
 ```
 gobuster dns -w /usr/share/seclists/Discovery/ DNS/subdomains-top1million-110000.txt -d target.com
 ```
 
-#### GoBuster subdomain vhost search
+#### <mark style="color:green;">GoBuster subdomain vhost search</mark>
 
 ```
 gobuster vhost -u example.com -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt 
 ```
 
-### dirbuster
+### <mark style="color:orange;">dirbuster</mark>
 
 add url wtih port : example: [http://127.0.0.1:80/](http://127.0.0.1)
 
@@ -84,9 +84,9 @@ wordlist for bruteforce is in /usr/share/wordlists/dirbuster
 
 set go faster 200 threats (usually works best) in file extentions add any file type you want to look for like rar,docx,zip, etc.
 
-![](<../../../.gitbook/assets/image (155).png>)
+![](<../../.gitbook/assets/image (155).png>)
 
-### wfuzz
+### <mark style="color:orange;">wfuzz</mark>
 
 #### it can fuzz any given location in a url, the location is specified by the "FUZZ" parameter:
 

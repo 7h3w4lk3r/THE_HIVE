@@ -1,12 +1,12 @@
 # 🔴 Firewall Evasion
 
-## :information\_source: Introduction
+## :information\_source: <mark style="color:red;">Introduction</mark>
 
 #### [Firewalls](https://www.tutorialspoint.com/network\_security/network\_security\_firewalls.htm)
 
 **In most cases, the main firewall is placed in the demilitarized zone ( DMZ).** Some select additional firewalls closer to the business’s intranet and/or their industrial supervisory control and data acquisition (SCADA) may also exist.
 
-## :ballot\_box\_with\_check: Checklist <a href="#next-gen-firewalls-explained" id="next-gen-firewalls-explained"></a>
+## :ballot\_box\_with\_check: <mark style="color:red;">Checklist</mark> <a href="#next-gen-firewalls-explained" id="next-gen-firewalls-explained"></a>
 
 * [ ] **Detection**
 * [ ] **Policy/Rule Test**

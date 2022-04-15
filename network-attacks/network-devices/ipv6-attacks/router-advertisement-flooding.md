@@ -1,6 +1,6 @@
 # Router Advertisement Flooding
 
-## Router Advertisement
+## <mark style="color:red;">Router Advertisement</mark>
 
 #### An attacker can introduce an IPv6 router on the network by responding to IPv6 client Router Solicitation (RS) messages:
 
@@ -9,13 +9,13 @@
 3. When the attacker wants to establish himself as the IPv6 default router, he sends his own RA message to the all nodes multicast address. The attacker's RA message specifies that his router has the highest preference, taking precedence over all prior legitimate RA messages.
 4. The victim, having observed the attacker's RA message with high preference, sends all IPv6 traffic destined for remote networks to the attacker.
 
-## Exploitation
+## <mark style="color:red;">Exploitation</mark>
 
 The IPv6 router MitM attack is useful in environments where the attacker wants to establish a MitM attack for all the LAN IPv6 victims, forwarding traffic to the legitimate IPv6 router or to the attacker's own IPv6 connection to the internet (possibly tunneled through an IPv4 connection).
 
 #### To implement the IPv6 router MitM attack, the attacker must first configure IPv6 forwarding using the Linux sysctl tool, as shown. Next, the attacker should manually add a default route for use in forwarding traffic from victims to the legitimate router with the Linux "ip route add" command, as shown.
 
-### radvd
+### <mark style="color:orange;">radvd</mark>
 
 Multiple options are available for impersonating an IPv6 router, including the THC-IPV6 tool "fake\_router6."
 
@@ -45,7 +45,7 @@ interface eth0 {
 radvd -C /etc/radvd.conf
 ```
 
-### fake\_router6
+### <mark style="color:orange;">fake\_router6</mark>
 
 fake\_router6 is a tool inside THC-IPv6 tools bundled inside Kali linux to test exploit & attack weaknesses & protocol complexity in ipv6 & icmp6 protocols. As the name suggests, it’s from the Hackers’ Choice. Before we begin the attack, lets get under the hood for a minute. In IPv4, you know what is “ARP”, here in IPv6, its replaced by ND expanded as Neighbor Discovery. ND combines the functionality of ARP,ICMP, ICMP-Redirect & router discovery which is present in IPv4. There are several other advanteges & additional functionalities for ND like to discover neighbouring devices & hosts, link the layer2 (link layer) addresses, advertise the presence of a host/router etc. There are basically 5 types of ND messages.
 

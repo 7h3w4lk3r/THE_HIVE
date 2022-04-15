@@ -1,10 +1,10 @@
 # ⭕ Metadata
 
-## Online
+## <mark style="color:red;">Online</mark>
 
 #### Gathering site/domain metadata from online sources
 
-### Metadata Sites
+### <mark style="color:orange;">Metadata Sites</mark>
 
 * [**Archive.org**](https://archive.org) ****&#x20;
 * ****[**metapicz**](http://metapicz.com/#landing) ****&#x20;
@@ -12,14 +12,14 @@
 * ****[**findexif**](http://findexif.com) ****&#x20;
 * ****[**exif regex**](http://exif.regex.info/exif.cgi)****
 
-### wget
+### <mark style="color:orange;">wget</mark>
 
 ```
 wget -nd -r -R htm,html,php,asp,aspx,cgi -P
 wget -nd -r -A pdf,doc,docx,xls,xlsx -P
 ```
 
-### metagoofil
+### <mark style="color:orange;">metagoofil</mark>
 
 find all files on a domain
 
@@ -27,11 +27,11 @@ find all files on a domain
 metagoofil  -d [domain] -t pdf,docx,txt -o metagoofil -n 50 -l 200
 ```
 
-### AWS Recon
+### <mark style="color:orange;">AWS Recon</mark>
 
 {% embed url="https://github.com/darkbitio/aws-recon" %}
 
-### Infoga
+### <mark style="color:orange;">Infoga</mark>
 
 linux and windows
 
@@ -46,7 +46,7 @@ python infoga.py --domain nsa.gov --source all --breach -v 2 --report ../nsa_gov
 python infoga.py --info m4ll0k@protonmail.com --breach -v 3 --report ../m4ll0k.txt
 ```
 
-### VPN Configuration files
+### <mark style="color:orange;">VPN Configuration files</mark>
 
 ome organizations publicly distribute configuration files and keys for VPN systems. Cisco profile configuration files (PCFs) contain IPsec VPN client variables, including the following:
 
@@ -68,17 +68,17 @@ ome organizations publicly distribute configuration files and keys for VPN syste
 
 {% embed url="https://www.ifm.net.nz/cookbooks/passwordcracker.html" %}
 
-## Offline
+## <mark style="color:red;">Offline</mark>
 
 #### Extract metadata from the data we have.
 
-### exiftool
+### <mark style="color:orange;">exiftool</mark>
 
 ```
 exiftool poissonrecon.pdf
 ```
 
-### Strings
+### <mark style="color:orange;">Strings</mark>
 
 ```
 -e >>> for 16 bit big-endian unicode
@@ -90,7 +90,7 @@ exiftool poissonrecon.pdf
 strings -n 4 test.elf
 ```
 
-### tesseract
+### <mark style="color:orange;">tesseract</mark>
 
 find text in images
 
@@ -102,6 +102,6 @@ apt-get install tesseract-ocr-all
 for x in *.jpg; do tesseract $x stdout -psm 11 -l eng >> tesser.out; done
 ```
 
-### Music Metadata
+### <mark style="color:orange;">Music Metadata</mark>
 
 {% embed url="https://github.com/mischif/music-metadata-tools" %}

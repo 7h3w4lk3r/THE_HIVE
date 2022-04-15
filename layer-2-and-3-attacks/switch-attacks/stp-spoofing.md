@@ -1,6 +1,6 @@
 # STP Spoofing
 
-## STP
+## <mark style="color:red;">STP</mark>
 
 The spanning tree protocol is designed to detect and prevent loops in the network if there are redundant paths between the switches.
 
@@ -8,7 +8,7 @@ Anyone who can emulate a device with a (lower) root switch identifier (by connec
 
 Typically, an attacker does not have a physical connection with two switches, so the described attack method is hardly possible. However, in wireless networks, the situation is changing, since the cable connection (socket in the office) and the wireless connection (access point) can end on different switches.
 
-### Exploitation
+### <mark style="color:orange;">Exploitation</mark>
 
 {% hint style="danger" %}
 Often this type of attack leads to a denial of service.
