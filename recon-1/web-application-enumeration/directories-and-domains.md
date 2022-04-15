@@ -8,6 +8,18 @@
 sublist3r -d [domain] -t [threads] -o [output] -v -b [brute force mode>]
 ```
 
+### <mark style="color:orange;">OWASP OpenDoor</mark>
+
+```
+python3 opendoor.py --host 10.10.10.6 --scan=directories -t 50
+```
+
+### <mark style="color:orange;">Cansina</mark>
+
+```
+python ./cansina.py -u 10.10.10.6 -p ./directories.dat --persist -t 50 --show-type --full-path -b 403,404
+```
+
 ### <mark style="color:orange;">DIRB</mark>
 
 ```

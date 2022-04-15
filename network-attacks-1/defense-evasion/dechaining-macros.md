@@ -64,14 +64,14 @@ Call service.GetFolder("\").RegisterTaskDefinition("UpdateTask", td, 6, , , 3)
 
 We can modify the registry which can serve as persistence and a way of executing your code.&#x20;
 
-WMI:
+#### WMI:
 
 ```
 Set objRegistry = GetObject("winmgmts:\\.\root\default:StdRegProv")
 objRegistry.SetStringValue &H80000001, "Software\Microsoft\Windows\CurrentVersion\Run", "key1", "value1"
 ```
 
-Wscript:
+#### Wscript:
 
 ```
 Set WshShell = CreateObject("WScript.Shell")
@@ -89,6 +89,8 @@ Basically we can spoof the parent by passing an arbitrary parent process name yo
 ## <mark style="color:red;">Injecting Shellcode</mark> <a href="#injecting-shellcode" id="injecting-shellcode"></a>
 
 Injecting our shellcode to a remote process can make our payload live in another process, although this is not a parent-child evasion technique, we can make our payload live in a remote process.
+
+#### see [injectors/runners](../shells-and-payloads/runners-injectors.md) section.
 
 ## <mark style="color:red;">Template persistence</mark>
 
