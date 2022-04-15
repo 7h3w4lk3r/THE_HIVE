@@ -1,6 +1,6 @@
 # 🔴 Exfiltration / File Transfer
 
-## **Resources**
+## <mark style="color:red;">**Resources**</mark>
 
 * [https://book.hacktricks.xyz/exfiltration](https://book.hacktricks.xyz/exfiltration)
 * [https://awakened1712.github.io/oscp/oscp-transfer-files/](https://awakened1712.github.io/oscp/oscp-transfer-files/)

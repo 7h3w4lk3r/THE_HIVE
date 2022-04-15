@@ -1,8 +1,8 @@
 # ⭕ SMB
 
-## Windows
+## <mark style="color:red;">Windows</mark>
 
-### SMB v1
+### <mark style="color:orange;">SMB v1</mark>
 
 detect:
 
@@ -23,7 +23,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName smb1protocol
 Enable-WindowsOptionalFeature -Online -FeatureName "SMB1Protocol-Client" -All
 ```
 
-### SMB v2/v3
+### <mark style="color:orange;">SMB v2/v3</mark>
 
 Detect:
 
@@ -43,9 +43,9 @@ Enable:
 Set-SmbServerConfiguration -EnableSMB2Protocol $true
 ```
 
-## SMB Server on Linux
+## <mark style="color:red;">SMB Server on Linux</mark>
 
-### Using Impacket
+### <mark style="color:orange;">Using Impacket</mark>
 
 the format is: impacket-smbserver \[share name to use] \[share directory path]
 
@@ -54,7 +54,7 @@ the format is: impacket-smbserver \[share name to use] \[share directory path]
 # python /usr/share/doc/python-impacket/examples/smbserver.py tools .
 ```
 
-### Using SAMBA
+### <mark style="color:orange;">Using SAMBA</mark>
 
 ```
 apt-get install samba
@@ -71,7 +71,7 @@ chmod 777 /tmp/smb
 service smbd restart
 ```
 
-## SMB Client on Windows
+## <mark style="color:red;">SMB Client on Windows</mark>
 
 #### to view available shares from windows
 

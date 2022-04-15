@@ -4,6 +4,8 @@
 
 Ordered alphabetically by service name.
 
+#### Taken from[ HackTricks](https://book.hacktricks.xyz/brute-force) brute force cheat sheet.
+
 ### AFP
 
 ```bash

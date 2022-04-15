@@ -1,6 +1,6 @@
 # ⭕ ICMP
 
-## ICMP Exfiltration Service (Metasploit)
+## <mark style="color:red;">ICMP Exfiltration Service (Metasploit)</mark>
 
 {% embed url="http://www.nocowsecurity.com/blog/2013/5/30/icmp-exfiltration" %}
 
@@ -27,7 +27,7 @@ sed 's/\\x0D/\n/g' <filename>
 
 {% embed url="https://youtu.be/y_qBPaKdU7U" %}
 
-## QueenSono
+## <mark style="color:red;">QueenSono</mark>
 
 {% hint style="info" %}
 * only work on Linux (due to the use of golang net icmp package)
@@ -36,7 +36,7 @@ sed 's/\\x0D/\n/g' <filename>
 
 {% embed url="https://github.com/ariary/QueenSono" %}
 
-## Ping
+## <mark style="color:red;">Ping</mark>
 
 ```
 #In order to exfiltrate the content of a file via pings you can do:
