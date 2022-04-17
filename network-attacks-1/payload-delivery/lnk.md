@@ -4,7 +4,7 @@ LNK is the file extension used for shortcuts in Windows. These shortcuts can run
 
 You can use the GUI to change the icon and parameters of a LNK file, or you could do it programmatically like so:
 
-```
+```vba
 $WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("manual.pdf.lnk")
 $Shortcut.TargetPath = "%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe"

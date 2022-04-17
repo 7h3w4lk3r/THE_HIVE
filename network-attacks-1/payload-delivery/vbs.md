@@ -20,7 +20,7 @@ Downloads, decode, decrypt and executes a VBScript using cmd and mshta.
 
 Put the following lines into a text file. Name it safetyscanner.vbs and put on desktop.
 
-```
+```vba
 dim http_obj
 dim stream_obj
 dim shell_obj

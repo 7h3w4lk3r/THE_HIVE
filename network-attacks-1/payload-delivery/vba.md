@@ -14,7 +14,7 @@ VBA is more powerful than VBS because it can interface directly with the windows
 
 ### <mark style="color:orange;">VBA Download & Execute</mark>
 
-```
+```vba
 Sub AutoOpen()
 
 Const ADTYPEBINARY = 1
@@ -47,7 +47,7 @@ End Sub
 
 or
 
-```
+```vba
 Sub AutoOpen()
     Auto_Open
 End Sub
@@ -76,7 +76,7 @@ End Sub
 
 #### <mark style="color:green;">Download and execute with powershell</mark>
 
-```
+```vba
 Sub Document_Open()
     MyMacro
 End Sub
