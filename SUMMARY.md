@@ -327,7 +327,6 @@
 ## 🔷 Blue Team
 
 * [🔴 Threat Modeling / Hunting / Intelligence](blue-team/threat-modeling-hunting-intelligence.md)
-* [Threat Hunting](blue-team/threat-hunting.md)
 * [🔴 Linux Hardening](hardening-and-monitoring/untitled.md)
   * [⭕ OS Security](hardening-and-monitoring/untitled/os-security/README.md)
     * [Update Strategy](hardening-and-monitoring/untitled/os-security/update-strategy.md)
