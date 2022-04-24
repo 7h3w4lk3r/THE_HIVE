@@ -23,7 +23,7 @@ ALT+F11 to switch back to the document editing mode and add a flair of social en
 
 Save the file as a macro enabled document, for example a Doc3.dotm:
 
-![](<../../.gitbook/assets/image (19) (1) (1).png>)
+![](<../../.gitbook/assets/image (19) (1) (1) (1).png>)
 
 Victim launching the Doc3.dotm:
 
@@ -109,7 +109,7 @@ DOCX files referencing a template that includes macros can "execute" macros as w
 
 **2]** Create a .DOCX file from Word default templates -> Rename as .zip -> Extract .zip -> Modify `word\_rels\settings.xml.rels`
 
-![](<../../.gitbook/assets/image (33) (1) (1).png>)
+![](<../../.gitbook/assets/image (33) (1) (1) (1).png>)
 
 **3]** Save file → Select all unzipped files and zip → Change extension to .docx
 
@@ -375,7 +375,7 @@ rundll32 msi.dll,main
 * [Didier Steven's file2fbsscript python script](https://didierstevens.com/files/software/file2vbscript\_v0\_3.zip)
 * On-disk footprint is high. Use an evasing executable/DLL.
 
-![](<../../.gitbook/assets/image (17) (1).png>)
+![](<../../.gitbook/assets/image (17) (1) (1).png>)
 
 ## <mark style="color:red;">Other Tools</mark>
 

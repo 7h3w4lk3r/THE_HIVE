@@ -42,7 +42,7 @@ python3 evil-ssdp.py eth0 --template scanner
 
 if the user clicks on the scanner icon in windows explorer > networks, the default browser will open up a web page and ask for credentials in order to connect to the device:
 
-![](<../../.gitbook/assets/image (33) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (33) (1) (1) (1) (1) (1) (1).png>)
 
 if the user enters the credentials, EvilSSDP will grab and show them
 

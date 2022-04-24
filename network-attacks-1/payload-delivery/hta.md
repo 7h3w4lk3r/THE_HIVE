@@ -20,7 +20,7 @@ We execute Empire :&#x20;
 
 We will need to setup a listener that will listen for our connection once executed on the victim
 
-![](<../../.gitbook/assets/image (40) (1).png>)
+![](<../../.gitbook/assets/image (40) (1) (1).png>)
 
 We proceed to execute
 

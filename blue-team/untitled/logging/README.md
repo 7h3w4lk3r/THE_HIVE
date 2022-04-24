@@ -196,13 +196,13 @@ config file is at `/etc/rsyslog.conf` .
 
 
 
-![](<../../../.gitbook/assets/image (17) (1) (1).png>)
+![](<../../../.gitbook/assets/image (17) (1) (1) (1).png>)
 
 
 
 ![](<../../../.gitbook/assets/image (13) (1) (1) (1).png>)
 
-![](<../../../.gitbook/assets/image (49) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (49) (1) (1) (1) (1).png>)
 
 Syslog generally will log all messages of the priority you specify plus all messages of higher priority levels. However, some newer Syslog agents may allow you to specify facility/priority pairs like "authpriv.=info" which mean "log authpriv.info messages only" (though this is not standard behavior for traditional Unix Syslog implementations).
 

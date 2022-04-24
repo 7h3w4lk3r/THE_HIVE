@@ -106,7 +106,7 @@ In master mode, a wireless card acts as if it were an access point. In many case
 
 ## <mark style="color:red;">802.11 MAC Frame</mark>
 
-![](<../../.gitbook/assets/image (11) (1) (1).png>)
+![](<../../.gitbook/assets/image (11) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Header</mark>
 
@@ -165,7 +165,7 @@ The Frame Check Sequence (FCS) is the Cyclic Redundancy Check (CRC) of the curre
 
 Wireless control frames are short messages that tell devices when to start or stop transmitting and whether a connection failure occurred. The following table can help you remember the different types of control frames:
 
-![](<../../.gitbook/assets/image (29) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (29) (1) (1) (1) (1).png>)
 
 <mark style="color:green;">PS-Poll :</mark>
 
@@ -204,7 +204,7 @@ Management frames are used to negotiate and control the relationship between acc
 
 Beacon frames are the most common packets as they are sent at a rate of approximately 10 times per second. Beacons are broadcast by the AP to keep the network synchronized.
 
-![](<../../.gitbook/assets/image (50) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (50) (1) (1) (1) (1) (1).png>)
 
 The beacons contain useful information about the network such as the network name (unless SSID broadcast is disabled), the capabilities of the AP, the data rates available, etc. Beacons are typically sent every 102.4ms at a rate of 1 Mbit for 802.11b and 2 Mbit for 802.11a or g. This value can be changed.
 
@@ -216,7 +216,7 @@ Wireless probe frames are used to scan for existing access points.
 
 robe requests are sent by wireless stations to determine what APs are within range and what their capabilities are
 
-![](<../../.gitbook/assets/image (48) (1) (1).png>)
+![](<../../.gitbook/assets/image (48) (1) (1) (1).png>)
 
 <mark style="color:green;">Probe Response :</mark>&#x20;
 
@@ -238,13 +238,13 @@ The Status code value will indicate either success (0) or failure (other than 0)
 
 Once a station successfully authenticates to an AP, it needs to perform an association before fully joining the network. An association request frame has the following structure.
 
-![](<../../.gitbook/assets/image (38) (1).png>)
+![](<../../.gitbook/assets/image (38) (1) (1).png>)
 
 ### <mark style="color:orange;">Reassociation Request Frame</mark>
 
 A reassociation request has a structure that is nearly identical to the association request except that it also has a Source Address field.
 
-![](<../../.gitbook/assets/image (50) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (50) (1) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Association Response Frame</mark>
 
@@ -264,7 +264,7 @@ The table below outlines different values that can be used for the Reason code i
 
 The purpose of a data frame is to transfer data from an upper layer of a station to another wireless or wired station on the network. there are a number of different types of data frames. The table below will help you in remembering them.
 
-![](<../../.gitbook/assets/image (53) (1).png>)
+![](<../../.gitbook/assets/image (53) (1) (1).png>)
 
 ### <mark style="color:orange;">Null Frame</mark>
 
@@ -272,7 +272,7 @@ ull frames consist only of MAC headers and a FCS. They are used by stations to i
 
 ## <mark style="color:red;">Wireless Connection and Transmission Process</mark>
 
-![](<../../.gitbook/assets/image (49) (1) (1).png>)
+![](<../../.gitbook/assets/image (49) (1) (1) (1).png>)
 
 We can separate this process into 3 main parts:
 

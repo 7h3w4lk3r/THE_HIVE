@@ -22,11 +22,11 @@ Then, import the binary you want to clone the module details from by clicking th
 
 Then check off the version info box:
 
-![](<../../.gitbook/assets/image (19) (1).png>)
+![](<../../.gitbook/assets/image (19) (1) (1).png>)
 
 You should now see something like this, you can then modify the descriptions and values to fit whatever you are doing but for now, we are just going to stick with this:
 
-![](<../../.gitbook/assets/image (33) (1).png>)
+![](<../../.gitbook/assets/image (33) (1) (1).png>)
 
 After, we can then click the save button to save our file.
 
@@ -44,7 +44,7 @@ We have now filled up the binary properties of our executable
 
 &#x20;The next issue I want to discuss is code signing. Some AV engines may flag unsigned binaries as suspicious due to the fact that most legitimate binaries in windows ten have some code signing already. We can see our PE file does not have a code signing tab in the its properties:
 
-![](<../../.gitbook/assets/image (11).png>)
+![](<../../.gitbook/assets/image (11) (1).png>)
 
 But binaries like ntdll.dll have one:
 

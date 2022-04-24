@@ -250,7 +250,7 @@ For all attacks, with the exception of deauthentication and fake authentication,
 
 When replaying (injecting) packets, the following options apply. Bear in mind that not every option is relevant for every attack. The specific attack documentation provides examples of the relevant options.
 
-![](<../../.gitbook/assets/image (29) (1) (1).png>)
+![](<../../.gitbook/assets/image (29) (1) (1) (1).png>)
 
 <mark style="color:green;">Surce Options:</mark>
 
@@ -272,4 +272,4 @@ aircrack-ng [options] <capture file(s)>
 
 options that Aircrack-ng supports:
 
-![](<../../.gitbook/assets/image (50) (1).png>)
+![](<../../.gitbook/assets/image (50) (1) (1).png>)
