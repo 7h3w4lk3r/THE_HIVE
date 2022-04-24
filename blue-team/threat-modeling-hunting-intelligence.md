@@ -243,6 +243,8 @@ By fetching all the details on the pyramid, we are on the track and expertise in
 
 {% embed url="https://www.misp-project.org" %}
 
+{% embed url="https://github.com/Neo23x0/Loki" %}
+
 ## <mark style="color:red;">Comparison</mark>
 
 ### <mark style="color:orange;">Threat Intelligence vs Threat Hunting</mark>
@@ -261,5 +263,3 @@ By fetching all the details on the pyramid, we are on the track and expertise in
 | generates alerts that are to be further investigated by analysts | generates confirmed incidents which trigger incident response   |
 | typically highly automated                                       | can partially leverage automation but majority is manual effort |
 | can leverage IoCs                                                | can generate IoCs                                               |
-
-{% embed url="https://github.com/Neo23x0/Loki" %}
