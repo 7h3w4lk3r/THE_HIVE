@@ -24,6 +24,20 @@ Security Technical Implementation Guides (STIGs) are a series of cybersecurity r
 
 {% embed url="https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-security-configuration-framework/windows-security-baselines" %}
 
+## <mark style="color:red;">Real-time Detection</mark>
+
+Real-time detection means 24/7 monitoring and continuous log / user behavior analysis to detect and defeat internal/external threats ASAP.
+
+Some basic considerations are :
+
+* Log centralization
+* IDS/IPS implementation
+* 24/7 SOC
+* SIEM
+* next-gen firewalls
+* Alerting system
+* End-point sensors
+
 ## <mark style="color:red;">Threat Modeling</mark>
 
 Threat modeling or attack surface modeling works to identify, communicate, and understand threats and mitigations within the context of protecting something of value.
@@ -154,8 +168,6 @@ It consists of a combination of SQUARE (Security Quality Requirements Engineerin
 
 {% embed url="https://www.kennasecurity.com/products/vm" %}
 
-{% embed url="https://docs.microsoft.com/en-us/azure/security/develop/threat-modeling-tool" %}
-
 {% embed url="https://owasp.org/www-project-threat-dragon" %}
 
 {% embed url="https://www.securitycompass.com/sdelements" %}
@@ -168,9 +180,25 @@ It consists of a combination of SQUARE (Security Quality Requirements Engineerin
 
 {% embed url="https://www.tutamantic.com" %}
 
+### <mark style="color:orange;">Microsoft Threat Modeling Tool</mark>
+
+{% embed url="https://docs.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-getting-started" %}
+
+An automated tool for creating thread models and estimating the risk and impact for various types of objects. to quickly summarize, the approach involves creating a diagram, identifying threats, mitigating them and validating each mitigation. Here’s a diagram that highlights this process:
+
+![](../.gitbook/assets/sdlapproach.png)
+
+This tool is a core element of the Microsoft Security Development Lifecycle (SDL). It allows software architects to identify and mitigate potential security issues early, when they are relatively easy and cost-effective to resolve. As a result, it greatly reduces the total cost of development.
+
+{% embed url="https://docs.microsoft.com/en-us/azure/security/develop/threat-modeling-tool" %}
+
 ## <mark style="color:red;">Threat Hunting</mark>
 
 #### Threat hunting is a proactive approach to identifying previously unknown or ongoing non-remediated threats within an organizations network.
+
+{% hint style="info" %}
+Threat hunting works based on hypothesis and situation awareness plus related domain expertise. when doing this you should assume that there was a breach somewhere in the system and now you have to find the hole and the intruder.&#x20;
+{% endhint %}
 
 ## <mark style="color:red;">Hunting Maturity Model</mark>
 
@@ -194,6 +222,28 @@ The Sliding Scale of Cyber Security is a model for providing a nuanced discussio
 * Passive Defense
 * Intelligence
 * Offense
+
+## <mark style="color:red;">Threat Hunting Tools</mark>
+
+{% embed url="https://gchq.github.io/CyberChef" %}
+
+{% embed url="https://en.wikipedia.org/wiki/RSS" %}
+
+{% embed url="https://github.com/x0rz/phishing_catcher" %}
+
+{% embed url="https://github.com/elceef/dnstwist" %}
+
+{% embed url="http://www.gnuplot.info" %}
+
+{% embed url="https://attackerkb.com" %}
+
+{% embed url="https://github.com/VirusTotal/yara" %}
+
+{% embed url="https://github.com/Xen0ph0n/YaraGenerator" %}
+
+{% embed url="https://github.com/TheHive-Project/TheHive" %}
+
+{% embed url="https://github.com/certsocietegenerale/FIR" %}
 
 ## <mark style="color:red;">Threat Intelligence</mark>
 
