@@ -6,6 +6,8 @@
 
 {% embed url="https://github.com/maldevel/blue-team/tree/master/hardening" %}
 
+{% embed url="https://github.com/nccgroup/exploit_mitigations" %}
+
 ## <mark style="color:red;">Checklists & Standards</mark>
 
 ### <mark style="color:orange;">NIST Checklist Repository</mark>
