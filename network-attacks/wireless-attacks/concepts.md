@@ -264,7 +264,7 @@ The table below outlines different values that can be used for the Reason code i
 
 The purpose of a data frame is to transfer data from an upper layer of a station to another wireless or wired station on the network. there are a number of different types of data frames. The table below will help you in remembering them.
 
-![](<../../.gitbook/assets/image (53) (1) (1).png>)
+![](<../../.gitbook/assets/image (53) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Null Frame</mark>
 
@@ -346,8 +346,4 @@ In WPA2, PSK authentication involves a 4-way handshake for key negotiation. Befo
 
 <mark style="color:green;">**OWE Authentication: Open Network Protection**</mark>** :** Most Wi-Fi networks in public venues, such as airports, stations, and cafes, use the traditional open authentication mode. With OWE, users can access Wi-Fi networks without entering passwords, and data transmitted between users and Wi-Fi networks is not encrypted. This increases the risk of unauthorized network access.
 
-WPA3 introduces an Enhanced Open network authentication mode for open networks. This allows users to access the network without entering the password, facilitating user access to the open Wi-Fi networks. Additionally, OWE uses the Diffie-Hellman key exchange algorithm to exchange keys between users and Wi-Fi devices, encrypting transmitted data and protecting user data security.\
-
-
-
-
+WPA3 introduces an Enhanced Open network authentication mode for open networks. This allows users to access the network without entering the password, facilitating user access to the open Wi-Fi networks. Additionally, OWE uses the Diffie-Hellman key exchange algorithm to exchange keys between users and Wi-Fi devices, encrypting transmitted data and protecting user data security.

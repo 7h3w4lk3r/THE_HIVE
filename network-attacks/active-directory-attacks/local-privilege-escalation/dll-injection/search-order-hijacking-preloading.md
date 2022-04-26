@@ -1,8 +1,8 @@
 # Search Order Hijacking ( Preloading )
 
-## <mark style="color:red;">Detection</mark>
-
 Abusing the DLL Search Order and taking advantage of this mechanism in order for an application to load a rogue DLL instead of the legitimate one is known as DLL preloading. It is called preloading because the attackers can place their DLL earlier in the search order and thus the application loads this instead of the legitimate one.
+
+## <mark style="color:red;">Finding the target</mark>
 
 #### Since Windows XP, when the SafeDllSearchMode option is enabled a module is loaded in the address space of an application - either during load-time or run-time - and the full path to the module is not explicitly specified or the manifest file does not state where the dependency can be looked up, the operating system searches for the DLL in a defined search order, that consists of the following:
 

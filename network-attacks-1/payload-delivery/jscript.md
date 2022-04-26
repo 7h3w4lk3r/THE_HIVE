@@ -133,7 +133,7 @@ The payload should be placed inside the `TestClass` class and replace the defaul
 
 ![](<../../.gitbook/assets/image (24).png>)
 
-![](<../../.gitbook/assets/image (31).png>)
+![](<../../.gitbook/assets/image (31) (1).png>)
 
 after building the solution, copy the `ExampleAssembly.dll,` `NDesk.Options.dll` and `DotNetToJScript.exe` files in the same folder and run the following command to create a new jscript payload:
 

@@ -6,7 +6,7 @@
 
 {% embed url="https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html" %}
 
-![](<../.gitbook/assets/image (53).png>)
+![](<../.gitbook/assets/image (53) (1).png>)
 
 ## <mark style="color:red;">Cyber Kill Chain (Dell Secure Works)</mark>
 

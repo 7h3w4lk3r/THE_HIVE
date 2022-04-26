@@ -34,4 +34,4 @@ net start/stop <name>
 2. Unquoted Service Path
 3. Weak Registry Permissions
 4. Insecure Service Executables
-5. DLL Hijacking
+5. Service DLL Hijacking

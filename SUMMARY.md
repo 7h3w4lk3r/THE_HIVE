@@ -143,7 +143,7 @@
 * [🔴 Active Directory](network-attacks/active-directory-attacks/README.md)
   * [⭕ Enumeration](network-attacks/active-directory-attacks/domain-enumeration.md)
   * [⭕ Exploitation](network-attacks/active-directory-attacks/exploitation/README.md)
-    * [MitM & Relay](network-attacks/active-directory-attacks/exploitation/relay-attacks.md)
+    * [MitM & NTLM Relay](network-attacks/active-directory-attacks/exploitation/relay-attacks.md)
     * [MitM IPv6](network-attacks-1/active-directory-attacks/exploitation/mitm-ipv6.md)
     * [Cracking Hashes](network-attacks/active-directory-attacks/exploitation/cracking-hashes.md)
     * [Password spraying](network-attacks/active-directory-attacks/password-spraying.md)

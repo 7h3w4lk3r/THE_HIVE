@@ -1,8 +1,8 @@
 # Phantom DLL Hijacking
 
-## <mark style="color:red;">Detection</mark>
+In this type of DLL we target a missing dll and place our own dll instead.
 
-in this type of DLL we target a missing dll and place our own dll instead.
+## <mark style="color:red;">Finding the target</mark>
 
 Use winPEAS to enumerate non-Windows services:
 

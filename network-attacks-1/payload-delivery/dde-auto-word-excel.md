@@ -57,5 +57,5 @@ And inject the command to Microsoft Excel function:
 
 After the user skips the warning we get a meterpreter shell:
 
-![](<../../.gitbook/assets/image (8) (1).png>)
+![](<../../.gitbook/assets/image (8) (1) (1).png>)
 

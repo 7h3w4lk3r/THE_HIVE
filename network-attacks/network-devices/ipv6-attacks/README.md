@@ -1,6 +1,6 @@
 # ⭕ IPv6 Attacks
 
-## Linux IPv6 Interface Configuration
+## <mark style="color:red;">Linux IPv6 Interface Configuration</mark>
 
 ```
 # Load the Linux IPv6 kernel module
@@ -17,7 +17,7 @@ ifconfig eth0 inet6 del fc00:660:0:1::2/64
 ifconfig eth0 | inet6
 ```
 
-## IPv6 Enumeration
+## <mark style="color:red;">IPv6 Enumeration</mark>
 
 ```
 miredo  # run before pinging a target

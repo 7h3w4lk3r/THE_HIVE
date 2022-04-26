@@ -55,7 +55,7 @@ PsSetLoadImageNotifyRoutine()
 * these providers send potentially dangerous code into the amsi.dll loaded in the process, amsi.dll will then send this data to providers, which decide if the code is malicious or not
 * The default provider in windows is MsMpEng.exe, but EDRs have been implementing their own providers and such(via some COM RPC magic shit). They communicate via RPC
 
-![](<../../.gitbook/assets/image (31) (1).png>)
+![](<../../.gitbook/assets/image (31) (1) (1).png>)
 
 ### <mark style="color:orange;">Event Logging</mark>
 

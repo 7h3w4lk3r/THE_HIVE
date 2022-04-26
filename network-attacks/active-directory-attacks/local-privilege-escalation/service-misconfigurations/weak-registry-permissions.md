@@ -63,3 +63,10 @@ Start a listener on Kali, and then start the service to trigger the exploit:
 ```
 
 ![](<../../../../.gitbook/assets/image (95).png>)
+
+## <mark style="color:red;">Mitigation</mark>
+
+
+
+
+

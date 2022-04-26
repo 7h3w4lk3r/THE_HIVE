@@ -40,7 +40,7 @@ Let's insert a new object into the document by selecting a `Package`and changing
 
 ![](<../../.gitbook/assets/image (21) (1).png>)
 
-![](<../../.gitbook/assets/image (31) (1) (1).png>)
+![](<../../.gitbook/assets/image (31) (1) (1) (1).png>)
 
 Point the package to the .lnk file containing the payload:
 

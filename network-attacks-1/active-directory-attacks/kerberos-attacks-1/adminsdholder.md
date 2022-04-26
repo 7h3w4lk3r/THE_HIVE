@@ -26,7 +26,7 @@ Now, confirming that the user spotless has got GenericAll privileges against Dom
 Get-ObjectAcl -SamAccountName "Domain Admins" -ResolveGUIDs | ?{$_.IdentityReference -match 'spotless'}
 ```
 
-![](<../../../.gitbook/assets/image (53) (1).png>)
+![](<../../../.gitbook/assets/image (53) (1) (1).png>)
 
 We can now hop back to the Domain Admins any time we want to:
 

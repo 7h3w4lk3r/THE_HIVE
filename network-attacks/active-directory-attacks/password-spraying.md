@@ -230,3 +230,11 @@ Write-Host $users.Count users supplied; $users | % {
     }
 }
 ```
+
+## <mark style="color:red;">Mitigations</mark>
+
+* Setup account lockout policy EVERYWHERE with high.
+
+## <mark style="color:red;">Detection</mark>
+
+* Log and monitor user authentication attempts and frequency.

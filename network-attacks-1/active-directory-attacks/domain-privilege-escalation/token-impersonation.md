@@ -70,3 +70,7 @@ Get-Process wininit | Invoke-TokenManipulation -CreateProcess "Powershell.exe -n
 {% embed url="https://steflan-security.com/linux-privilege-escalation-token-impersonation" %}
 
 {% embed url="https://decoder.cloud/2017/12/23/the-lonely-potato" %}
+
+## <mark style="color:red;">Mitigation & Detection</mark>&#x20;
+
+{% embed url="https://attack.mitre.org/techniques/T1134/003" %}
