@@ -27,6 +27,8 @@ echo c:\rto\pers\implant\implant.exe > %HOMEPATH%"\Documents\windowspowershell\p
 
 Once the compromised user launches powershell, our code gets executed.
 
+{% embed url="https://pentestlab.blog/2019/11/05/persistence-powershell-profile" %}
+
 ## <mark style="color:red;">Mitigation</mark>
 
 * Enforce execution of only signed PowerShell scripts. Sign profiles to avoid them from being modified.
