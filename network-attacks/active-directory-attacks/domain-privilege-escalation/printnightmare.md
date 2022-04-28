@@ -12,7 +12,7 @@ The print spooler service is vulnerable to remote code execution that leverages 
 * Server with registry key `HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows NT\Printers\PointAndPrint\NoWarningNoElevationOnInstall` = (DWORD) 1
 * Server with registry key `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA` = (DWORD) 0
 
-## <mark style="color:red;">Detection</mark>
+## <mark style="color:red;">Target Detection</mark>
 
 We can use `rpcdump.py` from impacket to scan for potential vulnerable hosts, if it returns a value, it could be vulnerable
 

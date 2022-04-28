@@ -1,5 +1,7 @@
 # DCShadow
 
+## <mark style="color:red;">DCShadow</mark>
+
 {% embed url="https://www.dcshadow.com" %}
 
 {% embed url="https://pentestlab.blog/2018/04/16/dcshadow" %}
@@ -8,7 +10,7 @@
 
 ![](<../../../.gitbook/assets/image (19) (1).png>)
 
-### <mark style="color:orange;">Exploitation</mark>
+## <mark style="color:red;">Exploitation</mark>
 
 Start Mimikatz, running as an account that is part of Domain Admins or Enterprise Admins:
 

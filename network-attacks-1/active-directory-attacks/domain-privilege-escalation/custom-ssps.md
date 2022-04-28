@@ -1,5 +1,7 @@
 # Custom SSPs
 
+## <mark style="color:red;">SSP</mark>
+
 A Security Support Provider (SSP) is a DLL which provides ways for an application to obtain an authenticated connection. here we are using custom SSPs for persistence in Active Directory with Mimikatz.
 
 Mimikatz provdes custom SSP  `mimilib.dll`, This SSP logs local logons, service account and machine aacount passwords in clear text on the target server.

@@ -1,5 +1,7 @@
 # DSRM
 
+## <mark style="color:red;">DSRM</mark>
+
 All domain controllers have a hard-coded local Administrator account stored in their SAM file. This account and local database are not used or generally available when the domain controllers are running normally.
 
 While Active Directory Domain Controller is configured, the wizard prompts ask to enter a DSRM password for the local administrator. This password provides the administrator with a back door to the database in case something goes wrong later.
