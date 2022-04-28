@@ -429,7 +429,7 @@ Null sessions are remotely exploitable; this means that attackers can use their 
 
 In Windows, the most common command to use when enumerating Windows shares is nbtstat. Nbtstat is a Windows command line tool that can display information about a target. You can check how to use it by passing it the /? parameter The most common use of nbtstat is "nbtstat -A \[IP]" that displays information about a target
 
-![](<../../.gitbook/assets/image (42) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (42) (1) (1) (1) (1).png>)
 
 #### the first line tells us the name of the machine \[OVERLORD] the record type 00 tells us that OVERLORD is a workstation. the type UNIQUE tells us that this computer must have only one IP address assigned. second line contains the workgroup or the domain the computer is joined to. type 20 record means that the file sharing service is up and running on the machine.
 

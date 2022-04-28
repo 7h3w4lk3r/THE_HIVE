@@ -7,5 +7,7 @@ SCR extensions are also executables on a Windows machine we can go a bit more fa
 #### <mark style="color:green;">simply create a PE payload and change the extension from</mark> <mark style="color:green;"></mark><mark style="color:green;">`.exe`</mark> <mark style="color:green;"></mark><mark style="color:green;">to</mark> <mark style="color:green;"></mark><mark style="color:green;">`.scr`</mark>
 
 {% hint style="info" %}
-This techniques is useful for persistence as well.
+#### This techniques is useful for persistence as well.
+
+#### see [screensaver hijack](../windows/persistence/screensavers-hijack.md) section.
 {% endhint %}

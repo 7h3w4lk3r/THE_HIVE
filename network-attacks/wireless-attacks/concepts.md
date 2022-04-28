@@ -74,7 +74,7 @@ An Extended Service Set (ESS) is a set of 2 or more wireless APs connected to th
 On Linux-type operating systems, acting as a STA is usually called “Managed” mode and when acting as an AP, it is usually referred to as “Master” mode.
 {% endhint %}
 
-![](<../../.gitbook/assets/image (34) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (34) (1) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Ad-Hoc Mode</mark>&#x20;
 
@@ -250,7 +250,7 @@ A reassociation request has a structure that is nearly identical to the associat
 
 Access points respond to an association request with an Association Response either rejecting or accepting the association request. The association response has the following structure.
 
-![](<../../.gitbook/assets/image (34) (1) (1).png>)
+![](<../../.gitbook/assets/image (34) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Disassociation/Deauthentication Frame</mark>
 

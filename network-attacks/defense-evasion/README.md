@@ -73,7 +73,7 @@ PsSetLoadImageNotifyRoutine()
 * Injects a dll which hooks certain "potentially malicious functions" to see their behavior and deduce if they are malicious or not
 * For example, we can hook NtWriteVirtualMemory and scan the buffer passed to it at runtime
 
-![](<../../.gitbook/assets/image (42) (1).png>)
+![](<../../.gitbook/assets/image (42) (1) (1).png>)
 
 ### <mark style="color:orange;">Process Memory Scanning</mark>
 
