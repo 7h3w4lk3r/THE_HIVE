@@ -145,6 +145,7 @@
     * [Logon Scripts](network-attacks-1/windows/persistence/logon-scripts.md)
     * [Screensavers Hijack](network-attacks-1/windows/persistence/screensavers-hijack.md)
     * [Powershell Profile](network-attacks-1/windows/persistence/powershell-profile.md)
+    * [Service Creation](network-attacks-1/windows/persistence/service-creation.md)
     * [Shortcut Modification](network-attacks-1/windows/persistence/shortcut-modification.md)
     * [Startup Folder](network-attacks-1/windows/persistence/startup-folder.md)
     * [RDP backdoors](network-attacks-1/windows/persistence/rdp-backdoors.md)

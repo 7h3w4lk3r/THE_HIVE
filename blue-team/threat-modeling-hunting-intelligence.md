@@ -150,7 +150,7 @@ Security Cards identify unusual and complex attacks. They are not a formal metho
 
 This method uses a deck of 42 cards to facilitate threat-discovery activities: Human Impact (9 cards), Adversary's Motivations (13 cards), Adversary Resources (11 cards), and Adversary's Methods (9 cards).
 
-![](<../.gitbook/assets/image (52).png>)
+![](<../.gitbook/assets/image (52) (1).png>)
 
 ### <mark style="color:orange;">hTMM Model</mark>
 

