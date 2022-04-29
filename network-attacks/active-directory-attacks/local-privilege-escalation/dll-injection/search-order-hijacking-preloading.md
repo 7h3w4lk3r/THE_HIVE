@@ -1,6 +1,8 @@
 # Search Order Hijacking ( Preloading )
 
-Abusing the DLL Search Order and taking advantage of this mechanism in order for an application to load a rogue DLL instead of the legitimate one is known as DLL preloading. It is called preloading because the attackers can place their DLL earlier in the search order and thus the application loads this instead of the legitimate one.
+#### Abusing the DLL Search Order and taking advantage of this mechanism in order for an application to load a rogue DLL instead of the legitimate one is known as DLL preloading.
+
+#### &#x20;It is called preloading because the attackers can place their DLL earlier in the search order and thus the application loads this instead of the legitimate one.
 
 ## <mark style="color:red;">Finding the target</mark>
 

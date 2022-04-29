@@ -1,6 +1,6 @@
 # ⭕ HTTP Tunneling
 
-## Chisel Pivoting
+## <mark style="color:red;">Chisel Pivoting</mark>
 
 Chisel offers to encapsulate TCP connexions in HTTP tunnels Everything is encrypted using SSH.
 
@@ -34,7 +34,7 @@ $ chisel server -p 8888 --host 192.168.2.149 --reverse -v
 $ chisel client -v http://192.168.2.149:8888 R:127.0.0.1:44444:10.42.42.2:80
 ```
 
-## Tunna / Fulcrom
+## <mark style="color:red;">Tunna / Fulcrom</mark>
 
 ```
 # Everything is through HTTP
@@ -48,7 +48,7 @@ $ chisel client -v http://192.168.2.149:8888 R:127.0.0.1:44444:10.42.42.2:80
 $ python2 proxy.py -u http://192.168.2.105:8080/conn.php -l 7777 -r 80 -a 10.42.42.2 -v
 ```
 
-## HTS
+## <mark style="color:red;">HTS</mark>
 
 ```
 apt  install httptunnel

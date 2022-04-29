@@ -24,7 +24,7 @@ $ cd icmptx-0.01/
 $ make
 ```
 
-### Proxy-side icmptx setup
+### <mark style="color:orange;">Proxy-side icmptx setup</mark>
 
 You'll need a machine connected to the Internet to serve as your proxy. Make sure the proxy's firewall does not block ICMP traffic. If you can't simply ping the machine, icmptx will surely not work. Also, make sure your kernel supports TUN devices.
 
@@ -84,7 +84,7 @@ net/ipv4/ip_forward=1
 net/ipv4/icmp_echo_ignore_all=1
 ```
 
-### Client-side icmptx setup
+### <mark style="color:orange;">Client-side icmptx setup</mark>
 
 The client's kernel also needs to support TUN devices. Assuming your proxy's IP address is 212.25.23.52, run as root:
 

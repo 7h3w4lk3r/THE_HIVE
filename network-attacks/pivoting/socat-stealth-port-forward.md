@@ -1,6 +1,6 @@
 # ⭕ Socat Stealth Port Forward
 
-### **Port Forwarding - Stealth**
+### <mark style="color:orange;">**Port Forwarding - Stealth**</mark>
 
 We can also port forward, but without opening any ports on the server!
 
@@ -29,6 +29,6 @@ The process is then reversed when the target sends the response:
 * The response is sent to the socat process on the compromised server. What goes into the process comes out at the other side, which happens to link straight to port 8001 on our attacking machine.
 * Anything that goes into port 8001 on our attacking machine comes out of port 8000 on our attacking machine, which is where the web browser expects to receive its response, thus the page is received and rendered.
 
-### Close Connections
+### <mark style="color:orange;">Close Connections</mark>
 
 &#x20;Run the `jobs` command in your terminal, then kill any socat processes using `kill %NUMBER.`

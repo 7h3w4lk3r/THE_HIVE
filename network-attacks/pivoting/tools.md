@@ -1,12 +1,12 @@
-# 🔧 Other Tools
+# ⭕ Other Tools
 
-## plink (windows)
+## <mark style="color:red;">plink (windows)</mark>
 
 ```
 plink.exe -l root -R 445:127.0.0.1:445 YOURIPADDRESS
 ```
 
-## Ncat
+## <mark style="color:red;">Ncat</mark>
 
 ```
 # Ncat =/= netcat
@@ -22,7 +22,7 @@ $ ncat -lv --broker --max-conns 2
 $ ncat -v 192.168.2.149 31337 -c 'ncat -v 10.42.42.2 80'
 ```
 
-## PivoteSuite
+## <mark style="color:red;">PivoteSuite</mark>
 
 ```
 # Similar features to other tools but support multilevel pivot
@@ -36,7 +36,7 @@ $ pivotsuite -S -F --server-option=PF --forward-ip=10.42.42.2 --forward-port=80 
 $ pivotsuite -S -F --server-option=SP --server-ip=192.168.2.105 --server-port=8080
 ```
 
-## RINETD
+## <mark style="color:red;">RINETD</mark>
 
 ```
  sudo apt install rinetd
@@ -56,7 +56,7 @@ service rinetd restart
 
 bind address is attacker machine bind port is the listening incoming port connectaddress is the address to forward the traffic to and connectport is the target port.
 
-## Other Resources
+## <mark style="color:red;">Other Resources</mark>
 
 * [NetworkPivotingTechniques](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Network%20Pivoting%20Techniques.md)
 * [Abachy's Port Forwarding Guide](https://www.abatchy.com/2017/01/port-forwarding-practical-hands-on-guide)
@@ -71,7 +71,7 @@ bind address is attacker machine bind port is the listening incoming port connec
 * [https://xapax.github.io/security/#random\_tips\_and\_tricks/port\_forwarding\_and\_tunneling/](https://xapax.github.io/security/#random\_tips\_and\_tricks/port\_forwarding\_and\_tunneling/)
 * [https://xapax.github.io/security/#random\_tips\_and\_tricks/pivoting/](https://xapax.github.io/security/#random\_tips\_and\_tricks/pivoting/)
 
-## Other Tools
+## <mark style="color:red;">Other Tools</mark>
 
 * [PivotSuite](https://github.com/RedTeamOperations/PivotSuite) - PivotSuite is a portable, platform independent and powerful network pivoting toolkit, Which helps Red Teamers / Penetration Testers to use a compromised system to move around inside a network.
 * [Modaliska](https://github.com/drk1wi/Modlishka) - Modlishka is a powerful and flexible HTTP reverse proxy. It implements an entirely new and interesting approach of handling browser-based HTTP traffic flow, which allows to transparently proxy multi-domain destination traffic, both TLS and non-TLS, over a single domain, without a requirement of installing any additional certificate on the client.

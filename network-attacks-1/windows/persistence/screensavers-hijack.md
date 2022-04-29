@@ -5,7 +5,7 @@
 #### &#x20;This is because screensavers are executable files that have the `.scr` file extension and are executed via the `scrnsave.scr` utility.
 
 {% hint style="warning" %}
-This will not work in systems that don't have screensaver activated or in AD environments where the screensaver is manager by domain group policies.
+#### This will not work in systems that don't have screensaver activated or in AD environments where the screensaver is manager by domain group policies.
 {% endhint %}
 
 Screensaver settings are stored in the registry and the values that are considered most valuable from an offensive perspective are:

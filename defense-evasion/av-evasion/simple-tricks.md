@@ -12,7 +12,7 @@ To search for a specific function in LOL binaries, use `/function` key word. for
 
 ## <mark style="color:red;">Alternate Data Streams</mark>
 
-Execute a .EXE file stored as an Alternate Data Stream (ADS)
+#### Execute a `.EXE` file stored as an Alternate Data Stream (ADS)
 
 ```
 wmic.exe process call create "c:\ads\file.txt:program.exe"
@@ -81,7 +81,7 @@ C:\Windows> rundll32.exe desk.cpl,InstallScreenSaver
 
 ## <mark style="color:red;">Multi-level Execution</mark>
 
-By using multiple levels of execution, it could be possible to stumble into one that is explicitly allowed or has special privileges. Here we see cmd.exe running cscript.exe, which runs a VBS script included with Windows. This script can be abused to run other things. A great side effect of using this script: it is signed by Microsoft, and therefore often explicitly allowed to run. Then the PowerShell process is started, using a “- Verb RunAs” argument which attempts to re-establish “High Integrity” context, essentially giving an administrative user back their administration rights.
+By using multiple levels of execution, it could be possible to stumble into one that is explicitly allowed or has special privileges. Here we see `cmd.exe` running `cscript.exe`, which runs a VBS script included with Windows. This script can be abused to run other things. A great side effect of using this script: it is signed by Microsoft, and therefore often explicitly allowed to run. Then the PowerShell process is started, using a `“- Verb RunAs”` argument which attempts to re-establish `“High Integrity”` context, essentially giving an administrative user back their administration rights.
 
 ```
 cmd.exe /c cscript.exe \windows\system32\SyncAppvPublishingServer.vbs ".;Start-Process rundll32.exe 'shell32.dll,ShellExec_runDLL cmd.exe' -Verb RunAs" 
@@ -97,9 +97,6 @@ Powershell.exe -Command Set-ExecutionPolicy RemoteSigned -Scope Process; Powersh
 
 {% embed url="https://github.com/hlldz/SpookFlare" %}
 
-
-
 ## <mark style="color:red;">Runners & Crypters</mark>
 
 {% embed url="https://github.com/spyblocker/OSEP-Breaking-Chains" %}
-

@@ -85,7 +85,7 @@ Write a shellcode crypter and pass the shellcode. we chose a substitution key of
 
 ### <mark style="color:orange;">C#</mark>
 
-{% code title="encryptor.cs" %}
+{% code title="crypter.cs" %}
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -207,7 +207,7 @@ namespace TestClass
 
 ## <mark style="color:red;">Process Injector</mark>
 
-#### open a handle to another process with the same security context (privilege level), create a new remote thread in that process and execute the shellcode in the thread.
+#### Open a handle to another process with the same security context (privilege level), create a new remote thread in that process and execute the shellcode inside the thread.
 
 ### <mark style="color:orange;">C#</mark>
 
@@ -287,7 +287,7 @@ namespace Inject
 
 ## <mark style="color:red;">DLL Injector</mark>&#x20;
 
-#### Using the techniques from process injection, we are able to load an unmanaged DLL into a remote process by resolving the address of `LoadLibraryA` inside the remote process and invoke it while supplying the name of the DLL we want to load.
+#### Using the techniques from process injection,  load an unmanaged DLL into a remote process by resolving the address of `LoadLibraryA` inside the remote process and invoke it while supplying the name of the DLL we want to load.
 
 in this case the dll is downloaded and saved on disk.
 
@@ -394,6 +394,8 @@ Invoke-ReflectivePEInjection -PEBytes $bytes -procid $procid
 ## <mark style="color:red;">Process Hollowing</mark>
 
 A bootstrap application creates a seemingly innocent process in a suspended state. The legitimate image is then unmapped and replaced with the image that is to be hidden. If the preferred image base of the new image does not match that of the old image, the new image must be rebased. Once the new image is loaded in memory the EAX register of the suspended thread is set to the entry point. The process is then resumed and the entry point of the new image is executed.
+
+{% embed url="https://www.ired.team/offensive-security/code-injection-process-injection/process-hollowing-and-pe-image-relocations" %}
 
 {% hint style="info" %}
 Compile the code for a specific architecture.

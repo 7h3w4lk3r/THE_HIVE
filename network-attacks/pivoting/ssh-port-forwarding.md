@@ -1,6 +1,6 @@
 # ⭕ SSH Forwarding
 
-## Local Port Forwarding
+## <mark style="color:red;">Local Port Forwarding</mark>
 
 **Forwarding a port from attackers machine to a port on the compromised machine to access a specific port of a target host in the internal network.**
 
@@ -31,7 +31,7 @@ test the connection:
 nmap  127.0.0.1 -p 445
 ```
 
-## Remote Port Forwarding
+## <mark style="color:red;">Remote Port Forwarding</mark>
 
 #### The reverse of local port forwarding. a port is opened on the compromised remote machine and the traffic sent to that port is forwarded to attackers local port (ssh client).
 
@@ -65,7 +65,7 @@ test from attacker machine:
 nmap -sV 127.0.0.1 -p 2221
 ```
 
-### Secure Remote Port Forwarding
+### <mark style="color:orange;">Secure Remote Port Forwarding</mark>
 
 In situations when you dont trust the middle host (compromised pivot machine) its a huge risk to your security if you use the root account or enter the password in the ssh connection. also if you are running the command in a non-interactive shell you will run into a hurdle .
 
@@ -114,7 +114,7 @@ then we have to add some more ssh options:
 ssh -f -N -R attackerhost:attackerport:middlehost:middleport -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" -i keys/id_rsa user@attackerhost
 ```
 
-## Dynamic Forwarding
+## <mark style="color:red;">Dynamic Forwarding</mark>
 
 #### Allows us to set a local listening port and have it tunnel incoming traffic to any remote destination through the use of a proxy. this way we can use all of the ports from the pivot machine.
 
@@ -160,7 +160,7 @@ proxychains nmap -sT -Pn -n 192.168.1.110  # must use -sT option
 **In a dynamic port forwarding we have to use -sT option with nmap to run a full TCP connect scan. other scan methods dont work since we are using a proxy.**
 {% endhint %}
 
-## Reverse Dynamic Forwarding
+## <mark style="color:red;">Reverse Dynamic Forwarding</mark>
 
 #### as of OpenSSH version 7.6 (Released late 2017) SSH clients may generate dynamic reverse tunnels accessible to the server they connect to. What’s really cool is that you don’t need to update your server to version 7.6 before this trick will work. As long as the client supports it, the client enforces it when it completes the connection.
 
@@ -193,7 +193,7 @@ proxychains nmap -sT -Pn [target local IP]
 SOCKS proxy needs full TCP connection, we cant use other scanning techniques, ICMP can not get through either. use -Pn option.
 {% endhint %}
 
-## SSHuttle
+## <mark style="color:red;">SSHuttle</mark>
 
 ```
 # Transparent proxy over SSH

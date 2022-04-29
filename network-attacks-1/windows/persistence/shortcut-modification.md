@@ -44,7 +44,7 @@ oShellLink.Save
 wscript c:\rto\PERS\01.USER\makelnk.vbs
 ```
 
-this script will take the putty.lnk file (a link to putty executable file) from the desktop and modifies it to change the target path to run another VBA script that will run both the original putty.exe binary and the attacker payload.
+#### this script will take the putty.lnk file (a link to putty executable file) from the desktop and modifies it to change the target path to run another VBA script that will run both the original putty.exe binary and the attacker payload.
 
 ## <mark style="color:red;">Detection</mark>
 

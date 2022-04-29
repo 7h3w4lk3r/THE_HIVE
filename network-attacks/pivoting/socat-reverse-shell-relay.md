@@ -1,6 +1,6 @@
 # ⭕ Socat Reverse Shell Relay
 
-### **Reverse Shell Relay**
+### <mark style="color:orange;">**Reverse Shell Relay**</mark>
 
 Using socat we can create a relay for us to send a reverse shell back to our own attacking machine.
 

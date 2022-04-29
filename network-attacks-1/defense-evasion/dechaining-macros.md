@@ -1,6 +1,6 @@
 # ⭕ Dechaining Macros
 
-Looking at the Parent/Child processes is a good indicator of malicious activity, for example MSWord spawning PowerShell is pretty suspicious. Here, we will show some techniques that can be used to evade these types of analysis.
+#### Looking at the Parent/Child processes is a good indicator of malicious activity, for example MSWord spawning PowerShell is pretty suspicious. Here, we will show some techniques that can be used to evade these types of analysis.
 
 ## <mark style="color:red;">WMI</mark> <a href="#wmi" id="wmi"></a>
 

@@ -1,6 +1,6 @@
-# 🔧 VPN Tunneling
+# ⭕ VPN Tunneling
 
-## Creating New Interface
+## <mark style="color:red;">Creating New Interface</mark>
 
 {% hint style="warning" %}
 You need root in both devices (as you are going to create new interfaces) and the sshd config has to allow root login.
@@ -29,7 +29,7 @@ Set new route on client side:
 route add -net 10.0.0.0/16 gw 1.1.1.1
 ```
 
-## NETSH (Windows)
+## <mark style="color:red;">NETSH (Windows)</mark>
 
 {% hint style="warning" %}
 for this to work, the Windows system must have the IP Helper service running and IPv6 support must be enabled for the interface we want to use. Fortunately, both are on and enabled by default on Windows operating systems.
