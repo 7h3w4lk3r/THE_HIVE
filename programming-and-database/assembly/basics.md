@@ -126,6 +126,21 @@ big and little endians are for storing in RAM, in CPU all addresses are stored a
 
 ![](<../../.gitbook/assets/image (127).png>)
 
+
+
+|        Register       |        Name       |                                                                                        Use                                                                                        |
+| :-------------------: | :---------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|          EAX          |    Accumulator    |                                                      Accumulator for operands and results data, Used in arithmetic operations                                                     |
+|          EBX          |        Base       |                                                                         Pointer to data in the DS segment                                                                         |
+|          ECX          |      Counter      |                                                                Counter for string, loop and shift/rotate operations                                                               |
+|          EDX          |        Data       |                                                           I/O pointer, used in arithmetic operations and I/O operations.                                                          |
+| **Stream Operations** |                   |                                                                                                                                                                                   |
+|          ESI          |    Source Index   |               Pointer to data in the segment pointed to by the DS register; source pointer for string operations, Used as a pointer to a source in stream operations              |
+|          EDI          | Destination Index | Pointer to data (or destination) in the segment pointed to by the ES register; destination pointer for string operations, Used as a pointer to a destination in stream operations |
+|         Stack         |                   |                                                                                                                                                                                   |
+|          ESP          |   Stack pointer   |                          Stack pointer (in the SS segment), Pointer to the top of the stack. As a general rule it should not be used for another purpose.                         |
+|          EBP          |    Base Pointer   |                                               Base Pointer to data on the stack (in the SS segment), point to the base of the stack                                               |
+
 When using data element sizes less than 64-bits (i.e., 32-bit, 16-bit, or 8-bit), the lower portion of the register can be accessed by using a different register name as shown in the table.
 
 For example, when accessing the lower portions of the 64-bit rax register, the layout is as follows:
