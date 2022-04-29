@@ -143,6 +143,8 @@ ld -m elf_i386 app.o
 for the rest of this section we are going to use these commands to compile and run our x86 programs, remember that the syntax is different for x64.
 {% endhint %}
 
+{% embed url="https://filippo.io/linux-syscall-table" %}
+
 ## Comments
 
 in all assemblers the single-line comment sign is a semicolon.
