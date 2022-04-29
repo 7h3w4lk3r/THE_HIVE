@@ -129,7 +129,7 @@ The payload should be placed inside the `TestClass` class and replace the defaul
 
 ![](<../../.gitbook/assets/image (29) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (48) (1) (1).png>)
+![](<../../.gitbook/assets/image (48) (1) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (24).png>)
 

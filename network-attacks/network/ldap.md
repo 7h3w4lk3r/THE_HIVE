@@ -27,7 +27,7 @@ Lightweight Directory Access Protocol (LDAP) is an internet protocol works on TC
 
 Directories are set of object with similar attributes, organised in a logical and hierarchical manner. For example, Telephonic Directories. It is a distributed database application used to manage attributes in a directory.
 
-![](<../../.gitbook/assets/image (45) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (45) (1) (1) (1) (1).png>)
 
 LDAP defines operations for accessing and modifying directory entries such as:
 

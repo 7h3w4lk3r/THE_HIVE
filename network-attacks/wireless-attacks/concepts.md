@@ -85,7 +85,7 @@ An ad-hoc network, also known as an Independent Basic Service Set (IBSS), consis
 
 In ad-hoc mode, the STA taking on the responsibilities of the AP does not relay packets to other nodes like an AP does.&#x20;
 
-![](<../../.gitbook/assets/image (46) (1) (1).png>)
+![](<../../.gitbook/assets/image (46) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Wireless Distribution System</mark>
 
@@ -216,7 +216,7 @@ Wireless probe frames are used to scan for existing access points.
 
 robe requests are sent by wireless stations to determine what APs are within range and what their capabilities are
 
-![](<../../.gitbook/assets/image (48) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (48) (1) (1) (1) (1) (1).png>)
 
 <mark style="color:green;">Probe Response :</mark>&#x20;
 
@@ -272,7 +272,7 @@ ull frames consist only of MAC headers and a FCS. They are used by stations to i
 
 ## <mark style="color:red;">Wireless Connection and Transmission Process</mark>
 
-![](<../../.gitbook/assets/image (49) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (49) (1) (1) (1) (1).png>)
 
 We can separate this process into 3 main parts:
 

@@ -40,7 +40,7 @@ The following command can be used to identify binaries that have capabilities al
 getcap -r / 2>/dev/null
 ```
 
-![](<../../../.gitbook/assets/image (46) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (46) (1) (1) (1) (1).png>)
 
 Whereas the following command can be used to check whether a running process has capabilities assigned:
 

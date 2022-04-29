@@ -149,7 +149,7 @@
     * [Shortcut Modification](network-attacks-1/windows/persistence/shortcut-modification.md)
     * [Startup Folder](network-attacks-1/windows/persistence/startup-folder.md)
     * [RDP backdoors](network-attacks-1/windows/persistence/rdp-backdoors.md)
-    * [🔧 COM Hijacking](network-attacks-1/windows/persistence/com-hijacking.md)
+    * [COM Hijacking](network-attacks-1/windows/persistence/com-hijacking.md)
 * [🔴 Active Directory](network-attacks/active-directory-attacks/README.md)
   * [⭕ Enumeration](network-attacks/active-directory-attacks/domain-enumeration.md)
   * [⭕ Exploitation](network-attacks/active-directory-attacks/exploitation/README.md)

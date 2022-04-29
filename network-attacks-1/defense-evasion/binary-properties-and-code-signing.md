@@ -8,7 +8,7 @@ Most of your legitimate binaries have some sort of properties attached to them. 
 
 But with a freshly compiled binary, we see this:
 
-![](<../../.gitbook/assets/image (45).png>)
+![](<../../.gitbook/assets/image (45) (1).png>)
 
 We see a lot of empty fields which can be flagged as suspicious behaviour. Making our binary have these fields filled out can make our binary look more legit and pass under the radar more. To fill out the empty fields, we can use resource hacker for this. To do this click on the file tab and open our executable that we want to fill up the empty field with:
 
@@ -18,7 +18,7 @@ Then, import the binary you want to clone the module details from by clicking th
 
 ![](<../../.gitbook/assets/image (23).png>)
 
-![](<../../.gitbook/assets/image (20).png>)
+![](<../../.gitbook/assets/image (20) (1).png>)
 
 Then check off the version info box:
 

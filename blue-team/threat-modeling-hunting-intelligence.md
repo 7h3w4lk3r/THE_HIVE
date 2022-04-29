@@ -91,7 +91,7 @@ An open-source risk-centric threat modeling methodology that provides a step-by-
 
 PASTA has seven stages, with each stage acting as building blocks to one another. This approach allows your threat model to be a linear process and leverage existing security testing activities present within your organization, like code review, third party library analysis, static analysis, and threat monitoring for application infrastructure.
 
-![](<../.gitbook/assets/image (48) (1).png>)
+![](<../.gitbook/assets/image (48) (1) (1).png>)
 
 #### <mark style="color:green;">7 steps of PASTA :</mark>
 
@@ -119,7 +119,7 @@ LINDDUN starts with a DFD of the system that defines the system's data flows, da
 
 CVSS consists of three metric groups (Base, Temporal, and Environmental) with a set of metrics in each.
 
-![](<../.gitbook/assets/image (49).png>)
+![](<../.gitbook/assets/image (49) (1).png>)
 
 A CVSS score is derived from values assigned by an analyst for each metric. The metrics are explained extensively in the documentation. The CVSS method is often used in combination with other threat-modeling methods.
 

@@ -30,6 +30,6 @@ Get-ObjectAcl -SamAccountName "Domain Admins" -ResolveGUIDs | ?{$_.IdentityRefer
 
 We can now hop back to the Domain Admins any time we want to:
 
-![](<../../../.gitbook/assets/image (49) (1).png>)
+![](<../../../.gitbook/assets/image (49) (1) (1).png>)
 
 we do not even need to be part of DA group, we still have full access to the DC.

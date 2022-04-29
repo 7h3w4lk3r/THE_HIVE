@@ -366,7 +366,7 @@ rundll32 msi.dll,main
 
 * Combining with Macro
 
-![](<../../.gitbook/assets/image (45) (1).png>)
+![](<../../.gitbook/assets/image (45) (1) (1).png>)
 
 ## <mark style="color:red;">Embedding Executable/Dll in a Macro (executable2vbs)</mark>
 

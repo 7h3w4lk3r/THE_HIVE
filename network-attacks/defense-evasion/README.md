@@ -66,7 +66,7 @@ PsSetLoadImageNotifyRoutine()
 * happen, it will get reported with EventWriteTransfer(), which will get traced down to EtwEventWrite(), and then into NtTraceEvent() which is a kernel syscall
 * Then, the kernel has the event information which it then sends to Eventlog Service which then spits out the logs back into the user
 
-![](<../../.gitbook/assets/image (18) (1).png>)
+![](<../../.gitbook/assets/image (18) (1) (1).png>)
 
 ### <mark style="color:orange;">Userland Hooking</mark>
 
