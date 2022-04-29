@@ -47,7 +47,7 @@ If you are using the docker installer, you might encounter some issues with reve
 
 after opening the link in the browser you see this:
 
-![](<../../.gitbook/assets/image (47).png>)
+![](<../../.gitbook/assets/image (47) (1).png>)
 
 #### there are different tabs in the web console:
 
@@ -60,18 +60,6 @@ after opening the link in the browser you see this:
 * **graph :** a simple graph showing grunts. C2 and listener types as nodes
 * **data :** loots will show up here
 * **users :** red team users connected to this covenant server instance
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

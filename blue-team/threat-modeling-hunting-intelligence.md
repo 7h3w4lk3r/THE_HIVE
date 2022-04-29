@@ -57,7 +57,7 @@ Threat modeling can be applied to a wide range of things, including software, ap
 
 ## <mark style="color:red;">Models</mark>
 
-![](<../.gitbook/assets/image (29).png>)
+![](<../.gitbook/assets/image (29) (1).png>)
 
 ### <mark style="color:orange;">DREAD Model</mark>
 
@@ -91,7 +91,7 @@ An open-source risk-centric threat modeling methodology that provides a step-by-
 
 PASTA has seven stages, with each stage acting as building blocks to one another. This approach allows your threat model to be a linear process and leverage existing security testing activities present within your organization, like code review, third party library analysis, static analysis, and threat monitoring for application infrastructure.
 
-![](<../.gitbook/assets/image (48).png>)
+![](<../.gitbook/assets/image (48) (1).png>)
 
 #### <mark style="color:green;">7 steps of PASTA :</mark>
 

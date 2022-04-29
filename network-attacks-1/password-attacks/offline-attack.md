@@ -216,7 +216,7 @@ Purple Rain attack uses a combination of Prince, a dictionary and random Mutatio
 shuf dict.txt | pp64.bin --pw-min=8 | hashcat -a 0 -m #type -w 4 -O hashes.txt -g 300000
 ```
 
-![](<../../.gitbook/assets/image (34) (1) (1).png>)
+![](<../../.gitbook/assets/image (34) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Hashcat Rules</mark>
 

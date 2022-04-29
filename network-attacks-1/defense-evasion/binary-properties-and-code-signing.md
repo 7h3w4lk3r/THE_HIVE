@@ -12,7 +12,7 @@ But with a freshly compiled binary, we see this:
 
 We see a lot of empty fields which can be flagged as suspicious behaviour. Making our binary have these fields filled out can make our binary look more legit and pass under the radar more. To fill out the empty fields, we can use resource hacker for this. To do this click on the file tab and open our executable that we want to fill up the empty field with:
 
-![](<../../.gitbook/assets/image (47) (1).png>)
+![](<../../.gitbook/assets/image (47) (1) (1).png>)
 
 Then, import the binary you want to clone the module details from by clicking this and then selecting the binary you want to clone:
 
@@ -32,7 +32,7 @@ After, we can then click the save button to save our file.
 
 Let's then check our the properties of our modified PE file:
 
-![](<../../.gitbook/assets/image (22).png>)
+![](<../../.gitbook/assets/image (22) (1).png>)
 
 We have now filled up the binary properties of our executable
 

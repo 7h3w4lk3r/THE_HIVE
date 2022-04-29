@@ -74,7 +74,7 @@ An Extended Service Set (ESS) is a set of 2 or more wireless APs connected to th
 On Linux-type operating systems, acting as a STA is usually called “Managed” mode and when acting as an AP, it is usually referred to as “Master” mode.
 {% endhint %}
 
-![](<../../.gitbook/assets/image (34) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (34) (1) (1) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Ad-Hoc Mode</mark>&#x20;
 
@@ -94,7 +94,7 @@ A Wireless Distribution System (WDS) is similar to a standard DS but is done via
 * Wireless Bridging – Only allows WDS APs to communicate with each other
 * Wireless Repeating – Allows both stations and APs to communicate with each other&#x20;
 
-![](<../../.gitbook/assets/image (47) (1) (1).png>)
+![](<../../.gitbook/assets/image (47) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Monitor Mode</mark>&#x20;
 
@@ -165,7 +165,7 @@ The Frame Check Sequence (FCS) is the Cyclic Redundancy Check (CRC) of the curre
 
 Wireless control frames are short messages that tell devices when to start or stop transmitting and whether a connection failure occurred. The following table can help you remember the different types of control frames:
 
-![](<../../.gitbook/assets/image (29) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (29) (1) (1) (1) (1) (1).png>)
 
 <mark style="color:green;">PS-Poll :</mark>
 
@@ -216,7 +216,7 @@ Wireless probe frames are used to scan for existing access points.
 
 robe requests are sent by wireless stations to determine what APs are within range and what their capabilities are
 
-![](<../../.gitbook/assets/image (48) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (48) (1) (1) (1) (1).png>)
 
 <mark style="color:green;">Probe Response :</mark>&#x20;
 
@@ -250,7 +250,7 @@ A reassociation request has a structure that is nearly identical to the associat
 
 Access points respond to an association request with an Association Response either rejecting or accepting the association request. The association response has the following structure.
 
-![](<../../.gitbook/assets/image (34) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (34) (1) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Disassociation/Deauthentication Frame</mark>
 

@@ -34,4 +34,4 @@ Going to the Logon tab we can see the Run registry key that was added pointing t
 
 Under the Scheduled Task tab I can see the MyTask that points to the empire.exe saved in the root C:\\
 
-![](<../../../.gitbook/assets/image (34).png>)
+![](<../../../.gitbook/assets/image (34) (1).png>)

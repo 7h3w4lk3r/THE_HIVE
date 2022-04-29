@@ -2,7 +2,7 @@
 
 ### <mark style="color:orange;">Centralized Logging</mark>
 
-![](<../../../.gitbook/assets/image (47) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (47) (1) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Important Linux Log Files</mark>
 

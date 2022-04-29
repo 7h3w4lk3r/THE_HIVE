@@ -52,4 +52,4 @@ Since a DHCP server typically provides the default gateway information to client
 
 We will set the start and end IP addresses, the network broadcast address, the network mask (subnet mask), the DNS server, the default gateway (default router) and the IP address of the rogue DHCP server. The following screenshot demonstrates how to set the values for each parameter:
 
-![](<../../../.gitbook/assets/image (22) (1).png>)
+![](<../../../.gitbook/assets/image (22) (1) (1).png>)

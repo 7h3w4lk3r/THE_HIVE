@@ -127,9 +127,9 @@ The payload should be placed inside the `TestClass` class and replace the defaul
 
 #### set the architecture in the new window (same as the payload architecture):
 
-![](<../../.gitbook/assets/image (29) (1).png>)
+![](<../../.gitbook/assets/image (29) (1) (1).png>)
 
-![](<../../.gitbook/assets/image (48) (1).png>)
+![](<../../.gitbook/assets/image (48) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (24).png>)
 
