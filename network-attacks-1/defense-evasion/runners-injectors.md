@@ -14,7 +14,7 @@
 
 ### <mark style="color:orange;">C#</mark>
 
-{% code title="shellcode-runner.cs" %}
+{% code title="shellcode-runner.exe" %}
 ```csharp
 using System;
 using System.Runtime.InteropServices;
@@ -85,7 +85,7 @@ Write a shellcode crypter and pass the shellcode. we chose a substitution key of
 
 ### <mark style="color:orange;">C#</mark>
 
-{% code title="crypter.cs" %}
+{% code title="crypter.exe" %}
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -164,7 +164,7 @@ namespace helper
 ```
 {% endcode %}
 
-{% code title="runner.cs" %}
+{% code title="runner.exe" %}
 ```csharp
 using System;
 using System.Runtime.InteropServices;
@@ -203,15 +203,13 @@ namespace TestClass
 ```
 {% endcode %}
 
-
-
 ## <mark style="color:red;">Process Injector</mark>
 
 #### Open a handle to another process with the same security context (privilege level), create a new remote thread in that process and execute the shellcode inside the thread.
 
 ### <mark style="color:orange;">C#</mark>
 
-{% code title="shellcode-injector.cs" %}
+{% code title="shellcode-injector.exe" %}
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -293,7 +291,7 @@ in this case the dll is downloaded and saved on disk.
 
 ### <mark style="color:orange;">C#</mark>
 
-{% code title="dll-injector.cs" %}
+{% code title="dll-injector.exe" %}
 ```csharp
 using System;
 using System.Diagnostics;
@@ -405,7 +403,7 @@ Remember that you don't want your process to be detected so the target should be
 
 ### <mark style="color:orange;">C#</mark>
 
-{% code title="process-hollowing.cs" %}
+{% code title="process-hollowing.exe" %}
 ```csharp
 using System;
 using System.Collections.Generic;
