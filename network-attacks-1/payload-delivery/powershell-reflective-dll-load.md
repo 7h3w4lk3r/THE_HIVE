@@ -81,3 +81,25 @@ $class = $assem.GetType("ClassLibrary1.Class1")
 $method = $class.GetMethod("runner")
 $method.Invoke(0, $null)
 ```
+
+
+
+## <mark style="color:red;">Mitigation</mark>
+
+* use powershell CLM (Constrained Language Mode)
+
+{% embed url="https://devblogs.microsoft.com/powershell/powershell-constrained-language-mode" %}
+
+{% embed url="https://techgenix.com/constrained-language-mode" %}
+
+{% embed url="https://4sysops.com/archives/mitigating-powershell-risks-with-constrained-language-mode" %}
+
+* Disable Powershell Version 2.0 (doesn't support CLM )
+
+{% embed url="https://windowsloop.com/disable-powershell-v2" %}
+
+{% embed url="https://robwillis.info/2020/01/disabling-powershell-v2-with-group-policy" %}
+
+{% embed url="https://sid-500.com/2017/08/16/monitoring-windows-powershell-enable-module-logging" %}
+
+{% embed url="https://adamtheautomator.com/powershell-logging-2" %}

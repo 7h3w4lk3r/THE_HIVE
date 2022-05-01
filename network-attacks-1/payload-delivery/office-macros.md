@@ -386,3 +386,11 @@ rundll32 msi.dll,main
 {% embed url="https://github.com/infosecn1nja/MaliciousMacroMSBuild" %}
 
 {% embed url="https://github.com/sevagas/macro_pack" %}
+
+## <mark style="color:red;">Mitigation</mark>
+
+* On Windows 10, enable Attack Surface Reduction (ASR) rules to prevent Office applications from creating child processes and from writing potentially malicious executable content to disk.
+* Follow Office macro security best practices suitable for your environment. Disable Office VBA macros from executing.
+* Disable Office add-ins. If they are required, follow best practices for securing them by requiring them to be signed and disabling user notification for allowing add-ins. For some add-ins types (WLL, VBA) additional mitigation is likely required as disabling add-ins in the Office Trust Center does not disable WLL nor does it prevent VBA code from executing.
+
+{% embed url="https://www.wpninjas.ch/2020/01/defense-in-depth-on-an-example-office-macro-protection" %}
