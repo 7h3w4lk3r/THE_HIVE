@@ -136,7 +136,7 @@ Brute force using "AAAA" requests to gather IPv6 of the subdomains.
 dnsdict6 -s -t <domain>
 ```
 
-Bruteforce reverse DNS in using IPv6 addresses
+Bruteforce reverse DNS in usi ng IPv6 addresses
 
 ```
 dnsrevenum6 pri.authdns.ripe.net 2001:67c:2e8::/48 #Will use the dns pri.authdns.ripe.net

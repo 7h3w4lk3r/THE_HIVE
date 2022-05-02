@@ -10,6 +10,8 @@ In OSINT you should **always ask questions like: how, who, when, where and why.*
 
 {% embed url="https://github.com/jivoi/awesome-osint#-geospatial-research-and-mapping-tools" %}
 
+{% embed url="https://s0cm0nkey.gitbook.io/s0cm0nkeys-security-reference-guide/cyber-intelligence/osint" %}
+
 ## <mark style="color:red;">The OSINT Process</mark>
 
 #### OSINT reconnaissance can be further broken down into the following 5 sub-phases:
@@ -52,10 +54,6 @@ In OSINT you should **always ask questions like: how, who, when, where and why.*
 
 ![](../../.gitbook/assets/OSINT-Telephone.png)
 
-## <mark style="color:red;">GEOINT</mark> <a href="#theory" id="theory"></a>
-
-Geospatial intelligence (GEOINT) is intelligence by analyzing geospatial maps and images about the human activity. This part will present some tools to find and analyze geospatial information. These information could be useful during a Red Team to scout the target's location in order to find building entrances, monitored areas, etc.
-
 ## <mark style="color:red;">OSINT Framework</mark>
 
 [the OSINT framework](https://osintframework.com) is a great collection of OSINT resources that you should definitely check them out.
@@ -91,6 +89,27 @@ also named Google dorking, is a hacker technique that uses Google Search and oth
 #### there is an expanding database of these search queries maintained by offensive security folks called the [google hacking database (GHDB) ](https://www.exploit-db.com/google-hacking-database). you can use the site search to find dorks for specific types of targets.
 
 {% embed url="https://pentest-tools.com/information-gathering/google-hacking#" %}
+
+### <mark style="color:orange;">Google Dork Collections</mark>
+
+* [https://github.com/BullsEye0/google\_dork\_list](https://github.com/BullsEye0/google\_dork\_list)
+* [https://github.com/rootac355/SQL-injection-dorks-list](https://github.com/rootac355/SQL-injection-dorks-list)
+* [https://github.com/unexpectedBy/SQLi-Dork-Repository](https://github.com/unexpectedBy/SQLi-Dork-Repository)
+* [https://github.com/thomasdesr/Google-dorks](https://github.com/thomasdesr/Google-dorks)
+* [https://github.com/arimogi/Google-Dorks](https://github.com/arimogi/Google-Dorks)
+* [https://github.com/aleedhillon/7000-Google-Dork-List](https://github.com/aleedhillon/7000-Google-Dork-List)
+* Bug Bounty Dorks
+  * [https://github.com/sushiwushi/bug-bounty-dorks](https://github.com/sushiwushi/bug-bounty-dorks)
+  * [https://github.com/hackingbharat/bug-bounty-dorks-archive/blob/main/bbdorks](https://github.com/hackingbharat/bug-bounty-dorks-archive/blob/main/bbdorks)
+  * [https://github.com/Vinod-1122/bug-bounty-dorks/blob/main/Dorks.txt](https://github.com/Vinod-1122/bug-bounty-dorks/blob/main/Dorks.txt)
+* Backlinks
+  * [https://github.com/alfazzafashion/Backlink-dorks](https://github.com/alfazzafashion/Backlink-dorks)
+  * [https://www.techywebtech.com/2021/08/backlink-dorks.html](https://www.techywebtech.com/2021/08/backlink-dorks.html)
+  * [https://www.blackhatworld.com/seo/get-backlinks-yourself-1150-dorks-for-forum-hunting.380843/](https://www.blackhatworld.com/seo/get-backlinks-yourself-1150-dorks-for-forum-hunting.380843/)
+  * CMS Dorks
+    * Wordpress [https://pastebin.com/A9dsmgHQ](https://pastebin.com/A9dsmgHQ)
+    * Magento [https://pastebin.com/k75Y2QhF](https://pastebin.com/k75Y2QhF)
+    * Joomla [https://pastebin.com/vVQFTzVC](https://pastebin.com/vVQFTzVC)
 
 ### <mark style="color:orange;">Automated Dork Tools</mark>
 
@@ -313,7 +332,7 @@ shodan host [target ip]
 
 shodan will return ports, services and even some possible CVEs ( which are not very reliable ).
 
-#### for the free API keys you cant use the same method to scan a whole net block but with some bash voodoo you can use the free API instead of paid ones to scan the whole /24 net block this way and see if any systems on this net block is exposed :
+#### <mark style="color:green;">for the free API keys you cant use the same method to scan a whole net block but with some bash voodoo you can use the free API instead of paid ones to scan the whole /24 net block this way and see if any systems on this net block is exposed :</mark>
 
 ```
 for host in {1..254}; do shodan host 192.168.1.$host 2>&1 | grep -v "Error" ; done
@@ -599,187 +618,4 @@ for analyzing and finding a person's profile across +800 social media websites
 python3 -m pip install social-analyzer
 
 social-analyzer --username "johndoe" --metadata --extract --mode fast
-```
-
-## <mark style="color:red;">Other Tools</mark>
-
-```
-# Firefox and some plugins
-- Download Star
-- ExifViewer
-- Firefox multiaccount
-- HTTPS Everywhere
-- Image Search Options
-- MJsonViewer
-- Nimbus Screen Capture
-- Resurrect Pages
-- Take Webpage Screenshots Entirely
-- uBlock Origin
-- User-Agent Switcher
-- Video DownloadHelper
-
-# Google Chrome with other plugins
-
-# TOR Browser
-
-# Custom Video Manipulation Utilities
-
-# Custom Video Download Utility
-
-
-# BleachBit
-→ Clean your PC
-
-
-# EmailHarvester
-→ Collect emails using search engines
-
-
-# Exiftool
-→ Extract metadata from images
-
-
-# EyeWitness
-→ Take screenshots from website
-→ Get HTTP headers
-→ Identify some credentials
-→ Basic tool semi passive
-
-
-# Ghiro
-→ Ghiro is a fully automated tool designed to run forensics analysis over a massive amount of images
-→ Just using an user friendly and fancy web application. 
-
-
-# GIMP
-→ Image manipulation tool
-
-
-# Google Earth Pro
-→ Advanced Google Earth
-→ Browse and create maps
-
-
-# HTTrack Cloner
-→ Copy website locally
-→ It downloads website content and rebuild the file structure
-
-
-# InstaLooter
-→ API-less Instagram pictures and videos downloader
-
-
-# KeePassXC
-→ Keepass Cross Platform Community Edition
-
-
-# Kleopatra
-→ Kleopatra is a certificate manager and GUI for GnuPG
-
-
-# Knock Pages
-→ Subdomain bruteforce
-→ Virustotal, wildcard, zone transfer
-→ Using a wordlist
-
-
-# LibreOffice
-→ Known one
-
-
-# LinkedInt
-→ LinkedIn Intelligence
-→ Find emails, companies etc
-
-
-# Metagoofil
-→ Extracting metadata of public documents (pdf,doc,xls,ppt,etc) availables in the target websites
-
-
-# MediaInfo
-→ Complete tool used to get information about local files
-→ Metada etc
-
-
-# Metadata anonymisation Toolkit
-→ Small tool used to anonymise file\'s metadata
-
-
-# PhoneInfoga
-→ Information gathering & OSINT reconnaissance tool for phone numbers
-→ Scan phone numbers using only free resources
-→ The goal is to first gather standard information such as country, area, carrier and line type on any international phone numbers
-→ Then search for footprints on search engines to try to find the VoIP provider or identify the owner
-→ Features
-   ⇒ Check if phone number exists and is possible
-   ⇒ Gather standard informations such as country, line type and carrier
-   ⇒ OSINT footprinting using external APIs, Google Hacking, phone books & search engines
-   ⇒ Check for reputation reports, social media, disposable numbers and more
-   ⇒ Scan several numbers at once
-   ⇒ Use custom formatting for more effective OSINT reconnaissance
-   ⇒ Automatic footprinting on several custom formats
-
-
-# Photon
-→ Photon is a fast OSINT web crawler which can retrieve the following data for a target : 
-→ URLs (in-scope & out-of-scope)
-→ URLs with parameters (example.com/gallery.php?id=2)
-→ Intel (emails, social media accounts, amazon buckets etc.)
-→ Files (pdf, png, xml etc.)
-→ Secret keys (auth/API keys & hashes)
-→ JavaScript files & Endpoints present in them
-→ Strings matching custom regex pattern
-→ Subdomains & DNS related data
-
-
-# ReconDog
-→ Recon Dog is an all in one tool for all your basic information gathering needs.
-→ It uses APIs to gather all the information so your identity is not exposed.
-→ Simple and basic standalone python script
-→ All informations seems to be extracted from API\'s services, so it fully passive
-
-
-# SkipTracer
-→ It uses some basic python webscraping to compile passive information on a target
-→ Included modules will allow queries for the following :
-   ⇒ Phone
-   ⇒ Email
-   ⇒ Screen names
-   ⇒ Real names
-   ⇒ Addresses
-   ⇒ IP
-   ⇒ Hostname
-   ⇒ Breach Credentials
-
-# SocialMapper
-
-# StegoSuite
-→ Free and open source steganography tool written in Java.
-→ With Stegosuite you can easily hide information in image files.
-
-
-# SubBrute
-→ A DNS meta-query spider that enumerates DNS records, and subdomains.         
-→ Subdomain bruteforce
-
-
-# Tinfoleak
-→ The most complete open-source tool for Twitter intelligence analysis
-→ UI tool
-
-
-Twitter Exporter
-→ ???
-
-
-VeraCrypt
-→ Known one, encryption
-
-
-VLC
-→ Known one, video
-
-
-Yubico Utilities
-→ tools for using yubikeys
 ```
