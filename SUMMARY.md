@@ -326,6 +326,7 @@
 * [🔴 Exfiltration / File Transfer](network-attacks/exfiltration-file-transfer/README.md)
   * [⭕ Encode / Decode Files](network-attacks/exfiltration-file-transfer/encode-decode-files.md)
   * [⭕ TCP / UDP](network-attacks/exfiltration-file-transfer/tcp-udp.md)
+  * [⭕ DNS](network-attacks-1/exfiltration-file-transfer/dns.md)
   * [⭕ SSH](network-attacks/exfiltration-file-transfer/ssh.md)
   * [⭕ ICMP](network-attacks/exfiltration-file-transfer/icmp.md)
   * [⭕ SMB](network-attacks/exfiltration-file-transfer/smb.md)
