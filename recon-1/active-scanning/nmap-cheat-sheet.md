@@ -25,7 +25,13 @@ nmap -v -Pn -n -T4 -sT -p- --reason 192.168.1.1
 nmap -v -Pn -n -T4 -sV --version-intensity=5 -sT -p T:ports_found --reason <IP>
 ```
 
-### <mark style="color:orange;">Extracting Live IPs from Nmap Scan</mark>
+### <mark style="color:orange;">Extract Live IPs</mark>
+
+```bash
+nmap -n -sn 192.0.2.0/24 -oG - | awk '/Up$/{print $2}'
+```
+
+### <mark style="color:orange;">Extracting Live IPs with services</mark>
 
 ```bash
 nmap 10.1.1.1 --open -oG scan-results; cat scan-results | grep "/open" | cut -d " " -f 2 > exposed-services-ips
