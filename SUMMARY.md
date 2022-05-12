@@ -307,7 +307,7 @@
 * [🔴 Defense Evasion](network-attacks/defense-evasion/README.md)
   * [⭕ Basic Tricks](defense-evasion/av-evasion/simple-tricks.md)
   * [⭕ Disabling Defenses](network-attacks-1/defense-evasion/disabling-defenses.md)
-  * [⭕ Runners / Injectors](network-attacks-1/defense-evasion/runners-injectors.md)
+  * [⭕ Runners / Injectors / Loaders](network-attacks-1/defense-evasion/runners-injectors-loaders.md)
   * [⭕ Dechaining Macros](network-attacks-1/defense-evasion/dechaining-macros.md)
   * [⭕ Binary Properties & Code Signing](network-attacks-1/defense-evasion/binary-properties-and-code-signing.md)
   * [⭕ AMSI Bypass](defense-evasion/av-evasion/amsi-bypass.md)
