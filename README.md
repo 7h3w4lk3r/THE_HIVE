@@ -2,7 +2,7 @@
 
 ![From resident evil franchise by Capcom](.gitbook/assets/logo.png)
 
-#### <mark style="color:red;">****</mark>[<mark style="color:red;">**Hive**</mark> ](https://7h3w4lk3r.gitbook.io/the-hive/)<mark style="color:red;">**is A place for keeping my hacking and coding notes handy.**</mark>
+#### <mark style="color:red;">****</mark>[<mark style="color:red;">**Hive**</mark> ](https://7h3w4lk3r.gitbook.io/the-hive/)<mark style="color:red;">**is a place for keeping my hacking and coding notes handy.**</mark>
 
 The documents and techniques discussed here are taken from various sources such as blogs, cyber security courses, cheat sheets, books, CTF experience and personal researches. **the soul purpose of this book is to** **make network penetration testing easier, keeping my notes somewhere handy and hopefully, giving back to the community.**
 
