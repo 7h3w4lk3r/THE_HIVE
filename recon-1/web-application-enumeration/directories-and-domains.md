@@ -35,7 +35,7 @@ one of the best tools for discovering sub-directories and metadata search.
 ```
 python3 dirsearch.py -u http://192.168.56.103 -e php,exe.elf.cgi,asp,txt,pdf,png,jpg -r --suppress-empty -t 5 --clean-view -w db/dicc.txt -x 403,404
 
-python3 tools/webapp/dirsearch/dirsearch.py -e php,exe.elf.cgi,asp,txt,pdf,png,jpg -r --suppress-empty -t 5 --clean-view -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt  -x 403,404 -u istt.ir -l istt/osint/subdomains --full-url --random-agents --follow-redirects --simple-report=subdir
+python3 tools/webapp/dirsearch/dirsearch.py -e php,exe.elf.cgi,asp,txt,pdf,png,jpg -r --suppress-empty -t 5 --clean-view -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt  -x 403,404 -u example.com -l output/subdomains --full-url --random-agents --follow-redirects --simple-report=subdir
 ```
 
 ### <mark style="color:orange;">patator</mark>
