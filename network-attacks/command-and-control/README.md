@@ -1,4 +1,4 @@
-# 🔴 Command & Control
+# 🔴 C2 Frameworks
 
 ## <mark style="color:red;">Red Teaming</mark>
 
@@ -21,7 +21,7 @@ It could be broadly divided into these categories.
 In a red team engagement a C2 is the most used tool for collaboration and  simulating a real-world scenario.
 {% endhint %}
 
-## <mark style="color:red;">C2</mark>
+## <mark style="color:red;">Command & Control (C2)</mark>
 
 Although Red Teams use similar offensive security tools to that of penetration testers, there are tools more emphasized by Red Teams, specifically when it comes to command and control. While other security testers may use command and control tools as well, a Red Team’s goals are typically heavily dependent on a solid C2 infrastructure and toolset.
 
@@ -78,3 +78,15 @@ Merlin is a C2 that uses HTTP/1.1, HTTP/2 and HTTP/3 protocols to evade detectio
 Each merlin compilation will generate unique payloads capable of avoiding AV detection from the detection point-of-view, as[ demonstrated in this article](https://resources.infosecinstitute.com/topic/using-merlin-agents-to-evade-detection/). It uses a client-server architecture and provides the most advanced features of red teaming presented on other C2 frameworks in the market. As it is an open-source project, operators can customize Merling agents, their _modus operandi_ and how it is loaded into the memory.
 
 **URL**: [https://github.com/Ne0nd0g/merlin](https://github.com/Ne0nd0g/merlin)
+
+## <mark style="color:red;">Forwarders / Redirectors</mark>
+
+![](<../../.gitbook/assets/image (47).png>)
+
+When creating a command-and-control infrastructure, it is common for the callbacks to not communicate directly to the attacker’s C2 server. Many times, they will go through a compromised webpage, or a fake site used as a redirector.&#x20;
+
+**A redirector is basically a server that will take requests and forward them to another address, such as the real malicious server. This is to hide the underlying attacker address if the C2 traffic is ever discovered.**
+
+Have you ever analyzed a web address that was flagged as malicious, only to see a seemingly benign or a 404-error page? This may indicate that the page is not malicious or no longer existing, but it could also indicate the page is being used as a redirector/proxy.
+
+Apache, Nginx, and other web servers have the ability to proxy/redirect traffic when desired conditions are met. This is useful from an attacking perspective as it can add an extra layer of obfuscation to an analyst observing the traffic.

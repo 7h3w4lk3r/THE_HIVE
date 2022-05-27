@@ -38,7 +38,7 @@ and if the COM object is on a remote machine:
 
 One way to hijack the COM is by modifying the registry key in `HKEY_CUTRRENT_USER.`
 
-![](<../../../.gitbook/assets/image (47).png>)
+![](<../../../.gitbook/assets/image (47) (1).png>)
 
 to find hijackable COM objects we can look in scheduled tasks:
 
