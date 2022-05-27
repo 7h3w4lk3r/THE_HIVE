@@ -4,8 +4,6 @@
 
 ![](<../.gitbook/assets/image (282) (1) (1) (1) (1) (1) (1).png>)
 
-{% embed url="https://www.sans.org/blog/sans-pen-test-cheat-sheet-metasploit" %}
-
 ## <mark style="color:red;">Database</mark>
 
 #### create a new db for a project with postgresql.
