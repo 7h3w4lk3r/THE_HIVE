@@ -8,7 +8,7 @@ net user spotless spotless /add & net localgroup Administrators spotless /add
 
 Hide Newly Created Local administrator
 
-{% hint style="info" %}
+{% hint style="danger" %}
 This will only hide the username from winlogon screen (windows login GUI screen),  but the user can be detected with `net user` command
 {% endhint %}
 

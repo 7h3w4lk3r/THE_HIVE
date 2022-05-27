@@ -85,7 +85,7 @@ An ad-hoc network, also known as an Independent Basic Service Set (IBSS), consis
 
 In ad-hoc mode, the STA taking on the responsibilities of the AP does not relay packets to other nodes like an AP does.&#x20;
 
-![](<../../.gitbook/assets/image (46) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (46) (1) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Wireless Distribution System</mark>
 
