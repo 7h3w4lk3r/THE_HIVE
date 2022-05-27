@@ -34,7 +34,7 @@ Once the above powershell script is executed, an `.LNK` shortcut is created
 
 Let's create a Word document that will contain the malicious shortcut that was created in the previous step:
 
-![](<../../.gitbook/assets/image (50) (1).png>)
+![](<../../.gitbook/assets/image (50) (1) (1).png>)
 
 Let's insert a new object into the document by selecting a `Package`and changing its icon source to a Microsoft Word executable:
 

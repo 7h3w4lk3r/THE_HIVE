@@ -41,6 +41,21 @@ SMB functions as a request-response or client-server protocol. The only time tha
 
 {% embed url="https://www.hackingarticles.in/a-little-guide-to-smb-enumeration" %}
 
+### RPC / NetBios / SMB
+
+```
+rpcinfo -p $TARGET
+nbtscan $TARGET
+
+#list shares
+smbclient -L //$TARGET -U ""
+
+# null session
+rpcclient -U "" $TARGET
+smbclient -L //$TARGET
+enum4linux $TARGET
+```
+
 ### Service Detection
 
 ```

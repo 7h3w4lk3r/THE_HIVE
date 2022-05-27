@@ -8,15 +8,7 @@ description: ( TCP 161 )
 
 [Simple Network Management Protocol](https://datatracker.ietf.org/doc/html/rfc1157/)
 
-SNMP (Simple Network Management Protocol) is an application layer protocol which uses UDP protocol to maintain and manage routers, hubs and switches other network devices on an IP network. SNMP is a very common protocol found enabled on a variety of operating systems like Windows Server, Linux & UNIX servers as well as network devices like routers, switches etc. SNMP enumeration is used to enumerate user accounts, passwords, groups, system names, devices on a target system. SNMP contains two passwords that for configuring and accessing the SNMP agent from the management station. The two SNMP passwords are:
-
-#### 1) Read Community String : Configuring of the device or system can be viewed with help of this password. These strings are public. 2) Read/Write Community String : Configuration on the device can be changed or edited using this password. These strings are private.
-
-When administrators leave the community strings at the default setting, attacker can use these default community strings (passwords) for changing or viewing the configuration of the device or system. Attackers enumerate SNMP to extract information about network resources such as hosts, routers, devices, shares, etc, and network information such as ARP tables, routing tables, device specific, and traffic stastitics.
-
-SNMP uses a disturbed architechture comprising SNMP managers, SNMP agents, and Several related components. Commands associated with SNMP include:
-
-#### 1) GetRequest : Used by the SNMP manager to request information from the SNMP Agent 2) GetNextRequest : Used by the SNMP manager continuosly to retrieve all the data stored in the array or table. 3) GetResponse : Used by the SNMP agent to satisfy a request made by the SNMP manager. 4) SetRequest : used by the SNMP manager to motify the value of a parameter within the SNMP agent’s Management Information Base (MIB). 5) Trap : Used by the SNMP agent to inform the pre-configured SNMP manager of a certain event.
+SNMP (Simple Network Management Protocol) is an application layer protocol which uses UDP protocol to maintain and manage routers, hubs and switches other network devices on an IP network. SNMP is a very common protocol found enabled on a variety of operating systems like Windows Server, Linux & UNIX servers as well as network devices like routers, switches etc.&#x20;
 
 ### MIB
 
@@ -32,7 +24,7 @@ These OIDs are not random addresses, rather they are highly structured and follo
 
 #### 1 . 3 . 6 . 1 . 4 . 1 . 1452 . 1 . 2 . 5 . 1 . 3. 21 . 1 . 4 . 7
 
-```
+```shell
 1 – this is called the ISO and it establishes that this is an OID. This is why all OIDs start with “1”
 
 3 – this is called ORG and it is used to specify the organization that built the device.
@@ -41,7 +33,7 @@ These OIDs are not random addresses, rather they are highly structured and follo
 
 1 – this is the value of the internet to denote that all communications will happen through the Internet.
 
-4 – this value determines that this device is made by a private organization and not a government one.
+4 – this value deetermines that this device is made by a private organization and not a government one.
 
 1 – this value denotes that the device is made by an enterprise or a business entity. 
 
@@ -96,6 +88,36 @@ In versions 1 and 2/2c if you to use a bad community string the server wont resp
 * [ ] Agent discovery
 
 ## SNMP Enumeration
+
+### snmpwalk
+
+```
+# Windows User Accounts
+snmpwalk -c public -v1 $TARGET 1.3.6.1.4.1.77.1.2.25
+
+# Windows Running Programs
+snmpwalk -c public -v1 $TARGET 1.3.6.1.2.1.25.4.2.1.2
+
+# Windows Hostname
+snmpwalk -c public -v1 $TARGET .1.3.6.1.2.1.1.5
+
+# Windows Share Information
+snmpwalk -c public -v1 $TARGET 1.3.6.1.4.1.77.1.2.3.1.1
+
+# Windows Share Information
+snmpwalk -c public -v1 $TARGET 1.3.6.1.4.1.77.1.2.27
+
+# Windows TCP Ports
+snmpwalk -c public -v1 $TARGET4 1.3.6.1.2.1.6.13.1.3
+
+# Software Name
+snmpwalk -c public -v1 $TARGET 1.3.6.1.2.1.25.6.3.1.2
+
+# brute-force community strings
+onesixtyone -i snmp-ips.txt -c community.txt
+
+snmp-check $TARGET
+```
 
 ### nmap & metasploit
 

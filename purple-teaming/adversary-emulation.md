@@ -12,7 +12,7 @@
 
 Prior to the first version of the kill chain described by Lockheed Martin, Dell Secure Works has developed a more detailed version of the kill chain :
 
-![](<../.gitbook/assets/image (50).png>)
+![](<../.gitbook/assets/image (50) (1).png>)
 
 ## <mark style="color:red;">Unified Kill Chain</mark>
 
@@ -88,7 +88,7 @@ Adversary emulation, also commonly referred to as Red Team exercises, is meant t
 
 ### <mark style="color:orange;">Atomic Red Team</mark>
 
-> Atomic Red Team™ is library of tests mapped to the [MITRE ATT\&CK®](https://attack.mitre.org) framework. Security teams can use Atomic Red Team to quickly, portably, and reproducibly test their environments.
+> Atomic Red Team™ is library of tests mapped to the [MITRE ATT\&CK®](https://attack.mitre.org/) framework. Security teams can use Atomic Red Team to quickly, portably, and reproducibly test their environments.
 
 {% embed url="https://github.com/redcanaryco/atomic-red-team" %}
 

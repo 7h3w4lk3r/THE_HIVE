@@ -64,7 +64,7 @@ The easiest way to identify misconfigured capabilities is to use enumeration scr
 
 
 
-Once the capabilities have been assigned, a great resource to find out if they can be vulnerable (if assigned to variables) is through [GTFOBins](http://gtfobins.github.io), as for each applicable binary it has a handy “Capabilities” section which shows how certain capabilities can be exploited to elevate privileges. This [HackTricks](https://book.hacktricks.xyz/linux-unix/privilege-escalation/linux-capabilities) page is also great. Alternatively, googling for the capability and the object it is assigned to normally does the trick.
+Once the capabilities have been assigned, a great resource to find out if they can be vulnerable (if assigned to variables) is through [GTFOBins](http://gtfobins.github.io/), as for each applicable binary it has a handy “Capabilities” section which shows how certain capabilities can be exploited to elevate privileges. This [HackTricks](https://book.hacktricks.xyz/linux-unix/privilege-escalation/linux-capabilities) page is also great. Alternatively, googling for the capability and the object it is assigned to normally does the trick.
 
 ## <mark style="color:red;">**Exploiting CAPs**</mark>
 

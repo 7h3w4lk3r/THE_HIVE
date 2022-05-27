@@ -115,7 +115,7 @@ LINDDUN starts with a DFD of the system that defines the system's data flows, da
 
 ### <mark style="color:orange;">CVSS Model</mark>
 
-[The Common Vulnerability Scoring System (CVSS)](https://www.first.org/cvss/specification-document) captures the principal characteristics of a vulnerability and produces a numerical severity score. CVSS was developed by [NIST](https://www.nist.gov) and is maintained by the [Forum of Incident Response and Security Teams (FIRST)](https://www.first.org) with support and contributions from the [CVSS Special Interest Group](https://www.first.org/cvss/v2/meetings). The CVSS provides users a common and standardized scoring system within different cyber and cyber-physical platforms. A CVSS score can be computed by a calculator that is [available online](https://nvd.nist.gov/vuln-metrics/cvss).
+[The Common Vulnerability Scoring System (CVSS)](https://www.first.org/cvss/specification-document) captures the principal characteristics of a vulnerability and produces a numerical severity score. CVSS was developed by [NIST](https://www.nist.gov/) and is maintained by the [Forum of Incident Response and Security Teams (FIRST)](https://www.first.org/) with support and contributions from the [CVSS Special Interest Group](https://www.first.org/cvss/v2/meetings). The CVSS provides users a common and standardized scoring system within different cyber and cyber-physical platforms. A CVSS score can be computed by a calculator that is [available online](https://nvd.nist.gov/vuln-metrics/cvss).
 
 CVSS consists of three metric groups (Base, Temporal, and Environmental) with a set of metrics in each.
 

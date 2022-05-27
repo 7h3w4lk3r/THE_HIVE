@@ -272,4 +272,4 @@ aircrack-ng [options] <capture file(s)>
 
 options that Aircrack-ng supports:
 
-![](<../../.gitbook/assets/image (50) (1) (1).png>)
+![](<../../.gitbook/assets/image (50) (1) (1) (1).png>)

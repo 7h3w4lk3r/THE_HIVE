@@ -56,7 +56,7 @@ In OSINT you should **always ask questions like: how, who, when, where and why.*
 
 ## <mark style="color:red;">OSINT Framework</mark>
 
-[the OSINT framework](https://osintframework.com) is a great collection of OSINT resources that you should definitely check them out.
+[the OSINT framework](https://osintframework.com/) is a great collection of OSINT resources that you should definitely check them out.
 
 ![](<../../.gitbook/assets/image (1) (1) (1).png>)
 

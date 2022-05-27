@@ -32,6 +32,27 @@ masscan is the fastest host discovery tool available, even faster than nmap.
 nmap 10.1.1.1 --open -oG scan-results; cat scan-results | grep "/open" | cut -d " " -f 2 > exposed-services-ips
 ```
 
+### <mark style="color:orange;">Simple Port Knocking</mark>
+
+```
+for x in 7000 8000 9000; do nmap -Pn –host_timeout 201 –max-retries 0 -p $x 1.1.1.1; done
+```
+
+### <mark style="color:orange;">DNS lookups, Zone Transfers & Brute-Force</mark>
+
+```
+whois domain.com
+dig {a|txt|ns|mx} domain.com
+dig {a|txt|ns|mx} domain.com @ns1.domain.com
+host -t {a|txt|ns|mx} megacorpone.com
+host -a megacorpone.com
+host -l megacorpone.com ns1.megacorpone.com
+dnsrecon -d megacorpone.com -t axfr @ns2.megacorpone.com
+dnsenum domain.com
+nslookup -> set type=any -> ls -d domain.com
+for sub in $(cat subdomains.txt);do host $sub.domain.com|grep "has.address";done
+```
+
 ## <mark style="color:red;">Local Discovery</mark>
 
 ### <mark style="color:orange;">Netdiscover</mark>

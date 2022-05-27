@@ -153,8 +153,8 @@ chmod 644 ~/.ssh/authorized_keys
 
 * [pssh](https://github.com/robinbowes/pssh)
 * [pdsh](https://github.com/grondo/pdsh)
-* [clusterit](http://clusterit.sourceforge.net)
-* [mussh](http://mussh.sourceforge.net)
+* [clusterit](http://clusterit.sourceforge.net/)
+* [mussh](http://mussh.sourceforge.net/)
 * [sshmux](https://github.com/dvopsway/sshmux)
 
 {% embed url="https://www.linux.com/news/parallel-ssh-execution-and-single-shell-control-them-all" %}
