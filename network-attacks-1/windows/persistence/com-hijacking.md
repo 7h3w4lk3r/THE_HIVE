@@ -52,7 +52,7 @@ look for `<ComHandler>` in the output file, this will point to a specific class 
 
 after finding a suitable handler:
 
-![](<../../../.gitbook/assets/image (20).png>)
+![](<../../../.gitbook/assets/image (20) (1).png>)
 
 {% hint style="warning" %}
 #### note that the delay here is 5 minutes.

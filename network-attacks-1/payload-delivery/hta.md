@@ -32,7 +32,7 @@ We will setup our listener and an OutFile to send to our victim
 
 Execute again to create our payload, make sure to add the extension to it or Empire will create a file not functional for our attack.
 
-![](<../../.gitbook/assets/image (10).png>)
+![](<../../.gitbook/assets/image (10) (1).png>)
 
 Once here it's up to creativity on how to send this file I will continue with this just for DEMO purposes.
 

@@ -19,7 +19,7 @@ sudo ./seth.sh <interface> <Attacker-PC> <Victim-PC> <Server>
 sudo ./seth.sh eth1 10.10.10.6 10.10.10.7 10.10.10.10 
 ```
 
-![](<../../.gitbook/assets/image (10) (1).png>)
+![](<../../.gitbook/assets/image (10) (1) (1).png>)
 
 Then on the Victim-PC the victim initiates an RDP session as part of a routine task to the Domain Controller on 10.10.10.10.
 

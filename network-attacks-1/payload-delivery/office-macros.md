@@ -70,7 +70,7 @@ powershell.exe -nop -w hidden -e $encodedCommand
 
 **Reference**
 
-* [https://www.docdroid.net/HlWNL0K/virus-inside-ms-word-doc-pdf#](https://www.docdroid.net/HlWNL0K/virus-inside-ms-word-doc-pdf#)
+* [https://www.docdroid.net/HlWNL0K/virus-inside-ms-word-doc-pdf#](https://www.docdroid.net/HlWNL0K/virus-inside-ms-word-doc-pdf)
 * [Cheatsheet](https://gist.github.com/mgeeky/9dee0ac86c65cdd9cb5a2f64cef51991)
 * [Tactic: Without AutoOpen()](https://infosecwriteups.com/fun-with-creating-a-vbs-payload-to-bypass-endpoint-security-and-other-layers-44afd724de1b)
 
@@ -237,7 +237,7 @@ End Function
 
 Procedures able to automatically run macros :&#x20;
 
-![](<../../.gitbook/assets/image (9) (1).png>)
+![](<../../.gitbook/assets/image (9) (1) (1).png>)
 
 ## <mark style="color:red;">OS-aware Macro</mark>
 

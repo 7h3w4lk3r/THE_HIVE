@@ -12,7 +12,7 @@ To leverage this attack vector:
 
 Open a new MS document and insert a field
 
-![](<../../.gitbook/assets/image (51) (1).png>)
+![](<../../.gitbook/assets/image (51) (1) (1).png>)
 
 It will add an "!Unexpected End of Formula" to the document, we right-click it and "Toggle field codes" :
 

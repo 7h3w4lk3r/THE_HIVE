@@ -20,7 +20,7 @@ Prior to the first version of the kill chain described by Lockheed Martin, Dell 
 
 {% embed url="https://www.unifiedkillchain.com" %}
 
-![](<../.gitbook/assets/image (54).png>)
+![](<../.gitbook/assets/image (54) (1).png>)
 
 #### <mark style="color:green;">The main difference between unified kill chain and cyber kill chain is that the unified kill chain was developed through a hybrid research approach, combining design science with qualitative research methods. this kill chain is a combination of MITRE ATT\&CK framework and Lockheed Martin cyber kill chain.</mark>
 

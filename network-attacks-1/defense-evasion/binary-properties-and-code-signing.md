@@ -4,7 +4,7 @@
 
 Most of your legitimate binaries have some sort of properties attached to them. As we can see with ntdll.dll, we have many properties of this binary which make it seem more legitimate:
 
-![](<../../.gitbook/assets/image (21).png>)
+![](<../../.gitbook/assets/image (21) (1).png>)
 
 But with a freshly compiled binary, we see this:
 
@@ -18,7 +18,7 @@ Then, import the binary you want to clone the module details from by clicking th
 
 ![](<../../.gitbook/assets/image (23).png>)
 
-![](<../../.gitbook/assets/image (20) (1).png>)
+![](<../../.gitbook/assets/image (20) (1) (1).png>)
 
 Then check off the version info box:
 

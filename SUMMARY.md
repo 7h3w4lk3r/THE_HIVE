@@ -372,6 +372,8 @@
   * [⭕ Logging](blue-team/untitled/logging/README.md)
     * [auditd](blue-team/untitled/logging/auditd.md)
   * [⭕ Encryption](hardening-and-monitoring/untitled/encryption.md)
+* [🔴 Security Architecture](blue-team/security-architecture/README.md)
+  * [⭕ Layered Security](blue-team/security-architecture/layered-security.md)
 
 ## 🔷 Purple Teaming
 

@@ -38,7 +38,7 @@ Let's create a Word document that will contain the malicious shortcut that was c
 
 Let's insert a new object into the document by selecting a `Package`and changing its icon source to a Microsoft Word executable:
 
-![](<../../.gitbook/assets/image (21) (1).png>)
+![](<../../.gitbook/assets/image (21) (1) (1).png>)
 
 ![](<../../.gitbook/assets/image (31) (1) (1) (1).png>)
 

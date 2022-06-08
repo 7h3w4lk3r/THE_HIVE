@@ -192,7 +192,7 @@ An RTS frame has a length of 20 bytes:
 
 A CTS frame has the same length (14 bytes) and structure as an ACK frame:
 
-![](<../../.gitbook/assets/image (51) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (51) (1) (1) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Management Frames</mark>
 
@@ -238,7 +238,7 @@ The Status code value will indicate either success (0) or failure (other than 0)
 
 Once a station successfully authenticates to an AP, it needs to perform an association before fully joining the network. An association request frame has the following structure.
 
-![](<../../.gitbook/assets/image (38) (1) (1).png>)
+![](<../../.gitbook/assets/image (38) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Reassociation Request Frame</mark>
 
@@ -254,11 +254,11 @@ Access points respond to an association request with an Association Response eit
 
 ### <mark style="color:orange;">Disassociation/Deauthentication Frame</mark>
 
-![](<../../.gitbook/assets/image (21) (1) (1).png>)
+![](<../../.gitbook/assets/image (21) (1) (1) (1).png>)
 
 The table below outlines different values that can be used for the Reason code in the frame.
 
-![](<../../.gitbook/assets/image (51) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (51) (1) (1) (1) (1).png>)
 
 ### <mark style="color:orange;">Data Frames</mark>
 

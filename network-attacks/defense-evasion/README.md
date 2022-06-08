@@ -31,7 +31,7 @@
 
 ## <mark style="color:red;">EDR Technologies</mark>
 
-![](<../../.gitbook/assets/image (51).png>)
+![](<../../.gitbook/assets/image (51) (1).png>)
 
 ### <mark style="color:orange;">Process Creation</mark>
 
