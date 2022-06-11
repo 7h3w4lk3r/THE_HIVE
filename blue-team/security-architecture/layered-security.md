@@ -47,7 +47,7 @@
 * Use cards that support rolling codes (code change on each use) or challenge-response&#x20;
 * Use protective sleeves if using old RFID cards
 
-## <mark style="color:blue;">Layer 2</mark>
+## <mark style="color:blue;">Layer 2 & 3</mark>
 
 ### <mark style="color:yellow;">Switches</mark>
 
