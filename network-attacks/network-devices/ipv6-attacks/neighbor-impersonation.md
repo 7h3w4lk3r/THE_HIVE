@@ -2,7 +2,7 @@
 
 ## <mark style="color:red;">IPv6 Neighbor Discovery</mark>
 
-While it's true ARP does not exist in the IPv6 protocol stack, IPv6 instead relies on ICMPv6 for many of the same operations carried out via ARP under IPv4. Collectively, these functions make up IPv6's [Neighbor Discovery (ND)](https://packetlife.net/blog/2008/aug/28/ipv6-neighbor-discovery/) protocol, described in [RFC 4861](http://tools.ietf.org/html/rfc4861).
+While it's that true ARP does not exist in the IPv6 protocol stack, IPv6 instead relies on ICMPv6 for many of the same operations carried out via ARP under IPv4. Collectively, these functions make up IPv6's [Neighbor Discovery (ND)](https://packetlife.net/blog/2008/aug/28/ipv6-neighbor-discovery/) protocol, described in [RFC 4861](http://tools.ietf.org/html/rfc4861).
 
 Most similar to typical ARP usage under IPv4 is the ND address resolution function, which is used when a host wants to transmit to an on-link prefix but doesn't yet know the layer two address of the destination host. The sending host multicasts a neighbor solicitation, and the destination host, if reachable, responds with a neighbor advertisement containing its layer two address.
 
