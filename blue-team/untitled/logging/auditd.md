@@ -36,7 +36,7 @@ the rule is only temporary and will disappear when we reboot the machine. To mak
 sudo less /etc/audit/audit.rules
 ```
 
-![](<../../../.gitbook/assets/image (20) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (143).png>)
 
 **-D :** This will cause all rules and watches that are currently in effect to be deleted so that we can start from a clean slate. So, if I were to restart the auditd daemon right now, it would read this audit.rules file, which would delete the rule that I just created.
 

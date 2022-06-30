@@ -52,7 +52,7 @@ connect to server without authentication and use `HELP` and `FEAT` commands to f
 
 some of the most used banners for different versions of FTP.
 
-![](<../../.gitbook/assets/image (36).png>)
+![](<../../.gitbook/assets/image (36) (1).png>)
 
 ## Connecting to Server
 

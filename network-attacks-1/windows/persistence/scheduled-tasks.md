@@ -51,8 +51,8 @@ Microsoft has a Windows internals utility called Autoruns that shows you what pr
 
 Going to the Logon tab we can see the Run registry key that was added pointing to the empire.exe binary as well as the empire.exe binary that was dropped to the Startup folder.
 
-![](<../../../.gitbook/assets/image (42).png>)
+![](<../../../.gitbook/assets/image (157).png>)
 
 Under the Scheduled Task tab I can see the MyTask that points to the empire.exe saved in the root C:\\
 
-![](<../../../.gitbook/assets/image (34) (1).png>)
+![](<../../../.gitbook/assets/image (144).png>)

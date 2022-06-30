@@ -8,7 +8,7 @@
 
 #### A DCShadow attack on Active Directory is an attack designed to change directory objects using malicious replication. During this attack, DCShadow impersonates a Domain Controller using administrative rights and starts a replication process, so that changes made on one Domain Controller are synchronized with other Domain Controllers. DCShadow abuses the Directory Replication Service (DRS) Remote Protocol \[MS-DRSR] and Active Directory Technical specification \[MS-ADTS].
 
-![](<../../../.gitbook/assets/image (19) (1).png>)
+![](<../../../.gitbook/assets/image (68).png>)
 
 ## <mark style="color:red;">Exploitation</mark>
 

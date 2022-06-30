@@ -42,11 +42,11 @@ python3 evil-ssdp.py eth0 --template scanner
 
 if the user clicks on the scanner icon in windows explorer > networks, the default browser will open up a web page and ask for credentials in order to connect to the device:
 
-![](<../../.gitbook/assets/image (33) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (205).png>)
 
 if the user enters the credentials, EvilSSDP will grab and show them
 
-![](<../../.gitbook/assets/image (15) (1) (1).png>)
+![](<../../.gitbook/assets/image (118).png>)
 
 ## <mark style="color:red;">Other templates</mark>
 
@@ -64,6 +64,6 @@ python3 evil_ssdp.py eth0 -t office365
 python3 evil_ssdp.py eth0 -t bitcoin -b
 ```
 
-![](<../../.gitbook/assets/image (7) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (38).png>)
 
 check the repository for other available templates or use your own template and xml description file.

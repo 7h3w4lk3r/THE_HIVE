@@ -12,11 +12,11 @@ To leverage this attack vector:
 
 Open a new MS document and insert a field
 
-![](<../../.gitbook/assets/image (51) (1) (1).png>)
+![](<../../.gitbook/assets/image (304).png>)
 
 It will add an "!Unexpected End of Formula" to the document, we right-click it and "Toggle field codes" :
 
-![](<../../.gitbook/assets/image (33) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (186).png>)
 
 We then replace the = \* MERGEFORMAT with the payload: 1 { DDEAUTO "C:\Programs\Microsoft\Office\MSWord.exe\\..\\..\\..\windows\system32\WindowsPowershell\v1.0\powershell.exe start calc # " "required"}​ Copied! If we save the document, reopen our document and accept the 2 prompts, calculator will popup.
 
@@ -31,7 +31,7 @@ This attack has been tested on the latest Windows10 LTSC edition with Microsoft 
 
 Warning presented to the user who opens the worksheet:
 
-![](<../../.gitbook/assets/image (2) (1).png>)
+![](<../../.gitbook/assets/image (5).png>)
 
 ## <mark style="color:red;">Exploitation</mark>
 
@@ -57,5 +57,5 @@ And inject the command to Microsoft Excel function:
 
 After the user skips the warning we get a meterpreter shell:
 
-![](<../../.gitbook/assets/image (8) (1) (1).png>)
+![](<../../.gitbook/assets/image (25).png>)
 

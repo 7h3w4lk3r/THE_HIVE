@@ -16,7 +16,7 @@ There are four places you can abuse the powershell profile, depending on the pri
 $PROFILE | select *
 ```
 
-![](<../../../.gitbook/assets/image (52).png>)
+![](<../../../.gitbook/assets/image (302).png>)
 
 add the code to a `$profile` variable (that expands to the current user's profile file) that will get executed the next time the compromised user launches a powershell console:
 

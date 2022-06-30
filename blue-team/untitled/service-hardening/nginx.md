@@ -65,7 +65,7 @@ If no value is specified, the header will be displayed empty. We can also create
 
 To completely disable the server header, find server\_token in the Nginx configuration file and set it to server\_tokens off (by removing # in the _**nginx.conf**_ file).
 
-![](<../../../.gitbook/assets/image (38) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (221).png>)
 
 ## <mark style="color:red;">Control Resources and Limits</mark>&#x20;
 

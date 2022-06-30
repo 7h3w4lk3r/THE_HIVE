@@ -173,7 +173,7 @@ Host behind.bar
 
 `ProxyCommand` directs ssh how to connect to `behind.bar`: connect to `bar` (previously defined) and ~~use netcat to~~ connect to the port that ssh would normally connect to. ssh’s `-W` flag intelligently forwards traffic to the interpolated %h (hostname) and %p (port) variable placeholders. The following diagram demonstrates.
 
-![](<../.gitbook/assets/image (291).png>)
+![](<../.gitbook/assets/image (291) (1).png>)
 
 you can essentially treat the NAT-ed host as if there were no intermediate hosts between the ssh client and daemon.
 

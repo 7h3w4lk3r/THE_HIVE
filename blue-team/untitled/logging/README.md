@@ -2,11 +2,11 @@
 
 ### <mark style="color:orange;">Centralized Logging</mark>
 
-![](<../../../.gitbook/assets/image (47) (1) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (289).png>)
 
 ### <mark style="color:orange;">Important Linux Log Files</mark>
 
-![](<../../../.gitbook/assets/image (10) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (63).png>)
 
 ## <mark style="color:red;">journalctl</mark>
 
@@ -192,17 +192,17 @@ log files are stored at `/var/log/syslog` .
 
 config file is at `/etc/rsyslog.conf` .
 
-![](<../../../.gitbook/assets/image (45) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (248).png>)
 
 
 
-![](<../../../.gitbook/assets/image (17) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (137).png>)
 
 
 
-![](<../../../.gitbook/assets/image (13) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (97).png>)
 
-![](<../../../.gitbook/assets/image (49) (1) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (314).png>)
 
 Syslog generally will log all messages of the priority you specify plus all messages of higher priority levels. However, some newer Syslog agents may allow you to specify facility/priority pairs like "authpriv.=info" which mean "log authpriv.info messages only" (though this is not standard behavior for traditional Unix Syslog implementations).
 

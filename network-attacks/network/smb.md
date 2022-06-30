@@ -4,7 +4,7 @@ description: ( TCP 445,139 )
 
 # ⭕ SMB
 
-## ![](broken-reference):information\_source: Introduction
+## :information\_source: Introduction
 
 #### [Server Message Block](https://datatracker.ietf.org/doc/html/rfc5716)
 
@@ -36,6 +36,21 @@ SMB functions as a request-response or client-server protocol. The only time tha
 * [ ] Check for UNC path access in Windows
 * [ ] Try to mount and access files in shares
 * [ ] Check for CVEs
+
+## Quick Check
+
+```
+rpcinfo -p $TARGET
+nbtscan $TARGET
+
+#list shares
+smbclient -L //$TARGET -U ""
+
+# null session
+rpcclient -U "" $TARGET
+smbclient -L //$TARGET
+enum4linux $TARGET
+```
 
 ## Enumeration
 
@@ -125,7 +140,7 @@ Samba, a Linux-based implementation of the SMB/CIFS protocols, provides print an
 
 Samba can be found listening on the usual “NetBIOS” ports:
 
-![](<../../.gitbook/assets/image (41).png>)
+![](<../../.gitbook/assets/image (41) (1).png>)
 
 ### fix smbclient protocol negotiation failed error
 
@@ -444,7 +459,7 @@ Null sessions are remotely exploitable; this means that attackers can use their 
 
 In Windows, the most common command to use when enumerating Windows shares is nbtstat. Nbtstat is a Windows command line tool that can display information about a target. You can check how to use it by passing it the /? parameter The most common use of nbtstat is "nbtstat -A \[IP]" that displays information about a target
 
-![](<../../.gitbook/assets/image (42) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (42) (1).png>)
 
 #### the first line tells us the name of the machine \[OVERLORD] the record type 00 tells us that OVERLORD is a workstation. the type UNIQUE tells us that this computer must have only one IP address assigned. second line contains the workgroup or the domain the computer is joined to. type 20 record means that the file sharing service is up and running on the machine.
 
@@ -454,7 +469,7 @@ In Windows, the most common command to use when enumerating Windows shares is nb
 NET VIEW [target ip]
 ```
 
-![](<../../.gitbook/assets/image (39).png>)
+![](<../../.gitbook/assets/image (39) (1).png>)
 
 This machine is sharing a directory; the share name is shares You can also perform shares enumeration from a Linux machine. You need to use the tools provided by the Samba suite. Samba tools are already installed in Kali Linux, but you can install them in nearly every Linux distribution. To perform the same operations of nbtstat, you can use nmblookup with the same command line switch:
 
@@ -462,7 +477,7 @@ This machine is sharing a directory; the share name is shares You can also perfo
 nmblookup -A [target ip ]
 ```
 
-![](<../../.gitbook/assets/image (38) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (38) (1).png>)
 
 ## Checking for Null Sessions
 

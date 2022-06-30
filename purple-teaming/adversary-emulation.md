@@ -6,13 +6,13 @@
 
 {% embed url="https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html" %}
 
-![](<../.gitbook/assets/image (53) (1).png>)
+![](<../.gitbook/assets/image (307).png>)
 
 ## <mark style="color:red;">Cyber Kill Chain (Dell Secure Works)</mark>
 
 Prior to the first version of the kill chain described by Lockheed Martin, Dell Secure Works has developed a more detailed version of the kill chain :
 
-![](<../.gitbook/assets/image (50) (1).png>)
+![](<../.gitbook/assets/image (239).png>)
 
 ## <mark style="color:red;">Unified Kill Chain</mark>
 
@@ -20,7 +20,7 @@ Prior to the first version of the kill chain described by Lockheed Martin, Dell 
 
 {% embed url="https://www.unifiedkillchain.com" %}
 
-![](<../.gitbook/assets/image (54) (1).png>)
+![](<../.gitbook/assets/image (311).png>)
 
 #### <mark style="color:green;">The main difference between unified kill chain and cyber kill chain is that the unified kill chain was developed through a hybrid research approach, combining design science with qualitative research methods. this kill chain is a combination of MITRE ATT\&CK framework and Lockheed Martin cyber kill chain.</mark>
 
@@ -34,7 +34,7 @@ Prior to the first version of the kill chain described by Lockheed Martin, Dell 
 
 #### <mark style="color:green;">ATT\&CK can help blue team operators detect, mitigate and respond to adversary threats and APT groups. it also aides the incident response team to detect and stop the threat actor by analyzing their behavior based on known tactics, techniques and procedures (ATT\&CK ID).</mark>
 
-![](<../.gitbook/assets/image (56).png>)
+![](<../.gitbook/assets/image (320).png>)
 
 ## <mark style="color:red;">TTPs</mark>
 

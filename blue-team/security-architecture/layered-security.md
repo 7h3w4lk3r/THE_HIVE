@@ -133,7 +133,7 @@
 
 ### <mark style="color:red;">Application Proxy</mark>
 
-![](<../../.gitbook/assets/image (10).png>)
+![](<../../.gitbook/assets/image (28).png>)
 
 #### <mark style="color:orange;">Forward Proxy</mark> : remote access through proxy, hides the identity of client.
 
@@ -225,7 +225,7 @@ In case of having multiple systems/servers in the DMZ, its highly recommended to
 In DMZ, segmentation is done using VLANs, VRFs or physical separation.&#x20;
 {% endhint %}
 
-![](<../../.gitbook/assets/image (20).png>)
+![](<../../.gitbook/assets/image (60).png>)
 
 {% embed url="https://www.networkdefenseblog.com/post/design-scenario-2-dmz-design" %}
 
@@ -237,7 +237,7 @@ In case of using Active Directory connected servers in the DMZ (such as a public
 #### Services Like LDAP and SMB network shares shouldn't be visible from the DMZ point of view. for better security and easier management, use deferent domains for public-facing and internal use.
 {% endhint %}
 
-![](<../../.gitbook/assets/image (51).png>)
+![](<../../.gitbook/assets/image (264).png>)
 
 ## <mark style="color:red;">IDS vs IPS Design</mark>
 
@@ -245,4 +245,4 @@ In case of using Active Directory connected servers in the DMZ (such as a public
 
 #### IDS should be implemented out-of-band with a network tap or port mirroring to prevent speed drop.
 
-![](<../../.gitbook/assets/image (9).png>)
+![](<../../.gitbook/assets/image (20).png>)

@@ -1,4 +1,4 @@
-# 🔧 Covenant
+# ⭕ Covenant
 
 ## <mark style="color:red;">Intro</mark>
 
@@ -47,7 +47,7 @@ If you are using the docker installer, you might encounter some issues with reve
 
 after opening the link in the browser you see this:
 
-![](<../../.gitbook/assets/image (47) (1) (1).png>)
+![](<../../.gitbook/assets/image (200).png>)
 
 #### there are different tabs in the web console:
 

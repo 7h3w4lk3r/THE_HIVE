@@ -6,7 +6,7 @@ the access point that sends out the radio frequency (RF) signal is known as the 
 
 The following table lists the main 802.11 protocols along with some of their properties:
 
-![](<../../.gitbook/assets/image (24) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (170).png>)
 
 These standards are generally backwardly compatible, so that a wireless n adapter will also be able to pick up g and b signals. We will focus upon the most widely used of these standards— b, g, and n.
 
@@ -22,7 +22,7 @@ The IEEE 802.11b amendment adds Complementary Code Keying (CCK) coding to the st
 
 The following table shows the relationship between each channel number and its corresponding frequency:
 
-![](<../../.gitbook/assets/image (14) (1) (1).png>)
+![](<../../.gitbook/assets/image (94).png>)
 
 A quick calculation will show that it’s only possible to have 3 non-overlapping channels and channel availability is dictated by the local standards of each country or region. For example:
 
@@ -74,7 +74,7 @@ An Extended Service Set (ESS) is a set of 2 or more wireless APs connected to th
 On Linux-type operating systems, acting as a STA is usually called “Managed” mode and when acting as an AP, it is usually referred to as “Master” mode.
 {% endhint %}
 
-![](<../../.gitbook/assets/image (34) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (214).png>)
 
 ### <mark style="color:orange;">Ad-Hoc Mode</mark>&#x20;
 
@@ -85,7 +85,7 @@ An ad-hoc network, also known as an Independent Basic Service Set (IBSS), consis
 
 In ad-hoc mode, the STA taking on the responsibilities of the AP does not relay packets to other nodes like an AP does.&#x20;
 
-![](<../../.gitbook/assets/image (46) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (266).png>)
 
 ### <mark style="color:orange;">Wireless Distribution System</mark>
 
@@ -94,7 +94,7 @@ A Wireless Distribution System (WDS) is similar to a standard DS but is done via
 * Wireless Bridging – Only allows WDS APs to communicate with each other
 * Wireless Repeating – Allows both stations and APs to communicate with each other&#x20;
 
-![](<../../.gitbook/assets/image (47) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (273).png>)
 
 ### <mark style="color:orange;">Monitor Mode</mark>&#x20;
 
@@ -106,7 +106,7 @@ In master mode, a wireless card acts as if it were an access point. In many case
 
 ## <mark style="color:red;">802.11 MAC Frame</mark>
 
-![](<../../.gitbook/assets/image (11) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (49).png>)
 
 ### <mark style="color:orange;">Header</mark>
 
@@ -165,7 +165,7 @@ The Frame Check Sequence (FCS) is the Cyclic Redundancy Check (CRC) of the curre
 
 Wireless control frames are short messages that tell devices when to start or stop transmitting and whether a connection failure occurred. The following table can help you remember the different types of control frames:
 
-![](<../../.gitbook/assets/image (29) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (196).png>)
 
 <mark style="color:green;">PS-Poll :</mark>
 
@@ -175,7 +175,7 @@ Wireless adapters can be placed in power-saving mode (nearly off) to increase ba
 
 RTS/CTS is a supplement to the CSMA/CA mechanism that helps in reducing collisions. It adds overhead to the wireless communication, as additional packets have to be added to the beginning of the communication.
 
-![](<../../.gitbook/assets/image (15) (1).png>)
+![](<../../.gitbook/assets/image (101).png>)
 
 we assume that Node 1 wants to communicate with Node 2. Node 2 can be either an AP or a STA.
 
@@ -188,23 +188,23 @@ we assume that Node 1 wants to communicate with Node 2. Node 2 can be either an 
 
 An RTS frame has a length of 20 bytes:
 
-![](<../../.gitbook/assets/image (12) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (66).png>)
 
 A CTS frame has the same length (14 bytes) and structure as an ACK frame:
 
-![](<../../.gitbook/assets/image (51) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (319).png>)
 
 ### <mark style="color:orange;">Management Frames</mark>
 
 Management frames are used to negotiate and control the relationship between access points and stations. The following table outlines the different types of wireless management frames.
 
-![](<../../.gitbook/assets/image (5) (1) (1).png>)
+![](<../../.gitbook/assets/image (16).png>)
 
 ### <mark style="color:orange;">Beacon Frames</mark>
 
 Beacon frames are the most common packets as they are sent at a rate of approximately 10 times per second. Beacons are broadcast by the AP to keep the network synchronized.
 
-![](<../../.gitbook/assets/image (50) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (315).png>)
 
 The beacons contain useful information about the network such as the network name (unless SSID broadcast is disabled), the capabilities of the AP, the data rates available, etc. Beacons are typically sent every 102.4ms at a rate of 1 Mbit for 802.11b and 2 Mbit for 802.11a or g. This value can be changed.
 
@@ -216,19 +216,19 @@ Wireless probe frames are used to scan for existing access points.
 
 robe requests are sent by wireless stations to determine what APs are within range and what their capabilities are
 
-![](<../../.gitbook/assets/image (48) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (274).png>)
 
 <mark style="color:green;">Probe Response :</mark>&#x20;
 
 A probe response is only sent if the rate and ESSID values are the same as the ones that are supported by the node. The node that answers the request is the last node that sent out a beacon. A node can be an AP if the network is in infrastructure mode or a station if it is in ad-hoc (IBSS) mode.
 
-![](<../../.gitbook/assets/image (13) (1) (1).png>)
+![](<../../.gitbook/assets/image (69).png>)
 
 ### <mark style="color:orange;">Authentication Frames</mark>
 
 Within an authentication frame, the Authentication Algorithm identifies the type of authentication used. A value of “0” is used to indicate Open System authentication and a value of “1” is used for Shared Key authentication.
 
-![](<../../.gitbook/assets/image (4) (1).png>)
+![](<../../.gitbook/assets/image (9).png>)
 
 The authentication process consists of several authentication frames (the exact number of frames exchanged can vary). The Authentication Transaction Sequence Number keeps track of the current state of the authentication process and can take values from 1 to 65535. The challenge text will only be present on shared authentication systems.
 
@@ -238,33 +238,33 @@ The Status code value will indicate either success (0) or failure (other than 0)
 
 Once a station successfully authenticates to an AP, it needs to perform an association before fully joining the network. An association request frame has the following structure.
 
-![](<../../.gitbook/assets/image (38) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (220).png>)
 
 ### <mark style="color:orange;">Reassociation Request Frame</mark>
 
 A reassociation request has a structure that is nearly identical to the association request except that it also has a Source Address field.
 
-![](<../../.gitbook/assets/image (50) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (309).png>)
 
 ### <mark style="color:orange;">Association Response Frame</mark>
 
 Access points respond to an association request with an Association Response either rejecting or accepting the association request. The association response has the following structure.
 
-![](<../../.gitbook/assets/image (34) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (206).png>)
 
 ### <mark style="color:orange;">Disassociation/Deauthentication Frame</mark>
 
-![](<../../.gitbook/assets/image (21) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (163).png>)
 
 The table below outlines different values that can be used for the Reason code in the frame.
 
-![](<../../.gitbook/assets/image (51) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (313).png>)
 
 ### <mark style="color:orange;">Data Frames</mark>
 
 The purpose of a data frame is to transfer data from an upper layer of a station to another wireless or wired station on the network. there are a number of different types of data frames. The table below will help you in remembering them.
 
-![](<../../.gitbook/assets/image (53) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (321).png>)
 
 ### <mark style="color:orange;">Null Frame</mark>
 
@@ -272,7 +272,7 @@ ull frames consist only of MAC headers and a FCS. They are used by stations to i
 
 ## <mark style="color:red;">Wireless Connection and Transmission Process</mark>
 
-![](<../../.gitbook/assets/image (49) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (281).png>)
 
 We can separate this process into 3 main parts:
 

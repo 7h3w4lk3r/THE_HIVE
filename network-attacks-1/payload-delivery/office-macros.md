@@ -15,19 +15,19 @@ Private Sub Document_Open()
 End Sub
 ```
 
-![](<../../.gitbook/assets/image (14).png>)
+![](<../../.gitbook/assets/image (44).png>)
 
 ALT+F11 to switch back to the document editing mode and add a flair of social engineering like so:
 
-![](<../../.gitbook/assets/image (24) (1) (1).png>)
+![](<../../.gitbook/assets/image (127).png>)
 
 Save the file as a macro enabled document, for example a Doc3.dotm:
 
-![](<../../.gitbook/assets/image (19) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (81).png>)
 
 Victim launching the Doc3.dotm:
 
-![](<../../.gitbook/assets/image (13).png>)
+![](<../../.gitbook/assets/image (42).png>)
 
 a message box will appear.
 
@@ -109,7 +109,7 @@ DOCX files referencing a template that includes macros can "execute" macros as w
 
 **2]** Create a .DOCX file from Word default templates -> Rename as .zip -> Extract .zip -> Modify `word\_rels\settings.xml.rels`
 
-![](<../../.gitbook/assets/image (33) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (148).png>)
 
 **3]** Save file → Select all unzipped files and zip → Change extension to .docx
 
@@ -237,7 +237,7 @@ End Function
 
 Procedures able to automatically run macros :&#x20;
 
-![](<../../.gitbook/assets/image (9) (1) (1).png>)
+![](<../../.gitbook/assets/image (27).png>)
 
 ## <mark style="color:red;">OS-aware Macro</mark>
 
@@ -366,7 +366,7 @@ rundll32 msi.dll,main
 
 * Combining with Macro
 
-![](<../../.gitbook/assets/image (45) (1) (1).png>)
+![](<../../.gitbook/assets/image (208).png>)
 
 ## <mark style="color:red;">Embedding Executable/Dll in a Macro (executable2vbs)</mark>
 
@@ -375,7 +375,7 @@ rundll32 msi.dll,main
 * [Didier Steven's file2fbsscript python script](https://didierstevens.com/files/software/file2vbscript\_v0\_3.zip)
 * On-disk footprint is high. Use an evasing executable/DLL.
 
-![](<../../.gitbook/assets/image (17) (1) (1).png>)
+![](<../../.gitbook/assets/image (58).png>)
 
 ## <mark style="color:red;">Other Tools</mark>
 

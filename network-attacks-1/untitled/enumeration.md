@@ -10,29 +10,24 @@ description: >-
 
 ### &#x20;<mark style="color:orange;">distribution type and version</mark>
 
-#### `cat /etc/issue`
-
-#### &#x20;`cat /etc/*-release`
-
-#### &#x20;`cat /etc/lsb-release`&#x20;
-
-#### &#x20;`cat /etc/redhat-release`
+```
+cat /etc/issue
+ cat /etc/*-release
+ cat /etc/lsb-release 
+ cat /etc/redhat-release
+```
 
 ### <mark style="color:orange;">kernel version</mark>
 
-#### `cat /proc/version`
-
-#### &#x20;`uname -a`&#x20;
-
-#### `uname -mrs`
-
-#### &#x20;`cat /proc/$$/status | grep "[UG]id"`
-
-#### &#x20;`rpm -q kernel`&#x20;
-
-#### `dmesg | grep Linux`&#x20;
-
-#### `ls /boot | grep vmlinuz-`
+```
+cat /proc/version
+ uname -a 
+uname -mrs
+ cat /proc/$$/status | grep "[UG]id"
+ rpm -q kernel 
+dmesg | grep Linux 
+ls /boot | grep vmlinuz-
+```
 
 ### <mark style="color:orange;">places to find kernel exploits:</mark>
 
@@ -43,7 +38,9 @@ description: >-
 
 #### To extract all the vulnerable kernel versions from that web you can do:
 
-`curl https://raw.githubusercontent.com/lucyoa/kernel-exploits/master/README.md 2>/dev/null | grep "Kernels: " | cut -d ":" -f 2 | cut -d "<" -f 1 | tr -d "," | tr ' ' '\n' | grep -v "^\d\.\d$" | sort -u -r | tr '\n' ' '`
+```
+curl https://raw.githubusercontent.com/lucyoa/kernel-exploits/master/README.md 2>/dev/null | grep "Kernels: " | cut -d ":" -f 2 | cut -d "<" -f 1 | tr -d "," | tr ' ' '\n' | grep -v "^\d\.\d$" | sort -u -r | tr '\n' ' '
+```
 
 {% hint style="warning" %}
 `This technique is for kernels up to 3.9.6 and is not reliable for later versions of Linux kernel.`
@@ -71,19 +68,15 @@ Some Linux versions were affected by a bug that allow users with **UID > INT\_MA
 
 #### requirements:
 
-#### `$ sudo whatever`&#x20;
-
-#### `[sudo] password for user:` `# Press+c since you don't have the password.`&#x20;
-
-#### `# This creates an invalid sudo tokens.`&#x20;
-
-#### `$ sh exploit.sh` `.... wait 1 seconds`&#x20;
-
-#### `$ sudo -i # no password required :)`&#x20;
-
-#### `# id`
-
-#### &#x20;`uid=0(root) gid=0(root) groups=0(root)`
+```
+$ sudo whatever 
+[sudo] password for user: # Press+c since you don't have the password. 
+# This creates an invalid sudo tokens. 
+$ sh exploit.sh .... wait 1 seconds 
+$ sudo -i # no password required :) 
+# id
+ uid=0(root) gid=0(root) groups=0(root)
+```
 
 #### for more methods related to sudo refer to [sudo abuse](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/untitled/privilege-escalation/sudo-abuse) section.
 
@@ -91,75 +84,80 @@ Some Linux versions were affected by a bug that allow users with **UID > INT\_MA
 
 see [environment variables section](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/untitled/privilege-escalation/environment-variables) for methods
 
-#### `cat /etc/profile`&#x20;
+```
+cat /etc/profile 
+cat /home/*/.bashrc | grep alias | grep -v "#"
+cat /root/.bashrc | grep alias | grep -v "#" 
+cat ~/.bash_profile
+cat ~/.bashrc cat ~/.bash_logout 
+env 
+set
+```
 
-#### `cat /home/*/.bashrc | grep alias | grep -v "#"`
+### <mark style="color:orange;">Reset Root Password</mark>
 
-#### &#x20;`cat /root/.bashrc | grep alias | grep -v "#"`&#x20;
-
-#### `cat ~/.bash_profile`
-
-#### &#x20;`cat ~/.bashrc` `cat ~/.bash_logout`&#x20;
-
-#### `env`&#x20;
-
-#### `set`
+```
+echo "root:spotless" | chpasswd
+```
 
 ### <mark style="color:orange;">in-memory password</mark>
 
-#### `strings /dev/mem -n10 | grep -i PASS`
+```
+strings /dev/mem -n10 | grep -i PASS
+```
 
 ### <mark style="color:orange;">driver info</mark>
 
-#### `lsmod` `/sbin/modinfo [lib]` `ls /dev 2>/dev/null | grep -i "sd"` `cat /etc/fstab 2>/dev/null | grep -v "^#" | grep -Pv "\W*\#" 2>/dev/null` \`\` `#Check if credentials in fstab` `grep -E "(user|username|login|pass|password|pw|credentials)[=:]" /etc/fstab /etc/mtab 2>/dev/null`
+```
+lsmod /sbin/modinfo [lib] ls /dev 2>/dev/null | grep -i "sd" cat /etc/fstab 2>/dev/null | grep -v "^#" | grep -Pv "\W*\#" 2>/dev/null `` #Check if credentials in fstab grep -E "(user|username|login|pass|password|pw|credentials)[=:]" /etc/fstab /etc/mtab 2>/dev/null
+```
 
 ### <mark style="color:orange;">available shells</mark>
 
-#### `cat /etc/shells |grep "bin"|cut -d "/" -f3 2>/dev/null`
+```
+cat /etc/shells |grep "bin"|cut -d "/" -f3 2>/dev/null
+```
 
 ### <mark style="color:orange;">programming languages</mark>
 
-#### ``progr_dev=( "which perl" "which gcc" "which g++" "which python" "which php" "which cc" "which go" "which node") ;for programming_lang in "${progr_dev[@]}"; do pss=`$programming_lang |cut -d"/" -f4` ;if [ "$pss" ]; then echo -e "$pss" ;fi done``
+```
+progr_dev=( "which perl" "which gcc" "which g++" "which python" "which php" "which cc" "which go" "which node") ;for programming_lang in "${progr_dev[@]}"; do pss=`$programming_lang |cut -d"/" -f4` ;if [ "$pss" ]; then echo -e "$pss" ;fi done
+```
 
 ### <mark style="color:orange;">check emails</mark>
 
-#### `mail && ls -alh /var/mail/`
+```
+mail && ls -alh /var/mail/
+```
 
 ### <mark style="color:orange;">printers</mark>
 
-#### `lpstat -a`
+```
+lpstat -a
+```
 
 ### <mark style="color:orange;">network connections/hosts</mark>
 
-#### `lsof -i`&#x20;
-
-#### `lsof -i :80` `grep 80 /etc/services`&#x20;
-
-#### `netstat -antup`&#x20;
-
-#### `netstat -antpx`&#x20;
-
-#### `netstat -tulpn` `chkconfig --list`&#x20;
-
-#### `chkconfig --list | grep 3:on`&#x20;
-
-#### `last`&#x20;
-
-#### `w`&#x20;
-
-#### `cat /etc/sudoers`
+```
+lsof -i 
+lsof -i :80 grep 80 /etc/services 
+netstat -antup 
+netstat -antpx 
+netstat -tulpn chkconfig --list 
+chkconfig --list | grep 3:on 
+last 
+w 
+cat /etc/sudoers
+```
 
 ### <mark style="color:orange;">available file transfer methods</mark>
 
-#### `find / -name wget`&#x20;
-
-#### ``
-
-#### `find / -name nc*` `find / -name netcat*`&#x20;
-
-#### `find / -name tftp*`
-
-#### &#x20;`find / -name ftp`
+```
+find / -name wget 
+find / -name nc* find / -name netcat* 
+find / -name tftp*
+ find / -name ftp
+```
 
 ## <mark style="color:red;">users and accounts</mark>
 

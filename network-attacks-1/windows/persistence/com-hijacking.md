@@ -24,21 +24,21 @@ It can also live on a remote machine.
 
 When COM is present as a DLL, the process of COM loading looks like this:
 
-![](<../../../.gitbook/assets/image (34).png>)
+![](<../../../.gitbook/assets/image (130).png>)
 
 When COM is a EXE file the process will look like this:
 
-![](<../../../.gitbook/assets/image (29).png>)
+![](<../../../.gitbook/assets/image (106).png>)
 
 and if the COM object is on a remote machine:
 
-![](<../../../.gitbook/assets/image (22).png>)
+![](<../../../.gitbook/assets/image (87).png>)
 
 ## <mark style="color:red;">COM Hijacking</mark>
 
 One way to hijack the COM is by modifying the registry key in `HKEY_CUTRRENT_USER.`
 
-![](<../../../.gitbook/assets/image (47) (1).png>)
+![](<../../../.gitbook/assets/image (194).png>)
 
 to find hijackable COM objects we can look in scheduled tasks:
 
@@ -52,7 +52,7 @@ look for `<ComHandler>` in the output file, this will point to a specific class 
 
 after finding a suitable handler:
 
-![](<../../../.gitbook/assets/image (20) (1).png>)
+![](<../../../.gitbook/assets/image (64).png>)
 
 {% hint style="warning" %}
 #### note that the delay here is 5 minutes.
@@ -70,7 +70,7 @@ reg query "HKCU\SOFTWARE\Classes\CLSID\{97D47D56-3777-49FB-8E8F-90D7E30E1A1E}"
 reg query "HKLM\SOFTWARE\Classes\CLSID\{97D47D56-3777-49FB-8E8F-90D7E30E1A1E}"
 ```
 
-![](<../../../.gitbook/assets/image (48).png>)
+![](<../../../.gitbook/assets/image (199).png>)
 
 #### so the key is in local machine hive, if we put something in current user we can hijack that COM object.
 
@@ -193,7 +193,7 @@ cl.exe /W0 /D_USRDLL /D_WINDLL wrkFoldersShell.cpp wrkFoldersShell.def /MT /link
 compile.bat
 ```
 
-![](<../../../.gitbook/assets/image (45).png>)
+![](<../../../.gitbook/assets/image (161).png>)
 
 now the DLL is ready, we should implant it in the registry.
 
@@ -221,7 +221,7 @@ check out:
 reg query "HKCU\SOFTWARE\Classes\CLSID\{97D47D56-3777-49FB-8E8F-90D7E30E1A1E}\InProcServer32" /reg:64
 ```
 
-![](<../../../.gitbook/assets/image (49).png>)
+![](<../../../.gitbook/assets/image (209).png>)
 
 now we have to wait for the user to relogin or reboot the machine.
 

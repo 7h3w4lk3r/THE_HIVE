@@ -2,9 +2,9 @@
 
 ## Session Initiation Protocol (SIP)
 
-&#x20;The Session Initiation Protocol (SIP) allows us to establish communication, end or change voice or video calls. The voice or video traffic is transmitted via the Real-Time Protocol (RTP) protocol. SIP is an application layer protocol that uses UDP or TCP for traffic. By default, SIP uses port 5060 UDP/TCP for unencrypted traffic or port 5061 for TLS encrypted traffic. As we will see later, Man-in-the-Middle (MITM) attack vectors exist for all types of communication, including VoIP/SIP. Therefore, encryption is a necessary compensating control to have in place regardless of the environment or service method Session Initiation Protocol is ASCII based and very similar to the HTTP protocol as it uses a Request/Response Model. Requests to the SIP client are made through SIP URI and AGI via a user-agent similar to an HTTP request made by a web browser.
+The Session Initiation Protocol (SIP) allows us to establish communication, end or change voice or video calls. The voice or video traffic is transmitted via the Real-Time Protocol (RTP) protocol. SIP is an application layer protocol that uses UDP or TCP for traffic. By default, SIP uses port 5060 UDP/TCP for unencrypted traffic or port 5061 for TLS encrypted traffic. As we will see later, Man-in-the-Middle (MITM) attack vectors exist for all types of communication, including VoIP/SIP. Therefore, encryption is a necessary compensating control to have in place regardless of the environment or service method Session Initiation Protocol is ASCII based and very similar to the HTTP protocol as it uses a Request/Response Model. Requests to the SIP client are made through SIP URI and AGI via a user-agent similar to an HTTP request made by a web browser.
 
-![](<../../../.gitbook/assets/image (289).png>)
+![](<../../../.gitbook/assets/image (289) (2).png>)
 
 ### **SIP Requests**
 
@@ -44,7 +44,7 @@ The Typical SIP Interaction Structure consists of the following:
 1. The sender initiates an INVITE request.
 2. The receiver sends back a 100 (Trying) response.
 3. The sender starts ringing by sending a 180 (Ringing) response.
-4. The receiver picks up the phone and a 200  success response is sent (OK).
+4. The receiver picks up the phone and a 200 success response is sent (OK).
 5. ACK is sent by the initiator.
 6. The call started using RTP.
 7. BYE request sent to end the call.

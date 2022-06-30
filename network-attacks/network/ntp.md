@@ -12,7 +12,7 @@ NTP (currently version 4) is a combination of thr ee things; first it is a softw
 
 NTP timestamps are stored as seconds since January 1, 1900. 32 bits for the number of seconds, and 32 bits for the fractions of a second.
 
-![](<../../.gitbook/assets/image (44).png>)
+![](<../../.gitbook/assets/image (44) (1).png>)
 
 NTP assumes that the time spent on the network is the same for sending and receiving.
 
@@ -30,7 +30,7 @@ Through NTP enumeration you can gather information such as lists of hosts connec
 nmap -sU -p 123 --script ntp-info [target]
 ```
 
-![](<../../.gitbook/assets/image (40) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (40) (1).png>)
 
 The ntp-info script can extract the remote system's timestamp against the first host and a great deal of information about the second host including kernel version and ntpd version.
 

@@ -158,4 +158,8 @@ example:
 
 ## <mark style="color:red;">In-Depth Usage</mark>&#x20;
 
+{% embed url="https://www.hackingarticles.in/command-control-silenttrinity-post-exploitation-agent/" %}
+
+{% embed url="https://www.jamescarroll.me/blog/introduction-to-silenttrinity-tutorial-2020" %}
+
 {% embed url="https://www.youtube.com/watch?v=0_b3A1SOyVw" %}

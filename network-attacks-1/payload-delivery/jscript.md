@@ -123,17 +123,17 @@ The payload should be placed inside the `TestClass` class and replace the defaul
 
 #### after replacing the payload, we need to change the architecture for which we want to build the `ExampleAssembly`   project inside the solution:
 
-![](<../../.gitbook/assets/image (33) (1).png>)
+![](<../../.gitbook/assets/image (142).png>)
 
 #### set the architecture in the new window (same as the payload architecture):
 
-![](<../../.gitbook/assets/image (29) (1) (1).png>)
+![](<../../.gitbook/assets/image (116).png>)
 
-![](<../../.gitbook/assets/image (48) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (230).png>)
 
-![](<../../.gitbook/assets/image (24).png>)
+![](<../../.gitbook/assets/image (91).png>)
 
-![](<../../.gitbook/assets/image (31) (1).png>)
+![](<../../.gitbook/assets/image (122).png>)
 
 after building the solution, copy the `ExampleAssembly.dll,` `NDesk.Options.dll` and `DotNetToJScript.exe` files in the same folder and run the following command to create a new jscript payload:
 

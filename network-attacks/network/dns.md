@@ -20,6 +20,21 @@ TCP port 53 by default, fall back to UDP port 53 if not possible.
 * [ ] Test NSEC / NSEC3
 * [ ] Look for CVEs
 
+## Quick Check
+
+```
+whois domain.com
+dig {a|txt|ns|mx} domain.com
+dig {a|txt|ns|mx} domain.com @ns1.domain.com
+host -t {a|txt|ns|mx} megacorpone.com
+host -a megacorpone.com
+host -l megacorpone.com ns1.megacorpone.com
+dnsrecon -d megacorpone.com -t axfr @ns2.megacorpone.com
+dnsenum domain.com
+nslookup -> set type=any -> ls -d domain.com
+for sub in $(cat subdomains.txt);do host $sub.domain.com|grep "has.address";done
+```
+
 ## DNS Enumeration
 
 ### nslookup

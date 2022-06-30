@@ -53,9 +53,9 @@ cewl www.megacorpone.com -m 6 -w megacorp-cewl.txt
 
 ## <mark style="color:red;">crunch</mark>
 
-![](<../../.gitbook/assets/image (51) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (310).png>)
 
-![](<../../.gitbook/assets/image (14) (1).png>)
+![](<../../.gitbook/assets/image (75).png>)
 
 ### <mark style="color:orange;">Example Rules</mark>
 

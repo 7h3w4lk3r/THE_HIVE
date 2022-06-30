@@ -6,7 +6,7 @@
 
 A Microsoft Excel Spreadsheet can be weaponized by firstly inserting a new sheet of type "MS Execel 4.0 Macro":
 
-![](<../../.gitbook/assets/image (38) (1) (1).png>)
+![](<../../.gitbook/assets/image (160).png>)
 
 shell.cmd :&#x20;
 
@@ -23,7 +23,7 @@ We can then execute command by typing into the cells:
 
 Note how we need to rename the `A1` cell to `Auto_Open` if we want the Macros to fire off once the document is opened:
 
-![](<../../.gitbook/assets/image (20) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (83).png>)
 
 {% file src="../../.gitbook/assets/Excel 4.0 Macro Functions Reference (1).pdf" %}
 
@@ -31,7 +31,7 @@ Note how we need to rename the `A1` cell to `Auto_Open` if we want the Macros to
 
 Opening the document and enabling Macros pops a reverse shell:
 
-![](<../../.gitbook/assets/image (15).png>)
+![](<../../.gitbook/assets/image (50).png>)
 
 Note that XLM Macros allows using Win32 APIs, hence shellcode injection is also possible. See the original research link below for more info.
 

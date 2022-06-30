@@ -16,27 +16,27 @@ We can create Macros, HTA files and OLE Objects for phishing (this example will 
 
 We execute Empire :&#x20;
 
-![](<../../.gitbook/assets/image (18) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (79).png>)
 
 We will need to setup a listener that will listen for our connection once executed on the victim
 
-![](<../../.gitbook/assets/image (40) (1) (1).png>)
+![](<../../.gitbook/assets/image (178).png>)
 
 We proceed to execute
 
-![](<../../.gitbook/assets/image (16) (1).png>)
+![](<../../.gitbook/assets/image (52).png>)
 
 We will setup our listener and an OutFile to send to our victim
 
-![](<../../.gitbook/assets/image (3).png>)
+![](<../../.gitbook/assets/image (4).png>)
 
 Execute again to create our payload, make sure to add the extension to it or Empire will create a file not functional for our attack.
 
-![](<../../.gitbook/assets/image (10) (1).png>)
+![](<../../.gitbook/assets/image (29).png>)
 
 Once here it's up to creativity on how to send this file I will continue with this just for DEMO purposes.
 
-![](<../../.gitbook/assets/image (22) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (108).png>)
 
 after execution, when get a reverse shell.
 

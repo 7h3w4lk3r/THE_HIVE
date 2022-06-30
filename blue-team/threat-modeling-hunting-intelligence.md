@@ -57,7 +57,7 @@ Threat modeling can be applied to a wide range of things, including software, ap
 
 ## <mark style="color:red;">Models</mark>
 
-![](<../.gitbook/assets/image (29) (1).png>)
+![](<../.gitbook/assets/image (109).png>)
 
 ### <mark style="color:orange;">DREAD Model</mark>
 
@@ -81,7 +81,7 @@ The DREAD model is a form of quantitative risk analysis that involves rating the
 
 STRIDE was developed in the late 1990’s by two engineers working at Microsoft, Koren Kohnfelder and Praerit Garg. STRIDE’s threat model accounts for six different threat categories:
 
-![](<../.gitbook/assets/image (40).png>)
+![](<../.gitbook/assets/image (156).png>)
 
 ### <mark style="color:orange;">PASTA Model</mark>
 
@@ -91,7 +91,7 @@ An open-source risk-centric threat modeling methodology that provides a step-by-
 
 PASTA has seven stages, with each stage acting as building blocks to one another. This approach allows your threat model to be a linear process and leverage existing security testing activities present within your organization, like code review, third party library analysis, static analysis, and threat monitoring for application infrastructure.
 
-![](<../.gitbook/assets/image (48) (1) (1).png>)
+![](<../.gitbook/assets/image (225).png>)
 
 #### <mark style="color:green;">7 steps of PASTA :</mark>
 
@@ -109,7 +109,7 @@ LINDDUN is short for linkability, identifiability, nonrepudiation, detectability
 
 focuses on privacy concerns and can be used for data security. Consisting of six steps, LINDDUN provides a systematic approach to privacy assessment.
 
-![](<../.gitbook/assets/image (17).png>)
+![](<../.gitbook/assets/image (53).png>)
 
 LINDDUN starts with a DFD of the system that defines the system's data flows, data stores, processes, and external entities. By systematically iterating over all model elements and analyzing them from the point of view of threat categories, LINDDUN users identify a threat's applicability to the system and build threat trees.
 
@@ -119,7 +119,7 @@ LINDDUN starts with a DFD of the system that defines the system's data flows, da
 
 CVSS consists of three metric groups (Base, Temporal, and Environmental) with a set of metrics in each.
 
-![](<../.gitbook/assets/image (49) (1).png>)
+![](<../.gitbook/assets/image (227).png>)
 
 A CVSS score is derived from values assigned by an analyst for each metric. The metrics are explained extensively in the documentation. The CVSS method is often used in combination with other threat-modeling methods.
 
@@ -129,7 +129,7 @@ Using attack trees to model threats is one of the oldest and most widely applied
 
 Attack trees are diagrams that depict attacks on a system in tree form. The tree root is the goal for the attack, and the leaves are ways to achieve that goal. Each goal is represented as a separate tree. Thus, the system threat analysis produces a set of attack trees.
 
-![](<../.gitbook/assets/image (38) (1).png>)
+![](<../.gitbook/assets/image (152).png>)
 
 In the case of a complex system, attack trees can be built for each component instead of for the whole system. Administrators can build attack trees and use them to inform security decisions, to determine whether the systems are vulnerable to an attack, and to evaluate a specific type of attack.
 
@@ -150,7 +150,7 @@ Security Cards identify unusual and complex attacks. They are not a formal metho
 
 This method uses a deck of 42 cards to facilitate threat-discovery activities: Human Impact (9 cards), Adversary's Motivations (13 cards), Adversary Resources (11 cards), and Adversary's Methods (9 cards).
 
-![](<../.gitbook/assets/image (52) (1).png>)
+![](<../.gitbook/assets/image (305).png>)
 
 ### <mark style="color:orange;">hTMM Model</mark>
 
@@ -274,7 +274,7 @@ This information may include:
 
 If you are going to use the only hash value, IP address for threat detection, attackers going to step ahead of you, they can easily change the hash value and IP address and use different tools and techniques to attain their motive. So try to find as many as details like attacker tools, techniques. These are all difficult for an attacker to change from one attack to another.
 
-![](<../.gitbook/assets/image (11).png>)
+![](<../.gitbook/assets/image (31).png>)
 
 By fetching all the details on the pyramid, we are on the track and expertise in threat intelligence and it will be useful to get the full picture of the threat and threat actors.
 
