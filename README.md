@@ -1,28 +1,23 @@
----
-description: notes from a n3rd
----
+# 📕 Home
 
-# Home
 
-![by 7h3w4lk3r](.gitbook/assets/logo.png)
 
-## The Hive
+![From resident evil franchise created by Capcom   ](<.gitbook/assets/image (179).png>)
 
-### Hive is a hierarchy of my notes on what i learn about coding, hacking and other stuff. the main topics are network penetration testing, system-level programming, linux stuff, exploit development and reverse engineering.
+## <mark style="color:red;">Intro</mark>
 
-### **Since this is a side project of mine and im busy with other stuff, it might take a while to upload all the topics that are ready right now.**
+#### [<mark style="color:red;">Hive</mark> ](https://7h3w4lk3r.gitbook.io/the-hive/)<mark style="color:red;">is a public repository for red team/blue team stuff. the materials are a combination of various sources such as blogs, cyber security courses, cheat sheets, books, CTF experience and personal researches.</mark>
 
-**for those who are curious about the logo and the name its from the famuos ResidentEvil game series :\)**
+{% hint style="warning" %}
+#### If you find any errors or have any suggestions/rants, feel free to [open up an issue](https://github.com/7h3w4lk3r/THE\_HIVE/issues).
 
-## Contribution
+#### This is an ongoing personal project, **a**ny kind of contribution is highly appreciated.
+{% endhint %}
 
-### If you have any materials or notes you want to share with the community you can submit a pull request to [The-Hive](https://github.com/7h3w4lk3r/The-Hive) repository. all requests will be checked and reflected in the book.
+## <mark style="color:red;">**Contact**</mark>
 
-## **Contact**
+#### [<mark style="color:orange;">Github</mark>](https://github.com/7h3w4lk3r)
 
-### You can check my Github repositories [here](https://github.com/7h3w4lk3r)
+#### [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge\&logo=telegram\&logoColor=white)](https://t.me/TH3W4LK3R)&#x20;
 
-### Email : bl4ckr4z3r@gmail.com
-
-### Telegram : @TH3W4LK3R
-
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge\&logo=gmail\&logoColor=white)](mailto:bl4ckr4z3r@gmail.com)
