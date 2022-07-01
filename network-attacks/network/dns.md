@@ -4,7 +4,7 @@ description: (TCP/UDP 53)
 
 # ⭕ DNS
 
-## :information\_source: Introduction
+## :information\_source: <mark style="color:blue;">Introduction</mark>
 
 #### [Domain Name Service](https://tools.ietf.org/html/rfc1035)
 
@@ -12,7 +12,7 @@ TCP port 53 by default, fall back to UDP port 53 if not possible.
 
 ![](<../../.gitbook/assets/image (277) (1) (1) (1) (1) (1).png>)
 
-## :ballot\_box\_with\_check: Checklist
+## :ballot\_box\_with\_check: <mark style="color:blue;">Checklist</mark>
 
 * [ ] Use OSINT for DNS records
 * [ ] Check forward and reverse lookups
@@ -20,7 +20,7 @@ TCP port 53 by default, fall back to UDP port 53 if not possible.
 * [ ] Test NSEC / NSEC3
 * [ ] Look for CVEs
 
-## Quick Check
+## <mark style="color:red;">Quick Check</mark>
 
 ```
 whois domain.com
@@ -35,9 +35,9 @@ nslookup -> set type=any -> ls -d domain.com
 for sub in $(cat subdomains.txt);do host $sub.domain.com|grep "has.address";done
 ```
 
-## DNS Enumeration
+## <mark style="color:red;">DNS Enumeration</mark>
 
-### nslookup
+### <mark style="color:orange;">nslookup</mark>
 
 run in interactive mode:
 
@@ -49,7 +49,7 @@ run in interactive mode:
 > set type=CNAME >>> find the cannonical name of the domain
 ```
 
-### dig
+### <mark style="color:orange;">dig</mark>
 
 mostly used to perform a zone transfer
 
@@ -60,7 +60,7 @@ dig axfr cronos.htb @[ip]
 dig sec542.org -t any
 ```
 
-### fierce
+### <mark style="color:orange;">fierce</mark>
 
 ```
 fierce -dns [domain]
@@ -70,14 +70,14 @@ fierce -dns [domain] -wordlist [file.txt] >>> dns brute force
 fierce -dns example.com -wordlist /root/tools/wordlist/SecLists/Discovery/DNS/fierce-hostlist.txt 
 ```
 
-### nmap
+### <mark style="color:orange;">nmap</mark>
 
 ```
 nmap -p 53 --script dns-brute zonetransfer.me
 nmap -p 53 --script dns-brute zonetransfer.me --script-args=dns-brute.hostlist=[wordlist path]
 ```
 
-### dnsrecon
+### <mark style="color:orange;">dnsrecon</mark>
 
 * `dnsrecon -d [domain]` - Displays S0A, NS, A , AAAA , MX, and SRV of the target domain
 * `dnsrecon -d [domain] -t rvl` - Performs reverse DNS lookup for IP address or CIDR range
@@ -85,11 +85,11 @@ nmap -p 53 --script dns-brute zonetransfer.me --script-args=dns-brute.hostlist=[
 * dn`srecon -d [domain] -t zonewalk` - Performs a DNSSEC zone walk by querying for NSEC records
 * `dnsrecon -d [domain] -t snoop` - D \[dictionary file] - Scans for DNS cache snooping using a supplied dictionary file
 
-#### DNSRecon can also perform subdomain brute forcing with a dictionary using the following command:
+#### <mark style="color:green;">DNSRecon can also perform subdomain brute forcing with a dictionary using the following command:</mark>
 
 • dnsrecon -d \[domain ] -t brt - D \[dictionary file]
 
-#### Finally DNSRecon can output the returned data to an XML file using the — xml \[output file] flag or to an SQLite database using the db \[output file] flag
+#### <mark style="color:green;">Finally DNSRecon can output the returned data to an XML file using the — xml \[output file] flag or to an SQLite database using the db \[output file] flag</mark>
 
 ```
 # examples:
@@ -100,13 +100,13 @@ dnsrecon -d example.com -D ~/list.txt -t brt >>> list contains prefixes for doma
 dnsrecon -t brt -d example.com -n 127.0.0.1 -D wordlist.txt
 ```
 
-### dnsmap
+### <mark style="color:orange;">dnsmap</mark>
 
 ```
 dnsmap zonetransfer.me -w /root/tools/wordlist/SecLists/Discovery/DNS/dns-Jhaddix.txt
 ```
 
-### host
+### <mark style="color:orange;">host</mark>
 
 ```
 host -t ns zonetransfer.me
@@ -114,20 +114,20 @@ host -t ns zonetransfer.me
 -l [website] [domain name] >>> look for zone transfer
 ```
 
-### dnsenum
+### <mark style="color:orange;">dnsenum</mark>
 
 ```
 dnsenum [domain or site]
 dnsenum example.com
 ```
 
-### Identifying private addresses by using dig
+### <mark style="color:orange;">Identifying private addresses by using dig</mark>
 
 ```
 dig @ns3.isc-sns.info -f /tmp/paypal.txt +noall +answer | awk '{printf("%s %s\n",$5,$1);}' | grep -E '^(10\.)'
 ```
 
-### bash zone transfer
+### <mark style="color:orange;">bash zone transfer</mark>
 
 here is a simple bash script which performs a zone transfer:
 
@@ -143,7 +143,7 @@ host -l $1 $server |grep "has address"
 done
 ```
 
-### IPv6
+### <mark style="color:orange;">IPv6</mark>
 
 Brute force using "AAAA" requests to gather IPv6 of the subdomains.
 
@@ -157,7 +157,7 @@ Bruteforce reverse DNS in usi ng IPv6 addresses
 dnsrevenum6 pri.authdns.ripe.net 2001:67c:2e8::/48 #Will use the dns pri.authdns.ripe.net
 ```
 
-## NSEC / NSEC3
+## <mark style="color:red;">NSEC / NSEC3</mark>
 
 You can quiz name servers supporting DNSSEC to reveal valid hostnames. Scripts that automate this are dns-nsec-enum and dns-nsec3-enum
 
@@ -166,7 +166,7 @@ nmap -sSU -p53 --script dns-nsec-enum --script-args dns-nsec-enum.domains=paypal
 
 ```
 
-## DNS Recursion DDoS
+## <mark style="color:red;">DNS Recursion DDoS</mark>
 
 If **DNS recursion is enabled**, an attacker could **spoof** the **origin** on the UDP packet in order to make the **DNS send the response to the victim server**. An attacker could abuse **ANY** or **DNSSEC** record types as they use to have the bigger responses.\
 The way to **check** if a DNS supports **recursion** is to query a domain name and **check** if the **flag "ra"** (_recursion available_) is in the response
@@ -175,13 +175,13 @@ The way to **check** if a DNS supports **recursion** is to query a domain name a
 dig google.com A @<IP>
 ```
 
-## Known Vulnerabilities
+## <mark style="color:red;">Known Vulnerabilities</mark>
 
-### SIGRed
+### <mark style="color:orange;">SIGRed</mark>
 
 {% embed url="https://research.checkpoint.com/2020/resolving-your-way-into-domain-admin-exploiting-a-17-year-old-bug-in-windows-dns-servers" %}
 
-### Simple DNS Plus Remote DoS
+### <mark style="color:orange;">Simple DNS Plus Remote DoS</mark>
 
 {% embed url="https://www.cvedetails.com/vulnerability-list/vendor_id-8348/product_id-14553/Simpledns-Simple-Dns-Plus.html" %}
 

@@ -163,45 +163,48 @@ find / -name tftp*
 
 ### <mark style="color:orange;">check for sudo access</mark>
 
-#### `sudo -l |grep vim` `sudo -l |grep nmap`&#x20;
-
-#### `sudo -l |grep vi`&#x20;
-
-#### `sudo -l`
+```
+sudo -l |grep vim sudo -l |grep nmap 
+sudo -l |grep vi 
+sudo -l
+```
 
 ### <mark style="color:orange;">users UID and GID</mark>
 
-#### `for user in $(cat /etc/passwd | cut -f1 -d":"); do id $user; done`
+```
+for user in $(cat /etc/passwd | cut -f1 -d":"); do id $user; done
+```
 
 ### <mark style="color:orange;">UID 0 accounts (root)</mark>
 
-#### `cat /etc/passwd |cut -f1,3,4 -d":" |grep "0:0" |cut -f1 -d":"|awk '{print $1}'`
+```
+cat /etc/passwd |cut -f1,3,4 -d":" |grep "0:0" |cut -f1 -d":"|awk '{print $1}'
+```
 
 ### <mark style="color:orange;">users readable history file</mark>
 
-#### `find /home/* -name *.*history* -print 2> /dev/null`
+```
+find /home/* -name *.*history* -print 2> /dev/null
+```
 
 ### <mark style="color:orange;">check history</mark>
 
-#### `cat ~/.bash_history`
-
-#### &#x20;`cat ~/.nano_history`
-
-#### &#x20;`cat ~/.atftp_history`&#x20;
-
-#### `cat ~/.mysql_history`&#x20;
-
-#### `cat ~/.php_history`
+```
+cat ~/.bash_history
+ cat ~/.nano_history
+ cat ~/.atftp_history 
+cat ~/.mysql_history 
+cat ~/.php_history
+```
 
 ### <mark style="color:orange;">user info</mark>
 
-#### `cat ~/.bashrc`
-
-#### &#x20;`cat ~/.profile`&#x20;
-
-#### `cat /var/mail/root`
-
-#### &#x20;`cat /var/spool/mail/root`
+```
+cat ~/.bashrc
+ cat ~/.profile 
+cat /var/mail/root
+ cat /var/spool/mail/root
+```
 
 ## <mark style="color:red;">Possible defenses</mark>
 
@@ -233,123 +236,122 @@ fi
 
 #### <mark style="color:green;">Execshield</mark>
 
-#### `(grep "exec-shield" /etc/sysctl.conf || echo "Not found Execshield")` SElinux
-
-#### `(sestatus 2>/dev/null || echo "Not found sestatus")` ASLR
-
-#### `cat /proc/sys/kernel/randomize_va_space 2>/dev/null` `#If 0, not enabled`
+```
+(grep "exec-shield" /etc/sysctl.conf || echo "Not found Execshield") SElinux
+(sestatus 2>/dev/null || echo "Not found sestatus") ASLR
+cat /proc/sys/kernel/randomize_va_space 2>/dev/null #If 0, not enabled
+```
 
 ## <mark style="color:red;">network</mark>
 
 ### <mark style="color:orange;">network configurations</mark>
 
-#### `cat /etc/resolv.conf`
-
-#### &#x20;`cat /etc/sysconfig/network`&#x20;
-
-#### `cat /etc/networks`&#x20;
-
-#### `iptables -L`&#x20;
-
-#### `hostname`
-
-#### &#x20;`dnsdomainname`
+```
+cat /etc/resolv.conf
+ cat /etc/sysconfig/network 
+cat /etc/networks 
+iptables -L 
+hostname
+ dnsdomainname
+```
 
 ### <mark style="color:orange;">network status</mark>
 
-#### `ss -anp`&#x20;
-
-#### `netstat -ano`
-
-#### &#x20;`/sbin/ifconfig -a`&#x20;
-
-#### `cat /etc/network/interfaces`&#x20;
-
-#### `cat /etc/sysconfig/network`&#x20;
-
-#### `arp -e`&#x20;
-
-#### `route`
-
-#### &#x20;`/sbin/route -nee`
+```
+ss -anp 
+netstat -ano
+ /sbin/ifconfig -a 
+cat /etc/network/interfaces 
+cat /etc/sysconfig/network 
+arp -e 
+route
+ /sbin/route -nee
+```
 
 ### <mark style="color:orange;">try packet sniffing</mark>
 
-#### `tcpdump tcp dst 192.168.1.7 80 and tcp dst 10.5.5.252 21`
+```
+tcpdump tcp dst 192.168.1.7 80 and tcp dst 10.5.5.252 21
+```
 
 ### <mark style="color:orange;">firewall rules</mark>
 
-#### `/etc/iptables`
-
-#### &#x20;`iptables -L`&#x20;
-
-#### `grep -Hs iptables /etc/*`
+```
+/etc/iptables
+ iptables -L 
+grep -Hs iptables /etc/*
+```
 
 ### <mark style="color:orange;">hosts and DNS</mark>
 
-#### `cat /etc/hosts 2>/dev/null && cat /etc/resolv.conf 2>/dev/null && cat /etc/sysconfig/network 2>/dev/null && cat /etc/networks 2>/dev/null | uniq | srt | grep -v '#'`
+```
+cat /etc/hosts 2>/dev/null && cat /etc/resolv.conf 2>/dev/null && cat /etc/sysconfig/network 2>/dev/null && cat /etc/networks 2>/dev/null | uniq | srt | grep -v '#'
+```
 
 ### <mark style="color:orange;">ssh root login status</mark>
 
-#### `cat /etc/ssh/sshd_config | grep PermitRootLogin | grep -v "#"`
+```
+cat /etc/ssh/sshd_config | grep PermitRootLogin | grep -v "#"
+```
 
 ### <mark style="color:orange;">ssh info</mark>
 
-#### `cat ~/.ssh/identity.pub ~/.ssh/authorized_keys ~/.ssh/identity ~/.ssh/id_rsa.pub ~/.ssh/id_rsa ~/.ssh/id_dsa.pub ~/.ssh/id_dsa /etc/ssh/ssh_config /etc/ssh/sshd_config /etc/ssh/ssh_host_dsa_key.pub /etc/ssh/ssh_host_dsa_key /etc/ssh/ssh_host_rsa_key.pub /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_key.pub /etc/ssh/ssh_host_key 2>/dev/null`
+```
+cat ~/.ssh/identity.pub ~/.ssh/authorized_keys ~/.ssh/identity ~/.ssh/id_rsa.pub ~/.ssh/id_rsa ~/.ssh/id_dsa.pub ~/.ssh/id_dsa /etc/ssh/ssh_config /etc/ssh/sshd_config /etc/ssh/ssh_host_dsa_key.pub /etc/ssh/ssh_host_dsa_key /etc/ssh/ssh_host_rsa_key.pub /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_key.pub /etc/ssh/ssh_host_key 2>/dev/null
+```
 
 ## <mark style="color:red;">tasks and processes</mark>
 
 process binaries paths and permissions
 
-#### `ps aux | awk '{print $11}' |xargs -r ls -la 2>/dev/null |awk '!x[$0]++'`
+```
+ps aux | awk '{print $11}' |xargs -r ls -la 2>/dev/null |awk '!x[$0]++'
+```
 
 ### <mark style="color:orange;">find new running processes</mark>
 
-#### `#!/bin/bash` `#Loop by line` `IFS=$'\n'` `old_process=$(ps aux --forest | grep -v "ps aux --forest" | grep -v "sleep 1" | grep -v $0)` `while true; do` `new_process=$(ps aux --forest | grep -v "ps aux --forest" | grep -v "sleep 1" | grep -v $0)` `diff <(echo "$old_process") <(echo "$new_process") | grep [\<\>]` `sleep 1` `old_process=$new_process`
+```
+#!/bin/bash #Loop by line IFS=$'\n' old_process=$(ps aux --forest | grep -v "ps aux --forest" | grep -v "sleep 1" | grep -v $0) while true; do new_process=$(ps aux --forest | grep -v "ps aux --forest" | grep -v "sleep 1" | grep -v $0) diff <(echo "$old_process") <(echo "$new_process") | grep [\<\>] sleep 1 old_process=$new_process
+```
 
 ### <mark style="color:orange;">check services and privileges</mark>
 
-#### `ps aux` `ps -ef` `ps aux | grep "^root"` `top` `cat /etc/services`
+```
+ps aux ps -ef ps aux | grep "^root" top cat /etc/services
+```
 
 #### <mark style="color:green;">Which service(s) are been running by root? Of these services, which are vulnerable - it's worth a double check!</mark>
 
-#### `ps aux | grep root` `ps -ef | grep root`
+```
+ps aux | grep root ps -ef | grep root
+```
 
 #### <mark style="color:green;">What applications are installed? What version are they? Are they currently running?</mark>
 
-#### `ls -alh /usr/bin/`&#x20;
-
-#### `ls -alh /sbin/` `dpkg -l | grep` `rpm -qa | grep`&#x20;
-
-#### `ls -alh /var/cache/apt/archives`&#x20;
-
-#### `ls -alh /var/cache/yum/`
+```
+ls -alh /usr/bin/ 
+ls -alh /sbin/ dpkg -l | grep rpm -qa | grep 
+ls -alh /var/cache/apt/archives 
+ls -alh /var/cache/yum/
+```
 
 ### <mark style="color:orange;">scheduled Tasks</mark>
 
 see [cron/crontab abuse section](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/untitled/privilege-escalation/cron-crontab-abuse) for methods
 
-#### `ls -lah /etc/cron*`&#x20;
-
-#### `cat /etc/crontab` `crontab -l`&#x20;
-
-#### `ls -alh /var/spool/cron`
-
-#### &#x20;`ls -al /etc/ | grep cron` `ls -al /etc/cron*` `cat /etc/cron*`&#x20;
-
-#### `cat /etc/at.allow`&#x20;
-
-#### `cat /etc/at.deny`&#x20;
-
-#### `cat /etc/cron.allow`
-
-#### &#x20;`cat /etc/cron.deny`&#x20;
-
-#### `cat /etc/crontab`
-
-#### &#x20;`cat /etc/anacrontab`&#x20;
-
-#### `cat /var/spool/cron/crontabs/root`
+```
+ls -lah /etc/cron* 
+cat /etc/crontab crontab -l 
+ls -alh /var/spool/cron
+ ls -al /etc/ | grep cron ls -al /etc/cron* cat /etc/cron* 
+cat /etc/at.allow 
+cat /etc/at.deny 
+cat /etc/cron.allow
+ cat /etc/cron.deny 
+cat /etc/crontab
+ cat /etc/anacrontab 
+cat /var/spool/cron/crontabs/root
+```
 
 ## <mark style="color:red;">process monitoring</mark>
 
@@ -368,87 +370,74 @@ see [cron/crontab abuse section](https://7h3w4lk3r.gitbook.io/the-hive/network-a
 
 #### For a given process ID, maps shows how memory is mapped within that processes' virtual address space; it also shows the permissions of each mapped region. The mem pseudo file exposes the processes memory itself. From the maps file we know which memory regions are readable and their offsets. We use this information to seek into the mem file and dump all readable regions to a file.
 
-#### &#x20;`procdump() (` `cat /proc/$1/maps | grep -Fv ".so" | grep " 0 " | awk '{print $1}' | ( IFS="-"` `while read a b; do` `dd if=/proc/$1/mem bs=$( getconf PAGESIZE ) iflag=skip_bytes,count_bytes \` `skip=$(( 0x$a )) count=$(( 0x$b - 0x$a )) of="$1_mem_$a.bin"` `done )` `cat $1*.bin > $1.dump` `rm $1*.bin` `)`
+```
+ procdump() ( cat /proc/$1/maps | grep -Fv ".so" | grep " 0 " | awk '{print $1}' | ( IFS="-" while read a b; do dd if=/proc/$1/mem bs=$( getconf PAGESIZE ) iflag=skip_bytes,count_bytes \ skip=$(( 0x$a )) count=$(( 0x$b - 0x$a )) of="$1_mem_$a.bin" done ) cat $1*.bin > $1.dump rm $1*.bin )
+```
 
 ### <mark style="color:orange;">**/dev/mem**</mark>
 
 #### /dev/mem provides access to the system's physical memory, not the virtual memory. The kernels virtual address space can be accessed using /dev/kmem. Typically, /dev/mem is only readable by root and kmem group.&#x20;
 
-#### `strings /dev/mem -n10 | grep -i PASS`
+```
+strings /dev/mem -n10 | grep -i PASS
+```
 
 ## <mark style="color:red;">programs and software</mark>
 
 ### <mark style="color:orange;">enumerate useful binaries</mark>
 
-#### `which nmap aws nc ncat netcat nc.traditional wget curl ping gcc g++ make gdb base64 socat python python2 python3 python2.7 python2.6 python3.6 python3.7 perl php ruby xterm doas sudo fetch docker lxc rkt kubectl 2>/dev/null`
+```
+which nmap aws nc ncat netcat nc.traditional wget curl ping gcc g++ make gdb base64 socat python python2 python3 python2.7 python2.6 python3.6 python3.7 perl php ruby xterm doas sudo fetch docker lxc rkt kubectl 2>/dev/null
+```
 
 ### <mark style="color:orange;">enumerate compilers</mark>
 
-#### `(dpkg --list 2>/dev/null | grep "compiler" | grep -v "decompiler\|lib" 2>/dev/null || yum list installed 'gcc*' 2>/dev/null | grep gcc 2>/dev/null; which gcc g++ 2>/dev/null || locate -r "/gcc[0-9\.-]\+$" 2>/dev/null | grep -v "/doc/")`
+```
+(dpkg --list 2>/dev/null | grep "compiler" | grep -v "decompiler\|lib" 2>/dev/null || yum list installed 'gcc*' 2>/dev/null | grep gcc 2>/dev/null; which gcc g++ 2>/dev/null || locate -r "/gcc[0-9\.-]\+$" 2>/dev/null | grep -v "/doc/")
+```
 
 ### <mark style="color:orange;">installed software/packages</mark>
 
-#### `dpkg -l` `rpm -q`
-
-####
+```
+dpkg -l rpm -q
+```
 
 #### <mark style="color:green;">service(s) settings misconfigured? Are any (vulnerable) plugins attached?</mark>
 
-#### `cat /etc/syslog.conf`&#x20;
-
-#### `cat /etc/chttp.conf`&#x20;
-
-#### `cat /etc/lighttpd.conf`
-
-#### &#x20;`cat /etc/cups/cupsd.conf`
-
-#### &#x20;`cat /etc/inetd.conf`
-
-#### &#x20;`cat /etc/apache2/apache2.conf`&#x20;
-
-#### `cat /etc/my.conf`
-
-#### &#x20;`cat /etc/httpd/conf/httpd.conf`&#x20;
-
-#### `cat /opt/lampp/etc/httpd.conf`
-
-#### &#x20;`ls -aRl /etc/ | awk '$1 ~ /^.*r.*/`
+```
+cat /etc/syslog.conf 
+cat /etc/chttp.conf 
+cat /etc/lighttpd.conf
+ cat /etc/cups/cupsd.conf
+ cat /etc/inetd.conf
+ cat /etc/apache2/apache2.conf 
+cat /etc/my.conf
+ cat /etc/httpd/conf/httpd.conf 
+cat /opt/lampp/etc/httpd.conf
+ ls -aRl /etc/ | awk '$1 ~ /^.*r.*/
+```
 
 #### <mark style="color:green;">Which configuration files can be written in /etc/? Able to reconfigure a service?</mark>
 
-#### `ls -aRl /etc/ | awk '$1 ~ /^.*w.*/' 2>/dev/null # Anyone`&#x20;
-
-#### `ls -aRl /etc/ | awk '$1 ~ /^..w/' 2>/dev/null # Owner`&#x20;
-
-#### `ls -aRl /etc/ | awk '$1 ~ /^.....w/' 2>/dev/null # Group`&#x20;
-
-#### `ls -aRl /etc/ | awk '$1 ~ /w.$/' 2>/dev/null # Other`&#x20;
-
-#### `find /etc/ -readable -type f 2>/dev/null # Anyone`&#x20;
-
-#### `find /etc/ -readable -type f -maxdepth 1 2>/dev/null # Anyone`&#x20;
-
-#### `ls -alh /var/log` `ls -alh /var/mail`&#x20;
-
-#### `ls -alh /var/spool`&#x20;
-
-#### `ls -alh /var/spool/lpd`&#x20;
-
-#### `ls -alh /var/lib/pgsql`&#x20;
-
-#### `ls -alh /var/lib/mysql`
-
-#### &#x20;`cat /var/lib/dhcp3/dhclient.leases`
-
-#### &#x20;`ls -alhR /var/www/`
-
-#### &#x20;`ls -alhR /srv/www/htdocs/`&#x20;
-
-#### `ls -alhR /usr/local/www/apache22/data/`&#x20;
-
-#### `ls -alhR /opt/lampp/htdocs/`
-
-#### &#x20;`ls -alhR /var/www/html/`
+```
+ls -aRl /etc/ | awk '$1 ~ /^.*w.*/' 2>/dev/null # Anyone 
+ls -aRl /etc/ | awk '$1 ~ /^..w/' 2>/dev/null # Owner 
+ls -aRl /etc/ | awk '$1 ~ /^.....w/' 2>/dev/null # Group 
+ls -aRl /etc/ | awk '$1 ~ /w.$/' 2>/dev/null # Other 
+find /etc/ -readable -type f 2>/dev/null # Anyone 
+find /etc/ -readable -type f -maxdepth 1 2>/dev/null # Anyone 
+ls -alh /var/log ls -alh /var/mail 
+ls -alh /var/spool 
+ls -alh /var/spool/lpd 
+ls -alh /var/lib/pgsql 
+ls -alh /var/lib/mysql
+ cat /var/lib/dhcp3/dhclient.leases
+ ls -alhR /var/www/
+ ls -alhR /srv/www/htdocs/ 
+ls -alhR /usr/local/www/apache22/data/ 
+ls -alhR /opt/lampp/htdocs/
+ ls -alhR /var/www/html/
+```
 
 ## <mark style="color:red;">Services</mark> <a href="#services" id="services"></a>
 
@@ -464,7 +453,9 @@ Keep in mid that if you have **write permissions over binaries being executed by
 
 You can see the PATH used by **systemd** with:
 
-#### `systemctl show-environment`
+```
+systemctl show-environment
+```
 
 If you find that you can **write** in any of the folders of the path you may be able to **escalate privileges**.You need to search for **relative paths being used on service configurations**
 
@@ -474,7 +465,9 @@ Then, create a **executable** with the **same name as the relative path binary**
 
 ### <mark style="color:orange;">find all SUID/SGID binaries</mark>
 
-#### `find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null`
+```
+find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
+```
 
 #### check [SUID/SGID abuse](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/untitled/privilege-escalation/suid-sgid) section to see methods.
 
@@ -486,119 +479,130 @@ Then, create a **executable** with the **same name as the relative path binary**
 
 ### <mark style="color:orange;">NFS mounts</mark>
 
-#### `showmount -e 192.168.1.25`
+```
+showmount -e 192.168.1.25
+```
 
 #### see [NFS section](https://7h3w4lk3r.gitbook.io/the-hive/network-attacks/untitled/privilege-escalation/nfs) for related methods.
 
 ### <mark style="color:orange;">find password in php files</mark>
 
-#### `find / -maxdepth 5 -name *.php -type f -exec grep -Hn password {} \; 2>/dev/null`
+```
+find / -maxdepth 5 -name *.php -type f -exec grep -Hn password {} \; 2>/dev/null
+```
 
 ### <mark style="color:orange;">find writable files</mark>
 
-#### `find / -writable -type d 2>/dev/null`
+```
+find / -writable -type d 2>/dev/null
+```
 
 ### <mark style="color:orange;">find SUID files</mark>
 
-#### `find / -perm -u=s -type f 2>/dev/null`
-
-#### &#x20;`find / -perm -4000 -type f 2>/dev/null`
+```
+find / -perm -u=s -type f 2>/dev/null
+ find / -perm -4000 -type f 2>/dev/null
+```
 
 ### <mark style="color:orange;">Find SUID files owned by root</mark>
 
-#### `find / -uid 0 –perm -4000 –type f 2>/dev/null`
+```
+find / -uid 0 –perm -4000 –type f 2>/dev/null
+```
 
 ### <mark style="color:orange;">Find GUID files</mark>
 
-#### `find / -perm -2000 -type -f 2>/dev/null`
+```
+find / -perm -2000 -type -f 2>/dev/null
+```
 
 ### <mark style="color:orange;">Find world-writable files</mark>
 
-#### `find -perm -2 -type f 2>/dev/null`
+```
+find -perm -2 -type f 2>/dev/null
+```
 
 ### <mark style="color:orange;">List all conf files in /etc/</mark>
 
-#### `ls -al /etc/*.conf` `grep pass* /etc/*.conf >>> containing passwords`
+```
+ls -al /etc/*.conf grep pass* /etc/*.conf >>> containing passwords
+```
 
 ### <mark style="color:orange;">conf files with “pass\*” string</mark>
 
-#### `grep pass* /etc/*.conf`&#x20;
-
-#### `grep --color=auto -rnw '/' -ie "PASSWORD" --color=always 2> /dev/null`
-
-#### &#x20;`find . -type f -exec grep -i -I "PASSWORD" {} /dev/null \;`
+```
+grep pass* /etc/*.conf 
+grep --color=auto -rnw '/' -ie "PASSWORD" --color=always 2> /dev/null
+ find . -type f -exec grep -i -I "PASSWORD" {} /dev/null \;
+```
 
 ### <mark style="color:orange;">list of open files</mark>
 
-#### `lsof -n`
+```
+lsof -n
+```
 
 ### <mark style="color:orange;">last edited files</mark>
 
-#### `find / -mmin -10 2>/dev/null | grep -Ev "^/proc"`
+```
+find / -mmin -10 2>/dev/null | grep -Ev "^/proc"
+```
 
 ### <mark style="color:orange;">R/W Files and Directories</mark>
 
-#### `find / -writable -type d 2>/dev/null`
+```
+find / -writable -type d 2>/dev/null
+```
 
 ### <mark style="color:orange;">mount volumes</mark>
 
-#### `cat /etc/fstab` `mount` `/bin/lsblk`
+```
+cat /etc/fstab mount /bin/lsblk
+```
 
 ### <mark style="color:orange;">search for SUID set</mark>
 
-#### `find / -perm -u=s -type f 2>/dev/null`
+```
+find / -perm -u=s -type f 2>/dev/null
+```
 
 ### <mark style="color:orange;">plain text usernames/passwords</mark>
 
-#### `grep -i user [filename]`&#x20;
-
-#### `grep -i pass [filename]`&#x20;
-
-#### `grep -C 5 "password" [filename]`
-
-#### &#x20;`find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password" # Joomla`
+```
+grep -i user [filename] 
+grep -i pass [filename] 
+grep -C 5 "password" [filename]
+ find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password" # Joomla
+```
 
 #### <mark style="color:green;">What sensitive files can be found?</mark>
 
-#### `cat /etc/passwd`&#x20;
-
-#### `cat /etc/group`&#x20;
-
-#### `cat /etc/shadow`&#x20;
-
-#### `ls -alh /var/mail/`
+```
+cat /etc/passwd 
+cat /etc/group 
+cat /etc/shadow 
+ls -alh /var/mail/
+```
 
 ### <mark style="color:orange;">ssh key info</mark>
 
-#### `cat ~/.ssh/authorized_keys`
-
-#### &#x20;`cat ~/.ssh/identity.pub`&#x20;
-
-#### `cat ~/.ssh/identity`&#x20;
-
-#### `cat ~/.ssh/id_rsa.pub`
-
-#### &#x20;`cat ~/.ssh/id_rsa`&#x20;
-
-#### `cat ~/.ssh/id_dsa.pub`&#x20;
-
-#### `cat ~/.ssh/id_dsa`&#x20;
-
-#### `cat /etc/ssh/ssh_config`
-
-#### &#x20;`cat /etc/ssh/sshd_config`&#x20;
-
-#### `cat /etc/ssh/ssh_host_dsa_key.pub`
-
-#### &#x20;`cat /etc/ssh/ssh_host_dsa_key`&#x20;
-
-#### `cat /etc/ssh/ssh_host_rsa_key.pub`&#x20;
-
-#### `cat /etc/ssh/ssh_host_rsa_key`&#x20;
-
-#### `cat /etc/ssh/ssh_host_key.pub`&#x20;
-
-#### `cat /etc/ssh/ssh_host_key`
+```
+cat ~/.ssh/authorized_keys
+ cat ~/.ssh/identity.pub 
+cat ~/.ssh/identity 
+cat ~/.ssh/id_rsa.pub
+ cat ~/.ssh/id_rsa 
+cat ~/.ssh/id_dsa.pub 
+cat ~/.ssh/id_dsa 
+cat /etc/ssh/ssh_config
+ cat /etc/ssh/sshd_config 
+cat /etc/ssh/ssh_host_dsa_key.pub
+ cat /etc/ssh/ssh_host_dsa_key 
+cat /etc/ssh/ssh_host_rsa_key.pub 
+cat /etc/ssh/ssh_host_rsa_key 
+cat /etc/ssh/ssh_host_key.pub 
+cat /etc/ssh/ssh_host_key
+```
 
 SSH Key Predictable PRNG (Authorized\_Keys) Process\\
 
@@ -632,31 +636,22 @@ SSH Key Predictable PRNG (Authorized\_Keys) Process\\
 
 #### And you should connect without requiring a password. If stuck, the -vvv verbosity should provide enough details as to why.
 
-log files\\
+### <mark style="color:orange;">log files</mark>
 
-#### `cat /etc/httpd/logs/access_log`
-
-#### &#x20;`cat /etc/httpd/logs/access.log`&#x20;
-
-#### `cat /etc/httpd/logs/error_log`&#x20;
-
-#### `cat /etc/httpd/logs/error.log`&#x20;
-
-#### `cat /var/log/apache2/access_log`&#x20;
-
-#### `cat /var/log/apache2/access.log`&#x20;
-
-#### `cat /var/log/apache2/error_log`&#x20;
-
-#### `cat /var/log/apache2/error.log`&#x20;
-
-#### `cat /var/log/apache/access_log`&#x20;
-
-#### `cat /var/log/apache/access.log`&#x20;
-
-#### `cat /var/log/auth.log`&#x20;
-
-#### `cat /var/log/chttp.log`
+```
+cat /etc/httpd/logs/access_log
+ cat /etc/httpd/logs/access.log 
+cat /etc/httpd/logs/error_log 
+cat /etc/httpd/logs/error.log 
+cat /var/log/apache2/access_log 
+cat /var/log/apache2/access.log 
+cat /var/log/apache2/error_log 
+cat /var/log/apache2/error.log 
+cat /var/log/apache/access_log 
+cat /var/log/apache/access.log 
+cat /var/log/auth.log 
+cat /var/log/chttp.log
+```
 
 ## <mark style="color:red;">Capabilities</mark>
 

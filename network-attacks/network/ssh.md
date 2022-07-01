@@ -4,7 +4,7 @@ description: ( TCP 22 )
 
 # ⭕ SSH
 
-## Enumeration
+## <mark style="color:red;">Enumeration</mark>
 
 ```
 nmap -Pn -n 127.0.0.1 --script ssh-hostkey
@@ -19,7 +19,7 @@ nmap -Pn -n --script ssh-auth-methods 127.0.0.1
 nmap -Pn -n --script ssh-brute 127.0.0.1
 ```
 
-## Testing Connection and Version
+## <mark style="color:red;">Testing Connection and Version</mark>
 
 #### attempt to connect to see if there is a banner when connecting
 
@@ -31,7 +31,7 @@ nc -nv [ip] 22
 
 also ssh login banners might be helpful some times.
 
-## User Enumeration Timing Attack
+## <mark style="color:red;">User Enumeration Timing Attack</mark>
 
 In some versions of OpenSSH you can make a timing attack to enumerate users. You can use a metasploit module in order to exploit this:
 
@@ -39,7 +39,7 @@ In some versions of OpenSSH you can make a timing attack to enumerate users. You
 msf> use scanner/ssh/ssh_enumusers
 ```
 
-### Automated SSH Audit
+### <mark style="color:orange;">Automated SSH Audit</mark>
 
 {% embed url="https://github.com/jtesta/ssh-audit" %}
 
@@ -101,7 +101,7 @@ To create a policy based on a target server (which can be manually edited):
 ssh-audit -M new_policy.txt targetserver
 ```
 
-## **Login B**rute Force
+## <mark style="color:red;">**Login B**</mark><mark style="color:red;">rute Force</mark>
 
 ```
 hydra -l [user] -P [wordlist] [ip] ssh
@@ -117,7 +117,7 @@ set USERNAME root
 run
 ```
 
-## **SSH User Code Execution**
+## <mark style="color:red;">**SSH User Code Execution**</mark>
 
 This module connects to the target system and executes the necessary commands to run the specified payload via SSH. If a native payload is specified, an appropriate stager will be used. Thus we gave host IP along with username and password, if everything goes in right then we get meterpreter session on our listening machine.
 
@@ -134,7 +134,7 @@ as a result you can observe that we have meterpreter session of the host machine
 
 ![](<../../.gitbook/assets/image (283) (1) (1) (1) (1) (1).png>)
 
-## Default Credentials
+## <mark style="color:red;">Default Credentials</mark>
 
 {% embed url="https://github.com/danielmiessler/SecLists/tree/master/Passwords/Default-Credentials" %}
 
@@ -159,7 +159,7 @@ ls /usr/share/seclists/Passwords/Default-Credentials/
 | Oracle     | root, oracle, oravis, applvis, ilom-admin, ilom-operator, nm2user                                           | changeme, ilom-admin, ilom-operator, welcome1, oracle                                                                                                                                                      |
 | VMware     | vi-admin, root, hqadmin, vmware, admin                                                                      | vmware, vmw@re, hqadmin, default                                                                                                                                                                           |
 
-## Stealing SSH Keys (post)
+## <mark style="color:red;">Stealing SSH Keys (post)</mark>
 
 This attack requires a compromised server with SSH server running. If you are able to compromise a server with Metasploit and server has SSH running but require a key to connect with it. in that situation, you can steal the keys from the compromised server.
 
@@ -185,7 +185,7 @@ download id_rsa /home/
 
 Once the key is downloaded you can find it in **`/home`** the directory. If you have the key then you can use it to connect with it as we saw earlier. There are lots of other things you can do with SSH you can check Metasploit `use auxiliary/scanner/ssh` to list all the options available.
 
-## SSH 2.0 Version Fuzzer
+## <mark style="color:red;">SSH 2.0 Version Fuzzer</mark>
 
 ```
 msf > use auxiliary/fuzzers/ssh/ssh_version_2

@@ -4,7 +4,7 @@ description: (TCP 3306, 33060, 33061)
 
 # ⭕ MySQL
 
-## :information\_source: Introduction
+## :information\_source: <mark style="color:blue;">Introduction</mark>
 
 #### [MySQL](https://www.mysql.com/services/)
 
@@ -14,14 +14,14 @@ The shell ports for MySQL services are:
 2. Client-server ( X protocol ) TCP 33060
 3. Server cluster configuration check port, TCP 33061
 
-## :ballot\_box\_with\_check: Checklist
+## :ballot\_box\_with\_check: <mark style="color:blue;">Checklist</mark>
 
 * [ ] Try to query the DB if you have creds
 * [ ] Login brute force
 * [ ] Check for MySQL arbitrary file read
 * [ ] Check for CVEs
 
-## Enumeration
+## <mark style="color:red;">Enumeration</mark>
 
 ```
 nmap -sV -p 3306,33060,33061 <IP>
@@ -31,9 +31,9 @@ nmap -sV -p 3306 --script mysql-audit,mysql-databases,mysql-dump-hashes,mysql-em
 auxiliary/scanner/mysql/mysql_file_enum
 ```
 
-## Query ( with credentials ) <a href="#basics" id="basics"></a>
+## <mark style="color:red;">Query ( with credentials )</mark> <a href="#basics" id="basics"></a>
 
-### Manual
+### <mark style="color:orange;">Manual</mark>
 
 ```bash
 # Try connection from outside
@@ -53,7 +53,7 @@ select host, user, password from mysql.user;
 
 {% embed url="https://www.mysqltutorial.org/mysql-cheat-sheet.aspx" %}
 
-### Automated
+### <mark style="color:orange;">Automated</mark>
 
 #### nmap :
 
@@ -114,7 +114,7 @@ auxiliary/admin/mssql/mssql_enum_domain_accounts                 Microsoft SQL S
 auxiliary/analyze/crack_databases                                Password Cracker: Databases
 ```
 
-## Login Brute Force
+## <mark style="color:red;">Login Brute Force</mark>
 
 ```
  auxiliary/scanner/mssql/mssql_login 
@@ -122,7 +122,7 @@ auxiliary/analyze/crack_databases                                Password Cracke
  hydra -L usernames.txt -P pass.txt <IP> mysql
 ```
 
-## MySQL Arbitrary File Read
+## <mark style="color:red;">MySQL Arbitrary File Read</mark>
 
 Load data infile is a very special syntax. Friends who know about injection or often play CTF may be familiar with this syntax. In CTF, we often encounter situations where there is no way to load\_file to read the file. At this time, load data infile is the only possible way to read files. Generally our statement is this:
 

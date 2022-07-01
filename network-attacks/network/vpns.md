@@ -1,6 +1,6 @@
 # ⭕ VPNs
 
-## Resources
+## <mark style="color:red;">Resources</mark>
 
 {% embed url="https://github.com/0x90/vpn-arsenal" %}
 
@@ -12,9 +12,9 @@
 
 {% embed url="https://0xrick.github.io/hack-the-box/conceal#ike-scan-Setting-up-The-Connection" %}
 
-## Techniques <a href="#exploitation-techniques" id="exploitation-techniques"></a>
+## <mark style="color:red;">Techniques</mark> <a href="#exploitation-techniques" id="exploitation-techniques"></a>
 
-### IKEv2 Authenthication IP spoofing
+### <mark style="color:orange;">IKEv2 Authenthication IP spoofing</mark>
 
 ```
 ike-scan --sport=1723 --dport=1723 --sourceip=IP_To_Spoof --ikev2 <IP>

@@ -4,7 +4,7 @@ description: ( TCP/UDP 7 )
 
 # ⭕ Echo
 
-## :information\_source: Introduction
+## :information\_source: <mark style="color:blue;">Introduction</mark>
 
 [Echo](https://tools.ietf.org/tools/rfcmarkup/rfcmarkup.cgi?rfc=862)
 

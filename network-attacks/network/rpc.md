@@ -1,6 +1,6 @@
 # ⭕ MSRPC / RPCbind
 
-## :information\_source: Introduction
+## :information\_source: <mark style="color:blue;">Introduction</mark>
 
 #### [Remote Procedure Call](https://datatracker.ietf.org/doc/html/rfc5531)
 
@@ -28,7 +28,7 @@ RPC architecture has mainly five components of the program:
 
 ![](<../../.gitbook/assets/image (282) (1) (1) (1) (1) (1) (1) (1).png>)
 
-## :ballot\_box\_with\_check: Checklist
+## :ballot\_box\_with\_check: <mark style="color:blue;">Checklist</mark>
 
 * [ ] Check for Null sessions
 * [ ] Quert RPC locator
@@ -36,7 +36,7 @@ RPC architecture has mainly five components of the program:
 * [ ] Try exploiting NIS if you found any
 * [ ] Try bypassing port mapper filter
 
-## Enumeration
+## <mark style="color:red;">Enumeration</mark>
 
 ```
 nmap -sSUC -p111 [ip]
@@ -51,7 +51,7 @@ auxiliary/scanner/nessus/nessus_xmlrpc_ping
 auxiliary/scanner/dcerpc/management
 ```
 
-## Check for Null user sessions
+## <mark style="color:red;">Check for Null user sessions</mark>
 
 ```
 rpcclient -N -U "" [IP address]
@@ -59,7 +59,7 @@ rpcclient $> lookupnames [user] → check username
 rpcinfo -p [ip]
 ```
 
-## automate user enumeration with a list of usernames
+## <mark style="color:red;">automate user enumeration with a list of usernames</mark>
 
 a simple loop to check RPC users in bash
 
@@ -67,13 +67,13 @@ a simple loop to check RPC users in bash
 for u in $(cat users.txt); do rpcclient -U "" 192.168.13.26 -N --command="lookupnames $u"; done |grep "User: 1"
 ```
 
-### metasploit
+### <mark style="color:orange;">metasploit</mark>
 
 ```
 use auxiliary/scanner/dcerpc/endpoint_mapper use auxiliary/scanner/dcerpc/hidden use auxiliary/scanner/dcerpc/management use auxiliary/scanner/dcerpc/tcp_dcerpc_auditor
 ```
 
-## rpcdump
+## <mark style="color:red;">rpcdump</mark>
 
 rpcdump and ifids Windows utilities query both the RPC locator and specific RPC endpoints to list IFID values.
 
@@ -85,7 +85,7 @@ UUID: 00000000-0000-0000-0000-000000000000
 Binding: ncadg_ip_udp:192.168.189.1[1028]
 ```
 
-## NIS
+## <mark style="color:red;">NIS</mark>
 
 If you find the service `ypbind`running:
 
@@ -115,11 +115,11 @@ yumi:ZEadZ3ZaW4v9.:1377:160::/export/home/yumi:/bin/bash
 | /etc/group       | group.byname, group.bygid   | NIS group file                    |
 | /usr/lib/aliases | mail.aliases                | Details mail aliases              |
 
-## Bypass Filtered Portmapper port
+## <mark style="color:red;">Bypass Filtered Portmapper port</mark>
 
 {% embed url="https://medium.com/@sebnemK/how-to-bypass-filtered-portmapper-port-111-27cee52416bc" %}
 
-## Login Brute Force
+## <mark style="color:red;">Login Brute Force</mark>
 
 ```
 auxiliary/scanner/msf/msf_rpc_login

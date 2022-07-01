@@ -4,13 +4,13 @@ description: ( TCP 23 )
 
 # ⭕ Telnet
 
-## connect and test
+## <mark style="color:red;">connect and test</mark>
 
 ```
 telnet [ip] 23
 ```
 
-## metasploit
+## <mark style="color:red;">metasploit</mark>
 
 ```
 search auxiliary/scanner/telnet
@@ -18,7 +18,7 @@ auxiliary/scanner/telnet/lantronix_telnet_version
 auxiliary/scanner/telnet/telnet_login
 ```
 
-## nmap
+## <mark style="color:red;">nmap</mark>
 
 ```
 nmap -p 23 --script telnet-brute --script-args userdb=[userlist],passdb=[wordlist],telnet-brute.timeout=8s [ip]
@@ -31,7 +31,7 @@ telnet-encryption.nse
 telnet-ntlm-info.nse
 ```
 
-## Login Brute Force
+## <mark style="color:red;">Login Brute Force</mark>
 
 ```
 hydra -l root -P passwords.txt [-t 32] <IP> telnet

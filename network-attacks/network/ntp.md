@@ -1,6 +1,6 @@
 # ⭕ NTP
 
-## :information\_source: Introduction
+## :information\_source: <mark style="color:blue;">Introduction</mark>
 
 #### [Network Time Protocol](https://tools.ietf.org/html/rfc5905)
 
@@ -16,15 +16,15 @@ NTP timestamps are stored as seconds since January 1, 1900. 32 bits for the numb
 
 NTP assumes that the time spent on the network is the same for sending and receiving.
 
-## :ballot\_box\_with\_check: Checklist
+## :ballot\_box\_with\_check: <mark style="color:blue;">Checklist</mark>
 
 * [ ] Enumerate clients lists
 
-## Enumeration
+## <mark style="color:red;">Enumeration</mark>
 
 Through NTP enumeration you can gather information such as lists of hosts connected to NTP server, IP addresses, system names, and OS running on the client system in a network. All this information can be enumerated by querying NTP server.
 
-### nmap
+### <mark style="color:orange;">nmap</mark>
 
 ```
 nmap -sU -p 123 --script ntp-info [target]
@@ -42,7 +42,7 @@ nmap -sU -pU:123 -Pn -n --script=ntp-monlist [target]
 
 This can be automated by using a Metasploit auxiliary module
 
-### metasploit modules
+### <mark style="color:orange;">metasploit modules</mark>
 
 ```
 auxiliary/scanner/ntp/ntp_monlist

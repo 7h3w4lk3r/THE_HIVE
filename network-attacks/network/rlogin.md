@@ -6,13 +6,13 @@
 rlogin runs on TCP port 513. its highly unlikely to see this service out in the open these days, but if you do, its your lucky day because if a system with an open rlogin service is exposed to the internet then there are probably more dangerous and vulnerable services running on that network.
 {% endhint %}
 
-## Login
+## <mark style="color:red;">Login</mark>
 
 ```
 rlogin -l root 192.168.99.131  --> no password required :|
 ```
 
-## Bruteforce
+## <mark style="color:red;">Bruteforce</mark>
 
 ```
 metasploit:

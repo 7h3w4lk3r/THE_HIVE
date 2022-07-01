@@ -4,7 +4,7 @@ description: (TCP 110, 995)
 
 # ⭕ POP3
 
-## :information\_source: Introduction
+## :information\_source: <mark style="color:blue;">Introduction</mark>
 
 #### [Post Office Protocol 3](https://tools.ietf.org/html/rfc1939)
 
@@ -14,7 +14,7 @@ TCP port 110 for non-encrypted mail retrieval
 
 TCP port 995 for using SSL/TLS.
 
-## :ballot\_box\_with\_check: Checklist
+## :ballot\_box\_with\_check: <mark style="color:blue;">Checklist</mark>
 
 * [ ] Login brute force
 * [ ] Check for POP - NTLM auth
@@ -22,7 +22,7 @@ TCP port 995 for using SSL/TLS.
 * [ ] use POP3 commands manually
 * [ ] Check for CVEs
 
-## Enumeration
+## <mark style="color:red;">Enumeration</mark>
 
 ```
 nmap -sV --script pop3-capabilities
@@ -31,7 +31,7 @@ openssl s_client -connect <IP>:995 -crlf -quiet
 use auxiliary/scanner/pop3/pop3_version
 ```
 
-## Login Brute Force
+## <mark style="color:red;">Login Brute Force</mark>
 
 ```
 nmap -p110 --script pop3-brute <target>
@@ -40,19 +40,19 @@ hydra -l USERNAME -P /path/to/passwords.txt -f <IP> pop3 -V
 hydra -S -v -l USERNAME -P /path/to/passwords.txt -s 995 -f <IP> pop3 -V
 ```
 
-## POP-NTLM Auth
+## <mark style="color:red;">POP-NTLM Auth</mark>
 
 ```
 nmap -sV --script pop3-ntlm-info <target>
 ```
 
-## Capture Authention Credentials
+## <mark style="color:red;">Capture Authention Credentials</mark>
 
 ```
 use auxiliary/server/capture/pop3
 ```
 
-### POP3 commands
+### <mark style="color:orange;">POP3 commands</mark>
 
 ```
 USER Your user name for this mail server

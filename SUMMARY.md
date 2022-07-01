@@ -247,7 +247,7 @@
     * [VIM Config File Keylogger](network-attacks-1/untitled/lateral-movement/vim-config-file-keylogger.md)
     * [SSH Hijacking](network-attacks-1/untitled/lateral-movement/ssh-hijacking.md)
     * [Hiding Processes](network-attacks-1/untitled/lateral-movement/hiding-processes.md)
-    * [Simple Rootkits](network-attacks-1/untitled/lateral-movement/simple-rootkits.md)
+    * [Simple User-mode Rootkits](network-attacks-1/untitled/lateral-movement/simple-rootkits.md)
     * [Vino VNC Server](network-attacks-1/untitled/lateral-movement/vino-vnc-server.md)
   * [⭕ Credential Dumping](network-attacks-1/untitled/credential-dumping/README.md)
     * [Swap Dump](network-attacks-1/untitled/credential-dumping/swap-dump.md)

@@ -4,7 +4,7 @@ description: (TCP 587, 25, 465)
 
 # ⭕ SMTP
 
-## :information\_source: Introduction
+## :information\_source: <mark style="color:blue;">Introduction</mark>
 
 #### [Simple Mail Transfer Protocol](https://tools.ietf.org/html/rfc821/)
 
@@ -20,7 +20,7 @@ For Implicit SSL/TLS uses port TCP 465
 
 port TCP 25
 
-## :ballot\_box\_with\_check: Checklist
+## :ballot\_box\_with\_check: <mark style="color:blue;">Checklist</mark>
 
 * [ ] User enumeration
 * [ ] Login brute force
@@ -29,7 +29,7 @@ port TCP 25
 * [ ] Check for open relay
 * [ ] Test other scenarios with SMTP commands
 
-## Enumeration
+## <mark style="color:red;">Enumeration</mark>
 
 ```
 # SMTP
@@ -46,20 +46,20 @@ openssl s_client -crlf -connect smtp.mailgun.org:465 #SSL/TLS without starttls c
 openssl s_client -starttls smtp -crlf -connect smtp.mailgun.org:587
 ```
 
-## Find Mail Server
+## <mark style="color:red;">Find Mail Server</mark>
 
 ```
 dig +short mx google.com
 ```
 
-## Connect
+## <mark style="color:red;">Connect</mark>
 
 ```
 telnet 192.168.13.26 25 # user IP or domain name
 nc 192.168.13.26 25 
 ```
 
-## User Enumeration
+## <mark style="color:red;">User Enumeration</mark>
 
 There are 3 methods (SMTP commands) to test for existance of a user in SMTP service:
 
@@ -75,7 +75,7 @@ nmap -sV --script smtp-enum-users
 nmap --script smtp-enum-users.nse [--script-args smtp-enum-users.methods={EXPN,...},...] -p 25,465,587 <host>
 ```
 
-### Telnet
+### <mark style="color:orange;">Telnet</mark>
 
 #### RCPT TP
 
@@ -106,7 +106,7 @@ EXPN sshd
 2.1.5 sshd privsep <sshd@mail2>  # sshd exists
 ```
 
-### python script for verifying users
+### <mark style="color:orange;">python script for verifying users</mark>
 
 {% hint style="info" %}
 change the "method" variable to test for different methods of user enumeration.
@@ -139,7 +139,7 @@ s.close()
 
 {% embed url="https://github.com/z0mbiehunt3r/smtp-enum" %}
 
-## Login Brute Force
+## <mark style="color:red;">Login Brute Force</mark>
 
 ```
 nmap -p 25 --script smtp-brute <host>
@@ -148,7 +148,7 @@ hydra -l <username> -P /path/to/passwords.txt <IP> smtp -V
 hydra -l <username> -P /path/to/passwords.txt -s 587 <IP> -S -v -V #Port 587 for SMTP with SSL
 ```
 
-## Delivery Status Notification Disclosure
+## <mark style="color:red;">Delivery Status Notification Disclosure</mark>
 
 If you send an **email** to an organisation to an **invalid address**, the organisation will notify that the address was invalided sending a **mail back to you**. **Headers** of the returned email will **contain** possible **sensitive information** (like IP address of the mail services that interacted with the reports or anti-virus software info).
 
@@ -167,19 +167,19 @@ example:
 
 If a SMTP server has accepted the task of relaying a message and later finds that the recipient is incorrect, or that the mail cannot be delivered for whatever reason, then it must construct a NDN message and send it to the originator of the undeliverable mail.
 
-## SMTP - NTLM Auth
+## <mark style="color:red;">SMTP - NTLM Auth</mark>
 
-#### ( Internal Information disclosure )
+#### <mark style="color:green;">( Internal Information disclosure )</mark>
 
 In Windows environment (MS Exchange) with SMTP - NTLM Auth available, if an attacker sends a null NTLM Auth request, the server to respond with a NTLMSSP message and disclose some information about the target host such as NetBIOS, DNS, OS and version.
 
-### nmap
+### <mark style="color:orange;">nmap</mark>
 
 ```
 nmap -p 25,465,587 --script smtp-ntlm-info --script-args smtp-ntlm-info.domain=domain.com <target>
 ```
 
-### Manual
+### <mark style="color:orange;">Manual</mark>
 
 ```
 root@kali: telnet example.com 587 
@@ -194,7 +194,7 @@ NTLM supported
 
 #### the same issue exists for IMAP service as well.
 
-## Internal Server Name - Information Disclosure
+## <mark style="color:red;">Internal Server Name - Information Disclosure</mark>
 
 #### Some SMTP servers auto-complete a sender's address when command "MAIL FROM" is issued without a full address, disclosing its internal name:
 
@@ -216,11 +216,11 @@ MAIL FROM: me
 250 2.1.0 me@PRODSERV01.somedomain.com....Sender OK
 ```
 
-## Open Relay Attack
+## <mark style="color:red;">Open Relay Attack</mark>
 
 An SMTP server that works as an open relay, is a email server that does not verify if the user is authorized to send email from the specified email address. Therefore, users would be able to send email originating from any third-party email address that they want.
 
-### Manual
+### <mark style="color:orange;">Manual</mark>
 
 ```
 telnet [server_addr] [port]
@@ -236,32 +236,32 @@ subject: test for smtp
 quit
 ```
 
-### Automated
+### <mark style="color:orange;">Automated</mark>
 
 ```
 nmap --script smtp-open-relay.nse [--script-args smtp-open-relay.domain=<domain>,smtp-open-relay.ip=<address>,...] -p 25,465,587 <host>
 use auxiliary/scanner/smtp/smtp_relay
 ```
 
-## Mail Spoofing
+## <mark style="color:red;">Mail Spoofing</mark>
 
-#### [HackTricks ](https://book.hacktricks.xyz/pentesting/pentesting-smtp#mail-spoofing)has a good explanation for mail spoofing attacks.
+#### <mark style="color:green;"></mark>[<mark style="color:green;">HackTricks</mark> ](https://book.hacktricks.xyz/pentesting/pentesting-smtp#mail-spoofing)<mark style="color:green;">has a good explanation for mail spoofing attacks.</mark>
 
-### Check for Mail Spoofing Via SPF and DMARC Records
+### <mark style="color:orange;">Check for Mail Spoofing Via SPF and DMARC Records</mark>
 
 {% embed url="https://github.com/serain/mailspoof" %}
 
-### Validating SPF and DMARC DNS Records
+### <mark style="color:orange;">Validating SPF and DMARC DNS Records</mark>
 
 {% embed url="https://pypi.org/project/checkdmarc" %}
 
-### Sending Fake Email
+### <mark style="color:orange;">Sending Fake Email</mark>
 
 {% embed url="https://www.mailsploit.com/index" %}
 
 {% embed url="http://www.anonymailer.net" %}
 
-## SMTP Commands
+## <mark style="color:red;">SMTP Commands</mark>
 
 #### HELO
 
@@ -328,7 +328,7 @@ S: 250 OK
 
 Asks the server to close the connection. If the connection can be closed the servers replies with a 221 numerical code and then is the session closed.
 
-### wrapping up
+### <mark style="color:orange;">wrapping up</mark>
 
 sending an email from linux:
 

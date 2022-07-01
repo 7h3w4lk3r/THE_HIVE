@@ -1,6 +1,6 @@
 # Vino VNC Server
 
-GNOME ships a VNC Server which can be activated with vino-preferences. Or for the lazy people:
+#### GNOME ships a VNC Server which can be activated with vino-preferences. Or for the lazy people:
 
 ```
 gconftool-2 --set /desktop/gnome/remote_access/enabled --type bool true

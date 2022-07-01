@@ -4,7 +4,7 @@ description: (TCP/UDP 389, TCP 636, 3268, 3269)
 
 # ⭕ LDAP
 
-## :information\_source: Introduction
+## :information\_source: <mark style="color:blue;">Introduction</mark>
 
 #### [Lightweight Directory Access Protocol](https://datatracker.ietf.org/doc/html/rfc4511)
 
@@ -40,7 +40,7 @@ Modifying the distinguished name or relative distinguished name of an entry
 Comparing an entry
 ```
 
-## LDAP Models
+## <mark style="color:red;">LDAP Models</mark>
 
 ​​LDAP can be explained by using four models upon which it based:
 

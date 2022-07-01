@@ -6,9 +6,9 @@ Distributing accurate time is a vital part of sustaining network infrastructure.
 NTP Spoofing is hard to detect and the only mitigation is NTP encryption or synchronizing network time with GPS, so this type of attack is not as obvious as ARP spoofing or other types of spoofing for that matter.
 {% endhint %}
 
-#### NTP Spoofing is done after ARP spoofing and becoming the man in the middle
+#### <mark style="color:green;">NTP Spoofing is done after ARP spoofing and becoming the man in the middle</mark>
 
-#### This attack can trick the victim systems to think that the web certificates or HSTS records are expired and thus they wont trust the old records anymore, in this case the attacker can run MitM attacks such as HTTPS downgrade and HSTS bypass more successfully.
+#### <mark style="color:green;">This attack can trick the victim systems to think that the web certificates or HSTS records are expired and thus they wont trust the old records anymore, in this case the attacker can run MitM attacks such as HTTPS downgrade and HSTS bypass more successfully.</mark>
 
 {% embed url="https://github.com/crazyarashi/ntp-spoof" %}
 

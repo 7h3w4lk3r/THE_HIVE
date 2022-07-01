@@ -1,6 +1,6 @@
-# Simple Rootkits
+# Simple User-mode Rootkits
 
-## <mark style="color:red;">Shell Rootkit</mark>
+## <mark style="color:red;">Shell User-mode Rootkit</mark>
 
 {% hint style="danger" %}
 #### This rootkit is pretty easy to detect and analyze because it can easily be seen with the file command that programs like `ps` or `ls` have changed the type from an ELF binary to a shell script. After discovering the rootkit, it is also pretty easy to analyze the functionality of it and then selectively find the backdoors hidden by the rootkit.

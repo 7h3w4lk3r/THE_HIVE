@@ -4,7 +4,7 @@ description: (TCP 21, 20)
 
 # ⭕ FTP
 
-## :information\_source: Introduction
+## :information\_source: <mark style="color:blue;">Introduction</mark>
 
 #### [File Transfer Protocol](https://tools.ietf.org/html/rfc959)
 
@@ -19,14 +19,14 @@ ftp> binary >>> set transfer mode to binary (default is ascii)
 ftp> help >> to see the list of commands
 ```
 
-### Operation Modes
+### <mark style="color:orange;">Operation Modes</mark>
 
 #### FTP has 2 operation modes:
 
 1. **Active Mode** : client connects from a random unprivileged port (N > 1024) to the FTP server's command port, port 21. Then, the client starts listening to port N+1 and sends the FTP command PORT N+1 to the FTP server. The server will then connect back to the client's specified data port from its local data port, which is port 20.
 2. **Passive Mode** : client initiates both connections to the server, solving the problem of firewalls filtering the incoming data port connection to the client from the server
 
-## :ballot\_box\_with\_check: Checklist
+## :ballot\_box\_with\_check: <mark style="color:blue;">Checklist</mark>
 
 * [ ] Check for vulnerable versions (e.g: vsftpd with RCE vulns)
 * [ ] Check anonymous login
@@ -35,7 +35,7 @@ ftp> help >> to see the list of commands
 * [ ] Brute force login
 * [ ] FTP bounce attack
 
-## Enumeration
+## <mark style="color:red;">Enumeration</mark>
 
 ```
 nmap -sV [target ip] 21 
@@ -48,15 +48,15 @@ openssl s_client -connect crossfit.htb:21 -starttls ftp #Get certificate if any
 
 connect to server without authentication and use `HELP` and `FEAT` commands to find some info.
 
-### Common FTP banners
+### <mark style="color:orange;">Common FTP banners</mark>
 
 some of the most used banners for different versions of FTP.
 
 ![](<../../.gitbook/assets/image (36) (1).png>)
 
-## Connecting to Server
+## <mark style="color:red;">Connecting to Server</mark>
 
-### CLI
+### <mark style="color:orange;">CLI</mark>
 
 ```
 telnet  [ip] [port]
@@ -75,7 +75,7 @@ Usage: login <user|URL> [<pass>]
 lftp 10.10.10.208:~> login username Password
 ```
 
-### Browser
+### <mark style="color:orange;">Browser</mark>
 
 You can connect to a FTP server using a browser (like Firefox) using a URL like:
 
@@ -85,14 +85,14 @@ ftp://anonymous:anonymous@10.10.10.98
 
 Note that if a **web application** is sending data controlled by a user **directly to a FTP server** you can send double URL encode `%0d%0a` (in double URL encode this is `%250d%250a`) bytes and make the **FTP server perform arbitrary actions**. One of this possible arbitrary actions is to download content from a users controlled server, perform port scanning or try to talk to other plain-text based services (like http).
 
-## Download all files from FTP
+## <mark style="color:red;">Download all files from FTP</mark>
 
 ```
 wget -m ftp://anonymous:anonymous@10.10.10.98 #Donwload all
 wget -m --no-passive ftp://anonymous:anonymous@10.10.10.98 #Download all
 ```
 
-## Login Brute Force
+## <mark style="color:red;">Login Brute Force</mark>
 
 ```
 medusa -u [user] -P [wordlist] -h [ip] -M ftp
@@ -105,7 +105,7 @@ nmap --script ftp-brute -p 21 <host
 
 {% embed url="https://github.com/WalderlanSena/ftpbrute" %}
 
-## FTP Directory Traversal
+## <mark style="color:red;">FTP Directory Traversal</mark>
 
 In some scenarios in a misconfigured server (e.g: FLASH FTP, Fermitter FTP), we are able to change active working directory of FTP client to access sensitive directories or OS file system.
 
@@ -113,7 +113,7 @@ In this example we have access to Windows file system root directory (C Drive):
 
 ![](<../../.gitbook/assets/image (275) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
-## FTP Anonymous Authentication
+## <mark style="color:red;">FTP Anonymous Authentication</mark>
 
 Checks if an FTP server allows anonymous logins. If anonymous is allowed, gets a directory listing of the root directory and highlights writeable files.
 
@@ -136,7 +136,7 @@ use auxiliary/scanner/ftp/anonymous
 nmap -sV --script ftp-anon [target ip]
 ```
 
-## vsftpd
+## <mark style="color:red;">vsftpd</mark>
 
 21/tcp open ftp syn-ack ttl 64 vsftpd 2.3.4 This particular version contains a backdoor that was slipped into the source code by an unknown intruder. The backdoor was quickly identified and removed, but not before quite a few people downloaded it. If a username is sent that ends in the sequence :) \[ a happy face ], the backdoored version will open a listening shell on port 6200.We can demonstrate this with telnet or use the Metasploit Framework module to automatically exploit it:
 
@@ -144,7 +144,7 @@ nmap -sV --script ftp-anon [target ip]
 
 {% embed url="https://www.exploit-db.com/exploits/49757" %}
 
-## FTP Bounce Attack
+## <mark style="color:red;">FTP Bounce Attack</mark>
 
 check out this tutorial on [HackTricks](https://book.hacktricks.xyz/pentesting/pentesting-ftp/ftp-bounce-attack)
 
@@ -152,7 +152,7 @@ Imagine that you are a user on foreign.fr, IP address F.F.F.F, and want to retri
 
 However, crypto.com will allow ufred.edu to download crypto sources because ufred.edu is in the US too. You happen to know that /incoming on ufred.edu is a world-writeable directory that any anonymous user can drop files into and read them back from. Crypto.com's IP address is C.C.C.C.
 
-### The Attack
+### <mark style="color:orange;">The Attack</mark>
 
 This assumes you have an FTP server that does passive mode. Open an FTP connection to your own machine's real IP address \[not localhost] and log in. Change to a convenient directory that you have write access to, and then do:
 
@@ -188,7 +188,7 @@ quote "port C,C,C,C,0,21"
 quote "retr instrs"
 ```
 
-### nmap
+### <mark style="color:orange;">nmap</mark>
 
 ```
 nmap --script ftp-bounce
@@ -199,7 +199,7 @@ ftp-bounce.username
 ftp-bounce.checkhost
 ```
 
-### Note
+### <mark style="color:orange;">Note</mark>
 
 There are several variants of this. Your PASV listener connection can be opened on any machine that you have file write access to -- your own, another connection to ufred.edu, or somewhere completely unrelated. In fact, it does not even have to be an FTP server -- any utility that will listen on a known TCP port and read raw data from it into a file will do. A passive-mode FTP data connection is simply a convenient way to do this.
 
@@ -209,6 +209,6 @@ If crypto.com disallows \*any\* FTP client connection from you at foreign.fr and
 
 You may have to retrieve your command file to the target's FTP server in ASCII mode rather than binary mode. Some FTP servers can deal with raw newlines, but others may need command lines terminated by CRLF pairs. Keep this in mind when retrieving files to daemons other than FTP servers, as well.
 
-## Filezilla Server Vulnerability
+## <mark style="color:red;">Filezilla Server Vulnerability</mark>
 
 FileZilla usually binds to local an Administrative service for the FileZilla-Server (port 14147). If you can create a tunnel from your machine to access this port, you can connect to it using a blank password and create a new user for the FTP service.

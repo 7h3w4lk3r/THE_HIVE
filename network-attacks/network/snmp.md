@@ -4,7 +4,7 @@ description: ( TCP 161 )
 
 # ⭕ SNMP
 
-## :information\_source: Introduction
+## :information\_source: <mark style="color:blue;">Introduction</mark>
 
 [Simple Network Management Protocol](https://datatracker.ietf.org/doc/html/rfc1157/)
 
@@ -79,7 +79,7 @@ Note that the writability of an OID depends on the community string used, so eve
 
 In versions 1 and 2/2c if you to use a bad community string the server wont respond. So, if it responds, a valid community strings was used.
 
-## :ballot\_box\_with\_check: Checklist
+## :ballot\_box\_with\_check: <mark style="color:blue;">Checklist</mark>
 
 * [ ] Enumeration with community strings
 * [ ] Brute force community string
@@ -87,7 +87,7 @@ In versions 1 and 2/2c if you to use a bad community string the server wont resp
 * [ ] Eavesdropping
 * [ ] Agent discovery
 
-## Quick Check
+## <mark style="color:red;">Quick Check</mark>
 
 ```
 # Windows User Accounts
@@ -117,39 +117,9 @@ onesixtyone -i snmp-ips.txt -c community.txt
 snmp-check $TARGET
 ```
 
-## SNMP Enumeration
+## <mark style="color:red;">SNMP Enumeration</mark>
 
-### snmpwalk
-
-```
-# Windows User Accounts
-snmpwalk -c public -v1 $TARGET 1.3.6.1.4.1.77.1.2.25
-
-# Windows Running Programs
-snmpwalk -c public -v1 $TARGET 1.3.6.1.2.1.25.4.2.1.2
-
-# Windows Hostname
-snmpwalk -c public -v1 $TARGET .1.3.6.1.2.1.1.5
-
-# Windows Share Information
-snmpwalk -c public -v1 $TARGET 1.3.6.1.4.1.77.1.2.3.1.1
-
-# Windows Share Information
-snmpwalk -c public -v1 $TARGET 1.3.6.1.4.1.77.1.2.27
-
-# Windows TCP Ports
-snmpwalk -c public -v1 $TARGET4 1.3.6.1.2.1.6.13.1.3
-
-# Software Name
-snmpwalk -c public -v1 $TARGET 1.3.6.1.2.1.25.6.3.1.2
-
-# brute-force community strings
-onesixtyone -i snmp-ips.txt -c community.txt
-
-snmp-check $TARGET
-```
-
-### nmap & metasploit
+### <mark style="color:orange;">nmap & metasploit</mark>
 
 ```
 use auxiliary/scanner/snmp/snmp_enum
@@ -170,7 +140,7 @@ nmap -sU -sV -p 161 --script snmp-processes --script-args snmpcommunity=[communi
 nmap -sU -sV -p 161 --script snmp-sysdescr --script-args snmpcommunity=[community] 
 ```
 
-### onesixtyone
+### <mark style="color:orange;">onesixtyone</mark>
 
 A standalone SNMP community string scanner
 
@@ -180,7 +150,7 @@ does not stop scanning once a community string is found and will enumerate all c
 onesixtyone -c snmp.txt -i hosts.txt
 ```
 
-### Braa
+### <mark style="color:orange;">Braa</mark>
 
 it is able to query dozens or hundreds of hosts simultaneously, and in a single process.
 
@@ -188,35 +158,35 @@ it is able to query dozens or hundreds of hosts simultaneously, and in a single 
 braa ignite123@192.168.1.125:.1.3.6.*
 ```
 
-### snmpenum
+### <mark style="color:orange;">snmpenum</mark>
 
 ```
 snmpenum 192.168.56.102 private linux.txt
 snmpenum [ip] [community string (public/private/whatever)] [config file]
 ```
 
-### snmpcheck
+### <mark style="color:orange;">snmpcheck</mark>
 
 ```
 snmpcheck -t 10.10.10.4 -c public
 ```
 
-### snmpget
+### <mark style="color:orange;">snmpget</mark>
 
 ```
 snmpget -v 1 -c public [IP] [version]
 ```
 
-### snmpbulkwalk
+### <mark style="color:orange;">snmpbulkwalk</mark>
 
 ```
 snmpbulkwalk -v2c -c public -Cn0 -Cr10 IP
 snmpbulkwalk -v 2c -c public [ip]
 ```
 
-## Changing MIB Values
+## <mark style="color:red;">Changing MIB Values</mark>
 
-### snmpwalk & snmpset
+### <mark style="color:orange;">snmpwalk & snmpset</mark>
 
 change an MIB variable using `snmpset` (included with Net-SNMP tools)
 
@@ -232,22 +202,22 @@ snmpwalk -v2c -c public 192.168.31.1 system.sysLocation.0
 snmpset -v2c -c public 192.168.31.1 system.sysLocation.0 s "foo"
 ```
 
-### metasploit
+### <mark style="color:orange;">metasploit</mark>
 
 ```
 use auxiliary/scanner/snmp/snmp_set
 ```
 
-## Brute Force Community Strings
+## <mark style="color:red;">Brute Force Community Strings</mark>
 
 ```
 use auxiliary/scanner/snmp/snmp_login
 nmap -sU -p 161 -n --script snmp-brute [ip] --script-args snmp-brute.communitiesdb=wordlist
 ```
 
-## SNMP Eavesdropping
+## <mark style="color:red;">SNMP Eavesdropping</mark>
 
-### Ettercap
+### <mark style="color:orange;">Ettercap</mark>
 
 If SNMPv1 or SNMPv2c is in use and the attacker can observe the traffic, the community string can be obtained through password-sniffing techniques. If SNMP activity is present on the LAN, an attacker who launches a MitM attack with Ettercap will see output similar to that shown on this screen, identifying the SNMP agent sending or receiving SNMP traffic with the community string and the observed SNMP version.
 
@@ -259,7 +229,7 @@ ettercap -TqM arp:remote /10.144.246.1-254// /10.144.246.1-254//
 Note that Ettercap does not identify the address of the NMS interacting with the SNMP agent. To collect this level of detail, configure Ettercap to log observed traffic with the "-p pcapfile" argument and then inspect the address information with Wireshark to identify the NMS.
 {% endhint %}
 
-## SNMP Agent Discovery
+## <mark style="color:red;">SNMP Agent Discovery</mark>
 
 Scanning for SNMP agent devices has some difficulty due to limitations with UDP port scanning (when ICMP is filtered, UDP port scanning is ineffective, and very slow) and variations in how different SNMP agents respond to requests when configured with the wrong SNMP community string. Fortunately, Nmap's version- scanning feature will probe a target system on UDP/161 to identify behavior that is characteristic of an SNMP agent. This technique has a high degree of success when targeting common embedded SNMP implementations (such as routers and other networking devices) as well as any agents using a default community string of "public". Nmap will also identify any system with SNMPv3 support, due to changes in the protocol where the SNMP agent will respond to failed authentication requests.
 

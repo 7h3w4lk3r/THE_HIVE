@@ -4,7 +4,7 @@ description: (TCP 143, 993)
 
 # ⭕ IMAP
 
-## :information\_source: Introduction
+## :information\_source: <mark style="color:blue;">Introduction</mark>
 
 #### [Internet Message Access Protocol](https://datatracker.ietf.org/doc/html/rfc3501)
 
@@ -14,14 +14,14 @@ port TCP 143 for no encryption
 
 port TCP 993 for SSL/TLS
 
-## :ballot\_box\_with\_check: Checklist
+## :ballot\_box\_with\_check: <mark style="color:blue;">Checklist</mark>
 
 * [ ] Login brute force
 * [ ] Check for IMAP - NTLM auth
 * [ ] Use curl to navigate
 * [ ] Try to capture IMAP credentials
 
-## Enumeration
+## <mark style="color:red;">Enumeration</mark>
 
 ```
 nc -nv <IP> 143
@@ -30,7 +30,7 @@ openssl s_client -connect <IP>:993 -quiet
 nmap -sV --script imap-apabilities
 ```
 
-## Login Brute Force
+## <mark style="color:red;">Login Brute Force</mark>
 
 ```
 nmap --script imap-brute
@@ -39,17 +39,17 @@ hydra -S -v -l USERNAME -P /path/to/passwords.txt -s 993 -f <IP> imap -V
 nmap -sV --script imap-brute -p <PORT> <IP>
 ```
 
-## Capture IMAP Authentication
+## <mark style="color:red;">Capture IMAP Authentication</mark>
 
 ```
 use auxiliary/server/capture/imap
 ```
 
-## IMAP - NTLM Auth
+## <mark style="color:red;">IMAP - NTLM Auth</mark>
 
 If the server supports NTLM auth (Windows) you can obtain sensitive info (versions):
 
-### Manual
+### <mark style="color:orange;">Manual</mark>
 
 ```
 telnet example.com 143
@@ -60,13 +60,13 @@ telnet example.com 143
 + TlRMTVNTUAACAAAACgAKADgAAAAFgooCBqqVKFrKPCMAAAAAAAAAAEgASABCAAAABgOAJQAAAA9JAEkAUwAwADEAAgAKAEkASQBTADAAMQABAAoASQBJAFMAMAAxAAQACgBJAEkAUwAwADEAAwAKAEkASQBTADAAMQAHAAgAHwMI0VPy1QEAAAAA
 ```
 
-### Automated
+### <mark style="color:orange;">Automated</mark>
 
 ```
 nmap --script imap-ntlm-info [target ip]
 ```
 
-## Navigation with CURL
+## <mark style="color:red;">Navigation with CURL</mark>
 
 Listing mailboxes (imap command `LIST "" "*"`)
 
