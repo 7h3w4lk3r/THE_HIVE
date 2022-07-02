@@ -17,8 +17,8 @@
 # get forest trust relationships
 ([System.DirectoryServices.ActiveDirectory.Forest]::GetForest((New-Object System.DirectoryServices.ActiveDirectory.DirectoryContext('Forest', 'forest-of-interest.local')))).GetAllTrustRelationships()
 
-# 
-
+# find AD hosts
+get-adcomputer -filter {PrimaryGroupID -eq '515'} 
 
 # get DCs of a domain
 nltest /dclist:offense.local
