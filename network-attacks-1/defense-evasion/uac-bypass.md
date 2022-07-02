@@ -58,7 +58,7 @@ Get-ChildItem "C:\Windows\System32\*.exe" | Select-String -pattern "<autoElevate
 Get-ChildItem "C:\Windows\SysWOW64\*.exe" | Select-String -pattern "<autoElevate>true</autoElevate>"
 ```
 
-### <mark style="color:orange;">EVENTVWE.exe & Registry Hijacking</mark>
+### <mark style="color:orange;">eventvwr.exe & Registry Hijacking</mark>
 
 {% embed url="https://enigma0x3.net/2016/08/15/fileless-uac-bypass-using-eventvwr-exe-and-registry-hijacking/" %}
 
