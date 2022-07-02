@@ -206,7 +206,7 @@ The segment registers (CS, DS, SS, ES, FS, and GS) hold 16-bit segment selectors
 
 In 64-bit mode: CS, DS, ES, SS are treated as if each segment base is 0, regardless of the value of the associated segment descriptor base. This creates a flat address space for code, data, and stack. FS and GS are exceptions. Both segment registers may be used as additional base registers in linear address calculations (in the addressing of local data and certain operating system data structures). Even though segmentation is generally disabled, segment register loads may cause the processor to perform segment access assists. During these activities, enabled processors will still perform most of the legacy checks on loaded values (even if the checks are not applicable in 64-bit mode). Such checks are needed because a segment register loaded in 64-bit mode may be used by an application running in compatibility mode. Limit checks for CS, DS, ES, SS, FS, and GS are disabled in 64-bit mode.
 
-![](<../../.gitbook/assets/image (120) (1).png>)
+![](<../../.gitbook/assets/image (120) (1) (1).png>)
 
 ###
 

@@ -28,7 +28,7 @@ HKEY_LOCAL_MACHINESYSTEMCurrentControlSetControlSession ManagerKnownDLLs
 
 And their location is mentioned by the key `DllDirectory (64 bit DLLs)` and `DllDirectory32 (32 bit DLLs`)
 
-![](<../../../../.gitbook/assets/image (120).png>)
+![](<../../../../.gitbook/assets/image (120) (1).png>)
 
 Attackers can also modify the registry key at `HKEY_LOCAL_MACHINESYSTEMCurrentControlSetControlSession` Manager `ExcludeFromKnownDlls` to exclude the DLLS from KnownDLL for processing.
 

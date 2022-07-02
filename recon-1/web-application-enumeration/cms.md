@@ -87,6 +87,30 @@ droopescan scan -U list_of_urls.txt
 joomscan --url http://192.168.56.126 -ec
 ```
 
+#### <mark style="color:green;">Get components running on the website</mark>
+
+```
+joomscan --url http://10.10.10.150/ --random-agent --enumerate-components
+```
+
+You can also check
+
+```
+/administrator/manifests/files/joomla.xml
+```
+
+If you find components, you can often access the configuration file
+
+```
+JCE component → /components/com_jce/jce.xml
+```
+
+Check for vulnerabilities affecting components
+
+### <mark style="color:orange;">Joomlavs</mark>
+
+{% embed url="https://github.com/rastating/joomlavs" %}
+
 ## <mark style="color:red;">Nikto</mark>
 
 A free web application vulnerability scanner preinstalled on kali linux.

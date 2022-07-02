@@ -2,6 +2,33 @@
 
 ## <mark style="color:red;">Directory and Subdomain Discovery</mark>
 
+### <mark style="color:orange;">Subdomain finder one-liners</mark>
+
+#### find subdomains from various sources and add them to `output.txt` file. (will need a sort out)
+
+```
+(curl -s "https://rapiddns.io/subdomain/$TARGET?full=1#result" 2>/dev/null | grep "<td><a" 2>/dev/null | cut -d '"' -f 2  2>/dev/null | grep http 2>/dev/null | cut -d '/' -f3 2>/dev/null | sed 's/#results//g' 2>/dev/null | sort -u 2>/dev/null) > output.txt
+
+
+(curl -s https://dns.bufferover.run/dns?q=.$TARGET 2>/dev/null |jq -r .FDNS_A[] 2>/dev/null |cut -d',' -f2 2>/dev/null|sort -u 2>/dev/null ) >> output.txt
+
+(curl -s "https://riddler.io/search/exportcsv?q=pld:${TARGET}" 2>/dev/null| grep -Po "(([\w.-]*)\.([\w]*)\.([A-z]))\w+" 2>/dev/null| sort -u 2>/dev/null ) >> output.txt
+
+(curl -s "https://www.virustotal.com/ui/domains/${TARGET}/subdomains?limit=40" 2>/dev/null | grep -Po "((http|https):\/\/)?(([\w.-]*)\.([\w]*)\.([A-z]))\w+" 2>/dev/null | sort -u 2>/dev/null ) >> output.txt
+
+(curl -s "https://certspotter.com/api/v1/issuances?domain=${TARGET}&include_subdomains=true&expand=dns_names"  2>/dev/null | jq .[].dns_names 2>/dev/null | tr -d '[]"\n ' 2>/dev/null | tr ',' '\n'2>/dev/null  ) >> output.txt
+
+(curl -s "https://jldc.me/anubis/subdomains/${TARGET}"  2>/dev/null | grep -Po "((http|https):\/\/)?(([\w.-]*)\.([\w]*)\.([A-z]))\w+"  2>/dev/null | sort -u  2>/dev/null   ) >> output.txt
+
+(curl -s "https://securitytrails.com/list/apex_domain/${TARGET}"  2>/dev/null | grep -Po "((http|https):\/\/)?(([\w.-]*)\.([\w]*)\.([A-z]))\w+"   2>/dev/null| grep "${TARGET}" 2>/dev/null | sort -u 2>/dev/null ) >> output.txt
+
+(curl --silent https://sonar.omnisint.io/subdomains/$TARGET 2>/dev/null | grep -oE "[a-zA-Z0-9._-]+\.$TARGET" 2>/dev/null | sort -u 2>/dev/null ) >> output.txt
+
+(curl --silent -X POST https://synapsint.com/report.php -d "name=https%3A%2F%2F$TARGET" 2>/dev/null| grep -oE "[a-zA-Z0-9._-]+\.$TARGET" 2>/dev/null | sort -u 2>/dev/null ) >> output.txt
+
+(curl -s "https://crt.sh/?q=%25.$TARGET&output=json" 2>/dev/null| jq -r '.[].name_value' 2>/dev/null| sed 's/\*\.//g' 2>/dev/null| sort -u 2>/dev/null ) >> output.txt
+```
+
 ### <mark style="color:orange;">sublist3r</mark>
 
 ```
