@@ -4,9 +4,11 @@
 
 {% embed url="https://github.com/fabacab/awesome-cybersecurity-blueteam" %}
 
-{% embed url="https://github.com/maldevel/blue-team/tree/master/hardening" %}
+{% embed url="https://s0cm0nkey.gitbook.io/s0cm0nkeys-security-reference-guide/blue-defense/threat-hunting" %}
 
-{% embed url="https://github.com/nccgroup/exploit_mitigations" %}
+{% embed url="https://ondrej-sramek.gitbook.io/security/" %}
+
+{% embed url="https://github.com/0x4D31/awesome-threat-detection" %}
 
 ## <mark style="color:red;">Checklists & Standards</mark>
 
