@@ -2,6 +2,8 @@
 
 ## <mark style="color:red;">Quick Checks</mark>
 
+#### <mark style="color:green;">Low-privilege enumeration with powershell (no admin rights).</mark>
+
 ```powershell
 # current domain info
 [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain()
@@ -14,6 +16,9 @@
 
 # get forest trust relationships
 ([System.DirectoryServices.ActiveDirectory.Forest]::GetForest((New-Object System.DirectoryServices.ActiveDirectory.DirectoryContext('Forest', 'forest-of-interest.local')))).GetAllTrustRelationships()
+
+# 
+
 
 # get DCs of a domain
 nltest /dclist:offense.local
