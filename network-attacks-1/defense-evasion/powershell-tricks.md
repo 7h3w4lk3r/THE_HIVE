@@ -1,4 +1,4 @@
-# ⭕ Leveraging Powershell
+# ⭕ Powershell Tricks
 
 ## <mark style="color:red;">Powershell</mark>
 
@@ -100,8 +100,6 @@ Profile running locations and context:
 | All Users, All Hosts | Console | $PsHome\Profile.ps1                                                     |
 | Current User + Host  | ISE     | $Home\Documents\WindowsPowerShell\Microsoft.Power ShellISE\_profile.ps1 |
 | Current Host         | ISE     | $PsHome\Microsoft.PowerShellISE\_profile.ps1                            |
-
-## <mark style="color:red;">Persistent Modules</mark>
 
 
 

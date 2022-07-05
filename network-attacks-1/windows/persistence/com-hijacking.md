@@ -24,7 +24,7 @@ It can also live on a remote machine.
 
 When COM is present as a DLL, the process of COM loading looks like this:
 
-![](<../../../.gitbook/assets/image (130).png>)
+![](<../../../.gitbook/assets/image (130) (1).png>)
 
 When COM is a EXE file the process will look like this:
 
