@@ -345,8 +345,8 @@
   * [🔴 VBA Sandbox Evasion](network-attacks-1/defense-evasion/vba-sandbox-evasion.md)
   * [⭕ Binary Properties & Code Signing](network-attacks-1/defense-evasion/binary-properties-and-code-signing.md)
   * [⭕ AMSI Bypass](network-attacks-1/defense-evasion/amsi-bypass.md)
-  * [🔧 SRP & AppLocker Bypass](network-attacks-1/defense-evasion/srp-and-applocker-bypass.md)
-  * [🔧 GPO Bypass](network-attacks-1/defense-evasion/gpo-bypass.md)
+  * [⭕ SRP & AppLocker Bypass](network-attacks-1/defense-evasion/srp-and-applocker-bypass.md)
+  * [⭕ GPO Bypass](network-attacks-1/defense-evasion/gpo-bypass.md)
 
 ## 🔷 Blue Team
 
