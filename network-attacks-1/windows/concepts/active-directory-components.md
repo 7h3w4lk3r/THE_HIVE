@@ -33,9 +33,9 @@ A trust relationship can also be **transitive** (A trust B, B trust C, then A tr
 * **External** – an implicitly non-transitive trust created between disparate domains. “External trusts provide access to resources in a domain outside of the forest that is not already joined by a forest trust.” External trusts enforce SID filtering, a security protection covered later in this post.
 * **Tree-root** – an implicit two-way transitive trust between the forest root domain and the new tree root you’re adding. I haven’t encountered tree-root trusts too often, but from the Microsoft documentation, they’re created when you when you create a new domain tree in a forest. These are intra-forest trusts, and they preserve two-way transitivity while allowing the tree to have a separate domain name (instead of child.parent.com).
 * **Forest** – a transitive trust between one forest root domain and another forest root domain. Forest trusts also enforce SID filtering.
-* **MIT** – a trust with a non-Windows RFC4120-compliant Kerberos domain. I hope to dive more into MIT trusts in the future.
+* **MIT** – a trust with a non-Windows RFC4120-compliant Kerberos domain.
 
-###
+## <mark style="color:red;">GCS</mark>
 
 The global catalog server holds the full writable copy of objects in its host domain, and the partial copy of the objects in other domains in the same forest. The partial replica contains a copy of every object in the forest and the most commonly used attributes in queries.&#x20;
 
@@ -54,7 +54,7 @@ In Active Directory, there are two types of objects:
 1. <mark style="color:orange;">Container objects</mark> can store other objects in the Active Directory. The domain itself is an example of a container object. The organizational unit is also a container object.
 2. <mark style="color:orange;">Leaf objects</mark> cannot store other objects in Active Directory. A service account is an example of a leaf object.
 
-#### Active Directory objects use attributes to describe their nature.
+#### <mark style="color:green;">Active Directory objects use attributes to describe their nature.</mark>
 
 ## <mark style="color:red;">Globally unique identifiers and security identifiers</mark>
 

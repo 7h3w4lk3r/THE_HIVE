@@ -1,4 +1,4 @@
-# 🔴 VBA Sandbox Evasion
+# ⭕ VBA Sandbox Evasion
 
 {% embed url="https://github.com/joesecurity/pafishmacro" %}
 
