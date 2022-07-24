@@ -336,7 +336,7 @@
   * [⭕ Cheat Sheet](network-attacks-1/password-attacks/cheat-sheet.md)
 * [🔴 Defense Evasion](network-attacks-1/defense-evasion/README.md)
   * [⭕ Basic Tricks](network-attacks-1/defense-evasion/simple-tricks.md)
-  * [⭕ Powershell Tricks](network-attacks-1/defense-evasion/powershell-tricks.md)
+  * [🔧 Powershell Tricks](network-attacks-1/defense-evasion/powershell-tricks.md)
   * [⭕ Disabling Defenses](network-attacks-1/defense-evasion/disabling-defenses.md)
   * [⭕ UAC Bypass](network-attacks-1/defense-evasion/uac-bypass.md)
   * [⭕ Runners / Injectors / Loaders](network-attacks-1/defense-evasion/runners-injectors-loaders.md)
