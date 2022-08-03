@@ -81,7 +81,7 @@ C:\scripts
 $HOME\Documents\WindowsPowerShell
 C:\users\username\Documents\WindowsPowerShell\
 $PSHOME\
-c:\windows\system32\WindowsPowerShell\v1.0\
+c:\windows\system32\WindowsPowerShell\v1.0\powershell.exe
 ```
 
 ## <mark style="color:red;">Powershell Autoruns</mark>
@@ -101,3 +101,18 @@ Profile running locations and context:
 | Current User + Host  | ISE     | $Home\Documents\WindowsPowerShell\Microsoft.Power ShellISE\_profile.ps1 |
 | Current Host         | ISE     | $PsHome\Microsoft.PowerShellISE\_profile.ps1                            |
 
+## <mark style="color:red;">Trojan powershell v3 PSConsoleHostReadline</mark>
+
+In PowerShell 3.0, the system PATH is used to enumerate executables, specifically looking for a nonexistent file: PSConsoleHostReadline. Because the file doesn't exist, PowerShell attempts to load PSConsoleHostReadline with a long list of possible executable extensions: .ps1, .psm1, .psd1, .com, .exe, .bat, .cmd, .vbs, and so on. As an attacker, all you need is to drop one PowerShell script somewhere in the PATH of a PowerShell v3 system and wait for any PowerShell interactive session.
+
+```
+$PSHOME\PSConsoleHostReadline.bat
+
+C:\Windows\System32\WindowsPowerShell\v3.0\PSConsoleHostReadline.bat
+```
+
+{% hint style="info" %}
+This particular missing file "feature" was removed in PowerShell v4, but because PowerShell v3 shipped with Windows 8 and Server 2012, the technique is still valid.
+{% endhint %}
+
+The attacker needs to write to the correct filename and then wait for the victim to run PowerShell interactively to run the dropped payload. Just note that whatever payload you drop will run with each line used in an interactive session on the victim.
