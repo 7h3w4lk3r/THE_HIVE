@@ -6,7 +6,7 @@
 
 ## <mark style="color:red;">Intro</mark>
 
-#### [<mark style="color:red;">Hive</mark> ](https://7h3w4lk3r.gitbook.io/the-hive/)<mark style="color:red;">is a public repository for red team/blue team stuff. the materials are a combination of various sources such as blogs, cyber security courses, cheat sheets, books, CTF experience and personal researches.</mark>&#x20;
+#### [<mark style="color:red;">Hive</mark> ](https://7h3w4lk3r.gitbook.io/the-hive/)<mark style="color:red;">is a public repository for red/blue team stuff. the materials are a combination of various sources such as blogs, cyber security courses, cheat sheets, books, CTF experience and personal researches.</mark>&#x20;
 
 {% hint style="warning" %}
 #### If you find any errors or have any suggestions/rants, feel free to [open up an issue](https://github.com/7h3w4lk3r/THE\_HIVE/issues).
