@@ -25,9 +25,7 @@ run autoroute -s 10.10.10.1/24 >>> can use CIDR
 add a proxy to proxychains.conf and use it inside and outside of metasploit
 
 ```
-use auxiliary/server/socks4a
-use auxiliary/server/socks5
-use auxiliary/server/socks_unc
+use auxiliary/server/socks_proxy 
 set srvport 8080 → set proxy local port
 ```
 
