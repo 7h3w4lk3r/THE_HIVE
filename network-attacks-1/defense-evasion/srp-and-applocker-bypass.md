@@ -1,4 +1,4 @@
-# 🔧 SRP & AppLocker Bypass
+# ⭕ SRP & AppLocker Bypass
 
 ## <mark style="color:red;">Check AppLocker Policies</mark>
 
