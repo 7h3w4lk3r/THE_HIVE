@@ -143,7 +143,7 @@
     * [PSEXEC (admin to system)](network-attacks-1/windows/local-privilege-escalation/admin-to-system.md)
   * [⭕ Persistence](network-attacks-1/windows/persistence/README.md)
     * [Invisible Account Forger](network-attacks-1/windows/persistence/invisible-account-forger.md)
-    * [Create New User](network-attacks-1/windows/persistence/create-new-user.md)
+    * [Add User](network-attacks-1/windows/persistence/add-user.md)
     * [Scheduled Tasks](network-attacks-1/windows/persistence/scheduled-tasks.md)
     * [Run Registry Keys](network-attacks-1/windows/persistence/run-registry-keys.md)
     * [Logon Scripts](network-attacks-1/windows/persistence/logon-scripts.md)
