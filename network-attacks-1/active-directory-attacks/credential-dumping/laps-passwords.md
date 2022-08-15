@@ -43,13 +43,20 @@ PS > Get-DomainComputer COMPUTER -Properties ms-mcs-AdmPwd,ComputerName,ms-mcs-A
 #### [https://github.com/leoloobeek/LAPSToolkit](https://github.com/leoloobeek/LAPSToolkit)
 
 ```
+# find which users can read LAPS passwords
+Get-NetGroupMember -GroupName "LAPS Password Readers"
+
+$ Find-LAPSDelegatedGroups
+$ Find-AdmPwdExtendedRights
+
+
+Import-Module .\LAPSToolkit.ps1
+
+
 $ Get-LAPSComputers
 ComputerName                Password                                 Expiration         
 ------------                --------                                 ----------         
 exmaple.domain.local        dbZu7;vGaI)Y6w1L                         02/21/2021 22:29:18
-
-$ Find-LAPSDelegatedGroups
-$ Find-AdmPwdExtendedRights
 ```
 
 ### <mark style="color:orange;">ldapsearch</mark>
