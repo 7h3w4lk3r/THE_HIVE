@@ -177,7 +177,7 @@ Host behind.bar
 
 you can essentially treat the NAT-ed host as if there were no intermediate hosts between the ssh client and daemon.
 
-## **Sharing Connections**
+## <mark style="color:red;">**Sharing Connections**</mark>
 
 While you _could_ negotiate another asymmetric ssh handshake, why not use your pre-existing connection to make speedier file copies or logins?
 
@@ -191,4 +191,9 @@ Host busyserver
 
 This means upon first connection to `busyserver`, ssh will create a socket in `~/.ssh/` which can be shared by other commands. If you’re using commands like rsync or scp, this can make repetitive copy tasks much quicker.
 
-***
+## <mark style="color:red;">Sidedoor</mark>
+
+{% embed url="https://github.com/daradib/sidedoor" %}
+
+sidedoor maintains an SSH connection or tunnel with a shell script daemon.
+
