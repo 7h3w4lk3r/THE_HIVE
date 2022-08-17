@@ -1,11 +1,11 @@
 # Pass the Hash / Password
 
 {% hint style="warning" %}
-!**!! NTLMv2 hashes can not be passed !!!**
+<mark style="color:red;">!</mark><mark style="color:red;">**!! NTLMv2 hashes can not be passed !!!**</mark>
 
-**only NTLM hashes can be passed**
+<mark style="color:red;">**only NTLM hashes can be passed**</mark>
 
-FOR TOOLS THAT HAVE TO USE LM HASH**E**S BEFORE NTLM HASH, ADD A BLANK LM HASH:
+<mark style="color:orange;">FOR TOOLS THAT HAVE TO USE LM HASH</mark><mark style="color:orange;">**E**</mark><mark style="color:orange;">S BEFORE NTLM HASH, ADD A BLANK LM HASH:</mark>
 
 _aad3b435b51404eeaad3b435b51404ee_
 {% endhint %}

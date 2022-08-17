@@ -4,7 +4,7 @@
 
 ​Returns all security groups in the current (or target) domain that have a manager set:
 
-```
+```powershell
 PowerView3 > Get-DomainManagedSecurityGroup
 ​
 GroupName                : Security Operations
@@ -17,7 +17,7 @@ ManagerCanWrite          : UNKNOWN
 
 Enumerate the ACLs set on this group. `GenericWrite` privilege means that the user can modify group membership:
 
-```
+```powershell
 PowerView3 > $sid = ConvertTo-SID john.doe
 PowerView3 > Get-DomainObjectAcl -Identity 'Security Operations' | ? {$_.SecurityIdentifier -eq $sid}
 ​

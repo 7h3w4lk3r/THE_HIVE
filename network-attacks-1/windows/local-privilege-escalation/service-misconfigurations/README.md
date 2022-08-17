@@ -30,8 +30,8 @@ net start/stop <name>
 
 ## <mark style="color:red;">Service Misconfigurations</mark>
 
-1. Insecure Service Properties
-2. Unquoted Service Path
-3. Weak Registry Permissions
-4. Insecure Service Executables
-5. Service DLL Hijacking
+1. <mark style="color:green;">Insecure Service Properties</mark>
+2. <mark style="color:green;">Unquoted Service Path</mark>
+3. <mark style="color:green;">Weak Registry Permissions</mark>
+4. <mark style="color:green;">Insecure Service Executables</mark>
+5. <mark style="color:green;">Service DLL Hijacking</mark>

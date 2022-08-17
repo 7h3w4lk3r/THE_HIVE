@@ -2,7 +2,7 @@
 
 ## <mark style="color:red;">Pass The Ticket</mark>
 
-**In a pass the ticket attack access is gained to a resource of a system (for example the administrative shares) using a kerberos ticket that was generated or obtained from a compromised machine (TGT or TGS)**
+<mark style="color:green;">**In a pass the ticket attack access is gained to a resource of a system (for example the administrative shares) using a Kerberos ticket that was generated or obtained from a compromised machine (TGT or TGS)**</mark>
 
 {% hint style="warning" %}
 PtT affects all windows platforms relying on kerberos.
@@ -30,7 +30,7 @@ misc::cmd
 
 ## <mark style="color:red;">Rubeus</mark>
 
-[rubeus](https://github.com/r3motecontrol/Ghostpack-CompiledBinaries) is a C# toolset for raw Kerberos interaction and abuses.
+****[**rubeus**](https://github.com/r3motecontrol/Ghostpack-CompiledBinaries) **is a C# toolset for raw Kerberos interaction and abuses.**
 
 we will use extract the tickets using Rubeus. This can be done with the help of the asktgt module. Although it is not so sneaky method it gets the work done. We need the domain name, User, Password Hash. When used normally will give the base64 encoded TGT ticket. But Let’s Pass the Ticket as well in the same step
 

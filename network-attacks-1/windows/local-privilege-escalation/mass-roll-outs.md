@@ -1,6 +1,6 @@
 # Mass Roll-outs
 
-If there is an environment where many machines need to be installed, typically, a technician will not go around from machine to machine. There are a couple of solutions to install machines automatically. What these methods are and how they work is less important for our purposes but the main thing is that they leave behind configuration files which are used for the installation process. These configuration files contain a lot of sensitive sensitive information such as the operating system product key and Administrator password. What we are most interested in is the Admin password as we can use that to elevate our privileges. Typically these are the directories that contain the configuration files (however it is a good idea to check the entire OS):
+If there is an environment where many machines need to be installed, typically, a technician will not go around from machine to machine. There are a couple of solutions to install machines automatically. What these methods are and how they work is less important for our purposes but the main thing is that they leave behind configuration files which are used for the installation process. <mark style="color:green;">**These configuration files contain a lot of sensitive sensitive information such as the operating system product key and Administrator password**</mark>. What we are most interested in is the Admin password as we can use that to elevate our privileges. Typically these are the directories that contain the configuration files (however it is a good idea to check the entire OS):
 
 ```
 c:\sysprep.inf
@@ -11,7 +11,7 @@ c:\sysprep\sysprep.xml
 
 #### These files either contain clear-text passwords or in a Base64 encoded format. You can see some sample file output below:
 
-```
+```xml
 # This is a sample from sysprep.inf with clear-text credentials.
 [GuiUnattended]
 OEMSkipRegional=1

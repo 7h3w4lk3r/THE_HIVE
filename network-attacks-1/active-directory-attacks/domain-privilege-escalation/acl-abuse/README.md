@@ -6,13 +6,13 @@
 
 #### <mark style="color:green;">Some AD object security permissions abusable with PowerView/SharpView:</mark>
 
-* **ForceChangePassword** abused with `Set-DomainUserPassword`.
-* **AddMembers** abused with `Add-DomainGroupMember`.
-* **GenericAll** abused with `Set-DomainUserPassword` or `Add-DomainGroupMember`.
-* **GenericWrite** abused with `Set-DomainObject`.
-* **WriteOwner** abused with `Set-DomainObjectOwner`.
-* **WriteDACL** abused with `Add-DomainObjectACL`.
-* **AllExtendedRights** abused with `Set-DomainUserPassword` or `Add-DomainGroupMember`.
+* <mark style="color:orange;">**ForceChangePassword**</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark> abused with `Set-DomainUserPassword`.
+* <mark style="color:orange;">**AddMembers**</mark> abused with `Add-DomainGroupMember`.
+* <mark style="color:orange;">**GenericAll**</mark> abused with `Set-DomainUserPassword` or `Add-DomainGroupMember`.
+* <mark style="color:orange;">**GenericWrite**</mark> abused with `Set-DomainObject`.
+* <mark style="color:orange;">**WriteOwner**</mark> abused with `Set-DomainObjectOwner`.
+* <mark style="color:orange;">**WriteDACL**</mark> abused with `Add-DomainObjectACL`.
+* <mark style="color:orange;">**AllExtendedRights**</mark> abused with `Set-DomainUserPassword` or `Add-DomainGroupMember`.
 
 ## <mark style="color:red;">SDDL (Security Descriptor Definition Language)</mark>
 
@@ -22,7 +22,7 @@ But advanced administrators may want to write scripts or code that can correctly
 
 ### <mark style="color:orange;">Format of nTSecurityDescriptor string</mark>
 
-```
+```tsconfig
 O:owner_sidG:group_sidD:dacl_flags(string_ace1)(string_ace2)…
 (string_acen)S:sacl_flags(string_ace1)(string_ace2)…(string_acen)
 ```
@@ -31,7 +31,7 @@ Each nTSecurityDescriptor SDDL string is composed of 5 primary parts which corre
 
 ### <mark style="color:orange;">ACE Type</mark>
 
-#### The ACE type designates whether the trustee is allowed, denied or audited.
+#### <mark style="color:green;">The ACE type designates whether the trustee is allowed, denied or audited.</mark>
 
 | **Value** | **Description**                                                   |
 | --------- | ----------------------------------------------------------------- |
@@ -46,7 +46,7 @@ Each nTSecurityDescriptor SDDL string is composed of 5 primary parts which corre
 
 ### <mark style="color:orange;">ACE Flags</mark>
 
-The ACE flags denote the inheritance options for the ACE, and if it is a SACL, the audit settings.
+#### <mark style="color:green;">The ACE flags denote the inheritance options for the ACE, and if it is a SACL, the audit settings</mark>.
 
 | **Value** | **Description**                                                                                                |
 | --------- | -------------------------------------------------------------------------------------------------------------- |
@@ -152,7 +152,7 @@ Let's say that the ACE on object **A** applies to object **B**. This grants or d
 
 ACE example in SDDL format:
 
-```
+```tsconfig
 A;;RPWPCCDCLCSWRCWDWOGA;;;S-1-1-0)
 ​
 AceType:
@@ -180,26 +180,26 @@ S-1-1-0
 
 Enumerate ACLs which `snovvcrash` user possesses against `j.doe` user:
 
-```
+```powershell
 (Get-ACL "AD:$((Get-ADUser j.doe).distinguishedName)").access | ? {$_.IdentityReference -eq "MEGACORP\snovvcrash"}
 ```
 
 Enumerate which users possess `GenericAll` or `AllExtendedRights` permission against `j.doe` user:
 
-```
+```powershell
 PS > (Get-ACL "AD:$((Get-ADUser j.doe).distinguishedName)").access | ? {$_.ActiveDirectoryRights -match "GenericAll" -or $_.ActiveDirectoryRights -match "AllExtendedRights"} | select IdentityReference,ActiveDirectoryRights -Unique | ft -W
 ```
 
 PowerView analog:
 
-```
+```powershell
 PowerView3 > Get-DomainObjectAcl -Identity j.doe -Domain megacorp.local -ResolveGUIDs | ? {$_.ActiveDirectoryRights -match "GenericAll" -or $_.ActiveDirectoryRights -match "AllExtendedRights"} | select SecurityIdentifier | sort -Property SecurityIdentifier -Unique
 PowerView3 > ConvertFrom-SID <SECURITY_IDENTIFIER>
 ```
 
 Find all users who can DCSync and convert their SIDs to names:
 
-```
+```powershell
 PowerView3 > $dcsync = Get-ObjectACL "DC=megacorp,DC=local" -ResolveGUIDs | ? {$_.ActiveDirectoryRights -match "GenericAll" -or $_.ObjectAceType -match "Replication-Get"} | select -ExpandProperty SecurityIdentifier | select -ExpandProperty value
 PowerView3 > Convert-SidToName $dcsync
 ```
@@ -208,13 +208,13 @@ PowerView3 > Convert-SidToName $dcsync
 
 Search for interesting ACLs:
 
-```
+```powershell
 PowerView2 > Invoke-ACLScanner -ResolveGUIDs
 ```
 
 Check if the attacker "MEGACORP\sbauer" has `GenericWrite` permissions on the "jorden" user object:
 
-```
+```powershell
 PowerView2 > Get-ObjectAcl -samAccountName jorden -ResolveGUIDs | ? {$_.ActiveDirectoryRights -like "*GenericWrite*" -and $_.IdentityReference -eq "MEGACORP\sbauer"}
 ​
 InheritedObjectType   : All
@@ -235,13 +235,13 @@ ObjectSID             : S-1-5-21-3167813660-1240564177-918740779-3110
 
 Search for interesting ACLs:
 
-```
+```powershell
 PowerView3 > Find-InterestingDomainAcl -ResolveGUIDs | ? {$_.IdentityReferenceClass -match "user"}
 ```
 
 Check if the attacker "MEGACORP\sbauer" (`S-1-5-21-3167813660-1240564177-918740779-3102`) has `GenericWrite` permissions on the "jorden" user object:
 
-```
+```powershell
 PowerView3 > Get-DomainObjectAcl -Identity jorden -ResolveGUIDs | ? {$_.ActiveDirectoryRights -like "*GenericWrite*" -and $_.SecurityIdentifier -eq "S-1-5-21-3167813660-1240564177-918740779-3102"}
 ​
 AceType               : AccessAllowed
@@ -267,6 +267,6 @@ The `-ResolveGUIDs` switch shows `ObjectType` and `InheritedObjectType` properti
 
 PowerView 3.0 does not return `IdentityReference` property, which makes it less handy for this task (however, you may filter the output by the attacker's SID). To automatically convert SIDs to names we can use the following loop:
 
-```
+```powershell
 PowerView3 > Get-DomainObjectAcl -Identity snovvcrash -ResolveGUIDs | % {$_ | Add-Member -NotePropertyName Identity -NotePropertyValue (ConvertFrom-SID $_.SecurityIdentifier.value) -Force; $_}
 ```
