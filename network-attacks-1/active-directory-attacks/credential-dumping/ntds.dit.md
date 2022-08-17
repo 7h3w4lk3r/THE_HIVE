@@ -1,8 +1,8 @@
 # NTDS.dit & vshadow
 
-The Ntds.dit file is a database that stores Active Directory data, including information about user objects, groups, and group membership. It includes the password hashes for all users in the domain.
+<mark style="color:green;">**The Ntds.dit file is a database that stores Active Directory data, including information about user objects, groups, and group membership. It includes the password hashes for all users in the domain.**</mark>
 
-The important NTDS.dit file will be located in: %SystemRoom%/NTDS/ntds.dit This file is a database Extensible Storage Engine (ESE) and is "officially" composed by 3 tables:
+#### <mark style="color:green;">The important NTDS.dit file will be located in: %SystemRoom%/NTDS/ntds.dit This file is a database Extensible Storage Engine (ESE) and is "officially" composed by 3 tables:</mark>
 
 ```
 Data Table: Contains the information about the objects (users, groups...)
@@ -16,8 +16,8 @@ Windows uses Ntdsa.dll to interact with that file and its used by lsass.exe. The
 
 You will need the following files to extract the ntds :
 
-* NTDS.dit file
-* SYSTEM hive (C:\Windows\System32\SYSTEM)
+* <mark style="color:green;">NTDS.dit file</mark>
+* <mark style="color:green;">SYSTEM hive (C:\Windows\System32\SYSTEM)</mark>
 
 Usually you can find the ntds in two locations : `systemroot\NTDS\ntds.dit` and `systemroot\System32\ntds.dit`.
 
@@ -62,7 +62,7 @@ ntdsutil: quit
 
 ## <mark style="color:red;">Vshadow</mark>
 
-You could also use the volume shadow copy trick to copy the ntds.dit file. Remember that you will also need a copy of the SYSTEM file (again, dump it from the registry or use the volume shadow copy trick).
+You could also use the volume shadow copy trick to copy the ntds.dit file. Remember that <mark style="color:green;">**you will also need a copy of the SYSTEM file (again, dump it from the registry or use the volume shadow copy trick).**</mark>
 
 ```
 vssadmin create shadow /for=C :

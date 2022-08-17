@@ -2,7 +2,7 @@
 
 ## <mark style="color:red;">Intro</mark>
 
-#### This attack includes forging a cracked TGS Kerberos ticket in order to impersonate another user and escalate privileges from the perspective of a service the TGS was cracked for.
+#### <mark style="color:green;">This attack includes forging a cracked TGS Kerberos ticket in order to impersonate another user and escalate privileges from the perspective of a service the TGS was cracked for.</mark>
 
 
 
@@ -10,7 +10,7 @@ On the last step of the process when the client sends a TGS to the service that 
 
 ![](<../../../.gitbook/assets/image (191).png>)
 
-#### Silver ticket abuses the part of Kerberos authentication where a client sends a Valid TGS to get a service ticket. So if an attacker knows the hash of the service account he can forge a fake service ticket with it. Kerberos will trust it since it can be decrypted by the service as its signed by the NTLM hash of the service.
+#### <mark style="color:green;">Silver ticket abuses the part of Kerberos authentication where a client sends a Valid TGS to get a service ticket. So if an attacker knows the hash of the service account he can forge a fake service ticket with it. Kerberos will trust it since it can be decrypted by the service as its signed by the NTLM hash of the service.</mark>
 
 {% hint style="info" %}
 downside of this attack is at unlike golden ticket which gives us access to everything.

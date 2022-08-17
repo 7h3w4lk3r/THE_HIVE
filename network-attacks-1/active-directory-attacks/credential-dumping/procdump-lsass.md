@@ -16,7 +16,7 @@ procdump --accepteula -ma <processus> processus_dump.dmp
 
 ## <mark style="color:red;">Dumping LSASS from Memory</mark>
 
-#### it’s possible to dump lsass memory on a host, download its dump locally and extract the credentials using Mimikatz.
+#### <mark style="color:green;">it’s possible to dump lsass memory on a host, download its dump locally and extract the credentials using Mimikatz.</mark>
 
 {% hint style="info" %}
 Procdump can be used to dump lsass, since it is considered as legitimate thus it will not be considered as a malware.To do so, send procdump to the server eather by a meterpreter session or nc or smbclient.py from the impacket suit.

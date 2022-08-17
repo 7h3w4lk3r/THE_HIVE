@@ -56,7 +56,7 @@ if the user enters the credentials, EvilSSDP will grab and show them
 python3 evil_ssdp.py eth0 -t office365
 ```
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (2).png>)
 
 ### <mark style="color:orange;">Bitcoin Wallet</mark>
 

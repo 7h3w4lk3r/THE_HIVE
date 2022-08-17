@@ -2,7 +2,7 @@
 
 ## <mark style="color:red;">DPAPI</mark>
 
-The DPAPI (Data Protection API) is an internal component in the Windows system. It allows various applications to store sensitive data (e.g. passwords). The data are stored in the users directory and are secured by user-specific master keys derived from the users password. They are usually located at:
+<mark style="color:green;">**The DPAPI (Data Protection API) is an internal component in the Windows system. It allows various applications to store sensitive data (e.g. passwords). The data are stored in the users directory and are secured by user-specific master keys derived from the users password. They are usually located at:**</mark>
 
 ```
 C:\Users\$USER\AppData\Roaming\Microsoft\Protect\$SUID\$GUID
@@ -24,7 +24,7 @@ Application like Google Chrome, Outlook, Internet Explorer, Skype use the DPAPI.
 * Network passwords in Credential Manager
 * Personal data in any application programmatically protected with the API function CryptProtectData. For example, in Skype, Windows Rights Management Services, Windows Media, MSN messenger, Google Talk etc.
 
-Below are common paths of hidden files that usually contain DPAPI-protected data.
+#### <mark style="color:green;">Below are common paths of hidden files that usually contain DPAPI-protected data.</mark>
 
 ```
 C:\Users\$USER\AppData\Local\Microsoft\Credentials\
@@ -33,7 +33,7 @@ C:\Users\$USER\AppData\Roaming\Microsoft\Credentials\
 
 ## <mark style="color:red;">Extract a master key</mark>
 
-f you know the password of the user who the master key belongs to and you can access the master key file you can obtain the master key with mimikatz and a command like the following one:
+If you know the password of the user who the master key belongs to and you can access the master key file you can obtain the master key with mimikatz and a command like the following one:
 
 ```
 dpapi::masterkey /in:"C:\Users\spotless.OFFENSE\AppData\Roaming\Microsoft\Protect\S-1-5-21-2552734371-813931464-1050690807-1106\3e90dd9e-f901-40a1-b691-84d7f647b8fe" /sid:S-1-5-21-2552734371-813931464-1050690807-1106 /password:123456 /protected
