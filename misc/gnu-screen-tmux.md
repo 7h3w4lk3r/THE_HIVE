@@ -1,16 +1,16 @@
-# 🔴 GNU Screen
+# 🔴 GNU Screen / tmux
+
+## <mark style="color:red;">Screen</mark>
 
 {% embed url="https://www.shellhacks.com/linux-screen-command-run-in-background/" %}
 
 {% embed url="https://blog.ronin.cloud/gnuscreen/" %}
 
-#### <mark style="color:green;">GNU Screen creates screen in background run command from shell or script</mark>
+#### <mark style="color:green;">GNU Screen creates a 'screen' in background and runs command from shell or script.</mark>
 
 ```bash
 apt install screen
 ```
-
-### <mark style="color:orange;">Usage</mark>
 
 **In your terminal, execute the **<mark style="color:green;">**`screen`**</mark>** command and **<mark style="color:green;">**press space or enter key**</mark>** to close the intro window. you should see no difference after doing so.**
 
@@ -57,3 +57,11 @@ irst create new session :
 then attach command or script to run in session created:
 
 `screen -x [session_name] [script.sh]`
+
+## <mark style="color:red;">tmux</mark>
+
+#### <mark style="color:green;">Terminal multiplexer</mark>
+
+{% embed url="https://tmuxcheatsheet.com" %}
+
+{% embed url="https://www.hostinger.com/tutorials/tmux-beginners-guide-and-cheat-sheet/" %}

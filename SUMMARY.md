@@ -427,7 +427,7 @@
 
 ## 🔷 misc
 
-* [🔴 GNU Screen](misc/gnu-screen.md)
+* [🔴 GNU Screen / tmux](misc/gnu-screen-tmux.md)
 * [🔴 SSH Tricks](misc/ssh-tricks.md)
 * [🔴 Cats](misc/cats/README.md)
   * [netcat](misc/cats/netcat.md)
