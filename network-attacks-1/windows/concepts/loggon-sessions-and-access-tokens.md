@@ -90,9 +90,7 @@ As discussed previously, the Authentication ID parameter, which is the key link 
 Whenever a thread [attempts to access a securable object](https://docs.microsoft.com/en-us/windows/win32/secauthz/interaction-between-threads-and-securable-objects) managed by the Windows kernel, such as a process, thread, handle, semaphore, token, etc., Windows will perform an [access check](https://docs.microsoft.com/en-us/windows/win32/api/securitybaseapi/nf-securitybaseapi-accesscheck). To perform this check, Windows needs three pieces of information2:
 
 \
-• **Who** is requesting access?\
-• **What** are their intentions with the object?\
-• **Who** can access the object?\
+<mark style="color:green;">•</mark> <mark style="color:green;"></mark><mark style="color:green;">**Who**</mark> <mark style="color:green;"></mark><mark style="color:green;">is requesting access?</mark>\ <mark style="color:green;">•</mark> <mark style="color:green;"></mark><mark style="color:green;">**What**</mark> <mark style="color:green;"></mark><mark style="color:green;">are their intentions with the object?</mark>\ <mark style="color:green;">•</mark> <mark style="color:green;"></mark><mark style="color:green;">**Who**</mark> <mark style="color:green;"></mark><mark style="color:green;">can access the object?</mark>\
 \
 Hence, Windows will first check the token associated with the calling thread and look at the authorization attributes cached in it (e.g., user sid, group memberships, privileges etc.). Secondly, Windows will look at the desired [access](https://docs.microsoft.com/en-gb/windows/win32/secauthz/access-rights-and-access-masks) requested by the thread. In the Windows security model you **must** state your intentions upfront; for performance reasons an access check only occurs _once_ and no further checks are performed on any additional handle operations (unless a user attempts to perform an action that the handle did not have rights to, e.g., write to a read-only handle). Thirdly, Windows will retrieve the [security descriptor](https://docs.microsoft.com/en-us/windows/win32/secauthz/security-descriptors) for the target object. The security descriptor contains a discretionary access control list ([DACL](https://docs.microsoft.com/en-us/windows/win32/secauthz/access-control-lists)) which specifies what users/groups have access to the object and the _type_ of access granted.\
 Based on these three sources of information, Windows can give a boolean answer to whether a principal has access to a given object. This is why every process **must** have a primary token; it is the user that is “charged” for any objects that process attempts to access.
@@ -119,7 +117,7 @@ runas /user:domain\username cmd.exe
 
 The **access token** has also a **reference** of the logon sessions inside the **LSASS**, this is useful if the process needs to access some objects of the network. You can launch a process that **uses different credentials for accessing network services** using:
 
-```
+```shell
 runas /user:domain\username /netonly cmd.exe
 ```
 

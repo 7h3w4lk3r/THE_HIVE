@@ -1,4 +1,4 @@
-# Phantom DLL Hijacking
+# Phantom DLL Hijacking / Replacement
 
 In this type of DLL we target a missing dll and place our own dll instead.
 
@@ -78,3 +78,7 @@ net start dllsvc
 ```
 
 ![](<../../../../.gitbook/assets/image (90) (1).png>)
+
+{% hint style="info" %}
+In case of an existing DLL, if we have write access to that directory, we can replace it with our own malicious DLL and restart the service.&#x20;
+{% endhint %}

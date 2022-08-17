@@ -120,7 +120,7 @@
   * [⭕ Enumeration](network-attacks-1/windows/enumeration.md)
   * [⭕ Privilege Escalation](network-attacks-1/windows/local-privilege-escalation/README.md)
     * [DLL Hijacking](network-attacks-1/windows/local-privilege-escalation/dll-injection/README.md)
-      * [Phantom DLL Hijacking](network-attacks-1/windows/local-privilege-escalation/dll-injection/phantom-dll-injection.md)
+      * [Phantom DLL Hijacking / Replacement](network-attacks-1/windows/local-privilege-escalation/dll-injection/phantom-dll-injection.md)
       * [Search Order Hijacking ( Preloading )](network-attacks-1/windows/local-privilege-escalation/dll-injection/search-order-hijacking-preloading.md)
       * [DLL Side-Loading](network-attacks-1/windows/local-privilege-escalation/dll-injection/dll-side-loading.md)
     * [Service Misconfigurations](network-attacks-1/windows/local-privilege-escalation/service-misconfigurations/README.md)

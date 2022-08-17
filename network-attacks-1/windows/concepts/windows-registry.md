@@ -1,6 +1,6 @@
 # Windows Registry
 
-The registry is a hierarchical database that contains data that is critical for the operation of Windows and the applications and services that run on Windows. The data is structured in a tree format. Each node in the tree is called a _key_. Each key can contain both _subkeys_ and data entries called _values_. Sometimes, the presence of a key is all the data that an application requires; other times, an application opens a key and uses the values associated with the key. A key can have any number of values, and the values can be in any form. For more information, see [Registry Value Types](https://docs.microsoft.com/en-us/windows/win32/sysinfo/registry-value-types) and [Registry Element Size Limits](https://docs.microsoft.com/en-us/windows/win32/sysinfo/registry-element-size-limits).
+<mark style="color:green;">**The registry is a hierarchical database that contains data that is critical for the operation of Windows and the applications and services that run on Windows.**</mark> The data is structured in a tree format. Each node in the tree is called a _key_. Each key can contain both _subkeys_ and data entries called _values_. Sometimes, the presence of a key is all the data that an application requires; other times, an application opens a key and uses the values associated with the key. A key can have any number of values, and the values can be in any form. For more information, see [Registry Value Types](https://docs.microsoft.com/en-us/windows/win32/sysinfo/registry-value-types) and [Registry Element Size Limits](https://docs.microsoft.com/en-us/windows/win32/sysinfo/registry-element-size-limits).
 
 Each key has a name consisting of one or more printable characters. Key names are not case sensitive. Key names cannot include the backslash character (\\), but any other printable character can be used. Value names and data can include the backslash character.
 
@@ -18,7 +18,7 @@ Each of the trees under **My Computer** is a key. The **HKEY\_LOCAL\_MACHINE** k
 
 Each value consists of a value name and its associated data, if any. **MaxObjectNumber** and **VgaCompatible** are values that contain data under the **VIDEO** subkey.
 
-#### A registry tree can be 512 levels deep. You can create up to 32 levels at a time through a single registry API call.
+#### <mark style="color:green;">A registry tree can be 512 levels deep. You can create up to 32 levels at a time through a single registry API call.</mark>
 
 ## <mark style="color:red;">Structure of the Registry</mark>
 
@@ -56,21 +56,21 @@ Entries store the actual configuration data for the operating system and the pro
 
 The permanent parts of the registry are stored as a set of files called the hive files. You can find a list of locations for these files in the hivelist subkey in HKLM\SYSTEM\CurrentControlSet\Control. These files are saved in systemroot\System32\Config and updated with each login. They consist of the following files, which store four of the five keys in HKEY\_LOCAL\_MACHINE and one key in HKEY\_USERS:
 
-* **SAM** Contains information stored in the key HKLM\SAM about the Security Accounts Manager (SAM) service.
-* **SECURITY** Contains the security information stored in the key HKLM\SECURITY.
-* **SOFTWARE** Contains information stored in the key HKLM\SOFTWARE about the computer's software configuration.
-* **SYSTEM** Contains information stored in the HKLM\SYSTEM about the computer's system configuration.
-* **DEFAULT** Contains the default system information that is stored in the key HKEY\_USERS\\.DEFAULT.
+* <mark style="color:green;">**SAM**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> Contains information stored in the key HKLM\SAM about the Security Accounts Manager (SAM) service.
+* <mark style="color:green;">**SECURITY**</mark> Contains the security information stored in the key HKLM\SECURITY.
+* <mark style="color:green;">**SOFTWARE**</mark> Contains information stored in the key HKLM\SOFTWARE about the computer's software configuration.
+* <mark style="color:green;">**SYSTEM**</mark> Contains information stored in the HKLM\SYSTEM about the computer's system configuration.
+* <mark style="color:green;">**DEFAULT**</mark> Contains the default system information that is stored in the key HKEY\_USERS\\.DEFAULT.
 
-#### HKEY\_LOCAL\_MACHINE\HARDWARE is not stored as a file, because it is recreated each time the system starts.
+#### <mark style="color:green;">HKEY\_LOCAL\_MACHINE\HARDWARE is not stored as a file, because it is recreated each time the system starts.</mark>
 
 ### <mark style="color:orange;">Data Types</mark>
 
 Here is a list of common Types and what they represent:
 
-* **REG\_BINARY** – The value will be in Binary format. Usually used for hardware component entries.
-* **REG\_DWORD** – These values are commonly a “0” for a disabled option or a “1” for an enabled option.
-* **REG\_SZ** – These values are stored in a human readable format.
+* <mark style="color:green;">**REG\_BINARY**</mark> – The value will be in Binary format. Usually used for hardware component entries.
+* <mark style="color:green;">**REG\_DWORD**</mark> – These values are commonly a “0” for a disabled option or a “1” for an enabled option.
+* <mark style="color:green;">**REG\_SZ**</mark> – These values are stored in a human readable format.
 
 ## <mark style="color:red;">Registry Key Security and Access Rights</mark> <a href="#registry-key-security-and-access-rights" id="registry-key-security-and-access-rights"></a>
 
@@ -122,7 +122,7 @@ reg save
 reg unload
 ```
 
-#### You can also use REG followed by the operation type and /? to get more help. For example, **REG QUERY /?** or **REG ADD /?**.
+#### <mark style="color:green;">You can also use REG followed by the operation type and /? to get more help. For example,</mark> <mark style="color:green;"></mark><mark style="color:green;">**REG QUERY /?**</mark> <mark style="color:green;"></mark><mark style="color:green;">or</mark> <mark style="color:green;"></mark><mark style="color:green;">**REG ADD /?**</mark><mark style="color:green;">.</mark>
 
 {% hint style="info" %}
 You'll get the return codes: **0** meaning that the operation completed successfully, and **1** indicating that the operation failed. However, you won't get any return codes using the **Compare** switch.
@@ -232,8 +232,6 @@ To delete the subkey named **MySubkey**, use the following example:
 REG DELETE HKLM\Software\MySubkey /f
 ```
 
-###
-
 ### <mark style="color:orange;">copy registry entries</mark>
 
 ```
@@ -287,8 +285,6 @@ To import all the content, including subkeys, entries, and values within the sub
 ```
 REG IMPORT C:\RegKeyBackup.reg
 ```
-
-###
 
 ### <mark style="color:orange;">save and restore registry entries</mark>
 
