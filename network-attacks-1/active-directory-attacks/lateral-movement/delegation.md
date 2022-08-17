@@ -4,9 +4,9 @@
 
 {% embed url="https://resources.infosecinstitute.com/topic/active-directory-series-unconstrained-delegation" %}
 
-#### Unrestricted kerberos delegation is a privilege that can be assigned to a domain computer or a user. Usually, this privilege is given to computers  running services like IIS, MSSQL, etc. Those services usually require access to some back-end database (or some other server), so it can read/modify the database on the authenticated user's behalf.
+#### <mark style="color:green;">Unrestricted Kerberos delegation is a privilege that can be assigned to a domain computer or a user. Usually, this privilege is given to computers  running services like IIS, MSSQL, etc. Those services usually require access to some back-end database (or some other server), so it can read/modify the database on the authenticated user's behalf.</mark>
 
-When a user authenticates to a computer that has unresitricted kerberos delegation privilege turned on, authenticated user's TGT ticket gets saved to that computer's memory. The reason TGTs get cached in memory is so the computer (with delegation rights) can impersonate the authenticated user as and when required for accessing any other services on that user's behalf. Essentially this looks like so:&#x20;
+When a user authenticates to a computer that has unrestricted Kerberos delegation privilege turned on, authenticated user's TGT ticket gets saved to that computer's memory. The reason TGTs get cached in memory is so the computer (with delegation rights) can impersonate the authenticated user as and when required for accessing any other services on that user's behalf. Essentially this looks like so:&#x20;
 
 <mark style="color:green;">User ---> authenticates to ---> IIS server ---> authenticates on behalf of the user ---> DB server</mark>
 
@@ -78,13 +78,13 @@ MATCH (c:Computer), (t:Computer), p=((c)-[:AllowedToDelegate]->(t)) RETURN p
 MATCH (u:User {owned:true}), (c:Computer {name: "<MYTARGET.FQDN>"}), p=shortestPath((u)-[*1..]->(c)) RETURN p
 ```
 
-#### Constrained delegation can be set on the _front-end server_ (e.g. IIS) to allow it to delegate to _only selected back-end services_ (e.g. MSSQL) on behalf of the user.
+#### <mark style="color:green;">Constrained delegation can be set on the</mark> <mark style="color:green;"></mark>_<mark style="color:green;">front-end server</mark>_ <mark style="color:green;"></mark><mark style="color:green;">(e.g. IIS) to allow it to delegate to</mark> <mark style="color:green;"></mark>_<mark style="color:green;">only selected back-end services</mark>_ <mark style="color:green;"></mark><mark style="color:green;">(e.g. MSSQL) on behalf of the user.</mark>
 
-<mark style="color:green;">DACL UAC property:</mark> <mark style="color:green;">`TrustedToAuthForDelegation`</mark>.&#x20;
+#### <mark style="color:orange;">DACL UAC property: TrustedToAuthForDelegation.</mark>&#x20;
 
 This allows `s4u2self`, i.e. requesting a TGS on behalf of _anyone_ to oneself, using just the NTLM password hash. This effectively allows the service to impersonate other users in the domain with just their hash, and is useful in situations where Kerberos isn’t used between the user and frontend.
 
-<mark style="color:green;">DACL Property:</mark> <mark style="color:green;"></mark><mark style="color:green;">`msDS-AllowedToDelegateTo`</mark>.&#x20;
+<mark style="color:orange;">DACL Property:</mark> <mark style="color:orange;"></mark><mark style="color:orange;">`msDS-AllowedToDelegateTo`</mark>.&#x20;
 
 This property contains the SPNs it is allowed to use `s4u2proxy` on, i.e. requesting a forwardable TGS for that server based on an existing TGS (often the one gained from using `s4u2self`). This effectively defines the backend services that constrained delegation is allowed for.
 
@@ -137,8 +137,8 @@ ls \\dc01.offense.local\c$
 
 ### <mark style="color:orange;">Kerberos Delegation vs Resource-based Kerberos Delegation</mark>
 
-* In unconstrained and constrained Kerberos delegation, a computer/user is told what resources it can delegate authentications to;
-* In resource based Kerberos delegation, computers (resources) specify who they trust and who can delegate authentications to them.
+* <mark style="color:green;">In unconstrained and constrained Kerberos delegation, a computer/user is told what resources it can delegate authentications to.</mark>
+* <mark style="color:green;">In resource based Kerberos delegation, computers (resources) specify who they trust and who can delegate authentications to them.</mark>
 
 ```
 rubeus.exe hash /password:<computer_pass> /user:<computer> /domain:<domain>
@@ -149,13 +149,13 @@ rubeus.exe s4u /user:<fake_computer$> /aes256:<AES 256 hash> /impersonateuser:ad
 
 **Resource-Based Constrained Delegation (RBCD) configures the **_**back-end server**_** (e.g. MSSQL) to allow **_**only selected front-end services**_** (e.g. IIS) to delegate on behalf of the user. This makes it easier for specific server administrators to configure delegation, without requiring domain admin privileges.**
 
-<mark style="color:green;">DACL Property:</mark> <mark style="color:green;"></mark><mark style="color:green;">`msDS-AllowedToActOnBehalfOfOtherIdentity`</mark><mark style="color:green;">.</mark>
+<mark style="color:orange;">DACL Property:</mark> <mark style="color:orange;"></mark><mark style="color:orange;">`msDS-AllowedToActOnBehalfOfOtherIdentity`</mark><mark style="color:orange;">.</mark>
 
 In this scenario, `s4u2self` and `s4u2proxy` are used as above to request a forwardable ticket on behalf of the user. However, with RBCD, the KDC checks if the SPN for the requesting service (i.e., the _frontend service_) is present in the `msDS-AllowedToActOnBehalfOfOtherIdentity` property of the _backend service_. This means that the _frontend service_ needs to have an SPN set. Thus, attacks against RBCD have to be performed from either a service account with SPN or a machine account.
 
 ### <mark style="color:orange;">**Exploitation**</mark>
 
-#### If we compromise a _frontend service_ that appears in the RBCD property of a _backend service_, exploitation is the same as with constrained delegation above. This is however not too common.
+#### <mark style="color:green;">If we compromise a</mark> <mark style="color:green;"></mark>_<mark style="color:green;">frontend service</mark>_ <mark style="color:green;"></mark><mark style="color:green;">that appears in the RBCD property of a</mark> <mark style="color:green;"></mark>_<mark style="color:green;">backend service</mark>_<mark style="color:green;">, exploitation is the same as with constrained delegation above. This is however not too common.</mark>
 
 A more often-seen attack to RBCD is when we have `GenericWrite`, `GenericAll`, `WriteProperty`, or `WriteDACL` permissions to a computer object in the domain. This means we can write the `msDS-AllowedToActOnBehalfOfOtherIdentity` property on this machine account to add a controlled SPN or machine account to be trusted for delegation. We can even create a new machine account and add it. This allows us to compromise the target machine in the context of any user, as with constrained delegation.
 

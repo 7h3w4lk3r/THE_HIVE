@@ -2,6 +2,8 @@
 
 ## <mark style="color:red;">Kerberosting</mark>
 
+{% embed url="https://blog.xpnsec.com/kerberos-attacks-part-2/" %}
+
 <mark style="color:green;">**The process of cracking Kerberos service tickets and rewriting them in order to gain access to the targeted service is called Kerberoast.**</mark> This is very common attack in red team engagements since it doesn’t require any interaction with the service as legitimate active directory access can be used to request and export the service ticket which can be cracked offline in order to retrieve the plain-text password of the service. <mark style="color:green;">**This is because service tickets are encrypted with the hash (NTLM) of the service account so any domain user can dump hashes from services without the need to get a shell into the system that is running the service.**</mark>
 
 Red Teams usually attempt to crack tickets which have higher possibility to be configured with a weak password. Successful cracking of the ticket will not only give access to the service but sometimes it can lead to full domain compromise as often services might run under the context of an elevated account. These tickets can be identified by considering a number of factors such as:
@@ -87,7 +89,7 @@ python.exe .\tgsrepcrack.py .\10k-worst-pass.txt .\mssqlsvc.kirbi
 Set-DomainObject -Identity TargetUser -Set @{serviceprincipalname='any/thing'}
 ```
 
-### <mark style="color:orange;">AS-REP roasting</mark> <a href="#as-rep-roasting" id="as-rep-roasting"></a>
+## <mark style="color:red;">AS-REP roasting</mark> <a href="#as-rep-roasting" id="as-rep-roasting"></a>
 
 Get the hash for a roastable user (see above for hunting). Using `ASREPRoast.ps1`:
 

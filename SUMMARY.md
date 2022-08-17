@@ -92,6 +92,7 @@
   * [⭕ DHCP Poisoning](network-attacks/network-poisoning-mitm/dhcp-poisoning.md)
   * [⭕ DHCPv6 Spoofing](network-attacks/network-poisoning-mitm/dhcpv6-spoofing.md)
   * [⭕ SSDP Spoofing](network-attacks/network-poisoning-mitm/ssdp-spoofing.md)
+  * [⭕ WSUS Spoofing](network-attacks/network-poisoning-mitm/wsus-spoofing.md)
   * [⭕ ADIDNS Poisoning](network-attacks/network-poisoning-mitm/adidns-poisoning.md)
   * [⭕ WPAD Abuse](network-attacks/network-poisoning-mitm/wpad-abuse.md)
   * [⭕ SMB/NTLM Relay](network-attacks/network-poisoning-mitm/smb-ntlm-relay.md)

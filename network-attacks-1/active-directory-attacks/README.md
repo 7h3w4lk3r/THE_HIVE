@@ -38,6 +38,8 @@ Most of the attacks in this section (in real world scenarios as well) are based 
 
 ## <mark style="color:red;">Resources</mark>
 
+{% embed url="https://zer1t0.gitlab.io/posts/attacking_ad/" %}
+
 {% embed url="https://wiki.bufu-sec.com/active_directory/domain_enumeration/domain_acl" %}
 
 {% embed url="https://powersploit.readthedocs.io/en/latest" %}

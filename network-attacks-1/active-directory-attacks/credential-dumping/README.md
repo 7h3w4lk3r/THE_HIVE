@@ -1,5 +1,7 @@
 # ⭕ Credential Dumping
 
+{% embed url="https://medium.com/@petergombos/lm-ntlm-net-ntlmv2-oh-my-a9b235c58ed4" %}
+
 ## <mark style="color:red;">Registry</mark>
 
 The registry is a central component that contains necessary boot and system information, system-wide software settings, the security database and also per-user configuration settings. The registry is composed of keys and values. A key is a container that can consist of keys and values. The highest level of keys is called root keys. The registry contains the following six root keys:
