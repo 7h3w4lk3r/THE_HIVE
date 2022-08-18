@@ -40,7 +40,15 @@ WDigest protocol was introduced in Windows XP and was designed to be used with H
 
 ### <mark style="color:orange;">LSA Protection</mark>
 
-Microsoft in Windows 8.1 and later has provided additional protection for the LSA to prevent untrusted processes from being able to read its memory or to inject code. This will prevent regular mimikatz.exe sekurlsa:logonpasswords for working properly. To activate this protection you need to set the value RunAsPPL in HKEY\_LOCAL\_MACHINE\SYSTEM\CurrentControlSet\Control\LSA to 1.
+Windows divides its processes into four distinct integrity levels. An additional mitigation level, Protected Processes Light (PPL) was introduced from Windows 8 onwards, which can be layered on top of the current integrity level.In essence, this means that a process running at SYSTEM integrity cannot access or modify the memory space of a process executing at SYSTEM integrity with PPL enabled.&#x20;
+
+LSASS supports PPL protection which can be enabled in the registry. This is done through the `RunAsPPL` `DWORD` value in `HKLM\SYSTEM\CurrentControlSet\Control\Lsa` with a value of 1.
+
+{% hint style="info" %}
+This protection mechanism is disabled by default due to third-party compatibility issues.
+{% endhint %}
+
+&#x20;This will prevent regular mimikatz.exe sekurlsa:logonpasswords for working properly. To activate this protection you need to set the value RunAsPPL in HKEY\_LOCAL\_MACHINE\SYSTEM\CurrentControlSet\Control\LSA to 1.
 
 ### <mark style="color:orange;">Credential Guard</mark>
 
