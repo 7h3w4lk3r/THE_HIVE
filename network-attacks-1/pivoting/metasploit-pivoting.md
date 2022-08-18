@@ -33,6 +33,10 @@ proxychains rdesktop 192.168.120.10
 
 The route created by Meterpreter also allows us to access any other computer on that internal network.
 
+{% hint style="warning" %}
+If you get an error regarding the CredSSP, use xfreerdp instead of rdesktop.&#x20;
+{% endhint %}
+
 ## <mark style="color:red;">Port Forward</mark>
 
 forward only the given remote port to the given local port specifically ( only accessible in msfconsole )
