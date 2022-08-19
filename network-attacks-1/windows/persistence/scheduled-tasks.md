@@ -6,15 +6,16 @@ run the following command to generate a new task called MyTask that is scheduled
 
 #### <mark style="color:green;">as a regular USER:</mark>
 
-```
+```tsconfig
 schtasks /create /tn "Mytasks\go" /sc daily /st 09:00 /tr "c:\rto\pers\implant\implant.exe"
+schtasks /create /tn "Some task name" /tr "app.exe" /sc HOURLY
 schtasks /query /tn "mytasks\go" /fo:list /v
 schtasks /run /tn "mytasks\go"
 ```
 
 #### <mark style="color:green;">as a LOCAL ADMIN:</mark>
 
-```
+```tsconfig
 schtasks /create /sc onlogon /tn AdobeFlashSync /tr "c:\rto\pers\implant\implant.exe"
 schtasks /query /tn "AdobeFlashSync" /fo list
 
@@ -39,7 +40,7 @@ By modifying the task configuration file, we can add additional actions to the s
 
 for example we can execute a binary file by adding :
 
-```
+```xml
 <Exec>
     <Command>c:\users\rto\desktop\implant.exe</Command>
 </Exec>
