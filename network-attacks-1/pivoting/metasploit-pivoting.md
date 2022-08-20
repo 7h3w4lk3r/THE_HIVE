@@ -53,6 +53,10 @@ now we can scan our local port 8000 to scan the remote port 80 of the target
 
 usually used when exploiting a machine in the internal network. first we have to do port forwarding to scan the network
 
+{% hint style="success" %}
+#### Always use a bind shell when pivoting.
+{% endhint %}
+
 ```
 portfwd add -L 0.0.0.0 -l 8000 -p 80 -r 10.1.0.5
 ```
@@ -87,17 +91,17 @@ use auxiliary/server/socks4a
 run #Proxy port 1080 by default
 ```
 
-{% hint style="warning" %}
-#### Always use a bind shell when pivoting.
-{% endhint %}
-
 if we use a reverse shell the target machine on the internal network wont be able to route back the packets to us
 
 ![](<../../.gitbook/assets/image (267).png>)
 
 ## <mark style="color:red;">Pivot Reverse Shell</mark>
 
-while using a reverse shell with pivoting we have to set the RHOST to target ip in the internal network and set the LHOST to the machine that we have already compromized
+while using a reverse shell with pivoting we have to set the RHOST to target IP in the internal network and set the LHOST to the machine that we have already compromised.
+
+{% hint style="warning" %}
+Reverse shells pivots are not OPSEC-safe since we are establishing a TCP connection between 2 systems in the internal network.
+{% endhint %}
 
 ```
 RHOST >>> internal target

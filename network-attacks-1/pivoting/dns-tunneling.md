@@ -2,6 +2,8 @@
 
 ## <mark style="color:red;">DNSCat2</mark>
 
+{% embed url="https://github.com/iagox86/dnscat2" %}
+
 Establishes a C\&C channel through DNS. It doesn't need root privileges.
 
 ```

