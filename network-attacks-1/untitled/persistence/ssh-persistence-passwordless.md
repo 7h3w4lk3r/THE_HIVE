@@ -59,7 +59,7 @@ or
 ln /dev/null ~/.bash_history -sf
 ```
 
-The following directories are temporary and usually writeable
+The following directories are temporary and usually writable
 
 ```
 /var/tmp/
