@@ -2,10 +2,10 @@
 
 ![](../../.gitbook/assets/banner.png)
 
-#### OSINT (short for Open-Source Intelligence Ghering) is a way of knowing your target without any sorts of direct contact or leaving any evidence of the recon.
+#### <mark style="color:green;">OSINT (short for Open-Source Intelligence Ghering) is a way of knowing your target without any sorts of direct contact or leaving any evidence of the recon.</mark>
 
 {% hint style="info" %}
-In OSINT you should **always ask questions like: how, who, when, where and why.** also try to **collect and sort everything you find and make a structured map** of the intel you have gathered using a mind mapping tool like [XMind](https://www.xmind.net) or [Mind Master](https://www.mindmaster.io).
+In OSINT you should <mark style="color:green;">**always ask questions like: how, who, when, where and why.**</mark> also try to <mark style="color:green;">**collect and sort everything you find and make a structured map**</mark> of the intel you have gathered using a mind mapping tool like [XMind](https://www.xmind.net) or [Mind Master](https://www.mindmaster.io).
 {% endhint %}
 
 {% embed url="https://github.com/jivoi/awesome-osint#-geospatial-research-and-mapping-tools" %}
@@ -14,19 +14,19 @@ In OSINT you should **always ask questions like: how, who, when, where and why.*
 
 ## <mark style="color:red;">The OSINT Process</mark>
 
-#### OSINT reconnaissance can be further broken down into the following 5 sub-phases:
+#### <mark style="color:green;">OSINT reconnaissance can be further broken down into the following 5 sub-phases:</mark>
 
 ![](../../.gitbook/assets/osint-process.png)
 
-**Source Identification**: as the starting point, in this initial phase the attacker identifies potential sources from which information may be gathered from. Sources are internally documented throughout the process in detailed notes to come back to later if necessary.
+<mark style="color:green;">**Source Identification**</mark><mark style="color:green;">:</mark> as the starting point, in this initial phase the attacker identifies potential sources from which information may be gathered from. Sources are internally documented throughout the process in detailed notes to come back to later if necessary.
 
-**Data Harvesting**: in this phase, the attacker collects and harvests information from the selected sources and other sources that are discovered throughout this phase.
+<mark style="color:green;">**Data Harvesting**</mark><mark style="color:green;">:</mark> in this phase, the attacker collects and harvests information from the selected sources and other sources that are discovered throughout this phase.
 
-**Data Processing and Integration**: during this phase, the attacker processes the harvested information for actionable intelligence by searching for information that may assist in enumeration.
+<mark style="color:green;">**Data Processing and Integration**</mark><mark style="color:green;">:</mark> during this phase, the attacker processes the harvested information for actionable intelligence by searching for information that may assist in enumeration.
 
-**Data Analysis**: in this phase, the attacker performs data analysis of the processed information using OSINT analysis tools.
+<mark style="color:green;">**Data Analysis**</mark><mark style="color:green;">:</mark> in this phase, the attacker performs data analysis of the processed information using OSINT analysis tools.
 
-**Results Delivery**: in the final phase, OSINT analysis is complete and the findings are presented/reported to other members of the Red Team.
+<mark style="color:green;">**Results Delivery**</mark><mark style="color:green;">:</mark> in the final phase, OSINT analysis is complete and the findings are presented/reported to other members of the Red Team.
 
 ## <mark style="color:red;">Workflow</mark>
 
@@ -349,12 +349,6 @@ and here are some other useful resources about shodan:
 [https://www.sans.org/blog/getting-the-most-out-of-shodan-searches](https://www.sans.org/blog/getting-the-most-out-of-shodan-searches/)\
 [https://thor-sec.com/cheatsheet/shodan/shodan\_cheat\_sheet](https://thor-sec.com/cheatsheet/shodan/shodan\_cheat\_sheet/)\
 [https://github.com/jakejarvis/awesome-shodan-queries](https://github.com/jakejarvis/awesome-shodan-queries)
-
-## <mark style="color:red;">OSINT Framework</mark>
-
-[the OSINT framework](https://osintframework.com) is a great collection of OSINT resources that you should definitely check them out.
-
-![OSINT framework hierarchy sources structure](../../.gitbook/assets/osint-framework.jpg)
 
 ## <mark style="color:red;">Credential Leaks</mark>
 
