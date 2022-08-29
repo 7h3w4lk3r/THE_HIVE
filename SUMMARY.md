@@ -110,6 +110,7 @@
 ## 🔷 Red Team <a href="#network-attacks" id="network-attacks"></a>
 
 * [🔴 Windows](network-attacks-1/windows/README.md)
+  * [⭕ Physical Attack](network-attacks-1/windows/physical-attack.md)
   * [⭕ Security Concepts](network-attacks-1/windows/concepts/README.md)
     * [Windows Security Components](network-attacks-1/windows/concepts/security-component.md)
     * [Active Directory Components](network-attacks-1/windows/concepts/active-directory-components.md)
