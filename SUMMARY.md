@@ -255,6 +255,7 @@
   * [⭕ Lateral Movement](network-attacks-1/untitled/lateral-movement/README.md)
     * [VIM Config File Keylogger](network-attacks-1/untitled/lateral-movement/vim-config-file-keylogger.md)
     * [SSH Hijacking](network-attacks-1/untitled/lateral-movement/ssh-hijacking.md)
+    * [Samba Secrets to Domain Admin](network-attacks-1/untitled/lateral-movement/samba-secrets-to-domain-admin.md)
     * [Hiding Processes](network-attacks-1/untitled/lateral-movement/hiding-processes.md)
     * [Simple User-mode Rootkits](network-attacks-1/untitled/lateral-movement/simple-rootkits.md)
     * [Vino VNC Server](network-attacks-1/untitled/lateral-movement/vino-vnc-server.md)

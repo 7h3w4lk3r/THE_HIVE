@@ -6,7 +6,7 @@ WSUS (Windows Server Update Services) allow administrators to centralize the man
 
 For example, a computer configured to get its updates from a WSUS server will initially perform the following handshake:
 
-![](../../.gitbook/assets/image.png)
+![](<../../.gitbook/assets/image (1).png>)
 
 All metadata exchanges between the client and the server is done using the Simple Object Access Protocol (SOAP). By exploiting the lack of integrity of the SOAP calls transmitted over an unencrypted HTTP channel, an attacker performing a MITM attack can tamper responses to the SOAP requests “[SyncUpdates (software)](https://docs.microsoft.com/en-us/openspecs/windows\_protocols/ms-wusp/d955e0d0-c51f-4407-a701-995828fd1031)” and “[GetExtendedUpdateInfo](https://docs.microsoft.com/en-us/openspecs/windows\_protocols/ms-wusp/c199b64c-0684-49af-8278-c117e90c1e7a)”.
 
