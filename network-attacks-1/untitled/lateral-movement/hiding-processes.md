@@ -26,7 +26,7 @@ ps aux | grep $!
 
 Run the script to protect the backdoor from discovery through **ps**, **netstat** or **lsof**
 
-```
+```bash
 #!/bin/bash
 
 #netstat
