@@ -6,6 +6,27 @@ description: >-
 
 # ⭕ Host Discovery / Network Mapping
 
+## <mark style="color:red;">Network Monitoring</mark>
+
+This is a very basic script that runs nmap every day using default ports and then uses ndiff to compare the results. We can then take the output of this script and use it to notify our team of new ports discovered daily.
+
+```bash
+#!/bin/bash
+mkdir /opt/nmap_diff
+d=$(date +%Y-%m-%d)
+y=$(date -d yesterday +%Y-%m-%d)
+/usr/bin/nmap -T4 -oX /opt/nmap_diff/scan_$d.xml 10.100.100.0/24 >
+/dev/null 2>&1
+if [ -e /opt/nmap_diff/scan_$y.xml ]; then
+/usr/bin/ndiff /opt/nmap_diff/scan_$y.xml /opt/nmap_diff/scan_$d.xml >
+/opt/nmap_diff/diff.txt
+fi
+```
+
+{% hint style="success" %}
+The same approach can be taken with vulnerability scanners and other tools.&#x20;
+{% endhint %}
+
 ## <mark style="color:red;">Remote Discovery</mark>
 
 you can use nmap, masscan or unicorn scan for this:
