@@ -6,6 +6,10 @@ description: >-
 
 # ⭕ Host Discovery / Network Mapping
 
+{% embed url="https://iphelix.medium.com/nmap-scanning-tips-and-tricks-5b4a3d2151b3" %}
+
+{% embed url="https://nudesystems.com/nmap-host-discovery-flags-and-how-to-use-them/" %}
+
 ## <mark style="color:red;">Network Monitoring</mark>
 
 This is a very basic script that runs nmap every day using default ports and then uses ndiff to compare the results. We can then take the output of this script and use it to notify our team of new ports discovered daily.
@@ -31,7 +35,7 @@ The same approach can be taken with vulnerability scanners and other tools.&#x20
 
 you can use nmap, masscan or unicorn scan for this:
 
-```
+```tsconfig
 nmap -sn -T4 -oG 192.168.1.1/24 | grep “Status: Up” | cut -f 2 -d ‘ ‘ > LiveHosts.txt
 nmap –PE –sn -n 10.50.96.0/23 –oX /root/Desktop/scan.xml
 ```
@@ -40,7 +44,7 @@ the `-PE` enables ICMP Echo request host discovery (Ping scan)
 
 &#x20;the `-sn` option means only do a host discovery and not a port scan
 
-```
+```bash
 unicornscan 192.168.100.35/24:31
 masscan 192.168.2.1/24 -p80,53,443,22
 ```
@@ -55,13 +59,13 @@ nmap 10.1.1.1 --open -oG scan-results; cat scan-results | grep "/open" | cut -d 
 
 ### <mark style="color:orange;">Simple Port Knocking</mark>
 
-```
+```bash
 for x in 7000 8000 9000; do nmap -Pn –host_timeout 201 –max-retries 0 -p $x 1.1.1.1; done
 ```
 
 ### <mark style="color:orange;">DNS lookups, Zone Transfers & Brute-Force</mark>
 
-```
+```tsconfig
 whois domain.com
 dig {a|txt|ns|mx} domain.com
 dig {a|txt|ns|mx} domain.com @ns1.domain.com
@@ -74,19 +78,27 @@ nslookup -> set type=any -> ls -d domain.com
 for sub in $(cat subdomains.txt);do host $sub.domain.com|grep "has.address";done
 ```
 
+### <mark style="color:orange;">nmap Turbo Host Discovery</mark>
+
+a Nmap host discovery command that performs host discovery (-sn), sending both SYN (-PS) and ACK (-PA) packets to the Top 100 TCP ports,  including the default ICMP echo request (-PE) and timestamp request (-PP) host discovery options:
+
+```tsconfig
+nmap -sn -PE -PP -PS80,23,443,21,22,25,3389,110,445,139,143,53,135,3306,8080,1723,111,995,993,5900,1025,587,8888,199,1720,465,548,113,81,6001,10000,514,5060,179,1026,2000,8443,8000,32768,554,26,1433,49152,2001,515,8008,49154,1027,5666,646,5000,5631,631,49153,8081,2049,88,79,5800,106,2121,1110,49155,6000,513,990,5357,427,49156,543,544,5101,144,7,389,8009,3128,444,9999,5009,7070,5190,3000,5432,3986,1900,13,1029,9,6646,5051,49157,1028,873,1755,2717,4899,9100,119,37 -PA80,23,443,21,22,25,3389,110,445,139,143,53,135,3306,8080,1723,111,995,993,5900,1025,587,8888,199,1720,465,548,113,81,6001,10000,514,5060,179,1026,2000,8443,8000,32768,554,26,1433,49152,2001,515,8008,49154,1027,5666,646,5000,5631,631,49153,8081,2049,88,79,5800,106,2121,1110,49155,6000,513,990,5357,427,49156,543,544,5101,144,7,389,8009,3128,444,9999,5009,7070,5190,3000,5432,3986,1900,13,1029,9,6646,5051,49157,1028,873,1755,2717,4899,9100,119,37 target_ip
+```
+
 ## <mark style="color:red;">Local Discovery</mark>
 
 ### <mark style="color:orange;">Netdiscover</mark>
 
 Discover live hosts in LAN and get the internal IP address and MAC address of live hosts in the network.It can be used in both active and passive mode.
 
-```
+```bash
 netdiscover -i [interface]
 ```
 
 #### Options:
 
-```
+```tsconfig
   -i device: your network device
   -r range: scan a given range instead of auto scan. 192.168.6.0/24,/16,/8
   -l file: scan the list of ranges contained into the given file
@@ -106,7 +118,7 @@ netdiscover -i [interface]
 
 #### <mark style="color:green;">Active Mode ( Run as an ARP scanner )</mark>
 
-```
+```atom
 netdiscover -i eth0 -r 192.168.1.0/24
 ```
 
@@ -124,7 +136,7 @@ netdiscover -p -r <range,optional>
 
 #### <mark style="color:green;">Parsable Outputs</mark>
 
-```
+```tsconfig
 Syntax: netdiscover -P<parsable> -N<ommit headers>
 Command: netdiscover-r 192.168.1.1/24 -PN
 ```
@@ -133,7 +145,7 @@ Command: netdiscover-r 192.168.1.1/24 -PN
 
 **A great discovery tool for Active Directory Environments**
 
-```
+```tsconfig
 responder -I eth0 -A # see NBT-NS, BROWSER, LLMNR requests without responding.
 responder.py -I eth0 -wrf
 ```
@@ -142,7 +154,7 @@ responder.py -I eth0 -wrf
 
 Advanced MitM and sniffer tool.
 
-```
+```tsconfig
 bettercap -X --proxy --proxy-https -T <target IP>
 # better cap in spoofing, discovery, sniffer
 # intercepting http and https requests,
@@ -177,7 +189,7 @@ traceroute [target]
 
 #### here are some of the most used options:
 
-```
+```tsconfig
 -f [number]: set the initial TTL for the first packet
 -g [host list] : specify a loose source route (8 maximum hops)
 -I : use ICMP echo request instead of UDP
@@ -196,7 +208,7 @@ traceroute [target]
 
 some useful options:
 
-```
+```tsconfig
 -h [number] : max number of hops (default 30)
 -d : dont resolve names
 -j [hostlist] : use loose source routing with a space-separated list of router IPs (up to 9 max)
@@ -221,7 +233,7 @@ some useful options:
 
 for best performance and mapping the network hops use traceroute with these three options and compare the results:
 
-```
+```tsconfig
 traceroute target
 traceroute -T target
 traceroute -T -p [test multiple ports] target
@@ -230,7 +242,7 @@ traceroute -I target
 
 for an all in one command you can use this chain of commands:
 
-```
+```tsconfig
 traceroute target.com > 1 && traceroute -T target.com > 2 && traceroute -I target.com > 3 && traceroute target.com -T 80 > 4 && cat 1 2 3 4 | grep -v '*' | sort -n -k 1 -u | sort -g
 ```
 
@@ -240,7 +252,7 @@ this will run a traceroute with multiple methods and combine the results for bet
 
 using this method we can minimize the chance of lost hopes in the route. ( the \* signs). here is the bash script you can use with the target domain or IP as an argument to perform the same task:
 
-```
+```bash
 #!/bin/bash
 
 if [ $# -ne 1 ]
