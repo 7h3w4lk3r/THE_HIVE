@@ -1,5 +1,7 @@
 # ⭕ Attacks
 
+{% embed url="https://app.gitbook.com/s/LHD0RLfJGvAbxEUqHSRx/" %}
+
 ## <mark style="color:red;">Monitoring</mark>
 
 Set a wireless network interface to the monitoring mode:
@@ -408,4 +410,3 @@ wireshark &
 {% embed url="https://livelinuxusb.com/how-to-perform-an-evil-twin-attack-with-airgeddon" %}
 
 {% embed url="https://dev.to/athanstan/evil-twin-attack-example-on-kali-linux-55jk" %}
-
