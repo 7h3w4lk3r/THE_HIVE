@@ -4,6 +4,10 @@
 
 run the following command to generate a new task called MyTask that is scheduled to run daily at 9:00am that will execute the empire.exe binary located in the C:\ root folder.
 
+#### <mark style="color:orange;">here is the official Microsoft documentation for</mark> <mark style="color:orange;"></mark><mark style="color:orange;">`schtask`</mark> <mark style="color:orange;"></mark><mark style="color:orange;">with various example commands:</mark>
+
+{% embed url="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/schtasks-create#to-schedule-a-task-to-run-every-n-hours" %}
+
 #### <mark style="color:green;">as a regular USER:</mark>
 
 ```tsconfig
