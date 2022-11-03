@@ -293,7 +293,6 @@
 * [🔴 C2 Frameworks](network-attacks-1/command-and-control/README.md)
   * [⭕ Metasploit](network-attacks-1/command-and-control/metasploit.md)
   * [⭕ Empire & Starkiller](network-attacks-1/command-and-control/empire-and-starkiller.md)
-  * [⭕ Silent Trinity](network-attacks-1/command-and-control/silent-trinity.md)
   * [⭕ Covenant](network-attacks-1/command-and-control/covenant.md)
 * [🔴 Shells and Payloads](network-attacks-1/shells-and-payloads/README.md)
   * [⭕ Shell Escape / Interactive TTY](network-attacks-1/shells-and-payloads/interactive-shell.md)
