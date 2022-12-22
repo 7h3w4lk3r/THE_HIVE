@@ -22,7 +22,7 @@ when adding options like `stc, dst, port, host` ,etc. use `and` keyword between 
 #### Save the file and view the packets with this command:
 
 ```
-sudo tcpdump - w - | tee file . pcap | tcpdump - r -
+tcpdump -i interface-name -w - | tee file.pcap | tcpdump -r -
 ```
 
 ### <mark style="color:orange;">Expressions</mark>
