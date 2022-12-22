@@ -1,5 +1,7 @@
 # ⭕ Attacks
 
+{% embed url="https://book.hacktricks.xyz/generic-methodologies-and-resources/pentesting-wifi" %}
+
 ## <mark style="color:red;">Monitoring</mark>
 
 Set a wireless network interface to the monitoring mode:
