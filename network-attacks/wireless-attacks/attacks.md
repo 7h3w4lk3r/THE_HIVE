@@ -1,7 +1,5 @@
 # ⭕ Attacks
 
-{% embed url="https://app.gitbook.com/s/LHD0RLfJGvAbxEUqHSRx/" %}
-
 ## <mark style="color:red;">Monitoring</mark>
 
 Set a wireless network interface to the monitoring mode:
