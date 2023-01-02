@@ -252,7 +252,7 @@ $a = Get-ApplockerPolicy -effective
 $a.rulecollections
 ```
 
-### ****[**Defense Evasion Techniques**](broken-reference)****
+## <mark style="color:red;"></mark>[<mark style="color:red;">Defense Evasion Techniques</mark>](../defense-evasion/)<mark style="color:red;"></mark>
 
 ### <mark style="color:orange;">check UAC</mark>
 
