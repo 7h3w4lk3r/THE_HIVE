@@ -2,7 +2,9 @@
 
 ## <mark style="color:red;">Quick Checks</mark>
 
-#### <mark style="color:green;">Low-privilege enumeration with powershell (no admin rights).</mark>
+#### <mark style="color:green;">Low-privilege enumeration with powershell  < v5 (No Admin Rights)</mark>
+
+#### From Powershell version 5 onwards these commands only work with Admin rights.
 
 ```powershell
 # current domain info
