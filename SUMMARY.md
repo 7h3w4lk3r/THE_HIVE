@@ -296,7 +296,7 @@
   * [⭕ Empire & Starkiller](network-attacks-1/command-and-control/empire-and-starkiller.md)
   * [⭕ Covenant](network-attacks-1/command-and-control/covenant.md)
 * [🔴 Shells and Payloads](network-attacks-1/shells-and-payloads/README.md)
-  * [⭕ Shell Escape / Interactive TTY](network-attacks-1/shells-and-payloads/interactive-shell.md)
+  * [⭕ Shell Escape / Interactive Shell](network-attacks-1/shells-and-payloads/interactive-shell.md)
   * [⭕ LOL Binaries](network-attacks-1/shells-and-payloads/lol-binaries.md)
   * [⭕ msfvenom](network-attacks-1/shells-and-payloads/msfvenom.md)
   * [⭕ SharpShooter & Ivy](network-attacks-1/shells-and-payloads/sharpshooter-and-ivy.md)
