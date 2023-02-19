@@ -50,9 +50,9 @@ Cobalt Strike (CS) is an advanced c2 framework and adversary emulation toolkit t
   * <mark style="color:green;">**Control over TCP beacon**</mark>
     * `beacon> connect [host] [port]`
     * `beacon> unlink [host] [pid]`
-  * <mark style="color:orange;">**External C2 Beacon**</mark>
-    * You can start an External C2 listener on your CS server
-    * Use other External C2 to connect to the listener
+* <mark style="color:orange;">**External C2 Beacon**</mark>
+  * You can start an External C2 listener on your CS server
+  * Use other External C2 to connect to the listener
 
 ## <mark style="color:red;">Infrastructure</mark>
 
