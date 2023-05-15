@@ -435,6 +435,10 @@
   * [Most-used Instructions](programming/assembly/most-used-instructions.md)
   * [input / output](programming/assembly/input-output.md)
 
+***
+
+* [🔧 Web Application](web-application.md)
+
 ## 🔷 misc
 
 * [🔴 GNU Screen / tmux](misc/gnu-screen-tmux.md)
