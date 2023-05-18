@@ -30,8 +30,8 @@
   * [⭕ SSL Certs](recon-1/web-application-enumeration/ssl-certs.md)
   * [⭕ File Upload Checks](recon-1/web-application-enumeration/file-upload-checks.md)
   * [⭕ CMS](recon-1/web-application-enumeration/cms.md)
+  * [⭕ XML External Entity (XXE) Injection](recon-1/web-application-enumeration/xml-external-entity-xxe-injection.md)
   * [⭕ WAF Detection](recon-1/web-application-enumeration/waf-fingerprinting.md)
-* [⭕ XML External Entity (XXE) Injection](recon-1/xml-external-entity-xxe-injection.md)
 * [🔴 Firewall Evasion](recon-1/firewall-ids-evasion.md)
 
 ## 🔷 Network attacks

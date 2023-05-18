@@ -391,27 +391,27 @@ I have put together a list of the most used OSINT sources that will usually cove
 
 ### <mark style="color:orange;">Image search</mark>
 
-* ****[**TinEye ( reverse image search )**](https://tineye.com) ****&#x20;
+* [**TinEye ( reverse image search )**](https://tineye.com)&#x20;
 * #### [photo bucket ( image search )](https://photobucket.com)
 
 
 
 ### <mark style="color:orange;">Username and people search</mark>
 
-* [**User search ( search for usernames, mostly social media networks )**](https://usersearch.org) ****&#x20;
-* ****[**Thats them**](https://thatsthem.com) ****&#x20;
-* ****[**pipi ( investigation and research, you should sign up for it )**](https://pipl.com) ****&#x20;
-* ****[**Social mention ( social media search )**](http://socialmention.com) ****&#x20;
-* ****[**Social searcher ( social media search )**](https://www.social-searcher.com) ****&#x20;
-* ****[**SPOKEO ( name, phone number, address, etc. )**](https://www.spokeo.com) ****&#x20;
-* ****[**Find people search ( people search )**](http://www.findpeoplesearch.com) ****&#x20;
-* ****[**Social bearing**](https://www.socialbearing.com) **** [**TwimeMachine**](https://www.twimemachine.com)****
+* [**User search ( search for usernames, mostly social media networks )**](https://usersearch.org)&#x20;
+* [**Thats them**](https://thatsthem.com)&#x20;
+* [**pipi ( investigation and research, you should sign up for it )**](https://pipl.com)&#x20;
+* [**Social mention ( social media search )**](http://socialmention.com)&#x20;
+* [**Social searcher ( social media search )**](https://www.social-searcher.com)&#x20;
+* [**SPOKEO ( name, phone number, address, etc. )**](https://www.spokeo.com)&#x20;
+* [**Find people search ( people search )**](http://www.findpeoplesearch.com)&#x20;
+* [**Social bearing**](https://www.socialbearing.com) [**TwimeMachine**](https://www.twimemachine.com)
 
 ### <mark style="color:orange;">IOT and device search</mark>
 
-* ****[**shodan ( search engine for internet connected devices, command line )**](https://www.shodan.io)****
-* &#x20;**** [**open stream cam ( open stream camera )**](file:///root/work/w4lk3rn3t/recon/osint/index.html) ****&#x20;
-* ****[**insecam ( live video camera search )**](file:///root/work/w4lk3rn3t/recon/osint/index.html)****
+* [**shodan ( search engine for internet connected devices, command line )**](https://www.shodan.io)
+* &#x20;[**open stream cam ( open stream camera )**](file:///root/work/w4lk3rn3t/recon/osint/index.html)&#x20;
+* [**insecam ( live video camera search )**](file:///root/work/w4lk3rn3t/recon/osint/index.html)
 
 ####
 

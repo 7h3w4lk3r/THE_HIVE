@@ -108,7 +108,7 @@ Domain fronting is basically making the C2 traffic from the target system that l
 
 Reason for using CDN domains are that they are highly trusted, and it is hard to block all the trusted CDN domains. If blocked, people cannot access to some legitimate websites.
 
-****:warning: **HTTP Traffic Considerations :** For plain HTTP traffic, if the target organization is using a proxy server, it can inspect the HTTP GET request host and its "Host:" header value. If the request host and the header value are not matching, it will overwrite the "Host:" header to point it to the GET request host. This is called "Normalization." This will break the Domain Fronting.
+:warning: **HTTP Traffic Considerations :** For plain HTTP traffic, if the target organization is using a proxy server, it can inspect the HTTP GET request host and its "Host:" header value. If the request host and the header value are not matching, it will overwrite the "Host:" header to point it to the GET request host. This is called "Normalization." This will break the Domain Fronting.
 
 :warning: **HTTPS Traffic Considerations :** For plain HTTPS traffic, the proxy server is only able  to see the "CONNECT Domain:443" URL and unable to  inspect the encrypted the headers. But many companies  can do MitM-SSL between the proxy server and the SSL  connection, so they may catch the domain fronting attempts. (However, consider that like finance and healthcare organizations would not do the MitM-SSL because they don't want to see people's PII date accidentally.)
 

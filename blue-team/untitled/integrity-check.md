@@ -2,7 +2,7 @@
 
 {% embed url="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/checking-integrity-with-aide_security-hardening" %}
 
-## <mark style="color:red;">**How**</mark> <mark style="color:red;"></mark><mark style="color:red;"></mark> <mark style="color:red;"></mark><mark style="color:red;">**File Integrity Checkers work**</mark>
+## <mark style="color:red;">**How**</mark> <mark style="color:red;">**File Integrity Checkers work**</mark>
 
 Generally, file integrity checkers work in two phases. The first phase consists of generating a database made up of cryptographically strong hashes for all the critical files on a host. You can think of these hashes as being a unique fingerprint for each file; it’s impossible to change the file without changing its fingerprint. The database usually also contains additional file information such as size, ownership, permissions and modification dates for each file.
 
@@ -10,13 +10,13 @@ In the second phase, once an initial copy of this database is built (the Initial
 
 ### <mark style="color:orange;">**File Attributes**</mark>
 
-<mark style="color:green;">**Inode Number:**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> This is a unique integer that can be used to index into a data structure (known as an “inode”) that specifies many of the attributes of an active file on a file system. If a file’s inode number changes, that means the file has been deleted and a new file created using the same name as the old one.
+<mark style="color:green;">**Inode Number:**</mark> This is a unique integer that can be used to index into a data structure (known as an “inode”) that specifies many of the attributes of an active file on a file system. If a file’s inode number changes, that means the file has been deleted and a new file created using the same name as the old one.
 
-<mark style="color:green;">**Type:**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> Indicates whether the file is a data file, or a special file such as a named pipe or an interface to a device.
+<mark style="color:green;">**Type:**</mark> Indicates whether the file is a data file, or a special file such as a named pipe or an interface to a device.
 
 <mark style="color:green;">**Owner:**</mark> Unix associates a unique owner (a Unix account) to each file.
 
-<mark style="color:green;">**Group:**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> Unix supports an object that collects multiple Unix accounts into a single entity, known as a “group”. Unix associates a single group with every file.
+<mark style="color:green;">**Group:**</mark> Unix supports an object that collects multiple Unix accounts into a single entity, known as a “group”. Unix associates a single group with every file.
 
 <mark style="color:green;">**Permission:**</mark> Every file in unix has permission (Read, Write, Execute)
 
@@ -48,7 +48,7 @@ aide -i
 aide --config=/var/aide/aide.conf --init
 ```
 
-**W**hile initializing the database aide will take an snapshot of all system libraries and binaries for future compare to see if anything changed or not copy the new created db in `/var/lib/aide aide.db.new.gz` to `aide.db.gz` do a check for all files for mismatches: ****&#x20;
+**W**hile initializing the database aide will take an snapshot of all system libraries and binaries for future compare to see if anything changed or not copy the new created db in `/var/lib/aide aide.db.new.gz` to `aide.db.gz` do a check for all files for mismatches:&#x20;
 
 #### replace the old database with the new one:
 
@@ -66,7 +66,7 @@ aide --check
 aide --config=/var/aide/aide.conf --check
 ```
 
-****
+
 
 &#x20;**if there was a change we will see a warning**&#x20;
 

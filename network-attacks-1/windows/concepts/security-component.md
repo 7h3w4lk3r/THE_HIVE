@@ -34,19 +34,19 @@ A component in the Windows executive (%SystemRoot%\System32\Ntoskrnl.exe) that i
 
 
 
-### <mark style="color:orange;">**Local Security Authority subsystem (LSASS)**</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark>&#x20;
+### <mark style="color:orange;">**Local Security Authority subsystem (LSASS)**</mark>&#x20;
 
 A user-mode process running the image %SystemRoot%\System32\Lsass.exe that is responsible for the local system security policy (such as which users are allowed to log on to the machine, password policies, privileges granted to users and groups, and the system security auditing settings), user authentication, and sending security audit messages to the Event Log. The Local Security Authority service (Lsasrv—%SystemRoot%\System32\Lsasrv.dll), a library that LSASS loads, implements most of this functionality.
 
 
 
-### &#x20;<mark style="color:orange;"></mark> <mark style="color:orange;"></mark><mark style="color:orange;">**LSASS policy database**</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark>&#x20;
+### &#x20;<mark style="color:orange;">**LSASS policy database**</mark>&#x20;
 
 A database that contains the local system security policy settings. This database is stored in the registry in an ACL-protected area under HKLM\SECURITY. It includes such information as what domains are entrusted to authenticate logon attempts, who has permission to access the system and how (interactive, network, and service logons), who is assigned which privileges, and what kind of security auditing is to be performed. The LSASS policy database also stores “secrets” that include logon information used for cached domain logons and Windows service user-account logons. (See Chapter 4, “Management Mechanisms,” for more information on Windows services.)
 
 
 
-### <mark style="color:orange;">**Security Accounts Manager (SAM)**</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark>&#x20;
+### <mark style="color:orange;">**Security Accounts Manager (SAM)**</mark>&#x20;
 
 A service responsible for managing the database that contains the user names and groups defined on the local machine. The SAM service, which is implemented as %SystemRoot%\System32\Samsrv.dll, is loaded into the LSASS process.
 
@@ -58,13 +58,13 @@ A service responsible for managing the database that contains the user names and
 
 
 
-### <mark style="color:orange;">**Active Directory**</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark>&#x20;
+### <mark style="color:orange;">**Active Directory**</mark>&#x20;
 
 A directory service that contains a database that stores information about objects in a domain. A _domain_ is a collection of computers and their associated security groups that are managed as a single entity. Active Directory stores information about the objects in the domain, including users, groups, and computers. Password information and privileges for domain users and groups are stored in Active Directory, which is replicated across the computers that are designated as domain controllers of the domain. The Active Directory server, implemented as %SystemRoot%\System32\Ntdsa.dll, runs in the LSASS process.&#x20;
 
 
 
-### <mark style="color:orange;">**Authentication packages**</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark>&#x20;
+### <mark style="color:orange;">**Authentication packages**</mark>&#x20;
 
 These include dynamic-link libraries (DLLs) that run both in the context of the LSASS process and client processes, and implement Windows authentication policy. An authentication DLL is responsible for authenticating a user, by checking whether a given user name and password match, and if so, returning to the LSASS information detailing the user’s security identity, which LSASS uses to generate a token.
 
@@ -81,17 +81,17 @@ These include dynamic-link libraries (DLLs) that run both in the context of the 
 &#x20;A user-mode process running %SystemRoot%\System32\LogonUI.exe that presents users with the user interface they can use to authenticate themselves on the system. LogonUI uses credential providers to query user credentials through various methods.\
 
 
-### <mark style="color:orange;">**Credential providers (CPs)**</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark>&#x20;
+### <mark style="color:orange;">**Credential providers (CPs)**</mark>&#x20;
 
 In-process COM objects that run in the LogonUI process (started on demand by Winlogon when the SAS is performed) and used to obtain a user’s name and password, smartcard PIN, or biometric data (such as a fingerprint). The standard CPs are %SystemRoot%\System32\authui.dll and %SystemRoot%\System32\SmartcardCredentialProvider.dll.\
 
 
-### <mark style="color:orange;">**Network logon service (Netlogon)**</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark>&#x20;
+### <mark style="color:orange;">**Network logon service (Netlogon)**</mark>&#x20;
 
 A Windows service (%SystemRoot%\System32\Netlogon.dll) that sets up the secure channel to a domain controller, over which security requests—such as an interactive logon (if the domain controller is running Windows NT 4) or LAN Manager and NT LAN Manager (v1 and v2) authentication validation—are sent. Netlogon is also used for Active Directory logons.\
 
 
-### <mark style="color:orange;">**Kernel Security Device Driver (KSecDD)**</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark>&#x20;
+### <mark style="color:orange;">**Kernel Security Device Driver (KSecDD)**</mark>&#x20;
 
 A kernel-mode library of functions that implement the advanced local procedure call (ALPC) interfaces that other kernel mode security components, including the Encrypting File System (EFS), use to communicate with LSASS in user mode. KSecDD is located in %SystemRoot%\System32\Drivers\Ksecdd.sys.\
 
@@ -104,16 +104,16 @@ Is the API that can be use to authenticate users. The SSPI will be in charge of 
 
 *   **Kerberos:** The preferred one %windir%\Windows\System32\kerberos.dll
 
-    ****
+
 *   **NTLMv1 and NTLMv2:** Compatibility reasons %windir%\Windows\System32\msv1\_0.dll
 
-    ****
+
 *   **Digest:** Web servers and LDAP, password in form of a MD5 hash %windir%\Windows\System32\Wdigest.dll The SSPI will be in charge of finding the adequate protocol for two
 
-    ****
+
 *   **Schannel:** SSL and TLS %windir%\Windows\System32\Schannel.dll
 
-    ****
+
 * **Negotiate:** It is used to negotiate the protocol to use (Kerberos or NTLM being Kerberos the default one) %windir%\Windows\System32\lsasrv.dll
 
 

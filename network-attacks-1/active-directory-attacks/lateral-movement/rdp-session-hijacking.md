@@ -20,7 +20,7 @@ tscon {<SessionID> | <SessionName>} [/dest:<SessionName>] [/password:<pw> | /pas
 
 The simplest example would be `tscon 2`.
 
-&#x20;Running such a command on a server hosting the remote desktop session would connect the user to session with ID 2 and disconnect any existing sessions they are on. ****&#x20;
+&#x20;Running such a command on a server hosting the remote desktop session would connect the user to session with ID 2 and disconnect any existing sessions they are on.&#x20;
 
 to resume a previously disconnected RDP session an attacker with system-level access can setup a service with this syntax:
 

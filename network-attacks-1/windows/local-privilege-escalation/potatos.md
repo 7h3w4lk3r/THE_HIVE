@@ -74,7 +74,7 @@ Microsoft patched this (MS16-075) by disallowing same-protocol NTLM authenticati
 * **4. & 5.** _RPC 135_ and _AcceptSecurityContext_ replies with a _NTLM Challenge_ . The content of both packets are mixed to match a local negotiation and is forwarded to the _RPC_, step **6.**.
 * **7.** _RPC_ responds with a _NLTM Auth_ package that is send to _AcceptSecurityContext_ (**8.**) and the **impersonation** is performed (**9.**).
 
-__
+
 
 To understand deeper this technique, the researchers post/video are recommended:
 

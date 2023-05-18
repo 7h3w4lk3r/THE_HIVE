@@ -2,7 +2,7 @@
 
 **Placing a program within a startup folder will cause the program to execute when a user logs in.**
 
-&#x20;**** There is a startup folder location for individual user accounts as well as a system-wide startup folder that will be checked regardless of which user account logs in. The startup folder path for the current user is:
+&#x20;There is a startup folder location for individual user accounts as well as a system-wide startup folder that will be checked regardless of which user account logs in. The startup folder path for the current user is:
 
 ```
 C:\Users\[Username]\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup

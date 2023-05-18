@@ -104,6 +104,6 @@ Because the function isn't defined by default, PowerShell attempts to use Window
 
 ## <mark style="color:red;">Detection</mark>
 
-* Locations where `profile.ps1` can be stored should be monitored for new profiles. [\[4\]](http://www.malwarearchaeology.com/s/Windows-PowerShell-Logging-Cheat-Sheet-ver-June-2016-v2.pdf) Example profile locations include: _ `$PsHome\Profile.ps1`_ `$PsHome\Microsoft.{HostProgram}_profile.ps1` _ `$Home\My Documents\PowerShell\Profile.ps1`_ `$Home\My Documents\PowerShell\Microsoft.{HostProgram}_profile.ps1`
-* Locations where `profile.ps1` can be stored should be monitored for modifications. [\[4\]](http://www.malwarearchaeology.com/s/Windows-PowerShell-Logging-Cheat-Sheet-ver-June-2016-v2.pdf) Example profile locations include: _ `$PsHome\Profile.ps1`_ `$PsHome\Microsoft.{HostProgram}_profile.ps1` _ `$Home\My Documents\PowerShell\Profile.ps1`_ `$Home\My Documents\PowerShell\Microsoft.{HostProgram}_profile.ps1`
+* Locations where `profile.ps1` can be stored should be monitored for new profiles. [\[4\]](http://www.malwarearchaeology.com/s/Windows-PowerShell-Logging-Cheat-Sheet-ver-June-2016-v2.pdf) Example profile locations include: _`$PsHome\Profile.ps1`_ `$PsHome\Microsoft.{HostProgram}_profile.ps1` _`$Home\My Documents\PowerShell\Profile.ps1`_ `$Home\My Documents\PowerShell\Microsoft.{HostProgram}_profile.ps1`
+* Locations where `profile.ps1` can be stored should be monitored for modifications. [\[4\]](http://www.malwarearchaeology.com/s/Windows-PowerShell-Logging-Cheat-Sheet-ver-June-2016-v2.pdf) Example profile locations include: _`$PsHome\Profile.ps1`_ `$PsHome\Microsoft.{HostProgram}_profile.ps1` _`$Home\My Documents\PowerShell\Profile.ps1`_ `$Home\My Documents\PowerShell\Microsoft.{HostProgram}_profile.ps1`
 

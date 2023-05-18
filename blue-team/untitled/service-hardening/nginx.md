@@ -72,7 +72,7 @@ To completely disable the server header, find server\_token in the Nginx configu
 To prevent potential DoS attacks on nginx, you can set buffer size limitations for all clients. You can do this in the nginx configuration file using the following directives:
 
 * _**client\_body\_buffer\_size**_ – use this directive to specify the client request body buffer size. The default value is 8k or 16k but it is recommended to set this as low as 1k: `client_body_buffer_size 1k`.
-* _**client\_header\_buffer\_size**_** ** – use this directive to specify the header buffer size for the client request header. A buffer size of 1k is adequate for most requests.
+* _**client\_header\_buffer\_size**_ – use this directive to specify the header buffer size for the client request header. A buffer size of 1k is adequate for most requests.
 * _**client\_max\_body\_size**_ – use this directive to specify the maximum accepted body size for a client request. A 1k directive should be sufficient but you need to increase it if you are receiving file uploads via the POST method.
 * _**large\_client\_header\_buffers**_ – use this directive to specify the maximum number and size of buffers to be used to read large client request headers. A `large_client_header_buffers 2 1k` directive sets the maximum number of buffers to 2, each with a maximum size of 1k. This directive will accept 2 kB data URI.
 

@@ -2,7 +2,7 @@
 
 ## <mark style="color:red;">CAM Table</mark>
 
-![](<../../../.gitbook/assets/image (298) (1) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (284) (1) (1).png>)
 
 • CAM Table stands for Content Addressable Memory
 

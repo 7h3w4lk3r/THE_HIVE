@@ -5,7 +5,7 @@
 If we can boot from a live USB and access the windows file system indirectly, it is possible to replace some of the binaries responsible for "sticky key" actions such as:
 
 * <mark style="color:green;">**SETHC:**</mark> _sethc.exe_ is invoked when SHIFT is pressed 5 times
-* <mark style="color:green;">****</mark>[<mark style="color:green;">**UTILMAN:**</mark>](https://infinitelogins.com/2020/01/13/how-to-sign-into-any-windows-machine-when-you-have-physical-access/) _Utilman.exe_ is invoked by pressing WINDOWS+U
+* [<mark style="color:green;">**UTILMAN:**</mark>](https://infinitelogins.com/2020/01/13/how-to-sign-into-any-windows-machine-when-you-have-physical-access/) _Utilman.exe_ is invoked by pressing WINDOWS+U
 * <mark style="color:green;">**OSK:**</mark> _osk.exe_ is invoked by pressing WINDOWS+U, then launching the on-screen keyboard
 * <mark style="color:green;">**DISP:**</mark> _DisplaySwitch.exe_ is invoked by pressing WINDOWS+P
 

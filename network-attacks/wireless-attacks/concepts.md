@@ -64,9 +64,9 @@ In both modes, a Service Set Identifier (SSID) is required for network verificat
 
 The AP broadcasts the SSID in beacon frames approximately 10 times per second and the client, when connecting to a wireless network, also advertises the SSID. These basic features are used by wireless sniffers to identify network names and gather other interesting pieces of information.
 
-### <mark style="color:orange;">**Infrastructure Network**</mark>** **<mark style="color:green;">****</mark>&#x20;
+### <mark style="color:orange;">**Infrastructure Network**</mark>&#x20;
 
-&#x20;<mark style="color:green;"></mark> In infrastructure mode, there is at least one AP and one station, which together form a Basic Service Set (BSS). The AP is most commonly connected to a wired network, which is called a Distribution System (DS).
+&#x20;In infrastructure mode, there is at least one AP and one station, which together form a Basic Service Set (BSS). The AP is most commonly connected to a wired network, which is called a Distribution System (DS).
 
 An Extended Service Set (ESS) is a set of 2 or more wireless APs connected to the same wired network, defining a single logical network segment.
 
@@ -333,7 +333,7 @@ WPA2-AES is the enterprise implementation of WPA2. It uses the Advanced Encrypti
 
 Similar to WPA2, WPA3 includes WPA3-Personal and WPA3-Enterprise.
 
-<mark style="color:green;">**WPA3-Personal: Enhanced Password Protection**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> : WPA3-Personal uses Simultaneous Authentication of Equals (SAE) to replace PSK authentication in WPA2-Personal.
+<mark style="color:green;">**WPA3-Personal: Enhanced Password Protection**</mark> : WPA3-Personal uses Simultaneous Authentication of Equals (SAE) to replace PSK authentication in WPA2-Personal.
 
 In WPA2, PSK authentication involves a 4-way handshake for key negotiation. Before the negotiation, a PMK is generated based on the service set identifier (SSID) and PSK, which are both fixed. Therefore, the generated PMK is fixed and can be calculated. As a result, the same key is used for each reinstallation. The SAE protocol used by WPA3 adds an SAE handshake before the original PSK 4-way handshake and introduces a dynamic random variable in the PMK generation process. Therefore, the PMK negotiated each time is different, ensuring the randomness of the key. As such, SAE provides a more secure key authentication mechanism for WPA3 to resolve the security risks exposed by WPA2. SAE enables individuals or home users to set Wi-Fi passwords that are easier to remember and provide the same security protection even if the passwords are not complex enough.
 

@@ -6,7 +6,7 @@ GTFObins is a great resource for linux privilege escalation and will help you fi
 
 {% embed url="https://gtfobins.github.io/" %}
 
-**`sudo -l`**` ``` >>> see what executable binaries in the system we can use with sudo
+**`sudo -l`** >>> see what executable binaries in the system we can use with sudo
 
 ![](../../../.gitbook/assets/sudo.png)
 

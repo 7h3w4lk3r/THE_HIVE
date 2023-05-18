@@ -276,7 +276,7 @@ The oldest and still, most effective technique is service spoofing and capturing
 
 **Assuming that you are connected to the internal network (part of the domain) but don't have access to any system in the domain.**
 
-#### <mark style="color:green;">check out</mark> [_<mark style="color:green;">MITM</mark>_](broken-reference) _<mark style="color:green;"></mark>_ <mark style="color:green;"></mark> <mark style="color:green;"></mark><mark style="color:green;">Section for a full list of these attacks.</mark>
+#### <mark style="color:green;">check out</mark> [_<mark style="color:green;">MITM</mark>_](broken-reference)  <mark style="color:green;"></mark><mark style="color:green;">Section for a full list of these attacks.</mark>
 
 ## <mark style="color:red;">Exploitation with Credentials</mark>
 
@@ -346,7 +346,7 @@ Another bypass, which is not detected by PowerShell autologging:
 
 {% embed url="https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell" %}
 
-#### <mark style="color:green;">For more info about AMSI refer to the</mark> <mark style="color:green;"></mark>_<mark style="color:green;"></mark>_ [_<mark style="color:green;">**AMSI bypass**</mark>_](broken-reference) <mark style="color:green;">in AV Evasion.</mark>
+#### <mark style="color:green;">For more info about AMSI refer to the</mark> [_<mark style="color:green;">**AMSI bypass**</mark>_](broken-reference) <mark style="color:green;">in AV Evasion.</mark>
 
 ## <mark style="color:red;">Loading Enumeration Tools</mark>
 
@@ -945,4 +945,3 @@ Get-objectACL -ADSprefix 'CN=Administrator,CN=Users' -Verbose
 Get-ObjectAcl -SamAccountName * –ResolveGUIDs | ? { ($_.ActiveDirectoryRights -match 'GenericWrite') -and ($_.SecurityIdentifier -match 'S-1-5-21-1070240333-336889418-1185445934-1603') }
 ```
 
-****

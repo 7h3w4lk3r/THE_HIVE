@@ -30,7 +30,7 @@ misc::cmd
 
 ## <mark style="color:red;">Rubeus</mark>
 
-****[**rubeus**](https://github.com/r3motecontrol/Ghostpack-CompiledBinaries) **is a C# toolset for raw Kerberos interaction and abuses.**
+[**rubeus**](https://github.com/r3motecontrol/Ghostpack-CompiledBinaries) **is a C# toolset for raw Kerberos interaction and abuses.**
 
 we will use extract the tickets using Rubeus. This can be done with the help of the asktgt module. Although it is not so sneaky method it gets the work done. We need the domain name, User, Password Hash. When used normally will give the base64 encoded TGT ticket. But Let’s Pass the Ticket as well in the same step
 

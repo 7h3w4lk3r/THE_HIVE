@@ -51,7 +51,7 @@ Windows also defines a number of built-in local and domain SIDs to represent wel
 
 ### <mark style="color:orange;">**SID to Name Lookup**</mark>
 
-It is important to remember that <mark style="color:green;"></mark> <mark style="color:green;"></mark><mark style="color:green;">**trustees referenced in SDs are always stored as binary SIDs**</mark>. This is true for the owner, the primary group, and any trustee in any access control list (ACL). This implies that ** **<mark style="color:green;">**there exists some mechanism that converts trustee names into SIDs and vice versa. This mechanism is a central part of the security accounts manager (SAM) and of Active Directory (AD)**</mark>. The former manages the local account database on any NT-based system (Windows NT right up to Windows 10, including the server variants). The latter is only available on Active Directory domain controllers where it replaces the SAM.
+It is important to remember that <mark style="color:green;">**trustees referenced in SDs are always stored as binary SIDs**</mark>. This is true for the owner, the primary group, and any trustee in any access control list (ACL). This implies that <mark style="color:green;">**there exists some mechanism that converts trustee names into SIDs and vice versa. This mechanism is a central part of the security accounts manager (SAM) and of Active Directory (AD)**</mark>. The former manages the local account database on any NT-based system (Windows NT right up to Windows 10, including the server variants). The latter is only available on Active Directory domain controllers where it replaces the SAM.
 
 ### <mark style="color:orange;">**Special SID Types**</mark>
 
@@ -63,7 +63,7 @@ Capability SIDs cannot be resolved to/from names, they are displayed as SID stri
 
 ### <mark style="color:orange;">Integrity levels</mark>
 
-integrity levels can override discretionary access to differentiate a process and objects running as and owned by the same user, offering the ability to isolate code and data within a user account. ** **<mark style="color:green;">**The mechanism of Mandatory Integrity Control (MIC) allows the SRM to have more detailed information about the nature of the caller by associating it with an integrity level.**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> It also provides information on the trust required to access the object by defining an integrity level for it.&#x20;
+integrity levels can override discretionary access to differentiate a process and objects running as and owned by the same user, offering the ability to isolate code and data within a user account. <mark style="color:green;">**The mechanism of Mandatory Integrity Control (MIC) allows the SRM to have more detailed information about the nature of the caller by associating it with an integrity level.**</mark> It also provides information on the trust required to access the object by defining an integrity level for it.&#x20;
 
 The integrity level of a tokenThe mechanism of Mandatory Integrity Control (MIC) allows the SRM to have more detailed information about the nature of the caller by associating it with an integrity level. can be obtained with the GetTokenInformation API with the Token- IntegrityLevel enumeration value. These integrity levels are specified by a SID. Although integrity levels can be arbitrary values, the system uses six primary levels to separate privilege levels
 
@@ -175,7 +175,7 @@ Until here, all this would have been possible with NT4, too. But now we want to 
 
 It is, of course, possible to specify exactly how an ACE is to be inherited by its children. The following inheritance flags can be used individually or in any combination:
 
-* <mark style="color:green;">**container inherit:**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> child containers (e.g. directories) inherit the ACE
+* <mark style="color:green;">**container inherit:**</mark> child containers (e.g. directories) inherit the ACE
 * <mark style="color:green;">**object inherit:**</mark> child objects (e.g. files) inherit the ACE
 * <mark style="color:green;">**inherit only:**</mark> the ACE does not apply to the object itself, but can be inherited by children
 * <mark style="color:green;">**no propagation:**</mark> the ACE may not be inherited by children

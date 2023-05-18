@@ -6,11 +6,11 @@
 
 ### <mark style="color:orange;">Metadata Sites</mark>
 
-* [**Archive.org**](https://archive.org) ****&#x20;
-* ****[**metapicz**](http://metapicz.com/#landing) ****&#x20;
-* ****[**image forensic**](http://www.imageforensic.org) ****&#x20;
-* ****[**findexif**](http://findexif.com) ****&#x20;
-* ****[**exif regex**](http://exif.regex.info/exif.cgi)****
+* [**Archive.org**](https://archive.org)&#x20;
+* [**metapicz**](http://metapicz.com/#landing)&#x20;
+* [**image forensic**](http://www.imageforensic.org)&#x20;
+* [**findexif**](http://findexif.com)&#x20;
+* [**exif regex**](http://exif.regex.info/exif.cgi)
 
 ### <mark style="color:orange;">wget</mark>
 

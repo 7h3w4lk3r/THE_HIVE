@@ -6,22 +6,22 @@ The active recon chain is somehow pretty obvious, you find the target ( might ha
 
 ## Useful Resources
 
-* [**Recon Everything**](https://infosecwriteups.com/recon-everything-48aafbb8987) ****&#x20;
-* ****[**payload all the things**](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Network%20Discovery.md) ****&#x20;
-* ****[**Hacking Tricks**](https://book.hacktricks.xyz/) ****&#x20;
-* ****[**Nmap.org**](https://nmap.org/) ****&#x20;
-* ****[**Nmap Cookbook**](https://b-ok.asia/book/3640353/cace51)****
+* [**Recon Everything**](https://infosecwriteups.com/recon-everything-48aafbb8987)&#x20;
+* [**payload all the things**](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Network%20Discovery.md)&#x20;
+* [**Hacking Tricks**](https://book.hacktricks.xyz/)&#x20;
+* [**Nmap.org**](https://nmap.org/)&#x20;
+* [**Nmap Cookbook**](https://b-ok.asia/book/3640353/cace51)
 
 ## Vulnerability Scanners
 
 Although using vulnerability scanners is not usual in advanced pentesting or red team engagements, its useful to know about different vulnscanners out there
 
-* [**Nessus ( Commertial/Free Trial )**](https://www.tenable.com/products/nessus)****
-* ****[**Nexpose ( Commertial/Free Trial )**](https://www.rapid7.com/try/nexpose/)****
-* ****[**OpenVAS (Free)**](https://www.openvas.org/)****
-* ****[**Nmap NSE scripts (Free)**](https://nmap.org/book/man-nse.html) ****&#x20;
-* ****[**Nikto (Free)**](https://github.com/sullo/nikto) ****&#x20;
-* ****[**BurpSuite Scanner ( Free and commertial )**](https://portswigger.net/burp/documentation/desktop/getting-started/proxy-troubleshooting) ****&#x20;
-* ****[**OWASP Zaproxy scanner (Free)**](https://www.zaproxy.org/)****
-* ****[**Acunetix ( Commertial/Free Trial )**](https://www.acunetix.com/)****
-* ****[**Netsparker ( Commertial/Free Trial )**](https://www.netsparker.com/)****
+* [**Nessus ( Commertial/Free Trial )**](https://www.tenable.com/products/nessus)
+* [**Nexpose ( Commertial/Free Trial )**](https://www.rapid7.com/try/nexpose/)
+* [**OpenVAS (Free)**](https://www.openvas.org/)
+* [**Nmap NSE scripts (Free)**](https://nmap.org/book/man-nse.html)&#x20;
+* [**Nikto (Free)**](https://github.com/sullo/nikto)&#x20;
+* [**BurpSuite Scanner ( Free and commertial )**](https://portswigger.net/burp/documentation/desktop/getting-started/proxy-troubleshooting)&#x20;
+* [**OWASP Zaproxy scanner (Free)**](https://www.zaproxy.org/)
+* [**Acunetix ( Commertial/Free Trial )**](https://www.acunetix.com/)
+* [**Netsparker ( Commertial/Free Trial )**](https://www.netsparker.com/)

@@ -1,6 +1,6 @@
 # PrintNightmare
 
-<mark style="color:green;">****</mark>[<mark style="color:green;">**CVE-2021-1675**</mark>](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2021-1675) <mark style="color:green;">**is a critical remote code execution and local privilege escalation vulnerability dubbed "PrintNightmare."**</mark>
+[<mark style="color:green;">**CVE-2021-1675**</mark>](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2021-1675) <mark style="color:green;">**is a critical remote code execution and local privilege escalation vulnerability dubbed "PrintNightmare."**</mark>
 
 The print spooler service is vulnerable to remote code execution that leverages a compromised user account, either domain-joined or local account, to take full control of a system as the NT SYSTEM user. Proof-of-concept (PoC) code has been made publicly available for this new vulnerability leaving every Windows system at extreme risk.&#x20;
 
