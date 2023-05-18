@@ -34,7 +34,7 @@
 
 ## 🔷 Web Attacks
 
-* [🔧 XML External Entity (XXE) Injection](web-attacks/xml-external-entity-xxe-injection.md)
+* [🔴 XML External Entity (XXE) Injection](web-attacks/xml-external-entity-xxe-injection.md)
 * [🔧 File Upload Checks](web-attacks/file-upload-checks.md)
 
 ## 🔷 Network attacks
