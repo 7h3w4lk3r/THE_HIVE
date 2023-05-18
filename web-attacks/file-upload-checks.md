@@ -1,4 +1,4 @@
-# ⭕ File Upload Checks
+# 🔧 File Upload Checks
 
 ## <mark style="color:red;">Bypassing File Upload Restrictions</mark>
 

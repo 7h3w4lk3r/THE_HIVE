@@ -23,16 +23,19 @@
   * [⭕ Host Discovery / Network Mapping](recon-1/active-scanning/host-discovery-and-mapping.md)
   * [⭕ nmap cheat sheet](recon-1/active-scanning/nmap-cheat-sheet.md)
   * [⭕ masscan cheat sheet](recon-1/active-scanning/masscan-cheat-sheet.md)
-* [🔴 Web Application](recon-1/web-application-enumeration/README.md)
+* [🔴 Web Recon](recon-1/web-application-enumeration/README.md)
   * [⭕ Web Server Discovery](recon-1/web-application-enumeration/web-server-discovery.md)
   * [⭕ Hidden Hosts](recon-1/web-application-enumeration/hidden-hosts.md)
   * [⭕ Directories & Subdomains](recon-1/web-application-enumeration/directories-and-domains.md)
   * [⭕ SSL Certs](recon-1/web-application-enumeration/ssl-certs.md)
-  * [⭕ File Upload Checks](recon-1/web-application-enumeration/file-upload-checks.md)
   * [⭕ CMS](recon-1/web-application-enumeration/cms.md)
-  * [⭕ XML External Entity (XXE) Injection](recon-1/web-application-enumeration/xml-external-entity-xxe-injection.md)
   * [⭕ WAF Detection](recon-1/web-application-enumeration/waf-fingerprinting.md)
 * [🔴 Firewall Evasion](recon-1/firewall-ids-evasion.md)
+
+## 🔷 Web Attacks
+
+* [🔧 XML External Entity (XXE) Injection](web-attacks/xml-external-entity-xxe-injection.md)
+* [🔧 File Upload Checks](web-attacks/file-upload-checks.md)
 
 ## 🔷 Network attacks
 
@@ -435,10 +438,6 @@
   * [Variables and Data Types](programming/assembly/variables-and-data-types.md)
   * [Most-used Instructions](programming/assembly/most-used-instructions.md)
   * [input / output](programming/assembly/input-output.md)
-
-***
-
-* [🔧 Web Application](web-application.md)
 
 ## 🔷 misc
 
