@@ -37,7 +37,7 @@
 * [🔴 Directory Traversal](web-attacks/directory-traversal.md)
 * [🔴 OS Command Injection](web-attacks/os-command-injection.md)
 * [🔴 XML External Entity (XXE) Injection](web-attacks/xml-external-entity-xxe-injection.md)
-* [🔧 File Upload Checks](web-attacks/file-upload-checks.md)
+* [🔴 File Upload Vulnerabilities](web-attacks/file-upload-checks.md)
 
 ## 🔷 Network attacks
 
