@@ -8,12 +8,11 @@
 
 ## :ballot\_box\_with\_check: <mark style="color:red;">Checklist</mark> <a href="#next-gen-firewalls-explained" id="next-gen-firewalls-explained"></a>
 
-* [ ] **Detection**
-* [ ] **Policy/Rule Test**
-* [ ] **Scan Timing**
+* [ ] [**Detection**](firewall-ids-evasion.md#detection)
+* [ ] [**Policy/Rule Test**](firewall-ids-evasion.md#policy-rule-test)
+* [ ] [**Scan Timing**](firewall-ids-evasion.md#scan-timing)
 * [ ] [**IPv6**](../network-attacks/network/ipv6.md)
-* [ ] **Firewalking**
-* [ ] **Product Vulnerability**
+* [ ] [**Firewalking**](firewall-ids-evasion.md#fire-walking)
 
 ## <mark style="color:red;">Detection</mark>
 
@@ -162,7 +161,7 @@ hping3 -V -c 1000000 -d 120 -S -w 64 -p 445 -s 445 — flood — rand-source VIC
 
 ### <mark style="color:orange;">nmap</mark>
 
-<mark style="color:green;">**fragmentation :**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> The -f command induces our scan to deploy diminutive fragmented IP packets. Specifically, our command utilizes 16 bytes per fragment which diminishes the number of fragments. Fragmented packets is one of them and consist in sending several tiny packets instead of one normal size packet.
+<mark style="color:green;">**fragmentation :**</mark> The -f command induces our scan to deploy diminutive fragmented IP packets. Specifically, our command utilizes 16 bytes per fragment which diminishes the number of fragments. Fragmented packets is one of them and consist in sending several tiny packets instead of one normal size packet.
 
 You can use fragmented packets with Nmap using the "-f" option, however, nowadays most firewall and IDS detect fragmented packets.
 
@@ -172,7 +171,7 @@ nmap -f 192.168.1.12
 
 ***
 
-<mark style="color:green;">**custom offset size :**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> nmap `--mtu` command allows us to specify our own offset size. Remember that the offset size has to be a multiple of 16.
+<mark style="color:green;">**custom offset size :**</mark> nmap `--mtu` command allows us to specify our own offset size. Remember that the offset size has to be a multiple of 16.
 
 * Nmap is giving the option to the user to set a specific MTU (Maximum Transmission Unit) to the packet.
 * This is similar to the packet fragmentation technique.
@@ -184,13 +183,13 @@ nmap -f 192.168.1.12
 nmap --badsum 192.168.1.12
 ```
 
-<mark style="color:green;">**bad checksum :**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> Badsum command induces the deployment of an invalid TCP/UDP/SCTP checksum for packets transmitted to our target. As practically every host IP stack would correctly drop the packets, each response accepted is possibly originating from a firewall or Intrusion Detection System that wasn’t concerned with confirming the checksum. Additionally, we try to use some scripts from the Nmap NSE like "firewall-bypass," but I should warn you that results from the usage of this script can be a false positive with a high percentage.
+<mark style="color:green;">**bad checksum :**</mark> Badsum command induces the deployment of an invalid TCP/UDP/SCTP checksum for packets transmitted to our target. As practically every host IP stack would correctly drop the packets, each response accepted is possibly originating from a firewall or Intrusion Detection System that wasn’t concerned with confirming the checksum. Additionally, we try to use some scripts from the Nmap NSE like "firewall-bypass," but I should warn you that results from the usage of this script can be a false positive with a high percentage.
 
 ```
 nmap --badsum 192.168.1.12
 ```
 
-<mark style="color:green;">**helper bypass :**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> This script detects a vulnerability in Netfilter and other firewalls that use helpers to dynamically open ports for protocols such as FTP and sip (in our case, we also combine it with stealth scan). The script works by spoofing a packet from the target server asking for opening a related connection to a target port, which will be fulfilled by the firewall through the adequate protocol helper port. The attacking machine should be on the same network segment as the firewall for this to work. The script supports FTP helper on both IPv4 and IPv6. Real path filter is used to prevent such attacks.
+<mark style="color:green;">**helper bypass :**</mark> This script detects a vulnerability in Netfilter and other firewalls that use helpers to dynamically open ports for protocols such as FTP and sip (in our case, we also combine it with stealth scan). The script works by spoofing a packet from the target server asking for opening a related connection to a target port, which will be fulfilled by the firewall through the adequate protocol helper port. The attacking machine should be on the same network segment as the firewall for this to work. The script supports FTP helper on both IPv4 and IPv6. Real path filter is used to prevent such attacks.
 
 ```
 map -sS -T5 192.168.1.12 --script firewall-bypass
@@ -259,7 +258,7 @@ nmap -sF --scanflags PSH [ip]
 
 {% file src="../.gitbook/assets/Scapy 802.11 Cheat Sheet v0.1.pdf" %}
 
-{% file src="../.gitbook/assets/ScapyCheatSheet_v0.2.pdf" %}
+{% file src="../.gitbook/assets/ScapyCheatSheet_v0.2 (2).pdf" %}
 
 {% embed url="https://0xbharath.github.io/art-of-packet-crafting-with-scapy/index.html" %}
 

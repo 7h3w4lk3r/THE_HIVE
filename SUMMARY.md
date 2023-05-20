@@ -44,6 +44,7 @@
 ## 🔷 Network attacks
 
 * [🔴 Network Services](network-attacks/network/README.md)
+  * [⭕ Brute Force](https://book.hacktricks.xyz/generic-methodologies-and-resources/brute-force)
   * [⭕ DNS](network-attacks/network/dns.md)
   * [⭕ IPv6](network-attacks/network/ipv6.md)
   * [⭕ FTP](network-attacks/network/ftp.md)
@@ -118,7 +119,6 @@
 ## 🔷 Red Team <a href="#network-attacks" id="network-attacks"></a>
 
 * [🔴 Windows](network-attacks-1/windows/README.md)
-  * [⭕ Physical Attack](network-attacks-1/windows/physical-attack.md)
   * [⭕ Security Concepts](network-attacks-1/windows/concepts/README.md)
     * [Windows Security Components](network-attacks-1/windows/concepts/security-component.md)
     * [Active Directory Components](network-attacks-1/windows/concepts/active-directory-components.md)
@@ -127,6 +127,7 @@
     * [Permissions and Access Control](network-attacks-1/windows/concepts/permissions.md)
     * [Windows Registry](network-attacks-1/windows/concepts/windows-registry.md)
     * [Object Management](network-attacks-1/windows/concepts/object-management.md)
+  * [⭕ Physical Attack](network-attacks-1/windows/physical-attack.md)
   * [⭕ Enumeration](network-attacks-1/windows/enumeration.md)
   * [⭕ Privilege Escalation](network-attacks-1/windows/local-privilege-escalation/README.md)
     * [DLL Hijacking](network-attacks-1/windows/local-privilege-escalation/dll-injection/README.md)

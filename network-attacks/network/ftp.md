@@ -29,11 +29,11 @@ ftp> help >> to see the list of commands
 ## :ballot\_box\_with\_check: <mark style="color:blue;">Checklist</mark>
 
 * [ ] Check for vulnerable versions (e.g: vsftpd with RCE vulns)
-* [ ] Check anonymous login
-* [ ] Check for interesting files and stored credentials
-* [ ] Test Directory traversal
-* [ ] Brute force login
-* [ ] FTP bounce attack
+* [ ] [Check anonymous login](ftp.md#ftp-anonymous-authentication)
+* [ ] [Check for interesting files and stored credentials](ftp.md#connecting-to-server)
+* [ ] [Test Directory traversal](../../web-attacks/directory-traversal.md)
+* [ ] [Brute force login](ftp.md#login-brute-force)
+* [ ] [FTP bounce attack](ftp.md#ftp-bounce-attack)
 
 ## <mark style="color:red;">Enumeration</mark>
 

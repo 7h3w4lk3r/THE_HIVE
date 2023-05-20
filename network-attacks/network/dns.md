@@ -15,10 +15,10 @@ TCP port 53 by default, fall back to UDP port 53 if not possible.
 ## :ballot\_box\_with\_check: <mark style="color:blue;">Checklist</mark>
 
 * [ ] Use OSINT for DNS records
-* [ ] Check forward and reverse lookups
-* [ ] Test zone transfer
-* [ ] Test NSEC / NSEC3
-* [ ] Look for CVEs
+* [ ] [Check forward and reverse lookups](dns.md#dns-enumeration)
+* [ ] [Test zone transfer](dns.md#bash-zone-transfer)
+* [ ] [Test NSEC / NSEC3](dns.md#nsec-nsec3)
+* [ ] [Look for CVEs](dns.md#known-vulnerabilities)
 
 ## <mark style="color:red;">Quick Check</mark>
 
