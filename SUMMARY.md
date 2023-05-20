@@ -34,11 +34,12 @@
 
 ## 🔷 Web Attacks
 
+* [🔴 Access Control (Authorization) Vulnerabilities and Privilege Escalation](web-attacks/access-control-authorization-vulnerabilities-and-privilege-escalation.md)
 * [🔴 Directory Traversal](web-attacks/directory-traversal.md)
 * [🔴 OS Command Injection](web-attacks/os-command-injection.md)
+* [🔴 Server-Side Request Forgery (SSRF)](web-attacks/server-side-request-forgery-ssrf.md)
 * [🔴 XML External Entity (XXE) Injection](web-attacks/xml-external-entity-xxe-injection.md)
 * [🔴 File Upload Vulnerabilities](web-attacks/file-upload-checks.md)
-* [🔴 Server-Side Request Forgery (SSRF)](web-attacks/server-side-request-forgery-ssrf.md)
 
 ## 🔷 Network attacks
 
