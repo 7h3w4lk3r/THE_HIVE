@@ -45,6 +45,8 @@
   * [🔧 SQL Injection](web-attacks/server-side/sql-injection.md)
   * [⭕ Information Disclosure](web-attacks/server-side/information-disclosure.md)
   * [⭕ Business Logic](web-attacks/server-side/business-logic.md)
+* [🔴 Client Side](web-attacks/client-side/README.md)
+  * [⭕ Cross-site request forgery (CSRF)](web-attacks/client-side/cross-site-request-forgery-csrf.md)
 
 ## 🔷 Network attacks
 
