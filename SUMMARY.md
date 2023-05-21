@@ -34,6 +34,7 @@
 
 ## 🔷 Web Attacks
 
+* [Vulnerabilities in Authentication Mechanisms](web-attacks/vulnerabilities-in-authentication-mechanisms.md)
 * [🔴 Access Control (Authorization) Vulnerabilities and Privilege Escalation](web-attacks/access-control-authorization-vulnerabilities-and-privilege-escalation.md)
 * [🔴 Directory Traversal](web-attacks/directory-traversal.md)
 * [🔴 OS Command Injection](web-attacks/os-command-injection.md)
