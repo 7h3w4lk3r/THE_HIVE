@@ -36,13 +36,14 @@
 
 * [🔴 Server Side](web-attacks/server-side/README.md)
   * [⭕ Authentication Mechanisms](web-attacks/server-side/authentication-mechanisms.md)
-  * [⭕ Access Control (Authorization)](web-attacks/server-side/access-control-authorization.md)
-  * [⭕ Directory Traversal](web-attacks/server-side/directory-traversal.md)
-  * [⭕ OS Command Injection](web-attacks/server-side/os-command-injection.md)
-  * [⭕ Server-Side Request Forgery (SSRF)](web-attacks/server-side/server-side-request-forgery-ssrf.md)
-  * [⭕ XML External Entity (XXE) Injection](web-attacks/server-side/xml-external-entity-xxe-injection.md)
-  * [⭕ File Upload](web-attacks/server-side/file-upload-checks.md)
+  * [⭕ Access Control (Authorization)](web-attacks/access-control-authorization-vulnerabilities-and-privilege-escalation.md)
+  * [⭕ Directory Traversal](web-attacks/directory-traversal.md)
+  * [⭕ OS Command Injection](web-attacks/os-command-injection.md)
+  * [⭕ Server-Side Request Forgery (SSRF)](web-attacks/server-side-request-forgery-ssrf.md)
+  * [⭕ XML External Entity (XXE) Injection](web-attacks/xml-external-entity-xxe-injection.md)
+  * [⭕ File Upload](web-attacks/file-upload-checks.md)
   * [🔧 SQL Injection](web-attacks/server-side/sql-injection.md)
+  * [⭕ Information Disclosure](web-attacks/server-side/information-disclosure.md)
 
 ## 🔷 Network attacks
 

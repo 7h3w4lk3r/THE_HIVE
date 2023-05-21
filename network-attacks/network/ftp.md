@@ -31,7 +31,7 @@ ftp> help >> to see the list of commands
 * [ ] Check for vulnerable versions (e.g: vsftpd with RCE vulns)
 * [ ] [Check anonymous login](ftp.md#ftp-anonymous-authentication)
 * [ ] [Check for interesting files and stored credentials](ftp.md#connecting-to-server)
-* [ ] [Test Directory traversal](../../web-attacks/server-side/directory-traversal.md)
+* [ ] [Test Directory traversal](../../web-attacks/directory-traversal.md)
 * [ ] [Brute force login](ftp.md#login-brute-force)
 * [ ] [FTP bounce attack](ftp.md#ftp-bounce-attack)
 
