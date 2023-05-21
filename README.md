@@ -20,3 +20,4 @@
 
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge\&logo=gmail\&logoColor=white)](mailto:bl4ckr4z3r@gmail.com)&#x20;
 
+![Twitter Follow](https://img.shields.io/twitter/follow/_majidmc2?label=majidmc2&style=social)
