@@ -18,6 +18,5 @@
 
 ## <mark style="color:red;">**Contact**</mark>
 
-![GitHub followers](https://img.shields.io/github/followers/7h3w4lk3r?label=7h3w4lk3r&style=social)
-![GitHub followers](https://img.shields.io/github/followers/majidmc2?label=majidmc2&style=social)
-![Twitter Follow](https://img.shields.io/twitter/follow/_majidmc2?label=majidmc2&style=social)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge\&logo=gmail\&logoColor=white)](mailto:bl4ckr4z3r@gmail.com)&#x20;
+
