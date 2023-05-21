@@ -44,6 +44,7 @@
   * [⭕ File Upload](web-attacks/file-upload-checks.md)
   * [🔧 SQL Injection](web-attacks/server-side/sql-injection.md)
   * [⭕ Information Disclosure](web-attacks/server-side/information-disclosure.md)
+  * [⭕ Business Logic](web-attacks/server-side/business-logic.md)
 
 ## 🔷 Network attacks
 
