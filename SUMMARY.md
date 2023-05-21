@@ -34,14 +34,15 @@
 
 ## 🔷 Web Attacks
 
-* [Page 1](web-attacks/page-1/README.md)
-  * [🔴 Access Control (Authorization)](web-attacks/page-1/access-control-authorization.md)
-  * [🔴 Authentication Mechanisms](web-attacks/page-1/authentication-mechanisms.md)
-  * [🔴 Directory Traversal](web-attacks/page-1/directory-traversal.md)
-  * [🔴 OS Command Injection](web-attacks/page-1/os-command-injection.md)
-  * [🔴 Server-Side Request Forgery (SSRF)](web-attacks/page-1/server-side-request-forgery-ssrf.md)
-  * [🔴 XML External Entity (XXE) Injection](web-attacks/page-1/xml-external-entity-xxe-injection.md)
-  * [🔴 File Upload Vulnerabilities](web-attacks/page-1/file-upload-checks.md)
+* [🔴 Server Side](web-attacks/server-side/README.md)
+  * [⭕ Authentication Mechanisms](web-attacks/server-side/authentication-mechanisms.md)
+  * [⭕ Access Control (Authorization)](web-attacks/server-side/access-control-authorization.md)
+  * [⭕ Directory Traversal](web-attacks/server-side/directory-traversal.md)
+  * [⭕ OS Command Injection](web-attacks/server-side/os-command-injection.md)
+  * [⭕ Server-Side Request Forgery (SSRF)](web-attacks/server-side/server-side-request-forgery-ssrf.md)
+  * [⭕ XML External Entity (XXE) Injection](web-attacks/server-side/xml-external-entity-xxe-injection.md)
+  * [⭕ File Upload](web-attacks/server-side/file-upload-checks.md)
+  * [🔧 SQL Injection](web-attacks/server-side/sql-injection.md)
 
 ## 🔷 Network attacks
 
