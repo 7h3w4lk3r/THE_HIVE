@@ -47,6 +47,7 @@
   * [⭕ Business Logic](web-attacks/server-side/business-logic.md)
 * [🔴 Client Side](web-attacks/client-side/README.md)
   * [⭕ Cross-site request forgery (CSRF)](web-attacks/client-side/cross-site-request-forgery-csrf.md)
+  * [🔧 Cross-site scripting (XSS)](web-attacks/client-side/cross-site-scripting-xss.md)
 
 ## 🔷 Network attacks
 
