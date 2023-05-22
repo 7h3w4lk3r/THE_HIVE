@@ -18,4 +18,16 @@
 
 ## <mark style="color:red;">**Contact**</mark>
 
+
+**majidmc2**
+
+[![Twitter](https://img.shields.io/twitter/follow/_majidmc2?style=social)](https://twitter.com/_majidmc2)
+
+[![Github](https://img.shields.io/github/followers/majidmc2?label=majidmc2&style=social)](https://github.com/majidmc2)
+
+
+**7h3w4lk3r**
+
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge\&logo=gmail\&logoColor=white)](mailto:bl4ckr4z3r@gmail.com)
+
+[![Github](https://img.shields.io/github/followers/7h3w4lk3r?label=7h3w4lk3r&style=social)](https://github.com/7h3w4lk3r)
