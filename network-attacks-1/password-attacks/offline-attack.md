@@ -66,7 +66,7 @@ sucrack -w 10 wordlist.txt
 
 ### <mark style="color:orange;">Options</mark>
 
-```
+```aql
 -m  >>> hash type
 -a  >>> attack mode
 -b >>> benchmark mode
@@ -89,7 +89,7 @@ sucrack -w 10 wordlist.txt
 
 ### <mark style="color:orange;">attack modes</mark>
 
-```
+```apl
 Dictionary attack >>> try all words in a list, straight mode (-a 0)
  
 Combinator attack >>> concatenating words from multiple wordlists (mode 1).Each word of a dictionary is appended to each word in a dictionary. 
@@ -107,63 +107,73 @@ Toggle-case attack >>> toggling case of characters; now accomplished with rules
 
 ### <mark style="color:orange;">bruteforcing rules</mark>
 
-```
-predefined charsets
+<pre class="language-coffeescript" data-full-width="false"><code class="lang-coffeescript">predefined charsets
 ?l = abcdefghijklmnopqrstuvwxyz  --> lower case
 ?u = ABCDEFGHIJKLMNOPQRSTUVWXYZ  --> upper case
 ?d = 0123456789  --> digits
-?s = «space»!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ --> special characters
+?s = «space»!"#$%&#x26;'()*+,-./:;&#x3C;=>?@[\]^_`{|}~ --> special characters
 ?a = ?l?u?d?s  --> all
 ?b = 0x00 - 0xff  --> hex/bin
 
 ?l?d?u is the same as:
 ?ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
 
-```
+
+<a data-footnote-ref href="#user-content-fn-1">custom special characters</a>
+1"?d\ _,.-/:"  
+</code></pre>
 
 <mark style="color:green;">Brute force all passwords length 1-8 with possible characters A-Z a-z 0-9:</mark>
 
-```
+```bash
 hashcat64 -m 500 hashes.txt -a 3 ?1?1?1?1?1?1?1?1 --increment -1 ?l?d?u
 ```
 
 <mark style="color:green;">Brute force all passwords length 1-16 with possible characters A-Z a-z 0-9:</mark>
 
-```
+```bash
 hashcat -m 1000 -w 4 ntlm.txt -a3 -1?l?u?d ?1?1?1?1?1?1?1?1?1?1?1?1?1?1?1?1 --increment --increment-min 1 -o cracked
 ```
 
 ### <mark style="color:orange;">NTLM Crack</mark>
 
-```
+```bash
 impacket-secretsdump -system SYSTEM -ntds ntds.dit -hashes lmhash:nthash LOCAL -outputfile ntlm-extract
 ```
 
 You can crack the NTLM hash dump using the following hashcat syntax:
 
-```
+```bash
 hashcat64 -m 1000 -a 0 -w 4 --force --opencl-device-types 1,2 -O d:\hashsample.hash "d:\WORDLISTS\realuniq.lst" -r OneRuleToRuleThemAll.rule
 ```
 
 windows hash
 
-```
+```bash
 hashcat -m 4500 -a 0 hash.txt /usr/share/wordlists/rockyou.txt --status
 ```
 
-{% hint style="info" %}
-\~/.hashcat/hashcat.potfile >>> delete to clean the profile from previuse cracks
-{% endhint %}
+### <mark style="color:orange;">Delete profile</mark>
 
-LM hash
+hashcat profile path:
 
 ```
+hashcat -II
+```
+
+{% hint style="info" %}
+#### \~/.hashcat/hashcat.potfile >>> delete to clean the profile from previuse cracks
+{% endhint %}
+
+<mark style="color:green;">**LM hash**</mark>
+
+```bash
  hashcat -m 4500 -a 0 hash.txt /usr/share/wordlists/rockyou.txt --status
 ```
 
 ### <mark style="color:orange;">Kerberos Crack</mark>
 
-```
+```bash
 hashcat64 -m 13100 -a 0 -w 4 --force --opencl-device-types 1,2 -O d:\krb5tgs.hash d:\WORDLISTS\realhuman_phill.txt -r OneRuleToRuleThemAll.rule
 ```
 
@@ -175,7 +185,7 @@ You may be asked to recover a password from an SMB authentication (NTLMv2) from 
 
 in wireshark search for :
 
-```
+```bash
 ntlmssp
 # and 
 ntlmssp.ntlmserverchallenge
@@ -183,7 +193,7 @@ ntlmssp.ntlmserverchallenge
 
 example of a dumped ntlmv2 hash:
 
-```
+```c
 [username]::[domain]:[challenge-lowercase]:[nt proof string upper case]:[ntlm response upper case - nt proof string] 
  
  zapas::MEGACORP:546d064d69d88987:716AE78B341EAA483A6E5611B5236883:0101000000000000C0653150DE09D2000000000000000
@@ -191,14 +201,14 @@ example of a dumped ntlmv2 hash:
 
 ### <mark style="color:orange;">Crack a zip password</mark>
 
-```
+```bash
 zip2john Zipfile.zip | cut -d ':' -f 2 > hashes.txt
 hashcat -a 0 -m 13600 hashes.txt /usr/share/wordlists/rockyou.txt
 ```
 
 Hashcat appears to have issues with some zip hash formats generated from zip2john. You can fix this by editing the zip hash contents to align with the example zip hash format found on the hash cat example page:
 
-```
+```bash
 $zip2$*0*3*0*b5d2b7bf57ad5e86a55c400509c672bd*d218*0**ca3d736d03a34165cfa9*$/zip2$
 ```
 
@@ -208,7 +218,7 @@ PRINCE (PRobability INfinite Chained Elements) is a hashcat utility for randomly
 
 {% embed url="https://github.com/hashcat/princeprocessor" %}
 
-```
+```bash
  pp64.bin --pw-min=8 < dict.txt | head -20 shuf dict.txt | pp64.bin --pw-min=8 | head -20
 ```
 
@@ -218,7 +228,7 @@ Purple Rain attack uses a combination of Prince, a dictionary and random Mutatio
 
 {% embed url="https://www.netmux.com/blog/purple-rain-attack" %}
 
-```
+```bash
 shuf dict.txt | pp64.bin --pw-min=8 | hashcat -a 0 -m #type -w 4 -O hashes.txt -g 300000
 ```
 
@@ -244,7 +254,7 @@ The rule file is a combination of rules from various sources:
 [https://github.com/hashcat/hashcat/](https://github.com/hashcat/hashcat/)\
 oclHashcat v1.20 (by https://github.com/evilmog) (generated2.rule)
 
-```
+```bash
 hashcat64.exe --force -m300 --status -w3 -o found.txt --remove --potfile-disable -r rules\OneRuleToRuleThemAll.rule hash.txt rockyou.txt
 ```
 
@@ -263,13 +273,13 @@ rule generator:\
 
 wordlist and attack rules manual
 
-```
+```bash
 john –crack-status –dupe-suppression –format= NAMEOFHAASH e.g raw-md5 –wordlist=/root/Desktop/dict/NAMEOFFILE /root/Desktop/HASH/NameOfHASH
 ```
 
 examples:
 
-```
+```bash
 crack zip
 zip2john file.zip > zip.txt
 john --format=zip zip.txt
@@ -284,7 +294,7 @@ john --format=zip rar.txt
 
 options
 
-```
+```bash
 list available formats
 --list=formats
 
@@ -312,7 +322,7 @@ john --rules --wordlist=/usr/share/wordlists/rockyou.txt hash.txt --format=NT
 
 ### <mark style="color:orange;">show cracked</mark>
 
-```
+```bash
 john --show --shells=-/etc/expired mypasswd
 
 or shorter, but will also match "/any/path/expired":
@@ -342,7 +352,7 @@ And finally, to check for privileged groups:
 
 ### <mark style="color:orange;">Rules</mark>
 
-```
+```bash
 Rule reject flags.
 
 -:	no-op: don't reject
@@ -505,3 +515,5 @@ Finally, the preprocessor supports some magic escape sequences. These start with
 
 Currently supported are "\1" through "\9" for back-references to prior ranges (these will be substituted by the same character that is currently substituted for the referenced range, with ranges numbered from 1, left-to-right), "\0" for back-reference to the immediately preceding range, "\p" before a range to have that range processed "in parallel" with all preceding ranges, "\p1" through "\p9" to have the range processed "in parallel" with the specific referenced range, "\p0" to have the range processed "in parallel" with the immediately preceding range, and "\r" to allow the range to produce repeated characters. The "\r" escape is only useful if the range is "parallel" to another one or if there's at least one other range "parallel" to this one, because you should not want to actually produce duplicate rules. 
 ```
+
+[^1]: 
