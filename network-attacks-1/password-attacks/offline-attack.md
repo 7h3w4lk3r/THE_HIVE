@@ -2,7 +2,7 @@
 
 ## <mark style="color:red;">sucrack</mark>
 
-local user account bruteforce tool using su
+<mark style="color:green;">local user account bruteforce tool using su</mark>
 
 {% embed url="https://www.leidecker.info/projects/sucrack.shtml" %}
 
@@ -109,22 +109,28 @@ Toggle-case attack >>> toggling case of characters; now accomplished with rules
 
 ```
 predefined charsets
-?l = abcdefghijklmnopqrstuvwxyz
-?u = ABCDEFGHIJKLMNOPQRSTUVWXYZ
-?d = 0123456789
-?s = «space»!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
-?a = ?l?u?d?s
-?b = 0x00 - 0xff
+?l = abcdefghijklmnopqrstuvwxyz  --> lower case
+?u = ABCDEFGHIJKLMNOPQRSTUVWXYZ  --> upper case
+?d = 0123456789  --> digits
+?s = «space»!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ --> special characters
+?a = ?l?u?d?s  --> all
+?b = 0x00 - 0xff  --> hex/bin
 
 ?l?d?u is the same as:
 ?ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
 
 ```
 
-Brute force all passwords length 1-8 with possible characters A-Z a-z 0-9:
+<mark style="color:green;">Brute force all passwords length 1-8 with possible characters A-Z a-z 0-9:</mark>
 
 ```
 hashcat64 -m 500 hashes.txt -a 3 ?1?1?1?1?1?1?1?1 --increment -1 ?l?d?u
+```
+
+<mark style="color:green;">Brute force all passwords length 1-16 with possible characters A-Z a-z 0-9:</mark>
+
+```
+hashcat -m 1000 -w 4 ntlm.txt -a3 -1?l?u?d ?1?1?1?1?1?1?1?1?1?1?1?1?1?1?1?1 --increment --increment-min 1 -o cracked
 ```
 
 ### <mark style="color:orange;">NTLM Crack</mark>
