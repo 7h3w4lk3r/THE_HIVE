@@ -4,7 +4,7 @@
 
 #### [Network Time Protocol](https://tools.ietf.org/html/rfc5905)
 
-NTP is the longest running, continuously operating, and a distributed application on the Internet. T he objective of NTP is simple: to allow a client to synchronize its clock with UTC (Coordinated Universal Time, standard time scale used by most nations), and to do so with a high degree of accuracy and a high degree of stability.
+NTP is the longest running, continuously operating, and a distributed application on the Internet. The objective of NTP is simple: to allow a client to synchronize its clock with UTC (Coordinated Universal Time, standard time scale used by most nations), and to do so with a high degree of accuracy and a high degree of stability.
 
 NTP (currently version 4) is a combination of thr ee things; first it is a software program that runs in t he background of Windows/UNIX secondly it is a protocol th at exchanges time that is been valued between servers and cl ients and finally it is a suite of algorithms that process the time values to advance or retreat the system clock. The term NTP applies to both the protocols and the client-server programs that keep running on PCs. NTP time servers work inside the TCP/IP suite and depend on User Datagram Protocol (UDP) port 123. NTP servers are ordinarily committed NTP devices that utilize a single time reference to which they can synchronize a system.
 
