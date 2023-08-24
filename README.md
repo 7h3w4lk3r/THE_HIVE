@@ -18,16 +18,13 @@
 
 ## <mark style="color:red;">**Contact**</mark>
 
+### _<mark style="color:orange;">**7h3w4lk3r**</mark>_  &#x20;
 
-**majidmc2**
+* [**Email**](http://127.0.0.1:5000/u/uJHIhkkqXObiNOksnhb0mDrVjgm1)&#x20;
+* [Github](https://github.com/7h3w4lk3r)
+* [LinkedIn](https://www.linkedin.com/in/pouya-s-929ab5255)
 
-[![Twitter](https://img.shields.io/twitter/follow/_majidmc2?style=social)](https://twitter.com/_majidmc2)
+### _<mark style="color:orange;">majidmc2</mark>_&#x20;
 
-[![Github](https://img.shields.io/github/followers/majidmc2?label=majidmc2&style=social)](https://github.com/majidmc2)
-
-
-**7h3w4lk3r**
-
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge\&logo=gmail\&logoColor=white)](mailto:bl4ckr4z3r@gmail.com)
-
-[![Github](https://img.shields.io/github/followers/7h3w4lk3r?label=7h3w4lk3r&style=social)](https://github.com/7h3w4lk3r)
+* [Twitter](https://twitter.com/\_majidmc2)
+* [Github](https://github.com/majidmc2)
