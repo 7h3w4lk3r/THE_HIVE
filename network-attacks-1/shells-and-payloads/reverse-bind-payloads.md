@@ -82,9 +82,7 @@ ASP.NET reverse shells within Kali
 
 Kali JSP Reverse Shell:
 
-| Command                                  | Description            |
-| ---------------------------------------- | ---------------------- |
-| /usr/share/webshells/jsp/jsp-reverse.jsp | Kali JSP Reverse Shell |
+<table><thead><tr><th width="228">Command</th><th>Description</th></tr></thead><tbody><tr><td>/usr/share/webshells/jsp/jsp-reverse.jsp</td><td>Kali JSP Reverse Shell</td></tr></tbody></table>
 
 ## <mark style="color:red;">Powershell</mark>
 

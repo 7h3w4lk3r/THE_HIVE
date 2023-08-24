@@ -16,13 +16,13 @@ Generally speaking, when we want a bin/reverse shell we go looking for the speci
 
 ## <mark style="color:red;">Example Tools</mark>
 
-<mark style="color:green;">**Mshta.exe :**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> Launch HTA attack via HTA Web Server of Metasploit
+<mark style="color:green;">**Mshta.exe :**</mark> Launch HTA attack via HTA Web Server of Metasploit
 
 <mark style="color:green;">**Rundll32.exe :**</mark> Launch Rundll32 Attack via SMB Delivery of Metasploit
 
 <mark style="color:green;">**Regsvr32.exe :**</mark> Launch Regsvr32 via Script Web Delivery of Metasploit
 
-<mark style="color:green;">**Certutil.exe :**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> Launch MSbuild Attack via Msfvenom C# shellcode
+<mark style="color:green;">**Certutil.exe :**</mark> Launch MSbuild Attack via Msfvenom C# shellcode
 
 <mark style="color:green;">**Powershell.exe :**</mark>
 
@@ -88,7 +88,7 @@ RegSvr32.exe has the following command-line options:
 
 **Launch Regsvr32 via Script Web Delivery of Metasploit**
 
-***
+
 
 This module quickly fires up a web server that serves a payload. The provided command which will allow for a payload to download and execute. It will do it either specified scripting language interpreter or “squiblydoo” via regsvr32.exe for bypassing application whitelisting. The main purpose of this module is to quickly establish a session on a target machine when the attacker has to manually type in the command: e.g. Command Injection.
 

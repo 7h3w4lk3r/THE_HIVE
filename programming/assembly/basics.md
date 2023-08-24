@@ -164,7 +164,7 @@ The flags register is not meaningful as a unit rather it is bit wise significant
 * **SF (bit 7) Sign flag** — Set equal to the most-significant bit of the result, which is the sign bit of a signed integer. (0 indicates a positive value and 1 indicates a negative value.)
 * **OF (bit 11) Overflow flag** — Set if the integer result is too large a positive number or too small a negative number (excluding the sign-bit) to fit in the destination operand; cleared otherwise. This flag indicates an overflow condition for signed-integer (two’s complement) arithmetic. Of these status flags, only the CF flag can be modified directly, using the STC, CLC, and CMC instructions. Also the bit instructions (BT, BTS, BTR, and BTC) copy a specified bit into the CF flag.
 
-***
+
 
 **(C) - The direction/control flag** (DF, located in bit 10 of the EFLAGS register) controls string instructions (MOVS, CMPS, SCAS, LODS, and STOS). Setting the DF flag causes the string instructions to auto-decrement (to process strings from high addresses to low addresses). Clearing the DF flag causes the string instructions to auto-increment (process strings from low addresses to high addresses).The STD and CLD instructions set and clear the DF flag, respectively. The functions of the system flags are as follows:
 
@@ -176,7 +176,7 @@ The flags register is not meaningful as a unit rather it is bit wise significant
 * **AC (bit 18) Alignment check (or access control) flag** — If the AM bit is set in the CR0 register, align- ment checking of user-mode data accesses is enabled if and only if this flag is 1. If the SMAP bit is set in the CR4 register, explicit supervisor-mode data accesses to user-mode pages are allowed if and only if this bit is 1.
 *   **VIF (bit 19) Virtual interrupt flag** — Virtual image of the IF flag. Used in conjunction with the VIP flag. (To use this flag and the VIP flag the virtual mode extensions are enabled by setting the VME flag in control register CR4.)
 
-    ***
+
 * **VIP (bit 20) Virtual interrupt pending flag** — Set to indicate that an interrupt is pending; clear when no interrupt is pending. (Software sets and clears this flag; the processor only reads it.) Used in conjunction with the VIF flag.
 * **ID (bit 21) Identification flag** — The ability of a program to set or clear this flag indicates support for the CPUID instruction.
 

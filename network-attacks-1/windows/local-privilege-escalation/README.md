@@ -56,4 +56,3 @@ the other reasonable way to stay under the radar in a real-world pentest is to u
 
 {% embed url="https://github.com/itm4n/PrivescCheck" %}
 
-***

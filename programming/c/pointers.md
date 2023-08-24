@@ -406,7 +406,7 @@ int main(void){
  }
 ```
 
-***
+
 
 ## Double pointers (pointer to a pointer)
 

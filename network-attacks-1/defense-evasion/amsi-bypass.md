@@ -2,14 +2,7 @@
 
 ## <mark style="color:red;">Tools</mark>
 
-| **Tool**                                                                                 | **Description** | **Language**   |
-| ---------------------------------------------------------------------------------------- | --------------- | -------------- |
-| [AmsiScanBufferBypass](https://github.com/rasta-mouse/AmsiScanBufferBypass)              | Memory Patching | PowerShell, C# |
-| [AmsiOpcodeBytes](https://gist.github.com/FatRodzianko/c8a76537b5a87b850c7d158728717998) | Memory Patching | PowerShell     |
-| [AMSI-Bypass](https://gist.github.com/am0nsec/986db36000d82b39c73218facc557628)          | Memory Patching | PowerShell     |
-| [AMSI-Bypass](https://gist.github.com/am0nsec/854a6662f9df165789c8ed2b556e9597)          | Memory Patching | C#             |
-| [NoAmci](https://github.com/med0x2e/NoAmci)                                              | Memory Patching | C#             |
-| [AmsiHook](https://github.com/tomcarver16/AmsiHook)                                      | Hooking         | C++            |
+<table data-header-hidden><thead><tr><th width="235.33333333333331"></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Tool</strong></td><td><strong>Description</strong></td><td><strong>Language</strong></td></tr><tr><td><a href="https://github.com/rasta-mouse/AmsiScanBufferBypass">AmsiScanBufferBypass</a></td><td>Memory Patching</td><td>PowerShell, C#</td></tr><tr><td><a href="https://gist.github.com/FatRodzianko/c8a76537b5a87b850c7d158728717998">AmsiOpcodeBytes</a></td><td>Memory Patching</td><td>PowerShell</td></tr><tr><td><a href="https://gist.github.com/am0nsec/986db36000d82b39c73218facc557628">AMSI-Bypass</a></td><td>Memory Patching</td><td>PowerShell</td></tr><tr><td><a href="https://gist.github.com/am0nsec/854a6662f9df165789c8ed2b556e9597">AMSI-Bypass</a></td><td>Memory Patching</td><td>C#</td></tr><tr><td><a href="https://github.com/med0x2e/NoAmci">NoAmci</a></td><td>Memory Patching</td><td>C#</td></tr><tr><td><a href="https://github.com/tomcarver16/AmsiHook">AmsiHook</a></td><td>Hooking</td><td>C++</td></tr></tbody></table>
 
 {% embed url="https://payatu.com/blog/arun.nair/amsi-bypass" %}
 

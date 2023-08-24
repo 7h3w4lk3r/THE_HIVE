@@ -101,4 +101,3 @@ StandIn.exe --gpo --filter Shards --setuserrights user002 --grant "SeDebugPrivil
 StandIn.exe --gpo --filter Shards --tasktype computer --taskname Liber --author "REDHOOK\Administrator" --command "C:\I\do\the\thing.exe" --args "with args"
 ```
 
-***

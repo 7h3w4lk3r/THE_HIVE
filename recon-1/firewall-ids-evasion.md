@@ -169,7 +169,7 @@ You can use fragmented packets with Nmap using the "-f" option, however, nowaday
 nmap -f 192.168.1.12
 ```
 
-***
+
 
 <mark style="color:green;">**custom offset size :**</mark> nmap `--mtu` command allows us to specify our own offset size. Remember that the offset size has to be a multiple of 16.
 
@@ -297,7 +297,7 @@ By default, NMAP executes time units in seconds. However, by applying a qualifie
 | **m**      | Minutes                           | 1 minutes          | 1m       |
 | **h**      | Hours                             | 1 hour             | 1h       |
 
-***
+
 
 For example, we can instruct NMAP to scan a target for a 1 minute before aborting using the **–host-timeout** option as shown below:
 
