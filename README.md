@@ -18,9 +18,9 @@
 
 ## <mark style="color:red;">**Contact**</mark>
 
-### _<mark style="color:orange;">**7h3w4lk3r**</mark>_  &#x20;
+### _<mark style="color:orange;">**7h3w4lk3r**</mark>_&#x20;
 
-* [Email](mailto:repentless1998@gmail.com)
+* <mark style="color:blue;">repentless1998@gmail.com</mark>
 * [Github](https://github.com/7h3w4lk3r)
 * [LinkedIn](https://www.linkedin.com/in/pouya-s-929ab5255)
 
