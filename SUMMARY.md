@@ -172,7 +172,7 @@
     * [RDP backdoors](network-attacks-1/windows/persistence/rdp-backdoors.md)
     * [COM Hijacking](network-attacks-1/windows/persistence/com-hijacking.md)
 * [🔴 Active Directory](network-attacks-1/active-directory-attacks/README.md)
-  * [⭕ Enumeration](network-attacks-1/active-directory-attacks/domain-enumeration.md)
+  * [⭕ Domain Enumeration](network-attacks-1/active-directory-attacks/domain-enumeration.md)
   * [⭕ Tools & Frameworks](network-attacks-1/active-directory-attacks/tools-and-frameworks/README.md)
     * [Evil-WinRM](network-attacks-1/active-directory-attacks/tools-and-frameworks/evil-winrm.md)
     * [CME cheat sheet](network-attacks-1/active-directory-attacks/tools-and-frameworks/crackmapexec.md)
