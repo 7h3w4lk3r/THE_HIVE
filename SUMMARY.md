@@ -34,7 +34,7 @@
 
 ## 🔷 Web Attacks
 
-* [🔴 Server Side](web-attacks/server-side/README.md)
+* [🔧 Server Side](web-attacks/server-side/README.md)
   * [⭕ Authentication Mechanisms](web-attacks/server-side/authentication-mechanisms.md)
   * [⭕ Access Control (Authorization)](web-attacks/access-control-authorization-vulnerabilities-and-privilege-escalation.md)
   * [⭕ Directory Traversal](web-attacks/directory-traversal.md)
@@ -45,7 +45,7 @@
   * [🔧 SQL Injection](web-attacks/server-side/sql-injection.md)
   * [⭕ Information Disclosure](web-attacks/server-side/information-disclosure.md)
   * [⭕ Business Logic](web-attacks/server-side/business-logic.md)
-* [🔴 Client Side](web-attacks/client-side/README.md)
+* [🔧 Client Side](web-attacks/client-side/README.md)
   * [⭕ Cross-site request forgery (CSRF)](web-attacks/client-side/cross-site-request-forgery-csrf.md)
   * [🔧 Cross-site scripting (XSS)](web-attacks/client-side/cross-site-scripting-xss.md)
 
@@ -119,7 +119,7 @@
 * [🔴 Sniffing](network-attacks/sniffing/README.md)
   * [⭕ Wireshark](network-attacks/sniffing/wireshark.md)
   * [⭕ tcpdump](network-attacks/sniffing/tcpdump.md)
-* [🔴 DoS / DDoS](network-attacks/dos-ddos.md)
+* [🔴 Denial of Service](network-attacks/dos-ddos.md)
 
 ## 🔷 Red Team <a href="#network-attacks" id="network-attacks"></a>
 
