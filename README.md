@@ -20,7 +20,7 @@
 
 ### _<mark style="color:orange;">**7h3w4lk3r**</mark>_  &#x20;
 
-* [**Email**](http://127.0.0.1:5000/u/uJHIhkkqXObiNOksnhb0mDrVjgm1)&#x20;
+* [Email](mailto:repentless1998@gmail.com)
 * [Github](https://github.com/7h3w4lk3r)
 * [LinkedIn](https://www.linkedin.com/in/pouya-s-929ab5255)
 
