@@ -307,7 +307,7 @@
     * [Crontab Reverse Shell](network-attacks-1/untitled/persistence/crontab-reverse-shell-not-opsec.md)
     * [SSH persistence password-less](network-attacks-1/untitled/persistence/ssh-persistence-passwordless.md)
   * [⭕ Covering Tracks](network-attacks-1/untitled/covering-tracks.md)
-* [🔴 C2 Frameworks](network-attacks-1/command-and-control/README.md)
+* [🔴 Command & Control (C2)](network-attacks-1/command-and-control/README.md)
   * [⭕ Cobalt Strike](network-attacks-1/command-and-control/cobalt-strike.md)
   * [⭕ Metasploit](network-attacks-1/command-and-control/metasploit.md)
   * [⭕ Empire & Starkiller](network-attacks-1/command-and-control/empire-and-starkiller.md)
