@@ -454,16 +454,16 @@
 
 ## 📙 Miscellaneous
 
-* [🔴 GNU Screen / tmux](miscellaneous/gnu-screen-tmux.md)
-* [🔴 SSH Tricks](miscellaneous/ssh-tricks.md)
-* [🔴 Cats](miscellaneous/cats/README.md)
-  * [netcat](miscellaneous/cats/netcat.md)
-  * [ncat](miscellaneous/cats/ncat.md)
-  * [pwncat](miscellaneous/cats/pwncat.md)
-  * [socat](miscellaneous/cats/socat.md)
-  * [🔧 powercat](miscellaneous/cats/powercat.md)
-* [🔴 Curl](miscellaneous/curl.md)
-* [🔴 Cross-compiling Binaries](miscellaneous/compiling-exploits.md)
+* [🔴 GNU Screen / tmux](misc/gnu-screen-tmux.md)
+* [🔴 SSH Tricks](misc/ssh-tricks.md)
+* [🔴 Cats](misc/cats/README.md)
+  * [netcat](misc/cats/netcat.md)
+  * [ncat](misc/cats/ncat.md)
+  * [pwncat](misc/cats/pwncat.md)
+  * [socat](misc/cats/socat.md)
+  * [🔧 powercat](misc/cats/powercat.md)
+* [🔴 Curl](misc/curl.md)
+* [🔴 Cross-compiling Binaries](misc/compiling-exploits.md)
 
 ## Group 1
 
