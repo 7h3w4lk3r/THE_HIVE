@@ -1,4 +1,4 @@
-# ⭕ Cross-site request forgery (CSRF)
+# 🟢 Cross-site request forgery (CSRF)
 
 Allows an attacker to induce users to perform actions that they do not intend to perform
 

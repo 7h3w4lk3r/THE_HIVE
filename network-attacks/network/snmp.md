@@ -2,7 +2,7 @@
 description: ( TCP 161 )
 ---
 
-# ⭕ SNMP
+# 🟡 SNMP
 
 ## :information\_source: <mark style="color:blue;">Introduction</mark>
 

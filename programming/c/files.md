@@ -4,7 +4,7 @@ description: >-
   individually corresponds to the file structure in the Unix environment.
 ---
 
-# ⭕ Files
+# 🔸 Files
 
 ## File Handling Functions in C
 

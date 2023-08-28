@@ -1,4 +1,4 @@
-# ⭕ iptables
+# 🔹 iptables
 
 {% hint style="danger" %}
 **Be careful with iptables rules, you might lock yourself out of remote machines.**

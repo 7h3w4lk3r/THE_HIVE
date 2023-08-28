@@ -2,7 +2,7 @@
 description: (TCP 3306, 33060, 33061)
 ---
 
-# ⭕ MySQL
+# 🟡 MySQL
 
 ## :information\_source: <mark style="color:blue;">Introduction</mark>
 

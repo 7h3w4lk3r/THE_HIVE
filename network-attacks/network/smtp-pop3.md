@@ -2,7 +2,7 @@
 description: (TCP 587, 25, 465)
 ---
 
-# ⭕ SMTP
+# 🟡 SMTP
 
 ## :information\_source: <mark style="color:blue;">Introduction</mark>
 
@@ -245,7 +245,7 @@ use auxiliary/scanner/smtp/smtp_relay
 
 ## <mark style="color:red;">Mail Spoofing</mark>
 
-#### <mark style="color:green;"></mark>[<mark style="color:green;">HackTricks</mark> ](https://book.hacktricks.xyz/pentesting/pentesting-smtp#mail-spoofing)<mark style="color:green;">has a good explanation for mail spoofing attacks.</mark>
+#### [<mark style="color:green;">HackTricks</mark> ](https://book.hacktricks.xyz/pentesting/pentesting-smtp#mail-spoofing)<mark style="color:green;">has a good explanation for mail spoofing attacks.</mark>
 
 ### <mark style="color:orange;">Check for Mail Spoofing Via SPF and DMARC Records</mark>
 

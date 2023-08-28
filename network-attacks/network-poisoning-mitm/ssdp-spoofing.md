@@ -1,4 +1,4 @@
-# ⭕ SSDP Spoofing
+# 🟡 SSDP Spoofing
 
 ## <mark style="color:red;">SSDP</mark>
 

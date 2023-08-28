@@ -1,4 +1,4 @@
-# ⭕ Protocol Concepts
+# 🟡 Protocol Concepts
 
 ## <mark style="color:red;">Standards</mark>
 

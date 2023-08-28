@@ -1,4 +1,4 @@
-# ⭕ WPAD Abuse
+# 🟡 WPAD Abuse
 
 ## <mark style="color:red;">WPAD</mark>
 

@@ -2,7 +2,7 @@
 description: ( TCP 22 )
 ---
 
-# ⭕ SSH
+# 🟡 SSH
 
 ## <mark style="color:red;">Enumeration</mark>
 

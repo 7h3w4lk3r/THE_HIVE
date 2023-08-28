@@ -2,7 +2,7 @@
 description: (TCP 143, 993)
 ---
 
-# ⭕ IMAP
+# 🟡 IMAP
 
 ## :information\_source: <mark style="color:blue;">Introduction</mark>
 

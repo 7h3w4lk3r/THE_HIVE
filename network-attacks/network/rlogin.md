@@ -1,4 +1,4 @@
-# ⭕ Rlogin
+# 🟡 Rlogin
 
 #### This service was mostly used in the old days for remote administration but now because of security issues this service has been replaced by the slogin and the ssh.
 

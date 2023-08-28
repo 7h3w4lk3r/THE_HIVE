@@ -1,4 +1,4 @@
-# ⭕ Hidden Hosts
+# ⏩ Hidden Hosts
 
 ## <mark style="color:red;">Finding Hidden Virtual Hosts/Subdomains</mark>
 

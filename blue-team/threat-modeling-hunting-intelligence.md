@@ -1,4 +1,4 @@
-# 🔴 Threat Modeling / Hunting / Intelligence
+# 🔵 Threat Modeling / Hunting / Intelligence
 
 ## <mark style="color:red;">Resources</mark>
 
@@ -262,7 +262,7 @@ This information may include:
 
 #### Types of threat intelligence:
 
-* <mark style="color:green;">**Strategic Threat Intelligence :**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> provides an overview of the organization’s threat landscape. It is less technical is mainly for executive-level security professionals to drive high-level organizational strategy based on the findings in the reports. Ideally, strategic threat intelligence provides insights like vulnerabilities and risks associated with the organization’s threat landscape with preventive actions, threat actors, their goals, and the severity of the potential attacks.
+* <mark style="color:green;">**Strategic Threat Intelligence :**</mark>  provides an overview of the organization’s threat landscape. It is less technical is mainly for executive-level security professionals to drive high-level organizational strategy based on the findings in the reports. Ideally, strategic threat intelligence provides insights like vulnerabilities and risks associated with the organization’s threat landscape with preventive actions, threat actors, their goals, and the severity of the potential attacks.
 * <mark style="color:green;">**Tactical Threat Intelligence :**</mark>  consists of more specific details on threat actors TTP and is mainly for the security team to understand the attack vectors. Intelligence gives them insights on how to build a defense strategy to mitigate those attacks. The report includes the vulnerabilities in the security systems that attackers could take advantage of and how to identify such attacks.
 * <mark style="color:green;">Operational Threat Intelligence :</mark>  focuses on knowledge about the attacks. It gives detailed insights on factors like nature, motive, timing, and how an attack is carried out. Ideally, the information is gathered from hacker chat rooms or their discussion online through infiltration, which makes it difficult to obtain.
 

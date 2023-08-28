@@ -1,4 +1,4 @@
-# 🔴 Security Architecture
+# 🔵 Security Architecture
 
 {% hint style="warning" %}
 #### Security architecture is a huge topic and can not be covered in any  single document. it requires familiarity with a broad range of network devices, security appliances and their limitations/capabilities to make the best choices.&#x20;
@@ -65,4 +65,4 @@
 
 1. <mark style="color:green;">**TOGAF:**</mark> The Open Group Architecture Framework, or TOGAF, helps determine what problems a business wants to solve with security architecture. It focuses on the preliminary phases of security architecture, an organization's scope and goal, setting out the problems a business intends to solve with this process. However, it does not give specific guidance on how to address security issues.
 2. <mark style="color:green;">**SABSA:**</mark> Sherwood Applied Business Security Architecture, or SABSA, is a quite policy driven framework that helps define key questions that must be answered by security architecture: who, what, when and why. Its aim is to ensure that security services are designed, delivered and supported as an integral part of the enterprise's IT management. However, while often described as a 'security architecture method', it does not go into specifics regarding technical implementation.
-3. <mark style="color:green;">**OSA:**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> Open Security Architecture, or OSA, is a framework related to functionality and technical security controls. It offers a comprehensive overview of key security issues, principles, components and concepts underlying architectural decisions that are involved when designing effective security architectures. That said, it can typically only be used once the security architecture is already designed.
+3. <mark style="color:green;">**OSA:**</mark> Open Security Architecture, or OSA, is a framework related to functionality and technical security controls. It offers a comprehensive overview of key security issues, principles, components and concepts underlying architectural decisions that are involved when designing effective security architectures. That said, it can typically only be used once the security architecture is already designed.

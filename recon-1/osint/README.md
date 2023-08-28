@@ -1,4 +1,4 @@
-# 🔴 Passive
+# \*⃣ Passive
 
 ![](../../.gitbook/assets/banner.png)
 

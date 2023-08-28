@@ -1,4 +1,4 @@
-# 🔴 DoS / DDoS
+# 🟨 Denial of Service
 
 ## <mark style="color:red;">Tools</mark>
 

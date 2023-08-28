@@ -1,4 +1,4 @@
-# ⭕ Server-Side Request Forgery (SSRF)
+# 🟢 Server-Side Request Forgery (SSRF)
 
 Induce the server-side application to make HTTP requests to an arbitrary domain of the attacker's choosing.
 

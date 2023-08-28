@@ -1,4 +1,4 @@
-# ⭕ Data Types
+# 🔸 Data Types
 
 ## Integer
 

@@ -1,4 +1,4 @@
-# ⭕ IPv6
+# 🟡 IPv6
 
 ## :information\_source: <mark style="color:blue;">Introduction</mark>
 
@@ -26,7 +26,7 @@ Broadcast addresses are no longer used in IPv6, replaced with multicast addresse
 
 #### <mark style="color:green;">Common IPv6 addresses include the following:</mark>
 
-<mark style="color:orange;">**FE80::/10**</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark> – Link local (analogous to IPv4 169.254.0.0/16 address space defined in RFC 5735 and RFC 3927)
+<mark style="color:orange;">**FE80::/10**</mark> – Link local (analogous to IPv4 169.254.0.0/16 address space defined in RFC 5735 and RFC 3927)
 
 <mark style="color:orange;">**FC00::/7**</mark> – Unique local address (analogous to IPv4 192.168.0.0/16, 10.0.0.0/8, and 172.16.0.0/12 address space defined in RFC 1918)
 
@@ -34,9 +34,9 @@ Broadcast addresses are no longer used in IPv6, replaced with multicast addresse
 
 <mark style="color:orange;">**FF02::1/64**</mark> – All nodes multicast address, replacing IPv4 broadcast address 255.255.255.255
 
-<mark style="color:orange;">**2000::/16**</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark> – Used for stateless autoconfiguration of IPv6 addresses using the EUI 64 expansion method, leveraging the client MAC address
+<mark style="color:orange;">**2000::/16**</mark> – Used for stateless autoconfiguration of IPv6 addresses using the EUI 64 expansion method, leveraging the client MAC address
 
-<mark style="color:orange;">**2001::/16**</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark> – Internet-wide global allocation of IPv6 address space to regional registries (analogous to the former IPv4 unique organizational address space allocations, such as 4.0.0.0/8, 64.24.0.0/16, and so on)
+<mark style="color:orange;">**2001::/16**</mark> – Internet-wide global allocation of IPv6 address space to regional registries (analogous to the former IPv4 unique organizational address space allocations, such as 4.0.0.0/8, 64.24.0.0/16, and so on)
 
 <mark style="color:orange;">**2001:db8::/32**</mark> – Used for documentation purposes
 

@@ -5,6 +5,5 @@ description: >-
   hardening your OS.
 ---
 
-# 🔴 Linux Hardening
+# 🔵 Linux Hardening
 
-<mark style="color:orange;"></mark>

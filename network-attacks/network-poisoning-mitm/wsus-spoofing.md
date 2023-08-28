@@ -1,4 +1,4 @@
-# ⭕ WSUS Spoofing
+# 🟡 WSUS Spoofing
 
 ## <mark style="color:red;">WSUS</mark>
 

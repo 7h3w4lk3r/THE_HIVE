@@ -1,4 +1,4 @@
-# ⭕ Encryption
+# 🔹 Encryption
 
 ## <mark style="color:red;">LUKS</mark>
 

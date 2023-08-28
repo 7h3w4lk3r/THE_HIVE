@@ -1,4 +1,4 @@
-# ⭕ Pointers
+# 🔸 Pointers
 
 ## Indirection
 

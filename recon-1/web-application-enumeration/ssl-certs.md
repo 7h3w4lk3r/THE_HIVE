@@ -1,4 +1,4 @@
-# ⭕ SSL Certs
+# ⏩ SSL Certs
 
 ## <mark style="color:red;">Test SSL certs</mark>
 

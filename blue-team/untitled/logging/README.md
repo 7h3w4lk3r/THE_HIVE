@@ -1,4 +1,4 @@
-# ⭕ Logging
+# 🔹 Logging
 
 ### <mark style="color:orange;">Centralized Logging</mark>
 

@@ -1,4 +1,4 @@
-# ⭕ Session Hijackings
+# 🟡 Session Hijackings
 
 {% embed url="https://www.hackingarticles.in/session-hijacking-using-ettercap-hamster-and-ferret-a-beginner-guide" %}
 

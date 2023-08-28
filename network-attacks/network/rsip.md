@@ -1,4 +1,4 @@
-# ⭕ RSIP
+# 🟡 RSIP
 
 ### <mark style="color:orange;">Forwarding admin’s mails</mark> <a href="#forwarding-admin-s-mails" id="forwarding-admin-s-mails"></a>
 

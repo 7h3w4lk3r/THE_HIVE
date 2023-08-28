@@ -1,4 +1,4 @@
-# ⭕ Integrity Check
+# 🔹 Integrity Check
 
 {% embed url="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/checking-integrity-with-aide_security-hardening" %}
 

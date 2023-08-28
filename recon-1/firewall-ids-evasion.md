@@ -1,4 +1,4 @@
-# 🔴 Firewall Evasion
+# \*⃣ Firewall Evasion
 
 ## :information\_source: <mark style="color:red;">Introduction</mark>
 

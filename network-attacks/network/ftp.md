@@ -2,7 +2,7 @@
 description: (TCP 21, 20)
 ---
 
-# ⭕ FTP
+# 🟡 FTP
 
 ## :information\_source: <mark style="color:blue;">Introduction</mark>
 

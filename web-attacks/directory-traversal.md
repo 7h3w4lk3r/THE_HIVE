@@ -1,4 +1,4 @@
-# ⭕ Directory Traversal
+# 🟢 Directory Traversal
 
 Directory traversal (or path traversal) is a web security vulnerability that allows an attacker to read arbitrary files on the server that is running an application. This might include application code and data, credentials for back-end systems, and sensitive operating system files
 

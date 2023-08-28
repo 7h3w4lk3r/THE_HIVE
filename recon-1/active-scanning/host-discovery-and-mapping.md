@@ -4,7 +4,7 @@ description: >-
   structure using the discovered hosts and/or network devices.
 ---
 
-# ⭕ Host Discovery / Network Mapping
+# ⏩ Host Discovery / Network Mapping
 
 {% embed url="https://iphelix.medium.com/nmap-scanning-tips-and-tricks-5b4a3d2151b3" %}
 
@@ -159,7 +159,7 @@ bettercap -X --proxy --proxy-https -T <target IP>
 
 discovers the route that packets take between two system in the network. it helps us to construct network architecture diagrams and it is included in most if not all OSs.
 
-<mark style="color:orange;"></mark>
+
 
 Windows:
 

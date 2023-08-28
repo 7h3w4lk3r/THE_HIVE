@@ -1,4 +1,4 @@
-# ⭕ Web Server Discovery
+# ⏩ Web Server Discovery
 
 ## <mark style="color:red;">Find Active Sites (Screenshots)</mark>
 

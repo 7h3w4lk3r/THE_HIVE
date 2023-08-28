@@ -1,4 +1,4 @@
-# ⭕ Network
+# 🔹 Network
 
 ## <mark style="color:red;">Disable Uncommon Protocols</mark>
 

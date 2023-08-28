@@ -1,4 +1,4 @@
-# ⭕ Functions
+# 🔸 Functions
 
 ### the overal form is like this:
 

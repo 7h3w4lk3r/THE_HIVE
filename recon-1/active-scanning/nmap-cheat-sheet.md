@@ -1,4 +1,4 @@
-# ⭕ nmap cheat sheet
+# ⏩ nmap cheat sheet
 
 ### <mark style="color:orange;">Full commands examples</mark> <a href="#full-commands-examples" id="full-commands-examples"></a>
 

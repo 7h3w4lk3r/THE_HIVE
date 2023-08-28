@@ -1,4 +1,4 @@
-# ⭕ Basics
+# 🟡 Basics
 
 Get Wireless interface status:
 

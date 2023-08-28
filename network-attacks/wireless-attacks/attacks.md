@@ -1,4 +1,4 @@
-# ⭕ Attacks
+# 🟡 Attacks
 
 {% embed url="https://book.hacktricks.xyz/generic-methodologies-and-resources/pentesting-wifi" %}
 

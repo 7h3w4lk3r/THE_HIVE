@@ -1,4 +1,4 @@
-# ⭕ masscan cheat sheet
+# ⏩ masscan cheat sheet
 
 ### <mark style="color:orange;">**Target speficication**</mark>
 

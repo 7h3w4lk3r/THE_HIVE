@@ -1,4 +1,4 @@
-# ⭕ Error Recovery
+# 🔸 Error Recovery
 
 ## setjmp / longjmp
 

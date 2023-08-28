@@ -1,4 +1,4 @@
-# ⭕ Directories & Subdomains
+# ⏩ Directories & Subdomains
 
 ## <mark style="color:red;">Directory and Subdomain Discovery</mark>
 

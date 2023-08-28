@@ -1,4 +1,4 @@
-# ⭕ Layered Security
+# 🔹 Layered Security
 
 ## <mark style="color:blue;">Layer 1</mark> &#x20;
 

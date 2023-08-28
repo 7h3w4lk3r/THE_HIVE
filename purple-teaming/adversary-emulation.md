@@ -1,4 +1,4 @@
-# 🔴 Adversary Emulation
+# 🟣 Adversary Emulation
 
 ## <mark style="color:red;">Cyber Kill Chain (Lockheed Martin)</mark>
 
@@ -44,8 +44,8 @@ MITRE ATT\&CK categorizes adversary behavior by TTPs (tactics, techniques and pr
 
 The 14 tactics can be summarized as follows:
 
-1. <mark style="color:green;">**Reconnaissance**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> - Collecting information from the target organization to prepare future adversarial activities.
-2. <mark style="color:green;">**Resource Development**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> - Acquiring infrastructure and resources to support adversarial activities against the target organization.
+1. <mark style="color:green;">**Reconnaissance**</mark> - Collecting information from the target organization to prepare future adversarial activities.
+2. <mark style="color:green;">**Resource Development**</mark> - Acquiring infrastructure and resources to support adversarial activities against the target organization.
 3. <mark style="color:green;">**Initial Access**</mark> - Gaining initial access to the target network.
 4. **Execution** - Techniques for running malicious code on the network, usually to explore or steal data.
 5. <mark style="color:green;">**Persistence**</mark> - Maintaining access to the target network over time by circumventing measures like credential changes or restarts that could interrupt access.
@@ -56,7 +56,7 @@ The 14 tactics can be summarized as follows:
 10. <mark style="color:green;">**Lateral Movement**</mark> - Accessing and controlling remote services on the target network.
 11. <mark style="color:green;">**Collection**</mark> - Aggregating data from a variety of sources on the target network.
 12. <mark style="color:green;">**Command and Control**</mark> - Techniques for communicating with systems under the adversary’s control within the target network.
-13. <mark style="color:green;">**Exfiltration**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> - Techniques for stealing data from the target network and transferring it to an external server controlled by the adversary.
+13. <mark style="color:green;">**Exfiltration**</mark> - Techniques for stealing data from the target network and transferring it to an external server controlled by the adversary.
 14. <mark style="color:green;">**Impact**</mark> - Techniques for destroying data or disrupting the availability of applications, services, or the target network itself.
 
 Knowing these tactics will help us in :&#x20;
