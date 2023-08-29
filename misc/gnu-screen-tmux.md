@@ -1,4 +1,4 @@
-# 🔴 GNU Screen / tmux
+# 🟤 GNU Screen / tmux
 
 ## <mark style="color:red;">Screen</mark>
 

@@ -1,4 +1,4 @@
-# 🔴 SSH Tricks
+# 🟤 SSH Tricks
 
 ## <mark style="color:red;">**Run Single Command**</mark>
 
