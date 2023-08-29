@@ -1,4 +1,4 @@
-# 🟡 VPNs
+# 🟨 VPNs
 
 ## <mark style="color:red;">Resources</mark>
 

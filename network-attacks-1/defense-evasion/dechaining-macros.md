@@ -106,7 +106,7 @@ Basically we can spoof the parent by passing an arbitrary parent process name yo
 
 Injecting our shellcode to a remote process can make our payload live in another process, although this is not a parent-child evasion technique, we can make our payload live in a remote process.
 
-#### see [injectors/runners](runners-injectors-loaders.md) section.
+#### see [injectors/runners](broken-reference) section.
 
 ## <mark style="color:red;">Template persistence</mark>
 

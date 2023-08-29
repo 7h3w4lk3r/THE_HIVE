@@ -1,4 +1,4 @@
-# \*⃣ Web Recon
+# 📡 Web Recon
 
 ## Manual Methods
 

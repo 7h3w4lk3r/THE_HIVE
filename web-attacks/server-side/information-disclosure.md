@@ -1,4 +1,4 @@
-# 🟢 Information Disclosure
+# 🟩 Information Disclosure
 
 When a website unintentionally reveals sensitive information
 

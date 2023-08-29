@@ -1,4 +1,4 @@
-# \*⃣ Active
+# 📡 Active
 
 #### Scanning or active enumeration is the phase where the attacker begins to “touch” the systems and possibly leaving some traces behind. however there is no way to do this without leaving any footprints behind.
 

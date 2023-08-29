@@ -1,4 +1,4 @@
-# 🟡 HTTPS Downgrade / HSTS Bypass
+# 🟨 HTTPS Downgrade / HSTS Bypass
 
 {% embed url="https://itigic.com/how-to-decrypt-https-traffic-with-bettercap-on-linux" %}
 

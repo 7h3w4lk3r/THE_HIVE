@@ -368,7 +368,6 @@
   * [🔧 Powershell Tricks](network-attacks-1/defense-evasion/powershell-tricks.md)
   * [⭕ Disabling Defenses](network-attacks-1/defense-evasion/disabling-defenses.md)
   * [⭕ UAC Bypass](network-attacks-1/defense-evasion/uac-bypass.md)
-  * [⭕ Runners / Injectors / Loaders](network-attacks-1/defense-evasion/runners-injectors-loaders.md)
   * [⭕ Process Migration](network-attacks-1/defense-evasion/process-migration.md)
   * [⭕ Dechaining Macros](network-attacks-1/defense-evasion/dechaining-macros.md)
   * [⭕ VBA Sandbox Evasion](network-attacks-1/defense-evasion/vba-sandbox-evasion.md)
@@ -377,9 +376,9 @@
   * [⭕ SRP & AppLocker Bypass](network-attacks-1/defense-evasion/srp-and-applocker-bypass.md)
   * [⭕ GPO Bypass](network-attacks-1/defense-evasion/gpo-bypass.md)
 
-## 💀 Malware Development
+## 🔧 Malware Development
 
-* [🔧 Static Evasion](malware-development/static-evasion.md)
+* [Evasion Concepts](malware-development/evasion-concepts.md)
 
 ## 📘 Blue Team
 

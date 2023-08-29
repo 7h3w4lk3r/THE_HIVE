@@ -1,4 +1,4 @@
-# 🟢 Authentication Mechanisms
+# 🟩 Authentication Mechanisms
 
 Authentication is the process of verifying the identity of a given user or client. In other words, it involves making sure that they really are who they claim to be
 

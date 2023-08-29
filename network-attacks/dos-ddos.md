@@ -1,4 +1,4 @@
-# 🟨 Denial of Service
+# 🟡 Denial of Service
 
 ## <mark style="color:red;">Tools</mark>
 

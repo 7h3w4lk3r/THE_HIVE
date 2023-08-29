@@ -1,4 +1,4 @@
-# 🟡 NTP
+# 🟨 NTP
 
 ## :information\_source: <mark style="color:blue;">Introduction</mark>
 

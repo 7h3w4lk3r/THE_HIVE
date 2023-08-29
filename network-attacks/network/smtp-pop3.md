@@ -2,7 +2,7 @@
 description: (TCP 587, 25, 465)
 ---
 
-# 🟡 SMTP
+# 🟨 SMTP
 
 ## :information\_source: <mark style="color:blue;">Introduction</mark>
 

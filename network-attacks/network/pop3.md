@@ -2,7 +2,7 @@
 description: (TCP 110, 995)
 ---
 
-# 🟡 POP3
+# 🟨 POP3
 
 ## :information\_source: <mark style="color:blue;">Introduction</mark>
 

@@ -2,7 +2,7 @@
 description: ( TCP 445,139 )
 ---
 
-# 🟡 SMB
+# 🟨 SMB
 
 ## :information\_source: <mark style="color:blue;">Introduction</mark>
 

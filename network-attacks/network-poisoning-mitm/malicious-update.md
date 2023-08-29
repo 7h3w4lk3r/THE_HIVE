@@ -1,4 +1,4 @@
-# 🟡 Malicious Update
+# 🟨 Malicious Update
 
 #### Presenting the victim with a malicious payload as a software update package.
 

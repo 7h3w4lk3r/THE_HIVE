@@ -2,7 +2,7 @@
 description: (TCP 1433-4, 135/UDP 143)(TCP 1433-4, 135/UDP 143)
 ---
 
-# 🟡 MSSQL
+# 🟨 MSSQL
 
 ## :information\_source: <mark style="color:blue;">Introduction</mark>
 
