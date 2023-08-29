@@ -34,7 +34,7 @@
 
 ## 📗 Web Attacks
 
-* [🔧 Server Side](web-attacks/server-side/README.md)
+* [🟩 Server Side](web-attacks/server-side/README.md)
   * [🟢 Authentication Mechanisms](web-attacks/server-side/authentication-mechanisms.md)
   * [🟢 Access Control (Authorization)](web-attacks/access-control-authorization-vulnerabilities-and-privilege-escalation.md)
   * [🟢 Directory Traversal](web-attacks/directory-traversal.md)
@@ -45,7 +45,7 @@
   * [🔧 SQL Injection](web-attacks/server-side/sql-injection.md)
   * [🟢 Information Disclosure](web-attacks/server-side/information-disclosure.md)
   * [🟢 Business Logic](web-attacks/server-side/business-logic.md)
-* [🔧 Client Side](web-attacks/client-side/README.md)
+* [🟩 Client Side](web-attacks/client-side/README.md)
   * [🟢 Cross-site request forgery (CSRF)](web-attacks/client-side/cross-site-request-forgery-csrf.md)
   * [🔧 Cross-site scripting (XSS)](web-attacks/client-side/cross-site-scripting-xss.md)
 
@@ -377,6 +377,10 @@
   * [⭕ SRP & AppLocker Bypass](network-attacks-1/defense-evasion/srp-and-applocker-bypass.md)
   * [⭕ GPO Bypass](network-attacks-1/defense-evasion/gpo-bypass.md)
 
+## 🔧 Malware Development
+
+* [Static Evasion](malware-development/static-evasion.md)
+
 ## 📘 Blue Team
 
 * [🔵 Threat Modeling / Hunting / Intelligence](blue-team/threat-modeling-hunting-intelligence.md)
@@ -464,7 +468,3 @@
   * [🔧 powercat](misc/cats/powercat.md)
 * [🔴 Curl](misc/curl.md)
 * [🔴 Cross-compiling Binaries](misc/compiling-exploits.md)
-
-## Group 1
-
-* [🔧 Malware Development](group-1/malware-development.md)

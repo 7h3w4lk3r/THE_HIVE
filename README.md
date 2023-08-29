@@ -1,4 +1,4 @@
-# 📕 Home
+# 🏠 Home
 
 ![From resident evil franchise created by Capcom](<.gitbook/assets/image (179).png>)
 
