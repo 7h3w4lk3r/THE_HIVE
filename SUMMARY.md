@@ -376,9 +376,9 @@
   * [⭕ SRP & AppLocker Bypass](network-attacks-1/defense-evasion/srp-and-applocker-bypass.md)
   * [⭕ GPO Bypass](network-attacks-1/defense-evasion/gpo-bypass.md)
 
-## 🔧 Malware Development
+## 💀 Malware Development
 
-* [🔧 Evasion Concepts Primer](malware-development/evasion-concepts-primer.md)
+* [☠ Evasion Concepts Primer](malware-development/evasion-concepts-primer.md)
 
 ## 📘 Blue Team
 
