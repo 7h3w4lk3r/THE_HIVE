@@ -4,7 +4,7 @@
 
 ## 🌐 RECON <a href="#recon-1" id="recon-1"></a>
 
-* [📡 Passive](recon-1/osint/README.md)
+* [📡 Passive (OSINT)](recon-1/osint/README.md)
   * [⏩ Metadata](recon-1/osint/metadata.md)
   * [⏩ Social Platforms](recon-1/osint/social-platforms/README.md)
     * [Email](recon-1/osint/social-platforms/email.md)

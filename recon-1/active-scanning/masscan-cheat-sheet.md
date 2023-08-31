@@ -1,6 +1,6 @@
 # ⏩ masscan cheat sheet
 
-### <mark style="color:orange;">**Target speficication**</mark>
+### <mark style="color:orange;">**Target specification**</mark>
 
 ```bash
 # Target specification
