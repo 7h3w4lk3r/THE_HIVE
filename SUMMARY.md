@@ -379,7 +379,7 @@
 ## 💀 Malware Development
 
 * [☠ Evasion Concepts Primer](malware-development/evasion-concepts-primer.md)
-* [🔧 Code Execution & Payload Placement](malware-development/code-execution-and-payload-placement.md)
+* [☠ Shellcode Placement](malware-development/shellcode-placement.md)
 
 ## 📘 Blue Team
 
