@@ -215,7 +215,7 @@
     * [Overpass the Hash / Pass the Key](network-attacks-1/active-directory-attacks/lateral-movement/overpass-the-hash-pass-the-key.md)
     * [Pass The Ticket](network-attacks-1/active-directory-attacks/lateral-movement/pass-the-ticket.md)
     * [Kerberosting / AS-REP Rosting](network-attacks-1/active-directory-attacks/lateral-movement/kerberosting.md)
-    * [Delegation & Resource-based Delegation](network-attacks-1/active-directory-attacks/lateral-movement/delegation.md)
+    * [Kerberos Delegation](network-attacks-1/active-directory-attacks/lateral-movement/delegation.md)
   * [⭕ Credential Dumping](network-attacks-1/active-directory-attacks/credential-dumping/README.md)
     * [CredSSP / TSPKG](network-attacks-1/active-directory-attacks/credential-dumping/credssp-tspkg.md)
     * [Wdigest Clear Text](network-attacks-1/active-directory-attacks/credential-dumping/wdigest-clear-text.md)
