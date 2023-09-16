@@ -14,7 +14,7 @@ tdbdump /var/lib/samba/private/secrets.tdb
 
 The output of which would be something similar to the following:
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In the output on the previous slide, we can see that the machine is a member of the foocorp.com domain, and can also see that one of the data fields contains encoded data that decodes to the NTLM hash of the computer account for this machine, which we’ll see in the next slides.
 

@@ -130,7 +130,7 @@ Depending on the frame type, this field can have to different meanings:
 
 The following table represents the different cases of these addresses, depending on the From/To DS bits:
 
-![](<../../.gitbook/assets/image (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (1) (1) (1) (1).png>)
 
 The first case in the table is IBSS mode. The FromDS and ToDS bits are not set as is the case when 2 STAs communicate with one another. The other 3 cases are in infrastructure mode:
 

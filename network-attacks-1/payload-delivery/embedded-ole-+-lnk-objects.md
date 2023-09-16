@@ -52,7 +52,7 @@ Final result:
 
 Victim executing the embedded document. Gets presented with a popup to confirm execution:
 
-![](<../../.gitbook/assets/image (2) (1).png>)
+![](<../../.gitbook/assets/image (2) (1) (1).png>)
 
 Once the victim confirms they want to open the file - the reverse shell comes back to the attacker:
 
