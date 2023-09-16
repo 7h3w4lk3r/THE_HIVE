@@ -380,6 +380,8 @@
 * [☠ Evasion Concepts Primer](malware-development/evasion-concepts-primer.md)
 * [☠ Shellcode Placement](malware-development/shellcode-placement.md)
 * [☠ Shellcode Encoding & Encryption](malware-development/shellcode-encoding-and-encryption.md)
+* [☠ Code Obfuscation](malware-development/code-obfuscation/README.md)
+  * [⚪ Function Call Obfuscation](malware-development/code-obfuscation/function-call-obfuscation.md)
 
 ## 📘 Blue Team
 
