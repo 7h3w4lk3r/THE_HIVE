@@ -71,7 +71,7 @@ If username and password form in page-1 and two-factor authentication form in pa
 
 ### <mark style="color:orange;">Password reset poisoning via middleware</mark>
 
-<mark style="color:purple;">**X-Forwarded-Host**</mark>: Host names and ports of reverse proxies(load balancer, CDNs) may differ from the origin server handling the request('Host' header), in that case the 'X-Forwarded-Host' request header is useful to determine which Host was originally used.
+<mark style="color:green;">**X-Forwarded-Host**</mark><mark style="color:green;">:</mark> Host names and ports of reverse proxies(load balancer, CDNs) may differ from the origin server handling the request('Host' header), in that case the 'X-Forwarded-Host' request header is useful to determine which Host was originally used.
 
 ### <mark style="color:orange;">Changing user passwords</mark>
 

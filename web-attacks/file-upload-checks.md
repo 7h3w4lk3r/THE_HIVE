@@ -2,12 +2,12 @@
 
 When a web server allows users to upload files to its filesystem without validating
 
-<mark style="color:purple;">**"Content-Type" header:**</mark>
+<mark style="color:green;">**"Content-Type" header:**</mark>
 
 * simple text like name, address: "application/x-www-form-url-encoded"
 * large amounts of binary data, like image or a PDF: "multipart/form-data"
 
-<mark style="color:purple;">**"Content-Disposition" header:**</mark>
+<mark style="color:green;">**"**</mark><mark style="color:green;">**Content-Disposition" header:**</mark>
 
 * If request message body is split into separate parts, each part contains a "Content-Disposition" header, which provides some basic information about the input field. and it has a "Content-Type" header which tells the server the MIME type of the data that was submitted using this input.
 

@@ -12,7 +12,7 @@ Directory traversal (or path traversal) is a web security vulnerability that all
 ../../../etc/passwd%00.png --> null byte bypass
 ```
 
-**URL Encoding**
+<mark style="color:green;">**URL Encoding**</mark>
 
 | char | encode          |
 | ---- | --------------- |

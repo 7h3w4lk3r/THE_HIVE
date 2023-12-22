@@ -8,7 +8,7 @@ XXE are a type of custom XML entity whose defined values are loaded from outside
 
 Allows an attacker to interfere with an application's processing of XML data.
 
-#### <mark style="color:red;">**Examples**</mark>
+#### <mark style="color:green;">**Examples**</mark>
 
 * Custom entities to be defined within the DTD\
   `<!DOCTYPE foo [ <!ENTITY`` `<mark style="color:orange;">`myentity`</mark>` ``"`<mark style="color:yellow;">`my entity value`</mark>`" > ]>`&#x20;

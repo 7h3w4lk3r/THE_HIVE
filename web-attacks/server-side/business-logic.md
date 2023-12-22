@@ -14,7 +14,7 @@ Change and test all parameters of HTTP requests
 2- What happens when you reach those limits?\
 3- Is any transformation or normalization being performed on your input?
 
-<mark style="color:yellow;">**Example**</mark>
+<mark style="color:green;">**Example**</mark>
 
 Consider a funds transfer between two bank accounts. This functionality will almost certainly check whether the sender has sufficient funds before completing the transfer:
 
@@ -40,7 +40,7 @@ sent -$1000 to the victim's account, this might result in them receiving $1000 f
 4-Try to change minimum price to cheap value (20 $)\
 5- Buy your expensive orde
 
-<mark style="color:yellow;">**Example**</mark>
+<mark style="color:green;">**Example**</mark>
 
 1- Attacker has a mail server. Its domain is: attacker.com\
 2- Target site, is a '/admin' path for users that has a foo.com email like: bar@foo.com\
