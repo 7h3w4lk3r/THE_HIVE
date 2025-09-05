@@ -13,13 +13,6 @@
 
 If you like this book and the contents, please consider motivating me by[ giving this project a](https://github.com/7h3w4lk3r/THE\_HIVE) :star: on GitHub.
 
-\
-also, If you would like to support this project you can do so by:\
-\
-**BTC :** `bc1q9mekumhp9srycnlf00srzkac7du9p79dlr9l52`
-
-**ETH :** `0xFb2c19325729cBB36C0845D0792Ed913141542Da`
-{% endhint %}
 
 
 
